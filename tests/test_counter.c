@@ -80,6 +80,14 @@ int main(void) {
     assert(!record_decode(partial, &seq, &turns));
     assert(record_decode(a, &seq, &turns) && seq == 42);
   }
+  char decimal[21];
+  counter_format_total(0, decimal);
+  assert(strcmp(decimal, "0") == 0);
+  counter_format_total(4294967296ULL, decimal);
+  assert(strcmp(decimal, "4294967296") == 0);
+  counter_format_total(UINT64_MAX, decimal);
+  assert(strcmp(decimal, "18446744073709551615") == 0);
   puts("counter tests: CW, CCW, wraps, reversals, slow motion, gates, "
-       "stale/invalid/jump samples, saturation, CRC and 32 torn writes passed");
+       "stale/invalid/jump samples, saturation, CRC, 32 torn writes and "
+       "64-bit decimal console formatting passed");
 }

@@ -14,6 +14,8 @@ void counter_init(Counter *c, uint64_t saved);
 bool counter_sample(Counter *c, uint16_t raw, bool magnet_ok, uint32_t ms,
                     bool scroll_enabled);
 int8_t counter_report(Counter *c);
+// Decimal representation without depending on libc's optional 64-bit printf.
+void counter_format_total(uint64_t turns, char out[21]);
 uint32_t record_crc(const uint8_t *data, unsigned len);
 void record_encode(uint8_t out[32], uint32_t sequence, uint64_t turns);
 bool record_decode(const uint8_t in[32], uint32_t *sequence, uint64_t *turns);

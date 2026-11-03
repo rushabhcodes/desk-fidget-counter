@@ -1,4 +1,4 @@
-# Firmware 1.0.0 / PCB Rev A
+# Firmware 1.0.1 / PCB Rev A
 
 Flash images: `build/desk-knob.bin` and `build/desk-knob.hex`; `build/desk-knob.elf` includes symbols. Target is **STM32F072CBT6**, 128 KiB Flash / 16 KiB RAM. Application starts at **0x08000000**. These images do not target RP2040, XIAO, or the earlier nRF52810 counter.
 

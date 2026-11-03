@@ -1,2 +1,1 @@
-$ bash scripts/test-firmware.sh
-counter tests: CW, CCW, wraps, reversals, slow motion, gates, stale/invalid/jump samples, saturation, CRC and 32 torn writes passed
+counter tests: CW, CCW, wraps, reversals, slow motion, gates, stale/invalid/jump samples, saturation, CRC, 32 torn writes and 64-bit decimal console formatting passed

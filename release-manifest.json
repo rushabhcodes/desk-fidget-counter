@@ -1,9 +1,9 @@
 {
-  "release": "v1.0.0",
+  "release": "v1.0.1",
   "hardware": "Rev A / A1",
   "repository": "https://github.com/rushabhcodes/desk-fidget-counter",
   "tscircuit": "https://tscircuit.com/rushabhcodes/desk-fidget-counter",
-  "source_revision": "Git tag v1.0.0; resolve tag to its commit; source file hashes below",
+  "source_revision": "Git tag v1.0.1; resolve tag to its commit; source file hashes below",
   "toolchain": {
     "Bun": "1.3.3",
     "tscircuit": "0.0.3064",
@@ -33,7 +33,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "e69b11d8a1cfc5c36acdc924e21bd9efb29558ba592eea29f9ec60f631400abe"
+      "sha256": "37ffca51f344a76bff07f494ad68608e7a0c3ae1db956e3005bbf5cbdf315cc3"
     },
     {
       "path": "bun.lock",
@@ -45,7 +45,7 @@
     },
     {
       "path": "firmware/README.md",
-      "sha256": "971dfebd0c61f456567040bc18b5d7b4cdab49f36be6d6160a02a35712cb893c"
+      "sha256": "558ffe89975c249a96d50de0c57811ef7635dbd7f9194da48ece289ea5945f5d"
     },
     {
       "path": "firmware/bootstrap.sh",
@@ -53,15 +53,15 @@
     },
     {
       "path": "firmware/counter.c",
-      "sha256": "2bc7152246019c1d85289e106d7199b583579ffe7344f9d7842a382eb0d850b6"
+      "sha256": "2f22090ed8ad916c4ab989b870ea00d711074c57cd56da135dcd9d1702faf43e"
     },
     {
       "path": "firmware/counter.h",
-      "sha256": "b90c3045c4e20b05bb45447d3c9264d34a6023a6fe7d5d559a83f037437523be"
+      "sha256": "d554e3829769a90ac523e9d3973dc095bbca79455bc4b830f30f06e24c0c948c"
     },
     {
       "path": "firmware/main.c",
-      "sha256": "85f81934c4f2f6e78a7025fa8830b791e12800e618f1319e510e75f2cf3c7950"
+      "sha256": "a4449aa889f1c972b7917cb76311a967a067f5e5009d7e8eff36156720bf8b14"
     },
     {
       "path": "firmware/startup.c",
@@ -137,7 +137,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "5f17b7b9f88b09d44e55639297fae745fb1012d71bbb8bf2b5faab8a71a813e3"
+      "sha256": "878ea15bae09f97b56cb5088917e030400c1323b1b4d3cc5344723904bae7869"
     },
     {
       "path": "parts.tsx",
@@ -201,7 +201,7 @@
     },
     {
       "path": "scripts/package-release.py",
-      "sha256": "6462c083e6c9f5b15460e71dd2b9cd7ad99906b0cd4d84a37fd3828f59da9846"
+      "sha256": "38e93a4b93f0a55c992af81f8d57b4f50b1ddc074318dfef4aa56a997fdcfd26"
     },
     {
       "path": "scripts/previews.mjs",
@@ -213,11 +213,11 @@
     },
     {
       "path": "tests/test_counter.c",
-      "sha256": "79aff40ad4f41db6bcd19f2c49c1bc151efae6a6788341f51c6d42885082e4b4"
+      "sha256": "3307ae02d51753558e346bc28d98d597856425eb0f8ea418caad9dda664741dc"
     },
     {
       "path": "tscircuit.config.json",
-      "sha256": "0097a6a3659f33e4fc31c77954bacfcac9db5ac473289f5f5b4ba638cd44a551"
+      "sha256": "55e18cb2ea91e62bbc0a3522f4b52af72504725994af506f13a940a92dcd2fe6"
     },
     {
       "path": "tsconfig.json",
@@ -229,7 +229,7 @@
     },
     {
       "path": "validation/REPORT.md",
-      "sha256": "aef5592f1cb1ac348985f41fb8c01761a20623b282d0d80085840b31112619ff"
+      "sha256": "6bf7460b067ad1db2f30c9a28ac4f2948de0d0a9bde427d1edbe40f75d32950f"
     },
     {
       "path": "validation/check-design.mjs",
@@ -263,15 +263,15 @@
     },
     {
       "path": "firmware/build/desk-knob.bin",
-      "sha256": "c8438f15fcf9894ac89cfbc6209d83f9d694a625a945aac8dff7cd8028f934d1"
+      "sha256": "a47a4056dc4fbbe1cfc17dcc06b2f4821c4ac569b810905c912754f287a8eee0"
     },
     {
       "path": "firmware/build/desk-knob.elf",
-      "sha256": "0858c622755e1cee9ac2298473ba7ef0c59e0c8e53f035cc282a873ffb11e3f4"
+      "sha256": "eaf89116d4ec2ee3d0435e07791c2fd532f61d2468fb97ccbc577f775a1a9b29"
     },
     {
       "path": "firmware/build/desk-knob.hex",
-      "sha256": "9d65235e96d9fb22e3e6e4bfafebd79c59d7a98fa74e6edae4aa6541b3ee6ed0"
+      "sha256": "0addaba7d197cd0e015411af7784253cc288181f79b3f92a211217dded1bd6c2"
     },
     {
       "path": "manufacturing/BOM.csv",
@@ -719,7 +719,7 @@
     },
     {
       "path": "validation/firmware-image-check.json",
-      "sha256": "9ee0ee0c290a1e20f2f7b1244468e52c862642c49bb6530cbf189ace45d2194a"
+      "sha256": "8e9440c1f54a9ba817d89260958d8830558ed8203640b0a6078e4764a62712e3"
     },
     {
       "path": "validation/kicad-drc.json",
@@ -731,7 +731,7 @@
     },
     {
       "path": "validation/logs/counter-tests.txt",
-      "sha256": "10dc58b6b0ea21fe50a0c33c9e8b8dfadc1c18e309ac26a6ed853b7bc62beb48"
+      "sha256": "79fd13a0f9a7d86926a3447ad22b59ae4b21f83c74a643c05076b64506950c7b"
     },
     {
       "path": "validation/logs/design-contract.txt",
@@ -739,7 +739,7 @@
     },
     {
       "path": "validation/logs/firmware-build.txt",
-      "sha256": "8a42fbf6bdcc64d8cc3d7d43a5e25ebbdec1109a5bceb8033fa9a311d4eba23c"
+      "sha256": "62695a5fb89579f6659c70ae6aa5c2899326a755ed8b0a54ac068760d874f578"
     },
     {
       "path": "validation/logs/gerber-inspection.txt",

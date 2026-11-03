@@ -2,7 +2,7 @@
 
 A rechargeable, continuously rotating desk knob with USB-C HID scrolling and a retained full-turn counter. The STM32F072 runs independently from a computer. A physical slide switch gates scrolling; counting continues in either position.
 
-Release **v1.0.0 / PCB Rev A**: [GitHub release and downloads](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v1.0.0), [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [validation results](validation/REPORT.md), [fabrication ZIP](manufacturing/desk-knob-reva-gerbers.zip), [complete project ZIP](release/desk-knob-v1.0.0.zip).
+Release **v1.0.1 / PCB Rev A**: [GitHub release and downloads](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v1.0.1), [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [validation results](validation/REPORT.md), [fabrication ZIP](manufacturing/desk-knob-reva-gerbers.zip), [complete project ZIP](release/desk-knob-v1.0.1.zip).
 
 A complete clockwise or counterclockwise revolution adds one count. Backtracking subtracts unfinished progress: +180°, −180° adds zero; +180°, −540° adds one. Completed turns remain saved; unfinished progress restarts at power-up. Sensor faults or stale samples discard uncertain partial progress instead of inventing turns.
 

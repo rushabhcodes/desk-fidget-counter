@@ -5,6 +5,7 @@
     "dist/autorouter-debug/**",
     "**/*.kicad_prl",
     "firmware/build/*.map",
-    "**/__pycache__/**"
+    "**/__pycache__/**",
+    "release/*.zip"
   ]
 }

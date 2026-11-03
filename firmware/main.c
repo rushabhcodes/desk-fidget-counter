@@ -2,7 +2,6 @@
 #include "counter.h"
 #include "stm32f0xx.h"
 #include "tusb.h"
-#include <inttypes.h>
 #include <stdio.h>
 #include <string.h>
 uint32_t SystemCoreClock = 48000000;
@@ -250,12 +249,14 @@ static void reply(const char *s) {
 }
 static void status(void) {
   char b[320];
+  char turns[21];
+  counter_format_total(counter.turns, turns);
   snprintf(b, sizeof(b),
-           "{\"turns\":%" PRIu64
+           "{\"turns\":%s"
            ",\"progress\":%ld,\"storage_ok\":%s,\"magnet_ok\":%s,\"scroll_on\":"
            "%s,\"battery_mv\":%u,\"low_battery\":%s,\"rejected\":%lu,\"charger_"
            "mode\":%u}\r\n",
-           counter.turns, (long)counter.progress, stored ? "true" : "false",
+           turns, (long)counter.progress, stored ? "true" : "false",
            magnet_ok ? "true" : "false", counter.scrolling ? "true" : "false",
            battery_mv, low_battery ? "true" : "false",
            (unsigned long)counter.rejected, charger_mode);
@@ -289,7 +290,7 @@ static void console(void) {
       else if (!strcmp(line, "HELP"))
         reply("COUNT | STATUS | RESET CONFIRM | VERSION\r\n");
       else if (!strcmp(line, "VERSION"))
-        reply("Desk Knob Rev A / firmware 1.0.0 / TinyUSB 0.21.0\r\n");
+        reply("Desk Knob Rev A / firmware 1.0.1 / TinyUSB 0.21.0\r\n");
       else
         reply("ERROR COMMAND\r\n");
       n = 0;

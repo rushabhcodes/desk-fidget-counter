@@ -105,4 +105,16 @@ bool record_decode(const uint8_t p[32], uint32_t *s, uint64_t *t) {
   return true;
 }
 
+void counter_format_total(uint64_t turns, char out[21]) {
+  char reverse[20];
+  unsigned count = 0;
+  do {
+    reverse[count++] = (char)('0' + turns % 10);
+    turns /= 10;
+  } while (turns);
+  for (unsigned i = 0; i < count; ++i)
+    out[i] = reverse[count - i - 1];
+  out[count] = '\0';
+}
+
 bool charger_temperature_ok(uint16_t mv) { return mv >= 450 && mv <= 1300; }
