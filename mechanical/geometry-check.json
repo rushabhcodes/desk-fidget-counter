@@ -1,0 +1,128 @@
+{
+  "base": {
+    "watertight": true,
+    "volume_mm3": 14730.53,
+    "bounds_mm": [
+      [
+        -36.0,
+        -36.0,
+        0.0
+      ],
+      [
+        36.0,
+        36.0,
+        15.4
+      ]
+    ]
+  },
+  "lid": {
+    "watertight": true,
+    "volume_mm3": 7959.02,
+    "bounds_mm": [
+      [
+        -36.0,
+        -36.0,
+        0.0
+      ],
+      [
+        36.0,
+        35.399,
+        9.8
+      ]
+    ]
+  },
+  "knob": {
+    "watertight": true,
+    "volume_mm3": 14428.91,
+    "bounds_mm": [
+      [
+        -24.5,
+        -24.5,
+        0.0
+      ],
+      [
+        24.5,
+        24.5,
+        16.0
+      ]
+    ]
+  },
+  "outer-retainer": {
+    "watertight": true,
+    "volume_mm3": 1023.17,
+    "bounds_mm": [
+      [
+        -24.2,
+        -24.2,
+        0.0
+      ],
+      [
+        24.2,
+        24.2,
+        1.2
+      ]
+    ]
+  },
+  "inner-retainer": {
+    "watertight": true,
+    "volume_mm3": 704.34,
+    "bounds_mm": [
+      [
+        -13.5,
+        -13.5,
+        0.0
+      ],
+      [
+        13.5,
+        13.5,
+        1.6
+      ]
+    ]
+  },
+  "fit-coupon": {
+    "watertight": true,
+    "volume_mm3": 2327.72,
+    "bounds_mm": [
+      [
+        -21.8,
+        -21.8,
+        0.0
+      ],
+      [
+        55.425,
+        21.8,
+        3.0
+      ]
+    ]
+  },
+  "button-plunger": {
+    "watertight": true,
+    "volume_mm3": 33.24,
+    "bounds_mm": [
+      [
+        -2.9,
+        -29.9,
+        0.0
+      ],
+      [
+        2.9,
+        -24.1,
+        2.4
+      ]
+    ]
+  },
+  "access_checks": {
+    "usb_body_to_lid": "clear",
+    "slide_switch_to_lid": "clear",
+    "reset_plunger_to_lid": "clear",
+    "battery_connector_to_base_and_pouch": "clear",
+    "retainer_countersink_edge_wall_mm": 1.6
+  },
+  "clearances": {
+    "sensor_to_magnet_mm": 1.65,
+    "rotor_to_lid_mm": 0.4,
+    "battery_to_pcb_mm": 2.0,
+    "stem_diametral_clearance_mm": 0.15,
+    "bearing_outer_diametral_clearance_mm": 0.1
+  }
+}

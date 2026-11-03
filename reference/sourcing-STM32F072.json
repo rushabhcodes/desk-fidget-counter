@@ -1,0 +1,98 @@
+{
+  "query": "STM32F072CBT6",
+  "results": [
+    {
+      "source": "datasheets",
+      "datasheet_id": "debe7571-ad5d-46da-af50-f69373557f52",
+      "chip_name": "STM32F072CBT6"
+    },
+    {
+      "digikey_product_number": "497-14645-ND",
+      "supplier_part_number": "497-14645-ND",
+      "mfr": "STM32F072CBT6",
+      "manufacturer": "STMicroelectronics",
+      "package": "48-LQFP",
+      "description": "IC MCU 32BIT 128KB FLASH 48LQFP",
+      "detailed_description": "ARM® Cortex®-M0 STM32F0 Microcontroller IC 32-Bit 48MHz 128KB (128K x 8) FLASH 48-LQFP (7x7)",
+      "stock": 15887,
+      "price": 6.76,
+      "category": "Integrated Circuits (ICs)",
+      "subcategory": "Integrated Circuits (ICs)",
+      "product_url": "https://www.digikey.com/en/products/detail/stmicroelectronics/STM32F072CBT6/4815292",
+      "datasheet_url": "https://www.st.com/content/ccc/resource/technical/document/datasheet/cd/46/43/83/22/d3/40/c8/DM00090510.pdf/files/DM00090510.pdf/jcr:content/translations/en.DM00090510.pdf",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/422/497%7E5B_ME_V2%7ET%7E48.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "DigiKey Programmable": "Not Verified",
+        "Core Processor": "ARM® Cortex®-M0",
+        "Core Size": "32-Bit",
+        "Speed": "48MHz",
+        "Connectivity": "CANbus, HDMI-CEC, I2C, IrDA, LINbus, SPI, UART/USART, USB",
+        "Peripherals": "DMA, I2S, POR, PWM, WDT",
+        "Number of I/O": "37",
+        "Program Memory Size": "128KB (128K x 8)",
+        "Program Memory Type": "FLASH",
+        "EEPROM Size": "-",
+        "RAM Size": "16K x 8",
+        "Voltage - Supply (Vcc/Vdd)": "1.65V ~ 3.6V",
+        "Data Converters": "A/D 10x12b; D/A 2x12b",
+        "Oscillator Type": "Internal",
+        "Operating Temperature": "-40°C ~ 85°C (TA)",
+        "Mounting Type": "Surface Mount",
+        "Supplier Device Package": "48-LQFP (7x7)",
+        "Package / Case": "48-LQFP"
+      },
+      "source": "digikey"
+    },
+    {
+      "mouser_product_number": "511-STM32F072CBT6",
+      "supplier_part_number": "511-STM32F072CBT6",
+      "mfr": "STM32F072CBT6",
+      "manufacturer": "STMicroelectronics",
+      "package": "",
+      "description": "ARM Microcontrollers - MCU Mainstream Arm Cortex-M0 USB line MCU 128 Kbytes of Flash 48 MHz CPU, USB, CAN &",
+      "detailed_description": "ARM Microcontrollers - MCU Mainstream Arm Cortex-M0 USB line MCU 128 Kbytes of Flash 48 MHz CPU, USB, CAN &",
+      "stock": 5537,
+      "price": 6.18,
+      "category": "ARM Microcontrollers - MCU",
+      "subcategory": "ARM Microcontrollers - MCU",
+      "product_url": "https://www.mouser.com/en/ProductDetail/STMicroelectronics/STM32F072CBT6?qs=xf9JV0PLFEfBqXx8wKtR8A%3D%3D",
+      "datasheet_url": "",
+      "photo_url": "https://www.mouser.com/images/mouserelectronics/images/LQFP_48_t.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Packaging": "Tray",
+        "Standard Pack Qty": "1500"
+      },
+      "source": "mouser"
+    },
+    {
+      "mouser_product_number": "511-STM32F072CBT6TR",
+      "supplier_part_number": "511-STM32F072CBT6TR",
+      "mfr": "STM32F072CBT6TR",
+      "manufacturer": "STMicroelectronics",
+      "package": "",
+      "description": "ARM Microcontrollers - MCU Mainstream Arm Cortex-M0 USB line MCU 128 Kbytes of Flash 48 MHz CPU, USB, CAN &",
+      "detailed_description": "ARM Microcontrollers - MCU Mainstream Arm Cortex-M0 USB line MCU 128 Kbytes of Flash 48 MHz CPU, USB, CAN &",
+      "stock": 48,
+      "price": 6.26,
+      "category": "ARM Microcontrollers - MCU",
+      "subcategory": "ARM Microcontrollers - MCU",
+      "product_url": "https://www.mouser.com/en/ProductDetail/STMicroelectronics/STM32F072CBT6TR?qs=9MuLHSklicoxNoYz%252Bxsbaw%3D%3D",
+      "datasheet_url": "",
+      "photo_url": "https://www.mouser.com/images/stmicroelectronics/images/LQFP_64_t.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Packaging": "MouseReel",
+        "Standard Pack Qty": "2400"
+      },
+      "source": "mouser"
+    }
+  ]
+}

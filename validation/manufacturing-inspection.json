@@ -1,0 +1,32 @@
+{
+  "parser": "gerbonara 1.5.0",
+  "graphical_layers": [
+    "bottom copper",
+    "bottom mask",
+    "bottom paste",
+    "bottom silk",
+    "mechanical outline",
+    "top copper",
+    "top mask",
+    "top paste",
+    "top silk"
+  ],
+  "outline_centerline_mm": [
+    64,
+    64
+  ],
+  "outline_segments": 128,
+  "plated_round_drills": 133,
+  "plated_slots": 4,
+  "npth_diameters_and_counts": {
+    "0.6": 2,
+    "1.5": 2,
+    "2.7": 4
+  },
+  "JST_0.75mm_drills": 2,
+  "source_vias": 119,
+  "source_plated_holes": 18,
+  "BOM_rows": 57,
+  "populated_placements": 54,
+  "parser_note": "KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped."
+}

@@ -1,0 +1,43 @@
+{
+  "query": "TLV75533PDBVR",
+  "results": [
+    {
+      "digikey_product_number": "296-50411-1-ND",
+      "supplier_part_number": "296-50411-1-ND",
+      "mfr": "TLV75533PDBVR",
+      "manufacturer": "Texas Instruments",
+      "package": "SC-74A, SOT-753",
+      "description": "IC REG LINEAR 3.3V 500MA SOT23-5",
+      "detailed_description": "Linear Voltage Regulator IC Positive Fixed 1 Output 500mA SOT-23-5",
+      "stock": 68165,
+      "price": 0.42,
+      "category": "Integrated Circuits (ICs)",
+      "subcategory": "Integrated Circuits (ICs)",
+      "product_url": "https://www.digikey.com/en/products/detail/texas-instruments/TLV75533PDBVR/9356541",
+      "datasheet_url": "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlv755p",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/8897/MFG_296%7E4214839%7EDBV%7E5.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Output Configuration": "Positive",
+        "Output Type": "Fixed",
+        "Number of Regulators": "1",
+        "Voltage - Input (Max)": "5.5V",
+        "Voltage - Output (Min/Fixed)": "3.3V",
+        "Voltage - Output (Max)": "-",
+        "Voltage Dropout (Max)": "0.238V @ 500mA",
+        "Current - Output": "500mA",
+        "Current - Quiescent (Iq)": "31 µA",
+        "PSRR": "52dB (1kHz ~ 1MHz)",
+        "Control Features": "Enable",
+        "Protection Features": "Over Current, Over Temperature",
+        "Operating Temperature": "-40°C ~ 125°C (TJ)",
+        "Mounting Type": "Surface Mount",
+        "Package / Case": "SC-74A, SOT-753",
+        "Supplier Device Package": "SOT-23-5"
+      },
+      "source": "digikey"
+    }
+  ]
+}

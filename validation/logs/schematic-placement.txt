@@ -1,0 +1,6 @@
+$ tsci check schematic-placement
+Using entrypoint from tscircuit config: 'index.circuit.tsx'
+Each child in a list should have a unique "key" prop.
+
+Check the render method of `schematicsheet`. It was passed a child from default. See https://react.dev/link/warning-keys for more information.
+

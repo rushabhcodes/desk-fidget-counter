@@ -1,0 +1,134 @@
+(footprint "GRM21BR61A475KA73L__C6"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "C6"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "cf6de7c8-be52-4d3c-97fe-7f2ae00c7952")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "4.7uF"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f294a444-63f6-4181-8351-c5c243d66d6f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fc7e0eae-7cba-4efc-95fa-ba45354eaf0e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2bfd5378-b489-4fa6-b917-d0e7e30cb64a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0d015d34-5566-a4ec-4831-58f41a36a92c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "GRM21BR61A475KA73L"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2792fc60-08ef-e2a1-3972-c1a269f5a0a3")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.625 -1.1)
+		(end -1.625 1.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "400b8ca5-2a10-4459-989a-261527ed3871")
+	)
+	(fp_line
+		(start -1.625 1.1)
+		(end 0.9125 1.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "8dacce11-c4bf-494f-958f-18ca2ca20ced")
+	)
+	(fp_line
+		(start 0.9125 -1.1)
+		(end -1.625 -1.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e2a357ed-9b6d-4155-ae61-d248d6891641")
+	)
+	(fp_rect
+		(start -1.68 -0.95)
+		(end 1.68 0.95)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "baf1f7a7-2cd0-4187-bc7a-8c29a128bbe9")
+	)
+	(pad "1" smd rect
+		(at -0.9125 0)
+		(size 1.025 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "11287e4e-0242-7472-15ad-6732291859f2")
+	)
+	(pad "2" smd rect
+		(at 0.9125 0)
+		(size 1.025 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "736cf520-2178-aa61-307b-a05e7d9014e3")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,78 @@
+$ tsci check placement
+Using entrypoint from tscircuit config: 'index.circuit.tsx'
+Each child in a list should have a unique "key" prop.
+
+Check the render method of `schematicsheet`. It was passed a child from default. See https://react.dev/link/warning-keys for more information.
+placement summary: no placement issues
+
+board top-layer utilization:
+- occupied: 15.957% (653.615mm^2 of 4096mm^2)
+- empty spaces over 5% of board area:
+  - 11.123% (455.58mm^2); bounds=(minX=9.48mm, maxX=32mm, minY=-32mm, maxY=-11.77mm)
+  - 10.538% (431.648mm^2); bounds=(minX=9.6mm, maxX=32mm, minY=12.73mm, maxY=32mm)
+  - 8.843% (362.204mm^2); bounds=(minX=-32mm, maxX=-8.28mm, minY=16.73mm, maxY=32mm)
+  - 8.566% (350.86mm^2); bounds=(minX=-32mm, maxX=-5.48mm, minY=-32mm, maxY=-18.77mm)
+  - 6.184% (253.3mm^2); bounds=(minX=-32mm, maxX=-2.2mm, minY=-15.23mm, maxY=-6.73mm)
+
+board-edge status:
+- U1: 15.1mm inside left edge
+- J1: 2.626mm inside top edge
+- R1: 8.525mm inside top edge
+- R2: 8.525mm inside top edge
+- U6: 12.75mm inside top edge
+- C1: 13.525mm inside top edge
+- D1: 12.775mm inside top edge
+- U4: 15.25mm inside right edge
+- R3: 18.775mm inside right edge
+- R4: 11.775mm inside right edge
+- R5: 15.775mm inside right edge
+- R6: 15.775mm inside right edge
+- R7: 19.775mm inside right edge
+- R8: 11.775mm inside right edge
+- R9: 7.775mm inside right edge
+- R21: 19.775mm inside right edge
+- R22: 7.775mm inside right edge
+- R23: 7.775mm inside right edge
+- C19: 4.775mm inside right edge
+- C2: 12.775mm inside right edge
+- C3: 11.075mm inside right edge
+- C4: 20.575mm inside right edge
+- J2: 14.4mm inside right edge
+- J3: 6.98mm inside right edge
+- U5: 17.2mm inside right edge
+- C5: 21.775mm inside right edge
+- C6: 13.575mm inside right edge
+- C7: 15.275mm inside left edge
+- C8: 19.775mm inside left edge
+- C9: 23.275mm inside top edge
+- C10: 16.275mm inside left edge
+- C11: 13.025mm inside left edge
+- C12: 17.575mm inside left edge
+- C13: 9.775mm inside left edge
+- R10: 11.775mm inside left edge
+- R11: 8.775mm inside left edge
+- J4: 12.17mm inside left edge
+- J5: 8.98mm inside left edge
+- U2: 29.795mm inside bottom edge
+- C14: 26.275mm inside left edge
+- C15: 26.275mm inside left edge
+- R12: 25.525mm inside top edge
+- R13: 25.525mm inside top edge
+- U3: 19.795mm inside bottom edge
+- C16: 23.525mm inside bottom edge
+- SW1: 3.25mm inside left edge
+- R14: 9.775mm inside left edge
+- SW2: 4.07mm inside bottom edge
+- R15: 8.525mm inside bottom edge
+- LED1: 5.525mm inside bottom edge
+- R16: 8.525mm inside bottom edge
+- R17: 19.525mm inside bottom edge
+- R18: 16.525mm inside bottom edge
+- C17: 13.525mm inside bottom edge
+- R19: 15.525mm inside top edge
+- R20: 15.525mm inside top edge
+- C18: 15.525mm inside top edge
+
+placement drc:
+Errors: 0
+Warnings: 0

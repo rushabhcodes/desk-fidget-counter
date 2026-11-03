@@ -1,0 +1,14 @@
+base Error.NoError True True 14730.533339734093
+lid Error.NoError True True 7959.018754733751
+knob Error.NoError True True 14428.907029247452
+outer-retainer Error.NoError True True 1023.1698357468684
+inner-retainer Error.NoError True True 704.3386133756366
+fit-coupon Error.NoError True True 2327.7213086181578
+button-plunger Error.NoError True True 33.23726271720934
+{
+  "sensor_to_magnet_mm": 1.65,
+  "rotor_to_lid_mm": 0.4,
+  "battery_to_pcb_mm": 2.0,
+  "stem_diametral_clearance_mm": 0.15,
+  "bearing_outer_diametral_clearance_mm": 0.1
+}

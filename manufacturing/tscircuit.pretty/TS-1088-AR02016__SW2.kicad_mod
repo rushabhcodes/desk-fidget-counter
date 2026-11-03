@@ -1,0 +1,187 @@
+(footprint "TS-1088-AR02016__SW2"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "SW2"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e88df4a8-2b1b-4a07-a5d5-5bd991dda7ac")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SW2"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "10ede546-c6d1-4ced-af2a-bcd990c505ac")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8f4d48d4-2d21-4588-beef-d2c113c7dcdb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d6a381fe-3ad4-471b-bc97-1555312149ba")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" "C720477"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "75dcc420-74bb-7ddf-5f53-bfde49ec01dd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "TS-1088-AR02016"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5d526b9c-3d2b-6c9c-1d04-6d9c03229164")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.026209 -1.541196)
+		(end -2.026209 -1.110132)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "c09227b9-71f9-445a-93ca-190761d00c53")
+	)
+	(fp_line
+		(start -2.026209 1.541196)
+		(end -2.026209 1.110132)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "5e54bdce-c1d9-4c43-88fc-30d78f7dd8be")
+	)
+	(fp_line
+		(start 2.026209 -1.541196)
+		(end -2.026209 -1.541196)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "c0393245-6c12-4771-9d01-6c613ad00aa7")
+	)
+	(fp_line
+		(start 2.026209 -1.541196)
+		(end 2.026209 -1.110132)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "ebad9543-67a1-445f-8929-8412d6b38067")
+	)
+	(fp_line
+		(start 2.026209 1.110132)
+		(end 2.026209 1.541196)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "6b54f2e2-848f-4b21-a7d3-2d0b4f8a9aab")
+	)
+	(fp_line
+		(start 2.026209 1.541196)
+		(end -2.026209 1.541196)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "6e438264-e705-473a-823b-0c631208b92d")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0.899922 0)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "cea2a836-0b18-46dd-ba29-0d9b0bc689cf")
+	)
+	(fp_poly
+		(pts
+			(xy -3.049905 -1.70001) (xy 3.049905 -1.70001) (xy 3.049905 1.699984) (xy -3.049905 1.699984) (xy -3.049905 -1.70001)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "32036f20-5aa5-9f61-18b1-521e73f7bc63")
+	)
+	(pad "1" smd rect
+		(at -2.184908 0)
+		(size 1.229995 1.859991)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3c277e34-4890-0014-54f8-81f4616103d4")
+	)
+	(pad "2" smd rect
+		(at 2.184908 0)
+		(size 1.229995 1.859991)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "5314f0c0-527a-d15f-07f5-6c826265aa63")
+	)
+	(embedded_fonts no)
+	(model "https://modelcdn.tscircuit.com/easyeda_models/assets/C720477.step?uuid=2e35dca8e7854ed683469f8d54d1ef17&cachebust_origin="
+		(offset
+			(xyz 0 0.0000127000000703 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

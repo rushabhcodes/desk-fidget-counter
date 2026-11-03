@@ -1,0 +1,194 @@
+(footprint "LTST-C190KGKT__LED1"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "LED1"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "23f64bb3-e0f0-440e-8829-5c159b5c09eb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LTST-C190KGKT"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9f7c847b-d781-43e2-a127-718723847377")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9bc70d66-4ea3-4acc-9590-b2360c52f81e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "13f60deb-f26e-4a87-b6ad-cced2cc182d3")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1263eef2-7ad3-ecf2-1cbc-150e4bb3e8f2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "LTST-C190KGKT"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "78d4d0c0-6be4-105f-509c-f17e3555d29d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.425 -0.875)
+		(end -1.425 0.875)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "a497ff9c-e0b8-40aa-a505-ee90ccc3742c")
+	)
+	(fp_line
+		(start -1.425 0.875)
+		(end 0.825 0.875)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b7c414ab-f42d-48c8-8101-5c9f8d43717c")
+	)
+	(fp_line
+		(start 0.825 -0.875)
+		(end -1.425 -0.875)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b522f0c1-0d20-4569-8d02-5cd577c16220")
+	)
+	(fp_rect
+		(start -1.48 -0.73)
+		(end 1.48 0.73)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "f5120cde-383e-419a-8d2f-af911ed8787a")
+	)
+	(fp_line
+		(start -0.245 0)
+		(end -0.1568 0)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "ea043638-fe5b-4cec-b7a0-e6c74646fd2a")
+	)
+	(fp_line
+		(start -0.1568 -0.266)
+		(end 0.1568 0)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "579f5e29-f4f7-4e2f-a31c-ac29f18fca5c")
+	)
+	(fp_line
+		(start -0.1568 0.266)
+		(end -0.1568 -0.266)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "d9e3f871-3915-41e5-9e05-48e3c8670692")
+	)
+	(fp_line
+		(start 0.1568 -0.266)
+		(end 0.1568 0.266)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "6c9d8270-91e6-40d5-ae66-5b3e34b1deb5")
+	)
+	(fp_line
+		(start 0.1568 0)
+		(end -0.1568 0.266)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "94cb8aa7-ae07-44e1-b90e-f1a221a5d7ea")
+	)
+	(fp_line
+		(start 0.1568 0)
+		(end 0.245 0)
+		(stroke
+			(width 0.03325)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "8c77b71d-42d1-499c-9664-1a51cc2ec084")
+	)
+	(pad "1" smd rect
+		(at -0.825 0)
+		(size 0.8 0.95)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "169c2682-0331-33c2-1039-befe23a4b1be")
+	)
+	(pad "2" smd rect
+		(at 0.825 0)
+		(size 0.8 0.95)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "05e23ea0-57d6-895f-5635-2be20440e123")
+	)
+	(embedded_fonts no)
+)

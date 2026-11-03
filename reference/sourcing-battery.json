@@ -1,0 +1,58 @@
+{
+  "query": "Adafruit 2750",
+  "results": [
+    {
+      "digikey_product_number": "1528-1858-ND",
+      "supplier_part_number": "1528-1858-ND",
+      "mfr": "2750",
+      "manufacturer": "Adafruit Industries LLC",
+      "package": "",
+      "description": "BATTERY LITH-ION 3.7V 350MAH",
+      "detailed_description": "3.7 V Lithium-Ion Battery Rechargeable (Secondary) 350mAh",
+      "stock": 535,
+      "price": 0,
+      "category": "Battery Products",
+      "subcategory": "Battery Products",
+      "product_url": "https://www.digikey.com/en/products/detail/adafruit-industries-llc/2750/6612470",
+      "datasheet_url": "https://cdn-shop.adafruit.com/product-files/2750/LP552035_350MAH_3.7V_20150906.pdf",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/2267/MFG_2750.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Battery Chemistry": "Lithium-Ion",
+        "Battery Cell Size": "-",
+        "Voltage - Rated": "3.7 V",
+        "Capacity": "350mAh",
+        "Size / Dimension": "1.42\" L x 0.79\" W x 0.22\" H (36.0mm x 20.0mm x 5.6mm)",
+        "Termination Style": "JST PH Connector"
+      },
+      "source": "digikey"
+    },
+    {
+      "mouser_product_number": "485-2750",
+      "supplier_part_number": "485-2750",
+      "mfr": "2750",
+      "manufacturer": "Adafruit",
+      "package": "",
+      "description": "Adafruit Accessories Lithium Ion Polymer Battery - 3.7V 350mAh",
+      "detailed_description": "Adafruit Accessories Lithium Ion Polymer Battery - 3.7V 350mAh",
+      "stock": 101,
+      "price": 6.95,
+      "category": "Adafruit Accessories",
+      "subcategory": "Adafruit Accessories",
+      "product_url": "https://www.mouser.com/en/ProductDetail/Adafruit/2750?qs=ivJcBTDythUxswisF2vc8Q%3D%3D",
+      "datasheet_url": "",
+      "photo_url": "https://www.mouser.com/images/adafruit/images/2750_SPL.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Packaging": "Bulk",
+        "Standard Pack Qty": "1"
+      },
+      "source": "mouser"
+    }
+  ],
+  "reviewed": "2026-11-04"
+}

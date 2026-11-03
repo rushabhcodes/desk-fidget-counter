@@ -1,0 +1,11 @@
+node_modules/
+checks/
+__pycache__/
+*.pyc
+.DS_Store
+dist/autorouter-debug/
+.tscircuit/
+firmware/downloads/
+firmware/.deps/
+firmware/build/*.map
+*.kicad_prl

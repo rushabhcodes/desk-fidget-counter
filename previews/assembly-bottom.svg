@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1760" viewBox="0 0 1700 1760">
+<rect width="1700" height="1760" fill="#f8fafb"/>
+<circle cx="850" cy="850" r="768" fill="#e4eee7" stroke="#243f32" stroke-width="3"/>
+<text x="850" y="40" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev A — bottom assembly</text>
+<circle cx="1354" cy="346" r="32.4" fill="white" stroke="#566"/>
+<circle cx="346" cy="346" r="32.4" fill="white" stroke="#566"/>
+<circle cx="1354" cy="1354" r="32.4" fill="white" stroke="#566"/>
+<circle cx="346" cy="1354" r="32.4" fill="white" stroke="#566"/>
+<rect x="427.59999999999997" y="1189.0" width="76.80000000000003" height="42.0" fill="#fff" stroke="#334d43" stroke-width="1.5"/>
+<circle cx="442" cy="1210" r="5" fill="#be3333"/>
+<text x="466" y="1215" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="16">J2</text>
+<text x="850" y="1660" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots mark physical pin 1. J3/J4/J5 remain unpopulated.</text>
+<text x="850" y="1695" text-anchor="middle" font-family="sans-serif" font-size="21">Read with BOM.csv and verified package pinouts; USB connector is at +Y.</text></svg>

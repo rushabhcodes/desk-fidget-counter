@@ -1,0 +1,10 @@
+{
+  "mainEntrypoint": "index.circuit.tsx",
+  "ignoredFiles": [
+    "node_modules/**",
+    "dist/autorouter-debug/**",
+    "**/*.kicad_prl",
+    "firmware/build/*.map",
+    "**/__pycache__/**"
+  ]
+}
