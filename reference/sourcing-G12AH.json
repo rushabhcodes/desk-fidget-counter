@@ -1,0 +1,82 @@
+{
+  "query": "G12AH",
+  "results": [
+    {
+      "source": "kicad",
+      "path": "Display.pretty/AG12864E.kicad_mod"
+    },
+    {
+      "digikey_product_number": "360-1757-ND",
+      "supplier_part_number": "360-1757-ND",
+      "mfr": "G12AH",
+      "manufacturer": "NKK Switches",
+      "package": "",
+      "description": "SWITCH TOGGLE SPDT 0.4VA 28V",
+      "detailed_description": "Toggle Switch SPDT Through Hole, Right Angle",
+      "stock": 7868,
+      "price": 8.51,
+      "category": "Switches",
+      "subcategory": "Switches",
+      "product_url": "https://www.digikey.com/en/products/detail/nkk-switches/G12AH/1006838",
+      "datasheet_url": "https://www.nkkswitches.com/pdf/Gtoggles.pdf",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/382/MFG_G12AH-RO.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Mounting Type": "Through Hole, Right Angle",
+        "Circuit": "SPDT",
+        "Switch Function": "On-On",
+        "Current Rating (Amps)": "0.4VA (AC/DC)",
+        "Voltage Rating - AC": "28 V",
+        "Voltage Rating - DC": "28 V",
+        "Actuator Type": "Standard Round",
+        "Actuator Length": "3.80mm",
+        "Illumination": "Non-Illuminated",
+        "Illumination Type, Color": "-",
+        "Illumination Voltage (Nominal)": "-",
+        "Termination Style": "PC Pin",
+        "Panel Cutout Dimensions": "-",
+        "Bushing Thread": "Unthreaded",
+        "Ingress Protection": "-",
+        "Features": "Process Sealed",
+        "Operating Temperature": "-25°C ~ 85°C"
+      },
+      "source": "digikey"
+    },
+    {
+      "mouser_product_number": "633-G12AH",
+      "supplier_part_number": "633-G12AH",
+      "mfr": "G12AH",
+      "manufacturer": "NKK Switches",
+      "package": "",
+      "description": "Toggle Switches ON-NONE-ON SPDT",
+      "detailed_description": "Toggle Switches ON-NONE-ON SPDT",
+      "stock": 215,
+      "price": 8.01,
+      "category": "Toggle Switches",
+      "subcategory": "Toggle Switches",
+      "product_url": "https://www.mouser.com/en/ProductDetail/NKK-Switches/G12AH?qs=tJRqkAIQG4xnK%252BXVV7YdEw%3D%3D",
+      "datasheet_url": "",
+      "photo_url": "https://www.mouser.com/images/nkkswitches/images/g12ah_DFI_SPL.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Standard Pack Qty": "1"
+      },
+      "source": "mouser"
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 2962389,
+      "mfr": "USB-U264-BWS",
+      "package": "弯插",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-20℃~+70℃ 1.5A 15.99mm 2 30V 4Px2 Female Right Angle Type-A USB 2.0 弯插 USB Connectors ROHS",
+      "stock": 74,
+      "price": 0.1447
+    }
+  ]
+}

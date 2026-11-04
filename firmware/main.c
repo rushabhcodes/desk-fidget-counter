@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 #include "counter.h"
+#include "lcd.h"
 #include "stm32f0xx.h"
 #include "tusb.h"
 #include <stdio.h>
@@ -7,7 +8,7 @@
 uint32_t SystemCoreClock = 48000000;
 static volatile uint32_t ticks;
 static Counter counter;
-static bool stored = false, magnet_ok = false, low_battery = false,
+static bool stored = false, encoder_ok = true, low_battery = false,
             usb_present = false;
 static unsigned active_slot = 0;
 static uint32_t sequence = 0;
@@ -58,7 +59,8 @@ static void init(void) {
   RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOBEN;
   GPIOB->MODER =
       0xffffffffu; // Unused GPIOs analog, configured pins overridden below.
-  RCC->APB1ENR |= RCC_APB1ENR_I2C1EN | RCC_APB1ENR_USBEN | RCC_APB1ENR_CRSEN;
+  RCC->APB1ENR |= RCC_APB1ENR_I2C1EN | RCC_APB1ENR_USBEN | RCC_APB1ENR_CRSEN |
+                  RCC_APB1ENR_TIM3EN | RCC_APB1ENR_SPI2EN;
   RCC->APB2ENR |= RCC_APB2ENR_ADCEN;
   RCC->CFGR3 &= ~RCC_CFGR3_USBSW; // HSI48 is the USB clock.
   CRS->CFGR =
@@ -88,6 +90,19 @@ static void init(void) {
   // synchronizer/filter/rise time.
   I2C1->TIMINGR = 0x30b00f13; // PRESC3=83.3ns, SCLDEL11, SDADEL0, H15, L19.
   I2C1->CR1 = I2C_CR1_PE;
+  // Dual Schmitt outputs -> PB4/PB5 AF1 TIM3_CH1/CH2. Hardware keeps
+  // counting edges while a display row or FRAM transfer is in progress.
+  pinmode(GPIOB, 4, 2);
+  pinmode(GPIOB, 5, 2);
+  GPIOB->AFR[0] = (GPIOB->AFR[0] & ~(0xffu << 16)) | (0x11u << 16);
+  TIM3->ARR = 65535;
+  TIM3->CCMR1 = 1u | (13u << 4) | (1u << 8) | (13u << 12); // ~3.3us filters
+  TIM3->CCER = TIM_CCER_CC1E | TIM_CCER_CC2E;
+  TIM3->SMCR = 3; // encoder mode 3, count both edges of both channels
+  TIM3->EGR = TIM_EGR_UG;
+  TIM3->CNT = 0;
+  TIM3->CR1 = TIM_CR1_CEN;
+  lcd_init();
   ADC1->CR |= ADC_CR_ADCAL;
   while (ADC1->CR & ADC_CR_ADCAL) {
   }
@@ -251,15 +266,18 @@ static void status(void) {
   char b[320];
   char turns[21];
   counter_format_total(counter.turns, turns);
-  snprintf(b, sizeof(b),
-           "{\"turns\":%s"
-           ",\"progress\":%ld,\"storage_ok\":%s,\"magnet_ok\":%s,\"scroll_on\":"
-           "%s,\"battery_mv\":%u,\"low_battery\":%s,\"rejected\":%lu,\"charger_"
-           "mode\":%u}\r\n",
-           turns, (long)counter.progress, stored ? "true" : "false",
-           magnet_ok ? "true" : "false", counter.scrolling ? "true" : "false",
-           battery_mv, low_battery ? "true" : "false",
-           (unsigned long)counter.rejected, charger_mode);
+  snprintf(
+      b, sizeof(b),
+      "{\"turns\":%s"
+      ",\"progress\":%ld,\"storage_ok\":%s,\"encoder_timer_running\":%s,\"scroll_on\":"
+      "%s,\"battery_mv\":%u,\"low_battery\":%s,\"rejected\":%lu,\"lcd_transport_ok\":%s,"
+      "\"charger_"
+      "mode\":%u}\r\n",
+      turns, (long)counter.progress, stored ? "true" : "false",
+      encoder_ok ? "true" : "false", counter.scrolling ? "true" : "false",
+      battery_mv, low_battery ? "true" : "false",
+      (unsigned long)counter.rejected, lcd_ok() ? "true" : "false",
+      charger_mode);
   reply(b);
 }
 static void reset_count(void) {
@@ -290,7 +308,7 @@ static void console(void) {
       else if (!strcmp(line, "HELP"))
         reply("COUNT | STATUS | RESET CONFIRM | VERSION\r\n");
       else if (!strcmp(line, "VERSION"))
-        reply("Desk Knob Rev A / firmware 1.0.1 / TinyUSB 0.21.0\r\n");
+        reply("Desk Knob Rev B / firmware 2.0.0 / TinyUSB 0.21.0\r\n");
       else
         reply("ERROR COMMAND\r\n");
       n = 0;
@@ -305,9 +323,6 @@ int main(void) {
   init();
   delay_ms(50);
   restore();
-  // SF=2x, hysteresis off, normal power. No nonvolatile AS5600 programming.
-  uint8_t conf[] = {0x07, 0x03, 0x00};
-  (void)transfer(0x36, conf, sizeof(conf), NULL, 0);
   tusb_rhport_init_t cfg = {.role = TUSB_ROLE_DEVICE, .speed = TUSB_SPEED_FULL};
   tusb_init(0, &cfg);
   tud_disconnect();
@@ -354,12 +369,10 @@ int main(void) {
     }
     if ((uint32_t)(now - sample_at) >= 2) {
       sample_at = now;
-      uint8_t reg = 0x0b, b[3];
-      bool ok = transfer(0x36, &reg, 1, b, 3);
-      magnet_ok = ok && (b[0] & 0x38) == 0x20;
-      uint16_t raw = ok ? ((b[1] & 15u) << 8) | b[2] : 0;
+      encoder_ok = (TIM3->CR1 & TIM_CR1_CEN) != 0;
+      uint16_t raw = (uint16_t)TIM3->CNT;
       bool changed = counter_sample(
-          &counter, raw, magnet_ok && stored && !low_battery, now,
+          &counter, raw, encoder_ok && stored && !low_battery, now,
           sw && usb_present && tud_mounted() && !tud_suspended());
       if (changed && !save(counter.turns)) {
         stored = false;
@@ -371,9 +384,18 @@ int main(void) {
       tud_hid_mouse_report(0, 0, 0, 0, wheel, 0);
     }
     console();
+    LcdView view = {.turns = counter.turns,
+                    .battery_mv = battery_mv,
+                    .storage_ok = stored,
+                    .low_battery = low_battery,
+                    .scroll_on = sw,
+                    .usb_ready =
+                        usb_present && tud_mounted() && !tud_suspended(),
+                    .charging = usb_present && !(GPIOA->IDR & (1u << 5))};
+    lcd_task(now, &view);
     // 4Hz fault; slow battery heartbeat; steady scroll-mode indicator on USB.
-    out(6, (!stored || !magnet_ok || low_battery) ? ((now / 125) & 1u)
-           : usb_present                          ? (sw || now % 2000 < 30)
-                                                  : now % 2000 < 15);
+    out(6, (!stored || !encoder_ok || low_battery) ? ((now / 125) & 1u)
+           : usb_present                           ? (sw || now % 2000 < 30)
+                                                   : now % 2000 < 15);
   }
 }

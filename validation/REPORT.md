@@ -1,33 +1,40 @@
-# Rev A / v1.0.2 validation record
+# Rev B / v2.0.0 validation record
 
-Reviewed 2026-11-04. This is a fabrication package validated in software. No physical prototype has been manufactured or measured by this project.
+Reviewed 2026-11-04. This release implements the fixed 1.28-inch screen, optical rotating ring, left toggle and populated JST programming connector. It is a **software-checked prototype design**; no physical board has been assembled or measured.
 
-| Check | Actual result |
+| Check | Result |
 |---|---|
-| Strict TypeScript | Passed |
-| tscircuit netlist and schematic placement | Passed; no placement recommendations |
-| tscircuit PCB placement | 0 errors, 0 warnings |
-| Full source build | 1 circuit passed; no circuit error records |
-| Copper shorts | None detected |
-| Connectivity contract | 57 components; physical pin mapping, distinct rails, every connected pin has copper; two actual JST through-holes |
-| KiCad 10.0.7 DRC after normal zone refill | **0 violations, 0 unconnected items**, no item exclusions |
-| Actual Gerber/Excellon parsing | 9 graphical layers; Ø64 mm outline; 133 plated round drills, 4 plated slots, 8 NPTH; source drill counts match |
-| BOM / placement | 57 source components, 54 populated placements; J3/J4/J5 DNP |
-| Counter C tests | CW/CCW, wraps, backtracking, slow motion, mode gates, stale/invalid/jump rejection, saturation, CRC corruption, 32 interrupted prefixes and temperature-window boundaries passed |
-| ARM firmware | Linked for STM32F072CB; 57,216-byte binary; 128 KiB flash / 16 KiB RAM target |
-| Linked-image inspection | Correct stack/reset/USB interrupt vectors; CDC control/data + HID interfaces; four distinct endpoints; wheel relative-input descriptor |
-| Mechanical geometry | Seven positive-volume watertight STL meshes; moving part, cell, connector and control clearances checked |
+| TypeScript | Passed with the pinned dependency lockfile |
+| Netlist / schematic placement / PCB placement | Passed; no actionable placement errors or warnings |
+| Bare-board and native assembly builds | Passed; zero circuit error/warning records |
+| Physical pin/net contract | 63 components; MCU, optical common collector, Schmitt outputs, PA8 screen CS, USB/power and JST pin maps checked |
+| Gerber-derived copper shorts | No shorts detected on either layer |
+| Independent KiCad 10 DRC | **0 violations, 0 unconnected items**, no exclusions |
+| Gerber/Excellon parser | 9 graphical layers; Ø64 mm / 128 segments; 193 round plated drills, 4 plated slots, 6 NPTH; source drill counts agree |
+| JST drills | 16 finished Ø0.75 mm holes across PH2 / PH6 / PH8 |
+| BOM / placements | 63 source components, 62 populated; J3 is direct NTC wiring, no header |
+| Native firmware tests | Full turns both directions, 16-bit wrap, partial reversal, slow edges, scroll gating, stale/invalid/jump samples, saturation, CRC/torn writes and 64-bit formatting passed |
+| LCD renderer tests | All 240 scanlines, 20-digit count/fault states and buffer guards passed; example UI rendered and visually inspected |
+| ARM image | 59,832 bytes flash; 4,776 bytes data+BSS in 16 KB RAM; valid stack/reset/USB IRQ vectors |
+| Linked USB descriptors | CDC + relative HID wheel; 3 interfaces / 4 endpoints; 500 mA configuration |
+| Printable solids | Seven product pieces plus fit coupon watertight and connected as intended; moving/fixed and swept-skirt checks passed |
+| Native 3D assembly | 20 named models, seven exact print meshes; OBJ axes/scale/bounds, GLB hashes and every PCB record checked against the bare board |
+| Complete product GLBs | Self-contained assembled/exploded models, metres/+Y-up; Ø80×47 mm assembled envelope |
 
-`logs/` records the commands' actual outputs. `kicad-drc.json`, `manufacturing-inspection.json`, `firmware-image-check.json` and `mechanical/geometry-check.json` provide machine-readable evidence. Top/bottom native PCB previews, source schematic sheets, assembly drawings and **plotted Gerber copper** views are in `previews/` and were visually inspected.
+Logs are in [logs](logs). Detailed physical tests remain in [BRINGUP.md](BRINGUP.md).
 
-The source build emits two non-failing tool notices: a React list-key warning in schematic rendering and an optional saved-escape-path cache warning for the GND net. The circuit still builds with no circuit errors; the published prescribed routing, connectivity test, short check and independent DRC validate the actual copper. No routing or electrical checks were suppressed. KiCad's default ignored check categories (missing courtyard, track centering on vias, tuning profiles, symbol footprint filters and footprint pad-type classification) remain listed in its JSON report; they were not changed to clear an electrical failure. Gerbonara accepts KiCad's redundant post-header G90 with a syntax warning and parses all drill geometry.
+## Source-to-fabrication handling
 
-Manufacturing finalization is explicit: source-derived pads/nets/routes are preserved, floating ground islands removed by refill, the QFN paste aperture reduced, and MCU corner silk shortened to clear solder-mask openings. The Gerber bundle is plotted from that final checked board. `release-manifest.json` binds the inputs and generated artifacts with SHA-256; the `v1.0.2` Git tag identifies the exact published source commit.
+The final board is exported from tscircuit with its source pads, nets and prescribed copper. The KiCad finalizer applies the declared 0.10 mm minimum track / 0.15 mm copper clearance rules, normal ground refill/island removal, a 64% QFN exposed-pad paste aperture and shorter QFP corner silkscreen marks. Any entire isolated ground fragment is removed only when KiCad identifies it as isolated, with an audit in [pour-cleanup.json](pour-cleanup.json). Final DRC is strict; no check or reported violation is excluded. The Gerber bundle is plotted from that final board and parsed independently.
 
-The 350 mAh protected cell was selected to clear the bottom JST housing. Nominal software-checked gaps are 2.0 mm cell-to-PCB, 1.65 mm sensor-package-to-magnet and 0.4 mm rotating-retainer-to-lid. Printing tolerances, cell swelling, leads, wiring and hand pressure still require a fit trial. Source inventory snapshots are observations, not purchase guarantees.
+The native CLI may print a ground-path cache serialization notice for prejoined terminals. Released paths are prescribed in `routing/routes.json`; this cache notice does not bypass connectivity checks. Both native builds return success and independent KiCad reports zero unconnected items.
 
-Required physical verification remains in [BRINGUP.md](BRINGUP.md): USB enumeration and electrical/current compliance; charge current, NTC window and thermal behavior; power-path handover; angle sampling rate and magnetic alignment; counting accuracy at measured speeds; power-cut journal recovery; battery runtime; and printed fit/bearing feel. The first board order is a prototype-validation run. The firmware uses TinyUSB's development VID/PID and needs authorized identifiers before commercial distribution.
+## Mechanical and display scope
 
-Patch v1.0.1 replaces libc-dependent 64-bit printf formatting with a tested decimal conversion. The clean Ubuntu ARM build exposed the earlier PRIu64 availability difference; the console now handles zero, values above 32 bits and UINT64_MAX without optional libc format macros. PCB, routing, mechanics and fabrication files are unchanged from v1.0.0.
+Nominal checked clearances are 0.6 mm bezel-to-grip radially, 0.5 mm skirt-to-lid axially, 1.0 mm on each side of the optical skirt, 2.0 mm cell-envelope-to-PCB and 1.2 mm to header tails trimmed to 0.8 mm. The lid uses M2×10 screws with 3.5 mm base engagement. These values are model inputs/results, not measurements of printed parts.
 
-CAD update v1.0.2 adds a native `assembly.device` entrypoint, six exact print meshes in assembly pose, eight dimensioned hardware/package groups, and self-contained assembled/exploded GLBs. The assembly checks load each OBJ through the actual tscircuit model loader to verify axes and millimetre scale, validate GLB hashes and full-product metre dimensions, and compare every PCB record with the bare-board build. Board source, fabrication geometry and firmware are unchanged; only source-project metadata in the generated bare-board circuit records the new files. Physical fit remains unmeasured.
+The 48-slot skirt and 0.8 mm optical channel spacing give approximately 87.7° quadrature at the 25.0799 mm radius. Firmware expects 192 edges/revolution. IR opacity, actual contrast, alignment, dust/ambient-light response, speed accuracy and bearing feel require a physical prototype. The timer-running and LCD-transport status flags do not prove optical contrast or display presence.
+
+The screen and its cable remain fixed through the hollow bearing post. The row renderer uses a 480-byte buffer rather than a full framebuffer. Purchased-part CAD is dimensioned envelope geometry, including a conservative LCD rear-connector allowance; flexible wiring and detailed vendor internals are omitted. Follow the assembly guide and inspect the real module before tightening.
+
+The [release manifest](../release-manifest.json) binds source and output hashes to Git tag `v2.0.0`. Physical USB operation, charging/NTC/thermal behaviour, power handover, runtime, persistence under real power cuts, lead insulation and printed fit remain unperformed. TinyUSB development VID/PID must be replaced with authorized identifiers for commercial distribution.

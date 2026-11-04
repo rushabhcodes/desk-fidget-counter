@@ -1,17 +1,17 @@
 {
   "assembly_frame": "CAD mm, floor z=0; PCB centre z=10.8",
-  "glb_frame": "glTF metres, +Y up; assembled extents [0.072,0.031,0.072] m",
-  "part_count": 14,
-  "source_board_tsx_sha256": "ebb771c75c8869120234c8a70141f05b35552211a6decbcfc9a133cf7850ffb9",
-  "printed_meshes_restored_from_print_orientation": 6,
+  "glb_frame": "glTF metres, +Y up; assembled extents [0.080,0.047,0.080] m",
+  "part_count": 20,
+  "source_board_tsx_sha256": "d2a37edc34437e3e5d4fc7255a666d8e507cb536a234aad71e8b2d48753ed3c6",
+  "printed_meshes_restored_from_print_orientation": 7,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 2291856,
-      "sha256": "b8b0d20eca2093a3b7051a1d02374117af5f818c417624eb781d038ca9a8fb4d"
+      "bytes": 2754520,
+      "sha256": "2e683ec23be87f37b132cf3f4ecac82644c4522baa75c434bdc629ccce14ec4d"
     },
     "exploded.glb": {
-      "bytes": 2291908,
-      "sha256": "cad2c8fdbfe2ecfbfabe930c968683211e4577e6d3200f8386e13c89ace5e3ad"
+      "bytes": 2754564,
+      "sha256": "380c43cf82a120362e3d2a72159a912dfcbd8e05a3eb95789db1a117f59e3ff9"
     }
   },
   "physical_fit": "Unmeasured; envelope models do not replace datasheet/physical fit verification"

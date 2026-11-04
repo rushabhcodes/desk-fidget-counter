@@ -13,7 +13,7 @@ bool counter_sample(Counter *c, uint16_t raw, bool valid, uint32_t ms,
     c->scroll_fraction = 0;
     c->scrolling = enabled;
   }
-  if (!valid || raw >= 4096) {
+  if (!valid) {
     c->baseline = false;
     c->progress = 0;
     c->pending = 0;
@@ -33,11 +33,11 @@ bool counter_sample(Counter *c, uint16_t raw, bool valid, uint32_t ms,
   int d = (int)raw - c->previous;
   c->previous = raw;
   c->previous_ms = ms;
-  if (d > 2048)
-    d -= 4096;
-  else if (d < -2048)
-    d += 4096;
-  if (d > 1024 || d < -1024) {
+  if (d > 32767)
+    d -= 65536;
+  else if (d < -32768)
+    d += 65536;
+  if (d > 48 || d < -48) {
     c->baseline = false;
     c->progress = 0;
     c->pending = 0;
@@ -47,16 +47,18 @@ bool counter_sample(Counter *c, uint16_t raw, bool valid, uint32_t ms,
   }
   c->progress += d;
   bool changed = false;
-  if (c->progress >= 4096 || c->progress <= -4096) {
+  if (c->progress >= COUNTER_EDGES_PER_TURN ||
+      c->progress <= -COUNTER_EDGES_PER_TURN) {
     if (c->turns < UINT64_MAX)
       c->turns++;
-    c->progress += (c->progress > 0 ? -4096 : 4096);
+    c->progress +=
+        (c->progress > 0 ? -COUNTER_EDGES_PER_TURN : COUNTER_EDGES_PER_TURN);
     changed = true;
   }
   if (enabled) {
     c->scroll_fraction += d;
-    int ticks = c->scroll_fraction / 128;
-    c->scroll_fraction -= ticks * 128;
+    int ticks = c->scroll_fraction / COUNTER_EDGES_PER_SCROLL;
+    c->scroll_fraction -= ticks * COUNTER_EDGES_PER_SCROLL;
     c->pending += ticks;
     if (c->pending > 127)
       c->pending = 127;

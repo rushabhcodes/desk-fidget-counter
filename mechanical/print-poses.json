@@ -1,0 +1,34 @@
+{
+  "base": {
+    "inverted": false,
+    "z": 0.0
+  },
+  "lid": {
+    "inverted": false,
+    "z": 14.2
+  },
+  "knob": {
+    "inverted": true,
+    "z": 46.8
+  },
+  "outer-retainer": {
+    "inverted": true,
+    "z": 22.0
+  },
+  "inner-retainer": {
+    "inverted": false,
+    "z": 29.0
+  },
+  "screen-bezel": {
+    "inverted": false,
+    "z": 45.6
+  },
+  "button-plunger": {
+    "inverted": false,
+    "z": 13.6
+  },
+  "fit-coupon": {
+    "inverted": false,
+    "z": 0.0
+  }
+}

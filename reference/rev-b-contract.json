@@ -1,0 +1,102 @@
+{
+  "hardware": "Rev B",
+  "release_target": "2.0.0",
+  "accepted_requirements": [
+    "Native assembled 3D model linked from assembly documentation",
+    "JST programming connector",
+    "Toggle scroll gate on left side; count continues",
+    "Fixed 1.28-inch round colour LCD with surrounding rotating ring"
+  ],
+  "display": {
+    "manufacturer": "Waveshare",
+    "sku": "19192",
+    "controller": "GC9A01",
+    "pixels": [
+      240,
+      240
+    ],
+    "visible_diameter_mm": 32.4,
+    "pcb_diameter_mm": 37.5,
+    "overall_height_in_plane_mm": 40.4,
+    "tab_width_mm": 14.28,
+    "logic_supply_v": 3.3,
+    "nominal_module_current_ma": 31.2,
+    "interface": "SPI mode 0",
+    "pin_order": [
+      "BL",
+      "RST",
+      "DC",
+      "CS",
+      "CLK",
+      "DIN",
+      "GND",
+      "VCC"
+    ],
+    "mcu_pins": {
+      "BL": "PB11",
+      "RST": "PB10",
+      "DC": "PB14",
+      "CS": "PA8",
+      "CLK": "PB13",
+      "DIN": "PB15"
+    }
+  },
+  "rotation": {
+    "mpn": "TCUT1600X01_A",
+    "type": "noncontact optical quadrature",
+    "body_mm": [
+      5.5,
+      4,
+      5.7
+    ],
+    "beam_height_above_pcb_mm": 4.5,
+    "gap_mm": 3,
+    "channel_spacing_mm": 0.8,
+    "track_center_mm": [
+      -23,
+      10
+    ],
+    "track_radius_mm": 25.079872407968907,
+    "slots": 48,
+    "ticks_per_revolution": 192,
+    "IR_LED_resistor_ohm": 150,
+    "emitter_pulldowns_ohm": 22000,
+    "conditioner": "SN74LVC2G17DBVR",
+    "mcu_timer": "TIM3 encoder on PB4/PB5 AF1"
+  },
+  "programming": {
+    "series": "JST PH 2.0 mm",
+    "mpn": "B6B-PH-K-S(LF)(SN)",
+    "pin_order": [
+      "VREF_3V3",
+      "SWDIO",
+      "SWCLK",
+      "NRST",
+      "GND",
+      "BOOT0"
+    ],
+    "notes": "Device powered from USB/battery; VREF is a probe sense output, not a power input. Service connector under removable rotor.",
+    "position_mm": [
+      0,
+      -20
+    ]
+  },
+  "toggle": {
+    "mpn": "G12AH",
+    "manufacturer": "NKK",
+    "kind": "SPDT ON-ON, right-angle toggle",
+    "location": "left side",
+    "function": "Scroll enable; counting remains active",
+    "position_mm": [
+      -20,
+      -14
+    ]
+  },
+  "proposed_envelope_mm": {
+    "base_diameter": 80,
+    "rotor_diameter": 68,
+    "fixed_screen_bezel_diameter": 50,
+    "overall_height": 47
+  },
+  "status": "Implemented; circuit, firmware, assembly and independent fabrication checks passed; physical prototype tests remain unperformed"
+}

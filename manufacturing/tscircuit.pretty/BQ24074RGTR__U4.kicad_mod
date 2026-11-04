@@ -7,7 +7,7 @@
 		(at 0 -3 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "fa5b4eb4-b531-452a-a79f-52d7c9d34398")
+		(uuid "bf77d66a-832a-465e-beb0-60425f172949")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "649e71a8-66a2-4a41-87da-3bef94ffe1fa")
+		(uuid "b8ef6364-8caf-4d3f-a5de-6052da5b283a")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "d49fe2ac-87d6-4ba7-83ce-4fd4184730c7")
+		(uuid "cbc612b6-18a7-4aff-9b97-994fd2abe2f6")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "248b00aa-0653-4ef9-87f4-515afa5fb1ed")
+		(uuid "06766c73-bae2-4923-a7f5-a6600533a9e4")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -86,7 +86,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "16a34854-1a44-4199-8587-faeccfd79ee4")
+		(uuid "409e4e85-e553-49a1-b161-f6aa53a5e867")
 	)
 	(fp_rect
 		(start -2 -2)
@@ -97,7 +97,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "c8f01fe2-3a89-4ce1-94a1-9fd75d93e1bc")
+		(uuid "b7c8a368-eb4e-479c-83ed-56258e786bcf")
 	)
 	(pad "1" smd rect
 		(at -1.45 -0.75)

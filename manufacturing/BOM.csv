@@ -21,9 +21,9 @@ C19,1,10nF,Murata,GRM188R71H103KA01D,top,YES,Top reflow
 D1,1,"PESD5V0S1BA,115",Nexperia,"PESD5V0S1BA,115",top,YES,Top reflow
 J1,1,TYPE-C-31-M-12,HRO,TYPE-C-31-M-12,top,YES,Top reflow
 J2,1,B2B-PH-K-S(LF)(SN),JST,B2B-PH-K-S(LF)(SN),bottom,YES,Hand solder
-J3,1,61300211121,Wurth Elektronik,61300211121,top,NO,Unpopulated interface; use wires/pogo contacts/temporary bridge
-J4,1,61300511121,Wurth Elektronik,61300511121,top,NO,Unpopulated interface; use wires/pogo contacts/temporary bridge
-J5,1,61300211121,Wurth Elektronik,61300211121,top,NO,Unpopulated interface; use wires/pogo contacts/temporary bridge
+J3,1,61300211121,Wurth Elektronik,61300211121,top,NO,Solder pouch NTC leads directly; no header
+J4,1,B6B-PH-K-S(LF)(SN),JST,B6B-PH-K-S(LF)(SN),top,YES,Hand solder
+J6,1,B8B-PH-K-S(LF)(SN),JST,B8B-PH-K-S(LF)(SN),top,YES,Hand solder
 LED1,1,LTST-C190KGKT,Lite-On,LTST-C190KGKT,top,YES,Top reflow
 R1,1,5.1kΩ,Yageo,RC0603FR-075K1L,top,YES,Top reflow
 R2,1,5.1kΩ,Yageo,RC0603FR-075K1L,top,YES,Top reflow
@@ -48,11 +48,17 @@ R20,1,470kΩ,Yageo,RC0603FR-07470KL,top,YES,Top reflow
 R21,1,10kΩ,Yageo,RC0603FR-0710KL,top,YES,Top reflow
 R22,1,100kΩ,Yageo,RC0603FR-07100KL,top,YES,Top reflow
 R23,1,100kΩ,Yageo,RC0603FR-07100KL,top,YES,Top reflow
-SW1,1,OS102011MS2QN1,C&K / Littelfuse,OS102011MS2QN1,top,YES,Hand solder
+R24,1,150Ω,Yageo,RC0603FR-07150RL,top,YES,Top reflow
+R25,1,22kΩ,Yageo,RC0603FR-0722KL,top,YES,Top reflow
+R26,1,22kΩ,Yageo,RC0603FR-0722KL,top,YES,Top reflow
+R27,1,22Ω,Yageo,RC0603FR-0722RL,top,YES,Top reflow
+R28,1,22Ω,Yageo,RC0603FR-0722RL,top,YES,Top reflow
+SW1,1,G12AH,NKK Switches,G12AH,top,YES,Hand solder
 SW2,1,TS-1088-AR02016,XUNPU,TS-1088-AR02016,top,YES,Top reflow
 U1,1,STM32F072CBT6,STMicroelectronics,STM32F072CBT6,top,YES,Top reflow
-U2,1,AS5600-ASOM,ams OSRAM / Infineon,AS5600-ASOM,top,YES,Top reflow
+U2,1,TCUT1600X01_A,Vishay,TCUT1600X01_A,top,YES,Top reflow
 U3,1,MB85RC256VPNF-G-AMERE2,RAMXEED,MB85RC256VPNF-G-AMERE2,top,YES,Top reflow
 U4,1,BQ24074RGTR,Texas Instruments,BQ24074RGTR,top,YES,Top reflow
 U5,1,TLV75533PDBVR,Texas Instruments,TLV75533PDBVR,top,YES,Top reflow
 U6,1,USBLC6-2SC6,STMicroelectronics,USBLC6-2SC6,top,YES,Top reflow
+U7,1,SN74LVC2G17DBVR,Texas Instruments,SN74LVC2G17DBVR,top,YES,Top reflow

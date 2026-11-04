@@ -1,0 +1,119 @@
+{
+  "query": "TCUT1600X01",
+  "results": [
+    {
+      "digikey_product_number": "751-TCUT1600X01_ACT-ND",
+      "supplier_part_number": "751-TCUT1600X01_ACT-ND",
+      "mfr": "TCUT1600X01_A",
+      "manufacturer": "Vishay Semiconductor Opto Division",
+      "package": "Module, No Lead, Slot Type",
+      "description": "SENSOR OPT SLOT PHOTOTRANS MODUL",
+      "detailed_description": "Optical Sensor Transmissive 0.118\" (3mm) Phototransistor Module, No Lead, Slot Type",
+      "stock": 5115,
+      "price": 1.44,
+      "category": "Sensors, Transducers",
+      "subcategory": "Sensors, Transducers",
+      "product_url": "https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TCUT1600X01-A/25823737",
+      "datasheet_url": "https://www.vishay.com/doc?84174",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/7170/MFG_TCUT1600X01_A.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Sensing Distance": "0.118\" (3mm)",
+        "Sensing Method": "Transmissive",
+        "Output Configuration": "Phototransistor",
+        "Current - DC Forward (If) (Max)": "25 mA",
+        "Current - Collector (Ic) (Max)": "20 mA",
+        "Voltage - Collector Emitter Breakdown (Max)": "20 V",
+        "Response Time": "9µs, 16µs",
+        "Operating Temperature": "-40°C ~ 105°C",
+        "Grade": "Automotive",
+        "Qualification": "AEC-Q101",
+        "Mounting Type": "Surface Mount",
+        "Package / Case": "Module, No Lead, Slot Type"
+      },
+      "source": "digikey"
+    },
+    {
+      "digikey_product_number": "1471-1983-ND",
+      "supplier_part_number": "1471-1983-ND",
+      "mfr": "MIKROE-2549",
+      "manufacturer": "MikroElektronika",
+      "package": "",
+      "description": "OPTO ENCODER CLICK",
+      "detailed_description": "TCUT1600X01 Rotary Encoder Sensor mikroBUS™ Click™ Platform Evaluation Expansion Board",
+      "stock": 1,
+      "price": 11,
+      "category": "Development Boards, Kits, Programmers",
+      "subcategory": "Development Boards, Kits, Programmers",
+      "product_url": "https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-2549/8566072",
+      "datasheet_url": "//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/883/MIKROE-2549_Web.pdf",
+      "photo_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/819/MFG_MIKROE-2549.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Platform": "mikroBUS™ Click™",
+        "Type": "Sensor",
+        "Function": "Rotary Encoder",
+        "Utilized IC / Part": "TCUT1600X01",
+        "Contents": "Board(s)"
+      },
+      "source": "digikey"
+    },
+    {
+      "mouser_product_number": "78-TCUT1600X01",
+      "supplier_part_number": "78-TCUT1600X01",
+      "mfr": "TCUT1600X01_A",
+      "manufacturer": "Vishay Semiconductors",
+      "package": "",
+      "description": "Optical Switches, Transmissive, Phototransistor Output Dual Chnl 1.6mA AEC-Q101 Qualified",
+      "detailed_description": "Optical Switches, Transmissive, Phototransistor Output Dual Chnl 1.6mA AEC-Q101 Qualified",
+      "stock": 3514,
+      "price": 1.28,
+      "category": "Optical Switches, Transmissive, Phototransistor Output",
+      "subcategory": "Optical Switches, Transmissive, Phototransistor Output",
+      "product_url": "https://www.mouser.com/en/ProductDetail/Vishay-Semiconductors/TCUT1600X01_A?qs=iLKYxzqNS74DM%2FBozgY8xA%3D%3D",
+      "datasheet_url": "",
+      "photo_url": "https://www.mouser.com/images/vishay/images/TCUT1600x01_DSL_G.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Packaging": "MouseReel",
+        "Standard Pack Qty": "1300"
+      },
+      "source": "mouser"
+    },
+    {
+      "mouser_product_number": "713-101020587",
+      "supplier_part_number": "713-101020587",
+      "mfr": "101020587",
+      "manufacturer": "Seeed Studio",
+      "package": "",
+      "description": "Optical Sensor Development Tools Grove - Optical Rotary Encoder(TCUT1600X01)",
+      "detailed_description": "Optical Sensor Development Tools Grove - Optical Rotary Encoder(TCUT1600X01)",
+      "stock": 34,
+      "price": 11.1,
+      "category": "Optical Sensor Development Tools",
+      "subcategory": "Optical Sensor Development Tools",
+      "product_url": "https://www.mouser.com/en/ProductDetail/Seeed-Studio/101020587?qs=byeeYqUIh0OPLfsrlpqP%252Bw%3D%3D",
+      "datasheet_url": "https://www.mouser.com/datasheet/3/1361/1/Optical_Sensor.pdf",
+      "photo_url": "https://www.mouser.com/images/seeedstudios/images/101020587_SPL.jpg",
+      "normally_stocking": true,
+      "discontinued": false,
+      "marketplace": false,
+      "parameters": {
+        "Standard Pack Qty": "1"
+      },
+      "source": "mouser"
+    }
+  ],
+  "errors": [
+    {
+      "source": "jlcpcb",
+      "message": "JLCPCB search failed (HTTP 500)"
+    }
+  ]
+}

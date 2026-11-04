@@ -6,18 +6,18 @@
     "asset": "base.obj",
     "bounds_pcb_mm": [
       [
-        -36.0,
-        -36.0,
+        -40.0,
+        -40.0,
         -10.8
       ],
       [
-        36.0,
-        36.0,
-        4.6
+        40.0,
+        40.0,
+        3.4
       ]
     ],
     "explode_z_mm": -18,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
     "name": "lid",
@@ -26,38 +26,58 @@
     "asset": "lid.obj",
     "bounds_pcb_mm": [
       [
-        -36.0,
-        -36.0,
+        -40.0,
+        -40.0,
         3.4
       ],
       [
-        36.0,
-        35.399063,
-        13.2
+        40.0,
+        40.0,
+        18.2
       ]
     ],
-    "explode_z_mm": 34,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+    "explode_z_mm": 27,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
+  },
+  {
+    "name": "knob",
+    "printed": true,
+    "color": "#e9bd65",
+    "asset": "knob.obj",
+    "bounds_pcb_mm": [
+      [
+        -33.990292,
+        -33.990292,
+        11.200001
+      ],
+      [
+        33.990292,
+        33.990292,
+        36.0
+      ]
+    ],
+    "explode_z_mm": 130,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
     "name": "outer-retainer",
     "printed": true,
-    "color": "#cd9647",
+    "color": "#24292d",
     "asset": "outer-retainer.obj",
     "bounds_pcb_mm": [
       [
-        -24.200001,
-        -24.200001,
-        5.0
+        -26.5,
+        -26.5,
+        4.5
       ],
       [
-        24.200001,
-        24.200001,
-        6.2
+        26.5,
+        26.5,
+        11.2
       ]
     ],
-    "explode_z_mm": 42,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+    "explode_z_mm": 38,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
     "name": "inner-retainer",
@@ -66,18 +86,38 @@
     "asset": "inner-retainer.obj",
     "bounds_pcb_mm": [
       [
-        -13.5,
-        -13.5,
-        13.2
+        -25.0,
+        -25.0,
+        18.2
       ],
       [
-        13.5,
-        13.5,
-        14.8
+        25.0,
+        25.0,
+        34.8
       ]
     ],
-    "explode_z_mm": 65,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+    "explode_z_mm": 62,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
+  },
+  {
+    "name": "screen-bezel",
+    "printed": true,
+    "color": "#95a5ad",
+    "asset": "screen-bezel.obj",
+    "bounds_pcb_mm": [
+      [
+        -25.0,
+        -25.0,
+        34.8
+      ],
+      [
+        25.0,
+        25.0,
+        36.2
+      ]
+    ],
+    "explode_z_mm": 94,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
     "name": "button-plunger",
@@ -87,37 +127,17 @@
     "bounds_pcb_mm": [
       [
         -2.9,
-        -29.9,
+        -31.9,
         2.8
       ],
       [
         2.9,
-        -24.1,
+        -26.1,
         5.2
       ]
     ],
-    "explode_z_mm": 30,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
-  },
-  {
-    "name": "knob",
-    "printed": true,
-    "color": "#e9bd65",
-    "asset": "knob.obj",
-    "bounds_pcb_mm": [
-      [
-        -24.5,
-        -24.5,
-        4.2
-      ],
-      [
-        24.5,
-        24.5,
-        20.2
-      ]
-    ],
-    "explode_z_mm": 88,
-    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+    "explode_z_mm": 12,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
     "name": "bearing",
@@ -126,38 +146,18 @@
     "asset": "bearing.obj",
     "bounds_pcb_mm": [
       [
-        -18.5,
-        -18.5,
-        6.2
+        -21.0,
+        -21.0,
+        11.2
       ],
       [
-        18.5,
-        18.5,
-        13.2
+        21.0,
+        21.0,
+        18.2
       ]
     ],
-    "explode_z_mm": 52,
-    "description": "6805 bearing 25 x 37 x 7 mm; simplified catalog envelope, no internal balls"
-  },
-  {
-    "name": "magnet",
-    "printed": false,
-    "color": "#46505a",
-    "asset": "magnet.obj",
-    "bounds_pcb_mm": [
-      [
-        -3.175,
-        -3.175,
-        4.2
-      ],
-      [
-        3.175,
-        3.175,
-        7.374999
-      ]
-    ],
-    "explode_z_mm": 67,
-    "description": "D42DIA diametric magnet; envelope only"
+    "explode_z_mm": 48,
+    "description": "NSK 6806ZZ bearing 30 x 42 x 7 mm; catalog envelope, internals omitted"
   },
   {
     "name": "battery",
@@ -177,7 +177,7 @@
       ]
     ],
     "explode_z_mm": -6,
-    "description": "Protected 350 mAh cell allowance; inspect real pouch and wiring before assembly"
+    "description": "Protected 350 mAh cell allowance; inspect real pouch and wiring"
   },
   {
     "name": "battery-socket",
@@ -197,27 +197,87 @@
       ]
     ],
     "explode_z_mm": 0,
-    "description": "J2 bottom-side JST housing envelope; contacts and mating cable omitted"
+    "description": "J2 bottom-side JST housing allowance; cable omitted"
   },
   {
-    "name": "slide-switch",
+    "name": "programming-socket",
     "printed": false,
-    "color": "#334047",
-    "asset": "slide-switch.obj",
+    "color": "#ebe8dd",
+    "asset": "programming-socket.obj",
     "bounds_pcb_mm": [
       [
-        -30.15,
-        -5.3,
-        0.8
+        -6.95,
+        -22.8,
+        -1.6
       ],
       [
-        -25.85,
-        3.3,
-        7.0
+        6.95,
+        -18.3,
+        6.8
       ]
     ],
     "explode_z_mm": 0,
-    "description": "SW1 case envelope; lever detail omitted"
+    "description": "J4 JST-PH6 housing and tails trimmed to 0.8mm below PCB; top entry, pin 1 at (-5,-20)"
+  },
+  {
+    "name": "display-socket",
+    "printed": false,
+    "color": "#ebe8dd",
+    "asset": "display-socket.obj",
+    "bounds_pcb_mm": [
+      [
+        -1.7,
+        -8.95,
+        -1.6
+      ],
+      [
+        2.8,
+        8.95,
+        6.8
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "J6 JST-PH8 with 0.8mm trimmed tails; vertical row through the fixed hollow post"
+  },
+  {
+    "name": "toggle-switch",
+    "printed": false,
+    "color": "#334047",
+    "asset": "toggle-switch.obj",
+    "bounds_pcb_mm": [
+      [
+        -31.35,
+        -17.5,
+        1.15
+      ],
+      [
+        -18.95,
+        -10.5,
+        5.65
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "NKK G12AH left-facing lever; envelope and neutral pose, not a detailed supplier model"
+  },
+  {
+    "name": "optical-sensor",
+    "printed": false,
+    "color": "#232127",
+    "asset": "optical-sensor.obj",
+    "bounds_pcb_mm": [
+      [
+        -26.319395,
+        7.069363,
+        0.8
+      ],
+      [
+        -19.680605,
+        12.930637,
+        6.5
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "TCUT1600X01_A envelope; 3mm optical gap, 4.5mm beam height above PCB"
   },
   {
     "name": "charger-package",
@@ -237,7 +297,7 @@
       ]
     ],
     "explode_z_mm": 0,
-    "description": "U4 package envelope; detailed leads are in PCB fabrication geometry"
+    "description": "U4 package envelope; copper pins in PCB model"
   },
   {
     "name": "usb-esd-package",
@@ -257,7 +317,67 @@
       ]
     ],
     "explode_z_mm": 0,
-    "description": "U6 package envelope; detailed leads are in PCB fabrication geometry"
+    "description": "U6 package envelope; copper pins in PCB model"
+  },
+  {
+    "name": "screen-module",
+    "printed": false,
+    "color": "#2e5846",
+    "asset": "screen-module.obj",
+    "bounds_pcb_mm": [
+      [
+        -18.75,
+        -18.75,
+        23.2
+      ],
+      [
+        21.65,
+        18.75,
+        32.2
+      ]
+    ],
+    "explode_z_mm": 81,
+    "description": "Waveshare 19192 37.5mm PCB / 40.4mm overall tab envelope; underside housing is an allowance"
+  },
+  {
+    "name": "screen-glass",
+    "printed": false,
+    "color": "#091c24",
+    "asset": "screen-glass.obj",
+    "bounds_pcb_mm": [
+      [
+        -16.799999,
+        -16.799999,
+        32.2
+      ],
+      [
+        16.799999,
+        16.799999,
+        34.799998
+      ]
+    ],
+    "explode_z_mm": 81,
+    "description": "LCD front envelope; active diameter 32.4mm, front z45.6"
+  },
+  {
+    "name": "screen-ui",
+    "printed": false,
+    "color": "#ffffff",
+    "asset": "screen-ui.obj",
+    "bounds_pcb_mm": [
+      [
+        -9.18,
+        -13.905,
+        34.81
+      ],
+      [
+        9.72,
+        11.205,
+        34.81
+      ]
+    ],
+    "explode_z_mm": 81,
+    "description": "Illustrative count 12345, 3.92 V, scrolling/USB/charge status from the tested firmware renderer"
   },
   {
     "name": "fasteners",
@@ -266,17 +386,17 @@
     "asset": "fasteners.obj",
     "bounds_pcb_mm": [
       [
-        -26.4,
-        -26.4,
+        -28.0,
+        -28.0,
         -5.2
       ],
       [
-        26.4,
-        26.4,
-        16.400001
+        28.0,
+        28.0,
+        36.2
       ]
     ],
-    "explode_z_mm": 78,
-    "description": "Fastener shanks/heads illustrate assembly access; threads and drive recesses omitted"
+    "explode_z_mm": 106,
+    "description": "Dimensioned shanks/heads illustrate access; threads and drive recesses omitted"
   }
 ]

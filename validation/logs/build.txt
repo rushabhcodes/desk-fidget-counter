@@ -1,12 +1,21 @@
-$ tsci build index.circuit.tsx
 Building 1 file(s)...
 Building index.circuit.tsx...
 Generating circuit JSON...
-Each child in a list should have a unique "key" prop.
-
-Check the render method of `schematicsheet`. It was passed a child from default. See https://react.dev/link/warning-keys for more information.
 Could not save autorouting paths for subcircuit_source_group_0: Saved phase paths for "source_net_0" must connect every endpoint; use autorouter="fanout" for saved escapes
 Circuit JSON written to dist/index/circuit.json
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully
+
+Building 1 file(s)...
+Building assembly.circuit.tsx...
+Generating circuit JSON...
+Could not save autorouting paths for subcircuit_source_group_0: Saved phase paths for "source_net_0" must connect every endpoint; use autorouter="fanout" for saved escapes
+Circuit JSON written to dist/assembly/circuit.json
 
 Build complete
   Circuits  1 passed

@@ -16,17 +16,16 @@
     64
   ],
   "outline_segments": 128,
-  "plated_round_drills": 133,
+  "plated_round_drills": 193,
   "plated_slots": 4,
   "npth_diameters_and_counts": {
     "0.6": 2,
-    "1.5": 2,
     "2.7": 4
   },
-  "JST_0.75mm_drills": 2,
-  "source_vias": 119,
-  "source_plated_holes": 18,
-  "BOM_rows": 57,
-  "populated_placements": 54,
+  "JST_0.75mm_drills": 16,
+  "source_vias": 170,
+  "source_plated_holes": 27,
+  "BOM_rows": 63,
+  "populated_placements": 62,
   "parser_note": "KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped."
 }

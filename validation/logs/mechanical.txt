@@ -1,14 +1,21 @@
-base Error.NoError True True 14730.533339734093
-lid Error.NoError True True 7959.018754733751
-knob Error.NoError True True 14428.907029247452
-outer-retainer Error.NoError True True 1023.1698357468684
-inner-retainer Error.NoError True True 704.3386133756366
-fit-coupon Error.NoError True True 2327.7213086181578
-button-plunger Error.NoError True True 33.23726271720934
+base watertight 16934.4
+lid watertight 17392.1
+knob watertight 44087.3
+outer-retainer watertight 1700.1
+inner-retainer watertight 5061.0
+screen-bezel watertight 1504.3
+button-plunger watertight 33.2
+fit-coupon watertight 2168.8
 {
-  "sensor_to_magnet_mm": 1.65,
-  "rotor_to_lid_mm": 0.4,
+  "screen_bezel_to_grip_radial_mm": 0.6,
+  "encoder_to_recess_vertical_mm": 0.5,
+  "encoder_gap_radial_each_side_mm": 1.0,
   "battery_to_pcb_mm": 2.0,
-  "stem_diametral_clearance_mm": 0.15,
-  "bearing_outer_diametral_clearance_mm": 0.1
+  "trimmed_header_tails_to_battery_mm": 1.2,
+  "lid_screw_base_engagement_mm": 3.5,
+  "stem_diametral_mm": 0.15,
+  "bearing_outer_diametral_mm": 0.1,
+  "bearing_head_to_lcd_connector_mm": 1.8,
+  "encoder_slot_count": 48,
+  "quadrature_edges_per_turn": 192
 }

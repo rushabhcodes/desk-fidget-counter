@@ -14,3 +14,8 @@ for(const layer of ['top','bottom']){
  fs.writeFileSync(`previews/pcb-${layer}.svg`,svg)
  fs.writeFileSync(`previews/pcb-${layer}.png`,new Resvg(svg).render().asPng())
 }
+// Run bom-and-assembly.py before this script to refresh its pin-1 diagrams.
+for (const side of ['top','bottom']) {
+ const path=`previews/assembly-${side}`
+ if(fs.existsSync(path+'.svg')) fs.writeFileSync(path+'.png',new Resvg(fs.readFileSync(path+'.svg','utf8')).render().asPng())
+}

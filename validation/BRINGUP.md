@@ -1,51 +1,40 @@
-# Validation and prototype bring-up
+# Physical prototype bring-up / Rev B
 
-Software checks and hardware measurements are different deliverables. The release validation report and command logs record the checks actually run. The checklist below requires a manufactured, assembled prototype and remains **unperformed** until measurements are attached.
+These measurements are outstanding. Software checks and envelope CAD do not establish hardware operation. Use current-limited bench power and the specified protected cell; record instruments, firmware tag, results and photographs here.
 
-## Software acceptance
+## Power and charging
 
-- Strict TypeScript check of the authored source.
-- tscircuit netlist, schematic placement, PCB placement, full routing, and copper-short checks with no suppressed electrical checks.
-- Independent KiCad DRC with the declared manufacturer rules, zone refill, no DRC exclusions, and no unconnected items.
-- Generated Gerber and Excellon files parsed and rendered for inspection; layer presence, outline, slots and hole count checked.
-- BOM populated with manufacturer part numbers; DNP programming interfaces identified; placement coordinates tied to the final PCB.
-- Native tests of the embedded counting implementation: both directions, wrap, backtracking, slow one-LSB motion, scroll gate transitions, stale/invalid/jump rejection, counter saturation, CRC corruption, interrupted record prefixes and thermal-gate boundaries.
-- ARM firmware successfully linked against the STM32F072CB memory map. Release manifest hashes tie the source, binary, board and fabrication bundle together.
-- Printable meshes are watertight with positive volume. Nominal moving-part and battery clearances are checked from assembly coordinates.
+- [ ] Inspect the bare PCB against Gerbers; check 3V3/SYS/BAT/VBUS isolation, solder bridges, USB shield ground and U4 exposed pad.
+- [ ] Test first without the pouch. Confirm 3V3 and charger output, correct battery connector polarity and no unexpected heating.
+- [ ] Confirm PH8 pin order/continuity and correct 3.3 V screen input before connection. Measure display/IR/system current in battery, USB and suspend states.
+- [ ] Attach insulated pouch NTC. Sweep the real thermistor over temperature; verify firmware CE window and the independent charger TS gate. Open/short NTC must disable charging.
+- [ ] Measure charge current (nominal 201 mA), precharge, termination, restart, timeout and pouch/charger temperatures. Check charger power-path operation with the screen running.
+- [ ] Verify USB100 before enumeration, USB500 after configuration and suspend input mode. Test a current-limited USB source and both USB-C orientations.
+- [ ] Test USB/battery handover during continuous rotation, persistent low-battery gating and protected-cell cutoff. Measure usable runtime; do not infer it from nominal cell capacity.
 
-## Before applying power
+## Programming, USB and screen
 
-- [ ] Inspect bare-board dimensions, 2.7 mm mount holes, USB shield slots and connector locator holes.
-- [ ] Inspect QFN EP joint and orientation of every IC, USB connector, LED and JST connector. Meter BAT+, GND and 3V3; check for unexpected shorts.
-- [ ] Leave battery disconnected; use current-limited USB power at 5 V / 100 mA. Record idle input current, SYS and 3V3. Confirm no overheating.
-- [ ] Verify PA13/PA14 SWD access, MCU ID and firmware programming/verification. Confirm the executable starts at 0x08000000.
-- [ ] Check NTC open and short faults both hold CE high. At room temperature, measure TS and TEMP_ADC and compare against the divider calculation. Verify CE behavior before connecting a cell.
+- [ ] Verify JST J4 physical pins and 3.3 V VREF sense, flash via SWD, verify memory and exercise BOOT0/NRST ROM recovery.
+- [ ] Initialize FRAM with `RESET CONFIRM`. Confirm power-cut journal recovery during every stage of a save; unknown/corrupt records must show `RESET VIA USB`.
+- [ ] Confirm CDC and HID enumeration on intended OSes, USB-C flips, rapid hotplug, suspend/resume and no replay of queued wheel movement.
+- [ ] Confirm GC9A01 cold/warm startup, colour order, 90° mounting orientation, backlight, full 20-digit count layout and live battery/charge/scroll/USB states. Compare voltage readout to a meter.
+- [ ] Unplug/replug the LCD and disturb its SPI wiring. The write-only interface cannot prove screen presence; ensure any stalled transport leaves counting/USB responsive.
 
-## USB and power path
+## Optical counting and controls
 
-- [ ] Enumerate HID + CDC on Windows, Linux and macOS with C-to-C and A-to-C data cables, including connector reversal.
-- [ ] Measure input current before configuration, after configuration, during suspend and on resume; validate USB100/USB500/suspend EN logic and the descriptor's requested power.
-- [ ] Scope D+/D− at the connector and MCU; verify signal integrity at full-speed, no unintended back-power on disconnect and adequate ESD return paths. The PCB is a short-run 12 Mbit/s USB design, not a certified USB product.
-- [ ] With a protected cell installed, verify battery-only operation, live plug/unplug, simultaneous counting and charging, CV termination, recharge, input droop and absence of resets through handover.
-- [ ] Measure actual charge current across the cell voltage range. Verify charger temperature, cell temperature and safety-timer behavior. Temperature-test the NTC/CE window across bias/divider tolerance and the cell's permitted 0–45°C charging range. Do not infer cell temperature from board temperature.
-- [ ] Discharge slowly on a bench simulator to verify the 3.45 V software fault threshold and count preservation; separately verify the chosen cell protector's limits using its manufacturer's procedure.
+- [ ] Verify TCUT common collector to 3V3, separate emitter pulldowns and approximately 14 mA IR LED current. Inspect tall sensor solder joints and orientation.
+- [ ] Scope both Schmitt inputs and PB4/PB5 outputs through one revolution. Confirm high/low margins, approximately 90° phase, **48 periods/channel and exactly 192 combined edges/revolution**.
+- [ ] Test the printed skirt's 950 nm opacity, slot dimensions, axial/radial alignment, dust, sunlight and indoor lighting. A visibly black print may transmit IR. Replace material if contrast is inadequate.
+- [ ] Compare 10, 100 and 1000 measured turns in both directions; exercise slow single-edge motion, reversals, stopping on transitions and varied speeds. Establish the speed at which no counts are missed while LCD and FRAM run.
+- [ ] Confirm clockwise wheel direction; swap channel mapping or invert the firmware direction if the intended feel needs it. Count magnitude must remain correct.
+- [ ] Toggle scrolling off/on while rotating: count must continue and no old USB motion may replay. Check 20 ms switch debounce, both stable positions and recessed lever access.
+- [ ] Simulate blocked optics, missing channels, loose encoder material and extreme speed. No optical amplitude feedback is fitted; measure/document failure behaviour rather than treating timer-running as optical health.
 
-## Rotation and persistence
+## Assembly and endurance
 
-- [ ] Confirm AS5600 0x36 and FRAM 0x50, then initialize the count explicitly. Verify STATUS reports storage_ok and magnet_ok true.
-- [ ] Scope I2C rise time and sample interval. Measure maximum gap during USB traffic, FRAM commits and console requests. Reject unexplained gaps; establish a documented maximum usable rotation rate.
-- [ ] Sweep the knob through 360° and inspect MD/MH/ML, raw-angle monotonicity and zero-crossing behavior. Adjust magnet centering/gap and recheck at all temperatures of interest.
-- [ ] Run known marked turns: 100 clockwise, 100 counterclockwise, alternating half-turns, +180/−540°, small jitter, slow motion and a range of speeds. Compare against an independent optical/mechanical reference.
-- [ ] Disable scrolling during rotation: counts must continue and the computer must receive no wheel reports. Re-enable without stale movement. Repeat disconnected, during suspend, on resume and while charging.
-- [ ] Power-cycle after an acknowledged count/reset. Inject power loss at different points in a FRAM commit and verify recovery chooses the last valid record. Measure the maximum last-turn loss window and document it.
-- [ ] Disconnect/remove the magnet and interrupt I2C. Confirm invalid data does not add phantom turns and recovery starts with a fresh baseline.
-
-## Mechanical acceptance
-
-- [ ] Fit the coupon first. Measure actual bearing fits, retention, axial/radial play and printed part dimensions.
-- [ ] Confirm countersunk outer-retainer screws are flush; verify 0.4 mm nominal rotor-to-lid clearance through a full turn under hand pressure.
-- [ ] Confirm inner retainer contacts only the inner race and outer retainer only the outer race. Check screw-head clearance under the roof and magnet-post clearance through the collar.
-- [ ] Inspect cell insulation, ribbon tension, swelling allowance, connector/wire bend radius and trimmed solder tails. No fastener or moving part may press on the pouch.
-- [ ] Test reset-plunger return, switch access, LED visibility, USB cable insertion/removal and case retention. Assess bearing drag, feel, stiffness and drop resistance.
-
-The first fabrication run is a prototype-validation run. Production qualification, regulatory testing and commercial USB identifier assignment remain separate work.
+- [ ] Print the fit coupon, measure the bearing seats and tune printer-specific tolerances.
+- [ ] Inspect the actual Waveshare module's rear components, PH8 housing and cable bend. Confirm the model's connector allowance and edge-only support; never tighten against a backside component.
+- [ ] Confirm bearing outer/inner races are separately captured, screw heads and pilots clear, and the rotor group can be assembled/removed in the documented order.
+- [ ] Measure bezel/grip clearance (nominal .6 mm radial), skirt/lid clearance (.5 mm axial) and sensor gap clearance (1 mm radial per side). Rotate under hand pressure in both directions with no rub.
+- [ ] Confirm every cable stays fixed and clear of the bearing/encoder; battery tray and strap do not compress the pouch or abrade leads.
+- [ ] Test USB plug fit through the recessed opening, toggle finger access, service JST access, bearing feel, long rotation endurance and intended desk loads.

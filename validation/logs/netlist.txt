@@ -1,8 +1,4 @@
-$ tsci check netlist
-Using entrypoint from tscircuit config: 'index.circuit.tsx'
-Each child in a list should have a unique "key" prop.
-
-Check the render method of `schematicsheet`. It was passed a child from default. See https://react.dev/link/warning-keys for more information.
+$ tsci check netlist index.circuit.tsx
 Errors: 0
 Warnings: 0
 
@@ -45,10 +41,12 @@ COMPONENTS:
  - R10: 10kΩ resistor
  - R11: 10kΩ resistor
  - J4: J4, source_component
- - J5: J5, source_component
- - U2: AS5600-ASOM
+ - U2: TCUT1600X01_A
+ - U7: SN74LVC2G17DBVR
+ - R24: 150Ω resistor
+ - R25: 22kΩ resistor
+ - R26: 22kΩ resistor
  - C14: 100nF capacitor
- - C15: 1uF capacitor
  - R12: 4.7kΩ resistor
  - R13: 4.7kΩ resistor
  - U3: MB85RC256VPNF-G-AMERE2
@@ -65,6 +63,10 @@ COMPONENTS:
  - R19: 1MΩ resistor
  - R20: 470kΩ resistor
  - C18: 100nF capacitor
+ - J6: J6, source_component
+ - R27: 22Ω resistor
+ - R28: 22Ω resistor
+ - C15: 1uF capacitor
 
 NET: CC1
   - J1 CC1
@@ -159,62 +161,51 @@ NET: NRST
   - U1 NRST
 
 NET: BOOT0
-  - J5 BOOT0
+  - J4 BOOT0
   - R10 pin1
   - U1 BOOT0
+
+NET: ENC_A
+  - U7 Y1
+  - U1 PB4
+
+NET: ENC_B
+  - U7 Y2
+  - U1 PB5
+
+NET: IR_A
+  - R24 pin2
+  - U2 A
+
+NET: OPT_A
+  - R25 pin1
+  - U7 A1
+  - U2 EA
+
+NET: OPT_B
+  - R26 pin1
+  - U7 A2
+  - U2 EB
 
 NET: SDA
   - U3 SDA
   - R12 pin2
-  - U2 SDA
   - U1 PB7
 
 NET: SCL
   - U3 SCL
   - R13 pin2
-  - U2 SCL
   - U1 PB6
 
 NET: SCROLL_EN
   - R14 pin1
-  - SW1 pin2
+  - SW1 T5
   - U1 PA0
 
 NET: COUNT_RESET
   - R15 pin1
   - SW2 pin1
   - U1 PA1
-
-NET: V3V3
-  - R15 pin2
-  - R14 pin2
-  - C16 pin1 (+)
-  - U3 VDD
-  - R13 pin1
-  - R12 pin1
-  - C15 pin1 (+)
-  - C14 pin1 (+)
-  - U2 VDD3V3
-  - U2 VDD5V
-  - J5 VREF
-  - J4 VREF
-  - R11 pin2
-  - C12 pin1 (+)
-  - C6 pin1 (+)
-  - U5 OUT
-  - R21 pin1
-  - R9 pin1
-  - R8 pin1
-  - U1 VDDA
-  - U1 VDDIO2
-  - U1 VDD2
-  - U1 VDD1
-  - U1 VBAT
-  - C7 pin1 (+)
-  - C8 pin1 (+)
-  - C9 pin1 (+)
-  - C10 pin1 (+)
-  - C11 pin1 (+)
 
 NET: LED
   - R16 pin1
@@ -253,24 +244,91 @@ NET: VBUS_ADC
   - R19 pin2
   - U1 PB0
 
+NET: LCD_BL
+  - J6 BL
+  - U1 PB11
+
+NET: LCD_RST
+  - J6 RST
+  - U1 PB10
+
+NET: LCD_DC
+  - J6 DC
+  - U1 PB14
+
+NET: LCD_CS
+  - J6 CS
+  - U1 PA8
+
+NET: SPI_SCK
+  - R27 pin1
+  - U1 PB13
+
+NET: LCD_SCK
+  - R27 pin2
+  - J6 CLK
+
+NET: SPI_MOSI
+  - R28 pin1
+  - U1 PB15
+
+NET: LCD_MOSI
+  - R28 pin2
+  - J6 DIN
+
+NET: V3V3
+  - C15 pin1 (+)
+  - J6 VCC
+  - R15 pin2
+  - R14 pin2
+  - C16 pin1 (+)
+  - U3 VDD
+  - R13 pin1
+  - R12 pin1
+  - C14 pin1 (+)
+  - R24 pin1
+  - U7 VCC
+  - U2 COL
+  - J4 VREF
+  - R11 pin2
+  - C12 pin1 (+)
+  - C6 pin1 (+)
+  - U5 OUT
+  - R21 pin1
+  - R9 pin1
+  - R8 pin1
+  - U1 VDDA
+  - U1 VDDIO2
+  - U1 VDD2
+  - U1 VDD1
+  - U1 VBAT
+  - C7 pin1 (+)
+  - C8 pin1 (+)
+  - C9 pin1 (+)
+  - C10 pin1 (+)
+  - C11 pin1 (+)
+
 NET: GND
+  - C15 pin2 (-)
+  - J6 GND
   - C18 pin2 (-)
   - R20 pin2
   - C17 pin2 (-)
   - R18 pin2
   - LED1 pin2 (-)
   - SW2 pin2
-  - SW1 pin1
+  - SW1 T4
   - C16 pin2 (-)
   - U3 WP
   - U3 VSS
   - U3 A2
   - U3 A1
   - U3 A0
-  - C15 pin2 (-)
   - C14 pin2 (-)
-  - U2 DIR
-  - U2 GND
+  - R26 pin2
+  - R25 pin2
+  - U7 GND
+  - U2 K
   - J4 GND
   - R10 pin2
   - C13 pin2 (-)
@@ -336,15 +394,15 @@ U1 (STM32F072CBT6)
 - pin18(PB0): NETS(VBUS_ADC)
 - pin19(PB1): NETS(TEMP_ADC)
 - pin20(PB2): NETS(CHG_CE)
-- pin21(PB10): NOT_CONNECTED
-- pin22(PB11): NOT_CONNECTED
+- pin21(PB10): NETS(LCD_RST)
+- pin22(PB11): NETS(LCD_BL)
 - pin23(VSS1): NETS(GND)
 - pin24(VDD1): NETS(V3V3)
 - pin25(PB12): NOT_CONNECTED
-- pin26(PB13): NOT_CONNECTED
-- pin27(PB14): NOT_CONNECTED
-- pin28(PB15): NOT_CONNECTED
-- pin29(PA8): NOT_CONNECTED
+- pin26(PB13): NETS(SPI_SCK)
+- pin27(PB14): NETS(LCD_DC)
+- pin28(PB15): NETS(SPI_MOSI)
+- pin29(PA8): NETS(LCD_CS)
 - pin30(PA9): NOT_CONNECTED
 - pin31(PA10): NOT_CONNECTED
 - pin32(PA11): NETS(USB_DM)
@@ -355,8 +413,8 @@ U1 (STM32F072CBT6)
 - pin37(PA14): NETS(SWCLK)
 - pin38(PA15): NOT_CONNECTED
 - pin39(PB3): NOT_CONNECTED
-- pin40(PB4): NOT_CONNECTED
-- pin41(PB5): NOT_CONNECTED
+- pin40(PB4): NETS(ENC_A)
+- pin41(PB5): NETS(ENC_B)
 - pin42(PB6): NETS(SCL)
 - pin43(PB7): NETS(SDA)
 - pin44(BOOT0): NETS(BOOT0)
@@ -541,32 +599,43 @@ R11 (10kΩ undefined)
 - pin1(anode, pos, left): NETS(NRST)
 - pin2(cathode, neg, right): NETS(V3V3)
 
-J4 (61300511121)
+J4 (B6B-PH-K-S(LF)(SN))
 - pin1(VREF): NETS(V3V3)
 - pin2(SWDIO): NETS(SWDIO)
 - pin3(SWCLK): NETS(SWCLK)
 - pin4(NRST): NETS(NRST)
 - pin5(GND): NETS(GND)
+- pin6(BOOT0): NETS(BOOT0)
 
-J5 (61300211121)
-- pin1(BOOT0): NETS(BOOT0)
-- pin2(VREF): NETS(V3V3)
+U2 (TCUT1600X01_A)
+- pin1(A): NETS(IR_A)
+- pin2(NC): NOT_CONNECTED
+- pin3(K): NETS(GND)
+- pin4(EB): NETS(OPT_B)
+- pin5(EA): NETS(OPT_A)
+- pin6(COL): NETS(V3V3)
 
-U2 (AS5600-ASOM)
-- pin1(VDD5V): NETS(V3V3)
-- pin2(VDD3V3): NETS(V3V3)
-- pin3(OUT): NOT_CONNECTED
-- pin4(GND): NETS(GND)
-- pin5(PGO): NOT_CONNECTED
-- pin6(SDA): NETS(SDA)
-- pin7(SCL): NETS(SCL)
-- pin8(DIR): NETS(GND)
+U7 (SN74LVC2G17DBVR)
+- pin1(A1): NETS(OPT_A)
+- pin2(GND): NETS(GND)
+- pin3(A2): NETS(OPT_B)
+- pin4(Y2): NETS(ENC_B)
+- pin5(VCC): NETS(V3V3)
+- pin6(Y1): NETS(ENC_A)
 
-C14 (100nF undefined)
+R24 (150Ω undefined)
 - pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(IR_A)
+
+R25 (22kΩ undefined)
+- pin1(anode, pos, left): NETS(OPT_A)
 - pin2(cathode, neg, right): NETS(GND)
 
-C15 (1uF undefined)
+R26 (22kΩ undefined)
+- pin1(anode, pos, left): NETS(OPT_B)
+- pin2(cathode, neg, right): NETS(GND)
+
+C14 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
@@ -592,10 +661,12 @@ C16 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
-SW1 (OS102011MS2QN1)
-- pin1: NETS(GND)
-- pin2: NETS(SCROLL_EN)
-- pin3: NOT_CONNECTED
+SW1 (G12AH)
+- pin1(T4): NETS(GND)
+- pin2(T5): NETS(SCROLL_EN)
+- pin3(T6): NOT_CONNECTED
+- pin4(SUPPORT1): NOT_CONNECTED
+- pin5(SUPPORT3): NOT_CONNECTED
 
 R14 (10kΩ undefined)
 - pin1(anode, pos, left): NETS(SCROLL_EN)
@@ -639,5 +710,27 @@ R20 (470kΩ undefined)
 
 C18 (100nF undefined)
 - pin1(anode, pos, left): NETS(VBUS_ADC)
+- pin2(cathode, neg, right): NETS(GND)
+
+J6 (B8B-PH-K-S(LF)(SN))
+- pin1(BL): NETS(LCD_BL)
+- pin2(RST): NETS(LCD_RST)
+- pin3(DC): NETS(LCD_DC)
+- pin4(CS): NETS(LCD_CS)
+- pin5(CLK): NETS(LCD_SCK)
+- pin6(DIN): NETS(LCD_MOSI)
+- pin7(GND): NETS(GND)
+- pin8(VCC): NETS(V3V3)
+
+R27 (22Ω undefined)
+- pin1(anode, pos, left): NETS(SPI_SCK)
+- pin2(cathode, neg, right): NETS(LCD_SCK)
+
+R28 (22Ω undefined)
+- pin1(anode, pos, left): NETS(SPI_MOSI)
+- pin2(cathode, neg, right): NETS(LCD_MOSI)
+
+C15 (1uF undefined)
+- pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 

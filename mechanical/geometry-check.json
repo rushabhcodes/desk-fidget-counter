@@ -1,97 +1,97 @@
 {
   "base": {
     "watertight": true,
-    "volume_mm3": 14730.53,
+    "volume_mm3": 16934.44,
     "bounds_mm": [
       [
-        -36.0,
-        -36.0,
+        -40.0,
+        -40.0,
         0.0
       ],
       [
-        36.0,
-        36.0,
-        15.4
+        40.0,
+        40.0,
+        14.2
       ]
     ]
   },
   "lid": {
     "watertight": true,
-    "volume_mm3": 7959.02,
+    "volume_mm3": 17392.09,
     "bounds_mm": [
       [
-        -36.0,
-        -36.0,
+        -40.0,
+        -40.0,
         0.0
       ],
       [
-        36.0,
-        35.399,
-        9.8
+        40.0,
+        40.0,
+        14.8
       ]
     ]
   },
   "knob": {
     "watertight": true,
-    "volume_mm3": 14428.91,
+    "volume_mm3": 44087.3,
     "bounds_mm": [
       [
-        -24.5,
-        -24.5,
+        -33.99,
+        -33.99,
         0.0
       ],
       [
-        24.5,
-        24.5,
-        16.0
+        33.99,
+        33.99,
+        24.8
       ]
     ]
   },
   "outer-retainer": {
     "watertight": true,
-    "volume_mm3": 1023.17,
+    "volume_mm3": 1700.11,
     "bounds_mm": [
       [
-        -24.2,
-        -24.2,
+        -26.5,
+        -26.5,
         0.0
       ],
       [
-        24.2,
-        24.2,
-        1.2
+        26.5,
+        26.5,
+        6.7
       ]
     ]
   },
   "inner-retainer": {
     "watertight": true,
-    "volume_mm3": 704.34,
+    "volume_mm3": 5061.02,
     "bounds_mm": [
       [
-        -13.5,
-        -13.5,
+        -25.0,
+        -25.0,
         0.0
       ],
       [
-        13.5,
-        13.5,
-        1.6
+        25.0,
+        25.0,
+        16.6
       ]
     ]
   },
-  "fit-coupon": {
+  "screen-bezel": {
     "watertight": true,
-    "volume_mm3": 2327.72,
+    "volume_mm3": 1504.34,
     "bounds_mm": [
       [
-        -21.8,
-        -21.8,
+        -25.0,
+        -25.0,
         0.0
       ],
       [
-        55.425,
-        21.8,
-        3.0
+        25.0,
+        25.0,
+        1.4
       ]
     ]
   },
@@ -101,28 +101,44 @@
     "bounds_mm": [
       [
         -2.9,
-        -29.9,
+        -31.9,
         0.0
       ],
       [
         2.9,
-        -24.1,
+        -26.1,
         2.4
       ]
     ]
   },
-  "access_checks": {
-    "usb_body_to_lid": "clear",
-    "slide_switch_to_lid": "clear",
-    "reset_plunger_to_lid": "clear",
-    "battery_connector_to_base_and_pouch": "clear",
-    "retainer_countersink_edge_wall_mm": 1.6
+  "fit-coupon": {
+    "watertight": true,
+    "volume_mm3": 2168.84,
+    "bounds_mm": [
+      [
+        -24.0,
+        -24.0,
+        0.0
+      ],
+      [
+        56.925,
+        24.0,
+        3.0
+      ]
+    ]
   },
   "clearances": {
-    "sensor_to_magnet_mm": 1.65,
-    "rotor_to_lid_mm": 0.4,
+    "screen_bezel_to_grip_radial_mm": 0.6,
+    "encoder_to_recess_vertical_mm": 0.5,
+    "encoder_gap_radial_each_side_mm": 1.0,
     "battery_to_pcb_mm": 2.0,
-    "stem_diametral_clearance_mm": 0.15,
-    "bearing_outer_diametral_clearance_mm": 0.1
-  }
+    "trimmed_header_tails_to_battery_mm": 1.2,
+    "lid_screw_base_engagement_mm": 3.5,
+    "stem_diametral_mm": 0.15,
+    "bearing_outer_diametral_mm": 0.1,
+    "bearing_head_to_lcd_connector_mm": 1.8,
+    "encoder_slot_count": 48,
+    "quadrature_edges_per_turn": 192
+  },
+  "scope": "CAD collision checks only; printed fits, IR opacity, optical contrast and module/cable clearances require prototype measurements."
 }

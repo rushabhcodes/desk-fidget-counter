@@ -1,24 +1,96 @@
 {
-  "base_diameter": 72.0,
+  "base_diameter": 80,
   "pcb_diameter": 64.0,
   "pcb_bottom_z": 10.0,
   "pcb_thickness": 1.6,
-  "mount_holes": [[-21,21],[21,21],[-21,-21],[21,-21]],
-  "sensor_package_height": 1.75,
+  "mount_holes": [
+    [
+      -21,
+      21
+    ],
+    [
+      21,
+      21
+    ],
+    [
+      -21,
+      -21
+    ],
+    [
+      21,
+      -21
+    ]
+  ],
   "lid_bottom_z": 14.2,
   "lid_top_z": 15.4,
-  "bearing": {"part":"6805-2RS", "id":25.0,"od":37.0,"width":7.0,"bottom_z":17.0},
-  "bearing_stem_od": 24.85,
-  "bearing_pocket_id": 37.10,
-  "knob_diameter":49.0,
-  "knob_top_z":31.0,
-  "magnet": {"part":"K&J D42DIA", "diameter":6.35,"thickness":3.175,"bottom_z":15.0,"magnetization":"diametric"},
-  "magnet_pocket_diameter":6.55,
-  "battery_envelope": [21.0, 37.0, 5.8],
-  "battery_center": [0.0, -2.5, 5.1],
-  "battery_part":"Adafruit 2750 protected 3.7V 350mAh LiPo",
-  "scroll_switch": [-28.0,-1.0],
-  "reset_button": [0.0,-27.0],
-  "led": [8.0,-26.0],
-  "usb_center": [0.0,25.7]
+  "bearing": {
+    "part": "NSK 6806ZZ",
+    "id": 30,
+    "od": 42,
+    "width": 7,
+    "bottom_z": 22
+  },
+  "bearing_stem_od": 29.85,
+  "bearing_pocket_id": 42.1,
+  "knob_diameter": 68,
+  "knob_top_z": 46.8,
+  "battery_envelope": [
+    21.0,
+    37.0,
+    5.8
+  ],
+  "battery_center": [
+    0.0,
+    -2.5,
+    5.1
+  ],
+  "battery_part": "Adafruit 2750 protected 3.7V 350mAh LiPo",
+  "scroll_switch": [
+    -20,
+    -14
+  ],
+  "reset_button": [
+    0,
+    -29
+  ],
+  "led": [
+    8.0,
+    -26.0
+  ],
+  "usb_center": [
+    0.0,
+    25.7
+  ],
+  "programming_connector": [
+    0,
+    -20
+  ],
+  "display_connector": [
+    0,
+    0
+  ],
+  "encoder": {
+    "position": [
+      -23,
+      10
+    ],
+    "rotation_deg": 156.501434,
+    "track_radius": 25.079872408,
+    "track_thickness": 1.0,
+    "slots": 48,
+    "beam_z": 16.1
+  },
+  "display": {
+    "part": "Waveshare 19192",
+    "active_diameter": 32.4,
+    "pcb_diameter": 37.5,
+    "pcb_bottom_z": 42,
+    "pcb_thickness": 1,
+    "front_z": 45.6,
+    "bezel_top_z": 47,
+    "bezel_diameter": 50,
+    "module_rotation_deg": 90
+  },
+  "header_tail_below_pcb_mm": 0.8,
+  "lid_screw_length_mm": 10
 }

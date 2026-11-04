@@ -1,6 +1,6 @@
-/tmp/desk-cad-env/lib/python3.12/site-packages/gerbonara/excellon.py:573: SyntaxWarning: /home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-reva-NPTH.drl:16 "G90": G90 header statement found after end of header
+/tmp/desk-cad-env/lib/python3.12/site-packages/gerbonara/excellon.py:573: SyntaxWarning: /home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revb-NPTH.drl:14 "G90": G90 header statement found after end of header
   warnings.warn(f'{self.filename}:{self.lineno} "{self.line}": {msg}', SyntaxWarning)
-/tmp/desk-cad-env/lib/python3.12/site-packages/gerbonara/excellon.py:573: SyntaxWarning: /home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-reva-PTH.drl:20 "G90": G90 header statement found after end of header
+/tmp/desk-cad-env/lib/python3.12/site-packages/gerbonara/excellon.py:573: SyntaxWarning: /home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revb-PTH.drl:20 "G90": G90 header statement found after end of header
   warnings.warn(f'{self.filename}:{self.lineno} "{self.line}": {msg}', SyntaxWarning)
 {
   "parser": "gerbonara 1.5.0",
@@ -20,17 +20,16 @@
     64
   ],
   "outline_segments": 128,
-  "plated_round_drills": 133,
+  "plated_round_drills": 193,
   "plated_slots": 4,
   "npth_diameters_and_counts": {
     "0.6": 2,
-    "1.5": 2,
     "2.7": 4
   },
-  "JST_0.75mm_drills": 2,
-  "source_vias": 119,
-  "source_plated_holes": 18,
-  "BOM_rows": 57,
-  "populated_placements": 54,
+  "JST_0.75mm_drills": 16,
+  "source_vias": 170,
+  "source_plated_holes": 27,
+  "BOM_rows": 63,
+  "populated_placements": 62,
   "parser_note": "KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped."
 }

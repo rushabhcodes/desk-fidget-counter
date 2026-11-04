@@ -6,7 +6,7 @@ OBJCOPY = $(TOOLCHAIN)objcopy
 SIZE = $(TOOLCHAIN)size
 CMSIS = $(TINYUSB)/lib/CMSIS_5/CMSIS/Core/Include
 DEVICE = $(TINYUSB)/hw/mcu/st/cmsis_device_f0/Include
-SOURCES = main.c counter.c startup.c usb_descriptors.c syscalls.c \
+SOURCES = main.c counter.c lcd.c lcd_ui.c startup.c usb_descriptors.c syscalls.c \
  $(TINYUSB)/src/tusb.c $(TINYUSB)/src/common/tusb_fifo.c \
  $(TINYUSB)/src/device/usbd.c $(TINYUSB)/src/class/cdc/cdc_device.c \
  $(TINYUSB)/src/class/hid/hid_device.c \
@@ -18,7 +18,7 @@ CFLAGS = -std=gnu11 -Os -g3 -mcpu=cortex-m0 -mthumb -ffunction-sections -fdata-s
 LDFLAGS = -Tstm32f072cb.ld -Wl,--gc-sections,-Map=build/desk-knob.map \
  -nostartfiles --specs=nosys.specs -Wl,--print-memory-usage
 all: build/desk-knob.bin build/desk-knob.hex
-build/desk-knob.elf: $(SOURCES) counter.h tusb_config.h stm32f072cb.ld
+build/desk-knob.elf: $(SOURCES) counter.h lcd.h tusb_config.h stm32f072cb.ld
 	mkdir -p build
 	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $@
 	$(SIZE) $@

@@ -1,47 +1,64 @@
-# Assembly / Rev A
+# Assembly / Rev B
 
-The printable design is defined by `mechanical/parameters.json` and `mechanical/generate.py`. Print files are in `mechanical/stl`. All STL dimensions are millimetres. Generated parts are checked for watertightness and positive volume; the assembly model checks moving parts against the fixed lid and retainer.
+The screen, its cradle and wires stay fixed. Only the grip, bearing outer race and black encoder retainer rotate. The nominal envelope is **Ø80×47 mm** before feet.
 
-## 3D assembly models
-
-Open the [assembled product on tscircuit](https://tscircuit.com/rushabhcodes/desk-fidget-counter), or download the [assembled GLB](mechanical/cad/assembled.glb) and [exploded GLB](mechanical/cad/exploded.glb). Both include the PCB, six printed parts, bearing, magnet, cell and fasteners as named geometry. See [CAD coordinates and rebuilding](mechanical/README.md) for scale, model detail and source files.
+Open the [assembled tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [assembled GLB](mechanical/cad/assembled.glb), or [exploded GLB](mechanical/cad/exploded.glb). The PCB and seven printed pieces are in their assembly poses. Purchased hardware uses dimensioned envelope models; cable routing and vendor internals are omitted. [CAD rebuilding and coordinates](mechanical/README.md) explain that distinction.
 
 ![Exploded assembly](mechanical/exploded.png)
 
-## Mechanical bill of materials
+## Hardware beyond the PCB BOM
 
-| Qty | Part |
+| Qty | Item |
 |---|---|
-| 1 each | Printed base, lid, knob, outer retainer, inner retainer, button plunger |
-| 1 | 6805 / SKF 61805-2RS1 bearing, 25 × 37 × 7 mm |
-| 1 | K&J D42DIA diametric N42 magnet, Ø6.35 × 3.175 mm; same-size N52 variant only after checking sensor field status |
-| 1 | Adafruit 2750 protected 350 mAh LiPo, within 21 × 37 × 5.8 mm envelope |
-| 1 | Semitec 103AT-2 NTC on insulated flexible wires |
-| 4 | M2.5 × 6 mm thread-forming PCB screws, low-profile head |
-| 2 | M2 × 6 mm lid screws |
-| 3 | M2 × 8 mm pan-head inner-race retainer screws |
-| 3 | M2 × 6 mm **countersunk** outer-race retainer screws |
-| 1 | 4 mm fabric ribbon for cell retention; insulating foam/tape; nonconductive magnet adhesive |
-| 3–4 | Rubber feet, 1 mm nominal, outside the ribbon slots |
+| 1 | Waveshare **19192**, non-touch 1.28inch LCD Module, GC9A01, 240×240; supplied PH2.0 eight-wire cable |
+| 1 | NSK **6806ZZ** or identical 30 mm ID ×42 mm OD ×7 mm shielded bearing |
+| 1 | Adafruit **2750**, protected 1S 3.7 V 350 mAh LiPo, with matching PH2 plug; check polarity with a meter |
+| 1 | Semitec **103AT-2** 10 kΩ NTC, insulated and taped to the pouch; leads soldered at J3 |
+| 1 | PH2.0 six-way programming cable: PHR-6 housing and suitable JST SPH-series crimp contacts; terminate at your SWD probe |
+| 4 | M2.5×6 pan-head screws for the PCB |
+| 2 | M2×10 pan-head screws for fixed lid (3.5 mm engagement into base bosses) |
+| 3 | M2×8 pan-head screws for fixed inner-race clamp/cradle |
+| 6 | M2×6 countersunk screws: three encoder plate, three screen bezel |
+| 1 | 4 mm fabric ribbon, insulating tape/foam, thin LCD edge padding and removable feet |
 
-Use PETG, 0.2 mm layers, four perimeters and solid layers around fasteners. Print the fit coupon before the full parts. The supplied knob STL is inverted for printing with its roof against the bed; no large unsupported roof is required. Leave bearing fits and the magnet bore free of support material. Hole sizes and 0.15/0.10 mm diametral bearing clearances are starting values requiring a printer-specific fit trial. Retainers provide axial capture; do not depend on an aggressive press fit.
+The electronic BOM includes **NKK G12AH**, JST J2/J4/J6 and the optical sensor; do not buy the old Rev A slide switch, AS5600 or magnet. Screen module variants with a touch controller or integrated MCU have different geometry/pinouts and are not substitutions.
 
-## PCB and electrical assembly
+## Print preparation
 
-1. Fabricate the specified bare board; inspect copper, drill registration and polarity. Reflow the top-side SMT parts. BQ24074 EP is ground and must be soldered; use the reduced paste aperture and an appropriate reflow profile. Hand-assemble the slide switch and bottom-side JST battery connector afterward.
-2. J3, J4 and J5 are intentionally unpopulated copper interfaces. Solder the two insulated NTC wires directly into J3. Use pogo contacts on J4 for programming. J5 is a temporary BOOT0 recovery bridge. Permanent tall headers prevent the lid fitting.
-3. Trim all top-side through-hole leads to **1 mm or less below the board**, deburr and clean. Battery-to-PCB clearance is 2.0 mm; untrimmed header tails can hit the pouch. Insulate the battery-facing board underside with a thin PET/Kapton sheet, leaving the JST mating opening accessible.
-4. Run the electrical bring-up tests with current-limited power before connecting the LiPo. Verify J2 pin 1 is BAT+ and pin 2 GND; check the actual cable with a meter. Never assume a third-party JST cable has the same polarity.
-5. Bond the NTC bead to the broad pouch face using insulating tape. Do not solder to or puncture the cell. Place the battery in the tray over a thin insulating foam pad. Route its cable and NTC wires beside the tray. The fabric ribbon passes through the two base slots and holds the cell gently; it must not compress the pouch.
-6. Fit the PCB at z=10 mm with the four M2.5 screws. Recheck clearances at the connector, trimmed leads and ribbon. The USB opening faces +Y. Program the MCU and deliberately initialize FRAM with a three-second reset.
+Print `base`, `lid`, `knob`, `outer-retainer`, `inner-retainer`, `screen-bezel` and `button-plunger` from [mechanical/stl](mechanical/stl). Print the fit coupon first. PETG, 0.2 mm layers and at least four perimeters are starting settings. The grip and encoder retainer STLs are inverted with their upper faces against the bed. The cradle cantilevers, grip bearing lip and lid port bridges need removable supports. Keep bearing seats, optical apertures and the cable bore free of support material.
 
-## Bearing, rotor and cover
+**Print the encoder retainer in opaque carbon-black material and test its IR opacity.** It has 48 open slots about 1.64 mm wide, a 1.0 mm radial skirt and a solid upper collar. Clear/gold/translucent filament is unsuitable for this part. Remove strings without widening individual slots. Start with the supplied 0.15/0.10 mm diametral bearing clearances; tune with the coupon. Retainers capture races axially, so a forceful press fit is unnecessary.
 
-1. Fit the button plunger from below the lid: its wide flange remains below the lid, with its stem through the RESET opening. The tactile switch supplies its return force. Verify free travel before tightening the lid.
-2. Screw the lid to the base. The stationary collar locates the bearing's inner race; its shoulder is at z=17 mm. The PCB and sensor remain stationary. The USB port, scroll lever, reset plunger and LED opening stay accessible on the fixed part.
-3. On the bench, turn the knob upside down. Put the inner retainer into the roof cavity, with its three holes aligned to the three Ø4.4 mm roof access bores. Fit the bearing into the outer-race seat. Attach the outer retainer with three M2 × 6 **countersunk** screws. Their heads must be flush with its underside; projecting pan heads would hit the lid.
-4. Seat the diametric magnet into the knob's center post with nonconductive adhesive. Its lower face is nominally z=15 mm, **1.65 mm above the AS5600 package top**. Center it over U2. Avoid other magnets and ferromagnetic screws near the sensing axis.
-5. Lower the complete rotor over the stationary stem. Align the inner retainer with the stem's three screw pilots. Insert the three M2 × 8 pan-head screws through the roof access bores and secure the **inner race only**. The heads sit below the roof; do not clamp bearing shields or the outer race. The rotating outer retainer is nominally 0.4 mm above the fixed lid. For disassembly, undo these same three accessible screws and lift off the rotor before touching the outer retainer.
-6. Check a full turn in both directions without rubbing. Verify sensor MD is set and ML/MH remain clear across the full rotation. If the field is too strong, use the N42 variant or recess the magnet slightly further; if too weak, adjust seating carefully while preserving package clearance. Re-run the count tests after every magnetic or mechanical change.
+## Board, firmware and wiring
 
-The assembled solid model is Ø72 × 31 mm, before feet. CAD checks do not establish printed fit, bearing drag, actual magnetic strength, stiffness or drop resistance. Those remain prototype tests.
+1. Reflow top SMT components, including U4's exposed ground pad. The dual optical sensor has a common collector, not a common emitter. Match its emitter-side marking and the physical A/K/C/E drawing in [references](reference/DATASHEETS.md).
+2. Hand-solder the left-facing G12AH toggle, bottom PH2 battery connector, top PH6 programming connector and top PH8 display connector. J3 is the only unpopulated connector footprint; solder the NTC wires directly into it. Inspect through-hole joints before mounting. **Trim and deburr J4/J6 solder tails to at most 0.8 mm below the PCB.** This leaves a nominal 1.2 mm gap to the cell envelope. Fix a thin insulating barrier under the board over these tails; no sharp metal may contact or press the pouch.
+3. With the pouch disconnected, power over USB and flash the included Rev B firmware through J4. J4 pin order is **3V3 VREF, SWDIO, SWCLK, NRST, GND, BOOT0**. VREF is a probe sense output. See [flashing instructions](firmware/README.md).
+4. Verify screen cable continuity end-to-end before connecting it. J6 follows the Waveshare schematic's physical connector numbering:
+
+| Pin | Signal | MCU / supply |
+|---|---|---|
+| 1 | BL | PB11 |
+| 2 | RST | PB10 |
+| 3 | DC | PB14 |
+| 4 | CS | PA8 |
+| 5 | CLK | PB13 through R27 |
+| 6 | DIN | PB15 through R28 |
+| 7 | GND | Ground |
+| 8 | VCC | 3.3 V |
+
+Use the connector's physical pin-1 mark, not wire colours or a guessed viewing direction. A straight-through PH8 cable should preserve these numbers. The module supports 3.3 V input/logic; this board supplies 3.3 V. Do not apply USB 5 V to the signal pins.
+
+## Mechanical assembly
+
+1. Tape the insulated NTC to the protected pouch, place the pouch in the base tray and retain it gently with the fabric ribbon. Keep its leads clear of screw bosses. Plug J2 in only after confirming BAT+/GND polarity. The nominal pouch-to-PCB allowance is 2 mm.
+2. Fasten the PCB at the four standoffs. Put the reset plunger on SW2 at (0,−29). Thread the PH8 cable through the lid's hollow post, then plug J6 in. Seat the fixed lid, keeping the cable away from the optical sensor and skirt path. Fasten the two lid screws. The +Y USB opening and the left toggle recess must be clear.
+3. On the bench, insert the bearing into the grip from below, then fit the black encoder retainer from below and fasten its three countersunk screws. The grip shoulder and retainer capture the outer race. Lower this complete rotor/bearing group over the fixed 29.85 mm post to the z22 shoulder. Guide the skirt centrally into U2's 3 mm gap without contact. For removal, lift this whole group off before undoing its underside screws; the exploded drawing shows relationships rather than a required disassembly path.
+4. Fasten the inner-retainer/cradle to the fixed post with three M2×8 screws. Its plate contacts the inner race; the grip and lower retainer contact the outer race. The screw heads end at z32.2. Keep the cable in the central bore and the right-side notch; leave slack without any loop entering the bearing or optical track.
+5. Connect the screen cable. Seat the module with its tab/connector toward **+X (right)** on the cradle's edge ledges. No support should press a backside component. The model reserves 8 mm below the PCB for the rear connector, but compare the real module and cable before tightening. Add thin edge padding as needed without loading the active glass.
+6. Fit the fixed screen bezel with three countersunk M2×6 screws. Tighten only enough to retain the module; never bow the PCB or clamp the glass. The window radius is 16.6 mm around a 16.2 mm active radius. Rotate the grip through full turns and check the nominal 0.6 mm radial bezel clearance.
+7. Initialize FRAM with USB `RESET CONFIRM`. Confirm 10 complete rotations in either direction add 10, partial reversal cancels, and toggle-off leaves counting active. Check scrolling in an editor, both USB-C orientations, unplug/replug and power-cut retention.
+
+J4 and the internal reset button are service controls beneath the removable rotor. Normal reset/readout is available through USB without disassembly. The screen is non-touch.
+
+The nominal encoder-to-lid gap is 0.5 mm; its solid swept volume passes the model checks. Printed tolerances, bearing drag, screw preload, rear LCD components, cable bend radius, IR contrast and real-life accuracy still need the physical checks in [BRINGUP.md](validation/BRINGUP.md).
