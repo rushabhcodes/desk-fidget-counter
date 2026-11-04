@@ -9,3 +9,5 @@ firmware/downloads/
 firmware/.deps/
 firmware/build/*.map
 *.kicad_prl
+dist/*/kicad/
+routing/candidate.json

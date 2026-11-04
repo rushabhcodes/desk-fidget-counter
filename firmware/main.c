@@ -308,7 +308,7 @@ static void console(void) {
       else if (!strcmp(line, "HELP"))
         reply("COUNT | STATUS | RESET CONFIRM | VERSION\r\n");
       else if (!strcmp(line, "VERSION"))
-        reply("Desk Knob Rev B / firmware 2.0.0 / TinyUSB 0.21.0\r\n");
+        reply("Desk Knob Rev C / firmware 3.0.0 / TinyUSB 0.21.0\r\n");
       else
         reply("ERROR COMMAND\r\n");
       n = 0;

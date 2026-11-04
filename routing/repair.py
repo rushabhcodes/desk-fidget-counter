@@ -6,31 +6,46 @@ root with numpy/shapely; independent KiCad DRC and tscircuit checks are required
 import json, math, heapq, sys
 from pathlib import Path
 import numpy as np
-from shapely.geometry import box, Point, LineString
+from shapely.geometry import box, Point, LineString, Polygon
 from shapely.ops import unary_union
 from shapely import contains_xy
 s=json.loads(Path('routing/input.json').read_text())
 p=Path('routing/routes.json');saved=json.loads(p.read_text());routes=saved['traces']
-STEP=.05;LO=-32;SIZE=1281
+STEP=.05;LO=-36;SIZE=1441
+outline=Polygon([(p["x"],p["y"]) for p in s["outline"]])
 pending=set(sys.argv[1:])
 xx,yy=np.meshgrid(LO+np.arange(SIZE)*STEP,LO+np.arange(SIZE)*STEP)
 
 def repair(name):
  target=next(r for r in routes if r['pcb_trace_id']==name)
+ anchors=json.loads(Path('routing/repair-anchors.json').read_text()) if Path('routing/repair-anchors.json').exists() else {}
+ entry=anchors.get(name,{})
+ anchor=entry.get('start',0);goal_index=entry.get('end',len(target['route'])-1-entry.get('suffix',0))
+ prefix=target['route'][:anchor];suffix=target['route'][goal_index+1:]
  net=target['connection_name'];width=.25 if net in ['source_net_2','source_net_3','source_net_4'] else .1
  ids={net}
  for _ in range(8):
   for o in s['obstacles']:
    if ids.intersection(o.get('connectedTo',[])):ids.update(o['connectedTo'])
  shapes=[[],[]];via_shapes=[]
+ # Use the actual routed window: router scan stripes can miss its last 0.2mm.
+ cj=json.loads(Path('dist/index/circuit.json').read_text())
+ for cutout in [c for c in cj if c['type']=='pcb_cutout']:
+  g=Polygon([(p['x'],p['y']) for p in cutout['points']])
+  for l in range(2):shapes[l].append(g.buffer(.31+width/2))
+  via_shapes.append(g.buffer(.66))
  for o in s['obstacles']:
   x,y=o['center']['x'],o['center']['y'];w,h=o['width'],o['height'];g=box(x-w/2,y-h/2,x+w/2,y+h/2)
   is_pad=any(k in o.get('circuitJsonMetadata',{}) for k in ['pcb_smtpad_id','pcb_plated_hole_id'])
-  if is_pad:via_shapes.append(g.buffer(.51))
+  is_void=not o.get('circuitJsonMetadata') and not o.get('connectedTo')
+  is_void=is_void or 'pcb_hole_id' in o.get('circuitJsonMetadata',{})
+  edge_gap=.31 if is_void else .16
+  via_gap=.66 if is_void else .51
+  if is_pad:via_shapes.append(g.buffer(via_gap))
   if ids.intersection(o.get('connectedTo',[])):continue
   for i,l in enumerate(['top','bottom']):
-   if l in o['layers']:shapes[i].append(g.buffer(.16+width/2))
-  via_shapes.append(g.buffer(.51))
+   if l in o['layers']:shapes[i].append(g.buffer(edge_gap+width/2))
+  via_shapes.append(g.buffer(via_gap))
  for r in routes:
   if r is target or r['pcb_trace_id'] in pending:continue
   same=r['connection_name']==net
@@ -40,16 +55,16 @@ def repair(name):
     shapes[0 if a['layer']=='top' else 1].append(g.buffer(w/2+.16+width/2));via_shapes.append(g.buffer(w/2+.51))
   for a in r['route']:
    if a['route_type']=='via':
-    g=Point(a['x'],a['y']);via_shapes.append(g.buffer(.82 if same else .87))
+    g=Point(a['x'],a['y']);via_shapes.append(g.buffer(.86 if same else .87))
     if not same:
      for i in range(2):shapes[i].append(g.buffer(.35+.16+width/2))
- geoms=[unary_union(v) for v in shapes];blocked=[contains_xy(g,xx,yy) for g in geoms]
- for l in range(2):blocked[l]|=xx*xx+yy*yy>(32-.31-width/2)**2
- vb=contains_xy(unary_union(via_shapes),xx,yy)|(xx*xx+yy*yy>(32-.66)**2)
+ for point in prefix+suffix:
+  if point['route_type']=='via':via_shapes.append(Point(point['x'],point['y']).buffer(.86))
+ geoms=[unary_union(v) for v in shapes];blocked=[contains_xy(g.buffer(.005),xx,yy) for g in geoms]
+ for l in range(2):blocked[l]|=~contains_xy(outline.buffer(-.31-width/2),xx,yy)
+ vb=contains_xy(unary_union(via_shapes).buffer(.005),xx,yy)|~contains_xy(outline.buffer(-.66),xx,yy)
  def node(pt):return(round((pt['x']-LO)/STEP),round((pt['y']-LO)/STEP),0 if pt['layer']=='top' else 1)
- anchor={'source_net_11_mst1_0':6,'source_net_17_mst0_0':5}.get(name,0)
- prefix=target['route'][:anchor]
- a,b=target['route'][anchor],target['route'][-1];assert a['route_type']==b['route_type']=='wire'
+ a,b=target['route'][anchor],target['route'][goal_index];assert a['route_type']==b['route_type']=='wire'
  start,goal=node(a),node(b)
  for label,n in [('start',start),('goal',goal)]:assert not blocked[n[2]][n[1],n[0]],(name,label,'obstructed',n)
  def h(n):return math.hypot(n[0]-goal[0],n[1]-goal[1])+(0 if n[2]==goal[2] else 50)
@@ -83,8 +98,8 @@ def repair(name):
  out[0]['x'],out[0]['y']=a['x'],a['y'];out[-1]['x'],out[-1]['y']=b['x'],b['y']
  for a1,b1 in zip(out,out[1:]):
   if a1['route_type']==b1['route_type']=='wire' and a1['layer']==b1['layer']:
-   assert not LineString([(a1['x'],a1['y']),(b1['x'],b1['y'])]).intersects(geoms[0 if a1['layer']=='top' else 1]),(name,'clearance at endpoint')
- target['route']=prefix+out
+   assert not LineString([(a1['x'],a1['y']),(b1['x'],b1['y'])]).intersects(geoms[0 if a1['layer']=='top' else 1].buffer(-1e-7)),(name,'clearance along segment',a1,b1)
+ target['route']=prefix+out+suffix
  p.write_text(json.dumps(saved,separators=(',',':'))+'\n')
  print(name,len(out),'points',sum(pt['route_type']=='via' for pt in out),'vias',flush=True)
 for name in sys.argv[1:]:

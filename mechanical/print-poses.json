@@ -5,27 +5,35 @@
   },
   "lid": {
     "inverted": false,
-    "z": 14.2
+    "z": 4.2
   },
   "knob": {
     "inverted": true,
-    "z": 46.8
+    "z": 22.099999999999998
   },
   "outer-retainer": {
     "inverted": true,
-    "z": 22.0
+    "z": 12.0
   },
   "inner-retainer": {
     "inverted": false,
-    "z": 29.0
+    "z": 16.1
   },
   "screen-bezel": {
     "inverted": false,
-    "z": 45.6
+    "z": 20.9
   },
   "button-plunger": {
     "inverted": false,
-    "z": 13.6
+    "z": 6.2
+  },
+  "bearing-clamp": {
+    "inverted": false,
+    "z": 19.0
+  },
+  "encoder-skirt": {
+    "inverted": true,
+    "z": 20.64
   },
   "fit-coupon": {
     "inverted": false,

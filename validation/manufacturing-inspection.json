@@ -12,18 +12,20 @@
     "top silk"
   ],
   "outline_centerline_mm": [
-    64,
-    64
+    68,
+    68
   ],
   "outline_segments": 128,
-  "plated_round_drills": 193,
+  "closed_edge_contours": 2,
+  "internal_window_area_mm2": 1401.24578,
+  "plated_round_drills": 245,
   "plated_slots": 4,
   "npth_diameters_and_counts": {
     "0.6": 2,
     "2.7": 4
   },
   "JST_0.75mm_drills": 16,
-  "source_vias": 170,
+  "source_vias": 222,
   "source_plated_holes": 27,
   "BOM_rows": 63,
   "populated_placements": 62,

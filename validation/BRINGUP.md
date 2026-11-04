@@ -1,4 +1,4 @@
-# Physical prototype bring-up / Rev B
+# Physical prototype bring-up / Rev C
 
 These measurements are outstanding. Software checks and envelope CAD do not establish hardware operation. Use current-limited bench power and the specified protected cell; record instruments, firmware tag, results and photographs here.
 
@@ -35,6 +35,11 @@ These measurements are outstanding. Software checks and envelope CAD do not esta
 - [ ] Print the fit coupon, measure the bearing seats and tune printer-specific tolerances.
 - [ ] Inspect the actual Waveshare module's rear components, PH8 housing and cable bend. Confirm the model's connector allowance and edge-only support; never tighten against a backside component.
 - [ ] Confirm bearing outer/inner races are separately captured, screw heads and pilots clear, and the rotor group can be assembled/removed in the documented order.
-- [ ] Measure bezel/grip clearance (nominal .6 mm radial), skirt/lid clearance (.5 mm axial) and sensor gap clearance (1 mm radial per side). Rotate under hand pressure in both directions with no rub.
+- [ ] Measure bezel/grip clearance (nominal .6 mm radial), bearing-clamp/top-web clearance (.5 mm axial) and sensor gap clearance (1 mm radial per side). Rotate under hand pressure in both directions with no rub.
 - [ ] Confirm every cable stays fixed and clear of the bearing/encoder; battery tray and strap do not compress the pouch or abrade leads.
 - [ ] Test USB plug fit through the recessed opening, toggle finger access, service JST access, bearing feel, long rotation endurance and intended desk loads.
+
+- [ ] Inspect the routed PCB window, individual solder wells and all trimmed through-hole tails; ensure no metal contacts the base or pouch. All component housings must be on the top side.
+- [ ] Verify the optical-skirt adhesive bond after the specified dwell time, heat cycling and repeated rotation. Confirm the bond does not creep or add bearing drag.
+- [ ] Park the rotor at the three underside driver windows and verify retainer screw access, removal order and separate inner/outer race contact.
+- [ ] Check a 13×8 mm USB-C overmould clears the rotating lower edge by the nominal .85 mm, and reject larger plugs that rub.

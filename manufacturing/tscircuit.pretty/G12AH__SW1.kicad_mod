@@ -7,7 +7,7 @@
 		(at 0 -3 270)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "44de3156-98b1-4a10-a04a-73da99f0f160")
+		(uuid "87f9238b-02dd-49bf-97f4-c68cbe361f96")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 270)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "64ce282e-8fa7-41e2-b865-ad1df208a635")
+		(uuid "e2b0e0c4-b9d8-4332-8674-733f597ff16d")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 270)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "60efff0b-ce43-44f0-b639-91a2221c7cc1")
+		(uuid "de832983-4b56-4106-bc25-3c3e68a950e3")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 270)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "785ce108-b27b-4cd9-91b0-2d2ef80c8c1d")
+		(uuid "dd34bb00-40bc-43e5-8e5b-b6dcb750f3e8")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "177a54db-d6e7-4d6c-b65b-4fcfd3bf2e67")
+		(uuid "8ad90737-5803-4922-b87e-5c5076e65b5c")
 	)
 	(fp_line
 		(start -3.5 1.05)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "c17eeb44-be99-4642-aa73-0b71f3257d53")
+		(uuid "f6f41cc3-7fe4-49fc-9309-d8dd50cd2992")
 	)
 	(fp_line
 		(start 3.5 -5.95)
@@ -105,7 +105,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "74aefdc9-49cc-4d80-a780-875f8d6c1e16")
+		(uuid "a29a5ff4-c7df-40f1-973a-787937d76a31")
 	)
 	(fp_line
 		(start 3.5 1.05)
@@ -115,7 +115,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "91b8bdbc-c3b9-4329-a74a-34abbb8fbb75")
+		(uuid "e5dcf227-933e-42bd-85f5-1b154b9110d4")
 	)
 	(fp_rect
 		(start -3.9 -6.35)
@@ -126,7 +126,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "b6ec409a-1a9f-4289-b089-072ea62e0d1c")
+		(uuid "9cc08051-6848-41ad-84ca-6f9e723ad60d")
 	)
 	(pad "1" thru_hole circle
 		(at -2.54 0 270)
@@ -166,7 +166,7 @@
 		(drill 0.6)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "111e1600-234a-65e1-57b2-e1c273e4a25d")
+		(uuid "25098ae0-0f5e-f101-43c7-6ce2782fe8c3")
 	)
 	(embedded_fonts no)
 )

@@ -1,6 +1,6 @@
-# Firmware 2.0.0 / PCB Rev B
+# Firmware 3.0.0 / PCB Rev C
 
-Included [BIN](build/desk-knob.bin) and [HEX](build/desk-knob.hex) files target STM32F072CBT6 at **0x08000000**. Use these with the Rev B optical board and screen; Rev A magnetic hardware needs its earlier tagged firmware.
+Included [BIN](build/desk-knob.bin) and [HEX](build/desk-knob.hex) files target STM32F072CBT6 at **0x08000000**. Use these with the Rev C optical board and screen; Rev A magnetic hardware needs its earlier tagged firmware.
 
 ## Build and flash
 
@@ -12,7 +12,7 @@ python3 validation/check-firmware-image.py
 
 The bootstrap script pins TinyUSB 0.21.0 and the CMSIS dependencies to recorded commits. Install an ARM embedded GCC/newlib toolchain and Make. It can also use `make -C firmware TOOLCHAIN=/path/to/arm-none-eabi- TINYUSB=/path/to/tinyusb`.
 
-J4 is a populated **JST-PH 2.0 mm six-pin B6B-PH-K-S** top-entry header. Physical pins 1→6 are **VREF 3V3, SWDIO, SWCLK, NRST, GND, BOOT0**. On the PCB they run from (−5,−20) to (+5,−20) in 2 mm increments. Power the board from USB or its protected battery; VREF is a probe voltage-sense output. Leave BOOT0 unconnected for ordinary SWD programming. Match probe grounds and use 3.3 V logic.
+J4 is a populated **JST-PH 2.0 mm six-pin B6B-PH-K-S** top-entry header. Physical pins 1→6 are **VREF 3V3, SWDIO, SWCLK, NRST, GND, BOOT0**. On the PCB they run from (−5,20.5) to (+5,20.5) in 2 mm increments. Power the board from USB or its protected battery; VREF is a probe voltage-sense output. Leave BOOT0 unconnected for ordinary SWD programming. Match probe grounds and use 3.3 V logic.
 
 Example with OpenOCD and an ST-Link:
 
@@ -21,7 +21,7 @@ openocd -f interface/stlink.cfg -f target/stm32f0x.cfg \
   -c 'program firmware/build/desk-knob.hex verify reset exit'
 ```
 
-STM32CubeProgrammer can flash the HEX through SWD. For ROM USB DFU recovery, connect J4 BOOT0 to VREF, pulse NRST low, release reset and use CubeProgrammer USB DFU at 0x08000000. Disconnect the BOOT0 bridge and reset afterwards. J5 was removed; recovery uses J4 pin 6. J4 is under the removable rotor.
+STM32CubeProgrammer can flash the HEX through SWD. For ROM USB DFU recovery, connect J4 BOOT0 to VREF, pulse NRST low, release reset and use CubeProgrammer USB DFU at 0x08000000. Disconnect the BOOT0 bridge and reset afterwards. J5 was removed; recovery uses J4 pin 6. J4 is beneath the removable fixed screen.
 
 ## Counter, display and power behaviour
 
@@ -45,7 +45,7 @@ CDC commands end with a newline. Install `pyserial==3.5` with `python -m pip ins
 |---|---|
 | `COUNT` / `STATUS` | JSON: turns, progress, storage_ok, encoder_timer_running, scroll_on, battery_mv, low_battery, rejected, lcd_transport_ok, charger_mode |
 | `RESET CONFIRM` | Commits zero or returns a storage error |
-| `VERSION` | Rev B / firmware 2.0.0 / TinyUSB 0.21.0 |
+| `VERSION` | Rev C / firmware 3.0.0 / TinyUSB 0.21.0 |
 | `HELP` | Available commands |
 
 Total formatting handles the full 64-bit range without optional libc printf support. The HID interface is a standard relative mouse wheel; CDC supplies count/reset access. Development USB VID/PID are **CAFE:4011**; obtain authorized production identifiers before commercial distribution. Physical USB electrical and host interoperability tests remain outstanding.

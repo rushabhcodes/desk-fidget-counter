@@ -50,6 +50,8 @@ for (const [name,count] of [['J2',2],['J4',6],['J6',8]]) {
  for(const h of holes)assert.equal(h.hole_diameter,.75,'JST PH finished drill')
 }
 assert(!components.has('J5'),'BOOT0 must be on six-pin JST J4')
+assert(cj.filter(c=>c.type==='pcb_component').every(c=>c.layer==='top'),'Rev C must assemble entirely from the top');
+assert.equal(cj.filter(c=>c.type==='pcb_cutout').length,1,'Battery and LCD pocket must be routed from the board');
 const mechanics=JSON.parse(fs.readFileSync('mechanical/parameters.json'))
 assert.equal(mechanics.encoder.slots*4,192)
 assert.equal(mechanics.display.active_diameter,32.4)

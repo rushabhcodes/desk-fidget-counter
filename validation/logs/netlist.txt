@@ -1,4 +1,3 @@
-$ tsci check netlist index.circuit.tsx
 Errors: 0
 Warnings: 0
 
@@ -540,7 +539,7 @@ C4 (10uF undefined)
 - pin1(anode, pos, left): NETS(BAT)
 - pin2(cathode, neg, right): NETS(GND)
 
-J2 (B2B-PH-K-S(LF)(SN))
+J2 (S2B-PH-K-S(LF)(SN))
 - pin1(BAT_POS): NETS(BAT)
 - pin2(GND): NETS(GND)
 
@@ -712,7 +711,7 @@ C18 (100nF undefined)
 - pin1(anode, pos, left): NETS(VBUS_ADC)
 - pin2(cathode, neg, right): NETS(GND)
 
-J6 (B8B-PH-K-S(LF)(SN))
+J6 (S8B-PH-K-S(LF)(SN))
 - pin1(BL): NETS(LCD_BL)
 - pin2(RST): NETS(LCD_RST)
 - pin3(DC): NETS(LCD_DC)

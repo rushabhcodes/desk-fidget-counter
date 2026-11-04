@@ -20,10 +20,10 @@ C18,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C19,1,10nF,Murata,GRM188R71H103KA01D,top,YES,Top reflow
 D1,1,"PESD5V0S1BA,115",Nexperia,"PESD5V0S1BA,115",top,YES,Top reflow
 J1,1,TYPE-C-31-M-12,HRO,TYPE-C-31-M-12,top,YES,Top reflow
-J2,1,B2B-PH-K-S(LF)(SN),JST,B2B-PH-K-S(LF)(SN),bottom,YES,Hand solder
+J2,1,S2B-PH-K-S(LF)(SN),JST,S2B-PH-K-S(LF)(SN),top,YES,Hand solder
 J3,1,61300211121,Wurth Elektronik,61300211121,top,NO,Solder pouch NTC leads directly; no header
 J4,1,B6B-PH-K-S(LF)(SN),JST,B6B-PH-K-S(LF)(SN),top,YES,Hand solder
-J6,1,B8B-PH-K-S(LF)(SN),JST,B8B-PH-K-S(LF)(SN),top,YES,Hand solder
+J6,1,S8B-PH-K-S(LF)(SN),JST,S8B-PH-K-S(LF)(SN),top,YES,Hand solder
 LED1,1,LTST-C190KGKT,Lite-On,LTST-C190KGKT,top,YES,Top reflow
 R1,1,5.1kΩ,Yageo,RC0603FR-075K1L,top,YES,Top reflow
 R2,1,5.1kΩ,Yageo,RC0603FR-075K1L,top,YES,Top reflow

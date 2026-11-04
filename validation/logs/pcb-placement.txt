@@ -1,78 +1,134 @@
-$ tsci check placement index.circuit.tsx
-placement summary: no placement issues
+$ bun validation/check-placement.mjs
+placement summary: 8 suboptimal orientations
+
+worst issues:
+1. R5 connections cross the routing path between its pads. Suggested move: rotate R5 180 degrees.
+2. R8 connections cross the routing path between its pads. Suggested move: rotate R8 180 degrees.
+3. R22 connections cross the routing path between its pads. Suggested move: rotate R22 180 degrees.
+4. R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
+5. R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
 
 board top-layer utilization:
-- occupied: 20.786% (851.412mm^2 of 4096mm^2)
+- occupied: 20.772% (960.488mm^2 of 4624mm^2)
 - empty spaces over 5% of board area:
-  - 10.538% (431.648mm^2); bounds=(minX=9.6mm, maxX=32mm, minY=12.73mm, maxY=32mm)
-  - 9.641% (394.89mm^2); bounds=(minX=12.48mm, maxX=32mm, minY=-32mm, maxY=-11.77mm)
-  - 7.982% (326.94mm^2); bounds=(minX=-32mm, maxX=-26.892mm, minY=-32mm, maxY=32mm)
+  - 20.892% (966.035mm^2); bounds=(minX=-12.75mm, maxX=11.75mm, minY=-22.23mm, maxY=17.2mm)
 
 board-edge status:
-- U1: 15.1mm inside left edge
-- J1: 2.626mm inside top edge
-- R1: 8.525mm inside top edge
-- R2: 8.525mm inside top edge
-- U6: 12.75mm inside top edge
-- C1: 13.525mm inside top edge
-- D1: 12.775mm inside top edge
-- U4: 15.25mm inside right edge
-- R3: 18.775mm inside right edge
-- R4: 11.775mm inside right edge
-- R5: 15.775mm inside right edge
-- R6: 16.775mm inside right edge
-- R7: 19.775mm inside right edge
-- R8: 11.775mm inside right edge
-- R9: 7.775mm inside right edge
-- R21: 19.775mm inside right edge
-- R22: 7.775mm inside right edge
-- R23: 7.775mm inside right edge
-- C19: 4.775mm inside right edge
-- C2: 12.775mm inside right edge
-- C3: 11.075mm inside right edge
-- C4: 20.575mm inside right edge
-- J2: 14.4mm inside right edge
-- J3: 6.98mm inside right edge
-- U5: 17.2mm inside right edge
-- C5: 21.775mm inside right edge
-- C6: 13.575mm inside right edge
-- C7: 15.275mm inside left edge
-- C8: 19.775mm inside left edge
-- C9: 23.275mm inside top edge
-- C10: 16.275mm inside left edge
-- C11: 13.025mm inside left edge
-- C12: 17.575mm inside left edge
-- C13: 9.775mm inside left edge
-- R10: 11.775mm inside left edge
-- R11: 8.775mm inside left edge
-- J4: 11.125mm inside bottom edge
-- U2: 6.01mm inside left edge
-- U7: 13.2mm inside left edge
-- R24: 7.775mm inside left edge
-- R25: 9.775mm inside left edge
-- R26: 9.775mm inside left edge
-- C14: 12.925mm inside top edge
-- R12: 22.525mm inside top edge
-- R13: 25.525mm inside top edge
-- U3: 16.795mm inside bottom edge
-- C16: 21.525mm inside bottom edge
-- SW1: 6.32mm inside left edge
-- R14: 9.775mm inside left edge
-- SW2: 2.07mm inside bottom edge
-- R15: 7.525mm inside bottom edge
+- U1: 3.9mm inside right edge
+- J1: 2.326mm inside top edge
+- R1: 6.525mm inside top edge
+- R2: 6.525mm inside top edge
+- U6: 10.75mm inside top edge
+- C1: 12.025mm inside top edge
+- D1: 12.275mm inside top edge
+- U4: 3.25mm inside bottom edge
+- R3: 6.775mm inside bottom edge
+- R4: 0.775mm inside bottom edge
+- R5: 3.775mm inside bottom edge
+- R6: 4.775mm inside bottom edge
+- R7: 7.775mm inside bottom edge
+- R8: 5.775mm inside right edge
+- R9: 6.775mm inside right edge
+- R21: 7.775mm inside bottom edge
+- R22: 4.775mm inside left edge
+- R23: 1.775mm inside left edge
+- C19: 2.775mm inside left edge
+- C2: 1.775mm inside bottom edge
+- C3: 0.575mm inside bottom edge
+- C4: 8.575mm inside bottom edge
+- J2: 14.625mm inside right edge
+- J3: 9.25mm inside bottom edge
+- U5: 4.75mm inside bottom edge
+- C5: 5.525mm inside bottom edge
+- C6: 8.3mm inside bottom edge
+- C7: 10.575mm inside right edge
+- C8: 6.575mm inside right edge
+- C9: 1.525mm inside right edge
+- C10: 10.075mm inside right edge
+- C11: 14.825mm inside right edge
+- C12: 8.375mm inside right edge
+- C13: 5.275mm inside right edge
+- R10: 11.775mm inside right edge
+- R11: 10.775mm inside right edge
+- J4: 12.625mm inside top edge
+- U2: 8.01mm inside left edge
+- U7: 11.2mm inside left edge
+- R24: 4.775mm inside left edge
+- R25: 7.275mm inside left edge
+- R26: 7.275mm inside left edge
+- C14: 11.525mm inside top edge
+- R12: 9.525mm inside top edge
+- R13: 9.525mm inside top edge
+- U3: 3.795mm inside top edge
+- C16: 2.525mm inside top edge
+- SW1: 8.32mm inside left edge
+- R14: 3.775mm inside left edge
+- SW2: 3.07mm inside bottom edge
+- R15: 5.525mm inside bottom edge
 - LED1: 5.525mm inside bottom edge
 - R16: 8.525mm inside bottom edge
-- R17: 19.525mm inside bottom edge
-- R18: 16.525mm inside bottom edge
-- C17: 12.525mm inside bottom edge
-- R19: 15.525mm inside top edge
-- R20: 15.525mm inside top edge
-- C18: 11.525mm inside top edge
-- J6: 24.4mm inside bottom edge
-- R27: 19.525mm inside top edge
-- R28: 19.525mm inside top edge
-- C15: 26.275mm inside left edge
+- R17: 11.775mm inside right edge
+- R18: 8.775mm inside right edge
+- C17: 8.775mm inside right edge
+- R19: 8.525mm inside top edge
+- R20: 8.525mm inside top edge
+- C18: 6.525mm inside top edge
+- J6: 13.625mm inside left edge
+- R27: 13.775mm inside right edge
+- R28: 10.775mm inside right edge
+- C15: 4.775mm inside left edge
+
+flagged components:
+- R5
+  source placement: placement_mode=none
+  resolved placement: center=(9mm, -29mm) on top; bounds=(minX=8.525mm, maxX=9.475mm, minY=-30.225mm, maxY=-27.775mm); size=(width=0.95mm, height=2.45mm); anchor_alignment="center"
+  board edge status: 3.775mm inside bottom edge
+  issues:
+  - R5 connections cross the routing path between its pads. Suggested move: rotate R5 180 degrees.
+- R8
+  source placement: placement_mode=none
+  resolved placement: center=(27mm, 19.5mm) on top; bounds=(minX=25.775mm, maxX=28.225mm, minY=19.025mm, maxY=19.975mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 5.775mm inside right edge
+  issues:
+  - R8 connections cross the routing path between its pads. Suggested move: rotate R8 180 degrees.
+- R22
+  source placement: placement_mode=none
+  resolved placement: center=(-28mm, -7mm) on top; bounds=(minX=-29.225mm, maxX=-26.775mm, minY=-7.475mm, maxY=-6.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 4.775mm inside left edge
+  issues:
+  - R22 connections cross the routing path between its pads. Suggested move: rotate R22 180 degrees.
+- R15
+  source placement: placement_mode=none
+  resolved placement: center=(-11mm, -28mm) on top; bounds=(minX=-12.225mm, maxX=-9.775mm, minY=-28.475mm, maxY=-27.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 5.525mm inside bottom edge
+  issues:
+  - R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
+- R16
+  source placement: placement_mode=none
+  resolved placement: center=(14mm, -25mm) on top; bounds=(minX=12.775mm, maxX=15.225mm, minY=-25.475mm, maxY=-24.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 8.525mm inside bottom edge
+  issues:
+  - R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
+- R17
+  source placement: placement_mode=none
+  resolved placement: center=(21mm, -21mm) on top; bounds=(minX=19.775mm, maxX=22.225mm, minY=-21.475mm, maxY=-20.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 11.775mm inside right edge
+  issues:
+  - R17 connections cross the routing path between its pads. Suggested move: rotate R17 180 degrees.
+- R27
+  source placement: placement_mode=none
+  resolved placement: center=(19mm, 17mm) on top; bounds=(minX=17.775mm, maxX=20.225mm, minY=16.525mm, maxY=17.475mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 13.775mm inside right edge
+  issues:
+  - R27 connections cross the routing path between its pads. Suggested move: rotate R27 180 degrees.
+- R28
+  source placement: placement_mode=none
+  resolved placement: center=(22mm, 17mm) on top; bounds=(minX=20.775mm, maxX=23.225mm, minY=16.525mm, maxY=17.475mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
+  board edge status: 10.775mm inside right edge
+  issues:
+  - R28 connections cross the routing path between its pads. Suggested move: rotate R28 180 degrees.
 
 placement drc:
 Errors: 0
 Warnings: 0
+Placement passed: zero placement/courtyard DRC violations; eight reviewed centroid orientation suggestions. Full copper, shorts and independent KiCad checks remain required.

@@ -1,2 +1,2 @@
 $ bun validation/check-assembly.mjs
-Assembly passed: 20 named mechanical parts, correct OBJ axes/scale, assembled poses, GLB hashes and identical PCB geometry.
+Assembly passed: 22 named mechanical parts, correct OBJ axes/scale, assembled poses, GLB hashes and identical PCB geometry.

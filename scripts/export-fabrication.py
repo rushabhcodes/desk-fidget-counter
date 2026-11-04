@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manufacturing'
 OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
-boardpath=OUT/'desk-knob-revb.kicad_pcb'
+boardpath=OUT/'desk-knob-revc.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 # All coordinates and nets come from tscircuit; refill removes floating copper islands.
 for z in b.Zones():
@@ -78,7 +78,7 @@ for attempt in range(3):
 (ROOT/'validation/pour-cleanup.json').write_text(json.dumps({'removed_isolated_ground_zones':removed},indent=2)+'\n')
 assert not r['violations'] and not r['unconnected_items'], 'DRC is not clean'
 gerbers=OUT/'gerbers';gerbers.mkdir(exist_ok=True)
-for old in gerbers.glob('desk-knob-revb*'):old.unlink()
+for old in gerbers.glob('desk-knob-revc*'):old.unlink()
 subprocess.run(['kicad-cli','pcb','export','gerbers',str(boardpath),'--output',str(gerbers)+'/',
  '--layers','F.Cu,B.Cu,F.Mask,B.Mask,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,Edge.Cuts',
  '--subtract-soldermask','--check-zones'],check=True)

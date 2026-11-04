@@ -4,10 +4,10 @@
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "R5"
-		(at 0 -3 0)
+		(at 0 -3 90)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "baceeb71-6961-44e4-8a49-889a8a2d5565")
+		(uuid "0cf481d5-303a-4456-8fa7-1cb71fa67cbd")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "30kΩ"
-		(at 0 3 0)
+		(at 0 3 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "0973a149-b015-401d-affe-4d32670e7d53")
+		(uuid "58d574ce-ed0e-45af-82e8-12d04193390a")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 0)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "36a16f6a-31d8-4870-8886-6aaee4fc9bb4")
+		(uuid "7faea4a2-790f-4d42-9b39-988d5352abc6")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 0)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "09d5ae68-ac33-4ff6-bbba-df8b102ec39c")
+		(uuid "598947e3-9523-4809-b48c-8481e3d16653")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" ""
-		(at 0 0 0)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "1d4fea6c-7fb7-ec8c-1de0-11544487f0cc")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "RC0603FR-0730KL"
-		(at 0 0 0)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "6a5e9660-39db-b75f-0958-d85e272a06a3")
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "a89fbf43-ddba-4e06-8b9d-23b0e89b5ce4")
+		(uuid "a8c135f0-6c28-41a1-84b8-836a06415dbd")
 	)
 	(fp_line
 		(start -0.237258 0.5225)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "45d5917f-881e-4780-bfd1-b4ab0e4822ad")
+		(uuid "bc42749b-45fa-49b8-b9e5-f812ec0a3ee8")
 	)
 	(fp_rect
 		(start -1.48 -0.73)
@@ -106,17 +106,17 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "0392a970-2fc4-4bd9-9be0-762c43020cb9")
+		(uuid "4904bf7b-8011-4652-a821-5c5852872427")
 	)
 	(pad "1" smd rect
-		(at -0.825 0)
-		(size 0.8 0.95)
+		(at -0.825 0 90)
+		(size 0.95 0.8)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(uuid "12b3a206-261e-94c6-3989-87864cf47a46")
 	)
 	(pad "2" smd rect
-		(at 0.825 0)
-		(size 0.8 0.95)
+		(at 0.825 0 90)
+		(size 0.95 0.8)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(uuid "0e2c02e0-6020-4d9f-4deb-67a20408e31d")
 	)

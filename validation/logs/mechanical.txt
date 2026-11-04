@@ -1,21 +1,34 @@
-base watertight 16934.4
-lid watertight 17392.1
-knob watertight 44087.3
-outer-retainer watertight 1700.1
-inner-retainer watertight 5061.0
-screen-bezel watertight 1504.3
-button-plunger watertight 33.2
-fit-coupon watertight 2168.8
+base watertight 15489.5
+lid watertight 8159.0
+knob watertight 16134.6
+outer-retainer watertight 1679.5
+inner-retainer watertight 883.2
+screen-bezel watertight 1288.9
+button-plunger watertight 49.7
+bearing-clamp watertight 812.0
+encoder-skirt watertight 1942.9
+fit-coupon watertight 3205.1
 {
-  "screen_bezel_to_grip_radial_mm": 0.6,
-  "encoder_to_recess_vertical_mm": 0.5,
-  "encoder_gap_radial_each_side_mm": 1.0,
-  "battery_to_pcb_mm": 2.0,
-  "trimmed_header_tails_to_battery_mm": 1.2,
-  "lid_screw_base_engagement_mm": 3.5,
-  "stem_diametral_mm": 0.15,
+  "overall_height_mm": 22.3,
+  "previous_height_mm": 47,
+  "height_reduction_percent": 52.6,
+  "grip_lower_edge_mm": 10.8,
+  "previous_grip_lower_edge_mm": 22,
+  "USB_plug_max_height_mm": 8,
+  "USB_plug_to_rotor_vertical_mm": 0.85,
+  "bezel_to_grip_radial_mm": 0.6,
+  "skirt_to_sensor_radial_each_side_mm": 1.0,
+  "PCB_bottom_z_mm": 2.6,
+  "battery_in_PCB_window": true,
+  "LCD_connector_in_PCB_window": true,
+  "battery_to_LCD_connector_vertical_gap_mm": 1.3,
+  "bearing_id_mm": 60,
+  "bearing_od_mm": 75,
+  "bearing_width_mm": 7,
+  "bearing_stem_diametral_mm": 0.15,
   "bearing_outer_diametral_mm": 0.1,
-  "bearing_head_to_lcd_connector_mm": 1.8,
   "encoder_slot_count": 48,
-  "quadrature_edges_per_turn": 192
+  "quadrature_edges_per_turn": 192,
+  "all_components_top_side": true,
+  "solder_well_floor_remaining_mm": 1.2
 }

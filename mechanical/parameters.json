@@ -1,73 +1,73 @@
 {
-  "base_diameter": 80,
-  "pcb_diameter": 64.0,
-  "pcb_bottom_z": 10.0,
+  "base_diameter": 86,
+  "pcb_diameter": 72,
+  "pcb_bottom_z": 2.6,
   "pcb_thickness": 1.6,
   "mount_holes": [
     [
-      -21,
-      21
+      -30,
+      15
     ],
     [
-      21,
-      21
+      30,
+      15
     ],
     [
-      -21,
-      -21
+      -30,
+      -15
     ],
     [
-      21,
-      -21
+      30,
+      -15
     ]
   ],
-  "lid_bottom_z": 14.2,
-  "lid_top_z": 15.4,
+  "lid_bottom_z": 9.2,
+  "lid_top_z": 10.4,
   "bearing": {
-    "part": "NSK 6806ZZ",
-    "id": 30,
-    "od": 42,
+    "part": "6712ZZ",
+    "id": 60,
+    "od": 75,
     "width": 7,
-    "bottom_z": 22
+    "bottom_z": 12
   },
-  "bearing_stem_od": 29.85,
-  "bearing_pocket_id": 42.1,
-  "knob_diameter": 68,
-  "knob_top_z": 46.8,
+  "bearing_stem_od": 59.85,
+  "bearing_pocket_id": 75.1,
+  "knob_diameter": 84.8,
+  "knob_top_z": 22.1,
   "battery_envelope": [
     21.0,
     37.0,
     5.8
   ],
   "battery_center": [
-    0.0,
+    -0.5,
     -2.5,
     5.1
   ],
   "battery_part": "Adafruit 2750 protected 3.7V 350mAh LiPo",
   "scroll_switch": [
     -20,
-    -14
+    -19
   ],
   "reset_button": [
-    0,
-    -29
+    -5,
+    -30
   ],
   "led": [
-    8.0,
-    -26.0
+    14,
+    -28
   ],
   "usb_center": [
-    0.0,
-    25.7
+    0,
+    28
   ],
   "programming_connector": [
     0,
-    -20
+    20.5
   ],
   "display_connector": [
-    0,
-    0
+    -19.5,
+    -3.5
   ],
   "encoder": {
     "position": [
@@ -78,19 +78,63 @@
     "track_radius": 25.079872408,
     "track_thickness": 1.0,
     "slots": 48,
-    "beam_z": 16.1
+    "beam_z": 8.7,
+    "skirt_bottom_z": 7.9,
+    "bond_outer_radius": 25.9
   },
   "display": {
     "part": "Waveshare 19192",
     "active_diameter": 32.4,
     "pcb_diameter": 37.5,
-    "pcb_bottom_z": 42,
+    "pcb_bottom_z": 17.3,
     "pcb_thickness": 1,
-    "front_z": 45.6,
-    "bezel_top_z": 47,
-    "bezel_diameter": 50,
+    "front_z": 20.9,
+    "bezel_top_z": 22.3,
+    "bezel_diameter": 48,
     "module_rotation_deg": 90
   },
   "header_tail_below_pcb_mm": 0.8,
-  "lid_screw_length_mm": 10
+  "lid_screw_length_mm": 6,
+  "knob_bottom_z": 10.8,
+  "battery_connector": [
+    18.5,
+    -9
+  ],
+  "pcb_window": {
+    "xmin": -17.8,
+    "xmax": 16.8,
+    "ymin": -21.8,
+    "ymax": 18.8,
+    "corner_radius": 2
+  },
+  "pcb_outline": {
+    "radius": 36,
+    "clip_x": 34,
+    "clip_y": 34
+  },
+  "usb_plug_max_height_mm": 8,
+  "chassis_screw_axes": [
+    [
+      28,
+      28
+    ],
+    [
+      -28,
+      -28
+    ]
+  ],
+  "screen_posts": [
+    [
+      -15.8,
+      14
+    ],
+    [
+      -15.8,
+      -14
+    ],
+    [
+      14.6,
+      -15
+    ]
+  ]
 }

@@ -1,9 +1,11 @@
-# Reviewed routing / Rev B
+# Reviewed routing / Rev C
 
-`routes.json` contains the prescribed two-layer copper. `routing.ts` verifies its terminal contract before applying it. Component/pad edits still require a complete rebuild, placement checks, shorts checks and independent KiCad DRC; the contract alone is not a clearance check.
+`routes.json` contains prescribed copper and `routing.ts` checks the terminal contract before applying it. A pad or placement change requires regenerating this data and repeating native placement/routing checks, copper shorts checks and independent KiCad DRC. The terminal contract alone does not prove clearance.
 
-`input.json` records the routing input used for the Rev B repairs. `repair.py` is a two-layer A* utility using NumPy and Shapely; it treats other nets, holes, fixed local traces and existing vias as obstacles. It preserves short reviewed escape sections where necessary. Frozen copper, rather than a new nondeterministic autorouter run, is the released result.
+Rev C has a routed central window and a clipped circular outline. The routing input records every source pad, hole and fixed local escape. Its original 35×41 mm window is a conservative envelope around the final 34.6×40.6 mm routed window. Conservative route generation may merge the cutout's narrow scan-line obstacles into one enclosing 35×41 mm rectangle; this excludes slightly more corner material and does not permit copper inside the real window. Run `node routing/generate.mjs` with Node 26.12.1 to write a candidate. Generated copper is frozen only after verification against the actual source geometry.
 
-The charger EN1 pulldown was rotated for a straight local escape. LCD software CS uses spare PA8 to avoid congested SPI pin escapes. Two final KiCad margin corrections were a local 0.23 mm neck and 0.02 mm bend adjustment in a 3V3 branch, plus small via adjustments (0.02 mm and 0.0075 mm). A 0.005 mm offset at the CHG_EN1 via (9.8,−1.495) avoids a horizontal drill/trace arc degeneracy in the geometry checker; independent copper clearance and shorts checks still run normally.
+`repair.py` uses clearance-aware two-layer A* with the actual outer polygon and internal-cutout obstacles. It treats other nets, holes, static escapes and existing vias as obstacles. Its routes still require a complete rebuild and independent DRC. No reported violation may be suppressed to make a route pass.
 
-To repair selected paths in an edited design, regenerate the input/terminal contract from that source, inspect which branches must move, run `python routing/repair.py <trace-id> ...`, and repeat every validation/export step. Review any retained escape or manual coordinate correction after rerouting. Do not publish a new path merely because the pathfinder found one.
+The released firmware uses the same electrical pin map as Rev B. Placement, connector orientation and copper are new and must be checked as Rev C artifacts.
+
+The released copper includes local vertex/via clearance corrections and a 0.10 mm minimum trace width. Its 158 saved branches produce 171 native PCB trace records and 222 manufactured vias. The source build, shorts check and independent fabrication DRC validate the final geometry.

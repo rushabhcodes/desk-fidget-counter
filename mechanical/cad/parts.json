@@ -6,14 +6,14 @@
     "asset": "base.obj",
     "bounds_pcb_mm": [
       [
-        -40.0,
-        -40.0,
-        -10.8
+        -43.0,
+        -43.0,
+        -3.4
       ],
       [
-        40.0,
-        40.0,
-        3.4
+        43.0,
+        43.0,
+        12.7
       ]
     ],
     "explode_z_mm": -18,
@@ -26,14 +26,14 @@
     "asset": "lid.obj",
     "bounds_pcb_mm": [
       [
-        -40.0,
-        -40.0,
-        3.4
+        -42.650002,
+        -42.650002,
+        0.8
       ],
       [
-        40.0,
-        40.0,
-        18.2
+        42.650002,
+        42.650002,
+        15.6
       ]
     ],
     "explode_z_mm": 27,
@@ -46,14 +46,14 @@
     "asset": "knob.obj",
     "bounds_pcb_mm": [
       [
-        -33.990292,
-        -33.990292,
-        11.200001
+        -42.390289,
+        -42.390289,
+        8.6
       ],
       [
-        33.990292,
-        33.990292,
-        36.0
+        42.390289,
+        42.390289,
+        18.7
       ]
     ],
     "explode_z_mm": 130,
@@ -66,14 +66,14 @@
     "asset": "outer-retainer.obj",
     "bounds_pcb_mm": [
       [
-        -26.5,
-        -26.5,
-        4.5
+        -42.0,
+        -42.0,
+        7.4
       ],
       [
-        26.5,
-        26.5,
-        11.2
+        42.0,
+        42.0,
+        8.6
       ]
     ],
     "explode_z_mm": 38,
@@ -86,14 +86,14 @@
     "asset": "inner-retainer.obj",
     "bounds_pcb_mm": [
       [
-        -25.0,
-        -25.0,
-        18.2
+        -24.0,
+        -24.0,
+        12.7
       ],
       [
-        25.0,
-        25.0,
-        34.8
+        24.0,
+        24.0,
+        17.5
       ]
     ],
     "explode_z_mm": 62,
@@ -106,14 +106,14 @@
     "asset": "screen-bezel.obj",
     "bounds_pcb_mm": [
       [
-        -25.0,
-        -25.0,
-        34.8
+        -24.0,
+        -24.0,
+        17.5
       ],
       [
-        25.0,
-        25.0,
-        36.2
+        24.0,
+        24.0,
+        18.9
       ]
     ],
     "explode_z_mm": 94,
@@ -126,17 +126,57 @@
     "asset": "button-plunger.obj",
     "bounds_pcb_mm": [
       [
-        -2.9,
-        -31.9,
+        -7.9,
+        -32.900002,
         2.8
       ],
       [
-        2.9,
-        -26.1,
-        5.2
+        -2.1,
+        -27.1,
+        6.65
       ]
     ],
     "explode_z_mm": 12,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
+  },
+  {
+    "name": "bearing-clamp",
+    "printed": true,
+    "color": "#95a5ad",
+    "asset": "bearing-clamp.obj",
+    "bounds_pcb_mm": [
+      [
+        -31.200001,
+        -31.200001,
+        15.6
+      ],
+      [
+        31.200001,
+        31.200001,
+        16.8
+      ]
+    ],
+    "explode_z_mm": 58,
+    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
+  },
+  {
+    "name": "encoder-skirt",
+    "printed": true,
+    "color": "#24292d",
+    "asset": "encoder-skirt.obj",
+    "bounds_pcb_mm": [
+      [
+        -25.9,
+        -25.9,
+        4.5
+      ],
+      [
+        25.9,
+        25.9,
+        17.24
+      ]
+    ],
+    "explode_z_mm": 120,
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
@@ -146,18 +186,18 @@
     "asset": "bearing.obj",
     "bounds_pcb_mm": [
       [
-        -21.0,
-        -21.0,
-        11.2
+        -37.5,
+        -37.5,
+        8.6
       ],
       [
-        21.0,
-        21.0,
-        18.2
+        37.5,
+        37.5,
+        15.6
       ]
     ],
     "explode_z_mm": 48,
-    "description": "NSK 6806ZZ bearing 30 x 42 x 7 mm; catalog envelope, internals omitted"
+    "description": "6712ZZ bearing 60 x 75 x 7 mm; catalog envelope, internals omitted"
   },
   {
     "name": "battery",
@@ -166,14 +206,14 @@
     "asset": "battery.obj",
     "bounds_pcb_mm": [
       [
-        -10.5,
+        -11.0,
         -21.0,
-        -8.6
+        -1.2
       ],
       [
-        10.5,
+        10.0,
         16.0,
-        -2.8
+        4.6
       ]
     ],
     "explode_z_mm": -6,
@@ -186,18 +226,18 @@
     "asset": "battery-socket.obj",
     "bounds_pcb_mm": [
       [
-        13.0,
-        -17.8,
-        -6.8
+        10.25,
+        -11.95,
+        0.8
       ],
       [
-        19.0,
-        -13.3,
-        -0.8
+        19.85,
+        -6.05,
+        5.6
       ]
     ],
     "explode_z_mm": 0,
-    "description": "J2 bottom-side JST housing allowance; cable omitted"
+    "description": "J2 top-side S2B-PH side-entry housing/mate allowance; flexible leads omitted"
   },
   {
     "name": "programming-socket",
@@ -207,17 +247,17 @@
     "bounds_pcb_mm": [
       [
         -6.95,
-        -22.8,
+        17.7,
         -1.6
       ],
       [
         6.95,
-        -18.3,
+        22.2,
         6.8
       ]
     ],
     "explode_z_mm": 0,
-    "description": "J4 JST-PH6 housing and tails trimmed to 0.8mm below PCB; top entry, pin 1 at (-5,-20)"
+    "description": "J4 JST-PH6 housing and tails trimmed to 0.8mm below PCB; top entry, pin 1 at (-5,20.5)"
   },
   {
     "name": "display-socket",
@@ -226,18 +266,18 @@
     "asset": "display-socket.obj",
     "bounds_pcb_mm": [
       [
-        -1.7,
-        -8.95,
+        -20.85,
+        -12.45,
         -1.6
       ],
       [
-        2.8,
-        8.95,
-        6.8
+        -11.25,
+        5.45,
+        5.6
       ]
     ],
     "explode_z_mm": 0,
-    "description": "J6 JST-PH8 with 0.8mm trimmed tails; vertical row through the fixed hollow post"
+    "description": "J6 top-side S8B-PH side-entry housing/mate; physical pin 1 at (-19.5,-10.5)"
   },
   {
     "name": "toggle-switch",
@@ -247,12 +287,12 @@
     "bounds_pcb_mm": [
       [
         -31.35,
-        -17.5,
+        -22.5,
         1.15
       ],
       [
         -18.95,
-        -10.5,
+        -15.5,
         5.65
       ]
     ],
@@ -286,13 +326,13 @@
     "asset": "charger-package.obj",
     "bounds_pcb_mm": [
       [
-        13.5,
-        6.5,
+        3.5,
+        -30.5,
         0.8
       ],
       [
-        16.5,
-        9.5,
+        6.5,
+        -27.5,
         1.8
       ]
     ],
@@ -306,13 +346,13 @@
     "asset": "usb-esd-package.obj",
     "bounds_pcb_mm": [
       [
-        -0.8,
-        16.55,
+        9.2,
+        20.55,
         0.8
       ],
       [
-        0.8,
-        19.45,
+        10.8,
+        23.45,
         2.25
       ]
     ],
@@ -328,12 +368,12 @@
       [
         -18.75,
         -18.75,
-        23.2
+        5.9
       ],
       [
         21.65,
         18.75,
-        32.2
+        14.899999
       ]
     ],
     "explode_z_mm": 81,
@@ -348,16 +388,16 @@
       [
         -16.799999,
         -16.799999,
-        32.2
+        14.899999
       ],
       [
         16.799999,
         16.799999,
-        34.799998
+        17.5
       ]
     ],
     "explode_z_mm": 81,
-    "description": "LCD front envelope; active diameter 32.4mm, front z45.6"
+    "description": "LCD front envelope; active diameter 32.4mm, front z20.9"
   },
   {
     "name": "screen-ui",
@@ -368,12 +408,12 @@
       [
         -9.18,
         -13.905,
-        34.81
+        17.51
       ],
       [
         9.72,
         11.205,
-        34.81
+        17.51
       ]
     ],
     "explode_z_mm": 81,
@@ -386,14 +426,14 @@
     "asset": "fasteners.obj",
     "bounds_pcb_mm": [
       [
-        -28.0,
-        -28.0,
-        -5.2
+        -30.1,
+        -36.394608,
+        1.0
       ],
       [
-        28.0,
-        28.0,
-        36.2
+        41.700001,
+        36.394608,
+        18.899999
       ]
     ],
     "explode_z_mm": 106,
