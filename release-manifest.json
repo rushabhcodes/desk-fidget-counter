@@ -1,9 +1,9 @@
 {
-  "release": "v1.0.1",
+  "release": "v1.0.2",
   "hardware": "Rev A / A1",
   "repository": "https://github.com/rushabhcodes/desk-fidget-counter",
   "tscircuit": "https://tscircuit.com/rushabhcodes/desk-fidget-counter",
-  "source_revision": "Git tag v1.0.1; resolve tag to its commit; source file hashes below",
+  "source_revision": "Git tag v1.0.2; resolve tag to its commit; source file hashes below",
   "toolchain": {
     "Bun": "1.3.3",
     "tscircuit": "0.0.3064",
@@ -17,7 +17,7 @@
   "source_inputs": [
     {
       "path": ".github/workflows/validate.yml",
-      "sha256": "f4c21050be615ab7ffd4dcae2957b70e34ecbfc676b60f5b7f3f3b73607741be"
+      "sha256": "92f6a7dd15f3185531d267c596c5bdd74c99dce2084d71ee34b4baddf1ad501c"
     },
     {
       "path": ".gitignore",
@@ -25,7 +25,7 @@
     },
     {
       "path": "ASSEMBLY.md",
-      "sha256": "630fc9c942e2624e89d7a91a8edd324a6fef5cc098449f2e7b7ce9f811422ce8"
+      "sha256": "f4c6958ffee14779af152392aa02ce3e971ad62293d08d0c3918b9f1173c6d09"
     },
     {
       "path": "LICENSE",
@@ -33,7 +33,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "37ffca51f344a76bff07f494ad68608e7a0c3ae1db956e3005bbf5cbdf315cc3"
+      "sha256": "f4a567fdb59934259a88314c75a234494d21be370785038c518e9b72ed2dd3ef"
+    },
+    {
+      "path": "assembly.circuit.tsx",
+      "sha256": "4980618f8f7a5ffff338ca40dcb1c62b1c51bee8792dc3089bcbd88ad51469fd"
     },
     {
       "path": "bun.lock",
@@ -128,6 +132,14 @@
       "sha256": "a4d48889bcbe8ca849844a2e530972dab9ca99f4d7f3200abc589a1fedd9ffe5"
     },
     {
+      "path": "mechanical/README.md",
+      "sha256": "fa53e5ab0564d76c59538b70a3570ba8345c88ed68813c7aef6a10a85bd60dd9"
+    },
+    {
+      "path": "mechanical/generate-assembly.py",
+      "sha256": "157f4a13e562353f81bda400d1bf06a51b9ef3db95c2e6ea91fbe4c71dbf2eb4"
+    },
+    {
       "path": "mechanical/generate.py",
       "sha256": "fb37f2b5910d26e33933b82599d5294f9e3dc4e1bf4e577be64d3f03d037fca7"
     },
@@ -137,7 +149,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "878ea15bae09f97b56cb5088917e030400c1323b1b4d3cc5344723904bae7869"
+      "sha256": "e706845ffa40aa787980c40656dc43917b17f7503e39c389a1337660148bb3d3"
     },
     {
       "path": "parts.tsx",
@@ -196,12 +208,16 @@
       "sha256": "62ddbd2fa6818e70124b4f1d4a32229cf11f990e2c719f4a91eaefa4217fdec2"
     },
     {
+      "path": "scripts/export-pcb-cad.mjs",
+      "sha256": "43359cf8736a9bd3670181afd736eac64cc6389e1e3f055f7463653f6490ca24"
+    },
+    {
       "path": "scripts/inspect-fabrication.py",
       "sha256": "443b12fd1b852d26592e1c6f6613adf18d32a1f9582a9cb46f39a901bad1b2ab"
     },
     {
       "path": "scripts/package-release.py",
-      "sha256": "38e93a4b93f0a55c992af81f8d57b4f50b1ddc074318dfef4aa56a997fdcfd26"
+      "sha256": "05a4ed568eebdfeb7bc61f10c614629e4fbd642915099f734e495a27876d9a0e"
     },
     {
       "path": "scripts/previews.mjs",
@@ -217,7 +233,7 @@
     },
     {
       "path": "tscircuit.config.json",
-      "sha256": "55e18cb2ea91e62bbc0a3522f4b52af72504725994af506f13a940a92dcd2fe6"
+      "sha256": "01cd329107331e06b95abf8e2c363a590498b3570703278e79254fcc844f5ff8"
     },
     {
       "path": "tsconfig.json",
@@ -229,7 +245,11 @@
     },
     {
       "path": "validation/REPORT.md",
-      "sha256": "6bf7460b067ad1db2f30c9a28ac4f2948de0d0a9bde427d1edbe40f75d32950f"
+      "sha256": "2b91f9283fd9cb466a0558b654bab53ec7ffadc267a9af4bb1ef90e3adaa60f2"
+    },
+    {
+      "path": "validation/check-assembly.mjs",
+      "sha256": "5d84744035593eff9443cca771e13df0be739726ae29426aace26f365bd70961"
     },
     {
       "path": "validation/check-design.mjs",
@@ -242,8 +262,12 @@
   ],
   "artifacts": [
     {
+      "path": "dist/assembly/circuit.json",
+      "sha256": "ecc8a0ab76b813fb03c1b99d299bcc63589fc177e013dc972d730357099df69e"
+    },
+    {
       "path": "dist/index/circuit.json",
-      "sha256": "1768514131ce76961a0af6e1893bb734ceb2ef18a7c08a0a3fbee4ef92b85814"
+      "sha256": "6f31536f62724d8ee71c17d1869444c5f80350770949955e29f9a6cacb67851f"
     },
     {
       "path": "dist/index/pcb.png",
@@ -590,6 +614,86 @@
       "sha256": "697bedf8f26efc67ed6c929a7869722a56fe4ed982c28d6e90fe4d0c6775fc45"
     },
     {
+      "path": "mechanical/cad/assembled.glb",
+      "sha256": "b8b0d20eca2093a3b7051a1d02374117af5f818c417624eb781d038ca9a8fb4d"
+    },
+    {
+      "path": "mechanical/cad/assembly-check.json",
+      "sha256": "e88a055fd3057908a3b8953040ab86dcae02f60f4c4d5e5e3ff03985fc93e687"
+    },
+    {
+      "path": "mechanical/cad/base.obj",
+      "sha256": "64f957e0177693ccf350b2f1863f152ad3b5c50b3b06102b3a36cd55c8dae025"
+    },
+    {
+      "path": "mechanical/cad/battery-socket.obj",
+      "sha256": "a848bd8e0990a83dd7a1909ef04cd85d584331d71028114839d4b2a21498e542"
+    },
+    {
+      "path": "mechanical/cad/battery.obj",
+      "sha256": "ff196f6dc59d33e5ff17a92a08afb9af0137eab1a33f8b608924c7b6d6f2f781"
+    },
+    {
+      "path": "mechanical/cad/bearing.obj",
+      "sha256": "51c1b8e3aa75259588394aa50eb9cd473382431cab12be5eb2535971e5e9a656"
+    },
+    {
+      "path": "mechanical/cad/button-plunger.obj",
+      "sha256": "8c6824f3cb0b13cfd40df660ece6212068f618cdffa779e6af98c0564f213008"
+    },
+    {
+      "path": "mechanical/cad/charger-package.obj",
+      "sha256": "9f4ee60950da71e005e57863ed8b3796ae6af1cd63ce718b4865c08ca3449ce9"
+    },
+    {
+      "path": "mechanical/cad/exploded.glb",
+      "sha256": "cad2c8fdbfe2ecfbfabe930c968683211e4577e6d3200f8386e13c89ace5e3ad"
+    },
+    {
+      "path": "mechanical/cad/fasteners.obj",
+      "sha256": "6636d91cceafa88cd4f79570669d06a05027d7e66e6122ad04f67d86eba4ea17"
+    },
+    {
+      "path": "mechanical/cad/inner-retainer.obj",
+      "sha256": "f5a34231d74a4ebd970e40abb75bf3c07a59f796b2a3391f98864f6ea66180d8"
+    },
+    {
+      "path": "mechanical/cad/knob.obj",
+      "sha256": "2b20c61c30a37a096b08061ba26645555dcdec92b1d89b8b145984636c05884a"
+    },
+    {
+      "path": "mechanical/cad/lid.obj",
+      "sha256": "de56c364237d58176bc0fd0e1af13bfe5513a26644ebf5236b3a8ebf4e7be1b8"
+    },
+    {
+      "path": "mechanical/cad/magnet.obj",
+      "sha256": "73cc5c1a515841b174c3c6267f53c06474e97adb362f5cd53ee6ff44dc6b24aa"
+    },
+    {
+      "path": "mechanical/cad/outer-retainer.obj",
+      "sha256": "394a336063fe43643b891e4e5160c056ed0783a98e1498b34dee0d29cbc9058d"
+    },
+    {
+      "path": "mechanical/cad/parts.json",
+      "sha256": "69f50ee68ec89f1949fffd1e15ca1a018ab15f4eed59d8dea936ba412e8a4404"
+    },
+    {
+      "path": "mechanical/cad/pcb-source.glb",
+      "sha256": "48b59db4d952d498b789dae24e55b25c196f2b1d92a1bfe9bb4fd9f93558336b"
+    },
+    {
+      "path": "mechanical/cad/slide-switch.obj",
+      "sha256": "d3b6fc1e16acb73b86e57611e9c77f3daf53f3c7eac1e53742a2909ccd712dcb"
+    },
+    {
+      "path": "mechanical/cad/usb-esd-package.obj",
+      "sha256": "41e3dd9f70ee212f031b4e99697bfb063168f280344bd22ee23813890a136286"
+    },
+    {
+      "path": "mechanical/exploded.png",
+      "sha256": "0c3ff8882c58ed9c97bfcc036daf07dcf53d9f70936ed4255d90a11d25af7c0a"
+    },
+    {
       "path": "mechanical/geometry-check.json",
       "sha256": "daab90c619b95cfb9f45584ce154a6eff146d2d42981d8e9a2f2555366015fc8"
     },
@@ -724,6 +828,10 @@
     {
       "path": "validation/kicad-drc.json",
       "sha256": "c2f4e609fea27fa994c3f0e23410c859fe38cee451cfa029b297dc6357a74818"
+    },
+    {
+      "path": "validation/logs/assembly.txt",
+      "sha256": "b402f71c9855f46a4fc8d02ae0c694060ce8dd06150aa1eca6c54b29f89d2156"
     },
     {
       "path": "validation/logs/build.txt",

@@ -1,5 +1,5 @@
 {
-  "mainEntrypoint": "index.circuit.tsx",
+  "mainEntrypoint": "assembly.circuit.tsx",
   "ignoredFiles": [
     "node_modules/**",
     "dist/autorouter-debug/**",

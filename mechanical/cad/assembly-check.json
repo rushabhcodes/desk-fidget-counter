@@ -1,0 +1,18 @@
+{
+  "assembly_frame": "CAD mm, floor z=0; PCB centre z=10.8",
+  "glb_frame": "glTF metres, +Y up; assembled extents [0.072,0.031,0.072] m",
+  "part_count": 14,
+  "source_board_tsx_sha256": "ebb771c75c8869120234c8a70141f05b35552211a6decbcfc9a133cf7850ffb9",
+  "printed_meshes_restored_from_print_orientation": 6,
+  "cad_files": {
+    "assembled.glb": {
+      "bytes": 2291856,
+      "sha256": "b8b0d20eca2093a3b7051a1d02374117af5f818c417624eb781d038ca9a8fb4d"
+    },
+    "exploded.glb": {
+      "bytes": 2291908,
+      "sha256": "cad2c8fdbfe2ecfbfabe930c968683211e4577e6d3200f8386e13c89ace5e3ad"
+    }
+  },
+  "physical_fit": "Unmeasured; envelope models do not replace datasheet/physical fit verification"
+}

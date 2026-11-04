@@ -2,6 +2,12 @@
 
 The printable design is defined by `mechanical/parameters.json` and `mechanical/generate.py`. Print files are in `mechanical/stl`. All STL dimensions are millimetres. Generated parts are checked for watertightness and positive volume; the assembly model checks moving parts against the fixed lid and retainer.
 
+## 3D assembly models
+
+Open the [assembled product on tscircuit](https://tscircuit.com/rushabhcodes/desk-fidget-counter), or download the [assembled GLB](mechanical/cad/assembled.glb) and [exploded GLB](mechanical/cad/exploded.glb). Both include the PCB, six printed parts, bearing, magnet, cell and fasteners as named geometry. See [CAD coordinates and rebuilding](mechanical/README.md) for scale, model detail and source files.
+
+![Exploded assembly](mechanical/exploded.png)
+
 ## Mechanical bill of materials
 
 | Qty | Part |

@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+import fs from 'node:fs'
+import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
+import { loadOBJ, COORDINATE_TRANSFORMS } from 'circuit-json-to-gltf'
+const read = path => JSON.parse(fs.readFileSync(path, 'utf8'))
+const board = read('dist/index/circuit.json')
+const assembled = read('dist/assembly/circuit.json')
+const parts = read('mechanical/cad/parts.json')
+const { version } = read('package.json')
+assert.equal(read('tscircuit.config.json').mainEntrypoint, 'assembly.circuit.tsx')
+assert.equal(assembled.filter(c => c.type.endsWith('_error')).length, 0)
+// Adding mechanical parts must not perturb a single manufactured PCB record.
+const copper = cj => cj.filter(c => c.type.startsWith('pcb_'))
+assert.deepEqual(copper(assembled), copper(board), 'Assembly must preserve bare-board copper and placement')
+const sources = new Map(assembled.filter(c => c.type === 'source_component').map(c => [c.name, c]))
+const cad = assembled.filter(c => c.type === 'cad_component')
+for (const part of parts) {
+  const source = sources.get(part.name)
+  assert(source, `Missing assembly part ${part.name}`)
+  assert.equal(source.ftype, part.printed ? 'printedpart' : 'subassembly')
+  const model = cad.find(c => c.source_component_id === source.source_component_id)
+  assert(model, `Missing CAD for ${part.name}`)
+  assert.equal(model.model_obj_url, `https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v${version}/mechanical/cad/${part.asset}`)
+  assert.deepEqual(model.position, { x: 0, y: 0, z: 0 })
+  assert.deepEqual(model.model_origin_position, { x: 0, y: 0, z: 0 })
+  assert.equal(model.model_unit_to_mm_scale_factor, 1)
+  const bytes = fs.readFileSync(`mechanical/cad/${part.asset}`)
+  const mesh = await loadOBJ({ url: `data:text/plain;base64,${bytes.toString('base64')}`, transform: COORDINATE_TRANSFORMS.OBJ_Z_UP_TO_Y_UP })
+  const expected = part.bounds_pcb_mm
+  for (const [axis, index] of [['x', 0], ['y', 2], ['z', 1]]) {
+    assert(Math.abs(mesh.boundingBox.min[axis] - expected[0][index]) < 1e-4, `${part.name} min ${axis}`)
+    assert(Math.abs(mesh.boundingBox.max[axis] - expected[1][index]) < 1e-4, `${part.name} max ${axis}`)
+  }
+}
+const geometry = read('mechanical/cad/assembly-check.json')
+assert.equal(geometry.source_board_tsx_sha256, createHash('sha256').update(fs.readFileSync('index.circuit.tsx')).digest('hex'))
+for (const [name, artifact] of Object.entries(geometry.cad_files)) {
+  assert.equal(createHash('sha256').update(fs.readFileSync(`mechanical/cad/${name}`)).digest('hex'), artifact.sha256)
+}
+console.log(`Assembly passed: ${parts.length} named mechanical parts, correct OBJ axes/scale, assembled poses, GLB hashes and identical PCB geometry.`)

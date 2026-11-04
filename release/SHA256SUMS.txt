@@ -1,5 +1,5 @@
-0fac0d67dc231044174332a4c0a54be304e63a9a4157dbc296fa8affdaad5def  release/desk-knob-v1.0.1.zip
+e6bb725b2a1b6940310c239e6ed3914d7a75cca68ea619b5f49f74f98048e1f3  release/desk-knob-v1.0.2.zip
 3530e464adf85ca31b33e89e3a9996ccbb5488048b1e1ee734bbf8268512f00e  manufacturing/desk-knob-reva-gerbers.zip
 a47a4056dc4fbbe1cfc17dcc06b2f4821c4ac569b810905c912754f287a8eee0  firmware/build/desk-knob.bin
 0addaba7d197cd0e015411af7784253cc288181f79b3f92a211217dded1bd6c2  firmware/build/desk-knob.hex
-5c99555e33f6046b9f888921fac16ceb22e7341f771aac65aaf7821c5cfe90bc  release-manifest.json
+eb9c5c7ed268e7ec2f58994c266308f17ad04b7c7ce216bef5f162e6f46de8b4  release-manifest.json

@@ -12,11 +12,11 @@ jobs:
       - run: bun run typecheck && bun run test
       - run: bun run check:netlist && bun run check:schematic && bun run check:placement
       - run: bun run build
-      - run: bun validation/check-design.mjs && bun run check:shorts
+      - run: bun validation/check-design.mjs && bun run check:shorts && bun run check:assembly
       - uses: actions/upload-artifact@v4
         with:
           name: circuit
-          path: dist/index/
+          path: dist/
   firmware:
     runs-on: ubuntu-latest
     steps:

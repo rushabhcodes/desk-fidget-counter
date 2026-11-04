@@ -2,13 +2,15 @@
 
 A rechargeable, continuously rotating desk knob with USB-C HID scrolling and a retained full-turn counter. The STM32F072 runs independently from a computer. A physical slide switch gates scrolling; counting continues in either position.
 
-Release **v1.0.1 / PCB Rev A**: [GitHub release and downloads](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v1.0.1), [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [validation results](validation/REPORT.md), [fabrication ZIP](manufacturing/desk-knob-reva-gerbers.zip), [complete project ZIP](release/desk-knob-v1.0.1.zip).
+Release **v1.0.2 / PCB Rev A**: [GitHub release and downloads](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v1.0.2), [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [validation results](validation/REPORT.md), [fabrication ZIP](manufacturing/desk-knob-reva-gerbers.zip), [complete project ZIP](release/desk-knob-v1.0.2.zip).
 
 A complete clockwise or counterclockwise revolution adds one count. Backtracking subtracts unfinished progress: +180°, −180° adds zero; +180°, −540° adds one. Completed turns remain saved; unfinished progress restarts at power-up. Sensor faults or stale samples discard uncertain partial progress instead of inventing turns.
 
 **Rev A is a software-validated fabrication design awaiting a physical prototype.** USB enumeration, magnetic alignment, counting speed, charging temperature, battery runtime, fit and feel require the bring-up tests in [validation/BRINGUP.md](validation/BRINGUP.md). No measured hardware performance is claimed.
 
 ![Mechanical assembly](mechanical/assembly.png)
+
+[3D assembly and exploded models](mechanical/README.md) · [Assembled GLB](mechanical/cad/assembled.glb) · [Exploded GLB](mechanical/cad/exploded.glb)
 
 | Function | Implementation |
 |---|---|
@@ -54,6 +56,6 @@ Windows uses a COM port; macOS uses `/dev/cu.usbmodem...`. HID scrolling needs n
 - [Validation and bring-up](validation/BRINGUP.md): software evidence and the required physical measurements.
 - [License and attribution](licenses/ATTRIBUTION.md): original work plus TinyUSB/CMSIS and reference licenses.
 
-`index.circuit.tsx` and `parts.tsx` are the authored circuit. `dist/index/circuit.json` records the released build. The manufacturing export refills source-derived ground zones in KiCad, removes unconnected copper islands, checks the declared rules, and plots the final fabrication files. All inputs and output hashes are recorded in the release manifest.
+`assembly.circuit.tsx` is the website’s assembled-product entrypoint. `index.circuit.tsx` and `parts.tsx` remain the authored PCB circuit. `dist/index/circuit.json` records the released build. The manufacturing export refills source-derived ground zones in KiCad, removes unconnected copper islands, checks the declared rules, and plots the final fabrication files. All inputs and output hashes are recorded in the release manifest.
 
 Inspired by the [Ploopy Knob](https://ploopy.co/knob/) and [rushabhcodes/fidget-counter](https://tscircuit.com/rushabhcodes/fidget-counter). No Ploopy CAD or firmware is copied. The existing fidget-counter project is preserved.

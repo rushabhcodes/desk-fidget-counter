@@ -1,0 +1,282 @@
+[
+  {
+    "name": "base",
+    "printed": true,
+    "color": "#344752",
+    "asset": "base.obj",
+    "bounds_pcb_mm": [
+      [
+        -36.0,
+        -36.0,
+        -10.8
+      ],
+      [
+        36.0,
+        36.0,
+        4.6
+      ]
+    ],
+    "explode_z_mm": -18,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "lid",
+    "printed": true,
+    "color": "#6b8797",
+    "asset": "lid.obj",
+    "bounds_pcb_mm": [
+      [
+        -36.0,
+        -36.0,
+        3.4
+      ],
+      [
+        36.0,
+        35.399063,
+        13.2
+      ]
+    ],
+    "explode_z_mm": 34,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "outer-retainer",
+    "printed": true,
+    "color": "#cd9647",
+    "asset": "outer-retainer.obj",
+    "bounds_pcb_mm": [
+      [
+        -24.200001,
+        -24.200001,
+        5.0
+      ],
+      [
+        24.200001,
+        24.200001,
+        6.2
+      ]
+    ],
+    "explode_z_mm": 42,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "inner-retainer",
+    "printed": true,
+    "color": "#95a5ad",
+    "asset": "inner-retainer.obj",
+    "bounds_pcb_mm": [
+      [
+        -13.5,
+        -13.5,
+        13.2
+      ],
+      [
+        13.5,
+        13.5,
+        14.8
+      ]
+    ],
+    "explode_z_mm": 65,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "button-plunger",
+    "printed": true,
+    "color": "#de744e",
+    "asset": "button-plunger.obj",
+    "bounds_pcb_mm": [
+      [
+        -2.9,
+        -29.9,
+        2.8
+      ],
+      [
+        2.9,
+        -24.1,
+        5.2
+      ]
+    ],
+    "explode_z_mm": 30,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "knob",
+    "printed": true,
+    "color": "#e9bd65",
+    "asset": "knob.obj",
+    "bounds_pcb_mm": [
+      [
+        -24.5,
+        -24.5,
+        4.2
+      ],
+      [
+        24.5,
+        24.5,
+        20.2
+      ]
+    ],
+    "explode_z_mm": 88,
+    "description": "Exact printable mesh, restored from print orientation to assembly pose"
+  },
+  {
+    "name": "bearing",
+    "printed": false,
+    "color": "#b7bec5",
+    "asset": "bearing.obj",
+    "bounds_pcb_mm": [
+      [
+        -18.5,
+        -18.5,
+        6.2
+      ],
+      [
+        18.5,
+        18.5,
+        13.2
+      ]
+    ],
+    "explode_z_mm": 52,
+    "description": "6805 bearing 25 x 37 x 7 mm; simplified catalog envelope, no internal balls"
+  },
+  {
+    "name": "magnet",
+    "printed": false,
+    "color": "#46505a",
+    "asset": "magnet.obj",
+    "bounds_pcb_mm": [
+      [
+        -3.175,
+        -3.175,
+        4.2
+      ],
+      [
+        3.175,
+        3.175,
+        7.374999
+      ]
+    ],
+    "explode_z_mm": 67,
+    "description": "D42DIA diametric magnet; envelope only"
+  },
+  {
+    "name": "battery",
+    "printed": false,
+    "color": "#acc1c6",
+    "asset": "battery.obj",
+    "bounds_pcb_mm": [
+      [
+        -10.5,
+        -21.0,
+        -8.6
+      ],
+      [
+        10.5,
+        16.0,
+        -2.8
+      ]
+    ],
+    "explode_z_mm": -6,
+    "description": "Protected 350 mAh cell allowance; inspect real pouch and wiring before assembly"
+  },
+  {
+    "name": "battery-socket",
+    "printed": false,
+    "color": "#ebe8dd",
+    "asset": "battery-socket.obj",
+    "bounds_pcb_mm": [
+      [
+        13.0,
+        -17.8,
+        -6.8
+      ],
+      [
+        19.0,
+        -13.3,
+        -0.8
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "J2 bottom-side JST housing envelope; contacts and mating cable omitted"
+  },
+  {
+    "name": "slide-switch",
+    "printed": false,
+    "color": "#334047",
+    "asset": "slide-switch.obj",
+    "bounds_pcb_mm": [
+      [
+        -30.15,
+        -5.3,
+        0.8
+      ],
+      [
+        -25.85,
+        3.3,
+        7.0
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "SW1 case envelope; lever detail omitted"
+  },
+  {
+    "name": "charger-package",
+    "printed": false,
+    "color": "#37393b",
+    "asset": "charger-package.obj",
+    "bounds_pcb_mm": [
+      [
+        13.5,
+        6.5,
+        0.8
+      ],
+      [
+        16.5,
+        9.5,
+        1.8
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "U4 package envelope; detailed leads are in PCB fabrication geometry"
+  },
+  {
+    "name": "usb-esd-package",
+    "printed": false,
+    "color": "#37393b",
+    "asset": "usb-esd-package.obj",
+    "bounds_pcb_mm": [
+      [
+        -0.8,
+        16.55,
+        0.8
+      ],
+      [
+        0.8,
+        19.45,
+        2.25
+      ]
+    ],
+    "explode_z_mm": 0,
+    "description": "U6 package envelope; detailed leads are in PCB fabrication geometry"
+  },
+  {
+    "name": "fasteners",
+    "printed": false,
+    "color": "#69747e",
+    "asset": "fasteners.obj",
+    "bounds_pcb_mm": [
+      [
+        -26.4,
+        -26.4,
+        -5.2
+      ],
+      [
+        26.4,
+        26.4,
+        16.400001
+      ]
+    ],
+    "explode_z_mm": 78,
+    "description": "Fastener shanks/heads illustrate assembly access; threads and drive recesses omitted"
+  }
+]

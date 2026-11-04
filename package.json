@@ -1,18 +1,20 @@
 {
   "name": "@tsci/rushabhcodes.desk-fidget-counter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Rechargeable USB scroll knob and persistent full-turn counter",
   "type": "module",
   "scripts": {
-    "build": "tsci build index.circuit.tsx",
+    "build": "tsci build index.circuit.tsx && tsci build assembly.circuit.tsx",
     "typecheck": "tsc --noEmit",
     "test": "bash scripts/test-firmware.sh",
-    "check:netlist": "tsci check netlist",
-    "check:schematic": "tsci check schematic-placement",
-    "check:placement": "tsci check placement",
+    "check:netlist": "tsci check netlist index.circuit.tsx",
+    "check:schematic": "tsci check schematic-placement index.circuit.tsx",
+    "check:placement": "tsci check placement index.circuit.tsx",
     "check:shorts": "tsci check shorts dist/index/circuit.json",
-    "dev": "tsci dev"
+    "dev": "tsci dev",
+    "cad:pcb": "bun scripts/export-pcb-cad.mjs",
+    "check:assembly": "bun validation/check-assembly.mjs"
   },
   "dependencies": {
     "tscircuit": "0.0.3064",
