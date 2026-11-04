@@ -21,5 +21,3 @@ void counter_format_total(uint64_t turns, char out[21]);
 uint32_t record_crc(const uint8_t *data, unsigned len);
 void record_encode(uint8_t out[32], uint32_t sequence, uint64_t turns);
 bool record_decode(const uint8_t in[32], uint32_t *sequence, uint64_t *turns);
-
-bool charger_temperature_ok(uint16_t ntc_millivolts);

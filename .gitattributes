@@ -1,0 +1,2 @@
+# Preserve original supplier STEP formatting and licence headers.
+mechanical/vendor/step/* -whitespace

@@ -41,7 +41,15 @@ if options.compare_to:
  comparison=Image.new('RGB',(2800,1170),(247,249,250));comparison.paste(old,(0,120));comparison.paste(new,(1400,120))
  draw=ImageDraw.Draw(comparison);font=ImageFont.load_default(size=36)
  draw.text((100,30),'Previous Rev B · 47 mm',(36,57,67),font=font)
- draw.text((1500,30),'Rev C · 22.3 mm · 52.6% lower',(36,57,67),font=font)
+ draw.text((1500,30),'Rev D · 22.3 mm · 52.6% lower',(36,57,67),font=font)
  draw.text((1500,80),'Same scale; side USB-C retained',(73,95,106),font=ImageFont.load_default(size=24))
  comparison.save(ROOT/'height-comparison.png');old_path.unlink()
  print('Rendered previous/current side profiles at identical camera scale')
+
+# Actual assembled meshes with the upper parts hidden to expose the fixed cable.
+cutaway=source.copy()
+for node in list(cutaway.graph.nodes_geometry):
+ if node in ['lid','knob','outer-retainer','bearing','screen-bezel','encoder-skirt','bearing-clamp','screen-module','screen-ui','fasteners']:
+  cutaway.graph.transforms.remove_node(node)
+render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
+print('Rendered PCB, actual packages, JST plugs and eight static wires in cutaway')

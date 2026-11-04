@@ -1,8 +1,8 @@
 {
   "name": "@tsci/rushabhcodes.desk-fidget-counter",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": false,
-  "description": "Rechargeable USB scroll knob and persistent full-turn counter",
+  "description": "USB-powered scroll ring, persistent turn counter and laptop dashboard",
   "type": "module",
   "scripts": {
     "build": "tsci build index.circuit.tsx && tsci build assembly.circuit.tsx",

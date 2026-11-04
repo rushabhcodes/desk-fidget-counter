@@ -1,0 +1,1 @@
+Final schematic-only C5 move: all PCB records byte-for-byte identical to the independently checked fabrication source. Assembly source hash refreshed; CAD geometry unchanged.

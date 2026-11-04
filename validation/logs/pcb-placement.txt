@@ -1,17 +1,18 @@
 $ bun validation/check-placement.mjs
-placement summary: 8 suboptimal orientations
+placement summary: 4 suboptimal orientations
 
 worst issues:
-1. R5 connections cross the routing path between its pads. Suggested move: rotate R5 180 degrees.
-2. R8 connections cross the routing path between its pads. Suggested move: rotate R8 180 degrees.
-3. R22 connections cross the routing path between its pads. Suggested move: rotate R22 180 degrees.
-4. R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
-5. R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
+1. R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
+2. R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
+3. R27 connections cross the routing path between its pads. Suggested move: rotate R27 180 degrees.
+4. R28 connections cross the routing path between its pads. Suggested move: rotate R28 180 degrees.
 
 board top-layer utilization:
-- occupied: 20.772% (960.488mm^2 of 4624mm^2)
+- occupied: 17.137% (792.413mm^2 of 4624mm^2)
 - empty spaces over 5% of board area:
-  - 20.892% (966.035mm^2); bounds=(minX=-12.75mm, maxX=11.75mm, minY=-22.23mm, maxY=17.2mm)
+  - 26.656% (1232.594mm^2); bounds=(minX=-12.75mm, maxX=17.52mm, minY=-23.52mm, maxY=17.2mm)
+  - 6.127% (283.307mm^2); bounds=(minX=24.18mm, maxX=34mm, minY=5.15mm, maxY=34mm)
+  - 5.176% (239.36mm^2); bounds=(minX=-34mm, maxX=-30.48mm, minY=-34mm, maxY=34mm)
 
 board-edge status:
 - U1: 3.9mm inside right edge
@@ -21,23 +22,10 @@ board-edge status:
 - U6: 10.75mm inside top edge
 - C1: 12.025mm inside top edge
 - D1: 12.275mm inside top edge
-- U4: 3.25mm inside bottom edge
-- R3: 6.775mm inside bottom edge
-- R4: 0.775mm inside bottom edge
-- R5: 3.775mm inside bottom edge
-- R6: 4.775mm inside bottom edge
-- R7: 7.775mm inside bottom edge
-- R8: 5.775mm inside right edge
-- R9: 6.775mm inside right edge
+- U4: 4.175mm inside bottom edge
+- C2: 4.525mm inside bottom edge
+- C3: 1.525mm inside bottom edge
 - R21: 7.775mm inside bottom edge
-- R22: 4.775mm inside left edge
-- R23: 1.775mm inside left edge
-- C19: 2.775mm inside left edge
-- C2: 1.775mm inside bottom edge
-- C3: 0.575mm inside bottom edge
-- C4: 8.575mm inside bottom edge
-- J2: 14.625mm inside right edge
-- J3: 9.25mm inside bottom edge
 - U5: 4.75mm inside bottom edge
 - C5: 5.525mm inside bottom edge
 - C6: 8.3mm inside bottom edge
@@ -61,42 +49,18 @@ board-edge status:
 - R13: 9.525mm inside top edge
 - U3: 3.795mm inside top edge
 - C16: 2.525mm inside top edge
-- SW1: 8.32mm inside left edge
+- SW1: 6.32mm inside left edge
 - R14: 3.775mm inside left edge
 - SW2: 3.07mm inside bottom edge
 - R15: 5.525mm inside bottom edge
 - LED1: 5.525mm inside bottom edge
 - R16: 8.525mm inside bottom edge
-- R17: 11.775mm inside right edge
-- R18: 8.775mm inside right edge
-- C17: 8.775mm inside right edge
-- R19: 8.525mm inside top edge
-- R20: 8.525mm inside top edge
-- C18: 6.525mm inside top edge
 - J6: 13.625mm inside left edge
 - R27: 13.775mm inside right edge
 - R28: 10.775mm inside right edge
 - C15: 4.775mm inside left edge
 
 flagged components:
-- R5
-  source placement: placement_mode=none
-  resolved placement: center=(9mm, -29mm) on top; bounds=(minX=8.525mm, maxX=9.475mm, minY=-30.225mm, maxY=-27.775mm); size=(width=0.95mm, height=2.45mm); anchor_alignment="center"
-  board edge status: 3.775mm inside bottom edge
-  issues:
-  - R5 connections cross the routing path between its pads. Suggested move: rotate R5 180 degrees.
-- R8
-  source placement: placement_mode=none
-  resolved placement: center=(27mm, 19.5mm) on top; bounds=(minX=25.775mm, maxX=28.225mm, minY=19.025mm, maxY=19.975mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 5.775mm inside right edge
-  issues:
-  - R8 connections cross the routing path between its pads. Suggested move: rotate R8 180 degrees.
-- R22
-  source placement: placement_mode=none
-  resolved placement: center=(-28mm, -7mm) on top; bounds=(minX=-29.225mm, maxX=-26.775mm, minY=-7.475mm, maxY=-6.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 4.775mm inside left edge
-  issues:
-  - R22 connections cross the routing path between its pads. Suggested move: rotate R22 180 degrees.
 - R15
   source placement: placement_mode=none
   resolved placement: center=(-11mm, -28mm) on top; bounds=(minX=-12.225mm, maxX=-9.775mm, minY=-28.475mm, maxY=-27.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
@@ -109,12 +73,6 @@ flagged components:
   board edge status: 8.525mm inside bottom edge
   issues:
   - R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
-- R17
-  source placement: placement_mode=none
-  resolved placement: center=(21mm, -21mm) on top; bounds=(minX=19.775mm, maxX=22.225mm, minY=-21.475mm, maxY=-20.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 11.775mm inside right edge
-  issues:
-  - R17 connections cross the routing path between its pads. Suggested move: rotate R17 180 degrees.
 - R27
   source placement: placement_mode=none
   resolved placement: center=(19mm, 17mm) on top; bounds=(minX=17.775mm, maxX=20.225mm, minY=16.525mm, maxY=17.475mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
@@ -130,5 +88,6 @@ flagged components:
 
 placement drc:
 Errors: 0
-Warnings: 0
-Placement passed: zero placement/courtyard DRC violations; eight reviewed centroid orientation suggestions. Full copper, shorts and independent KiCad checks remain required.
+Warnings: 1
+- pcb_connector_not_in_accessible_orientation_warning: J6 is facing x+ but should face x- so the connector is accessible from the board edge
+Placement reviewed: zero placement/courtyard errors; four centroid hints and the J6 access advisory. J6 faces the internal PCB window, verified with its actual housing and harness. Full copper, shorts and independent KiCad checks remain required.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: MIT; PCB-centred millimetres, +Z up
+# PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.
 
 o encoder-skirt
 v -21.26888657 -14.21141529 4.50000023 0.14117647 0.16078431 0.17647059

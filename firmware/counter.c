@@ -118,5 +118,3 @@ void counter_format_total(uint64_t turns, char out[21]) {
     out[i] = reverse[count - i - 1];
   out[count] = '\0';
 }
-
-bool charger_temperature_ok(uint16_t mv) { return mv >= 450 && mv <= 1300; }

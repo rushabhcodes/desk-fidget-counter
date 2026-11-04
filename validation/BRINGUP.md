@@ -1,45 +1,40 @@
-# Physical prototype bring-up / Rev C
+# Rev D prototype bring-up
 
-These measurements are outstanding. Software checks and envelope CAD do not establish hardware operation. Use current-limited bench power and the specified protected cell; record instruments, firmware tag, results and photographs here.
+**All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
-## Power and charging
+## Power and USB
 
-- [ ] Inspect the bare PCB against Gerbers; check 3V3/SYS/BAT/VBUS isolation, solder bridges, USB shield ground and U4 exposed pad.
-- [ ] Test first without the pouch. Confirm 3V3 and charger output, correct battery connector polarity and no unexpected heating.
-- [ ] Confirm PH8 pin order/continuity and correct 3.3 V screen input before connection. Measure display/IR/system current in battery, USB and suspend states.
-- [ ] Attach insulated pouch NTC. Sweep the real thermistor over temperature; verify firmware CE window and the independent charger TS gate. Open/short NTC must disable charging.
-- [ ] Measure charge current (nominal 201 mA), precharge, termination, restart, timeout and pouch/charger temperatures. Check charger power-path operation with the screen running.
-- [ ] Verify USB100 before enumeration, USB500 after configuration and suspend input mode. Test a current-limited USB source and both USB-C orientations.
-- [ ] Test USB/battery handover during continuous rotation, persistent low-battery gating and protected-cell cutoff. Measure usable runtime; do not infer it from nominal cell capacity.
+- [ ] Inspect bare board and soldering against Gerbers, pin-1 drawing and BOM. Confirm VBUS / V3V3 / PERIPH_3V3 / GND isolation. U4 is the SC70 load switch, not a charger.
+- [ ] Use a current-limited USB test setup. Confirm always-on 3.3V, low PB2/peripheral rail before configuration, no heating, and stable output under load.
+- [ ] Verify VBUS inrush, steady operation below the declared 100mA, load-switch ramp, display/IR current and both USB-C orientations with the specified cable.
+- [ ] Confirm USB HID+CDC enumeration on macOS, Windows and Linux. Test cold boot, warm reset, rapid hotplug and laptop sleep/wake.
+- [ ] Suspend USB, disconnect the SWD probe, and measure total VBUS current against the applicable USB suspend limit. Confirm LCD/IR power off, no high LCD inputs/back-powering, Stop-mode entry and EXTI18 wake. Scope HSI48/USB resume timing and repeated suspend/reset cycles; no compliance is claimed before measurement.
+- [ ] Turn the ring during suspension: no counts/scrolling should be guessed or replayed after resume. Existing committed count must survive.
 
-## Programming, USB and screen
+## Programming, persistence and screen
 
-- [ ] Verify JST J4 physical pins and 3.3 V VREF sense, flash via SWD, verify memory and exercise BOOT0/NRST ROM recovery.
-- [ ] Initialize FRAM with `RESET CONFIRM`. Confirm power-cut journal recovery during every stage of a save; unknown/corrupt records must show `RESET VIA USB`.
-- [ ] Confirm CDC and HID enumeration on intended OSes, USB-C flips, rapid hotplug, suspend/resume and no replay of queued wheel movement.
-- [ ] Confirm GC9A01 cold/warm startup, colour order, 90° mounting orientation, backlight, full 20-digit count layout and live battery/charge/scroll/USB states. Compare voltage readout to a meter.
-- [ ] Unplug/replug the LCD and disturb its SPI wiring. The write-only interface cannot prove screen presence; ensure any stalled transport leaves counting/USB responsive.
+- [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify Rev D firmware over SWD. Exercise ROM recovery separately.
+- [ ] Initialize FRAM with RESET CONFIRM. Test power removal during every journal write stage; recover a valid prior/committed record, never a corrupted guessed value. Document the brief possible rollback of an in-flight completed-turn write.
+- [ ] Build H1 to the physical signal-to-signal map in manufacturing/WIRING.md. Verify all eight continuities, no adjacent shorts, correct VCC/GND, PHR latch/retention and crimp pull strength. Verify the actual screen connector revision/position against the supplier STEP.
+- [ ] Confirm GC9A01 startup/orientation with tab -X, MADCTL 0xA8, RGB order, backlight, and readability. Test count up to 20 digits and RESET VIA USB fault state. A write-only SPI transport-success flag cannot detect an unplugged screen.
+- [ ] Run the companion on intended OSes. Compare local clock/date, total CPU%, RAM%, battery%/AC to host tools. Test no-battery desktop, companion close/reopen, multiple devices, port already in use and laptop disconnect/reconnect.
+- [ ] Stop updates: after five seconds, replace clock/metrics with HOST OFFLINE while scrolling/counting continue on awake USB. Check midnight/date rollover, timezone changes and host clock adjustments.
 
 ## Optical counting and controls
 
-- [ ] Verify TCUT common collector to 3V3, separate emitter pulldowns and approximately 14 mA IR LED current. Inspect tall sensor solder joints and orientation.
-- [ ] Scope both Schmitt inputs and PB4/PB5 outputs through one revolution. Confirm high/low margins, approximately 90° phase, **48 periods/channel and exactly 192 combined edges/revolution**.
-- [ ] Test the printed skirt's 950 nm opacity, slot dimensions, axial/radial alignment, dust, sunlight and indoor lighting. A visibly black print may transmit IR. Replace material if contrast is inadequate.
-- [ ] Compare 10, 100 and 1000 measured turns in both directions; exercise slow single-edge motion, reversals, stopping on transitions and varied speeds. Establish the speed at which no counts are missed while LCD and FRAM run.
-- [ ] Confirm clockwise wheel direction; swap channel mapping or invert the firmware direction if the intended feel needs it. Count magnitude must remain correct.
-- [ ] Toggle scrolling off/on while rotating: count must continue and no old USB motion may replay. Check 20 ms switch debounce, both stable positions and recessed lever access.
-- [ ] Simulate blocked optics, missing channels, loose encoder material and extreme speed. No optical amplitude feedback is fitted; measure/document failure behaviour rather than treating timer-running as optical health.
+- [ ] Verify U2 collector is on PERIPH_3V3, common cathode to GND, separate emitter pulldowns and nominal IR current. Scope both Schmitt inputs and PB4/PB5.
+- [ ] Confirm 48 periods/channel and exactly 192 combined edges per full revolution, approximately quadrature phase, and high/low voltage margins.
+- [ ] Test 950nm opacity of the printed skirt, slots, axial/radial alignment, dust, sunlight and room lighting. Black visible colour alone is insufficient.
+- [ ] Compare 10/100/1000 measured turns both directions. Exercise slow edges, reversals, stopping on transitions and maximum intended speed while display and FRAM run. Measure a reliable speed envelope.
+- [ ] Confirm wheel direction and 32 units per turn. Toggle off/on while rotating: count continues, no queued wheel motion replays, both switch positions fit and debounce.
+- [ ] Test the service reset's three-second hold and intentional CDC reset. Unknown/corrupt FRAM must require initialization.
 
-## Assembly and endurance
+## Mechanics and fabrication
 
-- [ ] Print the fit coupon, measure the bearing seats and tune printer-specific tolerances.
-- [ ] Inspect the actual Waveshare module's rear components, PH8 housing and cable bend. Confirm the model's connector allowance and edge-only support; never tighten against a backside component.
-- [ ] Confirm bearing outer/inner races are separately captured, screw heads and pilots clear, and the rotor group can be assembled/removed in the documented order.
-- [ ] Measure bezel/grip clearance (nominal .6 mm radial), bearing-clamp/top-web clearance (.5 mm axial) and sensor gap clearance (1 mm radial per side). Rotate under hand pressure in both directions with no rub.
-- [ ] Confirm every cable stays fixed and clear of the bearing/encoder; battery tray and strap do not compress the pouch or abrade leads.
-- [ ] Test USB plug fit through the recessed opening, toggle finger access, service JST access, bearing feel, long rotation endurance and intended desk loads.
-
-- [ ] Inspect the routed PCB window, individual solder wells and all trimmed through-hole tails; ensure no metal contacts the base or pouch. All component housings must be on the top side.
-- [ ] Verify the optical-skirt adhesive bond after the specified dwell time, heat cycling and repeated rotation. Confirm the bond does not creep or add bearing drag.
-- [ ] Park the rotor at the three underside driver windows and verify retainer screw access, removal order and separate inner/outer race contact.
-- [ ] Check a 13×8 mm USB-C overmould clears the rotating lower edge by the nominal .85 mm, and reject larger plugs that rub.
+- [ ] Print the bearing-fit coupon first; measure actual inner/outer race contact faces, printed shrinkage and running torque. Clamp each race independently without shield preload.
+- [ ] Inspect every through-hole tail: trimmed to ≤0.8mm below the PCB, deburred, clear of base and insulating film. Check each solder well and all top-side package heights.
+- [ ] Check original screen carrier, bosses, tab, front and connector against the cradle/bezel. Tightening must not bow the PCB or load active glass.
+- [ ] Confirm H1's short free span and smooth ≥6.1mm bends at actual wire OD. It must clear posts, PCB, every optical-skirt angle and all package bodies. Unplug before lifting the screen for service; there is no long service loop.
+- [ ] Check DIN965 screw seating and engagement, access windows, both toggle positions, the specified USB plug's insertion shoulder/strain relief, 0.6mm bezel/grip gap, and the full rotating swept volume.
+- [ ] Confirm no loose wire can enter the moving skirt. Rotate many complete turns before final closure. Check bearing retention, skirt adhesive and feet over time.
+- [ ] Have the fabricator review the two-layer board rules and closed internal routing contour. Reflow/feeder rotations and solder-mask clearances must match pin-1 drawings before an assembly order.

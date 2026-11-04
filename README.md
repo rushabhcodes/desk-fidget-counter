@@ -1,48 +1,55 @@
-# Desk fidget counter / USB scroll ring
+# Desk fidget counter / laptop dashboard
 
-A rechargeable desk knob with a **fixed 1.28-inch round colour screen**, a freely rotating grip ring, USB-C scrolling and a retained full-turn counter. The **left-side toggle** enables scrolling; counting continues in either position, including while running on battery. The screen shows turns, battery voltage, charge status and scroll mode.
+A **USB-powered** scroll ring with a fixed 1.28-inch colour display. The screen shows the laptop's **clock, CPU/RAM usage and battery**, alongside retained full turns and scroll status. The **left toggle** enables USB scrolling; counting continues with scrolling disabled while the computer is awake. There is no internal battery or charging circuit.
 
-Release **v3.0.0 / PCB Rev C**: [GitHub release](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v3.0.0), [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter), [validation](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/validation/REPORT.md), [Gerber ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v3.0.0/desk-knob-revc-gerbers.zip), [complete project ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v3.0.0/desk-knob-v3.0.0.zip).
+**v4.0.0 / PCB Rev D**: [GitHub release](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v4.0.0) · [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter#3d) · [complete project ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v4.0.0/desk-knob-v4.0.0.zip) · [Gerber ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v4.0.0/desk-knob-revd-gerbers.zip).
 
-![Assembled design](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v3.0.0/mechanical/assembly.png)
+![Assembled design](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v4.0.0/mechanical/assembly.png)
 
-**This is a software-checked prototype design.** Physical counting accuracy, optical contrast, USB behaviour, charging, runtime and printed fit remain to be measured using [BRINGUP.md](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/validation/BRINGUP.md). Fabrication files and compiled firmware do not establish a tested hardware build.
+![Actual firmware dashboard renderer](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v4.0.0/previews/screen-ui.png)
+
+This is a **software-checked prototype design**. Physical optical counting, USB electrical behaviour/suspend current, macOS/Windows interoperability, crimp quality and printed tolerances still require a first prototype. Fabrication outputs are supplied for that prototype; they are not evidence of a physically tested product. See [validation and remaining bring-up](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/validation/REPORT.md).
 
 | Function | Implementation |
 |---|---|
-| Screen | Waveshare 19192, GC9A01, 240×240, visible Ø32.4 mm; fixed central cradle |
-| Rotation | 48-slot opaque optical ring; Vishay TCUT1600X01_A dual sensor and Schmitt buffers; 192 edges/revolution |
-| Count | Unsigned 64-bit completed turns; either direction adds one, reversal cancels unfinished progress |
-| Scroll | USB HID wheel, 32 reports of one wheel unit per revolution; left toggle gates output |
-| Controller | STM32F072CBT6, native crystal-less USB; hardware TIM3 quadrature, SPI2 display |
-| Storage | MB85RC256V FRAM, two CRC-protected journal slots, immediate completed-turn commits |
-| Power | Protected Adafruit 2750 350 mAh LiPo; BQ24074 power path and nominal 201 mA charging; pouch NTC |
-| Connectors | USB-C; JST-PH2 battery, JST-PH6 SWD/BOOT0, JST-PH8 screen |
-| Mechanics | Ø86×22.3 mm, Ø84.8 mm grip, Ø48 mm fixed bezel, 6712ZZ 60×75×7 mm bearing |
+| Display | Waveshare **19192**, non-touch GC9A01, 240×240, active Ø32.4 mm |
+| Laptop information | Local USB companion for macOS, Windows and Linux; clock/date, overall CPU%, RAM%, laptop battery%/AC |
+| Rotation | 48-slot optical skirt; Vishay TCUT1600X01_A dual sensor, Schmitt conditioning, TIM3 quadrature; 192 edges/turn |
+| Counting | Unsigned 64-bit completed turns; either direction adds one; partial reversal cancels |
+| Scrolling | Standard USB HID wheel, 32 wheel units/turn, gated by left NKK G12AH toggle |
+| Persistence | MB85RC256V FRAM with two CRC-protected journal slots and read-back verification |
+| USB controller | STM32F072CBT6, 48MHz HSI48/CRS; composite HID + CDC |
+| Power | USB-C 5V → TLV75533 3.3V; TPS22919 gates LCD/IR power during USB suspend; 100mA bus-powered configuration |
+| Connectors | Side USB-C, top JST-PH6 SWD, top-mounted side-entry JST-PH8 display |
+| Mechanics | **Ø86×22.3 mm**, Ø84.8 rotating ring, fixed Ø48 bezel, 6712ZZ 60×75×7 mm bearing |
 
-The body is 52.6% shorter than v2.0.0. A central 34.6×40.6 mm PCB pocket allows the battery and rear LCD connector to share the board height. All 63 component footprints are on top; side-entry battery/display JSTs keep their mating cables low. [Mechanical stack and research](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/mechanical/LOW_PROFILE.md).
+All **44 PCB components assemble from the top**. The board has a custom clipped circular outline and a 34.6×40.6 mm rounded window for the static cable and rear display connector. The screen model now comes from **Waveshare's actual STEP file**; package models, keyed JST mates and eight individual wires are included. [Model sources and exact detail limits](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/mechanical/vendor/README.md). Removing the cell frees cable space; the bearing and side port still set the 22.3 mm height.
 
-The ring has no mechanical detents. The optical skirt must be printed in material proven opaque at 950 nm; visible black colour alone is insufficient. The screen and cable stay stationary, so there are no slip rings or twisting wires.
+## Start using it
 
-## Use and initialization
-
-Power the board over USB, program it through JST J4 as described in [firmware/README.md](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/firmware/README.md), and issue `RESET CONFIRM` once to initialize a new FRAM. The screen otherwise shows `RESET VIA USB` and counting waits for deliberate initialization. The internal three-second reset button is a service control under the removable rotor.
+Flash Rev D firmware through J4, then initialize a new FRAM deliberately:
 
 ```sh
-python scripts/count.py --list
-python scripts/count.py --port /dev/ttyACM0 status
 python scripts/count.py --port /dev/ttyACM0 reset --confirm
 ```
 
-Turn the left toggle on for scrolling. USB detach, suspend or toggle-off clears queued wheel movement; battery-session turns are never replayed as scrolling on reconnection. Counting stops on invalid storage or persistent battery readings below 3.45 V. Battery voltage is displayed directly; it is not presented as a calibrated state-of-charge percentage. The screen and optical LED consume power continuously, so runtime needs measurement rather than a multi-day assumption.
+Turn on the left toggle to scroll. Turn counting and scrolling work without the companion; laptop information needs it running:
 
-## Files and rebuilding
+```sh
+python -m pip install -r companion/requirements.txt
+python companion/dashboard.py
+```
 
-- [Assembly guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/ASSEMBLY.md): hardware, nine printed parts, cable pinout and assembly sequence.
-- [3D CAD](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/mechanical/README.md): [assembled GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v3.0.0/assembled.glb), [exploded GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v3.0.0/exploded.glb), printable STLs and parametric sources.
-- [Manufacturing](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/manufacturing/README.md): source-derived KiCad board, checked Gerbers, BOM and placement data.
-- [Firmware](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/firmware/README.md): included BIN/HEX, source, SWD wiring, USB console and behaviour.
-- [Primary design references](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/reference/DATASHEETS.md): pin maps, optics, display and power calculations.
+[Companion installation for macOS/Windows/Linux](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/companion/README.md). `HOST OFFLINE` replaces stale laptop metrics after five seconds. Laptop battery values come from the computer; desktop machines show `NO HOST BATTERY`. USB suspend blanks the display and powers the optical emitter down, so turns during suspend are not measured. Completed journal records survive unplugging; an update interrupted during its brief write may roll back to the previous committed record.
+
+The screen and wires stay fixed; the grip rotates around them without slip rings. The ring has no mechanical detents. Use an optical skirt proven opaque at 950 nm.
+
+## Build files
+
+- [Assembly guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/ASSEMBLY.md), [physical wiring and JST pin views](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/manufacturing/WIRING.md).
+- [3D CAD and printing](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/mechanical/README.md), [assembled GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v4.0.0/assembled.glb), [exploded GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v4.0.0/exploded.glb).
+- [Manufacturing outputs](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/manufacturing/README.md): checked KiCad board, Gerbers, BOM and pick-and-place.
+- [Firmware, programming and USB protocol](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/firmware/README.md), [component references](https://github.com/rushabhcodes/desk-fidget-counter/blob/v4.0.0/reference/DATASHEETS.md).
 
 ```sh
 bun install --frozen-lockfile
@@ -52,8 +59,8 @@ bun run build
 bun run check:placement && bun validation/check-design.mjs && bun run check:shorts && bun run check:assembly
 ```
 
-`assembly.circuit.tsx` is the published entrypoint and includes the full product's named 3D parts. `index.circuit.tsx` is the bare PCB. Immutable per-version CAD URLs bind the tscircuit viewer to this release. The [manifest](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/release-manifest.json) and [checksums](https://github.com/rushabhcodes/desk-fidget-counter/blob/v3.0.0/release/SHA256SUMS.txt) bind generated outputs to their source inputs. Earlier Rev A/B fabrication and firmware remain available under their existing GitHub release tags; Rev C mechanics and firmware belong with the Rev C board.
+The seven schematics have descriptive functional titles and chip-function/rating annotations, following the [tscircuit handbook's design-review guide](https://github.com/tscircuit/handbook/blob/main/guides/preparing-for-design-review.md). `assembly.circuit.tsx` is the published full-product entrypoint; `index.circuit.tsx` is the bare PCB. GitHub is linked to tscircuit and updates synchronize through that integration. Versioned CAD URLs and the release manifest bind viewer models and fabrication outputs to the corresponding release.
 
-MIT-licensed project; vendor/package assets retain their upstream notices. USB firmware uses TinyUSB development identifiers; see the firmware guide for production use.
+Rev D hardware, mechanics and firmware belong together. Earlier battery-powered Rev C remains available under [v3.0.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v3.0.0). Project code is MIT; supplier/package assets retain upstream rights. USB identifiers are TinyUSB development examples; see the firmware guide before distributing a commercial product.
 
-Concept references: [Ploopy Knob](https://ploopy.co/knob/) and [rushabhcodes/fidget-counter](https://tscircuit.com/rushabhcodes/fidget-counter).
+Concepts: [Ploopy Knob](https://ploopy.co/knob/) and [rushabhcodes/fidget-counter](https://tscircuit.com/rushabhcodes/fidget-counter).

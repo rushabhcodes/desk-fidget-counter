@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: MIT; PCB-centred millimetres, +Z up
+# PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.
 
 o bearing
 v -28.19399261 -24.72546768 8.60000000 0.71764706 0.74509804 0.77254902

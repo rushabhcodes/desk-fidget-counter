@@ -34,19 +34,8 @@
   "bearing_pocket_id": 75.1,
   "knob_diameter": 84.8,
   "knob_top_z": 22.1,
-  "battery_envelope": [
-    21.0,
-    37.0,
-    5.8
-  ],
-  "battery_center": [
-    -0.5,
-    -2.5,
-    5.1
-  ],
-  "battery_part": "Adafruit 2750 protected 3.7V 350mAh LiPo",
   "scroll_switch": [
-    -20,
+    -22,
     -19
   ],
   "reset_button": [
@@ -91,15 +80,12 @@
     "front_z": 20.9,
     "bezel_top_z": 22.3,
     "bezel_diameter": 48,
-    "module_rotation_deg": 90
+    "module_rotation_deg": 270,
+    "official_step": "vendor/step/Waveshare-19192.stp"
   },
   "header_tail_below_pcb_mm": 0.8,
   "lid_screw_length_mm": 6,
   "knob_bottom_z": 10.8,
-  "battery_connector": [
-    18.5,
-    -9
-  ],
   "pcb_window": {
     "xmin": -17.8,
     "xmax": 16.8,
@@ -112,7 +98,7 @@
     "clip_x": 34,
     "clip_y": 34
   },
-  "usb_plug_max_height_mm": 8,
+  "usb_plug_max_height_mm": 6.4,
   "chassis_screw_axes": [
     [
       28,
@@ -130,11 +116,12 @@
     ],
     [
       -15.8,
-      -14
+      -15
     ],
     [
       14.6,
       -15
     ]
-  ]
+  ],
+  "usb_cable_part": "L-com CAU4CC-40M-1M"
 }

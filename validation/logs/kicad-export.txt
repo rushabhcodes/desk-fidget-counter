@@ -1,67 +1,95 @@
-11:48:05: Debug: Adding duplicate image handler for 'PNG file'
-11:48:05: Debug: Adding duplicate image handler for 'JPEG file'
-11:48:05: Debug: Adding duplicate image handler for 'TIFF file'
-11:48:05: Debug: Adding duplicate image handler for 'GIF file'
-11:48:05: Debug: Adding duplicate image handler for 'PNM file'
-11:48:05: Debug: Adding duplicate image handler for 'PCX file'
-11:48:05: Debug: Adding duplicate image handler for 'IFF file'
-11:48:05: Debug: Adding duplicate image handler for 'Windows icon file'
-11:48:05: Debug: Adding duplicate image handler for 'Windows cursor file'
-11:48:05: Debug: Adding duplicate image handler for 'Windows animated cursor file'
-11:48:05: Debug: Adding duplicate image handler for 'TGA file'
-11:48:05: Debug: Adding duplicate image handler for 'XPM file'
+15:04:45: Debug: Adding duplicate image handler for 'PNG file'
+15:04:45: Debug: Adding duplicate image handler for 'JPEG file'
+15:04:45: Debug: Adding duplicate image handler for 'TIFF file'
+15:04:45: Debug: Adding duplicate image handler for 'GIF file'
+15:04:45: Debug: Adding duplicate image handler for 'PNM file'
+15:04:45: Debug: Adding duplicate image handler for 'PCX file'
+15:04:45: Debug: Adding duplicate image handler for 'IFF file'
+15:04:45: Debug: Adding duplicate image handler for 'Windows icon file'
+15:04:45: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:04:45: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:04:45: Debug: Adding duplicate image handler for 'TGA file'
+15:04:45: Debug: Adding duplicate image handler for 'XPM file'
+Found 2 violations
+Found 0 unconnected items
+Saved DRC Report to /home/rushabh/Dev/desk_fidget_counter/validation/kicad-drc.json
+Saved board
+15:05:03: Debug: Adding duplicate image handler for 'PNG file'
+15:05:03: Debug: Adding duplicate image handler for 'JPEG file'
+15:05:03: Debug: Adding duplicate image handler for 'TIFF file'
+15:05:03: Debug: Adding duplicate image handler for 'GIF file'
+15:05:03: Debug: Adding duplicate image handler for 'PNM file'
+15:05:03: Debug: Adding duplicate image handler for 'PCX file'
+15:05:03: Debug: Adding duplicate image handler for 'IFF file'
+15:05:03: Debug: Adding duplicate image handler for 'Windows icon file'
+15:05:03: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:05:03: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:05:03: Debug: Adding duplicate image handler for 'TGA file'
+15:05:03: Debug: Adding duplicate image handler for 'XPM file'
+15:05:05: Debug: Adding duplicate image handler for 'PNG file'
+15:05:05: Debug: Adding duplicate image handler for 'JPEG file'
+15:05:05: Debug: Adding duplicate image handler for 'TIFF file'
+15:05:05: Debug: Adding duplicate image handler for 'GIF file'
+15:05:05: Debug: Adding duplicate image handler for 'PNM file'
+15:05:05: Debug: Adding duplicate image handler for 'PCX file'
+15:05:05: Debug: Adding duplicate image handler for 'IFF file'
+15:05:05: Debug: Adding duplicate image handler for 'Windows icon file'
+15:05:05: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:05:05: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:05:05: Debug: Adding duplicate image handler for 'TGA file'
+15:05:05: Debug: Adding duplicate image handler for 'XPM file'
 Found 0 violations
 Found 0 unconnected items
 Saved DRC Report to /home/rushabh/Dev/desk_fidget_counter/validation/kicad-drc.json
 Saved board
-11:48:20: Debug: Adding duplicate image handler for 'PNG file'
-11:48:20: Debug: Adding duplicate image handler for 'JPEG file'
-11:48:20: Debug: Adding duplicate image handler for 'TIFF file'
-11:48:20: Debug: Adding duplicate image handler for 'GIF file'
-11:48:20: Debug: Adding duplicate image handler for 'PNM file'
-11:48:20: Debug: Adding duplicate image handler for 'PCX file'
-11:48:20: Debug: Adding duplicate image handler for 'IFF file'
-11:48:20: Debug: Adding duplicate image handler for 'Windows icon file'
-11:48:20: Debug: Adding duplicate image handler for 'Windows cursor file'
-11:48:20: Debug: Adding duplicate image handler for 'Windows animated cursor file'
-11:48:20: Debug: Adding duplicate image handler for 'TGA file'
-11:48:20: Debug: Adding duplicate image handler for 'XPM file'
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-F_Cu.gtl'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-B_Cu.gbl'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-F_Paste.gtp'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-B_Paste.gbp'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-F_Silkscreen.gto'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-B_Silkscreen.gbo'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-F_Mask.gts'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-B_Mask.gbs'.
-Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-Edge_Cuts.gm1'.
-11:48:26: Debug: Adding duplicate image handler for 'PNG file'
-11:48:26: Debug: Adding duplicate image handler for 'JPEG file'
-11:48:26: Debug: Adding duplicate image handler for 'TIFF file'
-11:48:26: Debug: Adding duplicate image handler for 'GIF file'
-11:48:26: Debug: Adding duplicate image handler for 'PNM file'
-11:48:26: Debug: Adding duplicate image handler for 'PCX file'
-11:48:26: Debug: Adding duplicate image handler for 'IFF file'
-11:48:26: Debug: Adding duplicate image handler for 'Windows icon file'
-11:48:26: Debug: Adding duplicate image handler for 'Windows cursor file'
-11:48:26: Debug: Adding duplicate image handler for 'Windows animated cursor file'
-11:48:26: Debug: Adding duplicate image handler for 'TGA file'
-11:48:26: Debug: Adding duplicate image handler for 'XPM file'
-Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-PTH.drl'
-Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-NPTH.drl'
-Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-PTH-drl_map.svg'.
-Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revc-NPTH-drl_map.svg'.
+15:05:44: Debug: Adding duplicate image handler for 'PNG file'
+15:05:44: Debug: Adding duplicate image handler for 'JPEG file'
+15:05:44: Debug: Adding duplicate image handler for 'TIFF file'
+15:05:44: Debug: Adding duplicate image handler for 'GIF file'
+15:05:44: Debug: Adding duplicate image handler for 'PNM file'
+15:05:44: Debug: Adding duplicate image handler for 'PCX file'
+15:05:44: Debug: Adding duplicate image handler for 'IFF file'
+15:05:44: Debug: Adding duplicate image handler for 'Windows icon file'
+15:05:44: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:05:44: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:05:44: Debug: Adding duplicate image handler for 'TGA file'
+15:05:44: Debug: Adding duplicate image handler for 'XPM file'
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-F_Cu.gtl'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-B_Cu.gbl'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-F_Paste.gtp'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-B_Paste.gbp'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-F_Silkscreen.gto'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-B_Silkscreen.gbo'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-F_Mask.gts'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-B_Mask.gbs'.
+Plotted to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-Edge_Cuts.gm1'.
+15:06:01: Debug: Adding duplicate image handler for 'PNG file'
+15:06:01: Debug: Adding duplicate image handler for 'JPEG file'
+15:06:01: Debug: Adding duplicate image handler for 'TIFF file'
+15:06:01: Debug: Adding duplicate image handler for 'GIF file'
+15:06:01: Debug: Adding duplicate image handler for 'PNM file'
+15:06:01: Debug: Adding duplicate image handler for 'PCX file'
+15:06:01: Debug: Adding duplicate image handler for 'IFF file'
+15:06:01: Debug: Adding duplicate image handler for 'Windows icon file'
+15:06:01: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:06:01: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:06:01: Debug: Adding duplicate image handler for 'TGA file'
+15:06:01: Debug: Adding duplicate image handler for 'XPM file'
+Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-PTH.drl'
+Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-NPTH.drl'
+Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-PTH-drl_map.svg'.
+Created file '/home/rushabh/Dev/desk_fidget_counter/manufacturing/gerbers/desk-knob-revd-NPTH-drl_map.svg'.
 Done.
-11:48:27: Debug: Adding duplicate image handler for 'PNG file'
-11:48:27: Debug: Adding duplicate image handler for 'JPEG file'
-11:48:27: Debug: Adding duplicate image handler for 'TIFF file'
-11:48:27: Debug: Adding duplicate image handler for 'GIF file'
-11:48:27: Debug: Adding duplicate image handler for 'PNM file'
-11:48:27: Debug: Adding duplicate image handler for 'PCX file'
-11:48:27: Debug: Adding duplicate image handler for 'IFF file'
-11:48:27: Debug: Adding duplicate image handler for 'Windows icon file'
-11:48:27: Debug: Adding duplicate image handler for 'Windows cursor file'
-11:48:27: Debug: Adding duplicate image handler for 'Windows animated cursor file'
-11:48:27: Debug: Adding duplicate image handler for 'TGA file'
-11:48:27: Debug: Adding duplicate image handler for 'XPM file'
+15:06:02: Debug: Adding duplicate image handler for 'PNG file'
+15:06:02: Debug: Adding duplicate image handler for 'JPEG file'
+15:06:02: Debug: Adding duplicate image handler for 'TIFF file'
+15:06:02: Debug: Adding duplicate image handler for 'GIF file'
+15:06:02: Debug: Adding duplicate image handler for 'PNM file'
+15:06:02: Debug: Adding duplicate image handler for 'PCX file'
+15:06:02: Debug: Adding duplicate image handler for 'IFF file'
+15:06:02: Debug: Adding duplicate image handler for 'Windows icon file'
+15:06:02: Debug: Adding duplicate image handler for 'Windows cursor file'
+15:06:02: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+15:06:02: Debug: Adding duplicate image handler for 'TGA file'
+15:06:02: Debug: Adding duplicate image handler for 'XPM file'
 Wrote position data to '/home/rushabh/Dev/desk_fidget_counter/manufacturing/pick-and-place.csv'.

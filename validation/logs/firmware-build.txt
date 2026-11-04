@@ -1,12 +1,12 @@
 make: Entering directory '/home/rushabh/Dev/desk_fidget_counter/firmware'
 mkdir -p build
-/tmp/desk-toolchain/bin/arm-none-eabi-gcc -std=gnu11 -Os -g3 -mcpu=cortex-m0 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -Wno-misleading-indentation -DSTM32F072xB -DCFG_TUSB_MCU=OPT_MCU_STM32F0 -I. -I/tmp/desk-tinyusb/src -I/tmp/desk-tinyusb/lib/CMSIS_5/CMSIS/Core/Include -I/tmp/desk-tinyusb/hw/mcu/st/cmsis_device_f0/Include main.c counter.c lcd.c lcd_ui.c startup.c usb_descriptors.c syscalls.c /tmp/desk-tinyusb/src/tusb.c /tmp/desk-tinyusb/src/common/tusb_fifo.c /tmp/desk-tinyusb/src/device/usbd.c /tmp/desk-tinyusb/src/class/cdc/cdc_device.c /tmp/desk-tinyusb/src/class/hid/hid_device.c /tmp/desk-tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c /tmp/desk-tinyusb/src/portable/st/stm32_fsdev/fsdev_common.c -Tstm32f072cb.ld -Wl,--gc-sections,-Map=build/desk-knob.map -nostartfiles --specs=nosys.specs -Wl,--print-memory-usage -o build/desk-knob.elf
+/tmp/desk-toolchain/bin/arm-none-eabi-gcc -std=gnu11 -Os -g3 -mcpu=cortex-m0 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -Wno-misleading-indentation -DSTM32F072xB -DCFG_TUSB_MCU=OPT_MCU_STM32F0 -I. -I/tmp/desk-tinyusb/src -I/tmp/desk-tinyusb/lib/CMSIS_5/CMSIS/Core/Include -I/tmp/desk-tinyusb/hw/mcu/st/cmsis_device_f0/Include main.c counter.c dashboard.c lcd.c lcd_ui.c startup.c usb_descriptors.c syscalls.c /tmp/desk-tinyusb/src/tusb.c /tmp/desk-tinyusb/src/common/tusb_fifo.c /tmp/desk-tinyusb/src/device/usbd.c /tmp/desk-tinyusb/src/class/cdc/cdc_device.c /tmp/desk-tinyusb/src/class/hid/hid_device.c /tmp/desk-tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c /tmp/desk-tinyusb/src/portable/st/stm32_fsdev/fsdev_common.c -Tstm32f072cb.ld -Wl,--gc-sections,-Map=build/desk-knob.map -nostartfiles --specs=nosys.specs -Wl,--print-memory-usage -o build/desk-knob.elf
 Memory region         Used Size  Region Size  %age Used
-           FLASH:       59832 B       128 KB     45.65%
-             RAM:        4776 B        16 KB     29.15%
+           FLASH:       61032 B       128 KB     46.56%
+             RAM:        4840 B        16 KB     29.54%
 /tmp/desk-toolchain/bin/arm-none-eabi-size build/desk-knob.elf
    text	   data	    bss	    dec	    hex	filename
-  57640	   2192	   2584	  62416	   f3d0	build/desk-knob.elf
+  58840	   2192	   2648	  63680	   f8c0	build/desk-knob.elf
 /tmp/desk-toolchain/bin/arm-none-eabi-objcopy -O binary build/desk-knob.elf build/desk-knob.bin
 /tmp/desk-toolchain/bin/arm-none-eabi-objcopy -O ihex build/desk-knob.elf build/desk-knob.hex
 make: Leaving directory '/home/rushabh/Dev/desk_fidget_counter/firmware'

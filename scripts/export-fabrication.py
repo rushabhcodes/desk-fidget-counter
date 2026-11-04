@@ -9,18 +9,21 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manufacturing'
 OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
-boardpath=OUT/'desk-knob-revc.kicad_pcb'
+boardpath=OUT/'desk-knob-revd.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
+# Keep boards alive while pcbnew's footprint/zone proxy objects are in scope.
+loaded_boards=[b]
+source=json.loads((ROOT/'dist/index/circuit.json').read_text())
+expected={c['name'] for c in source if c['type']=='source_component'}
+assert {f.GetReference() for f in b.GetFootprints() if f.GetReference()}==expected, 'Raw KiCad export is stale; export the current circuit JSON first'
 # All coordinates and nets come from tscircuit; refill removes floating copper islands.
-for z in b.Zones():
+for priority,z in enumerate(b.Zones(),1):
+    assert z.GetNetname()=='GND', 'Only the declared ground pours are expected'
+    # Native pour fragments can touch/overlap on tessellated boundaries. Distinct
+    # priorities let KiCad refill their common ground without ambiguous overlaps.
+    z.SetAssignedPriority(priority)
     z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
     z.SetLocalClearance(pcbnew.FromMM(.25))
-# Set the exposed pad's stencil aperture to 64% area (1.36 square / 1.7 square).
-# TI allows a reduced single aperture at this small pad size. Copper is unchanged.
-for fp in b.GetFootprints():
-    if fp.GetReference()=='U4':
-        for pad in fp.Pads():
-            if pad.GetNumber()=='17':pad.SetLocalSolderPasteMargin(pcbnew.FromMM(-.17))
 # Keep the QFP corner marks clear of solder-mask openings. The library's
 # 0.6mm corner strokes reach the pad-mask margins; shorten their inward ends.
 for fp in b.GetFootprints():
@@ -68,17 +71,19 @@ for attempt in range(3):
  r=json.loads((ROOT/'validation/kicad-drc.json').read_text())
  isolated={item['uuid'] for v in r['violations'] if v['type']=='isolated_copper' for item in v['items']}
  if not isolated:break
- b=pcbnew.LoadBoard(str(boardpath));count=0
+ b=pcbnew.LoadBoard(str(boardpath));loaded_boards.append(b);count=0
  for zone in list(b.Zones()):
   if zone.m_Uuid.AsString() in isolated:
    assert zone.GetNetname()=='GND','Only isolated ground fragments may be removed'
-   removed.append({'zone_uuid':zone.m_Uuid.AsString(),'net':'GND','reason':'KiCad isolated_copper'});b.Remove(zone);count+=1
+   removed.append({'zone_uuid':zone.m_Uuid.AsString(),'net':'GND','reason':'KiCad isolated_copper'})
+   zone.thisown=False
+   b.Remove(zone);count+=1
  assert count==len(isolated),'Cannot identify an isolated pour fragment'
  pcbnew.SaveBoard(str(boardpath),b)
 (ROOT/'validation/pour-cleanup.json').write_text(json.dumps({'removed_isolated_ground_zones':removed},indent=2)+'\n')
 assert not r['violations'] and not r['unconnected_items'], 'DRC is not clean'
 gerbers=OUT/'gerbers';gerbers.mkdir(exist_ok=True)
-for old in gerbers.glob('desk-knob-revc*'):old.unlink()
+for old in gerbers.glob('desk-knob-*'):old.unlink()
 subprocess.run(['kicad-cli','pcb','export','gerbers',str(boardpath),'--output',str(gerbers)+'/',
  '--layers','F.Cu,B.Cu,F.Mask,B.Mask,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,Edge.Cuts',
  '--subtract-soldermask','--check-zones'],check=True)
@@ -94,7 +99,6 @@ with position_file.open(newline='') as f:
 fields=list(rows[0]); rows=[r for r in rows if r['Ref']]
 with position_file.open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(rows)
-expected={c['name'] for c in json.loads((ROOT/'dist/index/circuit.json').read_text()) if c['type']=='source_component'}-{'J3'}
 assert {r['Ref'] for r in rows}==expected, 'Placement population differs from the source BOM'
 
 # Normalize generator whitespace without changing plotted geometry.

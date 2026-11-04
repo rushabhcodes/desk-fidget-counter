@@ -20,7 +20,7 @@ static const tusb_desc_device_t device = {.bLength = sizeof(tusb_desc_device_t),
                                           .bMaxPacketSize0 = 64,
                                           .idVendor = USB_VID,
                                           .idProduct = USB_PID,
-                                          .bcdDevice = 0x0200,
+                                          .bcdDevice = 0x0400,
                                           .iManufacturer = 1,
                                           .iProduct = 2,
                                           .iSerialNumber = 3,
@@ -36,7 +36,7 @@ uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance) {
 #define CONFIG_LEN (TUD_CONFIG_DESC_LEN + TUD_CDC_DESC_LEN + TUD_HID_DESC_LEN)
 static uint8_t const config[] = {
     TUD_CONFIG_DESCRIPTOR(1, 3, 0, CONFIG_LEN,
-                          TUSB_DESC_CONFIG_ATT_SELF_POWERED, 500),
+                          0, 100),
     TUD_CDC_DESCRIPTOR(0, 4, 0x81, 8, 0x02, 0x82, 64),
     TUD_HID_DESCRIPTOR(2, 5, HID_ITF_PROTOCOL_MOUSE, sizeof(hid_report), 0x83,
                        16, 1)};
@@ -59,7 +59,7 @@ uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t lang) {
   else if (index == 2)
     s = "Desk Fidget Counter";
   else if (index == 4)
-    s = "Count Console";
+    s = "Dashboard and Count";
   else if (index == 5)
     s = "Scroll Wheel";
   else if (index == 3) {

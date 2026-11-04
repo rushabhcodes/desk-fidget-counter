@@ -1,0 +1,9 @@
+Harness,Board,Board pin,Signal,Wire colour,Screen pin,Free wire span mm,Wire,Contacts
+H1,J6,1,BL,#ffffff,1,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,2,RST,#b45cce,2,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,3,DC,#ee9b34,3,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,4,CS,#e4d751,4,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,5,CLK,#528cdd,5,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,6,DIN,#59ac70,6,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,7,GND,#222c38,7,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+H1,J6,8,VCC,#e45555,8,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends

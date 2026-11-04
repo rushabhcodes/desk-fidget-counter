@@ -19,7 +19,7 @@ cfg=symbol('config');dev=symbol('device');hid=symbol('hid_report')
 assert len(dev)==18 and dev[0:2]==bytes([18,1])
 assert struct.unpack_from('<HH',dev,8)==(0xcafe,0x4011)
 assert struct.unpack_from('<H',cfg,2)[0]==len(cfg)==100
-assert cfg[4]==3 and cfg[7]==0xc0 and cfg[8]==250
+assert cfg[4]==3 and cfg[7]==0x80 and cfg[8]==50
 interfaces=[];endpoints=[];i=0
 while i<len(cfg):
     n,t=cfg[i:i+2];assert n>=2

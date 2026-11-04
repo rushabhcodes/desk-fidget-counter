@@ -1,0 +1,320 @@
+{
+  "lqfp48": {
+    "step": "mechanical/vendor/step/LQFP-48_7x7mm_P0.5mm.step",
+    "obj": "mechanical/vendor/obj/lqfp48.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Package_QFP.3dshapes/LQFP-48_7x7mm_P0.5mm.step",
+    "bounds": [
+      [
+        -4.5,
+        -4.5,
+        -2.220446049250313e-16
+      ],
+      [
+        4.5,
+        4.5,
+        1.5
+      ]
+    ],
+    "size": {
+      "x": 9.0,
+      "y": 9.0,
+      "z": 1.5000000000000002
+    },
+    "pin_tail_trim_mm": null
+  },
+  "soic8": {
+    "step": "mechanical/vendor/step/SOIC-8_3.9x4.9mm_P1.27mm.step",
+    "obj": "mechanical/vendor/obj/soic8.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
+    "bounds": [
+      [
+        -3.0,
+        -2.450000047683716,
+        -1.6653345369377348e-16
+      ],
+      [
+        3.0,
+        2.450000047683716,
+        1.75
+      ]
+    ],
+    "size": {
+      "x": 6.0,
+      "y": 4.900000095367432,
+      "z": 1.7500000000000002
+    },
+    "pin_tail_trim_mm": null
+  },
+  "sot23-5": {
+    "step": "mechanical/vendor/step/SOT-23-5.step",
+    "obj": "mechanical/vendor/obj/sot23-5.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Package_TO_SOT_SMD.3dshapes/SOT-23-5.step",
+    "bounds": [
+      [
+        -1.399999976158142,
+        -1.4500000476837158,
+        0.0
+      ],
+      [
+        1.399999976158142,
+        1.4500000476837158,
+        1.5499999523162842
+      ]
+    ],
+    "size": {
+      "x": 2.799999952316284,
+      "y": 2.9000000953674316,
+      "z": 1.5499999523162842
+    },
+    "pin_tail_trim_mm": null
+  },
+  "sot23-6": {
+    "step": "mechanical/vendor/step/SOT-23-6.step",
+    "obj": "mechanical/vendor/obj/sot23-6.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Package_TO_SOT_SMD.3dshapes/SOT-23-6.step",
+    "bounds": [
+      [
+        -1.399999976158142,
+        -1.4500000476837158,
+        0.0
+      ],
+      [
+        1.399999976158142,
+        1.4500000476837158,
+        1.5499999523162842
+      ]
+    ],
+    "size": {
+      "x": 2.799999952316284,
+      "y": 2.9000000953674316,
+      "z": 1.5499999523162842
+    },
+    "pin_tail_trim_mm": null
+  },
+  "sc70-6": {
+    "step": "mechanical/vendor/step/SOT-363_SC-70-6.step",
+    "obj": "mechanical/vendor/obj/sc70-6.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Package_TO_SOT_SMD.3dshapes/SOT-363_SC-70-6.step",
+    "bounds": [
+      [
+        -1.0499999523162842,
+        -1.0,
+        5.551115123125783e-17
+      ],
+      [
+        1.0499999523162842,
+        1.0,
+        1.100000023841858
+      ]
+    ],
+    "size": {
+      "x": 2.0999999046325684,
+      "y": 2.0,
+      "z": 1.100000023841858
+    },
+    "pin_tail_trim_mm": null
+  },
+  "c0603": {
+    "step": "mechanical/vendor/step/C_0603_1608Metric.step",
+    "obj": "mechanical/vendor/obj/c0603.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+    "bounds": [
+      [
+        -0.800000011920929,
+        -0.4000000059604645,
+        0.0
+      ],
+      [
+        0.800000011920929,
+        0.4000000059604645,
+        0.800000011920929
+      ]
+    ],
+    "size": {
+      "x": 1.600000023841858,
+      "y": 0.800000011920929,
+      "z": 0.800000011920929
+    },
+    "pin_tail_trim_mm": null
+  },
+  "c0805": {
+    "step": "mechanical/vendor/step/C_0805_2012Metric.step",
+    "obj": "mechanical/vendor/obj/c0805.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Capacitor_SMD.3dshapes/C_0805_2012Metric.step",
+    "bounds": [
+      [
+        -1.0,
+        -0.625,
+        0.0
+      ],
+      [
+        1.0,
+        0.625,
+        1.25
+      ]
+    ],
+    "size": {
+      "x": 2.0,
+      "y": 1.25,
+      "z": 1.25
+    },
+    "pin_tail_trim_mm": null
+  },
+  "r0603": {
+    "step": "mechanical/vendor/step/R_0603_1608Metric.step",
+    "obj": "mechanical/vendor/obj/r0603.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+    "bounds": [
+      [
+        -0.800000011920929,
+        -0.4000000059604645,
+        -2.7755575615628914e-17
+      ],
+      [
+        0.800000011920929,
+        0.4000000059604645,
+        0.44999998807907104
+      ]
+    ],
+    "size": {
+      "x": 1.600000023841858,
+      "y": 0.800000011920929,
+      "z": 0.44999998807907104
+    },
+    "pin_tail_trim_mm": null
+  },
+  "sod323": {
+    "step": "mechanical/vendor/step/D_SOD-323.step",
+    "obj": "mechanical/vendor/obj/sod323.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Diode_SMD.3dshapes/D_SOD-323.step",
+    "bounds": [
+      [
+        -1.25,
+        -0.625,
+        -5.551115123125783e-17
+      ],
+      [
+        1.25,
+        0.625,
+        1.1100000143051147
+      ]
+    ],
+    "size": {
+      "x": 2.5,
+      "y": 1.25,
+      "z": 1.1100000143051147
+    },
+    "pin_tail_trim_mm": null
+  },
+  "led0603": {
+    "step": "mechanical/vendor/step/LED_0603_1608Metric.step",
+    "obj": "mechanical/vendor/obj/led0603.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/LED_SMD.3dshapes/LED_0603_1608Metric.step",
+    "bounds": [
+      [
+        -0.800000011920929,
+        -0.4000000059604645,
+        -3.469446951953614e-18
+      ],
+      [
+        0.800000011920929,
+        0.4000000059604645,
+        1.100000023841858
+      ]
+    ],
+    "size": {
+      "x": 1.600000023841858,
+      "y": 0.800000011920929,
+      "z": 1.100000023841858
+    },
+    "pin_tail_trim_mm": null
+  },
+  "jst-ph6": {
+    "step": "mechanical/vendor/step/JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical.step",
+    "obj": "mechanical/vendor/obj/jst-ph6.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Connector_JST.3dshapes/JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical.step",
+    "bounds": [
+      [
+        -6.950000047683716,
+        -2.799999952316284,
+        -2.4
+      ],
+      [
+        6.949999809265137,
+        1.75,
+        6.0
+      ]
+    ],
+    "size": {
+      "x": 13.899999856948853,
+      "y": 4.549999952316284,
+      "z": 8.4
+    },
+    "pin_tail_trim_mm": 0.8
+  },
+  "jst-ph8": {
+    "step": "mechanical/vendor/step/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.step",
+    "obj": "mechanical/vendor/obj/jst-ph8.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Connector_JST.3dshapes/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.step",
+    "bounds": [
+      [
+        -8.950000047683716,
+        -6.25,
+        -2.4
+      ],
+      [
+        8.949999809265137,
+        1.350000023841858,
+        4.849999904632568
+      ]
+    ],
+    "size": {
+      "x": 17.899999856948853,
+      "y": 7.600000023841858,
+      "z": 7.249999904632569
+    },
+    "pin_tail_trim_mm": 0.8
+  },
+  "tcut1600": {
+    "obj": "mechanical/vendor/obj/tcut1600.obj",
+    "source": "https://www.vishay.com/docs/84174/tcut1600x01.pdf",
+    "bounds": [
+      [
+        -3.4000000000000004,
+        -2.0,
+        0.0
+      ],
+      [
+        2.75,
+        2.0,
+        5.7
+      ]
+    ],
+    "size": {
+      "x": 6.15,
+      "y": 4.0,
+      "z": 5.7
+    }
+  },
+  "g12ah": {
+    "obj": "mechanical/vendor/obj/g12ah.obj",
+    "source": "https://www.nkkswitches.com/pdf/Gtoggles.pdf",
+    "bounds": [
+      [
+        -3.5,
+        -1.0499999999999998,
+        -2.4
+      ],
+      [
+        3.5,
+        11.304251681231928,
+        5.134497392516472
+      ]
+    ],
+    "size": {
+      "x": 7.0,
+      "y": 12.35425168123193,
+      "z": 7.534497392516473
+    }
+  }
+}

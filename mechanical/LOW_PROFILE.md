@@ -1,5 +1,8 @@
 # Rev C low-profile architecture
 
+> Rev D update: the cell, charger, NTC and battery tray are removed. The same 22.3 mm bearing/port stack remains; the PCB pocket now holds the static LCD harness. The official Waveshare STEP replaces the earlier screen envelope. Its tab faces -X, its connector faces +X, and bezel pillar angles are 0/120/240°. Use the Rev D assembly, wiring and vendor-CAD documents for current fabrication. The Rev C measurements and design exploration below are historical context.
+
+
 Rev C is **Ø86 ×22.3 mm** before feet, compared with Ø80×47 mm for Rev B. The grip starts at **z10.8 mm**, previously z22 mm. Width increases by 6 mm to accommodate a 60×75×7 mm hollow bearing and useful printed bearing-retainer walls. The dimensions are nominal CAD results; no prototype has been measured.
 
 ## Research and design choice

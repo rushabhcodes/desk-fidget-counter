@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Rev C nested PCB pocket and printable solids.
+"""SPDX-License-Identifier: MIT. Rev D nested PCB pocket and printable solids.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -14,6 +14,9 @@ TAU=2*math.pi
 def cyl(r,h,z=0,x=0,y=0):return m.Manifold.cylinder(h,r,r,128).translate((x,y,z))
 def box(size,center):return m.Manifold.cube(size,True).translate(center)
 def ring(ro,ri,h,z=0):return cyl(ro,h,z)-cyl(ri,h+.2,z-.1)
+def csk_hole(x,y,z,up=False):
+ if up:return cyl(2.1,.45,z-.1,x,y)+m.Manifold.cylinder(.9,2.0,1.1,64).translate((x,y,z+.3))
+ return cyl(2.1,.45,z-.35,x,y)+m.Manifold.cylinder(.9,1.1,2.0,64).translate((x,y,z-1.2))
 def cut_all(s,holes):
  for h in holes:s-=h
  return s
@@ -29,12 +32,7 @@ for x,y in P['mount_holes']:
  # Unplated locator pegs and lid pads capture the board; no tall PCB standoffs.
  base+=cyl(2.3,.6,2,x,y)+cyl(1.25,2.2,2,x,y)
 for x,y in lid_screws:
- base+=cyl(2.2,7.2,2,x,y);base-=cyl(.85,7.3,2,x,y)
-bx,by,bz=P['battery_center'];bw,bl,batt_h=P['battery_envelope']
-for x in [bx-bw/2-.9,bx+bw/2+.9]:base+=box((1.2,bl+1.2,2.0),(x,by,3.0))
-base+=box((bw+3,.6,2),(bx,by-bl/2-.3,3))
-base+=box((bw+3,1.2,2),(bx,by+bl/2+.9,3))
-for x in [bx-bw/2-2,bx+bw/2+2]:base-=box((1.3,5,2.4),(x,by,1))
+ base+=cyl(2.2,7.2,2,x,y);base-=cyl(.8,7.3,2,x,y)
 # Individual solder wells retain 1.2mm floor beneath trimmed through-hole tails.
 cj=json.loads((ROOT.parent/'dist/index/circuit.json').read_text())
 assert all(c['layer']=='top' for c in cj if c['type']=='pcb_component'),'Every component must assemble from above'
@@ -44,7 +42,7 @@ for h in [c for c in cj if c['type']=='pcb_plated_hole']:
  d=max(h.get('outer_diameter',0),h.get('rect_pad_height',0),h.get('outer_height',0),1.2)+.6
  base-=box((w,d,1.0),(x,y,1.7))
 usb=box((14,25,8.8),(0,32,5.95))
-toggle_access=box((17,8,5.9),(-35,-19,7.35))
+toggle_access=box((17,8,7.4),(-35,-19,7.0))
 base-=usb;base-=toggle_access
 
 lid=ring(42.65,27.3,1.2,9.2)
@@ -52,15 +50,15 @@ lid=ring(42.65,27.3,1.2,9.2)
 lid+=ring(31.2,27.3,1.62,10.39)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
 for x,y in P['mount_holes']:lid+=cyl(2.0,5.0,top,x,y)
 for x,y in lid_screws:
- lid-=cyl(1.1,2,9,x,y);lid-=m.Manifold.cylinder(1.21,1.1,2.1,64).translate((x,y,9.2))
+ lid-=cyl(1.1,2,9,x,y);lid-=csk_hole(x,y,10.4)
 # Bearing clamp uses the thick wall of the hollow post; screen supports rise
 # independently from the base through the PCB window, inside the encoder skirt.
 for i in range(3):
  x,y=polar(28.6,i*TAU/3);lid-=cyl(.8,5.2,14,x,y)
 lid-=usb;lid-=toggle_access
+# Recess the tall toggle housing by 0.4mm, retaining a 0.8mm roof.
+lid-=box((8.2,8.2,.41),(-24.45,-19,9.395))
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
-# Local relief for the side-entry battery connector under the shallow chassis.
-lid-=box((11,8,2),(20,-15,9.5))
 
 lid-=cyl(2.4,4,8,-5,-30)
 
@@ -76,14 +74,14 @@ outer_retainer=ring(42.0,36.2,1.2,grip_z)
 outer_retainer=radial_holes(outer_retainer,39.6,10.7,1.5,2.2)
 for i in range(3):
  x,y=polar(39.6,i*TAU/3)
- outer_retainer-=m.Manifold.cylinder(1.21,2.1,1.1,64).translate((x,y,10.79))
+ outer_retainer-=csk_hole(x,y,10.8,up=True)
 encoder_skirt=ring(r+.5,r-.5,12.74,7.9)+ring(P['encoder']['bond_outer_radius'],r-.5,1.2,19.44)
 for i in range(48):encoder_skirt-=box((3,1.64,1.8),(r,0,8.6)).rotate((0,0,i*360/48))
 bearing_clamp=ring(31.2,27.4,1.2,19)
 bearing_clamp=radial_holes(bearing_clamp,28.6,18.9,1.4,2.2)
 for i in range(3):
  x,y=polar(28.6,i*TAU/3)
- bearing_clamp-=m.Manifold.cylinder(1.21,1.1,2.1,64).translate((x,y,19))
+ bearing_clamp-=csk_hole(x,y,20.2)
 # Three base-mounted supports lie entirely inside the routed PCB window.
 screen_posts=P['screen_posts']
 for x,y in screen_posts:
@@ -94,15 +92,17 @@ for x,y in screen_posts:
  a=math.atan2(y,x);rr=math.hypot(x,y)
  cradle+=cyl(2.3,1.2,16.1,x,y)
  cradle-=cyl(1.1,1.4,16,x,y)
- cradle-=m.Manifold.cylinder(1.21,1.1,2.1,64).translate((x,y,16.1))
-cradle-=box((5,16,1.4),(20,0,16.7))
-bezel_screws=[polar(21.5,math.pi/3+i*TAU/3) for i in range(3)]
+ cradle-=csk_hole(x,y,17.3)
+cradle-=box((5,16,1.4),(-20,0,16.7))
+bezel_screws=[polar(21.1,i*TAU/3) for i in range(3)]
 for x,y in bezel_screws:
  cradle+=cyl(1.8,3.6,17.3,x,y);cradle-=cyl(.8,4.9,16.1,x,y)
 bezel=ring(24,16.6,1.4,20.9)
+# A 0.2mm underside relief prevents the retaining lip from clamping LCD glass.
+bezel-=cyl(19,.21,20.89)+box((5,15,.21),(-18.75,0,20.995))
 for x,y in bezel_screws:
  bezel-=cyl(1.1,1.6,20.8,x,y)
- bezel-=m.Manifold.cylinder(1.21,1.1,2.1,64).translate((x,y,21.1))
+ bezel-=csk_hole(x,y,22.3)
 plunger=cyl(2.9,.4,6.2,-5,-30)+cyl(1.9,3.5,6.55,-5,-30)
 # Park the rotor at these three windows to reach its underside screws.
 for i in range(3):
@@ -127,10 +127,19 @@ moving=[('grip',cap),('retainer',outer_retainer),('swept skirt',swept_skirt),('s
 for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel),('bearing clamp',bearing_clamp),('plunger',plunger)]:
  for mn,mov in moving:assert (mov^fixed).volume()<1e-4,(name,mn,'collision',(mov^fixed).volume())
 assert (cap^outer_retainer).volume()<1e-4
-battery=box(P['battery_envelope'],P['battery_center'])
-lcd_rear=box((4.5,17.9,8),(11.5,0,13.3))
-assert (base^battery).volume()<1e-4,'pouch compression'
-assert (battery^lcd_rear).volume()<1e-4,'LCD connector touches cell'
+# Manufacturer screen STEP transformed rigidly: tab -X, rear connector +X.
+def from_mesh(mesh):
+ q=m.Manifold(m.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
+ assert str(q.status()).endswith('NoError'),str(q.status())
+ return q
+screen_mesh=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
+screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,17.75])
+lcd=from_mesh(screen_mesh)
+from harness import build as build_harness
+harness_meshes,harness_report=build_harness()
+(ROOT/'harness.json').write_text(json.dumps(harness_report,indent=2)+'\n')
+for name,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
+ assert (printed^lcd).volume()<1e-4,(name,'manufacturer screen collision',(printed^lcd).volume())
 # PCB material must not intersect either part nested through its window.
 board=next(c for c in cj if c['type']=='pcb_board')
 cutout=next(c for c in cj if c['type']=='pcb_cutout')
@@ -140,16 +149,53 @@ window=polygon(cutout['points']).extrude(2).translate((0,0,2.4))
 pcb=outline-window
 for x,y in P['mount_holes']:pcb-=cyl(1.35,2,2.4,x,y)
 assert (base^pcb).volume()<1e-4,'Base must clear actual PCB material and NPTHs'
-assert (pcb^battery).volume()<1e-4 and (pcb^lcd_rear).volume()<1e-4
+assert (pcb^lcd).volume()<1e-4
 # Top-side component and mated cable envelopes, including the full sensor arms.
-fixed_hardware=[('USB plug',box((13,18,8),(0,42.6,5.95))),('battery header',box((9.6,5.9,4.8),(15.05,-9,6.6))),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.8),(-16.05,-3.5,6.6))),('LCD rear',lcd_rear),('cell',battery),('PCB',pcb)]
+fixed_hardware=[('toggle travel envelope',box((7,2,6),(-32,-19,6.8))),('USB plug',box((12.9,18,6.4),(0,42.6,5.95))),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
+for name,mesh in harness_meshes.items():fixed_hardware.append((name,from_mesh(mesh)))
 for dx in [-2.125,2.125]:
  fixed_hardware.append(('sensor arm',located(box((1.25,4,5.7),(dx,0,7.05)),-23,10,P['encoder']['rotation_deg'])))
 for name,fixed in fixed_hardware:
  for mn,mov in moving:assert (mov^fixed).volume()<1e-4,(name,mn,'hardware collision',(mov^fixed).volume())
 for name,fixed in fixed_hardware:
- if name in ['cell','PCB']:continue
+ if name in ['PCB']:continue
  assert (lid^fixed).volume()<1e-4,(name,'chassis collision',(lid^fixed).volume())
-report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':8,'USB_plug_to_rotor_vertical_mm':.85,'bezel_to_grip_radial_mm':.6,'skirt_to_sensor_radial_each_side_mm':1.0,'PCB_bottom_z_mm':2.6,'battery_in_PCB_window':True,'LCD_connector_in_PCB_window':True,'battery_to_LCD_connector_vertical_gap_mm':1.3,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':.15,'bearing_outer_diametral_mm':.1,'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
-report['scope']='Nominal CAD checks. Physical fit, cable bends, race widths, 950nm opacity, optical response and grip feel require prototype measurements.'
+# Verify actual package-model placements against the fixed and moving prints.
+# SMT lead pads and PCB surface contact are intentional; tails fit solder wells.
+package_checks=0
+for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url')]:
+ url=cad['model_obj_url'];filename=url.split('?')[0].split('/')[-1]
+ path=ROOT/'vendor/obj'/filename
+ if not path.exists():raise AssertionError(('Missing real package mesh',filename))
+ solid_path=ROOT/'vendor/solid'/filename.replace('.obj','.ply')
+ mesh=trimesh.load(solid_path if solid_path.exists() else path,force='mesh',process=True)
+ origin=cad.get('model_origin_position') or {'x':0,'y':0,'z':0}
+ mesh.apply_translation([-origin.get(k,0) for k in ['x','y','z']])
+ rotation=cad.get('rotation',{})
+ mesh.apply_transform(trimesh.transformations.euler_matrix(*[math.radians(rotation.get(k,0)) for k in ['x','y','z']]))
+ pos=cad['position'];mesh.apply_translation([pos['x'],pos['y'],pos['z']+P['pcb_bottom_z']+P['pcb_thickness']/2])
+ # Supplier meshes can contain independently closed housing/lead solids. Union
+ # each closed shell before checking to avoid treating internal faces as voids.
+ solids=[]
+ for shell in mesh.split(only_watertight=False):
+  if not shell.is_watertight:raise AssertionError(('Open vendor shell',filename))
+  solids.append(from_mesh(shell))
+ physical=m.Manifold.batch_boolean(solids,m.OpType.Add)
+ for name,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
+  assert (physical^printed).volume()<1e-4,(filename,name,'package/print collision',(physical^printed).volume())
+ for name,mov in moving:
+  assert (physical^mov).volume()<1e-4,(filename,name,'package/rotor collision',(physical^mov).volume())
+ package_checks+=1
+wire_solids=[]
+for name,mesh in harness_meshes.items():
+ if not name.startswith('lcd-wire-'):continue
+ wire=from_mesh(mesh)
+ for pn,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel),('PCB',pcb),('LCD module',lcd)]:
+  assert (wire^printed).volume()<1e-4,(name,pn,'wire collision',(wire^printed).volume())
+ for other_name,other in wire_solids:assert (wire^other).volume()<1e-5,(name,other_name,'wires intersect')
+ wire_solids.append((name,wire))
+report['purchased_package_models_checked']=package_checks
+report['individual_wires_checked']=len(wire_solids)
+report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':6.4,'USB_plug_to_rotor_vertical_mm':1.65,'bezel_to_grip_radial_mm':.6,'skirt_to_sensor_radial_each_side_mm':1.0,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':.15,'bearing_outer_diametral_mm':.1,'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
+report['scope']='Nominal CAD checks using manufacturer screen geometry and specified static harness. Physical fit, crimp quality, tolerances, 950nm opacity, optical response and grip feel require prototype measurements.'
 (ROOT/'geometry-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report['clearances'],indent=2))

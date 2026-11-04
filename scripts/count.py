@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """SPDX-License-Identifier: MIT. USB CDC console; requires pyserial==3.5."""
-import argparse, json, time
+import argparse, json, time, sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from companion.dashboard import connect
 import serial
 from serial.tools import list_ports
 p=argparse.ArgumentParser(description='Desk knob count console')
@@ -14,13 +17,8 @@ ports=list(list_ports.comports())
 if a.list:
     for device in ports:print(f'{device.device}: {device.description}')
     raise SystemExit(0)
-if a.command=='reset' and not a.confirm:p.error('Reset clears the count; add --confirm')
-port=a.port
-if not port:
-    found=[x.device for x in ports if x.vid==0xcafe and x.pid==0x4011]
-    if len(found)!=1:p.error('Use --port; expected exactly one desk knob')
-    port=found[0]
-with serial.Serial(port,115200,timeout=3,write_timeout=3) as s:
+if (a.command=='reset' or a.reset) and not a.confirm:p.error('Reset clears the count; add --confirm')
+with connect(serial,list_ports,a.port) as s:
     time.sleep(.2);s.reset_input_buffer()
     if a.command=='reset' or a.reset:
         s.write(b'RESET CONFIRM\n');answer=s.readline().decode().strip()

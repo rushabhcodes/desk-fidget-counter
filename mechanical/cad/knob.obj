@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: MIT; PCB-centred millimetres, +Z up
+# PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.
 
 o knob
 v -32.77564240 -26.89827538 8.59999962 0.91372549 0.74117647 0.39607843

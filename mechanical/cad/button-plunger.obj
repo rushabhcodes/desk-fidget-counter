@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: MIT; PCB-centred millimetres, +Z up
+# PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.
 
 o button-plunger
 v -7.24173021 -31.83974075 2.80000000 0.87058824 0.45490196 0.30588235

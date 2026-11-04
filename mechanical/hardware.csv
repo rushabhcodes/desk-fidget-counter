@@ -1,0 +1,14 @@
+Item,Quantity,Part or standard,Nominal dimensions,Notes
+Screen,1,Waveshare 19192,40.453106 x 37.5 x 9.2 mm supplier STEP,1.28 inch non-touch GC9A01 active diameter32.4mm
+Bearing,1,6712ZZ,60 ID x75 OD x7 mm,Verify race contact widths and fit coupon
+LCD mate housings,2,JST PHR-8,17.8 x4.5 x6.85 mm,Custom H1 permanent harness
+LCD crimp contacts,16,JST SPH-004T-P0.5S,5.7 mm nominal contact length,32AWG wire compatible
+LCD wire,8,Alpha Wire 2840/7,24.5 +/-0.5 mm free between housing backs,Add actual termination allowance for cut length; eight colours
+Programming housing,1,JST PHR-6,13.8 x4.5 x6.85 mm,Removable service accessory
+Programming contacts,5,JST SPH-004T-P0.5S,32AWG compatible,Cavity6 BOOT0 empty for normal SWD
+Programming wire,5,Alpha Wire 2840/7,150 mm service leads,Remove harness before closing
+Short screws,11,DIN965 M2x6 A2,2 mm major diameter x0.4 pitch; head3.8x1.2 mm,Chassis2 inner clamp3 lower retainer3 bezel3
+Cradle screws,3,DIN965 M2x10 A2,2 mm major diameter x0.4 pitch; head3.8x1.2 mm,Cradle to independent base posts
+USB cable,1,L-com CAU4CC-40M-1M,1m; plug section12.9x6.4 mm,External C-to-C data cable; check actual insertion shoulder
+Skirt adhesive,1,3M 467MP annulus,0.05-0.06 mm thick,Non-loadbearing optical skirt attachment
+Insulator,1,Thin insulating film,Trim to board/base interface,Keep out of moving track and solder joints

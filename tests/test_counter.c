@@ -11,13 +11,6 @@ static void move(Counter *c, int steps, int delta, bool scroll) {
   }
 }
 int main(void) {
-  assert(!charger_temperature_ok(0));
-  assert(!charger_temperature_ok(449));
-  assert(charger_temperature_ok(450));
-  assert(charger_temperature_ok(750));
-  assert(charger_temperature_ok(1300));
-  assert(!charger_temperature_ok(1301));
-  assert(!charger_temperature_ok(5000));
   Counter c;
   counter_init(&c, 0);
   counter_sample(&c, 65530, true, ++ms, false);

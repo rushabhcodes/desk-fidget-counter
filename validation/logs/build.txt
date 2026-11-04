@@ -3,6 +3,7 @@ Building index.circuit.tsx...
 Generating circuit JSON...
 Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
 Circuit JSON written to dist/index/circuit.json
+J6 is facing x+ but should face x- so the connector is accessible from the board edge
 
 Build complete
   Circuits  1 passed

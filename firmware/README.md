@@ -1,8 +1,8 @@
-# Firmware 3.0.0 / PCB Rev C
+# Firmware 4.0.0 / PCB Rev D
 
-Included [BIN](build/desk-knob.bin) and [HEX](build/desk-knob.hex) files target STM32F072CBT6 at **0x08000000**. Use these with the Rev C optical board and screen; Rev A magnetic hardware needs its earlier tagged firmware.
+The included `build/desk-knob.bin` and `.hex` target STM32F072CBT6 at **0x08000000**. This firmware controls the USB-only Rev D optical board, switched LCD/IR rail and Waveshare 19192. Earlier charging boards need their matching tagged firmware; PA2–PA5/PA7/PB0/PB1 no longer serve battery functions.
 
-## Build and flash
+## Build and program
 
 ```sh
 bash scripts/test-firmware.sh
@@ -10,42 +10,47 @@ bash firmware/bootstrap.sh
 python3 validation/check-firmware-image.py
 ```
 
-The bootstrap script pins TinyUSB 0.21.0 and the CMSIS dependencies to recorded commits. Install an ARM embedded GCC/newlib toolchain and Make. It can also use `make -C firmware TOOLCHAIN=/path/to/arm-none-eabi- TINYUSB=/path/to/tinyusb`.
+The bootstrap pins TinyUSB 0.21.0 and CMSIS commits. Install ARM GCC/newlib and Make; alternatively use `make -C firmware TOOLCHAIN=/path/to/arm-none-eabi- TINYUSB=/path/to/tinyusb`.
 
-J4 is a populated **JST-PH 2.0 mm six-pin B6B-PH-K-S** top-entry header. Physical pins 1→6 are **VREF 3V3, SWDIO, SWCLK, NRST, GND, BOOT0**. On the PCB they run from (−5,20.5) to (+5,20.5) in 2 mm increments. Power the board from USB or its protected battery; VREF is a probe voltage-sense output. Leave BOOT0 unconnected for ordinary SWD programming. Match probe grounds and use 3.3 V logic.
-
-Example with OpenOCD and an ST-Link:
+J4 is the top-entry JST PH6 programming connector. Pins 1–6 are **VTref 3.3V, SWDIO, SWCLK, NRST, GND, BOOT0**. Power the target from USB; VTref is probe sense, not a supply input. Leave BOOT0 unconnected for ordinary SWD. [Exact connector views and ST-LINK/V2 mapping](../manufacturing/WIRING.md).
 
 ```sh
 openocd -f interface/stlink.cfg -f target/stm32f0x.cfg \
   -c 'program firmware/build/desk-knob.hex verify reset exit'
 ```
 
-STM32CubeProgrammer can flash the HEX through SWD. For ROM USB DFU recovery, connect J4 BOOT0 to VREF, pulse NRST low, release reset and use CubeProgrammer USB DFU at 0x08000000. Disconnect the BOOT0 bridge and reset afterwards. J5 was removed; recovery uses J4 pin 6. J4 is beneath the removable fixed screen.
+STM32CubeProgrammer also programs the HEX over SWD. For the MCU's ROM recovery, bridge J4 BOOT0 to VTref, pulse NRST, use the supported ROM USB DFU interface, then remove the bridge/reset. Verify this recovery mode on the first board. J4 is a service connector beneath the removable fixed screen; remove the programming harness before final assembly.
 
-## Counter, display and power behaviour
+## Behaviour
 
-- PB4/PB5 AF1 feed **TIM3 encoder mode 3**. Both edges of both channels are counted, with approximately 3.3 µs input filters. A 48-slot ring produces **192 edges/revolution**. A 16-bit hardware timer continues collecting edges while display rows or FRAM writes run.
-- Signed timer deltas unwrap across 65535/0. Completed ±192 displacement increments the unsigned 64-bit count, with partial reversal cancelled algebraically. Every six edges produces one USB wheel unit, giving 32 units/revolution.
-- Samples are serviced at a 2 ms target interval. Invalid storage, low battery, a sample gap over 20 ms or a delta over 48 edges discards partial progress and queued scrolling. This avoids guessed motion after faults. Measure the usable speed envelope in the prototype.
-- PA0 reads the **left G12AH toggle** with 20 ms debounce. USB detach, suspend or toggle-off clears queued wheel data. Counting continues on battery and with scrolling off. The internal PA1 service button resets after a three-second hold; USB `RESET CONFIRM` is the normal assembled-device reset.
-- I2C1 PB6/PB7 serves FRAM at 0x50. Each completed turn updates alternating 32-byte records at addresses 0/64, with sequence, 64-bit count, CRC32 and a commit marker written last. Saves are read back. Unknown initial FRAM requires deliberate reset/initialization. Rev A journal records remain compatible.
-- SPI2 PB13/PB15 uses mode 0 at 12 MHz. PB10 reset, PB11 backlight, PA8 CS and PB14 DC control the **GC9A01**. Initialization and sleep-out waits are nonblocking. Each task sends one 480-byte RGB565 scanline; there is no full framebuffer. UI refreshes use a coherent snapshot of count, voltage and status. A bounded transport failure blanks the screen while USB/counting continue.
-- The module is physically rotated 90° with its tab to +X; MADCTL 0x68 matches this mounting. Confirm displayed orientation and colours on the real module.
-- The screen shows battery voltage directly, charge state, scroll toggle and USB readiness. `RESET VIA USB` indicates invalid/uninitialized storage. Battery below 3.45 V for three 100 ms readings stops motion acceptance. The protected cell provides a separate final undervoltage cutoff.
-- BQ24074 starts at USB100, switches to USB500 after configuration, and enters suspend input mode when USB sleeps. Hardware pulldowns enforce the initial mode. A pouch NTC plus firmware CE gate permits charging only inside the conservative 450–1300 mV TS range.
+PB4/PB5 AF1 feed TIM3 encoder mode 3 with approximately 3.3µs filters. Hardware collects quadrature edges during display/FRAM transfers. The 48-slot ring gives **192 edges/revolution** and six edges per HID wheel unit (**32 units/turn**). Completed displacement ±192 increments the unsigned 64-bit total; reversal cancels unfinished progress. Sampling targets 2ms. An invalid journal, sample gap above 20ms or jump above 48 edges discards uncertain progress. Measure the actual usable speed envelope.
 
-The timer-running and LCD-transport fields report digital configuration/transport state. There is no MISO or optical amplitude feedback: they cannot detect an unplugged display, blocked optical path, translucent skirt, dirt or a missing channel. Physical contrast and exact 192-edge counts must be verified with a logic analyser.
+The left PA0 toggle has 20ms debounce. Toggle-off clears queued wheel reports while counting continues. Detach/suspend clears motion queues; the powered-down optical sensor cannot measure turns while suspended. A new baseline is taken on resume. PA1's internal service button deliberately resets after a three-second hold.
 
-## USB console
+FRAM uses I2C1 PB6/PB7 at approximately 300kHz, address 0x50. Completed turns update alternating 32-byte records at 0/64: sequence, 64-bit count, CRC32 and a commit marker written last, followed by read-back. Unknown FRAM requires `RESET CONFIRM`. Previously committed records remain compatible. An unplug during a write may restore the previous committed turn count; no battery or reserve supply completes in-flight transactions.
 
-CDC commands end with a newline. Install `pyserial==3.5` with `python -m pip install pyserial==3.5`. PySerial helper: `python scripts/count.py --list`, then `python scripts/count.py --port /dev/ttyACM0 status` or `... reset --confirm`.
+The display uses SPI2 mode 0, 12MHz, PB13 SCK/PB15 MOSI, PB10 reset, PB11 backlight, PA8 CS and PB14 DC. One 480-byte RGB565 row is sent per task; there is no full framebuffer. Each refresh uses a coherent snapshot. The **module tab faces -X**, with **MADCTL 0xA8** for this mounting. Verify orientation and colours physically. A bounded transport fault blanks the screen while counting/USB continue. No MISO is present: a transport-success flag cannot prove the screen is connected or displaying correctly.
 
-| Command | Response |
+Laptop clock/date, CPU/RAM percentages and laptop battery/AC come from the local [companion](../companion/README.md). Samples expire after five seconds, then placeholders and `HOST OFFLINE` appear. Desktop/no-sensor machines show `NO HOST BATTERY`. The clock/calendar advances between samples and handles midnight/leap-year rollover. Turn count and scroll state remain visible. Invalid storage overrides the status line with `RESET VIA USB`.
+
+## USB power
+
+The USB descriptor is **bus-powered, 100mA**, HID mouse wheel + CDC. PB2 enables U4 TPS22919 only when USB is configured and awake. Before cutting the peripheral supply, firmware drives all LCD signals low to prevent back-powering. Resume ramps the rail, resets the scanline/init state and initializes the display again. LCD and IR are off before configuration and during suspend; the FRAM and MCU retain the always-on 3.3V rail.
+
+USB suspend current, VBUS inrush and wake timing require physical measurement. After switching peripherals off, firmware enters STM32 Stop mode with SysTick disabled and USB EXTI18 wake-up enabled. HSI48 and SysTick are restored before unmasking interrupts after wake (ST RM0091 Stop-mode and USB suspend sections). Measure current with the SWD probe disconnected; no measured USB compliance is claimed. No remote wake-up is advertised. A USB charger without a data host will not configure the device and will not enable its display/encoder.
+
+## CDC console
+
+Newline-terminated ASCII, maximum 63 bytes per command, DTR asserted. `scripts/count.py` verifies application identity before reset or status operations. Close the dashboard companion before opening another program on the same serial port.
+
+| Command | Result |
 |---|---|
-| `COUNT` / `STATUS` | JSON: turns, progress, storage_ok, encoder_timer_running, scroll_on, battery_mv, low_battery, rejected, lcd_transport_ok, charger_mode |
-| `RESET CONFIRM` | Commits zero or returns a storage error |
-| `VERSION` | Rev C / firmware 3.0.0 / TinyUSB 0.21.0 |
-| `HELP` | Available commands |
+| `STATUS` / `COUNT` | JSON with device/protocol/firmware identity, turns, progress, storage_ok, encoder_timer_running, scroll_on, rejected, lcd_transport_ok, host_data_fresh |
+| `RESET CONFIRM` | Commit zero or report storage failure |
+| `VERSION` | Rev D / firmware 4.0.0 / TinyUSB 0.21.0 |
+| `DASH …` | Validated clock/date/metrics; full field contract in companion guide |
+| `HELP` | Command list |
 
-Total formatting handles the full 64-bit range without optional libc printf support. The HID interface is a standard relative mouse wheel; CDC supplies count/reset access. Development USB VID/PID are **CAFE:4011**; obtain authorized production identifiers before commercial distribution. Physical USB electrical and host interoperability tests remain outstanding.
+The count formatter handles UINT64_MAX without libc 64-bit formatting. Native tests cover counter wraps/reversals/faults, torn FRAM records, malformed metric packets, stale data, calendar rollover and scanline buffer bounds. ARM image checks inspect actual descriptors and vectors. Those checks do not establish physical optical response or host interoperability.
+
+USB **CAFE:4011** is TinyUSB's development VID/PID, shared by other projects. Use authorized identifiers before commercial distribution. Native HID scrolling needs no companion; CDC dashboard telemetry needs the companion running.

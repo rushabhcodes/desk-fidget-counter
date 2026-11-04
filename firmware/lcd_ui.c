@@ -2,6 +2,7 @@
 #include "counter.h"
 #include "lcd.h"
 #include <string.h>
+#include <stdio.h>
 // Original compact 5x7 bitmap alphabet, rows packed as five bits.
 static const struct {
   char c;
@@ -23,6 +24,7 @@ static const struct {
     {'R', {30, 17, 17, 30, 20, 18, 17}}, {'S', {15, 16, 16, 14, 1, 1, 30}},
     {'T', {31, 4, 4, 4, 4, 4, 4}},       {'U', {17, 17, 17, 17, 17, 17, 14}},
     {'V', {17, 17, 17, 17, 17, 10, 4}},  {'Y', {17, 17, 10, 4, 4, 4, 4}},
+    {':', {0, 6, 6, 0, 6, 6, 0}}, {'%', {17, 2, 4, 4, 8, 16, 17}},
     {'.', {0, 0, 0, 0, 0, 6, 6}},        {'-', {0, 0, 0, 31, 0, 0, 0}}};
 static void text(uint16_t row[240], unsigned y, const char *s, unsigned top,
                  unsigned scale, uint16_t color) {
@@ -47,38 +49,37 @@ static void text(uint16_t row[240], unsigned y, const char *s, unsigned top,
   }
 }
 void lcd_render_row(const LcdView *v, unsigned y, uint16_t row[240]) {
-  const uint16_t bg = 0x0863, white = 0xe71c, gold = 0xfdea, mint = 0x6f39,
-                 red = 0xfa88;
-  for (unsigned x = 0; x < 240; x++)
-    row[x] = bg;
-  if (y >= 240)
-    return;
-  text(row, y, "DESK KNOB", 37, 2, mint);
-  text(row, y, "TURNS", 66, 2, white);
-  char count[21];
-  counter_format_total(v->turns, count);
-  unsigned n = strlen(count);
-  if (n <= 10)
-    text(row, y, count, 91, n <= 7 ? 5 : 3, gold);
-  else {
-    char a[11];
-    memcpy(a, count, n - 10);
-    a[n - 10] = 0;
-    text(row, y, a, 87, 3, gold);
-    text(row, y, count + n - 10, 114, 3, gold);
+  const uint16_t bg=0x0863, white=0xe71c, gold=0xfdea, mint=0x6f39, red=0xfa88;
+  for (unsigned x=0;x<240;x++) row[x]=bg;
+  if (y>=240) return;
+  bool live=dashboard_fresh(&v->host,v->now);
+  char b[40];
+  if (live) {
+    unsigned yr,mo,day; dashboard_date(&v->host,v->now,&yr,&mo,&day);
+    snprintf(b,sizeof b,"%04u-%02u-%02u",yr,mo,day);
+  } else strcpy(b,"LAPTOP DASHBOARD");
+  text(row,y,b,24,1,mint);
+  if (live) {
+    unsigned s=dashboard_seconds(&v->host,v->now);
+    snprintf(b,sizeof b,"%02u:%02u:%02u",s/3600,s/60%60,s%60);
+  } else strcpy(b,"--:--:--");
+  text(row,y,b,42,3,gold);
+  for (unsigned i=0;i<2;i++) {
+    unsigned value=i?v->host.ram_tenths:v->host.cpu_tenths, top=83+i*29;
+    if (live) snprintf(b,sizeof b,"%s %3u.%u%%",i?"RAM":"CPU",value/10,value%10);
+    else snprintf(b,sizeof b,"%s  --.-%%",i?"RAM":"CPU");
+    text(row,y,b,top,2,white);
+    if (y>=top+17 && y<top+20)
+      for (unsigned x=54;x<186;x++) row[x]=live && x-54<value*132/1000?mint:0x2188;
   }
-  text(row, y, v->scroll_on ? "SCROLL ON" : "SCROLL OFF", 150, 2,
-       v->scroll_on ? mint : white);
-  text(row, y, v->usb_ready ? "USB READY" : "COUNT ONLY", 172, 1, white);
-  char volts[] = "0.00 V";
-  volts[0] = (char)('0' + v->battery_mv / 1000 % 10);
-  volts[2] = (char)('0' + v->battery_mv / 100 % 10);
-  volts[3] = (char)('0' + v->battery_mv / 10 % 10);
-  text(row, y, volts, 190, 2, v->low_battery ? red : white);
-  text(row, y,
-       !v->storage_ok   ? "RESET VIA USB"
-       : v->low_battery ? "LOW BATTERY"
-       : v->charging    ? "CHARGING"
-                        : "",
-       216, 1, !v->storage_ok || v->low_battery ? red : mint);
+  if (!live) strcpy(b,"HOST OFFLINE");
+  else if (v->host.battery_percent<0) strcpy(b,"NO HOST BATTERY");
+  else snprintf(b,sizeof b,"HOST %d%% %s",v->host.battery_percent,v->host.ac?"AC":"BAT");
+  text(row,y,b,147,live && v->host.battery_percent<0?1:2,
+       live && v->host.battery_percent>=0 && v->host.battery_percent<15 && !v->host.ac?red:white);
+  text(row,y,"TURNS",175,1,mint);
+  counter_format_total(v->turns,b);
+  text(row,y,b,186,strlen(b)<=10?2:1,gold);
+  text(row,y,!v->storage_ok?"RESET VIA USB":v->scroll_on?"SCROLL ON":"SCROLL OFF",
+       210,1,!v->storage_ok?red:mint);
 }

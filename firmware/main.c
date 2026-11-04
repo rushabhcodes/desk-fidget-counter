@@ -8,16 +8,16 @@
 uint32_t SystemCoreClock = 48000000;
 static volatile uint32_t ticks;
 static Counter counter;
-static bool stored = false, encoder_ok = true, low_battery = false,
-            usb_present = false;
+static bool stored = false, encoder_ok = true, peripherals_on = false;
+static Dashboard dashboard;
 static unsigned active_slot = 0;
 static uint32_t sequence = 0;
-static uint16_t battery_mv = 0;
-static uint16_t ntc_mv = 0;
-static uint8_t charger_mode = 0;
 void SysTick_Handler(void) { ticks++; }
 uint32_t tusb_time_millis_api(void) { return ticks; }
-void USB_IRQHandler(void) { tud_int_handler(0); }
+void USB_IRQHandler(void) {
+  EXTI->PR = 1u << 18; // USB wake-up shares this IRQ on STM32F072 (RM0091).
+  tud_int_handler(0);
+}
 static void pinmode(GPIO_TypeDef *g, unsigned p, unsigned mode) {
   g->MODER = (g->MODER & ~(3u << (2 * p))) | (mode << (2 * p));
 }
@@ -29,26 +29,19 @@ static void delay_ms(uint32_t n) {
   while ((uint32_t)(ticks - t) < n) {
   }
 }
-static void
-charge(unsigned mode) { // EN2,EN1 = 00 USB100, 01 USB500, 11 USB suspend.
-  charger_mode = (uint8_t)mode;
-  out(2, mode != 0);
-  out(3, mode == 2);
-}
-void tud_mount_cb(void) { charge(1); }
-void tud_umount_cb(void) {
-  charge(0);
+static void clear_motion(void) {
   counter.pending = 0;
   counter.scroll_fraction = 0;
+  counter.baseline = false;
 }
+void tud_mount_cb(void) { clear_motion(); }
+void tud_umount_cb(void) { clear_motion(); dashboard.received=false; }
 void tud_suspend_cb(bool remote_wakeup_en) {
   (void)remote_wakeup_en;
-  charge(2);
-  counter.pending = 0;
-  counter.scroll_fraction = 0;
+  clear_motion(); dashboard.received=false;
 }
-void tud_resume_cb(void) { charge(tud_mounted() ? 1 : 0); }
-static void init(void) {
+void tud_resume_cb(void) { clear_motion(); }
+static void clock_run(void) {
   FLASH->ACR = FLASH_ACR_PRFTBE | FLASH_ACR_LATENCY;
   RCC->CR2 |= RCC_CR2_HSI48ON;
   while (!(RCC->CR2 & RCC_CR2_HSI48RDY)) {
@@ -56,28 +49,46 @@ static void init(void) {
   RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_HSI48;
   while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_HSI48) {
   }
-  RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOBEN;
+}
+static void usb_sleep(void) {
+  // RM0091 Stop-mode / USB suspend sections: USB's asynchronous resume wakes EXTI18.
+  // Keep IRQs masked until 48MHz is restored; a newly pending IRQ wakes WFI.
+  __disable_irq();
+  if (!tud_suspended() || !(USB->CNTR & USB_CNTR_LPMODE) ||
+      NVIC_GetPendingIRQ(USB_IRQn)) { __enable_irq(); return; }
+  SysTick->CTRL = 0;
+  SCB->ICSR = SCB_ICSR_PENDSTCLR_Msk;
+  PWR->CR = (PWR->CR & ~PWR_CR_PDDS) | PWR_CR_LPDS;
+  SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
+  __DSB(); __WFI(); __ISB();
+  SCB->SCR &= ~SCB_SCR_SLEEPDEEP_Msk;
+  clock_run(); // Stop exits on HSI8; restore USB/application HSI48 before IRQ.
+  SysTick_Config(48000);
+  __enable_irq();
+}
+static void init(void) {
+  clock_run();
+  RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOBEN | RCC_AHBENR_GPIOCEN | RCC_AHBENR_GPIOFEN;
+  GPIOC->MODER = 0xffffffffu;
+  GPIOF->MODER = 0xffffffffu;
   GPIOB->MODER =
       0xffffffffu; // Unused GPIOs analog, configured pins overridden below.
   RCC->APB1ENR |= RCC_APB1ENR_I2C1EN | RCC_APB1ENR_USBEN | RCC_APB1ENR_CRSEN |
-                  RCC_APB1ENR_TIM3EN | RCC_APB1ENR_SPI2EN;
-  RCC->APB2ENR |= RCC_APB2ENR_ADCEN;
+                  RCC_APB1ENR_TIM3EN | RCC_APB1ENR_SPI2EN | RCC_APB1ENR_PWREN;
+  EXTI->RTSR |= 1u << 18;
+  EXTI->IMR |= 1u << 18;
   RCC->CFGR3 &= ~RCC_CFGR3_USBSW; // HSI48 is the USB clock.
   CRS->CFGR =
       47999u | (34u << 16) | (2u << 28); // 1kHz USB SOF, default error limit.
   CRS->CR = CRS_CR_AUTOTRIMEN | CRS_CR_CEN | (32u << 8);
   SysTick_Config(48000);
-  // GPIO0 scroll, GPIO1 reset: external 10k pull-ups; GPIO4/5 open-drain
-  // charger status.
-  for (unsigned p = 0; p < 6; p++)
-    pinmode(GPIOA, p, (p == 2 || p == 3) ? 1 : 0);
-  pinmode(GPIOA, 6, 1);
-  out(6, false);
-  charge(0);
-  pinmode(GPIOA, 7, 3);
-  pinmode(GPIOB, 0, 3);
-  pinmode(GPIOB, 1, 3);
-  GPIOB->BSRR = (1u << 2); // CE high before enabling its GPIO output.
+  // PA0 scroll / PA1 reset have external 10k pull-ups. Unused pads analog.
+  pinmode(GPIOA, 0, 0); pinmode(GPIOA, 1, 0);
+  for (unsigned p=2;p<8;p++) pinmode(GPIOA,p,3);
+  pinmode(GPIOA, 6, 1); out(6,false);
+  pinmode(GPIOA,8,1);out(8,false);
+  pinmode(GPIOA,9,3);pinmode(GPIOA,10,3);pinmode(GPIOA,15,3);
+  GPIOB->BSRR = 1u << (2+16); // peripherals remain off until configured
   pinmode(GPIOB, 2, 1);
   pinmode(GPIOB, 6, 2);
   pinmode(GPIOB, 7, 2);
@@ -102,17 +113,7 @@ static void init(void) {
   TIM3->EGR = TIM_EGR_UG;
   TIM3->CNT = 0;
   TIM3->CR1 = TIM_CR1_CEN;
-  lcd_init();
-  ADC1->CR |= ADC_CR_ADCAL;
-  while (ADC1->CR & ADC_CR_ADCAL) {
-  }
-  ADC1->CFGR2 = ADC_CFGR2_CKMODE_0;
-  ADC1->SMPR = 7;
-  ADC->CCR |= ADC_CCR_VREFEN;
-  ADC1->ISR = ADC_ISR_ADRDY;
-  ADC1->CR |= ADC_CR_ADEN;
-  while (!(ADC1->ISR & ADC_ISR_ADRDY)) {
-  }
+
 }
 static void i2c_abort(void) {
   I2C1->CR2 |= I2C_CR2_STOP;
@@ -212,50 +213,6 @@ static void restore(void) {
     counter_init(&counter, 0); // Require deliberate RESET CONFIRM / 3s button
                                // to initialize unknown FRAM.
 }
-static uint16_t adc(unsigned ch) {
-  ADC1->CHSELR = 1u << ch;
-  ADC1->CR |= ADC_CR_ADSTART;
-  uint32_t t = ticks;
-  while (!(ADC1->ISR & ADC_ISR_EOC)) {
-    if ((uint32_t)(ticks - t) > 2)
-      return 0;
-  }
-  return (uint16_t)ADC1->DR;
-}
-static void power_poll(void) {
-  uint16_t vref = adc(17);
-  if (!vref)
-    return;
-  uint32_t vdda = 3300u * (*(const uint16_t *)0x1ffff7ba) / vref;
-  battery_mv = (uint16_t)(adc(7) * vdda * 2u / 4095u);
-  ntc_mv = (uint16_t)(adc(9) * vdda * 2u / 4095u);
-  // 103AT-2, 75uA nominal TS bias, 200k parallel divider load. This
-  // conservative voltage window stays within the cell's 0..45C charging range
-  // including bias tolerance.
-  bool thermal_ok = charger_temperature_ok(ntc_mv);
-  GPIOB->BSRR = thermal_ok ? (1u << (2 + 16)) : (1u << 2);
-  uint32_t vbus = adc(8) * vdda * 147u / (4095u * 47u);
-  bool present = !(GPIOA->IDR & (1u << 4));
-  (void)vbus;
-  if (present != usb_present) {
-    usb_present = present;
-    counter.pending = 0;
-    counter.scroll_fraction = 0;
-    if (present)
-      tud_connect();
-    else {
-      tud_disconnect();
-      charge(0);
-    }
-  }
-  static unsigned low_samples = 0;
-  if (!usb_present && battery_mv < 3450) {
-    if (low_samples < 3)
-      low_samples++;
-  } else
-    low_samples = 0;
-  low_battery = low_samples >= 3;
-}
 static void reply(const char *s) {
   if (tud_cdc_connected()) {
     tud_cdc_write_str(s);
@@ -263,23 +220,20 @@ static void reply(const char *s) {
   }
 }
 static void status(void) {
-  char b[320];
-  char turns[21];
+  char b[320], turns[21];
   counter_format_total(counter.turns, turns);
-  snprintf(
-      b, sizeof(b),
-      "{\"turns\":%s"
-      ",\"progress\":%ld,\"storage_ok\":%s,\"encoder_timer_running\":%s,\"scroll_on\":"
-      "%s,\"battery_mv\":%u,\"low_battery\":%s,\"rejected\":%lu,\"lcd_transport_ok\":%s,"
-      "\"charger_"
-      "mode\":%u}\r\n",
-      turns, (long)counter.progress, stored ? "true" : "false",
-      encoder_ok ? "true" : "false", counter.scrolling ? "true" : "false",
-      battery_mv, low_battery ? "true" : "false",
-      (unsigned long)counter.rejected, lcd_ok() ? "true" : "false",
-      charger_mode);
+  snprintf(b,sizeof b,
+      "{\"device\":\"desk-fidget-counter\",\"protocol\":1,\"firmware\":\"4.0.0\","
+      "\"turns\":%s,\"progress\":%ld,\"storage_ok\":%s,"
+      "\"encoder_timer_running\":%s,\"scroll_on\":%s,\"rejected\":%lu,"
+      "\"lcd_transport_ok\":%s,\"host_data_fresh\":%s}\r\n",
+      turns,(long)counter.progress,stored?"true":"false",
+      encoder_ok?"true":"false",counter.scrolling?"true":"false",
+      (unsigned long)counter.rejected,lcd_ok()?"true":"false",
+      dashboard_fresh(&dashboard,ticks)?"true":"false");
   reply(b);
 }
+
 static void reset_count(void) {
   if (save(0)) {
     counter_init(&counter, 0);
@@ -293,7 +247,8 @@ static void console(void) {
   static char line[64];
   static unsigned n = 0;
   static bool overflow = false;
-  while (tud_cdc_available()) {
+  unsigned bytes=0;
+  while (tud_cdc_available() && bytes++<64) {
     char c = (char)tud_cdc_read_char();
     if (c == '\r')
       continue;
@@ -306,10 +261,12 @@ static void console(void) {
       else if (!strcmp(line, "RESET CONFIRM"))
         reset_count();
       else if (!strcmp(line, "HELP"))
-        reply("COUNT | STATUS | RESET CONFIRM | VERSION\r\n");
+        reply("COUNT | STATUS | RESET CONFIRM | VERSION | DASH <clock date cpu ram battery ac>\r\n");
       else if (!strcmp(line, "VERSION"))
-        reply("Desk Knob Rev C / firmware 3.0.0 / TinyUSB 0.21.0\r\n");
-      else
+        reply("Desk Knob Rev D / firmware 4.0.0 / TinyUSB 0.21.0\r\n");
+      else if (!strncmp(line,"DASH ",5)) {
+        if (!dashboard_receive(&dashboard,line,ticks)) reply("ERROR DASH\r\n");
+      } else
         reply("ERROR COMMAND\r\n");
       n = 0;
       overflow = false;
@@ -325,28 +282,25 @@ int main(void) {
   restore();
   tusb_rhport_init_t cfg = {.role = TUSB_ROLE_DEVICE, .speed = TUSB_SPEED_FULL};
   tusb_init(0, &cfg);
-  tud_disconnect();
-  uint32_t sample_at = ticks, power_at = ticks, button_since = 0,
+  uint32_t sample_at = ticks, button_since = 0,
            sw_since = ticks;
   bool held = false, reset_done = false, sw = false, sw_candidate = false;
   while (1) {
     tud_task();
     uint32_t now = ticks;
-    bool present = !(GPIOA->IDR & (1u << 4));
-    if (present != usb_present) {
-      usb_present = present;
-      counter.pending = 0;
-      counter.scroll_fraction = 0;
-      if (present)
-        tud_connect();
-      else {
-        tud_disconnect();
-        charge(0);
+    bool awake = tud_mounted() && !tud_suspended();
+    if (awake != peripherals_on) {
+      clear_motion();
+      counter.progress=0; // Cannot infer turns made while the optical LED is off.
+      if (awake) {
+        GPIOB->BSRR=1u<<2;
+        delay_ms(5); // TPS22919 controlled ramp before SPI is driven
+        lcd_power(true,ticks);
+      } else {
+        lcd_power(false,now); // All LCD signal pins low before removing its rail
+        GPIOB->BSRR=1u<<(2+16);
       }
-    }
-    if ((uint32_t)(now - power_at) >= 100) {
-      power_at = now;
-      power_poll();
+      peripherals_on=awake;
     }
     bool raw_sw = !(GPIOA->IDR & 1u);
     if (raw_sw != sw_candidate) {
@@ -372,8 +326,8 @@ int main(void) {
       encoder_ok = (TIM3->CR1 & TIM_CR1_CEN) != 0;
       uint16_t raw = (uint16_t)TIM3->CNT;
       bool changed = counter_sample(
-          &counter, raw, encoder_ok && stored && !low_battery, now,
-          sw && usb_present && tud_mounted() && !tud_suspended());
+          &counter, raw, encoder_ok && stored && peripherals_on, now,
+          sw && awake);
       if (changed && !save(counter.turns)) {
         stored = false;
         counter.baseline = false;
@@ -384,18 +338,11 @@ int main(void) {
       tud_hid_mouse_report(0, 0, 0, 0, wheel, 0);
     }
     console();
-    LcdView view = {.turns = counter.turns,
-                    .battery_mv = battery_mv,
-                    .storage_ok = stored,
-                    .low_battery = low_battery,
-                    .scroll_on = sw,
-                    .usb_ready =
-                        usb_present && tud_mounted() && !tud_suspended(),
-                    .charging = usb_present && !(GPIOA->IDR & (1u << 5))};
-    lcd_task(now, &view);
-    // 4Hz fault; slow battery heartbeat; steady scroll-mode indicator on USB.
-    out(6, (!stored || !encoder_ok || low_battery) ? ((now / 125) & 1u)
-           : usb_present                           ? (sw || now % 2000 < 30)
-                                                   : now % 2000 < 15);
+    LcdView view = {.turns=counter.turns,.host=dashboard,.now=now,
+                    .storage_ok=stored,.scroll_on=sw,.usb_ready=awake};
+    if (peripherals_on) lcd_task(now,&view);
+    out(6, awake && ((!stored || !encoder_ok) ? ((now/125)&1u) : (sw || now%2000<30)));
+    if (tud_suspended() && !peripherals_on) usb_sleep();
+    else __WFI();
   }
 }

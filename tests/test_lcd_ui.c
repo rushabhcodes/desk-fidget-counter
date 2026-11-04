@@ -5,11 +5,11 @@
 #include <string.h>
 int main(int argc, char **argv) {
   LcdView view = {.turns = 12345,
-                  .battery_mv = 3920,
+                  .host = {.seconds=63929,.year=2026,.month=11,.day=4,.cpu_tenths=428,.ram_tenths=612,.battery_percent=87,.ac=true,.received=true,.received_at=1000},
+                  .now=1000,
                   .storage_ok = true,
                   .scroll_on = true,
-                  .usb_ready = true,
-                  .charging = true};
+                  .usb_ready = true};
   struct {
     uint16_t before[8], row[240], after[8];
   } guarded;
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
       view.turns = UINT64_MAX;
     if (state == 2) {
       view.storage_ok = false;
-      view.low_battery = true;
+      view.now=6000;
       view.scroll_on = false;
       view.usb_ready = false;
     }

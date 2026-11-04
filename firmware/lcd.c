@@ -63,8 +63,20 @@ void lcd_init(void) {
   SPI2->CR1 = SPI_CR1_MSTR | SPI_CR1_SSM | SPI_CR1_SSI | SPI_CR1_BR_0 |
               SPI_CR1_BIDIMODE | SPI_CR1_BIDIOE | SPI_CR1_SPE;
   phase = 0;
+  init_index=0; scanline=0;
   healthy = true;
   deadline = 20;
+}
+void lcd_power(bool enabled, uint32_t now) {
+  if (enabled) { lcd_init(); deadline=now+20; return; }
+  pin(11,false); pin(10,false); pin(12,false); pin(14,false);
+  SPI2->CR1 &= ~SPI_CR1_SPE;
+  // No high signals may back-power the unpowered module through its inputs.
+  for (unsigned p=10;p<=15;p++) {
+    if (p==12) continue;
+    GPIOB->BSRR=1u<<(p+16);
+    GPIOB->MODER=(GPIOB->MODER&~(3u<<(p*2)))|(1u<<(p*2));
+  }
 }
 bool lcd_ok(void) { return healthy; }
 void lcd_task(uint32_t now, const LcdView *view) {
