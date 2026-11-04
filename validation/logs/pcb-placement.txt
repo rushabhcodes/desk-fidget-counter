@@ -2,20 +2,20 @@ $ bun validation/check-placement.mjs
 placement summary: no placement issues
 
 board top-layer utilization:
-- occupied: 15.309% (707.904mm^2 of 4624mm^2)
+- occupied: 13.558% (692.379mm^2 of 5106.8mm^2)
 - empty spaces over 5% of board area:
-  - 26.951% (1246.223mm^2); bounds=(minX=-12.75mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
-  - 8.095% (374.306mm^2); bounds=(minX=-34mm, maxX=-23.68mm, minY=-34mm, maxY=2.27mm)
-  - 7.906% (365.587mm^2); bounds=(minX=11.53mm, maxX=34mm, minY=17.73mm, maxY=34mm)
-  - 5.299% (245.03mm^2); bounds=(minX=22.48mm, maxX=34mm, minY=-34mm, maxY=-12.73mm)
+  - 24.403% (1246.223mm^2); bounds=(minX=-12.75mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
+  - 10.283% (525.124mm^2); bounds=(minX=11.53mm, maxX=34mm, minY=17.73mm, maxY=41.1mm)
+  - 7.33% (374.306mm^2); bounds=(minX=-34mm, maxX=-23.68mm, minY=-34mm, maxY=2.27mm)
+  - 5.385% (275.016mm^2); bounds=(minX=-34mm, maxX=-17.2mm, minY=24.73mm, maxY=41.1mm)
 
 board-edge status:
 - U1: 3.9mm inside right edge
-- J1: 2.326mm inside top edge
-- R1: 6.025mm inside top edge
-- R2: 6.525mm inside top edge
-- U6: 7.95mm inside top edge
-- C1: 8.375mm inside top edge
+- J1: 0.426mm inside top edge
+- R1: 4.125mm inside top edge
+- R2: 4.625mm inside top edge
+- U6: 6.05mm inside top edge
+- C1: 6.475mm inside top edge
 - U4: 4.175mm inside bottom edge
 - C2: 4.525mm inside bottom edge
 - C3: 1.525mm inside bottom edge
@@ -33,17 +33,17 @@ board-edge status:
 - C12: 8.375mm inside right edge
 - C13: 5.275mm inside right edge
 - R10: 11.775mm inside right edge
-- J4: 12.625mm inside top edge
+- J4: 19.725mm inside top edge
 - U2: 8.01mm inside left edge
 - U7: 11.2mm inside left edge
 - R24: 4.775mm inside left edge
 - R25: 7.275mm inside left edge
 - R26: 7.275mm inside left edge
-- C14: 11.525mm inside top edge
-- R12: 9.525mm inside top edge
-- R13: 9.525mm inside top edge
-- U3: 3.795mm inside top edge
-- C16: 2.525mm inside top edge
+- C14: 12.775mm inside left edge
+- R12: 12.775mm inside left edge
+- R13: 9.775mm inside left edge
+- U3: 10.895mm inside top edge
+- C16: 9.625mm inside top edge
 - SW1: 1.65mm inside bottom edge
 - J6: 13.625mm inside left edge
 - R27: 13.775mm inside right edge

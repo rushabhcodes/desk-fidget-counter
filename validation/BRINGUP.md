@@ -1,4 +1,4 @@
-# Rev E prototype bring-up
+# Rev E2 prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -13,7 +13,7 @@
 
 ## Programming, persistence and screen
 
-- [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify Rev E firmware over SWD. Exercise ROM recovery separately.
+- [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify firmware 5.0.0 over SWD. Exercise ROM recovery separately.
 - [ ] Initialize FRAM with RESET CONFIRM. Test power removal during every journal write stage; recover a valid prior/committed record, never a corrupted guessed value. Document the brief possible rollback of an in-flight completed-turn write.
 - [ ] Build H1 to the physical signal-to-signal map in manufacturing/WIRING.md. Verify all eight continuities, no adjacent shorts, correct VCC/GND, PHR latch/retention and crimp pull strength. Verify the actual screen connector revision/position against the supplier STEP.
 - [ ] Confirm GC9A01 startup/orientation with tab -X, MADCTL 0xA8, RGB order, backlight, and readability. Test count up to 20 digits and HOLD 3S TO INIT and TIMER ERROR fault states. A write-only SPI transport-success flag cannot detect an unplugged screen.
@@ -35,8 +35,10 @@
 - [ ] Inspect every through-hole tail: trimmed to ≤0.8mm below the PCB, deburred, clear of base and insulating film. Check each solder well and all top-side package heights.
 - [ ] Check original screen carrier, bosses, tab, front and connector against the cradle/bezel. Tightening must not bow the PCB or load active glass.
 - [ ] Confirm H1's short free span and smooth ≥6.1mm bends at actual wire OD. It must clear posts, PCB, every optical-skirt angle and all package bodies. Unplug before lifting the screen for service; there is no long service loop.
-- [ ] Check DIN965 screw seating and engagement, access windows, front plunger release/pretravel/stop and force, the specified USB plug's insertion shoulder/strain relief, 0.6mm bezel/grip gap, and the full rotating swept volume.
+- [ ] Check DIN965 screw seating and engagement, access windows, front plunger release/pretravel/stop and force, the now-exposed USB socket, specified plug's full insertion/withdrawal and shoulder/strain relief, 0.6mm bezel/grip gap, and the full rotating swept volume.
 - [ ] Confirm no loose wire can enter the moving skirt. Rotate many complete turns before final closure. Check bearing retention, skirt adhesive and feet over time.
 - [ ] Have the fabricator review the two-layer board rules and closed internal routing contour. Reflow/feeder rotations and solder-mask clearances must match pin-1 drawings before an assembly order.
 
 - [ ] Measure Omron B3U-3000P pretravel and the printed plunger gap/stop. Tune the nominal 0.10 mm gap and 0.40 mm stop to the actual switch; verify clean return without preload, excessive travel or PCB flex. Inspect the thin nose and keeper after repeated operation.
+
+- [ ] Verify the E2 USB tab seats in the wider rear aperture, its four shield solder joints remain supported, and both plug orientations fully latch without the plastic body touching PCB or shell. Compare the actual cable with the 13.4×6.9 mm tolerance-expanded body gauge. Check the Ø4.4 mm driver windows pass the actual M2 heads and driver.

@@ -22,7 +22,10 @@ assert len(s.drill_npth.objects)==sum(c['type']=='pcb_hole' for c in cj)
 assert sum(abs(o.aperture.diameter-.75)<1e-8 for o in s.drill_pth.objects)==14,'JST drills missing'
 outline=s.outline.instance
 xs=[v for o in outline.objects for v in (o.x1,o.x2)];ys=[v for o in outline.objects for v in (o.y1,o.y2)]
-assert abs(max(xs)-min(xs)-68)<.001 and abs(max(ys)-min(ys)-68)<.001
+board=next(v for v in cj if v['type']=='pcb_board')
+expected_width=max(p['x'] for p in board['outline'])-min(p['x'] for p in board['outline'])
+expected_height=max(p['y'] for p in board['outline'])-min(p['y'] for p in board['outline'])
+assert abs(max(xs)-min(xs)-expected_width)<.001 and abs(max(ys)-min(ys)-expected_height)<.001
 # Both the outer custom profile and the internal routed pocket must be closed.
 def key(x,y):return (round(x,5),round(y,5))
 adjacency={}
@@ -61,6 +64,6 @@ for side in ['top','bottom']:
  text=str(svg)
  (ROOT/f'previews/gerber-{side}.svg').write_text(text)
  cairosvg.svg2png(bytestring=text.encode(),write_to=str(ROOT/f'previews/gerber-{side}.png'),output_width=1500,output_height=1500,background_color='white')
-report={'parser':'gerbonara 1.5.0','graphical_layers':sorted(' '.join(k) for k in s.graphic_layers),'outline_centerline_mm':[68,68],'outline_segments':len(outline.objects),'closed_edge_contours':2,'internal_window_area_mm2':round(areas[0],5),'plated_round_drills':pth['Flash'],'plated_slots':pth['Line'],'npth_diameters_and_counts':dict(npth),'JST_0.75mm_drills':14,'source_vias':sum(c['type']=='pcb_via' for c in cj),'source_plated_holes':sum(c['type']=='pcb_plated_hole' for c in cj),'BOM_rows':len(bom),'populated_placements':len(pnp),'parser_note':'KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped.'}
+report={'parser':'gerbonara 1.5.0','graphical_layers':sorted(' '.join(k) for k in s.graphic_layers),'outline_centerline_mm':[round(expected_width,4),round(expected_height,4)],'outline_segments':len(outline.objects),'closed_edge_contours':2,'internal_window_area_mm2':round(areas[0],5),'plated_round_drills':pth['Flash'],'plated_slots':pth['Line'],'npth_diameters_and_counts':dict(npth),'JST_0.75mm_drills':14,'source_vias':sum(c['type']=='pcb_via' for c in cj),'source_plated_holes':sum(c['type']=='pcb_plated_hole' for c in cj),'BOM_rows':len(bom),'populated_placements':len(pnp),'parser_note':'KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped.'}
 (ROOT/'validation/manufacturing-inspection.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

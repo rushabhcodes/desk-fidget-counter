@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manufacturing'
 OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
-boardpath=OUT/'desk-knob-reve.kicad_pcb'
+boardpath=OUT/'desk-knob-reve2.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),

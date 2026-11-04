@@ -13,19 +13,19 @@
   ],
   "outline_centerline_mm": [
     68,
-    68
+    75.1
   ],
   "outline_segments": 128,
   "closed_edge_contours": 2,
   "internal_window_area_mm2": 1401.24578,
-  "plated_round_drills": 145,
+  "plated_round_drills": 147,
   "plated_slots": 4,
   "npth_diameters_and_counts": {
     "0.6": 2,
     "2.7": 4
   },
   "JST_0.75mm_drills": 14,
-  "source_vias": 131,
+  "source_vias": 133,
   "source_plated_holes": 18,
   "BOM_rows": 39,
   "populated_placements": 39,

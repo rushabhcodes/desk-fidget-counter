@@ -1,6 +1,6 @@
-# Firmware 5.0.0 / PCB Rev E
+# Firmware 5.0.0 / PCB Rev E / E2
 
-The included `build/desk-knob.bin` and `.hex` target STM32F072CBT6 at **0x08000000**. This firmware controls the USB-only Rev E optical board, switched LCD/IR rail and Waveshare 19192. Rev D toggle boards require firmware 4.0.0; earlier charging boards also need their matching tagged firmware; PA2–PA5/PA7/PB0/PB1 no longer serve battery functions.
+The included `build/desk-knob.bin` and `.hex` target STM32F072CBT6 at **0x08000000**. This firmware controls the USB-only Rev E and E2 optical boards, switched LCD/IR rail and Waveshare 19192. Rev D toggle boards require firmware 4.0.0; earlier charging boards also need their matching tagged firmware; PA2–PA5/PA7/PB0/PB1 no longer serve battery functions.
 
 ## Build and program
 
@@ -54,3 +54,5 @@ Newline-terminated ASCII, maximum 63 bytes per command, DTR asserted. `scripts/c
 The count formatter handles UINT64_MAX without libc 64-bit formatting. Native tests cover counter wraps/reversals/faults, torn FRAM records, malformed metric packets, stale data, calendar rollover and scanline buffer bounds. ARM image checks inspect actual descriptors and vectors. Those checks do not establish physical optical response or host interoperability.
 
 USB **CAFE:4011** is TinyUSB's development VID/PID, shared by other projects. Use authorized identifiers before commercial distribution. Native HID scrolling needs no companion; CDC dashboard telemetry needs the companion running.
+
+Hardware release v5.1.0 moves the USB cluster without changing any signal or MCU pin. The included firmware remains 5.0.0; the same verified BIN/HEX supports Rev E and E2.

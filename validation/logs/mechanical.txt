@@ -1,10 +1,10 @@
-base watertight 15400.5
-lid watertight 8412.8
+base watertight 14928.2
+lid watertight 8486.3
 knob watertight 16134.6
 outer-retainer watertight 1675.6
 inner-retainer watertight 879.3
 screen-bezel watertight 1223.0
-button-plunger watertight 54.6
+button-plunger watertight 51.9
 bearing-clamp watertight 809.0
 encoder-skirt watertight 1942.9
 fit-coupon watertight 3205.1
@@ -14,8 +14,8 @@ fit-coupon watertight 3205.1
   "height_reduction_percent": 52.6,
   "grip_lower_edge_mm": 10.8,
   "previous_grip_lower_edge_mm": 22,
-  "USB_plug_max_height_mm": 6.4,
-  "USB_plug_to_rotor_vertical_mm": 1.65,
+  "USB_plug_max_height_mm": 6.9,
+  "USB_plug_to_rotor_vertical_mm": 1.5,
   "bezel_to_grip_radial_mm": 0.6,
   "skirt_to_sensor_radial_each_side_mm": 1.0,
   "PCB_bottom_z_mm": 2.6,

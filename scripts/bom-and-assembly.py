@@ -23,7 +23,7 @@ with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
     xy=lambda x,y:(850+flip*x*22,850-y*22)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1760" viewBox="0 0 1700 1760">','<rect width="1700" height="1760" fill="#f8fafb"/>',f'<text x="850" y="40" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E — {side} assembly</text>']
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1760" viewBox="0 0 1700 1760">','<rect width="1700" height="1760" fill="#f8fafb"/>',f'<text x="850" y="40" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E2 — {side} assembly</text>']
     board=next(c for c in cj if c['type']=='pcb_board')
     contours=[board['outline']]+[c['points'] for c in cj if c['type']=='pcb_cutout']
     commands=[]

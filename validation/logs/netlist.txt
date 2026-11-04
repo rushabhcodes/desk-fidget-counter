@@ -149,9 +149,9 @@ NET: V3V3
   - U1 VDD1
   - U1 VBAT
   - C7 pin1
-  - C8 pin1 (+)
+  - C8 pin1
   - C9 pin1 (+)
-  - C10 pin1 (+)
+  - C10 pin1
   - C11 pin1 (+)
   - C17 pin1 (+)
   - C18 pin1 (+)
@@ -242,9 +242,9 @@ NET: GND
   - U1 VSS2
   - U1 VSS1
   - C7 pin2
-  - C8 pin2 (-)
+  - C8 pin2
   - C9 pin2 (-)
-  - C10 pin2 (-)
+  - C10 pin2
   - C11 pin2 (-)
   - C17 pin2 (-)
   - C18 pin2 (-)
@@ -379,16 +379,16 @@ C7 (100nF undefined)
 - pin2: NETS(GND)
 
 C8 (10nF undefined)
-- pin1(anode, pos, left): NETS(V3V3)
-- pin2(cathode, neg, right): NETS(GND)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
 
 C9 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
 C10 (100nF undefined)
-- pin1(anode, pos, left): NETS(V3V3)
-- pin2(cathode, neg, right): NETS(GND)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
 
 C11 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)

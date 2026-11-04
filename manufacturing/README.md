@@ -1,4 +1,4 @@
-# Manufacturing / Rev E
+# Manufacturing / Rev E2
 
 Manufacturer: **JLCPCB bare-board fabrication**, followed by supervised manual/reflow assembly. No board or assembly order has been placed. The provided placement file is a coordinate reference; automated assembly requires the assembler to map feeder rotations to the verified pin-1 assembly drawing.
 
@@ -6,7 +6,7 @@ Manufacturer: **JLCPCB bare-board fabrication**, followed by supervised manual/r
 
 | Parameter | Requirement |
 |---|---|
-| Outline | Clipped Ø72 mm envelope, 68×68 mm extents; 34.6×40.6 mm R2 window; 4 × Ø2.7 mm NPTH at (±30, ±15) mm |
+| Outline | Clipped Ø72 mm body with integral USB tab, 68×75.1 mm extents; 34.6×40.6 mm R2 window; 4 × Ø2.7 mm NPTH at (±30, ±15) mm |
 | Material | FR-4, 1.6 mm nominal, standard Tg ≥135°C |
 | Copper | Two layers, 35 µm / 1 oz finished outer copper |
 | Finish | ENIG; green solder mask, white silkscreen |
@@ -16,14 +16,14 @@ Manufacturer: **JLCPCB bare-board fabrication**, followed by supervised manual/r
 | Hole spacing | ≥0.50 mm drill-edge spacing for routed vias, with larger routing allowance |
 | Copper to NPTH | ≥0.25 mm; pour cutout allowance 0.31 mm |
 | Copper to board edge | ≥0.30 mm; ground pours inset 0.40 mm |
-| Solder paste | 100 µm stencil starting point; no exposed-pad charger is present in Rev E |
+| Solder paste | 100 µm stencil starting point; no exposed-pad charger is present in Rev E2 |
 | Assembly | All components on top; JSTs hand soldered after SMT reflow; tails ≤0.8 mm |
 
 See [JLCPCB's capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/) for current process limits. These project rules are more conservative than the process's minimum trace and hole sizes. No controlled-impedance order is claimed: USB is 12 Mbit/s over short PCB runs; signal integrity must be measured on the prototype.
 
 ## Authoritative output
 
-The release's `desk-knob-reve-gerbers.zip` contains the **final KiCad-plotted** copper, solder mask, silk, paste, outline, plated drill and NPTH drill files. Use that bundle for the release; older development outputs are not release fabrication files.
+The release's `desk-knob-reve2-gerbers.zip` contains the **final KiCad-plotted** copper, solder mask, silk, paste, outline, plated drill and NPTH drill files. Use that bundle for the release; older development outputs are not release fabrication files.
 
 The final source-derived KiCad board and project are included so the fabrication geometry and rules can be independently inspected. `scripts/export-fabrication.py` preserves positions, pads, nets and routes from tscircuit, maps source keepout placement permissions, normalizes same-net pour-fragment priorities, removes floating copper islands by a normal zone refill, shortens the MCU's corner silkscreen marks by 0.25 mm to clear mask openings, runs DRC without exclusions, and plots Gerber/Excellon files. An exact before/after geometry check requires every native trace and via to remain unchanged. This finalization is part of the documented source-to-fabrication workflow.
 
@@ -43,4 +43,6 @@ bunx tsci export dist/index/circuit.json -f kicad_pcb -o /tmp/desk-knob-raw.kica
 
 The exporter stops on any reported KiCad DRC violation. Packaging and preview scripts then parse and inspect those plotted files and record SHA-256 hashes. The release manifest identifies the exact source revision and manufacturing bundle. The remaining physical tests are listed in [BRINGUP.md](../validation/BRINGUP.md).
 
-Rev E is USB-only. J2/J3, battery sensing and charging components are removed; U4 is TPS22919DCKR, not the earlier QFN charger. All 39 placements are top-side. Order the off-board LCD harness separately using [WIRING.md](WIRING.md). Prototype fit and USB/optical bring-up remain mandatory before a production order.
+Rev E2 is USB-only. J2/J3, battery sensing and charging components are removed; U4 is TPS22919DCKR, not the earlier QFN charger. All 39 placements are top-side. Order the off-board LCD harness separately using [WIRING.md](WIRING.md). Prototype fit and USB/optical bring-up remain mandatory before a production order.
+
+J1 is translated 9 mm toward +Y to footprint origin (0,37) mm; U6, C1, R1 and R2 follow it to preserve their local spacing. The housing intentionally overhangs the PCB tab by about 1.25 mm; all pads and slots retain normal copper-edge rules. Only front body ink that overhangs the PCB is omitted. Firmware pin assignments are unchanged.

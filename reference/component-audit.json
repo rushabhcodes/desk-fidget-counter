@@ -1,6 +1,6 @@
 {
   "baseline": "v4.1.0 / 45 components",
-  "revision": "Rev E / v5.0.0",
+  "revision": "Rev E2 / v5.1.0",
   "active_component_count": 39,
   "sources": {
     "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
@@ -298,5 +298,6 @@
       "reason": "VDDIO2 local bulk decoupling in addition to C10 100 nF.",
       "mpn": "GRM21BR61A475KA73L"
     }
-  ]
+  ],
+  "mechanical_revision_note": "USB cluster J1/U6/C1/R1/R2 translated +9 mm on integral PCB tab; 39-part population and firmware 5.0.0 pin assignments retained."
 }

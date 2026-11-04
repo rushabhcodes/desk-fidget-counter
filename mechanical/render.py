@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import trimesh,pyrender
 from PIL import Image,ImageDraw,ImageFont
-args=argparse.ArgumentParser();args.add_argument('--compare-to',type=Path);options=args.parse_args()
+args=argparse.ArgumentParser();args.add_argument('--compare-to',type=Path);args.add_argument('--usb-before',type=Path);options=args.parse_args()
 ROOT=Path(__file__).resolve().parent
 source=trimesh.load(ROOT/'cad/assembled.glb',force='scene')
 
@@ -17,12 +17,12 @@ def pose(eye,target,up=(0,1,0)):
  x=np.cross(up,z);x/=np.linalg.norm(x);y=np.cross(z,x)
  q=np.eye(4);q[:3,:3]=np.column_stack((x,y,z));q[:3,3]=eye;return q
 
-def render(eye,target,path,width=1400,height=1050,model=source):
+def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0375):
  scene=pyrender.Scene(bg_color=[.97,.975,.98,1],ambient_light=[.6,.6,.6])
  for node in model.graph.nodes_geometry:
   tf,geo=model.graph[node];mesh=model.geometry[geo]
   scene.add(pyrender.Mesh.from_trimesh(mesh,smooth=False),pose=tf)
- cp=pose(eye,target);scene.add(pyrender.OrthographicCamera(xmag=.050,ymag=.0375,znear=.001,zfar=2),pose=cp)
+ cp=pose(eye,target);scene.add(pyrender.OrthographicCamera(xmag=xmag,ymag=ymag,znear=.001,zfar=2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=2.2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=.7),pose=pose([.07,.07,-.07],target))
  renderer=pyrender.OffscreenRenderer(width,height)
@@ -41,7 +41,7 @@ if options.compare_to:
  comparison=Image.new('RGB',(2800,1170),(247,249,250));comparison.paste(old,(0,120));comparison.paste(new,(1400,120))
  draw=ImageDraw.Draw(comparison);font=ImageFont.load_default(size=36)
  draw.text((100,30),'Previous Rev B · 47 mm',(36,57,67),font=font)
- draw.text((1500,30),'Rev E · 22.3 mm · 52.6% lower',(36,57,67),font=font)
+ draw.text((1500,30),'Rev E2 · 22.3 mm · 52.6% lower',(36,57,67),font=font)
  draw.text((1500,80),'Same scale; side USB-C retained',(73,95,106),font=ImageFont.load_default(size=24))
  comparison.save(ROOT/'height-comparison.png');old_path.unlink()
  print('Rendered previous/current side profiles at identical camera scale')
@@ -53,3 +53,19 @@ for node in list(cutaway.graph.nodes_geometry):
   cutaway.graph.transforms.remove_node(node)
 render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
 print('Rendered PCB, actual packages, JST plugs and eight static wires in cutaway')
+
+# Rear USB close-up uses the actual assembled meshes and a common camera.
+usb_eye=[.004,.014,-.13];usb_target=[0,.007,-.039]
+render(usb_eye,usb_target,ROOT/'usb-access.png',1400,700,xmag=.025,ymag=.0125)
+if options.usb_before:
+ before=trimesh.load(options.usb_before,force='scene')
+ temp=ROOT/'cad/.usb-before.png'
+ render(usb_eye,usb_target,temp,1400,700,model=before,xmag=.025,ymag=.0125)
+ a=Image.open(temp).convert('RGB');b=Image.open(ROOT/'usb-access.png').convert('RGB')
+ out=Image.new('RGB',(2800,810),(247,249,250));out.paste(a,(0,110));out.paste(b,(1400,110))
+ d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
+ d.text((45,25),'Before: USB mouth recessed 9.65 mm',(36,57,67),font=font)
+ d.text((1445,25),'Rev E2: USB mouth at the side wall',(36,57,67),font=font)
+ d.text((1445,70),'Shell diameter 86 -> 84.8 mm; height stays 22.3 mm',(73,95,106),font=ImageFont.load_default(size=24))
+ out.save(ROOT/'usb-access-comparison.png');temp.unlink()
+print('Rendered USB side access from the actual CAD')

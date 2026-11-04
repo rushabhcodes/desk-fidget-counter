@@ -7,7 +7,7 @@
 		(at 0 -3 180)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "c53f9532-33a3-4d4a-95c6-44901b7bc321")
+		(uuid "835d7490-198d-43b3-af72-2f8f0068663e")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "6ec6aa73-c8f1-4477-b578-eb5776b9e013")
+		(uuid "398b6890-e7b9-4d08-866e-6399ea4a1d6e")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f5cb0815-c49d-48fb-ac7d-b02dbf66b499")
+		(uuid "3f6587f1-bc55-4c71-8278-8df27c956d9c")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "e7906949-7727-40da-a78c-cd496d517325")
+		(uuid "f7ef4e4b-4a9b-487e-8991-2a9eb7eebc04")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,17 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "41cc63c1-6cdd-457d-aeeb-a2ca6ef067e0")
-	)
-	(fp_line
-		(start -4.468978 5.394141)
-		(end -4.468978 3.912838)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "524a5c1a-8231-454e-a569-a8b495d1df87")
+		(uuid "05adfcda-abd0-4d59-8a79-7559c27c21b8")
 	)
 	(fp_line
 		(start 4.47101 1.676114)
@@ -105,27 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "955fdc83-ff6b-48cc-a54f-ce5c4a4fe32c")
-	)
-	(fp_line
-		(start 4.47101 5.394141)
-		(end -4.468978 5.394141)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "c041c161-685c-4a8e-b8a1-a98a0093443a")
-	)
-	(fp_line
-		(start 4.47101 5.394141)
-		(end 4.47101 3.912483)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "ede76ee0-4d44-4be3-83c4-2ce791429578")
+		(uuid "cb812434-d4af-4c96-8f9e-21f12b07ef87")
 	)
 	(fp_poly
 		(pts
@@ -144,14 +114,14 @@
 		(size 0.599999 0.599999)
 		(drill 0.599999)
 		(layers "*.Cu" "*.Mask")
-		(uuid "f1a7eba4-93f9-4491-86d4-76edb92471b9")
+		(uuid "3be40fcf-9b68-42b7-b22b-9ce1cde8cddf")
 	)
 	(pad "" np_thru_hole circle
 		(at 2.899918 -0.905567 180)
 		(size 0.599999 0.599999)
 		(drill 0.599999)
 		(layers "*.Cu" "*.Mask")
-		(uuid "af42dcd6-963e-41e9-9faf-9ea5b5511a29")
+		(uuid "77ad9d9b-dc20-457d-871b-dc2128c0cabb")
 	)
 	(pad "1" thru_hole oval
 		(at 4.325112 -1.405693)
@@ -159,7 +129,7 @@
 		(drill oval 0.799998 1.499997)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "31ddc500-4459-0781-4570-2bfe30c6a083")
+		(uuid "3da66e00-3890-5e81-5138-d4fe24fdf783")
 	)
 	(pad "2" thru_hole oval
 		(at 4.325112 2.774131)
@@ -175,7 +145,7 @@
 		(drill oval 0.799998 1.199998)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "5e7cea60-17b9-e221-720f-515e04277b23")
+		(uuid "690f4080-0d27-8c01-7ca1-a77e066adafd")
 	)
 	(pad "4" thru_hole oval
 		(at -4.325112 -1.405693)
@@ -207,13 +177,13 @@
 		(at -0.249936 -2.174043 180)
 		(size 0.299999 1.299997)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "48ff9e90-27f8-8010-670f-615009e8bd50")
+		(uuid "42fef460-1c3f-96ff-7b7e-225e25435243")
 	)
 	(pad "9" smd rect
 		(at 0.249936 -2.174043 180)
 		(size 0.299999 1.299997)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "564db040-5378-c25f-02c0-cb0258fa5863")
+		(uuid "74768250-4666-70f0-0143-643043dfa890")
 	)
 	(pad "10" smd rect
 		(at 0.750062 -2.174043 180)
@@ -252,7 +222,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "690f22a0-0ac7-1e7f-5380-e5a24e37163d")
+		(uuid "6d7e9da0-3342-d701-2bfb-b45e74c5c043")
 	)
 	(pad "14" smd custom
 		(at 3.200006 -2.174145 180)
@@ -273,7 +243,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "60b181e0-0269-7dbf-5bde-866245d9757d")
+		(uuid "47a4fcb8-7337-f688-2e14-e9c8170e22f8")
 	)
 	(pad "15" smd custom
 		(at 2.40016 -2.174145 180)
@@ -294,7 +264,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "45a57600-7242-e53f-2a2b-407e1dec6443")
+		(uuid "484e71c0-15f9-9261-7441-96822d76655d")
 	)
 	(pad "16" smd custom
 		(at -2.399957 -2.17398 180)
@@ -315,7 +285,7 @@
 				(fill yes)
 			)
 		)
-		(uuid "79f16d10-0f38-ed30-5b7f-92b039c7ed70")
+		(uuid "7657bafa-4485-3846-009d-d47a45c0e13a")
 	)
 	(embedded_fonts no)
 	(model "https://modelcdn.tscircuit.com/easyeda_models/assets/C165948.step?uuid=617b05f9bba7410b96c001093d8189e4&cachebust_origin="

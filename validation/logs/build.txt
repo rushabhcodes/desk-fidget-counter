@@ -1,67 +1,53 @@
 Building 1 file(s)...
 Building index.circuit.tsx...
 Generating circuit JSON...
-Wrote debug artifact: dist/autorouter-debug/reve-39-bypass/placement-unrouted.png
-Autorouting <board#815 name=".DESK_KNOB_REVE" /> phase 1/1 "Whole two-layer board" start: connections=45, obstacles=250, previous_traces=0, router=tscircuit, version=beta_pipeline9, solver=AutoroutingPipelineSolver9_PreloadedTraceGraph, effort=2x, cache=miss, cache_id=8efffac3/f1c66118
+Wrote debug artifact: dist/autorouter-debug/reve2-flush-usb/placement-unrouted.png
+Autorouting <board#797 name=".DESK_KNOB_REVE2" /> phase 1/1 "Whole two-layer board" start: connections=45, obstacles=250, previous_traces=0, router=tscircuit, version=beta_pipeline9, solver=AutoroutingPipelineSolver9_PreloadedTraceGraph, effort=2x, cache=miss, cache_id=8efffac3/ae47ec77
   connections: USB_CC1_RD, USB_CC2_RD, MCU_VBAT_DECAP, MCU_VBAT_GROUND, MCU_VDDA_DECAP, MCU_VSSA_DECAP, MCU_VDD1_DECAP, MCU_VSS1_DECAP, MCU_VDDIO_DECAP, MCU_VSS2_DECAP, MCU_VDD2_DECAP, MCU_VSS3_DECAP, MCU_VDDA_LOCAL_BULK, MCU_VDDA_LOCAL_RETURN, MCU_VDDIO_LOCAL_BULK, MCU_VDDIO_LOCAL_RETURN, net.GND, net.V3V3, net.VBUS, net.PERIPH_3V3, net.PERIPH_EN, net.NRST, net.BOOT0, net.MODE_BTN, net.USB_DM, net.USB_DP, net.SWDIO, net.SWCLK, net.SCL, net.SDA, net.CC1, net.CC2, net.IR_A, net.OPT_A, net.OPT_B, net.ENC_A, net.ENC_B, net.LCD_RST, net.LCD_BL, net.LCD_CS, net.SPI_SCK, net.LCD_DC, net.SPI_MOSI, net.LCD_SCK, net.LCD_MOSI
-Wrote debug artifact: dist/autorouter-debug/reve-39-bypass/phase-0.input.simple-route.json
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=topologyPlanningSolver steps=1 progress=16% iterations_per_second=84 elapsed=5.8s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=portPointPathingSolver steps=19 progress=44% iterations_per_second=161624 elapsed=15.9s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=45 progress=52% iterations_per_second=3380 elapsed=26.2s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=73 progress=53% iterations_per_second=856 elapsed=36.4s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=102 progress=53% iterations_per_second=22 elapsed=46.5s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=132 progress=54% iterations_per_second=10416 elapsed=56.9s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=162 progress=54% iterations_per_second=11632 elapsed=67.1s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityForceImproveSolver steps=190 progress=56% iterations_per_second=87 elapsed=77.3s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=traceSimplificationSolver steps=204 progress=68% iterations_per_second=273 elapsed=88.5s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=227 progress=80% iterations_per_second=0 elapsed=105.3s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=229 progress=80% iterations_per_second=1 elapsed=118.3s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=239 progress=85% iterations_per_second=287 elapsed=128.6s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=259 progress=88% iterations_per_second=199 elapsed=139.0s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=273 progress=88% iterations_per_second=956 elapsed=149.3s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=295 progress=88% iterations_per_second=653 elapsed=159.4s
-  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=316 progress=88% iterations_per_second=745 elapsed=169.5s
-  phase 1/1 "Whole two-layer board" done: routed_traces=118, jumpers=0, errors=0, elapsed=179.7s
-Wrote debug artifact: dist/autorouter-debug/reve-39-bypass/phase-0.output.traces.json
-Wrote debug artifact: dist/autorouter-debug/reve-39-bypass/phase-0-routed.png
+Wrote debug artifact: dist/autorouter-debug/reve2-flush-usb/phase-0.input.simple-route.json
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=topologyPlanningSolver steps=1 progress=16% iterations_per_second=76 elapsed=3.5s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=22 progress=52% iterations_per_second=2187 elapsed=13.5s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=51 progress=53% iterations_per_second=10640 elapsed=23.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=80 progress=54% iterations_per_second=1140 elapsed=34.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=109 progress=56% iterations_per_second=5184 elapsed=44.4s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=139 progress=56% iterations_per_second=12336 elapsed=54.5s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityForceImproveSolver steps=170 progress=56% iterations_per_second=282 elapsed=64.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=traceSimplificationSolver steps=188 progress=68% iterations_per_second=1544 elapsed=74.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=211 progress=80% iterations_per_second=649 elapsed=93.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=213 progress=80% iterations_per_second=0 elapsed=110.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=215 progress=80% iterations_per_second=0 elapsed=125.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=globalDrcForceImproveSolver steps=217 progress=80% iterations_per_second=0 elapsed=144.4s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=221 progress=84% iterations_per_second=1398 elapsed=154.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=247 progress=85% iterations_per_second=603 elapsed=165.2s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=274 progress=85% iterations_per_second=587 elapsed=175.5s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=292 progress=88% iterations_per_second=1 elapsed=187.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=316 progress=88% iterations_per_second=599 elapsed=197.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=342 progress=88% iterations_per_second=864 elapsed=207.4s
+  phase 1/1 "Whole two-layer board" done: routed_traces=118, jumpers=0, errors=0, elapsed=209.2s
+Wrote debug artifact: dist/autorouter-debug/reve2-flush-usb/phase-0.output.traces.json
+Wrote debug artifact: dist/autorouter-debug/reve2-flush-usb/phase-0-routed.png
 Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
-Wrote debug artifact: dist/autorouter-debug/reve-39-bypass/board.meta.json
+Wrote debug artifact: dist/autorouter-debug/reve2-flush-usb/board.meta.json
 Circuit JSON written to dist/index/circuit.json
 J6 is facing x+ but should face x- so the connector is accessible from the board edge
 Trace [.U1 > .VSSA to .C8 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VSS1 to .C9 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VSS2 to .C10 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VDD2 to .C11 > .pin1] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
+.J6 > .pin6 to net.LCD_MOSI has a 7.59 mm segment on top at 321.62°, 6.62° from the nearest allowed direction (315°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.J6 > .pin5 to net.LCD_SCK has a 6.50 mm segment on top at 334.39°, 19.39° from the nearest allowed direction (315°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB15 to net.SPI_MOSI has a 5.28 mm segment on top at 114.61°, 20.39° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA8 to net.LCD_CS has a 6.12 mm segment on bottom at 126.95°, 8.05° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA14 to net.SWCLK has a 5.63 mm segment on top at 153.33°, 18.33° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA13 to net.SWDIO has a 7.63 mm segment on bottom at 107.54°, 17.54° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA13 to net.SWDIO has a 6.71 mm segment on top at 153.39°, 18.39° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB5 to net.ENC_B has a 6.66 mm segment on bottom at 96.70°, 6.70° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB5 to net.ENC_B has a 6.54 mm segment on bottom at 122.82°, 12.18° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U6 > .GND to net.GND has a 5.47 mm segment on top at 235.36°, 10.36° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
 
 Build complete
   Circuits  1 passed
   Options   autorouter-debug, autorouter-timeout, autorouter-dump-srj
-  Output    dist
-
-✓ Done
-Build exiting with code 0: build finished successfully
-
-Final ink-only build (identical copper):
-Building 1 file(s)...
-Building index.circuit.tsx...
-Generating circuit JSON...
-Wrote debug artifact: dist/autorouter-debug/reve-39-final/placement-unrouted.png
-Autorouting <board#797 name=".DESK_KNOB_REVE" /> phase 1/1 "Whole two-layer board" start: connections=45, obstacles=250, previous_traces=0, router=tscircuit, version=beta_pipeline9, solver=AutoroutingPipelineSolver9_PreloadedTraceGraph, effort=2x, cache=hit, cache_id=8efffac3/f1c66118
-  connections: USB_CC1_RD, USB_CC2_RD, MCU_VBAT_DECAP, MCU_VBAT_GROUND, MCU_VDDA_DECAP, MCU_VSSA_DECAP, MCU_VDD1_DECAP, MCU_VSS1_DECAP, MCU_VDDIO_DECAP, MCU_VSS2_DECAP, MCU_VDD2_DECAP, MCU_VSS3_DECAP, MCU_VDDA_LOCAL_BULK, MCU_VDDA_LOCAL_RETURN, MCU_VDDIO_LOCAL_BULK, MCU_VDDIO_LOCAL_RETURN, net.GND, net.V3V3, net.VBUS, net.PERIPH_3V3, net.PERIPH_EN, net.NRST, net.BOOT0, net.MODE_BTN, net.USB_DM, net.USB_DP, net.SWDIO, net.SWCLK, net.SCL, net.SDA, net.CC1, net.CC2, net.IR_A, net.OPT_A, net.OPT_B, net.ENC_A, net.ENC_B, net.LCD_RST, net.LCD_BL, net.LCD_CS, net.SPI_SCK, net.LCD_DC, net.SPI_MOSI, net.LCD_SCK, net.LCD_MOSI
-  phase 1/1 "Whole two-layer board" done: routed_traces=118, jumpers=0, errors=0, elapsed=9.1s
-Wrote debug artifact: dist/autorouter-debug/reve-39-final/phase-0-routed.png
-Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
-Wrote debug artifact: dist/autorouter-debug/reve-39-final/board.meta.json
-Circuit JSON written to dist/index/circuit.json
-J6 is facing x+ but should face x- so the connector is accessible from the board edge
-Trace [.U1 > .VSSA to .C8 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-Trace [.U1 > .VSS1 to .C9 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-Trace [.U1 > .VSS2 to .C10 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-Trace [.U1 > .VDD2 to .C11 > .pin1] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-
-Build complete
-  Circuits  1 passed
-  Options   autorouter-debug
   Output    dist
 
 ✓ Done

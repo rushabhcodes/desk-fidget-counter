@@ -1,5 +1,5 @@
 {
-  "base_diameter": 86,
+  "base_diameter": 84.8,
   "pcb_diameter": 72,
   "pcb_bottom_z": 2.6,
   "pcb_thickness": 1.6,
@@ -36,7 +36,7 @@
   "knob_top_z": 22.1,
   "usb_center": [
     0,
-    28
+    37
   ],
   "programming_connector": [
     0,
@@ -84,17 +84,46 @@
   "pcb_outline": {
     "radius": 36,
     "clip_x": 34,
-    "clip_y": 34
+    "clip_y": 34,
+    "usb_tab": {
+      "replace_above_y": 33,
+      "points": [
+        [
+          14.5,
+          33
+        ],
+        [
+          14.5,
+          35.5
+        ],
+        [
+          7,
+          41.1
+        ],
+        [
+          -7,
+          41.1
+        ],
+        [
+          -14.5,
+          35.5
+        ],
+        [
+          -14.5,
+          33
+        ]
+      ]
+    }
   },
-  "usb_plug_max_height_mm": 6.4,
+  "usb_plug_max_height_mm": 6.9,
   "chassis_screw_axes": [
     [
-      28,
-      28
+      27.6,
+      27.6
     ],
     [
-      -28,
-      -28
+      -27.6,
+      -27.6
     ]
   ],
   "screen_posts": [
@@ -134,5 +163,23 @@
     "tip_radius_mm": 0.3,
     "guide_end_y": -35.2,
     "stem_radial_clearance_mm": 0.15
+  },
+  "usb_access": {
+    "axis_z": 5.85,
+    "socket_face_y": 42.35003,
+    "opening_width_mm": 22,
+    "opening_center_y": 41,
+    "opening_length_mm": 25,
+    "opening_bottom_z": 1.55,
+    "opening_top_z": 9.2,
+    "plug_width_mm": 13.4,
+    "plug_height_mm": 6.9,
+    "plug_shoulder_y": 42.35003,
+    "plug_check_length_mm": 35,
+    "driver_window_diameter_mm": 4.4,
+    "scope": "Socket face/axis from original C165948 STEP. Plug gauge uses L-com nominal 12.9x6.4 mm plus general +/-0.5 mm tolerance; its shoulder is conservatively placed flush with the socket face. Gauge length is a checking volume, not a claimed cable dimension. Undimensioned mating details require actual fit verification.",
+    "plug_nominal_width_mm": 12.9,
+    "plug_nominal_height_mm": 6.4,
+    "plug_tolerance_mm": 0.5
   }
 }

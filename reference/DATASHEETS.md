@@ -8,10 +8,10 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | MB85RC256VPNF-G-AMERE2 | [RAMXEED MB85RC256V datasheet](https://www.mouser.com/datasheet/3/6186/1/MB85RC256V_DS11v3_E.pdf) | 150 mil SOP8, 1.27 pitch, **PNF**, not the wider PFT package. 1/2/3 address, 4 VSS, 5 SDA, 6 SCL, 7 WP, 8 VDD. Addresses grounded → 0x50, WP grounded. 2.7–5.5 V supply. |
 | TLV75533PDBVR | [TI TLV755P](https://www.ti.com/lit/ds/symlink/tlv755p.pdf) | SOT23-5 DBV: 1 IN, 2 GND, 3 EN, 4 NC, 5 OUT. 1 uF input, 4.7 uF output ceramic. EN tied to VBUS. |
 | USBLC6-2SC6 | [ST DS4260](https://www.st.com/resource/en/datasheet/usblc6-2.pdf) | SOT23-6: data pair 1/6 and 3/4, 2 GND, 5 VBUS. The line-through pads share their respective data net. |
-| TYPE-C-31-M-12 | [HRO drawing via LCSC C165948](https://www.lcsc.com/product-detail/usb-connectors_hro-hellen-Type-C-31-M-12_C165948.html) | Exact imported footprint retained, including oval shield slots, two 0.6 mm locators, 0.5 mm contact pitch. A6/B6 D+, A7/B7 D−; separate 5.1 kΩ CC1/CC2 Rd; SBU unconnected. All shell tabs grounded. Port faces +Y after 180° rotation. |
+| TYPE-C-31-M-12 | [HRO drawing via LCSC C165948](https://www.lcsc.com/product-detail/usb-connectors_hro-hellen-Type-C-31-M-12_C165948.html) | Original imported copper and drilling retained, including oval shield slots, two 0.6 mm locators, 0.5 mm contact pitch. A6/B6 D+, A7/B7 D−; separate 5.1 kΩ CC1/CC2 Rd; SBU unconnected. All shell tabs grounded. Port faces +Y after 180° rotation. E2 origin is (0,37); the original STEP sets the metal face at Y=42.350 mm and axis Z=5.850 mm. Front body ink overhanging the board is omitted; the mechanical courtyard is retained. |
 | Bearing | [Zoty 6712 family](https://www.zotybearing.com/bearings/6700-Series-Ball-Bearings/Factory-direct-selling-thin-wall-ball-bearing-6712-6712RS-6712-2RSsize-60x75x7mm-bearing), [Maysme 6712](https://maysmeprecision.com/Show/?Cid=677) | 6712ZZ, 60 mm ID ×75 mm OD ×7 mm. Select metal shields; verify race contact widths and starting torque on the actual bearing. |
 
-## Rev E display, optical encoder and service connectors
+## Rev E2 display, optical encoder and service connectors
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -22,12 +22,12 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | GC9A01 settings | [Waveshare official example archive](https://www.waveshare.net/w/upload/f/fc/LCD_Module_code.zip), RaspberryPi/c/lib/LCD/LCD_1in28.c, 2020-12-16 | `gc9a01-registers.inc` contains transcribed hardware register/value facts, including gamma/power settings. No vendor implementation or font code copied. Own SPI driver, nonblocking startup, original 5×7 glyphs and scanline renderer. RGB565, mode 0, 12 MHz; software CS on PA8, SCK/MOSI on PB13/PB15; MADCTL 0xA8 for the module's left-facing (-X) tab. Validate orientation/colours on hardware. |
 | JST PH6 / PH8 | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), [KiCad S8B footprint](https://github.com/KiCad/kicad-footprints/blob/master/Connector_JST.pretty/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.kicad_mod) | J4 B6B-PH-K-S, top-entry: pin 1=(−5,20.5), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. J6 S8B-PH-K-S, top-side side-entry: pin 1=(−19.5,−10.5), BL/RST/DC/CS/CLK/DIN/GND/VCC. .75 mm drills, 1.2×1.75 mm lands. Side-entry height 4.8 mm, housing depth 7.6 mm; mated envelope 9.6 mm from the datasheet assembly drawing. |
 
-# Rev E USB-only supply and dashboard
+# Rev E2 USB-only supply and dashboard
 
 | Item | Primary source | Contract |
 |---|---|---|
 | TPS22919DCKR / U4 | [TI SLVSEN5B](https://www.ti.com/lit/ds/symlink/tps22919.pdf), DCK SC70-6 | 1 IN=3.3V, 2 GND, 3 ON=PB2, 4 NC, 5 QOD=VOUT, 6 VOUT=PERIPH_3V3; 1.6–5.5V input, 1.5A rating, controlled ramp; external 100k ON pulldown. Not the former BQ24074 footprint. |
-| USB cable | [L-com CAU4CC-40M-1M drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf) | Real 1m C-to-C data cable, 12.9×6.4mm plug cross-section. USB2.0/5V use only. Insertion shoulder, tolerance and strain relief require actual fit verification. |
+| USB cable | [L-com CAU4CC-40M-1M drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf) | Real 1m C-to-C data cable, 12.9×6.4mm nominal plug cross-section; its general .XX-inch tolerance is ±0.5 mm, so the approach gauge is 13.4×6.9 mm. USB2.0/5V use only. Insertion shoulder, tolerance and strain relief require actual fit verification. |
 | Harness contacts | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), pp.1–3 | PHR-8 17.8×4.5×6.85mm; SPH-004T-P0.5S accepts 32–28AWG, 0.5–0.9mm insulation. Top-entry mated height 8mm; through-hole side-entry mated depth 9.6mm. |
 | Harness wire | [Alpha 2840/7](https://www.alphawire.com/products/wire/hook-up-wire/premium/2840_7) | 32AWG 7/40 stranded silver-plated copper, PTFE, OD .022±.002in (max .6096mm), bend radius 10×OD. Model uses ≥6.2mm radius. At the published 157Ω/1000ft, a roughly 30mm power conductor is about 15.5mΩ; supply/return drop at 32mA is about 1mV. Terminations must use the correct contact/tool. |
 | Screen 3D | [Waveshare original archive](https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip) | 0508.stp: 40.453106×37.5×9.2mm bounds. Rigid 180° Y rotation +Z17.75 aligns front Z20.9, carrier back Z17.3 and rear connector bottom Z11.7. No dimensional scaling. |
@@ -37,11 +37,11 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 
 VBUS feeds U5 directly; no cell, charging circuit or thermistor remains. C5=1µF on VBUS and C6=4.7µF on 3.3V are the regulator's local ceramic capacitors. U4's C2/C3=1µF bypass input/output. U4 supplies the screen and IR emitter; the MCU/FRAM/Schmitt buffers remain on 3.3V. GPIOs to the LCD are driven low before U4 is disabled, avoiding back-power through unpowered module input protection.
 
-USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev E.
+USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev E2.
 
 The 48-slot ring and sensor locations remain unchanged. LCD carrier and cable are fixed; the manufacturer model and exact specified nominal harness are checked against the rotating swept volume. Supplier models and package solids still omit fine moulding/optical/crimp features; see mechanical/vendor/README.md.
 
-## Rev E component audit
+## Rev E2 component audit
 
 Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The revised board has 39 real, populated components.
 

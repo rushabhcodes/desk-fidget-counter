@@ -1,1 +1,0 @@
-Silkscreen cleanup preserves every other PCB record exactly: native traces, vias, pads, ports, components, board outline, cutout, keepouts, holes and copper pours. No routing was replayed or modified.

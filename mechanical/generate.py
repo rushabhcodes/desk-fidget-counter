@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Rev E nested PCB pocket and printable solids.
+"""SPDX-License-Identifier: MIT. Rev E2 nested PCB pocket and printable solids.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -28,7 +28,12 @@ def radial_holes(s,r,z,h,d,offset=0):
 
 top=P['pcb_bottom_z']+P['pcb_thickness'];bearing=P['bearing'];bt=bearing['bottom_z'];bh=bearing['width'];grip_z=P['knob_bottom_z'];r=P['encoder']['track_radius']
 lid_screws=P['chassis_screw_axes']
-base=cyl(43,2)+ring(42.8,40.8,7.2,2)
+outer=P['base_diameter']/2
+usb_access=P['usb_access']
+head_start=-outer;head_end=-outer+1.1
+guide_start=-outer+2.1;guide_end=P['front_button']['guide_end_y']
+flange_start=-outer+2.5;flange_end=-outer+3.1
+base=cyl(outer,2)+ring(outer-.2,outer-2.2,7.2,2)
 for x,y in P['mount_holes']:
  # Unplated locator pegs and lid pads capture the board; no tall PCB standoffs.
  base+=cyl(2.3,.6,2,x,y)+cyl(1.25,2.2,2,x,y)
@@ -42,19 +47,20 @@ for h in [c for c in cj if c['type']=='pcb_plated_hole']:
  w=max(h.get('outer_diameter',0),h.get('rect_pad_width',0),h.get('outer_width',0),1.2)+.6
  d=max(h.get('outer_diameter',0),h.get('rect_pad_height',0),h.get('outer_height',0),1.2)+.6
  base-=box((w,d,1.0),(x,y,1.7))
-usb=box((14,25,8.8),(0,32,5.95))
+usb=box((usb_access['opening_width_mm'],usb_access['opening_length_mm'],usb_access['opening_top_z']-usb_access['opening_bottom_z']),
+ (0,usb_access['opening_center_y'],(usb_access['opening_top_z']+usb_access['opening_bottom_z'])/2))
 base-=usb
 # Front button opposite USB. Open-top guide permits assembly before fitting
 # the lid; the lid supplies its keeper. Only the thin nose reaches over PCB.
 button_z=P['front_button']['axis_z']
-guide=cyl_y(3.3,-40.9,P['front_button']['guide_end_y'],button_z)
-guide-=box((8,8,8),(0,-38.5,button_z+4))
+guide=cyl_y(3.3,guide_start,guide_end,button_z)
+guide-=box((8,guide_end-guide_start+2,8),(0,(guide_start+guide_end)/2,button_z+4))
 base+=guide
-base-=cyl_y(2.2,-45,-40.7,button_z)
-base-=cyl_y(1.35,-41,-34.8,button_z)
-base-=cyl_y(2.85,-40.5,-39.5,button_z)
+base-=cyl_y(2.2,-outer-2,-outer+2.3,button_z)
+base-=cyl_y(1.35,-outer+2,-34.8,button_z)
+base-=cyl_y(2.85,flange_start,flange_end+P['front_button']['plunger_travel_mm'],button_z)
 
-lid=ring(42.65,27.3,1.2,9.2)
+lid=ring(outer-.35,27.3,1.2,9.2)
 # The large hollow bearing post surrounds, rather than stacks over, the screen.
 lid+=ring(31.2,27.3,1.62,10.39)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
 for x,y in P['mount_holes']:lid+=cyl(2.0,5.0,top,x,y)
@@ -64,9 +70,9 @@ for x,y in lid_screws:
 # independently from the base through the PCB window, inside the encoder skirt.
 for i in range(3):
  x,y=polar(28.6,i*TAU/3);lid-=cyl(.8,5.2,14,x,y)
-lid-=usb
+# The flush port keeps the plug body outside the lid; retain its full roof.
 # Keeper closes the open-top plunger guide, with 0.3 mm flange clearance.
-lid+=box((6.6,5.7,1.4),(0,-38.05,8.5))
+lid+=box((6.6,guide_end-guide_start,1.4),(0,(guide_start+guide_end)/2,8.5))
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 
 
@@ -111,13 +117,13 @@ bezel-=cyl(19,.21,20.89)+box((5,15,.21),(-18.75,0,20.995))
 for x,y in bezel_screws:
  bezel-=cyl(1.1,1.6,20.8,x,y)
  bezel-=csk_hole(x,y,22.3)
-plunger=(cyl_y(2,-43,-41.9,button_z)+cyl_y(1.2,-41.9,-35.2,button_z)
+plunger=(cyl_y(2,head_start,head_end,button_z)+cyl_y(1.2,head_end,-35.2,button_z)
  +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y'],button_z)
- +cyl_y(2.6,-40.5,-39.9,button_z))
+ +cyl_y(2.6,flange_start,flange_end,button_z))
 # Park the rotor at these three windows to reach its underside screws.
 for i in range(3):
  x,y=polar(39.6,i*TAU/3)
- base-=cyl(2.6,11,-.1,x,y);lid-=cyl(2.6,3,8.9,x,y)
+ base-=cyl(usb_access['driver_window_diameter_mm']/2,11,-.1,x,y);lid-=cyl(usb_access['driver_window_diameter_mm']/2,3,8.9,x,y)
 coupon=ring(40,P['bearing_pocket_id']/2,3)+ring(P['bearing_stem_od']/2,27.3,3).translate((74,0,0))
 parts={'base':base,'lid':lid,'knob':cap,'outer-retainer':outer_retainer,'inner-retainer':cradle,'screen-bezel':bezel,'button-plunger':plunger,'bearing-clamp':bearing_clamp,'encoder-skirt':encoder_skirt,'fit-coupon':coupon}
 (ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
@@ -162,13 +168,21 @@ assert (base^pcb).volume()<1e-4,'Base must clear actual PCB material and NPTHs'
 assert (pcb^lcd).volume()<1e-4
 # Exact swept solid of the complete linear plunger stroke, including stops.
 travel=P['front_button']['plunger_travel_mm']
-button_sweep=(cyl_y(2,-43,-41.9+travel,button_z)+cyl_y(1.2,-41.9,-35.2+travel,button_z)
+button_sweep=(cyl_y(2,head_start,head_end+travel,button_z)+cyl_y(1.2,head_end,-35.2+travel,button_z)
  +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y']+travel,button_z)
- +cyl_y(2.6,-40.5,-39.9+travel,button_z))
+ +cyl_y(2.6,flange_start,flange_end+travel,button_z))
 for label,part in [('base',base),('lid',lid),('PCB',pcb),*moving]:
  assert (button_sweep^part).volume()<1e-4,(label,'button stroke collision',(button_sweep^part).volume())
 # Top-side component and mated cable envelopes, including the full sensor arms.
-fixed_hardware=[('USB plug',box((12.9,18,6.4),(0,42.6,5.95))),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
+# A continuous approach prism covers the entire maximum plug body from a
+# conservative shoulder plane at the socket mouth to beyond every case part.
+plug_start=usb_access['plug_shoulder_y'];plug_length=usb_access['plug_check_length_mm']
+plug_gauge=box((usb_access['plug_width_mm'],plug_length,usb_access['plug_height_mm']),
+ (0,plug_start+plug_length/2,usb_access['axis_z']))
+assert plug_start+plug_length>outer+5
+for label,part in [('base',base),('lid',lid),('PCB',pcb),('LCD',lcd),*moving]:
+ assert (plug_gauge^part).volume()<1e-4,(label,'USB insertion clearance',(plug_gauge^part).volume())
+fixed_hardware=[('USB plug approach gauge',plug_gauge),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
 for name,mesh in harness_meshes.items():fixed_hardware.append((name,from_mesh(mesh)))
 for dx in [-2.125,2.125]:
  fixed_hardware.append(('sensor arm',located(box((1.25,4,5.7),(dx,0,7.05)),-23,10,P['encoder']['rotation_deg'])))
@@ -199,6 +213,11 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
   if not shell.is_watertight:raise AssertionError(('Open vendor shell',filename))
   solids.append(from_mesh(shell))
  physical=m.Manifold.batch_boolean(solids,m.OpType.Add)
+ assert (physical^plug_gauge).volume()<1e-4,(filename,'USB plug approach/package collision')
+ if filename=='C165948.obj':
+  assert abs(mesh.bounds[1,1]-usb_access['socket_face_y'])<.001,'USB socket must use its real CAD face datum'
+  front=mesh.vertices[mesh.vertices[:,1]>mesh.bounds[1,1]-.0001]
+  assert abs((front[:,2].min()+front[:,2].max())/2-usb_access['axis_z'])<.001,'Plug gauge must align with the real USB CAD axis'
  for name,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
   assert (physical^printed).volume()<1e-4,(filename,name,'package/print collision',(physical^printed).volume())
  for name,mov in moving:
@@ -223,11 +242,18 @@ report['front_button']=P['front_button']
 report['complete_button_stroke_sweep_checked']=True
 # Conservative downward tip play using the front head/aperture and inner
 # stem/guide radii. FDM dimensional error is separate and must be measured.
-head_axis_y=-42.45;inner_guide_y=P['front_button']['guide_end_y'];tip_y=P['front_button']['rest_tip_y']
+head_axis_y=(head_start+head_end)/2;inner_guide_y=P['front_button']['guide_end_y'];tip_y=P['front_button']['rest_tip_y']
 tip_drop=.15+(.2+.15)*(tip_y-inner_guide_y)/(inner_guide_y-head_axis_y)
 tip_clearance=button_z-P['front_button']['tip_radius_mm']-tip_drop-top
 assert tip_clearance>.15,'Allow nominal guide play above the PCB edge'
 report['front_button_nominal_play_clearance_mm']=round(tip_clearance,4)
-report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':6.4,'USB_plug_to_rotor_vertical_mm':1.65,'bezel_to_grip_radial_mm':.6,'skirt_to_sensor_radial_each_side_mm':1.0,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':.15,'bearing_outer_diametral_mm':.1,'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
+report['USB_access']={**usb_access,'outer_case_diameter_mm':P['base_diameter'],
+ 'socket_recess_from_floor_outer_edge_mm':round(outer-usb_access['socket_face_y'],4),
+ 'socket_projection_beyond_side_wall_mm':round(usb_access['socket_face_y']-(outer-.2),4),
+ 'PCB_front_edge_mm':max(q['y'] for q in board['outline']),
+ 'plug_body_to_PCB_axial_gap_mm':round(plug_start-max(q['y'] for q in board['outline']),4),
+ 'maximum_plug_approach_sweep_checked':True,'all_package_and_PCB_clearances_checked':True}
+
+report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':usb_access['plug_height_mm'],'USB_plug_to_rotor_vertical_mm':round(grip_z-(usb_access['axis_z']+usb_access['plug_height_mm']/2),3),'bezel_to_grip_radial_mm':.6,'skirt_to_sensor_radial_each_side_mm':1.0,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':.15,'bearing_outer_diametral_mm':.1,'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
 report['scope']='Nominal CAD checks using manufacturer screen geometry and specified static harness. Physical fit, crimp quality, tolerances, 950nm opacity, optical response and grip feel require prototype measurements.'
 (ROOT/'geometry-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report['clearances'],indent=2))
