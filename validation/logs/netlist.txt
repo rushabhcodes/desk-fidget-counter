@@ -23,6 +23,7 @@ COMPONENTS:
  - C9: 100nF capacitor
  - C10: 100nF capacitor
  - C11: 100nF capacitor
+ - R29: 1Ω resistor
  - C12: 4.7uF capacitor
  - C13: 100nF capacitor
  - R10: 10kΩ resistor
@@ -85,6 +86,11 @@ NET: VBUS
   - U6 VBUS
   - J1 VBUS2
   - J1 VBUS1
+
+NET: MCU_BKP_3V3
+  - R29 pin2
+  - U1 VBAT
+  - C7 pin1
 
 NET: SWDIO
   - J4 SWDIO
@@ -159,6 +165,7 @@ NET: V3V3
   - J4 VREF
   - R11 pin2
   - C12 pin1 (+)
+  - R29 pin1
   - C6 pin1 (+)
   - U5 OUT
   - C2 pin1 (+)
@@ -167,8 +174,6 @@ NET: V3V3
   - U1 VDDIO2
   - U1 VDD2
   - U1 VDD1
-  - U1 VBAT
-  - C7 pin1
   - C8 pin1 (+)
   - C9 pin1 (+)
   - C10 pin1 (+)
@@ -275,7 +280,7 @@ NET: GND
 
 COMPONENT_PINS:
 U1 (STM32F072CBT6)
-- pin1(VBAT): NETS(V3V3)
+- pin1(VBAT): NETS(MCU_BKP_3V3)
 - pin2(PC13): NOT_CONNECTED
 - pin3(PC14): NOT_CONNECTED
 - pin4(PC15): NOT_CONNECTED
@@ -402,7 +407,7 @@ C6 (4.7uF undefined)
 - pin2(cathode, neg, right): NETS(GND)
 
 C7 (100nF undefined)
-- pin1: NETS(V3V3)
+- pin1: NETS(MCU_BKP_3V3)
 - pin2: NETS(GND)
 
 C8 (100nF undefined)
@@ -420,6 +425,10 @@ C10 (100nF undefined)
 C11 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
+
+R29 (1Ω undefined)
+- pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(MCU_BKP_3V3)
 
 C12 (4.7uF undefined)
 - pin1(anode, pos, left): NETS(V3V3)

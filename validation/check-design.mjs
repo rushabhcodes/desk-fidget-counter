@@ -15,7 +15,8 @@ for(const t of cj.filter(x=>x.type==='source_trace')){
 function port(c,p){const component=components.get(c);assert(component,`component ${c}`);const found=ports.filter(x=>x.source_component_id===component.source_component_id&&x.port_hints?.includes(p));assert.equal(found.length,1,`${c}.${p} uniquely resolves`);return found[0]}
 function on(c,p,n){assert.equal(root(port(c,p).source_port_id),root(nets.get(n)),`${c}.${p} must be ${n}`)}
 function pin(c,p,n){assert.equal(port(c,p).pin_number,n,`${c}.${p} physical pin`)}
-for(const p of ['VBAT','VDDA','VDD1','VDD2','VDDIO2'])on('U1',p,'V3V3')
+for(const p of ['VDDA','VDD1','VDD2','VDDIO2'])on('U1',p,'V3V3')
+on('U1','VBAT','MCU_BKP_3V3');on('C7','pin1','MCU_BKP_3V3');on('R29','pin1','V3V3');on('R29','pin2','MCU_BKP_3V3');assert.equal(components.get('R29').resistance,1)
 for(const p of ['VSSA','VSS1','VSS2','VSS3'])on('U1',p,'GND')
 for(const [p,n] of Object.entries({PA0:'SCROLL_EN',PA1:'COUNT_RESET',PA6:'LED',PB2:'PERIPH_EN',PA11:'USB_DM',PA12:'USB_DP',PB6:'SCL',PB7:'SDA'}))on('U1',p,n)
 for(const [p,n] of Object.entries({COL:'PERIPH_3V3',K:'GND',A:'IR_A',EA:'OPT_A',EB:'OPT_B'}))on('U2',p,n)
@@ -32,7 +33,7 @@ for(const p of ['VBUS1','VBUS2'])on('J1',p,'VBUS')
 for(const p of ['DN1','DN2'])on('J1',p,'USB_DM')
 for(const p of ['DP1','DP2'])on('J1',p,'USB_DP')
 for(const [c,n] of [['R1','CC1'],['R2','CC2']]){on('J1',n,n);on(c,'pin1',n);on(c,'pin2','GND');assert.equal(components.get(c).resistance,5100)}
-for(const n of ['GND','V3V3','VBUS','PERIPH_3V3','USB_DP','USB_DM','CC1','CC2','PERIPH_EN'])for(const m of ['GND','V3V3','VBUS','PERIPH_3V3','USB_DP','USB_DM','CC1','CC2','PERIPH_EN'])if(m!==n)assert.notEqual(root(nets.get(n)),root(nets.get(m)),`${n} isolated from ${m}`)
+for(const n of ['GND','V3V3','MCU_BKP_3V3','VBUS','PERIPH_3V3','USB_DP','USB_DM','CC1','CC2','PERIPH_EN'])for(const m of ['GND','V3V3','MCU_BKP_3V3','VBUS','PERIPH_3V3','USB_DP','USB_DM','CC1','CC2','PERIPH_EN'])if(m!==n)assert.notEqual(root(nets.get(n)),root(nets.get(m)),`${n} isolated from ${m}`)
 pin('U1','PA8',29);pin('U1','PA11',32);pin('U1','PA12',33);pin('U1','VDDIO2',36);pin('U1','PB6',42);pin('U1','PB7',43);pin('U2','COL',6);pin('U2','K',3);pin('U7','Y1',6);pin('U7','Y2',4);pin('U1','PB4',40);pin('U1','PB5',41);pin('U3','VDD',8);pin('U4','IN',1);pin('U4','ON',3);pin('U4','VOUT',6)
 for(const c of components.values())assert(c.manufacturer_part_number,`${c.name} must have an MPN`)
 const errors=cj.filter(x=>x.type.endsWith('_error'));assert.equal(errors.length,0,errors.map(x=>x.message).join('\n'))
@@ -65,5 +66,5 @@ const pp=cj.find(x=>x.type==='pcb_port'&&x.source_port_id===port('U2','A').sourc
 const angle=mechanics.encoder.rotation_deg*Math.PI/180
 assert(Math.abs(pp.x-(-23-2.45*Math.cos(angle)-1.4*Math.sin(angle)))<1e-5)
 assert(Math.abs(pp.y-(10-2.45*Math.sin(angle)+1.4*Math.cos(angle)))<1e-5)
-const b=cj.find(x=>x.type==='pcb_board');assert(b);assert.equal(b.thickness,1.6)
+const b=cj.find(x=>x.type==='pcb_board');assert(b);assert.equal(b.thickness,1.6);assert.equal(b.num_layers,2,'The PCB must retain two copper layers')
 console.log(`Design contract passed: ${components.size} components, physical pin maps, power/USB/I2C/controls and distinct rails.`)

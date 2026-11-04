@@ -34,6 +34,7 @@ R25,1,22kΩ,Yageo,RC0603FR-0722KL,top,YES,Top reflow
 R26,1,22kΩ,Yageo,RC0603FR-0722KL,top,YES,Top reflow
 R27,1,22Ω,Yageo,RC0603FR-0722RL,top,YES,Top reflow
 R28,1,22Ω,Yageo,RC0603FR-0722RL,top,YES,Top reflow
+R29,1,1Ω,Yageo,RC0603FR-071RL,top,YES,Top reflow
 SW1,1,G12AH,NKK Switches,G12AH,top,YES,Hand solder
 SW2,1,TS-1088-AR02016,XUNPU,TS-1088-AR02016,top,YES,Top reflow
 U1,1,STM32F072CBT6,STMicroelectronics,STM32F072CBT6,top,YES,Top reflow

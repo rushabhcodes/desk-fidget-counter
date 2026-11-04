@@ -1,5 +1,6 @@
 {
   "mainEntrypoint": "assembly.circuit.tsx",
+  "build": { "workerTimeoutMs": 1200000 },
   "ignoredFiles": [
     "node_modules/**",
     "dist/autorouter-debug/**",

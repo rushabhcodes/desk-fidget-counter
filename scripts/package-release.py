@@ -6,6 +6,8 @@ from pathlib import Path
 import hashlib,json,zipfile,subprocess
 ROOT=Path(__file__).resolve().parents[1]
 VERSION='v'+json.loads((ROOT/'package.json').read_text())['version']
+native_versions={name:json.loads((ROOT/'node_modules'/package/'package.json').read_text())['version']
+ for name,package in [('tscircuit','tscircuit'),('tscircuit_core','@tscircuit/core'),('capacity_autorouter','@tscircuit/capacity-autorouter')]}
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 files=sorted(ROOT.glob('manufacturing/gerbers/*'))
 fab=ROOT/'manufacturing/desk-knob-revd-gerbers.zip'
@@ -22,7 +24,7 @@ for name in sorted(set(tracked)):
  if name.startswith(('dist/','previews/','manufacturing/gerbers/','manufacturing/tscircuit.pretty/','mechanical/stl/','mechanical/cad/','firmware/build/','validation/logs/')) or name.endswith(('.kicad_pcb','.kicad_pro','.zip')) or name in ['mechanical/assembly.png','mechanical/exploded.png','mechanical/side-profile.png','mechanical/height-comparison.png','mechanical/wiring-cutaway.png','mechanical/geometry-check.json','mechanical/harness.json','manufacturing/BOM.csv','manufacturing/LCD-harness.csv','manufacturing/pick-and-place.csv','validation/kicad-drc.json','validation/manufacturing-inspection.json','validation/firmware-image-check.json','validation/pour-cleanup.json','mechanical/print-poses.json']:
   outputs.append({'path':name,'sha256':sha(p)})
  else:inputs.append({'path':name,'sha256':sha(p)})
-manifest={'release':VERSION,'hardware':'Rev D / D1','repository':'https://github.com/rushabhcodes/desk-fidget-counter','tscircuit':'https://tscircuit.com/rushabhcodes/desk-fidget-counter','source_revision':f'Git tag {VERSION}; resolve tag to its commit; source file hashes below','toolchain':{'Bun':'1.3.3','tscircuit':'0.0.3064','TypeScript':'5.9.3','KiCad':'10.0.7','ARM_GCC':'xPack 15.2.1-1.1','TinyUSB':'0.21.0 / dae3f9a366bfcddbf9dcf1b48d7500286a849539','CMSIS_5':'2b7495b8535bdcb306dac29b9ded4cfb679d7e5c','STM32_CMSIS_F0':'cbb5da5d48b4b5f2efacdc2f033be30f9d29889f'},'source_inputs':inputs,'artifacts':outputs,'physical_prototype_tests':'Unperformed; see validation/BRINGUP.md'}
+manifest={'release':VERSION,'hardware':'Rev D / D1','repository':'https://github.com/rushabhcodes/desk-fidget-counter','tscircuit':'https://tscircuit.com/rushabhcodes/desk-fidget-counter','source_revision':f'Git tag {VERSION}; resolve tag to its commit; source file hashes below','toolchain':{'Bun':'1.3.3',**native_versions,'TypeScript':'5.9.3','KiCad':'10.0.7','ARM_GCC':'xPack 15.2.1-1.1','TinyUSB':'0.21.0 / dae3f9a366bfcddbf9dcf1b48d7500286a849539','CMSIS_5':'2b7495b8535bdcb306dac29b9ded4cfb679d7e5c','STM32_CMSIS_F0':'cbb5da5d48b4b5f2efacdc2f033be30f9d29889f'},'source_inputs':inputs,'artifacts':outputs,'physical_prototype_tests':'Unperformed; see validation/BRINGUP.md'}
 (ROOT/'release-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 release=ROOT/'release';release.mkdir(exist_ok=True)
 bundle=release/f'desk-knob-{VERSION}.zip'

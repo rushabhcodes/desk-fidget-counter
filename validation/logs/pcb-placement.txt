@@ -1,17 +1,11 @@
 $ bun validation/check-placement.mjs
-placement summary: 4 suboptimal orientations
-
-worst issues:
-1. R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
-2. R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
-3. R27 connections cross the routing path between its pads. Suggested move: rotate R27 180 degrees.
-4. R28 connections cross the routing path between its pads. Suggested move: rotate R28 180 degrees.
+placement summary: no placement issues
 
 board top-layer utilization:
-- occupied: 17.137% (792.413mm^2 of 4624mm^2)
+- occupied: 17.23% (796.734mm^2 of 4624mm^2)
 - empty spaces over 5% of board area:
-  - 26.656% (1232.594mm^2); bounds=(minX=-12.75mm, maxX=17.52mm, minY=-23.52mm, maxY=17.2mm)
-  - 6.127% (283.307mm^2); bounds=(minX=24.18mm, maxX=34mm, minY=5.15mm, maxY=34mm)
+  - 26.951% (1246.223mm^2); bounds=(minX=-12.75mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
+  - 6.204% (286.88mm^2); bounds=(minX=23.48mm, maxX=34mm, minY=6.73mm, maxY=34mm)
   - 5.176% (239.36mm^2); bounds=(minX=-34mm, maxX=-30.48mm, minY=-34mm, maxY=34mm)
 
 board-edge status:
@@ -26,14 +20,15 @@ board-edge status:
 - C2: 4.525mm inside bottom edge
 - C3: 1.525mm inside bottom edge
 - R21: 7.775mm inside bottom edge
-- U5: 4.75mm inside bottom edge
+- U5: 5.25mm inside bottom edge
 - C5: 5.525mm inside bottom edge
 - C6: 8.3mm inside bottom edge
-- C7: 10.575mm inside right edge
+- C7: 10.325mm inside right edge
 - C8: 6.575mm inside right edge
-- C9: 1.525mm inside right edge
+- C9: 2.425mm inside right edge
 - C10: 10.075mm inside right edge
-- C11: 14.825mm inside right edge
+- C11: 14.225mm inside right edge
+- R29: 12.375mm inside right edge
 - C12: 8.375mm inside right edge
 - C13: 5.275mm inside right edge
 - R10: 11.775mm inside right edge
@@ -60,34 +55,8 @@ board-edge status:
 - R28: 10.775mm inside right edge
 - C15: 4.775mm inside left edge
 
-flagged components:
-- R15
-  source placement: placement_mode=none
-  resolved placement: center=(-11mm, -28mm) on top; bounds=(minX=-12.225mm, maxX=-9.775mm, minY=-28.475mm, maxY=-27.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 5.525mm inside bottom edge
-  issues:
-  - R15 connections cross the routing path between its pads. Suggested move: rotate R15 180 degrees.
-- R16
-  source placement: placement_mode=none
-  resolved placement: center=(14mm, -25mm) on top; bounds=(minX=12.775mm, maxX=15.225mm, minY=-25.475mm, maxY=-24.525mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 8.525mm inside bottom edge
-  issues:
-  - R16 connections cross the routing path between its pads. Suggested move: rotate R16 180 degrees.
-- R27
-  source placement: placement_mode=none
-  resolved placement: center=(19mm, 17mm) on top; bounds=(minX=17.775mm, maxX=20.225mm, minY=16.525mm, maxY=17.475mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 13.775mm inside right edge
-  issues:
-  - R27 connections cross the routing path between its pads. Suggested move: rotate R27 180 degrees.
-- R28
-  source placement: placement_mode=none
-  resolved placement: center=(22mm, 17mm) on top; bounds=(minX=20.775mm, maxX=23.225mm, minY=16.525mm, maxY=17.475mm); size=(width=2.45mm, height=0.95mm); anchor_alignment="center"
-  board edge status: 10.775mm inside right edge
-  issues:
-  - R28 connections cross the routing path between its pads. Suggested move: rotate R28 180 degrees.
-
 placement drc:
 Errors: 0
 Warnings: 1
 - pcb_connector_not_in_accessible_orientation_warning: J6 is facing x+ but should face x- so the connector is accessible from the board edge
-Placement reviewed: zero placement/courtyard errors; four centroid hints and the J6 access advisory. J6 faces the internal PCB window, verified with its actual housing and harness. Full copper, shorts and independent KiCad checks remain required.
+Placement passed: no orientation or courtyard issues. J6 faces the internal PCB window, verified with its actual housing and harness. Full copper, shorts and independent KiCad checks remain required.

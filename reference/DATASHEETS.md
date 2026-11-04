@@ -42,3 +42,7 @@ VBUS feeds U5 directly; no cell, charging circuit or thermistor remains. C5=1µF
 USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM, indicator and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev D.
 
 The 48-slot ring and sensor locations remain unchanged. LCD carrier and cable are fixed; the manufacturer model and exact specified nominal harness are checked against the rotating swept volume. Supplier models and package solids still omit fine moulding/optical/crimp features; see mechanical/vendor/README.md.
+
+## Rev D native-routing supply branch
+
+R29 is [Yageo RC0603FR-071RL](https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-071RL), 1 Ω ±1%, 0.1 W, 1.6 × 0.8 × 0.45 mm nominal (0603). It feeds `MCU_BKP_3V3` from USB-derived `V3V3`; C7 is the local 100 nF bypass and U1.VBAT is the only active load. This is not a battery supply. The [STM32F072 DS9826](https://www.st.com/resource/en/datasheet/stm32f072cb.pdf), §3.5.1 and Table 32, specifies a 1.65–3.6 V backup domain and up to 2.8 µA in its stated RTC/LSE conditions. At that current R29 drops 2.8 µV; the nominal RC time constant is 0.10 µs. PC13–PC15 remain unused. The local filter permits native routing of the bypass connection without prescribing its copper path.

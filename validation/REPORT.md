@@ -1,35 +1,39 @@
-# Rev D / v4.0.0 validation record
+# Rev D / v4.1.0 validation record
 
 Reviewed 2026-11-04. This is a **software-checked prototype design**; physical hardware tests remain unperformed. Rev D removes the internal cell and charging network and adds a USB laptop dashboard. The Ø86×22.3 mm assembly retains the side USB-C port, left scroll toggle and fixed Waveshare 19192 screen. Its 68×68 mm clipped PCB has a 34.6×40.6 mm R2 window for the static display harness and independent supports.
 
 | Check | Result |
 |---|---|
 | TypeScript / netlist / schematic | Passed; seven named functional schematic sheets with chip-function and rating notes |
-| Placement | Zero placement/courtyard errors; four reviewed orientation hints and one internal-window connector-access advisory, described below |
-| Bare PCB and assembly builds | Both passed with zero circuit errors; 44 PCB components, all mounted on top |
+| Placement | Zero placement/courtyard or orientation issues; one internal-window connector-access advisory, described below |
+| Bare PCB and assembly builds | Both passed with zero circuit errors; 45 PCB components, all mounted on top |
 | Design contract | Physical pin maps, USB-only rails, switched LCD/IR supply, USB, encoder, FRAM and both JSTs passed |
 | Copper shorts | No shorts detected in the Gerber-derived copper check |
 | Independent KiCad 10 DRC | Zero violations, zero unconnected items, no DRC exclusions |
-| Gerber / drill inspection | Two closed contours, 128 edge segments; window area 1401.24578 mm²; 178 vias, 23 component plated holes including four USB slots, six NPTHs; 14 JST Ø0.75 mm drills |
-| BOM / placement | 44 BOM rows and 44 populated placements, all top side |
+| Gerber / drill inspection | Two closed contours, 128 edge segments; window area 1401.24578 mm²; 154 vias, 23 component plated holes including four USB slots, six NPTHs; 14 JST Ø0.75 mm drills |
+| BOM / placement | 45 BOM rows and 45 populated placements, all top side |
 | Firmware native tests | Turns/reversals, timer wrap, scroll gating, rejected samples, saturation, CRC/torn writes, 64-bit formatting, LCD scanline bounds and dashboard parsing/calendar/staleness passed |
 | Companion tests | Metric encoding, missing laptop battery and application identity checks passed; actual pyserial plus live psutil sample passed through a Linux PTY device simulator |
 | ARM image | 61,032 bytes flash, 4,840 bytes data+BSS; vector table and linked CDC+HID descriptors checked; bus-powered 100 mA configuration |
 | Printable geometry | Nine product prints plus fit coupon watertight and connected; nominal fixed/moving and full swept optical-track checks passed |
-| Purchased parts / harness | All 44 PCB package meshes, the official screen STEP, two mated PH8 plugs and eight individual wire paths checked against prints and the swept rotor; wires also checked against one another |
+| Purchased parts / harness | All 45 PCB package meshes, the official screen STEP, two mated PH8 plugs and eight individual wire paths checked against prints and the swept rotor; wires also checked against one another |
 | Full 3D assembly | 24 named mechanical parts plus native populated PCB; OBJ axes/scale, assembled poses, GLB hashes and identical bare/assembled PCB geometry passed |
 
 ## Reviewed placement advisories
 
-The CLI's partial placement check uses straight connection lines and suggests rotating R15, R16, R27 and R28. The completed copper passes native and independent clearance/connectivity checks. J6 points **+X into the routed internal window**, where its mating PH8 housing and cable fit; the CLI's outer-edge heuristic instead requests −X. The correct insertion direction is retained in the source. The actual header, mated plug and wire paths are checked in the assembly geometry.
+J6 points **+X into the routed internal window**, where its mating PH8 housing and cable fit; the CLI's outer-edge heuristic instead requests −X. The correct insertion direction is retained in the source. The actual header, mated plug and wire paths pass the assembly geometry checks. R15, R16, R27 and R28 were rotated so the straight-line orientation check also passes.
 
-`check-placement.mjs` accepts only this exact set, requires zero placement/courtyard errors, the passing full routed circuit and the internal-window geometry assertion, and rejects new placement issues. No copper or fabrication DRC is excluded. The switch body courtyard intentionally overhangs the board; its pads and drills still satisfy fabrication edge rules.
+`check-placement.mjs` requires zero placement/courtyard/orientation issues and accepts only this exact J6 advisory, backed by the internal-window geometry assertion. No copper or fabrication DRC is excluded. The switch body courtyard intentionally overhangs the board; its pads and drills satisfy fabrication edge rules.
 
 ## Export and artifact scope
 
-The source contains 117 prescribed routing branches, rendered as 127 PCB traces and 178 manufactured vias. Routed vias are Ø0.6/0.3 mm; three ground stitches are Ø0.7/0.3 mm. An independent USB locating-hole spacing check moved one routed ground via away from the hole, and the left ground stitch was moved to connect the top fragment to the main bottom pour. Near-coincident route vertices were collapsed before export. The final checked geometry is in the source and release artifacts.
+The PCB has **two copper layers**, 1.6 mm thickness, 128 native routed PCB traces and 154 native vias. Every connection is generated by tscircuit's built-in Pipeline 9 autorouter in a single whole-board phase, using tscircuit 0.0.3077 / core 0.0.2267 / capacity-autorouter 0.0.1038 at 2x effort. There is no custom routing function, saved route replay, prescribed PCB path, manual routing via or external routing engine. The former generator and coordinate-repair files are removed.
 
-The KiCad finalizer starts from a fresh circuit-JSON export, checks its population against the source, assigns distinct priorities to same-net ground-pour fragments, refills/removes isolated ground copper and shortens MCU corner silkscreen strokes. Positions, nets, pads and routed copper otherwise come from tscircuit. Its DRC must pass without exclusions before Gerbers are plotted. See [manufacturing](../manufacturing/README.md).
+R29 (Yageo RC0603FR-071RL, 1 Ω) feeds the USB-derived backup-domain supply, with C7 as its 100 nF local bypass. The supply remains USB-only. MCU bypass capacitors were repositioned to keep every checked decoupling route within the existing 4 mm limit. U5 moved 0.5 mm inward for board-edge clearance. The screen, switch and connectors retain their mechanical positions; all 45 PCB components remain top mounted. Firmware remains version 4.0.0 with unchanged pin assignments and USB behavior.
+
+Power/ground request nominal 0.19 mm routing with 0.10 mm minimum neck-downs. Native vias use Ø0.60 mm pads / Ø0.20 mm drills. Physical copper clearance remains 0.15 mm and board-edge clearance remains 0.30 mm. The native routing phase requests 0.16 mm trace/pad and via/pad clearance as a numerical margin. The source's window and USB locating-hole keepouts block copper on both layers.
+
+The KiCad finalizer starts from a fresh circuit-JSON export, checks its population against the source, maps source keepout placement permissions, assigns distinct priorities to same-net ground-pour fragments, refills/removes isolated ground copper and shortens MCU corner silkscreen strokes. An exact before/after signature checks every native trace and via, including its net, layer, coordinates, width and drill. None is moved, deleted, widened or rerouted during finalization. DRC passes with zero violations, zero unconnected items and no exclusions before Gerbers are plotted. See [manufacturing](../manufacturing/README.md) and [native routing](../routing/README.md).
 
 ## Mechanical values and physical limits
 

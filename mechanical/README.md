@@ -1,6 +1,6 @@
 # Rev D mechanical CAD
 
-Nominal envelope **Ø86×22.3 mm**, rotating grip Ø84.8 mm starting Z=10.8 mm, fixed screen bezel Ø48 mm. Side USB-C and left toggle remain. All 44 board components assemble from above.
+Nominal envelope **Ø86×22.3 mm**, rotating grip Ø84.8 mm starting Z=10.8 mm, fixed screen bezel Ø48 mm. Side USB-C and left toggle remain. All 45 board components assemble from above.
 
 - `cad/assembled.glb` and `cad/exploded.glb`: named product parts plus actual source-PCB geometry and package models, glTF metres/+Y-up.
 - `stl/`: nine printable product parts and a bearing-fit coupon, in print orientation.

@@ -11,6 +11,12 @@ OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
 boardpath=OUT/'desk-knob-revd.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
+def routed_copper(board):
+    return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),t.GetWidth(),
+      t.GetStart().x,t.GetStart().y,t.GetEnd().x,t.GetEnd().y,
+      t.GetDrillValue() if isinstance(t,pcbnew.PCB_VIA) else 0)
+      for t in board.GetTracks())
+native_routes=routed_copper(b)
 # Keep boards alive while pcbnew's footprint/zone proxy objects are in scope.
 loaded_boards=[b]
 source=json.loads((ROOT/'dist/index/circuit.json').read_text())
@@ -18,6 +24,13 @@ expected={c['name'] for c in source if c['type']=='source_component'}
 assert {f.GetReference() for f in b.GetFootprints() if f.GetReference()}==expected, 'Raw KiCad export is stale; export the current circuit JSON first'
 # All coordinates and nets come from tscircuit; refill removes floating copper islands.
 for priority,z in enumerate(b.Zones(),1):
+    if z.GetIsRuleArea():
+        assert all(c.get('allow_placements') for c in source if c['type']=='pcb_keepout'), 'Keepout placement flags need individual mapping'
+        # Match allowPlacements in the source; housings span the routed window
+        # and the connector surrounds its locating holes. Copper stays blocked.
+        z.SetDoNotAllowFootprints(False)
+        z.SetDoNotAllowPads(False)
+        continue
     assert z.GetNetname()=='GND', 'Only the declared ground pours are expected'
     # Native pour fragments can touch/overlap on tessellated boundaries. Distinct
     # priorities let KiCad refill their common ground without ambiguous overlaps.
@@ -52,10 +65,10 @@ for fp in b.GetFootprints():
 project={
  'board':{'design_settings':{'rules':{
   'min_clearance':.15,'min_track_width':.1,'min_via_diameter':.6,
-  'min_through_hole_diameter':.3,'min_hole_clearance':.25,'min_hole_to_hole':.5,
+  'min_through_hole_diameter':.2,'min_hole_clearance':.25,'min_hole_to_hole':.5,
   'min_copper_edge_clearance':.3,'min_text_height':.8,'min_text_thickness':.12,'min_silk_clearance':.1}}},
  'net_settings':{'classes':[{'name':'Default','clearance':.15,'track_width':.15,
-  'via_diameter':.6,'via_drill':.3,'microvia_diameter':.3,'microvia_drill':.1,
+  'via_diameter':.6,'via_drill':.2,'microvia_diameter':.3,'microvia_drill':.1,
   'diff_pair_width':.15,'diff_pair_gap':.15,'diff_pair_via_gap':.15,'bus_width':12,
   'line_style':0,'pcb_color':'rgba(0, 0, 0, 0.000)','schematic_color':'rgba(0, 0, 0, 0.000)','wire_width':6}]}}
 pcbnew.SaveBoard(str(boardpath),b)
@@ -82,6 +95,8 @@ for attempt in range(3):
  pcbnew.SaveBoard(str(boardpath),b)
 (ROOT/'validation/pour-cleanup.json').write_text(json.dumps({'removed_isolated_ground_zones':removed},indent=2)+'\n')
 assert not r['violations'] and not r['unconnected_items'], 'DRC is not clean'
+final_board=pcbnew.LoadBoard(str(boardpath));loaded_boards.append(final_board)
+assert routed_copper(final_board)==native_routes, 'Fabrication export must not change any native trace or via'
 gerbers=OUT/'gerbers';gerbers.mkdir(exist_ok=True)
 for old in gerbers.glob('desk-knob-*'):old.unlink()
 subprocess.run(['kicad-cli','pcb','export','gerbers',str(boardpath),'--output',str(gerbers)+'/',

@@ -1,13 +1,21 @@
-# Reviewed routing / Rev D
+# Native autorouting
 
-`routes.json` contains prescribed copper and `routing.ts` checks the terminal contract before applying it. A pad or placement change requires regenerating this data and repeating native placement/routing checks, copper shorts checks and independent KiCad DRC. The terminal contract alone does not prove clearance.
+v4.1.0 retains two copper layers and top-side component assembly. The whole-board native build, decoupling-length checks, Gerber-derived shorts check and independent KiCad fabrication DRC pass.
 
-Rev D has a routed central window and a clipped circular outline. The routing input records every source pad, hole and fixed local escape. Its original 35×41 mm window is a conservative envelope around the final 34.6×40.6 mm routed window. Conservative route generation may merge the cutout's narrow scan-line obstacles into one enclosing 35×41 mm rectangle; this excludes slightly more corner material and does not permit copper inside the real window. Run `node routing/generate.mjs` with Node 26.12.1 to write a candidate. Generated copper is frozen only after verification against the actual source geometry.
+`index.circuit.tsx` uses tscircuit’s built-in Pipeline 9 autorouter (`auto_local`, `beta_pipeline9`, effort `2x`) for the whole two-layer board in a single native phase. R29 supplies the MCU backup domain through a real 1 Ω resistor, keeping its 100 nF capacitor on a local supply branch rather than the main 3.3 V routing tree. Every connection, including the USB data pair, power, ground and MCU decoupling branches, goes through that autorouter. There is no custom routing function, saved route import, prescribed PCB path, manual routing via or external routing engine.
 
-`repair.py` uses clearance-aware two-layer A* with the actual outer polygon and internal-cutout obstacles. It treats other nets, holes, static escapes and existing vias as obstacles. Its routes still require a complete rebuild and independent DRC. No reported violation may be suppressed to make a route pass.
+The source contains component placement, logical connections and manufacturing constraints. A new build derives every routed trace and via from those inputs. The previous routing generator, coordinate repair script and route replay files have been removed.
 
-The released firmware uses Rev D's USB-only pin map, including PB2 peripheral-power enable. Placement, connector orientation and copper are checked as Rev D artifacts.
+The manufactured minimum copper clearance is 0.15 mm and the board-edge clearance is 0.30 mm. The single unindexed `autoroutingphase` requests 0.16 mm trace/pad and via/pad clearance to leave margin through the router’s width adjustment and repair stages. A two-layer keepout reserves 0.4 mm outside the display window’s bounding box. Two circular copper keepouts follow the actual USB connector’s locating holes. `allowPlacements` permits connector housings above these spaces; copper routing remains blocked.
 
-The released copper includes local vertex/via clearance corrections and a 0.10 mm minimum trace width. Its 117 saved branches produce 127 native PCB trace records and 178 manufactured vias. Routed vias have Ø0.6 mm pads and Ø0.3 mm drills; three ground stitching vias use Ø0.7 mm pads. The source build, shorts check and independent fabrication DRC validate the final geometry.
+Power and ground request a nominal 0.19 mm width; the native router may narrow sections to the board’s 0.10 mm minimum. Explicit MCU branches request 0.10–0.15 mm, and the 4 mm maximum decoupling length remains checked. Vias have 0.60 mm pads and 0.20 mm drills, with a 0.55 mm minimum drill-edge spacing. No copper DRC check is disabled.
 
-Rev D removes the cell and charging network. SW1 is 2mm further left to clear the optical skirt; its body/lever courtyard may overhang the PCB edge (`allowOffBoard`), while its copper lands and drills remain subject to all board-edge/fabrication rules. J6 correctly points into the internal window; the CLI outer-edge connector-access heuristic does not understand this internal mating space. Actual body, mated harness and swept-ring checks validate that access.
+Pinned toolchain: tscircuit 0.0.3077, core 0.0.2267 and capacity-autorouter 0.0.1038. The project allows 20 minutes per build worker. Native CLI caches and diagnostic files are ignored by Git and are not imported as source routing.
+
+Inspect the native inputs, outputs and cumulative PCB with:
+
+```sh
+bunx tsci build index.circuit.tsx --autorouter-debug --autorouter-dump-srj all
+```
+
+Run connectivity, schematic placement, PCB placement, the complete build, Gerber-derived shorts and independent fabrication DRC checks before accepting a result. The fabrication finalizer checks that every native trace and via is unchanged after KiCad finalization.

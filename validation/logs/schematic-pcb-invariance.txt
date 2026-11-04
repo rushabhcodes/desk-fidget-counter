@@ -1,1 +1,1 @@
-Final schematic-only C5 move: all PCB records byte-for-byte identical to the independently checked fabrication source. Assembly source hash refreshed; CAD geometry unchanged.
+Native v4.1.0 bare and assembled PCB records are exactly equal; see assembly.txt. Seven functional schematic sheets pass schematic placement.

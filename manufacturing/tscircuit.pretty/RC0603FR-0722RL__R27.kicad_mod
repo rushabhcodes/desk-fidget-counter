@@ -4,10 +4,10 @@
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "R27"
-		(at 0 -3 0)
+		(at 0 -3 180)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "0302de60-ac8f-428d-8658-73423043aa4c")
+		(uuid "793af78c-f367-4cd0-8b35-9d7d4a678125")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "22Ω"
-		(at 0 3 0)
+		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4cbc76e3-b94f-43ff-aa20-90113450a26f")
+		(uuid "e80621b1-ef0e-4022-8c07-07e378e5196e")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "fca7c2db-bbca-413a-b992-e667d5432fdf")
+		(uuid "59635994-cf00-4d0b-9836-94f1b87e9890")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "1a83d186-ab09-44de-b1c2-5a9c0397cac4")
+		(uuid "04fa227d-5133-4d6f-a240-a272a4f94938")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "3e568d40-53be-4b41-6926-09427e8dc743")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "RC0603FR-0722RL"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "5cbb8bee-3c94-8cee-1c6d-8dee03b97112")
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "4d85e531-56f2-4bfd-9e0e-b6604caf61a5")
+		(uuid "0cd47906-4f98-48b5-9e3d-15220e3755e2")
 	)
 	(fp_line
 		(start -0.237258 0.5225)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "c71055a7-4726-4de2-807e-07a32adb3797")
+		(uuid "852fbcaa-6531-4538-987f-e8f0e726be83")
 	)
 	(fp_rect
 		(start -1.48 -0.73)
@@ -106,19 +106,19 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "b4ee99ac-c938-4be7-9e7a-a9c6797d2f71")
+		(uuid "e775ef69-f16a-4fd9-96a9-fa17d87e2e11")
 	)
 	(pad "1" smd rect
-		(at -0.825 0)
+		(at -0.825 0 180)
 		(size 0.8 0.95)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "12fb55b6-006f-9d0a-13da-8fca2745828a")
+		(uuid "7782cdc8-7512-3f78-61a7-4cb84e3c59f8")
 	)
 	(pad "2" smd rect
-		(at 0.825 0)
+		(at 0.825 0 180)
 		(size 0.8 0.95)
 		(layers "F.Cu" "F.Mask" "F.Paste")
-		(uuid "47c9e9a0-6641-cba1-144d-80e23da6c9dd")
+		(uuid "1f8cf440-7181-3eff-3c8a-76421569d47d")
 	)
 	(embedded_fonts no)
 )

@@ -1,7 +1,7 @@
 {
   "removed_isolated_ground_zones": [
     {
-      "zone_uuid": "05f4c0a0-6d62-30df-1f46-dda2541013dd",
+      "zone_uuid": "01a469a0-74fb-5b1f-17ad-b3625ba93e1d",
       "net": "GND",
       "reason": "KiCad isolated_copper"
     }
