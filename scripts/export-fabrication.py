@@ -96,3 +96,7 @@ with position_file.open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(rows)
 expected={c['name'] for c in json.loads((ROOT/'dist/index/circuit.json').read_text()) if c['type']=='source_component'}-{'J3'}
 assert {r['Ref'] for r in rows}==expected, 'Placement population differs from the source BOM'
+
+# Normalize generator whitespace without changing plotted geometry.
+for svg in gerbers.glob('*.svg'):
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')

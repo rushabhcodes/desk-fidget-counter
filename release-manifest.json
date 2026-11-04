@@ -157,7 +157,7 @@
     },
     {
       "path": "mechanical/generate-assembly.py",
-      "sha256": "92ffddc8d3ab4304d4079cc8fffdcbe1ff23ab29811d63ad31db090c4b08e7db"
+      "sha256": "0b79cc1a7d53fc3cbbb022d9712f9b06ea25479daa22b78c6a30886439158ab8"
     },
     {
       "path": "mechanical/generate.py",
@@ -265,7 +265,7 @@
     },
     {
       "path": "scripts/export-fabrication.py",
-      "sha256": "98d503df39755aa1316b6187d8e1790b83636d8f8782fdc8e0734097ba582887"
+      "sha256": "7db1465070b7c2e866ecd656a62da7a4b5039db6267d544b8fadefa7b3df07aa"
     },
     {
       "path": "scripts/export-pcb-cad.mjs",
@@ -419,7 +419,7 @@
     },
     {
       "path": "manufacturing/gerbers/desk-knob-revc-NPTH-drl_map.svg",
-      "sha256": "9f0bd63f588801ab6689fd138a726fbd12b37126d780c407c10768ef5864b99a"
+      "sha256": "f3a280dbfa6b42344aa45e4bc7d5f4b50b87bf18cf6d35733cf7ba7a68d47d0f"
     },
     {
       "path": "manufacturing/gerbers/desk-knob-revc-NPTH.drl",
@@ -427,7 +427,7 @@
     },
     {
       "path": "manufacturing/gerbers/desk-knob-revc-PTH-drl_map.svg",
-      "sha256": "9b854c852baa8b2846235d4bdb27c741be509277567f5b3393ce9072d5f827cc"
+      "sha256": "af3556eb31d719560839593ddbf0089541fdc72bf88fe4c57c83a5ecc309c7d2"
     },
     {
       "path": "manufacturing/gerbers/desk-knob-revc-PTH.drl",
@@ -715,39 +715,39 @@
     },
     {
       "path": "mechanical/cad/base.obj",
-      "sha256": "44e4abe36dfbd8245573f35cc7e67a40551efdf5b5c564a883265147e31c9009"
+      "sha256": "0e4dd50eadace0a55a42af995bfcb7dd2c12ec76514519496cd0d31cf06b34cf"
     },
     {
       "path": "mechanical/cad/battery-socket.obj",
-      "sha256": "9d6a80152f7fccfa3f7b4a378b7fe7d6d7c73b85fded15fdb62cdd43db994e41"
+      "sha256": "94121c415ef90492ddd3f6d5730f97c72610d359912a0e95443223c957016de9"
     },
     {
       "path": "mechanical/cad/battery.obj",
-      "sha256": "26de94796cf434bd7df609380537be6746de7396f0ab7ff99d9f55a9b4f88db3"
+      "sha256": "a42e8039bc4bcf0899bd7f5ff828e2c8f69701469e6a3999e4859106bfe489c5"
     },
     {
       "path": "mechanical/cad/bearing-clamp.obj",
-      "sha256": "66ec00257cb0eeb2425b5a49715e55cf84e6f4dc1b206d2a3328ce3c10c432b0"
+      "sha256": "bad3e82a2efb75dc38818435371270e49ea89553b080ee470709743fe1425608"
     },
     {
       "path": "mechanical/cad/bearing.obj",
-      "sha256": "9d7a08423df247f3dcbf14770f47daf1c13d202ceedd2fd8656feb4fe6a854d0"
+      "sha256": "72bbff3859402cc1cd46e9fae68a5345193456ba2e44dd0dfcd2263f77057165"
     },
     {
       "path": "mechanical/cad/button-plunger.obj",
-      "sha256": "31770cb6e2fb67faf1afa2568c775750e4e2847ddd57f1e95d02ab1418e3ae07"
+      "sha256": "1bde314cc39f39db06cbb743b3fff145094d14aa026b43ef897db9e5461df55a"
     },
     {
       "path": "mechanical/cad/charger-package.obj",
-      "sha256": "1c1df9af3155a4892ed11b8f73328b0a7c0e8bcb524f671f6c656d3bb00d3592"
+      "sha256": "a0dda7715e6ec90ec1f085a4f21d927cde901f72b653861d58b39633596e762b"
     },
     {
       "path": "mechanical/cad/display-socket.obj",
-      "sha256": "222ce313b89cb7927287be5f81ec4df5aede64e9eeedd506925b71b889bc8032"
+      "sha256": "54451f0d9f9a73b881db0a92642f80bbf8a1ef68409b662bfacea8dbf5d3e04a"
     },
     {
       "path": "mechanical/cad/encoder-skirt.obj",
-      "sha256": "e3f84750538294f461d8c006aeabf385e5c1e745a08334af9a82b50bf1c0e50d"
+      "sha256": "5ac425afe13df6795cf83b756e6734adb87f20d1b99055200aaada9a9ffff914"
     },
     {
       "path": "mechanical/cad/exploded.glb",
@@ -755,27 +755,27 @@
     },
     {
       "path": "mechanical/cad/fasteners.obj",
-      "sha256": "b92dd8444746119c5961e5c018e9b82aa74bd22b684afeb2455222359f1a4a17"
+      "sha256": "38c9357c900165c73c548a7d0720f4206080b200021e36684bb02baaf2d4bf1b"
     },
     {
       "path": "mechanical/cad/inner-retainer.obj",
-      "sha256": "cbc869b5a66e603fff675619c6d3f338312c27a08a8d3b010ac3da27298c57a9"
+      "sha256": "98b4970f1b51b3ba5391d741b4ca3a4a546ea636f0a3d2007115d548b2918ab5"
     },
     {
       "path": "mechanical/cad/knob.obj",
-      "sha256": "472d6210633f96f53470da09b29ba76eaf7a37eddb89811eec3d36ee87662a50"
+      "sha256": "00f882f856ac953721fc8f682328c27b6589d58b5ec4e00aed4c80d4a93fa319"
     },
     {
       "path": "mechanical/cad/lid.obj",
-      "sha256": "42fb30b119e4506eef9aa18a8a4ce406e5234f62883f918cdbe5e651ae676bbe"
+      "sha256": "0c296deaa7fda45781b4cfe5ed9d51792d1d131e2cac7eff09ace35296397fe4"
     },
     {
       "path": "mechanical/cad/optical-sensor.obj",
-      "sha256": "5946b08bc717564302bbfc8f46becead66ca3a48baccbd88aca8d9e9c20de3e5"
+      "sha256": "c9cbd663e540332c8e4f4aaa3c36f5fc04d72c209082d4f2bd99580890af266c"
     },
     {
       "path": "mechanical/cad/outer-retainer.obj",
-      "sha256": "17df7ea7aa8829df056500249da3b4af972f6f30d234d6b59ddda4784c8358e1"
+      "sha256": "0e4386d5a613f79c2fe3315c836d08f5fb540480619abad2168a1c966e869b37"
     },
     {
       "path": "mechanical/cad/parts.json",
@@ -787,31 +787,31 @@
     },
     {
       "path": "mechanical/cad/programming-socket.obj",
-      "sha256": "fbf76e9501cddf00aaaa5c9d550a44dedc82f08d8532d7ce2b8b00f076dd8f12"
+      "sha256": "405c6c0baab50fcd574e823b6cc3ee5acdb1896b77bcc07de452e2803525e5dc"
     },
     {
       "path": "mechanical/cad/screen-bezel.obj",
-      "sha256": "2c9511fda19cedb2fba1d164a66baa32108b21d49f794be2e939a06aa51075ff"
+      "sha256": "b939e19b292e009b0c8a0fe7c36800623c7288e9e160c084b03acf2824713806"
     },
     {
       "path": "mechanical/cad/screen-glass.obj",
-      "sha256": "a20a4bfd1a0d9f332a56b3ccdb4aa3e67a1fd1efdcb78946993d57e8ffc4fd66"
+      "sha256": "69b6ae663c1ec2da5ebf1291853fa56752e25e19857dcf5523c0ae190a556147"
     },
     {
       "path": "mechanical/cad/screen-module.obj",
-      "sha256": "4ec02d9257db00c5578166ff86e53bc13c4f263f4c87f1c81963155f9a72b972"
+      "sha256": "9bfa6d1e030937b63418cf463d0dbd949ef8bdde8c8dbd577443a94a7b56aaae"
     },
     {
       "path": "mechanical/cad/screen-ui.obj",
-      "sha256": "6e08b87865639d4e692771bea8c39da7192ae76c8c800bf09b6e596cfe174fb7"
+      "sha256": "00fd609d6cebdb104f89131226bfcad2b0c58d2d2e00a6b51b578ec58d79d472"
     },
     {
       "path": "mechanical/cad/toggle-switch.obj",
-      "sha256": "f1b02fcead746443e3e36b63c17275216243d1def93bc27255eaf831d1bf2ca3"
+      "sha256": "7b7a2e6f683fdb361517e2f527ba623cd7bcd6fe9c915c5e85d6bb11b25b82ff"
     },
     {
       "path": "mechanical/cad/usb-esd-package.obj",
-      "sha256": "ce8fc96212db58bc57212b5615d61ea37ce51e5d44f58aa400061700788a8b2c"
+      "sha256": "8ffe580f4ac5b013f7aa4cd3052b91f364cdb11a7979b910fea1bb03c5fd331b"
     },
     {
       "path": "mechanical/exploded.png",

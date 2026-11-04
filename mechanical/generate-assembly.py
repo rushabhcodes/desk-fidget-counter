@@ -116,6 +116,8 @@ records=[]
 for name,mesh in parts.items():
     asset=mesh.copy();asset.apply_translation([0,0,-BOARD_CENTER])
     asset.export(OUT/f'{name}.obj',include_color=True,include_normals=False,header='SPDX-License-Identifier: MIT; PCB-centred millimetres, +Z up')
+    obj_path=OUT/f'{name}.obj'
+    obj_path.write_text(obj_path.read_text().rstrip()+'\n')
     record={'name':name,'printed':name in printed_names,'color':colors[name],'asset':f'{name}.obj','bounds_pcb_mm':asset.bounds.round(6).tolist(),'explode_z_mm':explosion[name],'description':description[name]}
     records.append(record)
 (OUT/'parts.json').write_text(json.dumps(records,indent=2)+'\n')
