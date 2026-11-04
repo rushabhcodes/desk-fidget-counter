@@ -2,20 +2,20 @@ $ bun validation/check-placement.mjs
 placement summary: no placement issues
 
 board top-layer utilization:
-- occupied: 17.23% (796.734mm^2 of 4624mm^2)
+- occupied: 15.309% (707.904mm^2 of 4624mm^2)
 - empty spaces over 5% of board area:
   - 26.951% (1246.223mm^2); bounds=(minX=-12.75mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
-  - 6.204% (286.88mm^2); bounds=(minX=23.48mm, maxX=34mm, minY=6.73mm, maxY=34mm)
-  - 5.176% (239.36mm^2); bounds=(minX=-34mm, maxX=-30.48mm, minY=-34mm, maxY=34mm)
+  - 8.095% (374.306mm^2); bounds=(minX=-34mm, maxX=-23.68mm, minY=-34mm, maxY=2.27mm)
+  - 7.906% (365.587mm^2); bounds=(minX=11.53mm, maxX=34mm, minY=17.73mm, maxY=34mm)
+  - 5.299% (245.03mm^2); bounds=(minX=22.48mm, maxX=34mm, minY=-34mm, maxY=-12.73mm)
 
 board-edge status:
 - U1: 3.9mm inside right edge
 - J1: 2.326mm inside top edge
-- R1: 6.525mm inside top edge
+- R1: 6.025mm inside top edge
 - R2: 6.525mm inside top edge
-- U6: 10.75mm inside top edge
-- C1: 12.025mm inside top edge
-- D1: 12.275mm inside top edge
+- U6: 7.95mm inside top edge
+- C1: 8.375mm inside top edge
 - U4: 4.175mm inside bottom edge
 - C2: 4.525mm inside bottom edge
 - C3: 1.525mm inside bottom edge
@@ -24,15 +24,15 @@ board-edge status:
 - C5: 5.525mm inside bottom edge
 - C6: 8.3mm inside bottom edge
 - C7: 10.325mm inside right edge
-- C8: 6.575mm inside right edge
+- C8: 7.02mm inside right edge
 - C9: 2.425mm inside right edge
-- C10: 10.075mm inside right edge
+- C10: 10.52mm inside right edge
 - C11: 14.225mm inside right edge
-- R29: 12.375mm inside right edge
+- C17: 6.26mm inside right edge
+- C18: 10.277mm inside right edge
 - C12: 8.375mm inside right edge
 - C13: 5.275mm inside right edge
 - R10: 11.775mm inside right edge
-- R11: 10.775mm inside right edge
 - J4: 12.625mm inside top edge
 - U2: 8.01mm inside left edge
 - U7: 11.2mm inside left edge
@@ -44,12 +44,7 @@ board-edge status:
 - R13: 9.525mm inside top edge
 - U3: 3.795mm inside top edge
 - C16: 2.525mm inside top edge
-- SW1: 6.32mm inside left edge
-- R14: 3.775mm inside left edge
-- SW2: 3.07mm inside bottom edge
-- R15: 5.525mm inside bottom edge
-- LED1: 5.525mm inside bottom edge
-- R16: 8.525mm inside bottom edge
+- SW1: 1.65mm inside bottom edge
 - J6: 13.625mm inside left edge
 - R27: 13.775mm inside right edge
 - R28: 10.775mm inside right edge

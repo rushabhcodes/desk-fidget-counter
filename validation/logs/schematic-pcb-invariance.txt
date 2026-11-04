@@ -1,1 +1,0 @@
-Native v4.1.0 bare and assembled PCB records are exactly equal; see assembly.txt. Seven functional schematic sheets pass schematic placement.

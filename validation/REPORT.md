@@ -1,35 +1,39 @@
-# Rev D / v4.1.0 validation record
+# Rev E / v5.0.0 validation record
 
-Reviewed 2026-11-04. This is a **software-checked prototype design**; physical hardware tests remain unperformed. Rev D removes the internal cell and charging network and adds a USB laptop dashboard. The Ø86×22.3 mm assembly retains the side USB-C port, left scroll toggle and fixed Waveshare 19192 screen. Its 68×68 mm clipped PCB has a 34.6×40.6 mm R2 window for the static display harness and independent supports.
+Reviewed 2026-11-05. This is a **software-checked prototype design**; physical hardware tests remain unperformed. Rev E audits every populated part and reduces the board from 45 to 39 components. The Ø86×22.3 mm assembly retains side USB-C and the fixed Waveshare 19192 screen; an accessible front mode/clear button replaces the toggle and separate top button. Its 68×68 mm clipped PCB has a 34.6×40.6 mm R2 window for the static display harness and independent supports.
 
 | Check | Result |
 |---|---|
 | TypeScript / netlist / schematic | Passed; seven named functional schematic sheets with chip-function and rating notes |
 | Placement | Zero placement/courtyard or orientation issues; one internal-window connector-access advisory, described below |
-| Bare PCB and assembly builds | Both passed with zero circuit errors; 45 PCB components, all mounted on top |
-| Design contract | Physical pin maps, USB-only rails, switched LCD/IR supply, USB, encoder, FRAM and both JSTs passed |
+| Bare PCB and assembly builds | Both passed with zero circuit errors; 39 PCB components, all mounted on top |
+| Design contract | 39-part audit, physical pin maps, USB-only rails, switched LCD/IR supply, front button, USB, encoder, FRAM and both JSTs passed |
 | Copper shorts | No shorts detected in the Gerber-derived copper check |
 | Independent KiCad 10 DRC | Zero violations, zero unconnected items, no DRC exclusions |
-| Gerber / drill inspection | Two closed contours, 128 edge segments; window area 1401.24578 mm²; 154 vias, 23 component plated holes including four USB slots, six NPTHs; 14 JST Ø0.75 mm drills |
-| BOM / placement | 45 BOM rows and 45 populated placements, all top side |
-| Firmware native tests | Turns/reversals, timer wrap, scroll gating, rejected samples, saturation, CRC/torn writes, 64-bit formatting, LCD scanline bounds and dashboard parsing/calendar/staleness passed |
+| Gerber / drill inspection | Two closed contours, 128 edge segments; window area 1401.24578 mm²; 131 vias, 18 component plated holes including four USB slots, six NPTHs; 14 JST Ø0.75 mm drills |
+| BOM / placement | 39 BOM rows and 39 populated placements, all top side |
+| Firmware native tests | Turns/reversals, timer wrap, scroll gating, rejected samples, saturation, CRC/torn writes, 64-bit formatting, LCD scanline bounds, button debounce/short/long/boot/resume/rollover and dashboard parsing/calendar/staleness passed |
 | Companion tests | Metric encoding, missing laptop battery and application identity checks passed; actual pyserial plus live psutil sample passed through a Linux PTY device simulator |
-| ARM image | 61,032 bytes flash, 4,840 bytes data+BSS; vector table and linked CDC+HID descriptors checked; bus-powered 100 mA configuration |
-| Printable geometry | Nine product prints plus fit coupon watertight and connected; nominal fixed/moving and full swept optical-track checks passed |
-| Purchased parts / harness | All 45 PCB package meshes, the official screen STEP, two mated PH8 plugs and eight individual wire paths checked against prints and the swept rotor; wires also checked against one another |
+| ARM image | 61,344 bytes flash, 4,848 bytes data+BSS; vector table and linked CDC+HID descriptors checked; bus-powered 100 mA configuration |
+| Printable geometry | Nine product prints plus fit coupon watertight and connected; nominal fixed/moving, full swept optical-track and complete linear button-stroke checks passed |
+| Purchased parts / harness | All 39 PCB package meshes, the official screen STEP, two mated PH8 plugs and eight individual wire paths checked against prints and the swept rotor; wires also checked against one another |
 | Full 3D assembly | 24 named mechanical parts plus native populated PCB; OBJ axes/scale, assembled poses, GLB hashes and identical bare/assembled PCB geometry passed |
 
 ## Reviewed placement advisories
 
-J6 points **+X into the routed internal window**, where its mating PH8 housing and cable fit; the CLI's outer-edge heuristic instead requests −X. The correct insertion direction is retained in the source. The actual header, mated plug and wire paths pass the assembly geometry checks. R15, R16, R27 and R28 were rotated so the straight-line orientation check also passes.
+J6 points **+X into the routed internal window**, where its mating PH8 housing and cable fit; the CLI's outer-edge heuristic instead requests −X. The correct insertion direction is retained in the source. The actual header, mated plug and wire paths pass the assembly geometry checks. R27 and R28 retain their checked orientations.
 
-`check-placement.mjs` requires zero placement/courtyard/orientation issues and accepts only this exact J6 advisory, backed by the internal-window geometry assertion. No copper or fabrication DRC is excluded. The switch body courtyard intentionally overhangs the board; its pads and drills satisfy fabrication edge rules.
+`check-placement.mjs` requires zero placement/courtyard/orientation issues and accepts only this exact J6 advisory, backed by the internal-window geometry assertion. No copper or fabrication DRC is excluded. The front B3U-3000P button and both new local bulk capacitors satisfy the component-placement and courtyard checks.
 
 ## Export and artifact scope
 
-The PCB has **two copper layers**, 1.6 mm thickness, 128 native routed PCB traces and 154 native vias. Every connection is generated by tscircuit's built-in Pipeline 9 autorouter in a single whole-board phase, using tscircuit 0.0.3077 / core 0.0.2267 / capacity-autorouter 0.0.1038 at 2x effort. There is no custom routing function, saved route replay, prescribed PCB path, manual routing via or external routing engine. The former generator and coordinate-repair files are removed.
+The PCB has **two copper layers**, 1.6 mm thickness, 118 native routed PCB traces and 131 native vias. Every connection is generated by tscircuit's built-in Pipeline 9 autorouter in a single whole-board phase, using tscircuit 0.0.3077 / core 0.0.2267 / capacity-autorouter 0.0.1038 at 2x effort. There is no custom routing function, saved route replay, prescribed PCB path, manual routing via or external routing engine. The former generator and coordinate-repair files are removed.
 
-R29 (Yageo RC0603FR-071RL, 1 Ω) feeds the USB-derived backup-domain supply, with C7 as its 100 nF local bypass. The supply remains USB-only. MCU bypass capacitors were repositioned to keep every checked decoupling route within the existing 4 mm limit. U5 moved 0.5 mm inward for board-edge clearance. The screen, switch and connectors retain their mechanical positions; all 45 PCB components remain top mounted. Firmware remains version 4.0.0 with unchanged pin assignments and USB behavior.
+Eight references are removed: D1, LED1, R11, R14, R15, R16, R29 and SW2. U6 still protects USB data/VBUS; NRST retains C13 with its internal pull-up, and firmware enables PA0's internal pull-up. VBAT is tied directly to VDD with C7 retained. SW1 is Omron B3U-3000P at (0,−31.5), facing −Y opposite USB. Short press selects Scroll / Count-only; a three-second hold clears/initializes the retained count. Boot starts in Count-only mode, and a long release cannot also change modes.
+
+C8 is 10 nF 0402, paired with new C17 1 µF local VDDA bulk. C10 remains 100 nF in 0402, paired with new C18 4.7 µF VDDIO2 bulk. Compact bypasses and aligned return pads let native routing meet every checked 4 mm bypass limit. C8/C10 body ink is omitted where it crowds the nearby bulk-capacitor ink; copper and courtyards are unchanged. The mode label is shifted clear of U4. An exact comparison requires every other PCB record—including pours, holes, traces and vias—to be identical across the ink cleanup. See [the full component audit](../reference/component-audit.json).
+
+All 39 components remain top mounted. Firmware is version 5.0.0; its button behavior, internal pull-up and removed PA1/PA6 controls require the matching Rev E board. Previous FRAM journal records remain compatible.
 
 Power/ground request nominal 0.19 mm routing with 0.10 mm minimum neck-downs. Native vias use Ø0.60 mm pads / Ø0.20 mm drills. Physical copper clearance remains 0.15 mm and board-edge clearance remains 0.30 mm. The native routing phase requests 0.16 mm trace/pad and via/pad clearance as a numerical margin. The source's window and USB locating-hole keepouts block copper on both layers.
 
@@ -39,7 +43,7 @@ The KiCad finalizer starts from a fresh circuit-JSON export, checks its populati
 
 The grip begins at z10.8 mm; overall height remains 22.3 mm before feet. Nominal clearances include 0.6 mm bezel/grip radial clearance, 1 mm optical-skirt clearance on each sensor side, 1.65 mm above the specified 6.4 mm USB plug envelope and 0.2 mm front-glass bezel relief. The eight 32AWG wires use a minimum 6.2 mm centreline bend radius at 0.6096 mm worst-case OD. These are CAD values, not measurements.
 
-The screen geometry is a rigid, unscaled transform of Waveshare's official STEP. Package meshes come from the documented KiCad/supplier sources; the sensor, toggle, bearing and crimp details have explicit simplifications. Sources and rights are recorded in [vendor CAD provenance](../mechanical/vendor/README.md). Nominal fastener heads clear all 14 printed countersinks; threads intentionally engage prepared M2 pilots.
+The screen geometry is a rigid, unscaled transform of Waveshare's official STEP. Package meshes come from the documented KiCad/supplier sources; the sensor, bearing and crimp details have explicit simplifications. Sources and rights are recorded in [vendor CAD provenance](../mechanical/vendor/README.md). The real button STEP is tessellated with coincident seam topology preserved, without scaling or moving its vertices. The plunger’s full 0.40 mm nominal stroke clears every static/moving part except its intended switch-actuation contact. The 0.6 mm nose and longer guide leave 0.17 mm above the PCB in the conservative nominal downward-play calculation. Its 0.10 mm free gap and the actual switch’s 0.10–0.40 mm pretravel must be measured and tuned on the prototype; printed travel is not tolerance-qualified.
 
 **Physical fit, crimp quality, printed tolerances, 950 nm opacity, optical counts, USB signal integrity/inrush/suspend current and real macOS/Windows/Linux USB operation remain untested.** The serial smoke test uses a PTY simulator, not fabricated hardware. The companion must run to provide laptop metrics; stale data disappears after five seconds. USB suspend blanks the screen and turns the optical emitter off, so rotation during host suspend is not counted. No hardware has been ordered or physically tested.
 

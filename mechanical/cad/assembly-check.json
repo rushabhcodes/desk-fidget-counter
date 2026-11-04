@@ -2,16 +2,16 @@
   "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
   "glb_frame": "glTF metres, +Y up; assembled extents [0.086,0.0223,0.086] m",
   "part_count": 24,
-  "source_board_tsx_sha256": "007eea7627cb27445ad0cd97534935ef4d78df06bbfbfea2d5782be3bd4f9a74",
+  "source_board_tsx_sha256": "1cb7ea093fdfe735af188983b4051b548e9dda6967385e186ddd6e2dc6864de4",
   "printed_meshes_restored_from_print_orientation": 9,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 3909864,
-      "sha256": "008712ec3ab2db8ddd4d433a7540d58a5824dc118aa51bd741a7880355c357bb"
+      "bytes": 3839996,
+      "sha256": "a5dc976d339304663256ba1fabd9c4c4ad5537b09db76a8685be04db65adc051"
     },
     "exploded.glb": {
-      "bytes": 3909916,
-      "sha256": "bcd344fb14731bdd4493065f097fbdc04e07a501921a1503ec3abac18d18ed14"
+      "bytes": 3840044,
+      "sha256": "4fb21f99f5d0c48ec9585b625d6347440779f128133c6108be27bbc45696175c"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

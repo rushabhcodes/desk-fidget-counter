@@ -1,4 +1,4 @@
-# Rev D prototype bring-up
+# Rev E prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -13,10 +13,10 @@
 
 ## Programming, persistence and screen
 
-- [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify Rev D firmware over SWD. Exercise ROM recovery separately.
+- [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify Rev E firmware over SWD. Exercise ROM recovery separately.
 - [ ] Initialize FRAM with RESET CONFIRM. Test power removal during every journal write stage; recover a valid prior/committed record, never a corrupted guessed value. Document the brief possible rollback of an in-flight completed-turn write.
 - [ ] Build H1 to the physical signal-to-signal map in manufacturing/WIRING.md. Verify all eight continuities, no adjacent shorts, correct VCC/GND, PHR latch/retention and crimp pull strength. Verify the actual screen connector revision/position against the supplier STEP.
-- [ ] Confirm GC9A01 startup/orientation with tab -X, MADCTL 0xA8, RGB order, backlight, and readability. Test count up to 20 digits and RESET VIA USB fault state. A write-only SPI transport-success flag cannot detect an unplugged screen.
+- [ ] Confirm GC9A01 startup/orientation with tab -X, MADCTL 0xA8, RGB order, backlight, and readability. Test count up to 20 digits and HOLD 3S TO INIT and TIMER ERROR fault states. A write-only SPI transport-success flag cannot detect an unplugged screen.
 - [ ] Run the companion on intended OSes. Compare local clock/date, total CPU%, RAM%, battery%/AC to host tools. Test no-battery desktop, companion close/reopen, multiple devices, port already in use and laptop disconnect/reconnect.
 - [ ] Stop updates: after five seconds, replace clock/metrics with HOST OFFLINE while scrolling/counting continue on awake USB. Check midnight/date rollover, timezone changes and host clock adjustments.
 
@@ -26,8 +26,8 @@
 - [ ] Confirm 48 periods/channel and exactly 192 combined edges per full revolution, approximately quadrature phase, and high/low voltage margins.
 - [ ] Test 950nm opacity of the printed skirt, slots, axial/radial alignment, dust, sunlight and room lighting. Black visible colour alone is insufficient.
 - [ ] Compare 10/100/1000 measured turns both directions. Exercise slow edges, reversals, stopping on transitions and maximum intended speed while display and FRAM run. Measure a reliable speed envelope.
-- [ ] Confirm wheel direction and 32 units per turn. Toggle off/on while rotating: count continues, no queued wheel motion replays, both switch positions fit and debounce.
-- [ ] Test the service reset's three-second hold and intentional CDC reset. Unknown/corrupt FRAM must require initialization.
+- [ ] Confirm wheel direction and 32 units per turn. Short-press while rotating: switch Scroll / Count-only, counting continues, and no queued wheel motion replays. Confirm Count-only at boot.
+- [ ] Test the front button’s three-second hold and intentional CDC reset. Confirm hold progress and COUNT CLEARED, one clear per hold, no mode change on long release, and no action if held at boot/resume. Unknown/corrupt FRAM must require initialization.
 
 ## Mechanics and fabrication
 
@@ -35,6 +35,8 @@
 - [ ] Inspect every through-hole tail: trimmed to ≤0.8mm below the PCB, deburred, clear of base and insulating film. Check each solder well and all top-side package heights.
 - [ ] Check original screen carrier, bosses, tab, front and connector against the cradle/bezel. Tightening must not bow the PCB or load active glass.
 - [ ] Confirm H1's short free span and smooth ≥6.1mm bends at actual wire OD. It must clear posts, PCB, every optical-skirt angle and all package bodies. Unplug before lifting the screen for service; there is no long service loop.
-- [ ] Check DIN965 screw seating and engagement, access windows, both toggle positions, the specified USB plug's insertion shoulder/strain relief, 0.6mm bezel/grip gap, and the full rotating swept volume.
+- [ ] Check DIN965 screw seating and engagement, access windows, front plunger release/pretravel/stop and force, the specified USB plug's insertion shoulder/strain relief, 0.6mm bezel/grip gap, and the full rotating swept volume.
 - [ ] Confirm no loose wire can enter the moving skirt. Rotate many complete turns before final closure. Check bearing retention, skirt adhesive and feet over time.
 - [ ] Have the fabricator review the two-layer board rules and closed internal routing contour. Reflow/feeder rotations and solder-mask clearances must match pin-1 drawings before an assembly order.
+
+- [ ] Measure Omron B3U-3000P pretravel and the printed plunger gap/stop. Tune the nominal 0.10 mm gap and 0.40 mm stop to the actual switch; verify clean return without preload, excessive travel or PCB flex. Inspect the thin nose and keeper after repeated operation.

@@ -1,6 +1,6 @@
 # Design evidence and verified package contracts
 
-Reviewed 2026-11-04. Pin numbers in the source are physical package numbers viewed from above. Supplier cache snapshots are saved separately; verify inventory when ordering.
+Reviewed 2026-11-05. Pin numbers in the source are physical package numbers viewed from above. Supplier cache snapshots are saved separately; verify inventory when ordering.
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -9,10 +9,9 @@ Reviewed 2026-11-04. Pin numbers in the source are physical package numbers view
 | TLV75533PDBVR | [TI TLV755P](https://www.ti.com/lit/ds/symlink/tlv755p.pdf) | SOT23-5 DBV: 1 IN, 2 GND, 3 EN, 4 NC, 5 OUT. 1 uF input, 4.7 uF output ceramic. EN tied to VBUS. |
 | USBLC6-2SC6 | [ST DS4260](https://www.st.com/resource/en/datasheet/usblc6-2.pdf) | SOT23-6: data pair 1/6 and 3/4, 2 GND, 5 VBUS. The line-through pads share their respective data net. |
 | TYPE-C-31-M-12 | [HRO drawing via LCSC C165948](https://www.lcsc.com/product-detail/usb-connectors_hro-hellen-Type-C-31-M-12_C165948.html) | Exact imported footprint retained, including oval shield slots, two 0.6 mm locators, 0.5 mm contact pitch. A6/B6 D+, A7/B7 D−; separate 5.1 kΩ CC1/CC2 Rd; SBU unconnected. All shell tabs grounded. Port faces +Y after 180° rotation. |
-| TS-1088-AR02016 | [XUNPU drawing via C720477](https://lcsc.com/datasheet/lcsc_datasheet_2409302330_XUNPU-TS-1088-AR02016_C720477.pdf) | Exact imported **two-pad** footprint, 4.3698 mm center spacing, 3.9 × 3.0 mm body, 2.0 mm height. Generic four-pad tactile footprint was rejected. |
 | Bearing | [Zoty 6712 family](https://www.zotybearing.com/bearings/6700-Series-Ball-Bearings/Factory-direct-selling-thin-wall-ball-bearing-6712-6712RS-6712-2RSsize-60x75x7mm-bearing), [Maysme 6712](https://maysmeprecision.com/Show/?Cid=677) | 6712ZZ, 60 mm ID ×75 mm OD ×7 mm. Select metal shields; verify race contact widths and starting torque on the actual bearing. |
 
-## Rev D display, optical encoder and service connectors
+## Rev E display, optical encoder and service connectors
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -22,9 +21,8 @@ Reviewed 2026-11-04. Pin numbers in the source are physical package numbers view
 | Waveshare 19192 | [Official resources](https://docs.waveshare.net/1.28inch_LCD_Module/Resources-And-Documents/), [schematic/dimensions](https://www.waveshare.net/w/upload/b/b4/1.28inch_LCD_Module_SchDoc.pdf), [GC9A01A](https://www.waveshare.net/w/upload/5/5e/GC9A01A.pdf) | Non-touch 1.28-inch module, 240×240, active Ø32.4 mm, circular PCB Ø37.5 mm with a 14.28 mm-wide tab giving 40.4 mm overall length. 3.3 V input and logic used, nominal published current 31.2 mA. Physical connector 1 BL, 2 RST, 3 DC, 4 CS, 5 CLK, 6 DIN, 7 GND, 8 VCC. Verify cable continuity. |
 | GC9A01 settings | [Waveshare official example archive](https://www.waveshare.net/w/upload/f/fc/LCD_Module_code.zip), RaspberryPi/c/lib/LCD/LCD_1in28.c, 2020-12-16 | `gc9a01-registers.inc` contains transcribed hardware register/value facts, including gamma/power settings. No vendor implementation or font code copied. Own SPI driver, nonblocking startup, original 5×7 glyphs and scanline renderer. RGB565, mode 0, 12 MHz; software CS on PA8, SCK/MOSI on PB13/PB15; MADCTL 0xA8 for the module's left-facing (-X) tab. Validate orientation/colours on hardware. |
 | JST PH6 / PH8 | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), [KiCad S8B footprint](https://github.com/KiCad/kicad-footprints/blob/master/Connector_JST.pretty/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.kicad_mod) | J4 B6B-PH-K-S, top-entry: pin 1=(−5,20.5), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. J6 S8B-PH-K-S, top-side side-entry: pin 1=(−19.5,−10.5), BL/RST/DC/CS/CLK/DIN/GND/VCC. .75 mm drills, 1.2×1.75 mm lands. Side-entry height 4.8 mm, housing depth 7.6 mm; mated envelope 9.6 mm from the datasheet assembly drawing. |
-| NKK G12AH | [NKK Series G](https://www.nkkswitches.com/pdf/Gtoggles.pdf), p.A37; [manufacturer part PDF](https://www.nkkswitches.com.hk/user/pdf-download/G12AH) | SPDT ON-ON right-angle toggle. Electrical terminals 4/5/6 on 2.54 mm centres, 5 common; support pins at locations 1/3, a second row 5.08 mm ahead. .4 mm leads, .6 mm drills. Source pin1/2/3 map to vendor 4/5/6; pin4/5 are isolated supports. Lever points −X, electrical common at (−22,−19). Common→PA0, vendor4→GND, vendor6 unused. Body 7×7 mm in plan, 4.9 mm maximum height above board; 1.6 mm bushing and 3.8 mm lever. |
 
-# Rev D USB-only supply and dashboard
+# Rev E USB-only supply and dashboard
 
 | Item | Primary source | Contract |
 |---|---|---|
@@ -39,10 +37,24 @@ Reviewed 2026-11-04. Pin numbers in the source are physical package numbers view
 
 VBUS feeds U5 directly; no cell, charging circuit or thermistor remains. C5=1µF on VBUS and C6=4.7µF on 3.3V are the regulator's local ceramic capacitors. U4's C2/C3=1µF bypass input/output. U4 supplies the screen and IR emitter; the MCU/FRAM/Schmitt buffers remain on 3.3V. GPIOs to the LCD are driven low before U4 is disabled, avoiding back-power through unpowered module input protection.
 
-USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM, indicator and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev D.
+USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev E.
 
 The 48-slot ring and sensor locations remain unchanged. LCD carrier and cable are fixed; the manufacturer model and exact specified nominal harness are checked against the rotating swept volume. Supplier models and package solids still omit fine moulding/optical/crimp features; see mechanical/vendor/README.md.
 
-## Rev D native-routing supply branch
+## Rev E component audit
 
-R29 is [Yageo RC0603FR-071RL](https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-071RL), 1 Ω ±1%, 0.1 W, 1.6 × 0.8 × 0.45 mm nominal (0603). It feeds `MCU_BKP_3V3` from USB-derived `V3V3`; C7 is the local 100 nF bypass and U1.VBAT is the only active load. This is not a battery supply. The [STM32F072 DS9826](https://www.st.com/resource/en/datasheet/stm32f072cb.pdf), §3.5.1 and Table 32, specifies a 1.65–3.6 V backup domain and up to 2.8 µA in its stated RTC/LSE conditions. At that current R29 drops 2.8 µV; the nominal RC time constant is 0.10 µs. PC13–PC15 remain unused. The local filter permits native routing of the bypass connection without prescribing its copper path.
+Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The revised board has 39 real, populated components.
+
+| Change | Reason |
+|---|---|
+| Replace SW1 G12AH with Omron B3U-3000P | Accessible side-actuated front button, opposite USB. The [Omron drawing](https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf) gives the footprint and 0.10–0.40 mm pretravel. Short press selects mode; three-second hold clears count. |
+| Remove SW2 and R15 | One button handles both actions. NRST remains available through J4. |
+| Remove LED1 and R16 | Screen shows mode, storage state and timer faults. |
+| Remove R14 | PA0 internal pull-up is explicitly enabled by firmware; the minimum contact current is met. |
+| Remove R11 | NRST has an always-present internal 25–55 kΩ pull-up; retain C13 100 nF. See [ST DS9826 NRST characteristics](https://www.st.com/resource/en/datasheet/stm32f072cb.pdf). |
+| Remove R29 | Tie VBAT directly to VDD and keep C7 100 nF; no backup cell is used. See [ST AN4080](https://www.st.com/resource/en/application_note/an4080-getting-started-with-stm32f0x1x2x8-hardware-development-stmicroelectronics.pdf). |
+| Remove D1 | [USBLC6-2SC6](https://www.st.com/resource/en/datasheet/usblc6-2.pdf) already protects both data lines and VBUS; keep U6 and C1, placed close to USB. |
+| C8 →10 nF 0402; add C17 1 µF | Local VDDA bypass and bulk following ST's supply scheme. C8 is [Murata GRM155R71H103KA88D](https://www.farnell.com/datasheets/3973279.pdf), 50 V X7R, 1.0×0.5×0.5 mm nominal; its smaller footprint allows closer placement. |
+| C10 →0402; add C18 4.7 µF | Retain 100 nF local VDDIO2 bypass with [Murata GRM155R71C104KA88D](https://www.farnell.com/datasheets/4087776.pdf), 16 V X7R, 1.0×0.5×0.5 mm nominal, and add local bulk. |
+
+U4 and its local capacitors/pulldown remain necessary: the LDO cannot separately disconnect LCD/IR while leaving MCU/FRAM powered during USB suspend. The FRAM, Schmitt conditioner, CC resistors, BOOT0 bias, I²C pull-ups, IR limiter/loads, SPI damping, programming/display connectors and local supply bypass capacitors remain for their documented functions. No external crystal is needed because this MCU uses HSI48/CRS for USB. Firmware 5.0.0 is required for the momentary control and internal pull-up.

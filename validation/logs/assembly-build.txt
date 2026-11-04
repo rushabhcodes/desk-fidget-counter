@@ -8,12 +8,6 @@ Trace [.U1 > .VSSA to .C8 > .pin2] is routed thinner than requested (requested: 
 Trace [.U1 > .VSS1 to .C9 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VSS2 to .C10 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VDD2 to .C11 > .pin1] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-.U1 > .PB13 to net.SPI_SCK has a 6.34 mm segment on bottom at 118.33°, 16.67° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PB7 to net.SDA has a 6.00 mm segment on top at 143.13°, 8.13° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA14 to net.SWCLK has a 5.68 mm segment on bottom at 109.54°, 19.54° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA11 to net.USB_DM has a 5.09 mm segment on bottom at 96.45°, 6.45° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .BOOT0 to net.BOOT0 has a 5.34 mm segment on bottom at 96.26°, 6.26° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .NRST to net.NRST has a 6.03 mm segment on bottom at 122.95°, 12.05° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
 
 Build complete
   Circuits  1 passed

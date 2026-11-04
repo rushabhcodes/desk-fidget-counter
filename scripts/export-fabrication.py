@@ -9,10 +9,11 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manufacturing'
 OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
-boardpath=OUT/'desk-knob-revd.kicad_pcb'
+boardpath=OUT/'desk-knob-reve.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
-    return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),t.GetWidth(),
+    return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),
+      tuple(t.GetWidth(layer) for layer in (pcbnew.F_Cu,pcbnew.B_Cu)) if isinstance(t,pcbnew.PCB_VIA) else (t.GetWidth(),),
       t.GetStart().x,t.GetStart().y,t.GetEnd().x,t.GetEnd().y,
       t.GetDrillValue() if isinstance(t,pcbnew.PCB_VIA) else 0)
       for t in board.GetTracks())

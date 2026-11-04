@@ -29,12 +29,12 @@ export const phFootprint = (count: number, sideEntry = false) => <footprint inse
 
  <courtyardrect width={(count-1)*2+4.9} height={sideEntry?8.6:5.5} pcbY={sideEntry?-2.45:-.55}/>
  </footprint>
-// NKK G12AH: 0.4mm leads on 2.54mm grid; support row 5.08mm
-// ahead of electrical row. Lever points +Y before PCB rotation.
-export const toggleFootprint = <footprint>
- {[-2.54,0,2.54].map((x,i)=><Fragment key={i}><platedhole shape="circle" holeDiameter={.6} outerDiameter={1.2} pcbX={x} portHints={[`pin${i+1}`]}/></Fragment>)}
- {[-2.54,2.54].map((x,i)=><Fragment key={i}><platedhole shape="circle" holeDiameter={.6} outerDiameter={1.2} pcbX={x} pcbY={5.08} portHints={[`pin${i+4}`]}/></Fragment>)}
- <silkscreenpath route={[{x:-3.5,y:-1.05},{x:3.5,y:-1.05},{x:3.5,y:5.85},{x:-3.5,y:5.85},{x:-3.5,y:-1.05}]}/>
- <courtyardrect width={7.8} height={7.8} pcbY={2.45}/>
- </footprint>
+// Omron B3U-3000P, exact KiCad/Omron land pattern. Actuator points +Y.
+export const frontButtonFootprint = <footprint>
+ <smtpad shape="rect" width={.9} height={1.7} pcbX={-1.7} portHints={["pin1"]}/>
+ <smtpad shape="rect" width={.9} height={1.7} pcbX={1.7} portHints={["pin2"]}/>
+ <silkscreenpath route={[{x:-1.65,y:1.1},{x:-1.65,y:1.4},{x:-1,y:1.4},{x:-.5,y:2.1},{x:.5,y:2.1},{x:1,y:1.4},{x:1.65,y:1.4},{x:1.65,y:1.1}]}/>
+ <silkscreenpath route={[{x:-1.65,y:-1.1},{x:-1.65,y:-1.4},{x:1.65,y:-1.4},{x:1.65,y:-1.1}]}/>
+ <courtyardrect width={4.8} height={4} pcbY={.35}/>
+</footprint>
 export const FRAM = (props: ChipProps) => <chip {...props} cadModel={packageCad("soic8")} manufacturerPartNumber="MB85RC256VPNF-G-AMERE2" pinAttributes={{VDD:{requiresPower:true},VSS:{requiresGround:true},A0:{isInput:true},A1:{isInput:true},A2:{isInput:true},SDA:{isBidirectional:true},SCL:{isInput:true},WP:{isInput:true}}} pinLabels={labels(["A0","A1","A2","VSS","SDA","SCL","WP","VDD"])} footprint="soic8_w3.9mm_p1.27mm" />

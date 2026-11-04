@@ -1,8 +1,8 @@
 # Native autorouting
 
-v4.1.0 retains two copper layers and top-side component assembly. The whole-board native build, decoupling-length checks, Gerber-derived shorts check and independent KiCad fabrication DRC pass.
+v5.0.0 retains two copper layers and top-side component assembly. The whole-board native build, decoupling-length checks, Gerber-derived shorts check and independent KiCad fabrication DRC pass.
 
-`index.circuit.tsx` uses tscircuit’s built-in Pipeline 9 autorouter (`auto_local`, `beta_pipeline9`, effort `2x`) for the whole two-layer board in a single native phase. R29 supplies the MCU backup domain through a real 1 Ω resistor, keeping its 100 nF capacitor on a local supply branch rather than the main 3.3 V routing tree. Every connection, including the USB data pair, power, ground and MCU decoupling branches, goes through that autorouter. There is no custom routing function, saved route import, prescribed PCB path, manual routing via or external routing engine.
+`index.circuit.tsx` uses tscircuit’s built-in Pipeline 9 autorouter (`auto_local`, `beta_pipeline9`, effort `2x`) for the whole two-layer board in a single native phase. VBAT is tied directly to the USB-derived 3.3 V rail with C7 as its local bypass. Every connection, including the USB data pair, power, ground and MCU decoupling branches, goes through that autorouter. There is no custom routing function, saved route import, prescribed PCB path, manual routing via or external routing engine.
 
 The source contains component placement, logical connections and manufacturing constraints. A new build derives every routed trace and via from those inputs. The previous routing generator, coordinate repair script and route replay files have been removed.
 

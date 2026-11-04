@@ -80,6 +80,12 @@ void lcd_render_row(const LcdView *v, unsigned y, uint16_t row[240]) {
   text(row,y,"TURNS",175,1,mint);
   counter_format_total(v->turns,b);
   text(row,y,b,186,strlen(b)<=10?2:1,gold);
-  text(row,y,!v->storage_ok?"RESET VIA USB":v->scroll_on?"SCROLL ON":"SCROLL OFF",
-       210,1,!v->storage_ok?red:mint);
+  const char *state = !v->encoder_ok ? "TIMER ERROR" :
+                      v->hold_ms>=500 ? (v->storage_ok?"HOLD TO CLEAR":"HOLD TO INIT") :
+                      !v->storage_ok ? "HOLD 3S TO INIT" :
+                      v->count_cleared ? "COUNT CLEARED" :
+                      v->scroll_on ? "SCROLL MODE" : "COUNT MODE";
+  text(row,y,state,210,1,!v->storage_ok || !v->encoder_ok ? red:mint);
+  if (v->hold_ms>=500 && y>=222 && y<225)
+    for(unsigned x=84;x<156;x++) row[x]=x-84<v->hold_ms*72/3000?gold:0x2188;
 }

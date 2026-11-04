@@ -5,11 +5,13 @@ import shutil,subprocess,json,sys
 import trimesh,numpy as np
 root=Path(__file__).resolve().parents[2];out=root/'mechanical/vendor';lib=Path('/usr/share/kicad/3dmodels')
 models={
+'b3u3000':'Button_Switch_SMD.3dshapes/SW_SPST_B3U-3000P.step',
 'lqfp48':'Package_QFP.3dshapes/LQFP-48_7x7mm_P0.5mm.step',
 'soic8':'Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step',
 'sot23-5':'Package_TO_SOT_SMD.3dshapes/SOT-23-5.step',
 'sot23-6':'Package_TO_SOT_SMD.3dshapes/SOT-23-6.step',
 'sc70-6':'Package_TO_SOT_SMD.3dshapes/SOT-363_SC-70-6.step',
+'c0402':'Capacitor_SMD.3dshapes/C_0402_1005Metric.step',
 'c0603':'Capacitor_SMD.3dshapes/C_0603_1608Metric.step',
 'c0805':'Capacitor_SMD.3dshapes/C_0805_2012Metric.step',
 'r0603':'Resistor_SMD.3dshapes/R_0603_1608Metric.step',
@@ -17,8 +19,9 @@ models={
 'led0603':'LED_SMD.3dshapes/LED_0603_1608Metric.step',
 'jst-ph6':'Connector_JST.3dshapes/JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical.step',
 'jst-ph8':'Connector_JST.3dshapes/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.step'}
-records={}
+records=json.loads((out/'models.json').read_text()) if (out/'models.json').exists() else {}
 for name,relative in models.items():
+ if len(sys.argv)>1 and name not in sys.argv[1:]:continue
  src=lib/relative;step=out/'step'/src.name
  if not step.exists():shutil.copyfile(src,step)
  ply=Path('/tmp')/f'desk-vendor-{name}.ply'
@@ -39,9 +42,14 @@ for name,relative in models.items():
  obj=out/'obj'/f'{name}.obj';mesh.export(obj,include_color=True,include_normals=False,header='KiCad package model derivative. CC-BY-SA-4.0 with ECAD exception. See ../README.md and source STEP notices.')
  obj.write_text(obj.read_text().rstrip()+'\n')
  records[name]={'step':str(step.relative_to(root)),'obj':str(obj.relative_to(root)),'source':'https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/'+relative,'bounds':mesh.bounds.tolist(),'size':dict(zip('xyz',mesh.extents.tolist())),'pin_tail_trim_mm':.8 if name.startswith('jst') else None}
+ if name=='b3u3000':
+  solid=out/'solid'/'b3u3000.ply';solid.parent.mkdir(exist_ok=True)
+  subprocess.run([sys.executable,str(root/'mechanical/step-mesh.py'),str(step),str(solid),'--preserve-seams'],check=True)
+  Path(str(solid)+'.faces.npz').unlink(missing_ok=True)
+  records[name]['collision_mesh']=str(solid.relative_to(root))
  print(name,mesh.bounds.round(3).tolist(),flush=True)
 (out/'models.json').write_text(json.dumps(records,indent=2)+'\n')
 
 (out/'solid').mkdir(exist_ok=True)
-for part in ['C165948','C720477']:
+for part in ([] if len(sys.argv)>1 else ['C165948','C720477']):
  subprocess.run([sys.executable,str(root/'mechanical/step-mesh.py'),str(out/'step'/f'{part}.step'),str(out/'solid'/f'{part}.ply')],check=True)

@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
                   .now=1000,
                   .storage_ok = true,
                   .scroll_on = true,
-                  .usb_ready = true};
+                  .usb_ready = true,.encoder_ok=true};
   struct {
     uint16_t before[8], row[240], after[8];
   } guarded;
@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
   if (f)
     fprintf(f, "P6\n240 240\n255\n");
   unsigned colored = 0;
-  for (unsigned state = 0; state < 3; state++) {
+  for (unsigned state = 0; state < 5; state++) {
     if (state == 1)
       view.turns = UINT64_MAX;
     if (state == 2) {
@@ -26,6 +26,8 @@ int main(int argc, char **argv) {
       view.scroll_on = false;
       view.usb_ready = false;
     }
+    if(state==3) {view.storage_ok=true;view.hold_ms=1500;}
+    if(state==4) {view.hold_ms=0;view.count_cleared=true;view.encoder_ok=false;}
     for (unsigned y = 0; y < 240; y++) {
       memset(&guarded, 0xa5, sizeof(guarded));
       lcd_render_row(&view, y, guarded.row);

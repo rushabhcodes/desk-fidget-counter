@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Rev D nested PCB pocket and printable solids.
+"""SPDX-License-Identifier: MIT. Rev E nested PCB pocket and printable solids.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -12,6 +12,7 @@ P=json.loads((ROOT/'parameters.json').read_text())
 TAU=2*math.pi
 
 def cyl(r,h,z=0,x=0,y=0):return m.Manifold.cylinder(h,r,r,128).translate((x,y,z))
+def cyl_y(r,start,end,z):return m.Manifold.cylinder(end-start,r,r,96).rotate((-90,0,0)).translate((0,start,z))
 def box(size,center):return m.Manifold.cube(size,True).translate(center)
 def ring(ro,ri,h,z=0):return cyl(ro,h,z)-cyl(ri,h+.2,z-.1)
 def csk_hole(x,y,z,up=False):
@@ -42,8 +43,16 @@ for h in [c for c in cj if c['type']=='pcb_plated_hole']:
  d=max(h.get('outer_diameter',0),h.get('rect_pad_height',0),h.get('outer_height',0),1.2)+.6
  base-=box((w,d,1.0),(x,y,1.7))
 usb=box((14,25,8.8),(0,32,5.95))
-toggle_access=box((17,8,7.4),(-35,-19,7.0))
-base-=usb;base-=toggle_access
+base-=usb
+# Front button opposite USB. Open-top guide permits assembly before fitting
+# the lid; the lid supplies its keeper. Only the thin nose reaches over PCB.
+button_z=P['front_button']['axis_z']
+guide=cyl_y(3.3,-40.9,P['front_button']['guide_end_y'],button_z)
+guide-=box((8,8,8),(0,-38.5,button_z+4))
+base+=guide
+base-=cyl_y(2.2,-45,-40.7,button_z)
+base-=cyl_y(1.35,-41,-34.8,button_z)
+base-=cyl_y(2.85,-40.5,-39.5,button_z)
 
 lid=ring(42.65,27.3,1.2,9.2)
 # The large hollow bearing post surrounds, rather than stacks over, the screen.
@@ -55,12 +64,11 @@ for x,y in lid_screws:
 # independently from the base through the PCB window, inside the encoder skirt.
 for i in range(3):
  x,y=polar(28.6,i*TAU/3);lid-=cyl(.8,5.2,14,x,y)
-lid-=usb;lid-=toggle_access
-# Recess the tall toggle housing by 0.4mm, retaining a 0.8mm roof.
-lid-=box((8.2,8.2,.41),(-24.45,-19,9.395))
+lid-=usb
+# Keeper closes the open-top plunger guide, with 0.3 mm flange clearance.
+lid+=box((6.6,5.7,1.4),(0,-38.05,8.5))
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 
-lid-=cyl(2.4,4,8,-5,-30)
 
 # Outer race captured below, with the optical skirt attached above the fixed
 # inner-race support. No moving radial web crosses that stationary support.
@@ -103,7 +111,9 @@ bezel-=cyl(19,.21,20.89)+box((5,15,.21),(-18.75,0,20.995))
 for x,y in bezel_screws:
  bezel-=cyl(1.1,1.6,20.8,x,y)
  bezel-=csk_hole(x,y,22.3)
-plunger=cyl(2.9,.4,6.2,-5,-30)+cyl(1.9,3.5,6.55,-5,-30)
+plunger=(cyl_y(2,-43,-41.9,button_z)+cyl_y(1.2,-41.9,-35.2,button_z)
+ +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y'],button_z)
+ +cyl_y(2.6,-40.5,-39.9,button_z))
 # Park the rotor at these three windows to reach its underside screws.
 for i in range(3):
  x,y=polar(39.6,i*TAU/3)
@@ -150,8 +160,15 @@ pcb=outline-window
 for x,y in P['mount_holes']:pcb-=cyl(1.35,2,2.4,x,y)
 assert (base^pcb).volume()<1e-4,'Base must clear actual PCB material and NPTHs'
 assert (pcb^lcd).volume()<1e-4
+# Exact swept solid of the complete linear plunger stroke, including stops.
+travel=P['front_button']['plunger_travel_mm']
+button_sweep=(cyl_y(2,-43,-41.9+travel,button_z)+cyl_y(1.2,-41.9,-35.2+travel,button_z)
+ +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y']+travel,button_z)
+ +cyl_y(2.6,-40.5,-39.9+travel,button_z))
+for label,part in [('base',base),('lid',lid),('PCB',pcb),*moving]:
+ assert (button_sweep^part).volume()<1e-4,(label,'button stroke collision',(button_sweep^part).volume())
 # Top-side component and mated cable envelopes, including the full sensor arms.
-fixed_hardware=[('toggle travel envelope',box((7,2,6),(-32,-19,6.8))),('USB plug',box((12.9,18,6.4),(0,42.6,5.95))),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
+fixed_hardware=[('USB plug',box((12.9,18,6.4),(0,42.6,5.95))),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
 for name,mesh in harness_meshes.items():fixed_hardware.append((name,from_mesh(mesh)))
 for dx in [-2.125,2.125]:
  fixed_hardware.append(('sensor arm',located(box((1.25,4,5.7),(dx,0,7.05)),-23,10,P['encoder']['rotation_deg'])))
@@ -168,7 +185,8 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
  path=ROOT/'vendor/obj'/filename
  if not path.exists():raise AssertionError(('Missing real package mesh',filename))
  solid_path=ROOT/'vendor/solid'/filename.replace('.obj','.ply')
- mesh=trimesh.load(solid_path if solid_path.exists() else path,force='mesh',process=True)
+ # Preserve the button STEP's distinct coincident seam edges.
+ mesh=trimesh.load(solid_path if solid_path.exists() else path,force='mesh',process=filename!='b3u3000.obj')
  origin=cad.get('model_origin_position') or {'x':0,'y':0,'z':0}
  mesh.apply_translation([-origin.get(k,0) for k in ['x','y','z']])
  rotation=cad.get('rotation',{})
@@ -185,6 +203,11 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
   assert (physical^printed).volume()<1e-4,(filename,name,'package/print collision',(physical^printed).volume())
  for name,mov in moving:
   assert (physical^mov).volume()<1e-4,(filename,name,'package/rotor collision',(physical^mov).volume())
+ # At rest, the plunger must not preload the real switch or touch any
+ # other package. Pressed motion intentionally actuates SW1's moving nose.
+ assert (physical^plunger).volume()<1e-4,(filename,'rest plunger collision',(physical^plunger).volume())
+ if filename!='b3u3000.obj':assert (physical^button_sweep).volume()<1e-4,(filename,'button sweep collision')
+ else:assert (physical^button_sweep).volume()>1e-4,'Plunger stroke must reach the real actuator'
  package_checks+=1
 wire_solids=[]
 for name,mesh in harness_meshes.items():
@@ -196,6 +219,15 @@ for name,mesh in harness_meshes.items():
  wire_solids.append((name,wire))
 report['purchased_package_models_checked']=package_checks
 report['individual_wires_checked']=len(wire_solids)
+report['front_button']=P['front_button']
+report['complete_button_stroke_sweep_checked']=True
+# Conservative downward tip play using the front head/aperture and inner
+# stem/guide radii. FDM dimensional error is separate and must be measured.
+head_axis_y=-42.45;inner_guide_y=P['front_button']['guide_end_y'];tip_y=P['front_button']['rest_tip_y']
+tip_drop=.15+(.2+.15)*(tip_y-inner_guide_y)/(inner_guide_y-head_axis_y)
+tip_clearance=button_z-P['front_button']['tip_radius_mm']-tip_drop-top
+assert tip_clearance>.15,'Allow nominal guide play above the PCB edge'
+report['front_button_nominal_play_clearance_mm']=round(tip_clearance,4)
 report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':6.4,'USB_plug_to_rotor_vertical_mm':1.65,'bezel_to_grip_radial_mm':.6,'skirt_to_sensor_radial_each_side_mm':1.0,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':.15,'bearing_outer_diametral_mm':.1,'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
 report['scope']='Nominal CAD checks using manufacturer screen geometry and specified static harness. Physical fit, crimp quality, tolerances, 950nm opacity, optical response and grip feel require prototype measurements.'
 (ROOT/'geometry-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report['clearances'],indent=2))

@@ -8,13 +8,13 @@ components={c['source_component_id']:c for c in cj if c['type']=='source_compone
 placed={p['source_component_id']:p for p in cj if p['type']=='pcb_component' and p.get('source_component_id') in components}
 ports={p['source_port_id']:p for p in cj if p['type']=='source_port'}
 dnp=set()
-makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','D1':'Nexperia','J1':'HRO','J4':'JST','J6':'JST','SW1':'NKK Switches','SW2':'XUNPU','LED1':'Lite-On'}
+makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'HRO','J4':'JST','J6':'JST','SW1':'Omron'}
 rows=[]
 for cid,c in components.items():
     n=c['name'];p=placed[cid]
     value=c.get('display_resistance',c.get('display_capacitance',c.get('manufacturer_part_number','')))
     maker=makers.get(n,'Yageo' if n.startswith('R') else 'Murata')
-    note='Top reflow' if p.get('layer')=='top' and n not in ['SW1','J4','J6'] else 'Hand solder'
+    note='Top reflow' if p.get('layer')=='top' and n not in ['J4','J6'] else 'Hand solder'
     rows.append({'Reference':n,'Quantity':1,'Value':value,'Manufacturer':maker,'MPN':c['manufacturer_part_number'],'Side':p['layer'],'Populate':'NO' if n in dnp else 'YES','Assembly notes':note})
 rows.sort(key=lambda x:(''.join(c for c in x['Reference'] if not c.isdigit()),int(''.join(c for c in x['Reference'] if c.isdigit()) or 0)))
 with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
@@ -23,7 +23,7 @@ with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
     xy=lambda x,y:(850+flip*x*22,850-y*22)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1760" viewBox="0 0 1700 1760">','<rect width="1700" height="1760" fill="#f8fafb"/>',f'<text x="850" y="40" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev D — {side} assembly</text>']
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1760" viewBox="0 0 1700 1760">','<rect width="1700" height="1760" fill="#f8fafb"/>',f'<text x="850" y="40" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E — {side} assembly</text>']
     board=next(c for c in cj if c['type']=='pcb_board')
     contours=[board['outline']]+[c['points'] for c in cj if c['type']=='pcb_cutout']
     commands=[]

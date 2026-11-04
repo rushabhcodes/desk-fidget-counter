@@ -41,7 +41,7 @@ if options.compare_to:
  comparison=Image.new('RGB',(2800,1170),(247,249,250));comparison.paste(old,(0,120));comparison.paste(new,(1400,120))
  draw=ImageDraw.Draw(comparison);font=ImageFont.load_default(size=36)
  draw.text((100,30),'Previous Rev B · 47 mm',(36,57,67),font=font)
- draw.text((1500,30),'Rev D · 22.3 mm · 52.6% lower',(36,57,67),font=font)
+ draw.text((1500,30),'Rev E · 22.3 mm · 52.6% lower',(36,57,67),font=font)
  draw.text((1500,80),'Same scale; side USB-C retained',(73,95,106),font=ImageFont.load_default(size=24))
  comparison.save(ROOT/'height-comparison.png');old_path.unlink()
  print('Rendered previous/current side profiles at identical camera scale')

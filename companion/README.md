@@ -1,6 +1,6 @@
 # Laptop dashboard companion
 
-Desk Knob Rev D displays the computer's **local clock/date, total CPU usage, RAM usage and laptop battery percentage**, together with retained turns and scroll-toggle state. Run this small local Python program on macOS, Windows or Linux. It uses USB CDC serial; ordinary scrolling uses USB HID and works without the companion. No network service, account, API key or administrator access is used.
+Desk Knob Rev E displays the computer's **local clock/date, total CPU usage, RAM usage and laptop battery percentage**, together with retained turns and scroll mode. Run this small local Python program on macOS, Windows or Linux. It uses USB CDC serial; ordinary scrolling uses USB HID and works without the companion. No network service, account, API key or administrator access is used.
 
 ## Install and run
 

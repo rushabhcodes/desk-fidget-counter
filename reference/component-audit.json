@@ -1,0 +1,302 @@
+{
+  "baseline": "v4.1.0 / 45 components",
+  "revision": "Rev E / v5.0.0",
+  "active_component_count": 39,
+  "sources": {
+    "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
+    "STM32_hardware": "https://www.st.com/resource/en/application_note/an4080-getting-started-with-stm32f0x1x2x8-hardware-development-stmicroelectronics.pdf",
+    "USB_ESD": "https://www.st.com/resource/en/datasheet/usblc6-2.pdf",
+    "button": "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf",
+    "C8": "https://www.farnell.com/datasheets/3973279.pdf",
+    "C10": "https://www.farnell.com/datasheets/4087776.pdf"
+  },
+  "baseline_components": [
+    {
+      "reference": "C1",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "Local VBUS reference decoupling for USBLC6-2SC6."
+    },
+    {
+      "reference": "C2",
+      "previous_mpn": "GRM188R61A105KA61D",
+      "decision": "keep",
+      "reason": "Load-switch input bypass."
+    },
+    {
+      "reference": "C3",
+      "previous_mpn": "GRM188R61A105KA61D",
+      "decision": "keep",
+      "reason": "Load-switch output bypass."
+    },
+    {
+      "reference": "C5",
+      "previous_mpn": "GRM188R61A105KA61D",
+      "decision": "keep",
+      "reason": "LDO input stability and local transient supply."
+    },
+    {
+      "reference": "C6",
+      "previous_mpn": "GRM21BR61A475KA73L",
+      "decision": "keep",
+      "reason": "LDO output stability and bulk capacitance."
+    },
+    {
+      "reference": "C7",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "Local VBAT bypass with VBAT tied directly to VDD."
+    },
+    {
+      "reference": "C8",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "change_value",
+      "reason": "Change to Murata GRM155R71H103KA88D, 10 nF 50 V X7R 0402, for a compact local VDDA bypass; C17 provides 1 uF.",
+      "new_mpn": "GRM155R71H103KA88D"
+    },
+    {
+      "reference": "C9",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "Local digital VDD1 bypass."
+    },
+    {
+      "reference": "C10",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "replace",
+      "reason": "Retain 100 nF VDDIO2 bypass in a smaller 0402 package for short local routing; C18 provides local bulk.",
+      "new_mpn": "GRM155R71C104KA88D"
+    },
+    {
+      "reference": "C11",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "Local digital VDD2 bypass."
+    },
+    {
+      "reference": "C12",
+      "previous_mpn": "GRM21BR61A475KA73L",
+      "decision": "keep",
+      "reason": "Digital VDD bulk decoupling."
+    },
+    {
+      "reference": "C13",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "NRST noise filter; retain with internal reset pull-up."
+    },
+    {
+      "reference": "C14",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "Schmitt-buffer local bypass."
+    },
+    {
+      "reference": "C15",
+      "previous_mpn": "GRM188R61A105KA61D",
+      "decision": "keep",
+      "reason": "Local display-harness supply bypass."
+    },
+    {
+      "reference": "C16",
+      "previous_mpn": "GRM188R71C104KA01D",
+      "decision": "keep",
+      "reason": "FRAM local bypass."
+    },
+    {
+      "reference": "D1",
+      "previous_mpn": "PESD5V0S1BA,115",
+      "decision": "remove",
+      "reason": "Duplicate VBUS ESD clamp: retained USBLC6-2SC6 already protects VBUS."
+    },
+    {
+      "reference": "J1",
+      "previous_mpn": "TYPE-C-31-M-12",
+      "decision": "keep",
+      "reason": "USB power and HID/CDC data connector."
+    },
+    {
+      "reference": "J4",
+      "previous_mpn": "B6B-PH-K-S(LF)(SN)",
+      "decision": "keep",
+      "reason": "Keyed JST programming, debug and boot access."
+    },
+    {
+      "reference": "J6",
+      "previous_mpn": "S8B-PH-K-S(LF)(SN)",
+      "decision": "keep",
+      "reason": "Keyed detachable display harness."
+    },
+    {
+      "reference": "LED1",
+      "previous_mpn": "LTST-C190KGKT",
+      "decision": "remove",
+      "reason": "Display already shows operating mode, USB and storage state."
+    },
+    {
+      "reference": "R1",
+      "previous_mpn": "RC0603FR-075K1L",
+      "decision": "keep",
+      "reason": "USB-C CC1 sink identification."
+    },
+    {
+      "reference": "R2",
+      "previous_mpn": "RC0603FR-075K1L",
+      "decision": "keep",
+      "reason": "USB-C CC2 sink identification."
+    },
+    {
+      "reference": "R10",
+      "previous_mpn": "RC0603FR-0710KL",
+      "decision": "keep",
+      "reason": "Defined BOOT0 state for reliable flash boot."
+    },
+    {
+      "reference": "R11",
+      "previous_mpn": "RC0603FR-0710KL",
+      "decision": "remove",
+      "reason": "NRST has an always-present internal pull-up; retain C13."
+    },
+    {
+      "reference": "R12",
+      "previous_mpn": "RC0603FR-074K7L",
+      "decision": "keep",
+      "reason": "I2C SDA pull-up for FRAM."
+    },
+    {
+      "reference": "R13",
+      "previous_mpn": "RC0603FR-074K7L",
+      "decision": "keep",
+      "reason": "I2C SCL pull-up for FRAM."
+    },
+    {
+      "reference": "R14",
+      "previous_mpn": "RC0603FR-0710KL",
+      "decision": "remove",
+      "reason": "PA0 internal pull-up is enabled by firmware for the mode button."
+    },
+    {
+      "reference": "R15",
+      "previous_mpn": "RC0603FR-0710KL",
+      "decision": "remove",
+      "reason": "Separate reset button is removed; long press uses the single front button."
+    },
+    {
+      "reference": "R16",
+      "previous_mpn": "RC0603FR-071KL",
+      "decision": "remove",
+      "reason": "LED current limiter is unnecessary after LED removal."
+    },
+    {
+      "reference": "R21",
+      "previous_mpn": "RC0603FR-07100KL",
+      "decision": "keep",
+      "reason": "Keeps the LCD/IR load switch off while the MCU is resetting."
+    },
+    {
+      "reference": "R24",
+      "previous_mpn": "RC0603FR-07150RL",
+      "decision": "keep",
+      "reason": "Limits optical-emitter current."
+    },
+    {
+      "reference": "R25",
+      "previous_mpn": "RC0603FR-0722KL",
+      "decision": "keep",
+      "reason": "Optical channel A emitter load."
+    },
+    {
+      "reference": "R26",
+      "previous_mpn": "RC0603FR-0722KL",
+      "decision": "keep",
+      "reason": "Optical channel B emitter load."
+    },
+    {
+      "reference": "R27",
+      "previous_mpn": "RC0603FR-0722RL",
+      "decision": "keep",
+      "reason": "SPI clock source damping for the display cable."
+    },
+    {
+      "reference": "R28",
+      "previous_mpn": "RC0603FR-0722RL",
+      "decision": "keep",
+      "reason": "SPI MOSI source damping for the display cable."
+    },
+    {
+      "reference": "R29",
+      "previous_mpn": "RC0603FR-071RL",
+      "decision": "remove",
+      "reason": "Backup supply does not need a series filter in this USB-only design."
+    },
+    {
+      "reference": "SW1",
+      "previous_mpn": "G12AH",
+      "decision": "replace",
+      "reason": "Replace inaccessible toggle with Omron B3U-3000P front-side momentary button.",
+      "new_mpn": "B3U-3000P"
+    },
+    {
+      "reference": "SW2",
+      "previous_mpn": "TS-1088-AR02016",
+      "decision": "remove",
+      "reason": "Combine count clearing with a three-second hold on the mode button."
+    },
+    {
+      "reference": "U1",
+      "previous_mpn": "STM32F072CBT6",
+      "decision": "keep",
+      "reason": "USB, optical decoding, LCD control and host telemetry."
+    },
+    {
+      "reference": "U2",
+      "previous_mpn": "TCUT1600X01_A",
+      "decision": "keep",
+      "reason": "Dual optical rotation sensor."
+    },
+    {
+      "reference": "U3",
+      "previous_mpn": "MB85RC256VPNF-G-AMERE2",
+      "decision": "keep",
+      "reason": "High-endurance, power-fail-safe retained turn count."
+    },
+    {
+      "reference": "U4",
+      "previous_mpn": "TPS22919DCKR",
+      "decision": "keep",
+      "reason": "Disconnects LCD and IR supply during USB suspend."
+    },
+    {
+      "reference": "U5",
+      "previous_mpn": "TLV75533PDBVR",
+      "decision": "keep",
+      "reason": "Regulates USB 5 V to 3.3 V."
+    },
+    {
+      "reference": "U6",
+      "previous_mpn": "USBLC6-2SC6",
+      "decision": "keep",
+      "reason": "Protects USB D+, D- and VBUS against ESD."
+    },
+    {
+      "reference": "U7",
+      "previous_mpn": "SN74LVC2G17DBVR",
+      "decision": "keep",
+      "reason": "Schmitt conditioning keeps optical threshold crossings clean."
+    }
+  ],
+  "added_components": [
+    {
+      "reference": "C17",
+      "capacitance": "1uF",
+      "reason": "VDDA local bulk decoupling in addition to C8 10 nF.",
+      "mpn": "GRM188R61A105KA61D"
+    },
+    {
+      "reference": "C18",
+      "capacitance": "4.7uF",
+      "reason": "VDDIO2 local bulk decoupling in addition to C10 100 nF.",
+      "mpn": "GRM21BR61A475KA73L"
+    }
+  ]
+}

@@ -10,7 +10,6 @@ COMPONENTS:
  - R2: 5.1kΩ resistor
  - U6: USBLC6-2SC6
  - C1: 100nF capacitor
- - D1: D1, source_component
  - U4: TPS22919DCKR
  - C2: 1uF capacitor
  - C3: 1uF capacitor
@@ -19,15 +18,15 @@ COMPONENTS:
  - C5: 1uF capacitor
  - C6: 4.7uF capacitor
  - C7: 100nF capacitor
- - C8: 100nF capacitor
+ - C8: 10nF capacitor
  - C9: 100nF capacitor
  - C10: 100nF capacitor
  - C11: 100nF capacitor
- - R29: 1Ω resistor
+ - C17: 1uF capacitor
+ - C18: 4.7uF capacitor
  - C12: 4.7uF capacitor
  - C13: 100nF capacitor
  - R10: 10kΩ resistor
- - R11: 10kΩ resistor
  - J4: J4, source_component
  - U2: TCUT1600X01_A
  - U7: SN74LVC2G17DBVR
@@ -40,11 +39,6 @@ COMPONENTS:
  - U3: MB85RC256VPNF-G-AMERE2
  - C16: 100nF capacitor
  - SW1: SW1, source_component
- - R14: 10kΩ resistor
- - SW2: SW2, source_component
- - R15: 10kΩ resistor
- - LED1: LED1, source_component
- - R16: 1kΩ resistor
  - J6: J6, source_component
  - R27: 22Ω resistor
  - R28: 22Ω resistor
@@ -81,16 +75,10 @@ NET: VBUS
   - C5 pin1 (+)
   - U5 EN
   - U5 IN
-  - D1 pin2 (-)
   - C1 pin1 (+)
   - U6 VBUS
   - J1 VBUS2
   - J1 VBUS1
-
-NET: MCU_BKP_3V3
-  - R29 pin2
-  - U1 VBAT
-  - C7 pin1
 
 NET: SWDIO
   - J4 SWDIO
@@ -102,7 +90,6 @@ NET: SWCLK
 
 NET: NRST
   - J4 NRST
-  - R11 pin1
   - C13 pin1 (+)
   - U1 NRST
 
@@ -143,19 +130,7 @@ NET: SCL
   - R13 pin2
   - U1 PB6
 
-NET: SCROLL_EN
-  - R14 pin1
-  - SW1 T5
-  - U1 PA0
-
-NET: COUNT_RESET
-  - R15 pin1
-  - SW2 pin1
-  - U1 PA1
-
 NET: V3V3
-  - R15 pin2
-  - R14 pin2
   - C16 pin1 (+)
   - U3 VDD
   - R13 pin1
@@ -163,9 +138,7 @@ NET: V3V3
   - C14 pin1
   - U7 VCC
   - J4 VREF
-  - R11 pin2
   - C12 pin1 (+)
-  - R29 pin1
   - C6 pin1 (+)
   - U5 OUT
   - C2 pin1 (+)
@@ -174,18 +147,18 @@ NET: V3V3
   - U1 VDDIO2
   - U1 VDD2
   - U1 VDD1
+  - U1 VBAT
+  - C7 pin1
   - C8 pin1 (+)
   - C9 pin1 (+)
   - C10 pin1 (+)
   - C11 pin1 (+)
+  - C17 pin1 (+)
+  - C18 pin1 (+)
 
-NET: LED
-  - R16 pin1
-  - U1 PA6
-
-NET: LED_A
-  - R16 pin2
-  - LED1 pin1 (+)
+NET: MODE_BTN
+  - SW1 pin1
+  - U1 PA0
 
 NET: LCD_BL
   - J6 BL
@@ -231,9 +204,7 @@ NET: PERIPH_3V3
 NET: GND
   - C15 pin2 (-)
   - J6 GND
-  - LED1 pin2 (-)
-  - SW2 pin2
-  - SW1 T4
+  - SW1 pin2
   - C16 pin2 (-)
   - U3 WP
   - U3 VSS
@@ -256,7 +227,6 @@ NET: GND
   - C3 pin2 (-)
   - C2 pin2 (-)
   - U4 GND
-  - D1 pin1 (+)
   - C1 pin2 (-)
   - U6 GND
   - R2 pin2
@@ -276,11 +246,13 @@ NET: GND
   - C9 pin2 (-)
   - C10 pin2 (-)
   - C11 pin2 (-)
+  - C17 pin2 (-)
+  - C18 pin2 (-)
 
 
 COMPONENT_PINS:
 U1 (STM32F072CBT6)
-- pin1(VBAT): NETS(MCU_BKP_3V3)
+- pin1(VBAT): NETS(V3V3)
 - pin2(PC13): NOT_CONNECTED
 - pin3(PC14): NOT_CONNECTED
 - pin4(PC15): NOT_CONNECTED
@@ -289,13 +261,13 @@ U1 (STM32F072CBT6)
 - pin7(NRST): NETS(NRST)
 - pin8(VSSA): NETS(GND)
 - pin9(VDDA): NETS(V3V3)
-- pin10(PA0): NETS(SCROLL_EN)
-- pin11(PA1): NETS(COUNT_RESET)
+- pin10(PA0): NETS(MODE_BTN)
+- pin11(PA1): NOT_CONNECTED
 - pin12(PA2): NOT_CONNECTED
 - pin13(PA3): NOT_CONNECTED
 - pin14(PA4): NOT_CONNECTED
 - pin15(PA5): NOT_CONNECTED
-- pin16(PA6): NETS(LED)
+- pin16(PA6): NOT_CONNECTED
 - pin17(PA7): NOT_CONNECTED
 - pin18(PB0): NOT_CONNECTED
 - pin19(PB1): NOT_CONNECTED
@@ -367,10 +339,6 @@ C1 (100nF undefined)
 - pin1(anode, pos, left): NETS(VBUS)
 - pin2(cathode, neg, right): NETS(GND)
 
-D1 (PESD5V0S1BA,115)
-- pin1(pos, anode, left): NETS(GND)
-- pin2(neg, cathode, right): NETS(VBUS)
-
 U4 (TPS22919DCKR)
 - pin1(IN): NETS(V3V3)
 - pin2(GND): NETS(GND)
@@ -407,10 +375,10 @@ C6 (4.7uF undefined)
 - pin2(cathode, neg, right): NETS(GND)
 
 C7 (100nF undefined)
-- pin1: NETS(MCU_BKP_3V3)
+- pin1: NETS(V3V3)
 - pin2: NETS(GND)
 
-C8 (100nF undefined)
+C8 (10nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
@@ -426,9 +394,13 @@ C11 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
-R29 (1Ω undefined)
+C17 (1uF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
-- pin2(cathode, neg, right): NETS(MCU_BKP_3V3)
+- pin2(cathode, neg, right): NETS(GND)
+
+C18 (4.7uF undefined)
+- pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(GND)
 
 C12 (4.7uF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
@@ -441,10 +413,6 @@ C13 (100nF undefined)
 R10 (10kΩ undefined)
 - pin1(anode, pos, left): NETS(BOOT0)
 - pin2(cathode, neg, right): NETS(GND)
-
-R11 (10kΩ undefined)
-- pin1(anode, pos, left): NETS(NRST)
-- pin2(cathode, neg, right): NETS(V3V3)
 
 J4 (B6B-PH-K-S(LF)(SN))
 - pin1(VREF): NETS(V3V3)
@@ -508,32 +476,9 @@ C16 (100nF undefined)
 - pin1(anode, pos, left): NETS(V3V3)
 - pin2(cathode, neg, right): NETS(GND)
 
-SW1 (G12AH)
-- pin1(T4): NETS(GND)
-- pin2(T5): NETS(SCROLL_EN)
-- pin3(T6): NOT_CONNECTED
-- pin4(SUPPORT1): NOT_CONNECTED
-- pin5(SUPPORT3): NOT_CONNECTED
-
-R14 (10kΩ undefined)
-- pin1(anode, pos, left): NETS(SCROLL_EN)
-- pin2(cathode, neg, right): NETS(V3V3)
-
-SW2 (TS-1088-AR02016)
-- pin1: NETS(COUNT_RESET)
+SW1 (B3U-3000P)
+- pin1: NETS(MODE_BTN)
 - pin2: NETS(GND)
-
-R15 (10kΩ undefined)
-- pin1(anode, pos, left): NETS(COUNT_RESET)
-- pin2(cathode, neg, right): NETS(V3V3)
-
-LED1 (LTST-C190KGKT)
-- pin1(anode, pos, left): NETS(LED_A)
-- pin2(cathode, neg, right): NETS(GND)
-
-R16 (1kΩ undefined)
-- pin1(anode, pos, left): NETS(LED)
-- pin2(cathode, neg, right): NETS(LED_A)
 
 J6 (S8B-PH-K-S(LF)(SN))
 - pin1(BL): NETS(LCD_BL)

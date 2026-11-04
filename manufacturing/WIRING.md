@@ -1,4 +1,4 @@
-# Rev D physical wiring and connector views
+# Rev E physical wiring and connector views
 
 All board components mount from the top. The PCB frame is +X right/+Y toward USB, with the PCB top at Z=4.2 mm above the enclosure floor. Pin numbers below refer to the **board header pads**, not an arbitrary view of the mating plug. Match the moulded pin-1 mark and the LCD's printed signal labels, then check continuity before applying power.
 
@@ -40,4 +40,4 @@ Power the target through USB-C while programming. VTref senses target voltage; d
 
 Use **L-com CAU4CC-40M-1M**, a real 1 m USB-C-to-C data cable with a published 12.9×6.4 mm metal-plug cross-section ([manufacturer drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)). The board uses USB 2.0 data/5V only; the cable's higher ratings are not required or negotiated. The side opening is 14×8.8 mm around a Z=5.95 mm connector axis, leaving 1.65 mm vertically to the rotating retainer at the specified plug height. The CAD clearance tool models an 18 mm axial plug keep-out, not an invented complete supplier cable model. Verify insertion shoulder/strain relief and drawing tolerances with the actual cable; substitute only after checking its plug envelope.
 
-There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev D.
+There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E.

@@ -34,18 +34,6 @@
   "bearing_pocket_id": 75.1,
   "knob_diameter": 84.8,
   "knob_top_z": 22.1,
-  "scroll_switch": [
-    -22,
-    -19
-  ],
-  "reset_button": [
-    -5,
-    -30
-  ],
-  "led": [
-    14,
-    -28
-  ],
   "usb_center": [
     0,
     28
@@ -123,5 +111,28 @@
       -15
     ]
   ],
-  "usb_cable_part": "L-com CAU4CC-40M-1M"
+  "usb_cable_part": "L-com CAU4CC-40M-1M",
+  "front_button": {
+    "part": "Omron B3U-3000P",
+    "pcb_center": [
+      0,
+      -31.5
+    ],
+    "pcb_rotation_deg": 180,
+    "axis_z": 4.9,
+    "actuator_front_y": -33.45,
+    "rest_tip_y": -33.55,
+    "nominal_free_gap_mm": 0.1,
+    "plunger_travel_mm": 0.4,
+    "nominal_switch_travel_mm": 0.3,
+    "datasheet_pretravel_mm": {
+      "min": 0.1,
+      "typ": 0.2,
+      "max": 0.4
+    },
+    "fit_status": "Nominal CAD only. Measure actual switch pretravel and printed gap; tune plunger and stop before use. Do not force beyond measured actuation.",
+    "tip_radius_mm": 0.3,
+    "guide_end_y": -35.2,
+    "stem_radial_clearance_mm": 0.15
+  }
 }

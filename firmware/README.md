@@ -1,6 +1,6 @@
-# Firmware 4.0.0 / PCB Rev D
+# Firmware 5.0.0 / PCB Rev E
 
-The included `build/desk-knob.bin` and `.hex` target STM32F072CBT6 at **0x08000000**. This firmware controls the USB-only Rev D optical board, switched LCD/IR rail and Waveshare 19192. Earlier charging boards need their matching tagged firmware; PA2–PA5/PA7/PB0/PB1 no longer serve battery functions.
+The included `build/desk-knob.bin` and `.hex` target STM32F072CBT6 at **0x08000000**. This firmware controls the USB-only Rev E optical board, switched LCD/IR rail and Waveshare 19192. Rev D toggle boards require firmware 4.0.0; earlier charging boards also need their matching tagged firmware; PA2–PA5/PA7/PB0/PB1 no longer serve battery functions.
 
 ## Build and program
 
@@ -25,13 +25,13 @@ STM32CubeProgrammer also programs the HEX over SWD. For the MCU's ROM recovery, 
 
 PB4/PB5 AF1 feed TIM3 encoder mode 3 with approximately 3.3µs filters. Hardware collects quadrature edges during display/FRAM transfers. The 48-slot ring gives **192 edges/revolution** and six edges per HID wheel unit (**32 units/turn**). Completed displacement ±192 increments the unsigned 64-bit total; reversal cancels unfinished progress. Sampling targets 2ms. An invalid journal, sample gap above 20ms or jump above 48 edges discards uncertain progress. Measure the actual usable speed envelope.
 
-The left PA0 toggle has 20ms debounce. Toggle-off clears queued wheel reports while counting continues. Detach/suspend clears motion queues; the powered-down optical sensor cannot measure turns while suspended. A new baseline is taken on resume. PA1's internal service button deliberately resets after a three-second hold.
+The side-actuated PA0 front button uses the MCU's internal pull-up and 25ms debounce. Boot starts in Count-only mode. A short press changes Scroll / Count-only on release, clearing queued wheel motion while counting continues. A three-second hold clears/initializes FRAM once and does not change mode on release; the display shows progress and confirmation. A button held at boot or resume must be released before any action. PA1 and PA6 are unused analog inputs; there is no separate reset button or LED. Detach/suspend clears motion queues; the powered-down optical sensor cannot measure turns while suspended. A new baseline is taken on resume.
 
-FRAM uses I2C1 PB6/PB7 at approximately 300kHz, address 0x50. Completed turns update alternating 32-byte records at 0/64: sequence, 64-bit count, CRC32 and a commit marker written last, followed by read-back. Unknown FRAM requires `RESET CONFIRM`. Previously committed records remain compatible. An unplug during a write may restore the previous committed turn count; no battery or reserve supply completes in-flight transactions.
+FRAM uses I2C1 PB6/PB7 at approximately 300kHz, address 0x50. Completed turns update alternating 32-byte records at 0/64: sequence, 64-bit count, CRC32 and a commit marker written last, followed by read-back. Unknown FRAM requires `RESET CONFIRM` or a deliberate three-second button hold. Previously committed records remain compatible. An unplug during a write may restore the previous committed turn count; no battery or reserve supply completes in-flight transactions.
 
 The display uses SPI2 mode 0, 12MHz, PB13 SCK/PB15 MOSI, PB10 reset, PB11 backlight, PA8 CS and PB14 DC. One 480-byte RGB565 row is sent per task; there is no full framebuffer. Each refresh uses a coherent snapshot. The **module tab faces -X**, with **MADCTL 0xA8** for this mounting. Verify orientation and colours physically. A bounded transport fault blanks the screen while counting/USB continue. No MISO is present: a transport-success flag cannot prove the screen is connected or displaying correctly.
 
-Laptop clock/date, CPU/RAM percentages and laptop battery/AC come from the local [companion](../companion/README.md). Samples expire after five seconds, then placeholders and `HOST OFFLINE` appear. Desktop/no-sensor machines show `NO HOST BATTERY`. The clock/calendar advances between samples and handles midnight/leap-year rollover. Turn count and scroll state remain visible. Invalid storage overrides the status line with `RESET VIA USB`.
+Laptop clock/date, CPU/RAM percentages and laptop battery/AC come from the local [companion](../companion/README.md). Samples expire after five seconds, then placeholders and `HOST OFFLINE` appear. Desktop/no-sensor machines show `NO HOST BATTERY`. The clock/calendar advances between samples and handles midnight/leap-year rollover. Turn count and scroll state remain visible. Invalid storage shows `HOLD 3S TO INIT`; holding displays progress, and successful clear shows `COUNT CLEARED`. A timer fault shows `TIMER ERROR`.
 
 ## USB power
 
@@ -47,7 +47,7 @@ Newline-terminated ASCII, maximum 63 bytes per command, DTR asserted. `scripts/c
 |---|---|
 | `STATUS` / `COUNT` | JSON with device/protocol/firmware identity, turns, progress, storage_ok, encoder_timer_running, scroll_on, rejected, lcd_transport_ok, host_data_fresh |
 | `RESET CONFIRM` | Commit zero or report storage failure |
-| `VERSION` | Rev D / firmware 4.0.0 / TinyUSB 0.21.0 |
+| `VERSION` | Rev E / firmware 5.0.0 / TinyUSB 0.21.0 |
 | `DASH …` | Validated clock/date/metrics; full field contract in companion guide |
 | `HELP` | Command list |
 

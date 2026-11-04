@@ -7,7 +7,8 @@ typedef struct {
   uint64_t turns;
   Dashboard host;
   uint32_t now;
-  bool storage_ok, scroll_on, usb_ready;
+  bool storage_ok, scroll_on, usb_ready, encoder_ok, count_cleared;
+  uint16_t hold_ms;
 } LcdView;
 void lcd_render_row(const LcdView *view, unsigned y, uint16_t row[240]);
 void lcd_init(void);

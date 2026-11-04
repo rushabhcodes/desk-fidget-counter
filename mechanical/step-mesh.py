@@ -12,7 +12,8 @@ from OCP.TopoDS import TopoDS
 from OCP.TopLoc import TopLoc_Location
 from OCP.BRep import BRep_Tool
 from OCP.BRepMesh import BRepMesh_IncrementalMesh
-r=STEPControl_Reader();r.ReadFile(sys.argv[1]);r.TransferRoots();s=r.OneShape();BRepMesh_IncrementalMesh(s,.03,False,.15,True)
+r=STEPControl_Reader();r.ReadFile(sys.argv[1]);r.TransferRoots();s=r.OneShape()
+BRepMesh_IncrementalMesh(s,.03,False,.15,True)
 e=TopExp_Explorer(s,TopAbs_FACE);vs=[];fs=[];groups=[];fi=0
 while e.More():
  face=TopoDS.Face(e.Current());loc=TopLoc_Location();tri=BRep_Tool.Triangulation_s(face,loc)
@@ -25,5 +26,14 @@ while e.More():
    if face.Orientation()==TopAbs_REVERSED:b,c=c,b
    fs.append([start+a-1,start+b-1,start+c-1]);groups.append(fi)
  fi+=1;e.Next()
-m=trimesh.Trimesh(vs,fs,process=True);m.export(sys.argv[2]);np.savez(sys.argv[2]+'.faces.npz',vertices=np.array(vs),faces=np.array(fs),groups=np.array(groups))
+if '--preserve-seams' in sys.argv[3:]:
+ # Coincident but topologically distinct edges in the valid STEP must stay
+ # distinct. Manifold pairs the original open half-edges without moving any
+ # tessellation vertex; ordinary coordinate welding loses that information.
+ import manifold3d as manifold
+ raw=manifold.Mesh64(np.ascontiguousarray(vs,dtype=np.float64),np.ascontiguousarray(fs,dtype=np.uint64))
+ raw.merge();solid=manifold.Manifold(raw);assert str(solid.status()).endswith('NoError')
+ raw=solid.to_mesh64();m=trimesh.Trimesh(np.asarray(raw.vert_properties)[:,:3],np.asarray(raw.tri_verts),process=False)
+else:m=trimesh.Trimesh(vs,fs,process=True)
+m.export(sys.argv[2]);np.savez(sys.argv[2]+'.faces.npz',vertices=np.array(vs),faces=np.array(fs),groups=np.array(groups))
 print(json.dumps({'bounds_mm':m.bounds.tolist(),'faces':len(m.faces),'volume':m.volume,'watertight':m.is_watertight,'components':len(m.split())}))

@@ -1,7 +1,7 @@
 {
-  "image_bytes": 61032,
+  "image_bytes": 61344,
   "stack_top": "0x20004000",
-  "reset_vector": "0x80017b5",
+  "reset_vector": "0x80018b1",
   "usb_interfaces": [
     [
       0,

@@ -11,3 +11,6 @@ cc -std=c11 -Wall -Wextra -Werror -Ifirmware tests/test_lcd_ui.c firmware/lcd_ui
 cc -std=c11 -Wall -Wextra -Werror -Ifirmware tests/test_dashboard.c firmware/dashboard.c -o "$TASK_TEST_BINARY"
 "$TASK_TEST_BINARY"
 python3 -m unittest discover -s tests -p "test_companion.py"
+
+cc -std=c11 -Wall -Wextra -Werror -Ifirmware tests/test_button.c firmware/button.c -o "$TASK_TEST_BINARY"
+"$TASK_TEST_BINARY"

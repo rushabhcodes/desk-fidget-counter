@@ -1,1 +1,1 @@
-Design contract passed: 45 components, physical pin maps, power/USB/I2C/controls and distinct rails.
+Design contract passed: 39 components, physical pin maps, power/USB/I2C/controls and distinct rails.

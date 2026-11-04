@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 #include "counter.h"
+#include "button.h"
 #include "lcd.h"
 #include "stm32f0xx.h"
 #include "tusb.h"
@@ -10,6 +11,8 @@ static volatile uint32_t ticks;
 static Counter counter;
 static bool stored = false, encoder_ok = true, peripherals_on = false;
 static Dashboard dashboard;
+static uint32_t cleared_at;
+static bool clear_notice;
 static unsigned active_slot = 0;
 static uint32_t sequence = 0;
 void SysTick_Handler(void) { ticks++; }
@@ -82,10 +85,10 @@ static void init(void) {
       47999u | (34u << 16) | (2u << 28); // 1kHz USB SOF, default error limit.
   CRS->CR = CRS_CR_AUTOTRIMEN | CRS_CR_CEN | (32u << 8);
   SysTick_Config(48000);
-  // PA0 scroll / PA1 reset have external 10k pull-ups. Unused pads analog.
-  pinmode(GPIOA, 0, 0); pinmode(GPIOA, 1, 0);
-  for (unsigned p=2;p<8;p++) pinmode(GPIOA,p,3);
-  pinmode(GPIOA, 6, 1); out(6,false);
+  // Single front-side momentary button, PA0 active low with internal pull-up.
+  pinmode(GPIOA, 0, 0);
+  GPIOA->PUPDR = (GPIOA->PUPDR & ~3u) | 1u;
+  for (unsigned p=1;p<8;p++) pinmode(GPIOA,p,3);
   pinmode(GPIOA,8,1);out(8,false);
   pinmode(GPIOA,9,3);pinmode(GPIOA,10,3);pinmode(GPIOA,15,3);
   GPIOB->BSRR = 1u << (2+16); // peripherals remain off until configured
@@ -223,7 +226,7 @@ static void status(void) {
   char b[320], turns[21];
   counter_format_total(counter.turns, turns);
   snprintf(b,sizeof b,
-      "{\"device\":\"desk-fidget-counter\",\"protocol\":1,\"firmware\":\"4.0.0\","
+      "{\"device\":\"desk-fidget-counter\",\"protocol\":1,\"firmware\":\"5.0.0\","
       "\"turns\":%s,\"progress\":%ld,\"storage_ok\":%s,"
       "\"encoder_timer_running\":%s,\"scroll_on\":%s,\"rejected\":%lu,"
       "\"lcd_transport_ok\":%s,\"host_data_fresh\":%s}\r\n",
@@ -237,6 +240,7 @@ static void status(void) {
 static void reset_count(void) {
   if (save(0)) {
     counter_init(&counter, 0);
+    cleared_at = ticks; clear_notice = true;
     reply("OK RESET\r\n");
   } else {
     stored = false;
@@ -263,7 +267,7 @@ static void console(void) {
       else if (!strcmp(line, "HELP"))
         reply("COUNT | STATUS | RESET CONFIRM | VERSION | DASH <clock date cpu ram battery ac>\r\n");
       else if (!strcmp(line, "VERSION"))
-        reply("Desk Knob Rev D / firmware 4.0.0 / TinyUSB 0.21.0\r\n");
+        reply("Desk Knob Rev E / firmware 5.0.0 / TinyUSB 0.21.0\r\n");
       else if (!strncmp(line,"DASH ",5)) {
         if (!dashboard_receive(&dashboard,line,ticks)) reply("ERROR DASH\r\n");
       } else
@@ -282,9 +286,9 @@ int main(void) {
   restore();
   tusb_rhport_init_t cfg = {.role = TUSB_ROLE_DEVICE, .speed = TUSB_SPEED_FULL};
   tusb_init(0, &cfg);
-  uint32_t sample_at = ticks, button_since = 0,
-           sw_since = ticks;
-  bool held = false, reset_done = false, sw = false, sw_candidate = false;
+  uint32_t sample_at = ticks;
+  bool scroll_mode = false; // Safe power-on default: count without host scrolling.
+  ButtonState mode_button = {0};
   while (1) {
     tud_task();
     uint32_t now = ticks;
@@ -302,24 +306,13 @@ int main(void) {
       }
       peripherals_on=awake;
     }
-    bool raw_sw = !(GPIOA->IDR & 1u);
-    if (raw_sw != sw_candidate) {
-      sw_candidate = raw_sw;
-      sw_since = now;
-    }
-    if ((uint32_t)(now - sw_since) >= 20)
-      sw = sw_candidate;
-    bool button = !(GPIOA->IDR & (1u << 1));
-    if (button && !held) {
-      held = true;
-      button_since = now;
-      reset_done = false;
-    } else if (!button) {
-      held = false;
-    }
-    if (held && !reset_done && (uint32_t)(now - button_since) >= 3000) {
+    ButtonEvent event = button_update(&mode_button, !(GPIOA->IDR & 1u), awake, now);
+    if (event == BUTTON_SHORT) {
+      scroll_mode = !scroll_mode;
+      counter.pending = 0;
+      counter.scroll_fraction = 0; // Preserve partial-turn counting across mode changes.
+    } else if (event == BUTTON_LONG) {
       reset_count();
-      reset_done = true;
     }
     if ((uint32_t)(now - sample_at) >= 2) {
       sample_at = now;
@@ -327,7 +320,7 @@ int main(void) {
       uint16_t raw = (uint16_t)TIM3->CNT;
       bool changed = counter_sample(
           &counter, raw, encoder_ok && stored && peripherals_on, now,
-          sw && awake);
+          scroll_mode && awake);
       if (changed && !save(counter.turns)) {
         stored = false;
         counter.baseline = false;
@@ -338,10 +331,13 @@ int main(void) {
       tud_hid_mouse_report(0, 0, 0, 0, wheel, 0);
     }
     console();
+    now=ticks; // FRAM/console work can advance time before the UI snapshot.
+    if (clear_notice && (uint32_t)(now-cleared_at)>=2000) clear_notice=false;
     LcdView view = {.turns=counter.turns,.host=dashboard,.now=now,
-                    .storage_ok=stored,.scroll_on=sw,.usb_ready=awake};
+                    .storage_ok=stored,.scroll_on=scroll_mode,.usb_ready=awake,
+                    .encoder_ok=encoder_ok,.hold_ms=button_hold_ms(&mode_button,now),
+                    .count_cleared=clear_notice && (uint32_t)(now-cleared_at)<2000};
     if (peripherals_on) lcd_task(now,&view);
-    out(6, awake && ((!stored || !encoder_ok) ? ((now/125)&1u) : (sw || now%2000<30)));
     if (tud_suspended() && !peripherals_on) usb_sleep();
     else __WFI();
   }

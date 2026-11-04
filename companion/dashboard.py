@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send local computer metrics to Desk Knob Rev D over USB CDC. No network use."""
+"""Send local computer metrics to Desk Knob over USB CDC. No network use."""
 # SPDX-License-Identifier: MIT
 import argparse
 from datetime import datetime
@@ -66,7 +66,7 @@ def connect(serial, list_ports, requested=None):
             port.close()
         if len(matches) > 1:
             raise RuntimeError("Multiple Desk Knobs found; select one with --port")
-        raise OSError("Desk Knob Rev D not found; check USB, firmware and serial-port permissions")
+        raise OSError("Desk Knob not found; check USB, firmware and serial-port permissions")
     return matches[0]
 
 

@@ -316,5 +316,52 @@
       "y": 12.35425168123193,
       "z": 7.534497392516473
     }
+  },
+  "b3u3000": {
+    "step": "mechanical/vendor/step/SW_SPST_B3U-3000P.step",
+    "obj": "mechanical/vendor/obj/b3u3000.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Button_Switch_SMD.3dshapes/SW_SPST_B3U-3000P.step",
+    "bounds": [
+      [
+        -2.0,
+        -1.25,
+        0.0
+      ],
+      [
+        2.0,
+        1.9500000476837158,
+        1.2000000476837158
+      ]
+    ],
+    "size": {
+      "x": 4.0,
+      "y": 3.200000047683716,
+      "z": 1.2000000476837158
+    },
+    "pin_tail_trim_mm": null,
+    "collision_mesh": "mechanical/vendor/solid/b3u3000.ply"
+  },
+  "c0402": {
+    "step": "mechanical/vendor/step/C_0402_1005Metric.step",
+    "obj": "mechanical/vendor/obj/c0402.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+    "bounds": [
+      [
+        -0.5,
+        -0.25,
+        0.0
+      ],
+      [
+        0.5,
+        0.25,
+        0.5
+      ]
+    ],
+    "size": {
+      "x": 1.0,
+      "y": 0.5,
+      "z": 0.5
+    },
+    "pin_tail_trim_mm": null
   }
 }
