@@ -4,7 +4,7 @@ The case body remains **Ø84.8×22.3 mm**, with the fixed 1.28-inch display and 
 
 The custom PH-to-PH harness is removed. Use the display's included PH2.0-to-jumper lead, shorten it, and solder its PCB ends at J6. The original display plug stays removable. The optional 2.54 mm header is DNP and absent from the compact assembly. See [wiring](../manufacturing/WIRING.md) for actual pad coordinates, signal mapping and cutting/continuity checks.
 
-Eight product prints and the fit coupon are in `stl/`. `cad/assembled.glb` and `cad/exploded.glb` contain the actual source PCB, 38 populated package models, fixed screen and eight wires. OBJ assets use PCB-centred mm/+Z-up; glTF uses metres/+Y-up. Purchased parts are not rescaled.
+Eight product prints and three bearing-fit coupon variants are in `stl/`. See [fit measurements and tolerance sensitivity](FIT.md) before printing the product. `cad/assembled.glb` and `cad/exploded.glb` contain the actual source PCB, 38 populated package models, fixed screen and eight wires. OBJ assets use PCB-centred mm/+Z-up; glTF uses metres/+Y-up. Purchased parts are not rescaled. The bearing GLB uses a steel material on its catalogue envelope; race and shield details remain unmodelled because their dimensions are unpublished.
 
 The window is 34.6×40.6 mm with R2 corners. PCB underside/top remain Z=2.6/4.2 mm; screen carrier underside/top are Z=17.3/18.3, front Z=20.9, bezel top Z=22.3. The 60×75×7 mm bearing remains at Z=12…19. The official Waveshare STEP is rigidly transformed, unscaled. The rear socket remains flush at Y42.35003, axis Z5.85. Its continuous 13.4×6.9 mm plug approach gauge includes the source drawing's nominal dimensions and general tolerance.
 

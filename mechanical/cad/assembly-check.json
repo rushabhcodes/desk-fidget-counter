@@ -6,12 +6,12 @@
   "printed_meshes_restored_from_print_orientation": 8,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 3889372,
-      "sha256": "31980c4add2e1ae138c4bfd9626c7c07d66e3ab03fddb4b8ceb636e23da7d11b"
+      "bytes": 3888096,
+      "sha256": "95d9e5ac4d3a6e7da167093e5d5d37137dea5d0b0a4c702485528389c5e713de"
     },
     "exploded.glb": {
-      "bytes": 3889420,
-      "sha256": "b967d99d081c378b6b197df10a626a2eb5309a90484ccfc351d03afee3499ca1"
+      "bytes": 3888144,
+      "sha256": "07bd26c512129d30289b53288c8a185624eda59b3f7da1fabe38724a40ee599b"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

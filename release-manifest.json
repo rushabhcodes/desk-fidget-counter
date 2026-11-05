@@ -1,9 +1,9 @@
 {
-  "release": "v5.2.0",
+  "release": "v5.2.1",
   "hardware": "Rev E3 / E3",
   "repository": "https://github.com/rushabhcodes/desk-fidget-counter",
   "tscircuit": "https://tscircuit.com/rushabhcodes/desk-fidget-counter",
-  "source_revision": "Git tag v5.2.0; resolve tag to its commit; source file hashes below",
+  "source_revision": "Git tag v5.2.1; resolve tag to its commit; source file hashes below",
   "toolchain": {
     "Bun": "1.3.3",
     "tscircuit": "0.0.3077",
@@ -31,7 +31,7 @@
     },
     {
       "path": "ASSEMBLY.md",
-      "sha256": "612a1ef9d5d30c9a6e9f05b5142def676474296d9740a12ade27a9426f9b9747"
+      "sha256": "28a50d244e7c301a14caceab16818c3322ca8de973a523ccec793b469d67b2b6"
     },
     {
       "path": "LICENSE",
@@ -39,7 +39,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7e099720004d741fea198f4da6bf27e63b7242f41c894e8707f2fac393a4948e"
+      "sha256": "6ec9fbfce9cfd1b29375576691836142c4485ad80ee60c3cb7b92fefa2ae621b"
     },
     {
       "path": "assembly.circuit.tsx",
@@ -190,20 +190,24 @@
       "sha256": "a4d48889bcbe8ca849844a2e530972dab9ca99f4d7f3200abc589a1fedd9ffe5"
     },
     {
+      "path": "mechanical/FIT.md",
+      "sha256": "1dcba7ddd0deb0d1efb060292a24cea014c8bb0fe68c85aac7c68fca9d77583b"
+    },
+    {
       "path": "mechanical/LOW_PROFILE.md",
-      "sha256": "1a7e57ec8ee9ec4c749630c5210699daf5ea9cdd6a1faf0c4df4605fffd10af9"
+      "sha256": "be2ce59a79a7f5a6a8963958200707f566e5e86af8d35cd3ad9fbedf3fba5a12"
     },
     {
       "path": "mechanical/README.md",
-      "sha256": "2147210a893c521f5e0b2bb76f857457dc4a51a92717230f7b634691f1b81973"
+      "sha256": "e214ecd1bce4e7fa2fbfa18d6be610a468c9de7fb872e8f7c183afb480929672"
     },
     {
       "path": "mechanical/generate-assembly.py",
-      "sha256": "4f64045bc6431479fac90985d2f41a00741a0cc25994a9fc39892a3992c3af4b"
+      "sha256": "97d9695cc294b8366476cc57f49782e0937046a7038846f0fcc4d8dde9c6ba70"
     },
     {
       "path": "mechanical/generate.py",
-      "sha256": "a9aea21194d23ae70ebfcac4c4aeb22504184efe6b9008a22fa985bbddac7146"
+      "sha256": "02215136782c9b02a838122ab2edfbc23fe335d062bad3e7105ede20d3d58462"
     },
     {
       "path": "mechanical/hardware.csv",
@@ -215,11 +219,11 @@
     },
     {
       "path": "mechanical/parameters.json",
-      "sha256": "fdece839514d8dbf13c4bf8e5c0df357a2c4b7707d2cf0bc103eda1b6bf0ae81"
+      "sha256": "a8a218ade45d579a0e11a1cdec22909061e3a36fdbc7f5e063dbbae887c300c2"
     },
     {
       "path": "mechanical/render.py",
-      "sha256": "72ab2e687c472ce56f64973cc7f6c99dd56730f334bc9a2bd51463b73002014f"
+      "sha256": "5794bcd2051f9cefe266d06c22bff7ec6193f5b7d97507a38911e2795605c1e1"
     },
     {
       "path": "mechanical/step-mesh.py",
@@ -227,7 +231,7 @@
     },
     {
       "path": "mechanical/vendor/README.md",
-      "sha256": "416b13b2c0cb92211ec1b060facc3b011794270ac15dee41bf623f6eb35ac790"
+      "sha256": "307c1c53f2310842957df4db47bfa4be926d2ad7c006a0f3a0db52f2cc344e89"
     },
     {
       "path": "mechanical/vendor/custom-models.py",
@@ -407,7 +411,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "835acbb7622158a18aa184c894a66e19a150eec47b9d154c0855e71910d05120"
+      "sha256": "8c3f73e84c37073568556b026ed0ae1b1e31ad9b0ec5ac7cda3e211cc71bddb7"
     },
     {
       "path": "parts.tsx",
@@ -471,7 +475,7 @@
     },
     {
       "path": "routing/README.md",
-      "sha256": "526ab8ec79d51e5dd5d30cedfea02842c1b7f452c01b3d891773e44b524c6ca0"
+      "sha256": "5d13cbfaac0c9abfddc3a0ace1d89e67f9904a82d80b371497818d9853d1cd51"
     },
     {
       "path": "scripts/bom-and-assembly.py",
@@ -495,7 +499,7 @@
     },
     {
       "path": "scripts/package-release.py",
-      "sha256": "c68728c050e783837f26cd75550ab18504f028c1a76208c1bb8596b763a34630"
+      "sha256": "a5214810a90cf39b3e2214047db630a9fca409bc1b39482f8f7f49581092112b"
     },
     {
       "path": "scripts/previews.mjs",
@@ -539,11 +543,11 @@
     },
     {
       "path": "validation/BRINGUP.md",
-      "sha256": "89eb7062a64c7688cb9304b4770410635d880a5384ec87b3525c51d67f1778b4"
+      "sha256": "e7364cfbd25819758da0759bddf0c866c3db693ef8ed05fa797f2c53c9b95f56"
     },
     {
       "path": "validation/REPORT.md",
-      "sha256": "ca98e2c11cefe6ac4a0a1b3a6ea9177eeb92a0c01aa85f64d6c4aa668ea8fc63"
+      "sha256": "5c32ddc8b2b3e32d16c919f6fa5b1c2e2b3af77ba0dbe828b6c0b8301bb5e1af"
     },
     {
       "path": "validation/check-assembly.mjs",
@@ -565,11 +569,11 @@
   "artifacts": [
     {
       "path": "dist/assembly/circuit.json",
-      "sha256": "6dee3a2b56e1fdca917d442b6a41acc481eaf0809d43d060258e8f74675c7cd5"
+      "sha256": "5a17af965f86260d1555a8a297d0350d9a90f001f6a79d88ecadb200da5ba8de"
     },
     {
       "path": "dist/index/circuit.json",
-      "sha256": "de7e1ea5a42a03b1a416ebf53a72728612d0d6fa284ac7450698a42c746fb145"
+      "sha256": "28bb02a7912fc8be850c622b28a782c53aac6a021e62384aa70b9ae07e635409"
     },
     {
       "path": "dist/index/pcb.png",
@@ -841,7 +845,11 @@
     },
     {
       "path": "mechanical/assembly.png",
-      "sha256": "5233915cae88d5b66391ed74820b72bce45e29ffb4b4510b7fb9016a80dd3f21"
+      "sha256": "76eba840e9243062c62c46851a3f31fd95f130a59407de8606d396481dacb389"
+    },
+    {
+      "path": "mechanical/bearing-envelope.png",
+      "sha256": "78cc15febf9dc8e3f82d484e1f8779387a3d1edbc3bcab9fa45cc8fef396de7d"
     },
     {
       "path": "mechanical/button-access-comparison.png",
@@ -853,11 +861,11 @@
     },
     {
       "path": "mechanical/cad/assembled.glb",
-      "sha256": "31980c4add2e1ae138c4bfd9626c7c07d66e3ab03fddb4b8ceb636e23da7d11b"
+      "sha256": "95d9e5ac4d3a6e7da167093e5d5d37137dea5d0b0a4c702485528389c5e713de"
     },
     {
       "path": "mechanical/cad/assembly-check.json",
-      "sha256": "a11812e877df59689280bfb6f1bddeb212c7de7443bc0a5bd1f6d334bb5d37b4"
+      "sha256": "9856d1a84bb635b807b0d0dbf7398a265b66dbebefc96e20f1a7b11beeb12e59"
     },
     {
       "path": "mechanical/cad/base.obj",
@@ -877,7 +885,7 @@
     },
     {
       "path": "mechanical/cad/exploded.glb",
-      "sha256": "b967d99d081c378b6b197df10a626a2eb5309a90484ccfc351d03afee3499ca1"
+      "sha256": "07bd26c512129d30289b53288c8a185624eda59b3f7da1fabe38724a40ee599b"
     },
     {
       "path": "mechanical/cad/fasteners.obj",
@@ -941,11 +949,11 @@
     },
     {
       "path": "mechanical/cad/parts.json",
-      "sha256": "023d72b32368fafe06a02d1bd6b1be16d4d98c48eed606eeaba60b33345a31a4"
+      "sha256": "f46090f26adb8939d917e079a511613198fdea4673fdfefb0a1d5901b059e0a9"
     },
     {
       "path": "mechanical/cad/pcb-source.glb",
-      "sha256": "06fa5c4f925075617b4fb0c16ff82380c3dbf6c40e11ff65f7cf15e54cf0b6bd"
+      "sha256": "611e4a5977fc16fd4f63a3716cc06e2d9f2bc5dc1fd3d80229b0ec33ae354055"
     },
     {
       "path": "mechanical/cad/screen-bezel.obj",
@@ -964,8 +972,12 @@
       "sha256": "9885ce9bac78f792b816832c5e8d53daf135cd61616db47398ccc235443c35d3"
     },
     {
+      "path": "mechanical/fit-coupons.json",
+      "sha256": "97a08075ac1fcac83235134ca2b0e6606108531b59e47f117d8ae2637ca5decb"
+    },
+    {
       "path": "mechanical/geometry-check.json",
-      "sha256": "723530f66bb81b1bd32941fbc70e4665793c65e6c8b023fc46ad88f01dce149a"
+      "sha256": "87c57c5bfa1c47941c08df70af894f4e776cf9336ecd2b17a285b0f289ab912f"
     },
     {
       "path": "mechanical/harness.json",
@@ -977,7 +989,7 @@
     },
     {
       "path": "mechanical/print-poses.json",
-      "sha256": "da3272635f4797ed2cad17f5c0bb37f68060e2155f960bb3fcf35d6d98ee7cd7"
+      "sha256": "305938cdf38756e7998da446034eca8fbbdfe6c637e200e9a76798683792f848"
     },
     {
       "path": "mechanical/side-profile.png",
@@ -994,6 +1006,14 @@
     {
       "path": "mechanical/stl/encoder-skirt.stl",
       "sha256": "2f8745bd7a80c33d7771a229eb1e835e3acb052781d349ce662c0ea1780e5502"
+    },
+    {
+      "path": "mechanical/stl/fit-coupon-loose.stl",
+      "sha256": "4397d1ecd762a94d5a446cf7bffbbe39cb49c6f7d049b045485657a6078dfa07"
+    },
+    {
+      "path": "mechanical/stl/fit-coupon-tight.stl",
+      "sha256": "b47558da5cd9c34bf16be9688dc419319d7b3363b0f3c872ce8581a88ff01b8c"
     },
     {
       "path": "mechanical/stl/fit-coupon.stl",
@@ -1021,15 +1041,15 @@
     },
     {
       "path": "mechanical/usb-access-comparison.png",
-      "sha256": "2b2fcd1b192e1ae458f2f72cb8d69909b437887431722f3ecf39d5485358fcc3"
+      "sha256": "9bf6f975845fdc84046745479d11ef926823701134a7225b7474c3fdfd773380"
     },
     {
       "path": "mechanical/usb-access.png",
-      "sha256": "d9681a4608f05c8ebb9cf508e5f10bdf1620b2b6226b3d6b0a269393b95370ab"
+      "sha256": "74c08b4eb768cdf1f16bb34900ded37857ff3fc3e45060c3e928492af57e0403"
     },
     {
       "path": "mechanical/wiring-cutaway.png",
-      "sha256": "977fadbf94155786d2d3d413be766d812d52df00e0d591e995b4b3ce4645ab85"
+      "sha256": "2bbcc0a1b4e7417f1bbdd562daf951195e2c63122fba24c1d00811e12c793124"
     },
     {
       "path": "previews/assembly-bottom.png",
@@ -1180,6 +1200,30 @@
       "sha256": "bee5218983954789a711f1019ed5b45d2d54e5e8805b50d7486e4c5947f24005"
     },
     {
+      "path": "validation/logs/e3p1-assembly-build.log",
+      "sha256": "0f3b20c893eaba12bbe5bbcea7efd0fadae893cd49fa0073b440164515900526"
+    },
+    {
+      "path": "validation/logs/e3p1-assembly-cad.log",
+      "sha256": "9856d1a84bb635b807b0d0dbf7398a265b66dbebefc96e20f1a7b11beeb12e59"
+    },
+    {
+      "path": "validation/logs/e3p1-geometry.log",
+      "sha256": "e322cb2099498f34bc90c0d0e2a8b624ec941d5fcedab18baa2ec49efe04129a"
+    },
+    {
+      "path": "validation/logs/e3p1-kicad.log",
+      "sha256": "3ba2562ccf38d8dcff828838d350492e86cf688a755b1438cda8fe59d9f88a90"
+    },
+    {
+      "path": "validation/logs/e3p1-native-build.log",
+      "sha256": "c6d37f3008763e270a8d8111f2b252c0038cbcc05989d5a9b87e3c259cf5eea5"
+    },
+    {
+      "path": "validation/logs/e3p1-shorts.log",
+      "sha256": "fadc135484013f0fb9a42d9f6bb6b84feddaa28754d7d56b23c352f357331632"
+    },
+    {
       "path": "validation/logs/fabrication-export.txt",
       "sha256": "5b4a22be73cf40cbc4f5f78ca59651e81b91f3da158cf4843f364fa630bfdc10"
     },
@@ -1236,5 +1280,5 @@
       "sha256": "4da2137ea03928f18e02d511944d7f33ed753af542bda5a90a8c5ed4dba3b082"
     }
   ],
-  "physical_prototype_tests": "Unperformed; supplied-cable OD/bend/termination fit must be measured before fabrication/physical-fit signoff. See validation/BRINGUP.md"
+  "physical_prototype_tests": "Unperformed; bearing race faces, calibrated prints, PCB capture fit and supplied-cable OD/bends/termination need measurement before physical-fit signoff. See mechanical/FIT.md and validation/BRINGUP.md"
 }

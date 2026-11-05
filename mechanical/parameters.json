@@ -28,7 +28,10 @@
     "id": 60,
     "od": 75,
     "width": 7,
-    "bottom_z": 12
+    "bottom_z": 12,
+    "manufacturer": "Maysme",
+    "source": "https://maysmeprecision.com/Show/?Cid=677",
+    "race_dimensions_status": "Boundary envelope confirmed; usable race-face diameters and abutments unpublished. Measure both faces before retainer/fit signoff."
   },
   "bearing_stem_od": 59.85,
   "bearing_pocket_id": 75.1,

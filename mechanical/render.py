@@ -17,14 +17,16 @@ def pose(eye,target,up=(0,1,0)):
  x=np.cross(up,z);x/=np.linalg.norm(x);y=np.cross(z,x)
  q=np.eye(4);q[:3,:3]=np.column_stack((x,y,z));q[:3,3]=eye;return q
 
-def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0375):
- scene=pyrender.Scene(bg_color=[.97,.975,.98,1],ambient_light=[.6,.6,.6])
+def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0375,metal=False):
+ scene=pyrender.Scene(bg_color=[.97,.975,.98,1],ambient_light=([.04,.04,.04] if metal else [.6,.6,.6]))
  for node in model.graph.nodes_geometry:
   tf,geo=model.graph[node];mesh=model.geometry[geo]
   scene.add(pyrender.Mesh.from_trimesh(mesh,smooth=False),pose=tf)
  cp=pose(eye,target);scene.add(pyrender.OrthographicCamera(xmag=xmag,ymag=ymag,znear=.001,zfar=2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=2.2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=.7),pose=pose([.07,.07,-.07],target))
+ if metal:
+  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=2.5),pose=pose([-.065,.065,-.080],target))
  renderer=pyrender.OffscreenRenderer(width,height)
  color,depth=renderer.render(scene)
  renderer.delete();Image.fromarray(color).save(path)
@@ -32,6 +34,17 @@ def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0
 render([-.07,.075,.095],[0,.010,0],ROOT/'assembly.png')
 render([-.10,.018,.10],[0,.010,0],ROOT/'side-profile.png',1400,1050)
 print('Rendered assembled product and low side profile with depth testing')
+
+# Show the real catalogue envelope and its improved steel material on its own.
+# No race/shield dimensions are implied by this material preview.
+steel=source.copy()
+for node in list(steel.graph.nodes_geometry):
+ if node!='bearing':steel.graph.transforms.remove_node(node)
+render([.065,.065,.080],[0,.0155,0],ROOT/'bearing-envelope.png',1400,1050,model=steel,metal=True)
+preview=Image.open(ROOT/'bearing-envelope.png').convert('RGB');draw=ImageDraw.Draw(preview)
+draw.text((45,30),'6712ZZ - 60 x 75 x 7 mm catalogue envelope',(36,57,67),font=ImageFont.load_default(size=30))
+draw.text((45,980),'Steel material preview; race/shield dimensions are not modelled',(73,95,106),font=ImageFont.load_default(size=24))
+preview.save(ROOT/'bearing-envelope.png')
 
 if options.compare_to:
  previous=trimesh.load(options.compare_to,force='scene')

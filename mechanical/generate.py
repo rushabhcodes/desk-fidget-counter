@@ -122,15 +122,22 @@ for x,y in bezel_screws:
 for i in range(3):
  x,y=polar(39.6,i*TAU/3)
  base-=cyl(usb_access['driver_window_diameter_mm']/2,11,-.1,x,y);lid-=cyl(usb_access['driver_window_diameter_mm']/2,3,8.9,x,y)
-coupon=ring(40,P['bearing_pocket_id']/2,3)+ring(P['bearing_stem_od']/2,27.3,3).translate((74,0,0))
-parts={'base':base,'lid':lid,'knob':cap,'outer-retainer':outer_retainer,'inner-retainer':cradle,'screen-bezel':bezel,'bearing-clamp':bearing_clamp,'encoder-skirt':encoder_skirt,'fit-coupon':coupon}
+parts={'base':base,'lid':lid,'knob':cap,'outer-retainer':outer_retainer,'inner-retainer':cradle,'screen-bezel':bezel,'bearing-clamp':bearing_clamp,'encoder-skirt':encoder_skirt}
+# Print alternatives individually on a small bed. These are calibration samples,
+# never assembled product parts and never a substitute for measured race faces.
+coupons={}
+for name,pocket_delta,stem_delta in [('fit-coupon-tight',-.1,.1),('fit-coupon',0,0),('fit-coupon-loose',.2,-.2)]:
+ pocket=P['bearing_pocket_id']+pocket_delta;stem=P['bearing_stem_od']+stem_delta
+ parts[name]=ring(40,pocket/2,3)+ring(stem/2,27.3,3).translate((74,0,0))
+ coupons[name]={'pocket_id_mm':round(pocket,3),'stem_od_mm':round(stem,3),'height_mm':3,'pocket_center_mm':[0,0],'stem_center_mm':[74,0]}
+(ROOT/'fit-coupons.json').write_text(json.dumps(coupons,indent=2)+'\n')
 (ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
 for name,s in parts.items():
  invert=name in ['knob','outer-retainer','encoder-skirt'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
  printed=s.rotate((180,0,0)).translate((0,0,z)) if invert else s.translate((0,0,-z))
  a=printed.to_mesh64();mesh=trimesh.Trimesh(np.asarray(a.vert_properties)[:,:3],np.asarray(a.tri_verts),process=True)
  assert mesh.is_watertight and mesh.volume>0,(name,'invalid solid')
- assert len(printed.decompose())==(2 if name=='fit-coupon' else 1),(name,'disconnected print')
+ assert len(printed.decompose())==(2 if name.startswith('fit-coupon') else 1),(name,'disconnected print')
  mesh.export(ROOT/'stl'/f'{name}.stl');poses[name]={'inverted':invert,'z':z}
  report[name]={'watertight':True,'volume_mm3':round(mesh.volume,2),'bounds_mm':mesh.bounds.round(3).tolist()}
  print(name,'watertight',round(mesh.volume,1),flush=True)

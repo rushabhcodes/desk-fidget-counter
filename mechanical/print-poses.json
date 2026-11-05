@@ -31,7 +31,15 @@
     "inverted": true,
     "z": 20.64
   },
+  "fit-coupon-tight": {
+    "inverted": false,
+    "z": 0.0
+  },
   "fit-coupon": {
+    "inverted": false,
+    "z": 0.0
+  },
+  "fit-coupon-loose": {
     "inverted": false,
     "z": 0.0
   }

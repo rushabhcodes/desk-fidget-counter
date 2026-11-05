@@ -31,7 +31,7 @@
 
 ## Mechanics and fabrication
 
-- [ ] Print the bearing-fit coupon first; measure actual inner/outer race contact faces, printed shrinkage and running torque. Clamp each race independently without shield preload.
+- [ ] Print the bearing-fit coupon variants first; record actual inner/outer race contact faces, printed diameters/shrinkage, full-seat taper, axial capture and running torque in [FIT.md](../mechanical/FIT.md). Clamp each race independently without shield preload.
 - [ ] Inspect every through-hole tail: trimmed to ≤0.8mm below the PCB, deburred, clear of base and insulating film. Check each solder well and all top-side package heights.
 - [ ] Check original screen carrier, bosses, tab, front and connector against the cradle/bezel. Tightening must not bow the PCB or load active glass.
 - [ ] Confirm H1's shortened stock cable and its actual dressed bends/OD, whose manufacturer limits are unpublished. It must clear posts, PCB, every optical-skirt angle and all package bodies. Unplug before lifting the screen for service; there is no long service loop.

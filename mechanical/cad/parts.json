@@ -177,7 +177,7 @@
       ]
     ],
     "explode_z_mm": 48,
-    "description": "6712ZZ bearing 60 x 75 x 7 mm; catalog envelope, internals omitted"
+    "description": "Maysme 6712ZZ 60 x 75 x 7 mm catalog envelope; steel appearance only, race/shield geometry unpublished and not modelled"
   },
   {
     "name": "screen-module",
@@ -217,7 +217,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-bl",
@@ -237,7 +237,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-rst",
@@ -257,7 +257,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-dc",
@@ -277,7 +277,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-cs",
@@ -297,7 +297,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-clk",
@@ -317,7 +317,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-din",
@@ -337,7 +337,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-gnd",
@@ -357,7 +357,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-vcc",
@@ -377,7 +377,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-cable-contacts",
@@ -397,7 +397,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
+    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "screen-ui",

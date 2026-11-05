@@ -127,6 +127,22 @@
       ]
     ]
   },
+  "fit-coupon-tight": {
+    "watertight": true,
+    "volume_mm3": 3268.71,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        103.975,
+        40.0,
+        3.0
+      ]
+    ]
+  },
   "fit-coupon": {
     "watertight": true,
     "volume_mm3": 3205.15,
@@ -138,6 +154,22 @@
       ],
       [
         103.925,
+        40.0,
+        3.0
+      ]
+    ]
+  },
+  "fit-coupon-loose": {
+    "watertight": true,
+    "volume_mm3": 3078.01,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        103.825,
         40.0,
         3.0
       ]
