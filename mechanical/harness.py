@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MIT
-"""JST PH8 static LCD harness: real pitch, housing sizes and bounded wire bends."""
+"""Supplied Waveshare cable, shortened and soldered at J6; original PH plug retained."""
 import math,json
 from pathlib import Path
 import numpy as np,trimesh,manifold3d as m
 SIGNALS=['BL','RST','DC','CS','CLK','DIN','GND','VCC']
-COLORS=['#ffffff','#b45cce','#ee9b34','#e4d751','#528cdd','#59ac70','#222c38','#e45555']
-WIRE_OD=.6096 # Alpha 2840/7: nominal .022in, upper tolerance .024in
+COLORS=['#b45cce','#ffffff','#ee9b34','#e4d751','#528cdd','#59ac70','#222c38','#e45555']
+WIRE_OD=1.0 # Design envelope only; Waveshare does not publish the supplied wire OD.
 RADIUS=6.2 # exceeds 10 x maximum insulation OD
 
 def solid(q):
@@ -25,33 +25,33 @@ def tube(points,radius):
  q=trimesh.Trimesh(vertices,faces,process=True);q.fix_normals();assert q.is_watertight;return q
 
 def build():
+ P=json.loads(Path(__file__).with_name('parameters.json').read_text())
  parts={};records=[]
- # PHR-8 nominal housing, 17.8 wide x 4.5 cross-section x 6.85 long.
- housing=box((17.8,6.85,4.5),(0,-4.825,2.4))
- for i in range(8):housing-=box((1.4,6.95,2.8),(-7+2*i,-4.825,2.4))
- q=solid(housing);q.apply_transform(trimesh.transformations.rotation_matrix(math.pi/2,[0,0,1]));q.apply_translation([-19.5,-3.5,4.2]);parts['lcd-cable-board-plug']=q
+ # Keep the original PH2.0 display plug. Stock wire dimensions are unpublished;
+ # the model uses explicit fit envelopes, not a claim about its manufacturer.
  housing=box((4.5,17.8,6.85),(8.2,0,12.725))
  for i in range(8):housing-=box((2.8,1.4,6.95),(8.2,-7+2*i,12.725))
  parts['lcd-cable-screen-plug']=solid(housing)
  contacts=[]
  for i,(signal,color) in enumerate(zip(SIGNALS,COLORS)):
-  ya=-10.5+2*i;yb=-7+2*i
-  t=np.linspace(0,1,100);f=10*t**3-15*t**4+6*t**5
-  s=np.column_stack((-11.25+13.25*t,ya+(yb-ya)*f,6.6-3.5*f))
-  theta=np.linspace(0,math.pi/2,60);arc=np.column_stack((2+RADIUS*np.sin(theta),np.full_like(theta,yb),9.3-RADIUS*np.cos(theta)))
-  path=np.vstack((s,arc[1:]))
+  ya=P['display_connector'][1]-8.89+2.54*i;yb=-7+2*i
+  # 2mm dressing bend above the solder joint, then a smooth fan into the window.
+  theta=np.linspace(0,math.pi/2,36)
+  q=theta/(math.pi/2);side=10*q**3-15*q**4+6*q**5
+  lead=np.column_stack((-21.5+2*(1-np.cos(theta)),ya+side,5.2+2*np.sin(theta)))
+  t=np.linspace(0,1,130);f=10*t**3-15*t**4+6*t**5
+  sweep=np.column_stack((-19.5+21.5*t,ya+1+(yb-ya-1)*f,7.2-4.1*f))
+  theta=np.linspace(0,math.pi/2,70)
+  arc=np.column_stack((2+RADIUS*np.sin(theta),np.full_like(theta,yb),9.3-RADIUS*np.cos(theta)))
+  path=np.vstack((lead,sweep[1:],arc[1:]))
   length=float(np.linalg.norm(np.diff(path,axis=0),axis=1).sum())
   q=tube(path,WIRE_OD/2);q.visual=trimesh.visual.ColorVisuals(q,vertex_colors=trimesh.visual.color.hex_to_rgba(color));parts['lcd-wire-'+signal.lower()]=q
-  # Metal contact nominal 5.7mm length. Spring/crimp microgeometry omitted.
-  contacts.append(box((5.7,.5,.5),(-14.1,ya,6.6)))
+  # Bare conductor/solder geometry is illustrative, inside the actual plated hole.
+  contacts.append(m.Manifold.cylinder(3.4,.16,.16,24).translate((-21.5,ya,1.8)))
   contacts.append(box((.5,.5,5.7),(8.2,yb,12.15)))
-  records.append({'pin':i+1,'signal':signal,'color':color,'board_connector':'J6','board_pad_mm':[-19.5,ya,4.2],'board_housing_wire_exit_mm':path[0].tolist(),'screen_housing_wire_exit_mm':path[-1].tolist(),'screen_pin':i+1,'free_wire_centerline_length_mm':round(length,3),'centerline_mm':path.round(5).tolist()})
+  records.append({'signal':signal,'color_illustration_only':color,'board_connector':'J6 solder pad','board_pin':8-i,'board_pad_mm':[-21.5,ya,4.2],'insulation_start_mm':path[0].tolist(),'screen_housing_wire_exit_mm':path[-1].tolist(),'screen_pin':i+1,'modeled_insulated_wire_length_mm':round(length,3),'centerline_mm':path.round(5).tolist()})
  parts['lcd-cable-contacts']=solid(m.Manifold.batch_boolean(contacts,m.OpType.Add))
- # Analytical radius of the quintic S-bend; circular segment radius is exact.
- t=np.linspace(0,1,1001);fp=30*t*t-60*t**3+30*t**4;fpp=60*t-180*t*t+120*t**3
- d=np.column_stack((np.full_like(t,13.25),3.5*fp,-3.5*fp));dd=np.column_stack((t*0,3.5*fpp,-3.5*fpp));cross=np.linalg.norm(np.cross(d,dd),axis=1);r=np.divide(np.linalg.norm(d,axis=1)**3,cross,out=t*0+999,where=cross>0)
- report={'housing':'2 x JST PHR-8','contacts':'16 x JST SPH-004T-P0.5S','wire':'Alpha Wire 2840/7, 32AWG stranded PTFE, eight colours','maximum_wire_od_mm':WIRE_OD,'required_bend_radius_mm':WIRE_OD*10,'minimum_modeled_bend_radius_mm':round(min(r.min(),RADIUS),4),'free_wire_length_spec_mm':'24.5 +/- 0.5; between housing wire exits, not including termination allowance','screen_pose':'180deg about Y from official STEP, plus Z17.75mm; tab points -X','connections':records,'scope':'Nominal static routing; termination microgeometry simplified. Verify connector revision, crimp pull strength and service slack on the first physical assembly.'}
- assert report['minimum_modeled_bend_radius_mm']>=report['required_bend_radius_mm']
+ report={'harness':'Original cable included with Waveshare 19192; shortened at its jumper end','included':True,'custom_harness_required':False,'board_connection':'Direct soldered through J6; optional 2.54mm male header NOT populated','housing':'Original PH2.0 8-pin display plug retained','wire':'Original included wires; no replacement wire or crimp contacts purchased','wire_od_design_envelope_mm':WIRE_OD,'nominal_dressing_bend_radius_mm':2.0,'manufacturer_bend_radius':'Unpublished; fit must be measured; no bend qualification claimed','trim_instruction':'Trial-route supplied lead; target about 35.5mm insulated span from PH housing back, plus 3.4mm stripped board end. Trim each wire to its actual dressed path; solder tails <=0.8mm below PCB. Do not cut the PH plug off.','screen_pose':'180deg about Y from official STEP, plus Z17.75mm; tab points -X','connections':records,'scope':'Cable type and 20cm package length verified on Waveshare product page/photo. Plug is a PH nominal envelope; supplier does not publish wire OD, contact microgeometry or free-wire dimensions. These design-envelope CAD checks do not establish physical fit. Verify actual supplied cable, dressed bends, pull/strain relief, continuity and stock plug revision before fabrication/assembly signoff.'}
  return parts,report
 if __name__=='__main__':
- parts,report=build();out=Path(__file__).resolve().parent/'harness.json';out.write_text(json.dumps(report,indent=2)+'\n');print(report['connections'][0]['free_wire_centerline_length_mm'],report['minimum_modeled_bend_radius_mm'])
+ parts,report=build();out=Path(__file__).resolve().parent/'harness.json';out.write_text(json.dumps(report,indent=2)+'\n');print([r['modeled_insulated_wire_length_mm'] for r in report['connections']])

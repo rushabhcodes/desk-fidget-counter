@@ -3,21 +3,10 @@ Building assembly.circuit.tsx...
 Generating circuit JSON...
 Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
 Circuit JSON written to dist/assembly/circuit.json
-J6 is facing x+ but should face x- so the connector is accessible from the board edge
 Trace [.U1 > .VSSA to .C8 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VSS1 to .C9 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VSS2 to .C10 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
 Trace [.U1 > .VDD2 to .C11 > .pin1] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
-.J6 > .pin6 to net.LCD_MOSI has a 7.59 mm segment on top at 321.62°, 6.62° from the nearest allowed direction (315°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.J6 > .pin5 to net.LCD_SCK has a 6.50 mm segment on top at 334.39°, 19.39° from the nearest allowed direction (315°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PB15 to net.SPI_MOSI has a 5.28 mm segment on top at 114.61°, 20.39° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA8 to net.LCD_CS has a 6.12 mm segment on bottom at 126.95°, 8.05° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA14 to net.SWCLK has a 5.63 mm segment on top at 153.33°, 18.33° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA13 to net.SWDIO has a 7.63 mm segment on bottom at 107.54°, 17.54° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PA13 to net.SWDIO has a 6.71 mm segment on top at 153.39°, 18.39° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PB5 to net.ENC_B has a 6.66 mm segment on bottom at 96.70°, 6.70° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U1 > .PB5 to net.ENC_B has a 6.54 mm segment on bottom at 122.82°, 12.18° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
-.U6 > .GND to net.GND has a 5.47 mm segment on top at 235.36°, 10.36° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
 
 Build complete
   Circuits  1 passed

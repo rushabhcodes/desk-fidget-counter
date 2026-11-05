@@ -1,52 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="0 0 1400 1100"><rect width="1400" height="1100" fill="#f8fafb"/><g font-family="sans-serif" fill="#253844">
-<text x="70" y="60" font-size="30">Desk Knob Rev E2 — Physical wiring</text>
-<text x="70" y="98" font-size="19">H1: permanent PH8-to-PH8 LCD harness · fixed centre · no battery</text>
-<rect x="70" y="150" width="370" height="460" rx="12" fill="#e6ecee"/>
-<rect x="960" y="150" width="370" height="460" rx="12" fill="#e6ecee"/>
-<text x="95" y="186" font-size="22">J6 — PCB header pad numbers</text>
-<text x="980" y="186" font-size="22">Waveshare 19192 labels</text>
-<text x="95" y="226" font-size="18">1  BL   (-19.5, -10.5)</text>
-<path d="M 405 220 L 995 220" stroke="#73828a" stroke-width="9"/>
-<path d="M 405 220 L 995 220" stroke="#ffffff" stroke-width="7"/>
-<circle cx="405" cy="220" r="6" fill="#253844"/><circle cx="995" cy="220" r="6" fill="#253844"/>
-<text x="1020" y="226" font-size="18">1  BL</text>
-<text x="95" y="271" font-size="18">2  RST   (-19.5, -8.5)</text>
-<path d="M 405 265 L 995 265" stroke="#b45cce" stroke-width="7"/>
-<circle cx="405" cy="265" r="6" fill="#253844"/><circle cx="995" cy="265" r="6" fill="#253844"/>
-<text x="1020" y="271" font-size="18">2  RST</text>
-<text x="95" y="316" font-size="18">3  DC   (-19.5, -6.5)</text>
-<path d="M 405 310 L 995 310" stroke="#ee9b34" stroke-width="7"/>
-<circle cx="405" cy="310" r="6" fill="#253844"/><circle cx="995" cy="310" r="6" fill="#253844"/>
-<text x="1020" y="316" font-size="18">3  DC</text>
-<text x="95" y="361" font-size="18">4  CS   (-19.5, -4.5)</text>
-<path d="M 405 355 L 995 355" stroke="#e4d751" stroke-width="7"/>
-<circle cx="405" cy="355" r="6" fill="#253844"/><circle cx="995" cy="355" r="6" fill="#253844"/>
-<text x="1020" y="361" font-size="18">4  CS</text>
-<text x="95" y="406" font-size="18">5  CLK   (-19.5, -2.5)</text>
-<path d="M 405 400 L 995 400" stroke="#528cdd" stroke-width="7"/>
-<circle cx="405" cy="400" r="6" fill="#253844"/><circle cx="995" cy="400" r="6" fill="#253844"/>
-<text x="1020" y="406" font-size="18">5  CLK</text>
-<text x="95" y="451" font-size="18">6  DIN   (-19.5, -0.5)</text>
-<path d="M 405 445 L 995 445" stroke="#59ac70" stroke-width="7"/>
-<circle cx="405" cy="445" r="6" fill="#253844"/><circle cx="995" cy="445" r="6" fill="#253844"/>
-<text x="1020" y="451" font-size="18">6  DIN</text>
-<text x="95" y="496" font-size="18">7  GND   (-19.5, 1.5)</text>
-<path d="M 405 490 L 995 490" stroke="#222c38" stroke-width="7"/>
-<circle cx="405" cy="490" r="6" fill="#253844"/><circle cx="995" cy="490" r="6" fill="#253844"/>
-<text x="1020" y="496" font-size="18">7  GND</text>
-<text x="95" y="541" font-size="18">8  VCC   (-19.5, 3.5)</text>
-<path d="M 405 535 L 995 535" stroke="#e45555" stroke-width="7"/>
-<circle cx="405" cy="535" r="6" fill="#253844"/><circle cx="995" cy="535" r="6" fill="#253844"/>
-<text x="1020" y="541" font-size="18">8  VCC</text>
-<text x="490" y="635" font-size="18">24.5±0.5 mm free wire span; ≥6.2 mm bends</text>
-<text x="70" y="680" font-size="19">2× PHR-8 · 16× SPH-004T-P0.5S · Alpha 2840/7 32AWG PTFE, eight colours</text>
-<text x="70" y="715" font-size="18">Numbers refer to board pads and LCD signal labels. Verify continuity; plug-back views can reverse apparent order.</text>
-<text x="70" y="770" font-size="24">H2 — Removable JST PH6 programming harness</text>
-<text x="95" y="810" font-size="18">1 VTref 3V3</text><text x="550" y="810" font-size="18">→  ST-LINK/V2 20-pin: 1 VAPP (sense)</text>
-<text x="95" y="842" font-size="18">2 SWDIO</text><text x="550" y="842" font-size="18">→  7 SWDIO</text>
-<text x="95" y="874" font-size="18">3 SWCLK</text><text x="550" y="874" font-size="18">→  9 SWCLK</text>
-<text x="95" y="906" font-size="18">4 NRST</text><text x="550" y="906" font-size="18">→  15 NRST</text>
-<text x="95" y="938" font-size="18">5 GND</text><text x="550" y="938" font-size="18">→  4 GND</text>
-<text x="95" y="970" font-size="18">6 BOOT0</text><text x="550" y="970" font-size="18">→  Empty for SWD; optional recovery jumper to VTref</text>
-<text x="70" y="1040" font-size="18">Power target via USB-C. Remove H2 before closing. Use manufacturing/WIRING.md for connector views and crimp details.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">
+<rect width="1500" height="1000" fill="#f4f7f8"/>
+<g font-family="sans-serif" fill="#203943">
+<text x="65" y="65" font-size="30">Desk knob E3 — Included display lead</text>
+<text x="65" y="105" font-size="20">Keep the original PH display plug; shorten and solder the PCB end. No extra harness parts.</text>
+<text x="100" y="175" font-size="22">J6 — solder pads (header DNP)</text>
+<text x="960" y="175" font-size="22">Waveshare 19192 — PH2.0</text>
+<circle cx="145" cy="230" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="237" font-size="21">1  VCC</text>
+<path d="M 350 230 L 1010 230" stroke="#e45555" stroke-width="5"/>
+<text x="1040" y="237" font-size="21">8  VCC</text>
+<circle cx="145" cy="292" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="299" font-size="21">2  GND</text>
+<path d="M 350 292 L 1010 292" stroke="#222c38" stroke-width="5"/>
+<text x="1040" y="299" font-size="21">7  GND</text>
+<circle cx="145" cy="354" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="361" font-size="21">3  DIN</text>
+<path d="M 350 354 L 1010 354" stroke="#59ac70" stroke-width="5"/>
+<text x="1040" y="361" font-size="21">6  DIN</text>
+<circle cx="145" cy="416" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="423" font-size="21">4  CLK</text>
+<path d="M 350 416 L 1010 416" stroke="#528cdd" stroke-width="5"/>
+<text x="1040" y="423" font-size="21">5  CLK</text>
+<circle cx="145" cy="478" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="485" font-size="21">5  CS</text>
+<path d="M 350 478 L 1010 478" stroke="#e4d751" stroke-width="5"/>
+<text x="1040" y="485" font-size="21">4  CS</text>
+<circle cx="145" cy="540" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="547" font-size="21">6  DC</text>
+<path d="M 350 540 L 1010 540" stroke="#ee9b34" stroke-width="5"/>
+<text x="1040" y="547" font-size="21">3  DC</text>
+<circle cx="145" cy="602" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="609" font-size="21">7  RST</text>
+<path d="M 350 602 L 1010 602" stroke="#8a9296" stroke-width="5"/>
+<text x="1040" y="609" font-size="21">2  RST</text>
+<circle cx="145" cy="664" r="12" fill="#dcbf77" stroke="#203943" stroke-width="3"/>
+<text x="180" y="671" font-size="21">8  BL</text>
+<path d="M 350 664 L 1010 664" stroke="#b45cce" stroke-width="5"/>
+<text x="1040" y="671" font-size="21">1  BL</text>
+<text x="65" y="795" font-size="20">J6: X=−21.5 mm; pin 1 Y=4.39 mm, continuing toward −Y at 2.54 mm pitch.</text>
+<text x="65" y="835" font-size="20">VCC = switched 3.3V. Check continuity against display labels; factory colours may vary.</text>
+<text x="65" y="875" font-size="20">Trial-route before trimming; approx. 35.5 mm insulated span + 3.4 mm stripped PCB end.</text>
+<text x="65" y="915" font-size="20">Stock wire dimensions/bend limits are unpublished. Measure cable and fit before signoff.</text>
 </g></svg>

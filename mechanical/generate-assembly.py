@@ -17,8 +17,8 @@ P=json.loads((ROOT/'parameters.json').read_text())
 OUT=ROOT/'cad';OUT.mkdir(exist_ok=True)
 BOARD_CENTER=P['pcb_bottom_z']+P['pcb_thickness']/2
 parts={};description={}
-colors={'base':'#344752','lid':'#6b8797','knob':'#e9bd65','outer-retainer':'#24292d','inner-retainer':'#95a5ad','screen-bezel':'#95a5ad','button-plunger':'#de744e','bearing':'#b7bec5','fasteners':'#69747e','screen-module':'#2e5846','screen-ui':'#ffffff','bearing-clamp':'#95a5ad','encoder-skirt':'#24292d'}
-explosion={'base':-18,'button-plunger':12,'lid':27,'outer-retainer':38,'bearing':48,'inner-retainer':62,'screen-module':81,'screen-ui':81,'screen-bezel':94,'fasteners':106,'knob':130,'bearing-clamp':58,'encoder-skirt':120}
+colors={'base':'#344752','lid':'#6b8797','knob':'#e9bd65','outer-retainer':'#24292d','inner-retainer':'#95a5ad','screen-bezel':'#95a5ad','bearing':'#b7bec5','fasteners':'#69747e','screen-module':'#2e5846','screen-ui':'#ffffff','bearing-clamp':'#95a5ad','encoder-skirt':'#24292d'}
+explosion={'base':-18,'lid':27,'outer-retainer':38,'bearing':48,'inner-retainer':62,'screen-module':81,'screen-ui':81,'screen-bezel':94,'fasteners':106,'knob':130,'bearing-clamp':58,'encoder-skirt':120}
 for old in OUT.glob('*.obj'):old.unlink()
 def add(name,mesh,note,preserve_colors=False):
  mesh=mesh.copy()
@@ -97,10 +97,12 @@ for exploded in [False,True]:
     for name,mesh in pcb_geometry:
         transform=to_gltf@trimesh.transformations.translation_matrix([0,0,0])
         scene.add_geometry(mesh,node_name='pcb-'+name,geom_name='pcb-'+name,transform=transform)
-    scene.metadata={'description':'Desk fidget counter Rev E2 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP, KiCad package models and nominal datum-based harness. See mechanical/vendor/README.md.'}
+    scene.metadata={'description':'Desk fidget counter Rev E3 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP, KiCad package models and nominal datum-based harness. See mechanical/vendor/README.md.'}
     path=OUT/('exploded.glb' if exploded else 'assembled.glb');scene.export(path)
     reloaded=trimesh.load(path,force='scene');assert len(reloaded.geometry)>=len(parts)
-    if not exploded:assert np.allclose(reloaded.extents,[P['base_diameter']*.001,.0223,P['base_diameter']*.001],atol=.0001),reloaded.extents
+    if not exploded:
+        assert abs(reloaded.extents[0]-P['base_diameter']*.001)<.0001 and abs(reloaded.extents[1]-.0223)<.0001
+        assert reloaded.extents[2]<.086, reloaded.extents
 # Per-part OBJ assets use tscircuit's board-centred mm frame. Vertex colours
 # survive its OBJ loader. Printed STLs remain in their original print frame.
 records=[]
@@ -122,7 +124,7 @@ ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,
 # painter-style preview; the GLB uses its normal depth-tested physical pose.
 ui=parts['screen-ui'];ax.add_collection3d(Poly3DCollection(ui.triangles,facecolors=np.asarray(ui.visual.face_colors,dtype=float)/255,edgecolor='none',zorder=10))
 ax.set(xlim=(-45,45),ylim=(-45,45),zlim=(0,26));ax.set_box_aspect((90,90,26));ax.view_init(55,-110);ax.set_axis_off()
-ax.set_title('Desk knob Rev E2 — fixed 1.28-inch display\nRotating grip ring / front mode button / Ø84.8 × 22.3 mm',pad=10)
+ax.set_title('Desk knob Rev E3 — fixed 1.28-inch display\nRotating grip ring / front mode button / Ø84.8 × 22.3 mm',pad=10)
 fig.tight_layout();fig.savefig(ROOT/'assembly.png',dpi=160);plt.close(fig)
 # Exploded assembly overview for the guide. Offsets are illustrative movements,
 # not claimed disassembly trajectories; assembled dimensions remain authoritative.
@@ -141,7 +143,7 @@ for name,mesh in pcb_geometry:
     display=mesh.copy();display.apply_translation([0,0,0]);polys.extend(display.triangles);facecolors.extend(['#246b47']*len(display.faces))
 ax.add_collection3d(Poly3DCollection(polys,facecolors=facecolors,edgecolor='none',zsort='average'))
 ax.set(xlim=(-42,65),ylim=(-42,42),zlim=(-20,185),xlabel='X / mm',ylabel='Y / mm',zlabel='Z / mm')
-ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Rev E2 — exploded assembly\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
+ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Rev E3 — exploded assembly\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
 fig.tight_layout();fig.savefig(ROOT/'exploded.png',dpi=140);plt.close(fig)
-report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; assembled extents [0.0848,0.0223,0.0848] m','part_count':len(parts),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
+report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front','part_count':len(parts),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
 (OUT/'assembly-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

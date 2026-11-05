@@ -160,21 +160,21 @@ NET: MODE_BTN
   - SW1 pin1
   - U1 PA0
 
-NET: LCD_BL
-  - J6 BL
-  - U1 PB11
-
-NET: LCD_RST
-  - J6 RST
-  - U1 PB10
+NET: LCD_CS
+  - J6 CS
+  - U1 PA8
 
 NET: LCD_DC
   - J6 DC
   - U1 PB14
 
-NET: LCD_CS
-  - J6 CS
-  - U1 PA8
+NET: LCD_RST
+  - J6 RST
+  - U1 PB10
+
+NET: LCD_BL
+  - J6 BL
+  - U1 PB11
 
 NET: SPI_SCK
   - R27 pin1
@@ -480,15 +480,15 @@ SW1 (B3U-3000P)
 - pin1: NETS(MODE_BTN)
 - pin2: NETS(GND)
 
-J6 (S8B-PH-K-S(LF)(SN))
-- pin1(BL): NETS(LCD_BL)
-- pin2(RST): NETS(LCD_RST)
-- pin3(DC): NETS(LCD_DC)
-- pin4(CS): NETS(LCD_CS)
-- pin5(CLK): NETS(LCD_SCK)
-- pin6(DIN): NETS(LCD_MOSI)
-- pin7(GND): NETS(GND)
-- pin8(VCC): NETS(PERIPH_3V3)
+J6 (61300811021)
+- pin1(VCC): NETS(PERIPH_3V3)
+- pin2(GND): NETS(GND)
+- pin3(DIN): NETS(LCD_MOSI)
+- pin4(CLK): NETS(LCD_SCK)
+- pin5(CS): NETS(LCD_CS)
+- pin6(DC): NETS(LCD_DC)
+- pin7(RST): NETS(LCD_RST)
+- pin8(BL): NETS(LCD_BL)
 
 R27 (22Ω undefined)
 - pin1(anode, pos, left): NETS(SPI_SCK)

@@ -11,7 +11,7 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | TYPE-C-31-M-12 | [HRO drawing via LCSC C165948](https://www.lcsc.com/product-detail/usb-connectors_hro-hellen-Type-C-31-M-12_C165948.html) | Original imported copper and drilling retained, including oval shield slots, two 0.6 mm locators, 0.5 mm contact pitch. A6/B6 D+, A7/B7 D−; separate 5.1 kΩ CC1/CC2 Rd; SBU unconnected. All shell tabs grounded. Port faces +Y after 180° rotation. E2 origin is (0,37); the original STEP sets the metal face at Y=42.350 mm and axis Z=5.850 mm. Front body ink overhanging the board is omitted; the mechanical courtyard is retained. |
 | Bearing | [Zoty 6712 family](https://www.zotybearing.com/bearings/6700-Series-Ball-Bearings/Factory-direct-selling-thin-wall-ball-bearing-6712-6712RS-6712-2RSsize-60x75x7mm-bearing), [Maysme 6712](https://maysmeprecision.com/Show/?Cid=677) | 6712ZZ, 60 mm ID ×75 mm OD ×7 mm. Select metal shields; verify race contact widths and starting torque on the actual bearing. |
 
-## Rev E2 display, optical encoder and service connectors
+## Rev E3 display, optical encoder and service connectors
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -20,16 +20,15 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | Optical geometry | Vishay drawing above; [ST RM0091](https://www.st.com/resource/en/reference_manual/dm00031936-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), TIM3 encoder mode | Sensor centred at (−23,+10), gap axis radial, rotation 156.501434°. Radius √629=25.0799 mm. 48 periods give 3.283 mm tangential pitch; 0.8 mm channel spacing gives approximately 87.7° phase. 48×4=192 edges/turn; 6 edges/wheel unit gives 32 units/turn. 950 nm opacity, alignment and contrast require actual tests. |
 | Waveshare 19192 | [Official resources](https://docs.waveshare.net/1.28inch_LCD_Module/Resources-And-Documents/), [schematic/dimensions](https://www.waveshare.net/w/upload/b/b4/1.28inch_LCD_Module_SchDoc.pdf), [GC9A01A](https://www.waveshare.net/w/upload/5/5e/GC9A01A.pdf) | Non-touch 1.28-inch module, 240×240, active Ø32.4 mm, circular PCB Ø37.5 mm with a 14.28 mm-wide tab giving 40.4 mm overall length. 3.3 V input and logic used, nominal published current 31.2 mA. Physical connector 1 BL, 2 RST, 3 DC, 4 CS, 5 CLK, 6 DIN, 7 GND, 8 VCC. Verify cable continuity. |
 | GC9A01 settings | [Waveshare official example archive](https://www.waveshare.net/w/upload/f/fc/LCD_Module_code.zip), RaspberryPi/c/lib/LCD/LCD_1in28.c, 2020-12-16 | `gc9a01-registers.inc` contains transcribed hardware register/value facts, including gamma/power settings. No vendor implementation or font code copied. Own SPI driver, nonblocking startup, original 5×7 glyphs and scanline renderer. RGB565, mode 0, 12 MHz; software CS on PA8, SCK/MOSI on PB13/PB15; MADCTL 0xA8 for the module's left-facing (-X) tab. Validate orientation/colours on hardware. |
-| JST PH6 / PH8 | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), [KiCad S8B footprint](https://github.com/KiCad/kicad-footprints/blob/master/Connector_JST.pretty/JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal.kicad_mod) | J4 B6B-PH-K-S, top-entry: pin 1=(−5,20.5), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. J6 S8B-PH-K-S, top-side side-entry: pin 1=(−19.5,−10.5), BL/RST/DC/CS/CLK/DIN/GND/VCC. .75 mm drills, 1.2×1.75 mm lands. Side-entry height 4.8 mm, housing depth 7.6 mm; mated envelope 9.6 mm from the datasheet assembly drawing. |
+| JST PH6 programming | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) | J4 B6B-PH-K-S, top-entry: pin 1=(−5,20.5), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. Six Ø0.75 mm drills and 1.2×1.75 mm lands. Display termination J6 is described below; the former board PH8 header is removed. |
 
-# Rev E2 USB-only supply and dashboard
+# Rev E3 USB-only supply and dashboard
 
 | Item | Primary source | Contract |
 |---|---|---|
 | TPS22919DCKR / U4 | [TI SLVSEN5B](https://www.ti.com/lit/ds/symlink/tps22919.pdf), DCK SC70-6 | 1 IN=3.3V, 2 GND, 3 ON=PB2, 4 NC, 5 QOD=VOUT, 6 VOUT=PERIPH_3V3; 1.6–5.5V input, 1.5A rating, controlled ramp; external 100k ON pulldown. Not the former BQ24074 footprint. |
 | USB cable | [L-com CAU4CC-40M-1M drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf) | Real 1m C-to-C data cable, 12.9×6.4mm nominal plug cross-section; its general .XX-inch tolerance is ±0.5 mm, so the approach gauge is 13.4×6.9 mm. USB2.0/5V use only. Insertion shoulder, tolerance and strain relief require actual fit verification. |
-| Harness contacts | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), pp.1–3 | PHR-8 17.8×4.5×6.85mm; SPH-004T-P0.5S accepts 32–28AWG, 0.5–0.9mm insulation. Top-entry mated height 8mm; through-hole side-entry mated depth 9.6mm. |
-| Harness wire | [Alpha 2840/7](https://www.alphawire.com/products/wire/hook-up-wire/premium/2840_7) | 32AWG 7/40 stranded silver-plated copper, PTFE, OD .022±.002in (max .6096mm), bend radius 10×OD. Model uses ≥6.2mm radius. At the published 157Ω/1000ft, a roughly 30mm power conductor is about 15.5mΩ; supply/return drop at 32mA is about 1mV. Terminations must use the correct contact/tool. |
+| Programming harness contacts | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), pp.1–3 | PHR-6 service housing; SPH-004T-P0.5S accepts 32–28AWG, 0.5–0.9mm insulation. The supplied display cable keeps its original factory PH plug and contacts; no new display crimps are purchased. |
 | Screen 3D | [Waveshare original archive](https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip) | 0508.stp: 40.453106×37.5×9.2mm bounds. Rigid 180° Y rotation +Z17.75 aligns front Z20.9, carrier back Z17.3 and rear connector bottom Z11.7. No dimensional scaling. |
 | Host metrics | [psutil API](https://psutil.readthedocs.io/), [PySerial API](https://pyserial.readthedocs.io/en/latest/pyserial_api.html) | cpu_percent, virtual_memory.percent, sensors_battery; local datetime; USB CDC at 1Hz. Missing battery is -1, stale threshold 5s. Metrics are host-reported, not measured by the knob. |
 | Schematic review | [tscircuit handbook](https://github.com/tscircuit/handbook/blob/main/guides/preparing-for-design-review.md) | Descriptive sheet names, readable labels and chip-function/rating annotations using schematictext. |
@@ -37,13 +36,13 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 
 VBUS feeds U5 directly; no cell, charging circuit or thermistor remains. C5=1µF on VBUS and C6=4.7µF on 3.3V are the regulator's local ceramic capacitors. U4's C2/C3=1µF bypass input/output. U4 supplies the screen and IR emitter; the MCU/FRAM/Schmitt buffers remain on 3.3V. GPIOs to the LCD are driven low before U4 is disabled, avoiding back-power through unpowered module input protection.
 
-USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev E2.
+USB configuration requests 100mA, bus-powered. The screen's published nominal current is 31.2mA and the 150Ω IR branch about 14mA; MCU, FRAM and logic add to these. The nominal budget is below 100mA, but maximum active draw, VBUS inrush, regulator temperature and suspended current need measurement. U5's nominal loss is (5−3.3)×load current, e.g. 0.136W at 80mA. No runtime or charge-current claim applies to Rev E3.
 
 The 48-slot ring and sensor locations remain unchanged. LCD carrier and cable are fixed; the manufacturer model and exact specified nominal harness are checked against the rotating swept volume. Supplier models and package solids still omit fine moulding/optical/crimp features; see mechanical/vendor/README.md.
 
-## Rev E2 component audit
+## Rev E3 component audit
 
-Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The revised board has 39 real, populated components.
+Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The revised board has 38 populated components and an optional DNP header footprint.
 
 | Change | Reason |
 |---|---|
@@ -58,3 +57,9 @@ Every one of the previous 45 populated references was reviewed; [component-audit
 | C10 →0402; add C18 4.7 µF | Retain 100 nF local VDDIO2 bypass with [Murata GRM155R71C104KA88D](https://www.farnell.com/datasheets/4087776.pdf), 16 V X7R, 1.0×0.5×0.5 mm nominal, and add local bulk. |
 
 U4 and its local capacitors/pulldown remain necessary: the LDO cannot separately disconnect LCD/IR while leaving MCU/FRAM powered during USB suspend. The FRAM, Schmitt conditioner, CC resistors, BOOT0 bias, I²C pull-ups, IR limiter/loads, SPI damping, programming/display connectors and local supply bypass capacitors remain for their documented functions. No external crystal is needed because this MCU uses HSI48/CRS for USB. Firmware 5.0.0 is required for the momentary control and internal pull-up.
+
+## E3 direct button and included cable correction
+
+The board now puts SW1 at (0,−40.9), with the native actuator at Y−42.85 and axis Z4.8. Its original STEP gives a 1.7×1.0 mm actuator face; the front PCB tab and case relief remove the need for a plunger. The B3U datasheet's 0.10–0.40 mm pretravel is retained.
+
+The [Waveshare product package](https://www.waveshare.com/product/1.28inch-lcd-module.htm) explicitly includes a PH2.0 8PIN 20cm cable. Its [photo](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg) shows eight individual female jumper ends. The former board PH8 header did not accept those sockets. E3 uses the shortened original cable directly at J6; no new harness parts. Optional [Würth 61300811021](https://www.we-online.com/components/products/datasheet/61300811021.pdf) is DNP. Its 2.54 mm row has eight Ø1.2 mm holes within the published Ø1.1±0.2 mm pattern. Stock wire/terminal dimensions and bend limits are unpublished; CAD cable envelopes remain provisional.

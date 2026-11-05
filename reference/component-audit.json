@@ -1,7 +1,7 @@
 {
   "baseline": "v4.1.0 / 45 components",
-  "revision": "Rev E2 / v5.1.0",
-  "active_component_count": 39,
+  "revision": "Rev E3 / v5.2.0",
+  "active_component_count": 38,
   "sources": {
     "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
     "STM32_hardware": "https://www.st.com/resource/en/application_note/an4080-getting-started-with-stm32f0x1x2x8-hardware-development-stmicroelectronics.pdf",
@@ -124,8 +124,9 @@
     {
       "reference": "J6",
       "previous_mpn": "S8B-PH-K-S(LF)(SN)",
-      "decision": "keep",
-      "reason": "Keyed detachable display harness."
+      "decision": "replace",
+      "reason": "JST PH board header did not mate with included jumper sockets. J6 becomes 2.54mm cable-termination pads; optional male header DNP in compact supplied-cable build.",
+      "new_mpn": "61300811021 (optional DNP)"
     },
     {
       "reference": "LED1",
@@ -233,7 +234,7 @@
       "reference": "SW1",
       "previous_mpn": "G12AH",
       "decision": "replace",
-      "reason": "Replace inaccessible toggle with Omron B3U-3000P front-side momentary button.",
+      "reason": "Original side-operated Omron switch moves to front PCB tab for direct finger access; no printed plunger or extra cap.",
       "new_mpn": "B3U-3000P"
     },
     {
@@ -299,5 +300,9 @@
       "mpn": "GRM21BR61A475KA73L"
     }
   ],
-  "mechanical_revision_note": "USB cluster J1/U6/C1/R1/R2 translated +9 mm on integral PCB tab; 39-part population and firmware 5.0.0 pin assignments retained."
+  "mechanical_revision_note": "USB cluster J1/U6/C1/R1/R2 translated +9 mm on integral PCB tab; 39-part population and firmware 5.0.0 pin assignments retained.",
+  "optional_unpopulated_components": [
+    "J6"
+  ],
+  "display_cable": "Use the cable included with Waveshare 19192. Shorten and solder at J6; original PH plug retained. No custom harness required."
 }

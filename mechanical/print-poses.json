@@ -23,10 +23,6 @@
     "inverted": false,
     "z": 20.9
   },
-  "button-plunger": {
-    "inverted": false,
-    "z": 2.3000000000000003
-  },
   "bearing-clamp": {
     "inverted": false,
     "z": 19.0

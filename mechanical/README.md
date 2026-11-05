@@ -1,21 +1,20 @@
-# Rev E2 mechanical CAD
+# Rev E3 mechanical CAD
 
-Nominal envelope **Ø84.8×22.3 mm**, rotating grip Ø84.8 mm starting Z=10.8 mm, fixed screen bezel Ø48 mm. USB-C is moved to the shell wall on a 9 mm PCB extension; a guided horizontal front plunger reaches the Omron side button opposite USB. All 39 board components assemble from above.
+The case body remains **Ø84.8×22.3 mm**, with the fixed 1.28-inch display and side USB. The original B3U-3000P switch moves to a supported front PCB tab and is pressed directly through the case aperture. There is no printed plunger, guide or keeper. Its nominal 1.7×1.0 mm actuator projects 0.65 mm beyond the wall; at maximum specified pretravel it still projects 0.25 mm. The body plus actuator has a front-to-back envelope of about 85.25 mm.
 
-- `cad/assembled.glb` and `cad/exploded.glb`: named product parts plus actual source-PCB geometry and package models, glTF metres/+Y-up.
-- `stl/`: nine printable product parts and a bearing-fit coupon, in print orientation.
-- `parameters.json`, `generate.py`: nominal millimetre geometry and clearance checks.
-- `vendor/`: original Waveshare STEP, KiCad package STEP/OBJ models and provenance. No axis scaling of bought parts.
-- `harness.py` / `harness.json`: individual H1 wire curves, pin mapping, housing dimensions and minimum bend radius.
-- `cad/*.obj`: PCB-centred millimetres/+Z-up for the tscircuit assembly viewer.
+The custom PH-to-PH harness is removed. Use the display's included PH2.0-to-jumper lead, shorten it, and solder its PCB ends at J6. The original display plug stays removable. The optional 2.54 mm header is DNP and absent from the compact assembly. See [wiring](../manufacturing/WIRING.md) for actual pad coordinates, signal mapping and cutting/continuity checks.
 
-The PCB underside/top are Z=2.6/4.2 mm. Screen carrier underside/top are Z=17.3/18.3, front Z=20.9, bezel top Z=22.3. The 6712ZZ bearing occupies Z=12…19 mm. The official screen source spans 40.453106×37.5×9.2 mm, rigidly rotated 180° about Y so the tab faces -X; the rear connector reaches Z=11.7. The cable uses a 24.209 mm nominal free path and 6.2 mm minimum bend radius, with 0.6096 mm maximum wire diameter.
+Eight product prints and the fit coupon are in `stl/`. `cad/assembled.glb` and `cad/exploded.glb` contain the actual source PCB, 38 populated package models, fixed screen and eight wires. OBJ assets use PCB-centred mm/+Z-up; glTF uses metres/+Y-up. Purchased parts are not rescaled.
 
-The former battery tray and toggle opening are removed. The lid captures the front plunger above its open-top base guide; its thin nose clears the PCB edge. An exact swept solid checks every nominal pose through the complete 0.40 mm stroke and confirms contact with the real actuator. The longer guide and 0.6 mm nose keep at least 0.16 mm above the PCB in the conservative nominal downward-play calculation; FDM dimensional error remains unqualified. Actual switch pretravel and printed fit must be measured and the nose/stop adjusted before use. A 34.6×40.6 mm routed PCB window accommodates the rear connector and cable below the screen. The base is 1.2 mm smaller in diameter; the bearing and retained clearances continue to set overall height. [Stack/research](LOW_PROFILE.md), [assembly sequence](../ASSEMBLY.md), [wiring and cable dimensions](../manufacturing/WIRING.md), [supplier geometry and limitations](vendor/README.md).
+The window is 34.6×40.6 mm with R2 corners. PCB underside/top remain Z=2.6/4.2 mm; screen carrier underside/top are Z=17.3/18.3, front Z=20.9, bezel top Z=22.3. The 60×75×7 mm bearing remains at Z=12…19. The official Waveshare STEP is rigidly transformed, unscaled. The rear socket remains flush at Y42.35003, axis Z5.85. Its continuous 13.4×6.9 mm plug approach gauge includes the source drawing's nominal dimensions and general tolerance.
+
+`parameters.json`, `generate.py`, `harness.py` and `generate-assembly.py` define the geometry and checks. The button check uses a 12 mm fingertip sphere at the maximum depressed actuator position and permits contact only with the original switch actuator. A 0.25 mm PCB-nose relief clears the FR-4 while retaining the shell wall; the base supports the tab and two lid pads restrain it from above. All package, wire, screen and swept-rotor checks remain enabled.
+
+**Cable limits:** Waveshare publishes its included cable type and 20 cm package length, but no wire OD, free-wire length, bend radius or sleeve dimensions. The drawings use explicit nominal PH and Ø1 mm wire fit envelopes. The 2 mm dressing bend is provisional, not manufacturer-qualified. Actual supplied cable dimensions, dressed bends, termination strength and fit must be measured before fabrication/assembly signoff; CAD does not establish these facts.
 
 ## Generate
 
-After installing the pinned project dependencies and the Python geometry packages listed in `vendor/README.md`:
+With the pinned Bun dependencies and Python geometry packages from [vendor provenance](vendor/README.md):
 
 ```sh
 bun run build
@@ -27,8 +26,6 @@ bun run check:assembly
 python mechanical/render.py
 ```
 
-The CAD renderer additionally needs pyrender 0.1.45, PyOpenGL 3.1.10, Pillow and Mesa EGL. Run `render.py` last for depth-tested previews. Model URLs resolve to the immutable GitHub tag for the package version; the PCB CAD exporter uses the identical checked-in bytes locally before publication.
+The renderer uses pyrender 0.1.45, PyOpenGL 3.1.10, Pillow and Mesa EGL. Versioned model URLs resolve to the immutable release tag. The local exporter uses those same checked-in bytes before publication. Prototype the bearing fit, direct-button access, stock cable dressing, printed tolerances, 950 nm opacity and optical response before production.
 
-The checks establish nominal mesh integrity, swept moving-part clearances and source-derived placement. Print a coupon and prototype first: FDM tolerance, actual bearing race widths/drag, cable crimp/retention, screw seating, optical opacity and feel have not been physically measured.
-
-`usb-access.png` and `usb-access-comparison.png` are depth-tested renders of the actual socket and shell. `geometry-check.json` records a complete maximum-plug-body approach prism (13.4×6.9 mm including drawing tolerance), aligned to the original STEP axis at Z=5.85 mm. The prism is a clearance gauge; its arbitrary checking length is not a claimed cable dimension. It clears all 39 packages, actual PCB material, stationary parts and the full rotor sweep. No bought part is scaled.
+The comparison renders use actual immutable predecessor assemblies at identical camera scale: [v5.1.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.1.0/assembled.glb) for the old plunger and [v5.0.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.0.0/assembled.glb) for the old USB recess. `render.py --button-before … --usb-before …` accepts these downloaded GLBs.

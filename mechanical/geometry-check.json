@@ -1,7 +1,7 @@
 {
   "base": {
     "watertight": true,
-    "volume_mm3": 14928.22,
+    "volume_mm3": 14835.6,
     "bounds_mm": [
       [
         -42.4,
@@ -17,7 +17,7 @@
   },
   "lid": {
     "watertight": true,
-    "volume_mm3": 8486.31,
+    "volume_mm3": 8492.25,
     "bounds_mm": [
       [
         -42.05,
@@ -95,22 +95,6 @@
       ]
     ]
   },
-  "button-plunger": {
-    "watertight": true,
-    "volume_mm3": 51.88,
-    "bounds_mm": [
-      [
-        -2.6,
-        -42.4,
-        0.0
-      ],
-      [
-        2.6,
-        -33.55,
-        5.2
-      ]
-    ]
-  },
   "bearing-clamp": {
     "watertight": true,
     "volume_mm3": 809.04,
@@ -159,33 +143,33 @@
       ]
     ]
   },
-  "purchased_package_models_checked": 39,
+  "purchased_package_models_checked": 38,
   "individual_wires_checked": 8,
   "front_button": {
     "part": "Omron B3U-3000P",
     "pcb_center": [
       0,
-      -31.5
+      -40.9
     ],
     "pcb_rotation_deg": 180,
-    "axis_z": 4.9,
-    "actuator_front_y": -33.45,
-    "rest_tip_y": -33.55,
-    "nominal_free_gap_mm": 0.1,
-    "plunger_travel_mm": 0.4,
-    "nominal_switch_travel_mm": 0.3,
+    "axis_z": 4.8,
+    "actuator_front_y": -42.85,
     "datasheet_pretravel_mm": {
       "min": 0.1,
       "typ": 0.2,
       "max": 0.4
     },
-    "fit_status": "Nominal CAD only. Measure actual switch pretravel and printed gap; tune plunger and stop before use. Do not force beyond measured actuation.",
-    "tip_radius_mm": 0.3,
-    "guide_end_y": -35.2,
-    "stem_radial_clearance_mm": 0.15
+    "direct_actuation": true,
+    "opening_width_mm": 8,
+    "opening_bottom_z": 4.2,
+    "opening_top_z": 6.0,
+    "finger_check_radius_mm": 6,
+    "fit_status": "Direct original switch actuator; no separate cap or plunger. Nominal CAD only; measure actuator tolerance, force and accessibility on the prototype."
   },
-  "complete_button_stroke_sweep_checked": true,
-  "front_button_nominal_play_clearance_mm": 0.1632,
+  "direct_finger_access_checked": true,
+  "separate_button_plunger": false,
+  "button_projection_beyond_wall_mm": 0.65,
+  "pressed_button_projection_beyond_wall_mm": 0.25,
   "USB_access": {
     "axis_z": 5.85,
     "socket_face_y": 42.35003,
@@ -206,7 +190,7 @@
     "outer_case_diameter_mm": 84.8,
     "socket_recess_from_floor_outer_edge_mm": 0.05,
     "socket_projection_beyond_side_wall_mm": 0.15,
-    "PCB_front_edge_mm": 41.099999999999994,
+    "PCB_front_edge_mm": 41.1,
     "plug_body_to_PCB_axial_gap_mm": 1.25,
     "maximum_plug_approach_sweep_checked": true,
     "all_package_and_PCB_clearances_checked": true

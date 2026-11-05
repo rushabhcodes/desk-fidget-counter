@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import trimesh,pyrender
 from PIL import Image,ImageDraw,ImageFont
-args=argparse.ArgumentParser();args.add_argument('--compare-to',type=Path);args.add_argument('--usb-before',type=Path);options=args.parse_args()
+args=argparse.ArgumentParser();args.add_argument('--compare-to',type=Path);args.add_argument('--usb-before',type=Path);args.add_argument('--button-before',type=Path);options=args.parse_args()
 ROOT=Path(__file__).resolve().parent
 source=trimesh.load(ROOT/'cad/assembled.glb',force='scene')
 
@@ -41,7 +41,7 @@ if options.compare_to:
  comparison=Image.new('RGB',(2800,1170),(247,249,250));comparison.paste(old,(0,120));comparison.paste(new,(1400,120))
  draw=ImageDraw.Draw(comparison);font=ImageFont.load_default(size=36)
  draw.text((100,30),'Previous Rev B · 47 mm',(36,57,67),font=font)
- draw.text((1500,30),'Rev E2 · 22.3 mm · 52.6% lower',(36,57,67),font=font)
+ draw.text((1500,30),'Rev E3 · 22.3 mm · 52.6% lower',(36,57,67),font=font)
  draw.text((1500,80),'Same scale; side USB-C retained',(73,95,106),font=ImageFont.load_default(size=24))
  comparison.save(ROOT/'height-comparison.png');old_path.unlink()
  print('Rendered previous/current side profiles at identical camera scale')
@@ -52,7 +52,7 @@ for node in list(cutaway.graph.nodes_geometry):
  if node in ['lid','knob','outer-retainer','bearing','screen-bezel','encoder-skirt','bearing-clamp','screen-module','screen-ui','fasteners']:
   cutaway.graph.transforms.remove_node(node)
 render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
-print('Rendered PCB, actual packages, JST plugs and eight static wires in cutaway')
+print('Rendered PCB, actual packages, original display plug and eight supplied wires in cutaway')
 
 # Rear USB close-up uses the actual assembled meshes and a common camera.
 usb_eye=[.004,.014,-.13];usb_target=[0,.007,-.039]
@@ -65,7 +65,21 @@ if options.usb_before:
  out=Image.new('RGB',(2800,810),(247,249,250));out.paste(a,(0,110));out.paste(b,(1400,110))
  d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
  d.text((45,25),'Before: USB mouth recessed 9.65 mm',(36,57,67),font=font)
- d.text((1445,25),'Rev E2: USB mouth at the side wall',(36,57,67),font=font)
+ d.text((1445,25),'Rev E3: USB mouth at the side wall',(36,57,67),font=font)
  d.text((1445,70),'Shell diameter 86 -> 84.8 mm; height stays 22.3 mm',(73,95,106),font=ImageFont.load_default(size=24))
  out.save(ROOT/'usb-access-comparison.png');temp.unlink()
 print('Rendered USB side access from the actual CAD')
+
+# Real front actuator/PCB extension compared at the same camera scale.
+front_eye=[.006,.013,.13];front_target=[0,.005,.039]
+render(front_eye,front_target,ROOT/'button-access.png',1400,700,xmag=.018,ymag=.009)
+if options.button_before:
+ previous=trimesh.load(options.button_before,force='scene');temp=ROOT/'cad/.button-before.png'
+ render(front_eye,front_target,temp,1400,700,model=previous,xmag=.018,ymag=.009)
+ out=Image.new('RGB',(2800,810),(247,249,250));out.paste(Image.open(temp).convert('RGB'),(0,110));out.paste(Image.open(ROOT/'button-access.png').convert('RGB'),(1400,110))
+ d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
+ d.text((45,25),'Before: separate printed button plunger',(36,57,67),font=font)
+ d.text((1445,25),'E3: original switch, directly accessible',(36,57,67),font=font)
+ d.text((1445,70),'Supported PCB tab; no added button cap or plunger',(73,95,106),font=ImageFont.load_default(size=24))
+ out.save(ROOT/'button-access-comparison.png');temp.unlink()
+ print('Rendered direct button before/after from real CAD')

@@ -363,5 +363,28 @@
       "z": 0.5
     },
     "pin_tail_trim_mm": null
+  },
+  "header8-ra": {
+    "step": "mechanical/vendor/step/PinHeader_1x08_P2.54mm_Horizontal.step",
+    "obj": "mechanical/vendor/obj/header8-ra.obj",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/blob/master/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Horizontal.step",
+    "bounds": [
+      [
+        -10.159999237060546,
+        -10.03999996185303,
+        -2.4
+      ],
+      [
+        10.159999980926514,
+        0.3199999928474426,
+        2.5399999618530273
+      ]
+    ],
+    "size": {
+      "x": 20.31999921798706,
+      "y": 10.359999954700472,
+      "z": 4.939999961853028
+    },
+    "pin_tail_trim_mm": null
   }
 }

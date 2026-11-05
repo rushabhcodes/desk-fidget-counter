@@ -5,6 +5,7 @@ import shutil,subprocess,json,sys
 import trimesh,numpy as np
 root=Path(__file__).resolve().parents[2];out=root/'mechanical/vendor';lib=Path('/usr/share/kicad/3dmodels')
 models={
+'header8-ra':'Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Horizontal.step',
 'b3u3000':'Button_Switch_SMD.3dshapes/SW_SPST_B3U-3000P.step',
 'lqfp48':'Package_QFP.3dshapes/LQFP-48_7x7mm_P0.5mm.step',
 'soic8':'Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step',
@@ -31,6 +32,11 @@ for name,relative in models.items():
   mesh.apply_translation([-5 if name=='jst-ph6' else -7,0,0]);mesh.vertices[:,2]=np.maximum(mesh.vertices[:,2],-2.4)
   mesh.update_faces(mesh.nondegenerate_faces());mesh.merge_vertices()
   colors=np.tile([231,228,212,255],(len(mesh.vertices),1));colors[mesh.vertices[:,2]<0]=[170,176,182,255]
+ elif name=='header8-ra':
+  mesh.apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[0,0,1]));mesh.apply_translation([8.89,0,0])
+  mesh.vertices[:,2]=np.maximum(mesh.vertices[:,2],-2.4)
+  mesh.update_faces(mesh.nondegenerate_faces());mesh.merge_vertices()
+  colors=np.tile([40,42,47,255],(len(mesh.vertices),1));colors[(mesh.vertices[:,1]<-4.04)|(mesh.vertices[:,2]<0)]=[190,171,95,255]
  else:
   # Material colours only; package geometry is unchanged from the upstream STEP.
   span=mesh.extents;coords=mesh.vertices

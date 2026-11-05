@@ -1,9 +1,9 @@
-Harness,Board,Board pin,Signal,Wire colour,Screen pin,Free wire span mm,Wire,Contacts
-H1,J6,1,BL,#ffffff,1,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,2,RST,#b45cce,2,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,3,DC,#ee9b34,3,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,4,CS,#e4d751,4,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,5,CLK,#528cdd,5,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,6,DIN,#59ac70,6,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,7,GND,#222c38,7,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
-H1,J6,8,VCC,#e45555,8,24.5 +/-0.5,Alpha 2840/7 32AWG,SPH-004T-P0.5S both ends
+Assembly,PCB pad,PCB pad XY mm,Signal,Original screen pin,Modeled insulated span mm,Required purchased parts
+Included Waveshare lead; shorten PCB end,1,"-21.50,4.39",VCC,8,35.222,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,2,"-21.50,1.85",GND,7,35.286,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,3,"-21.50,-0.69",DIN,6,35.368,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,4,"-21.50,-3.23",CLK,5,35.467,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,5,"-21.50,-5.77",CS,4,35.584,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,6,"-21.50,-8.31",DC,3,35.717,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,7,"-21.50,-10.85",RST,2,35.867,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,8,"-21.50,-13.39",BL,1,36.032,None; retain factory PH display plug

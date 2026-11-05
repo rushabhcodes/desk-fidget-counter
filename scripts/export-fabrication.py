@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manufacturing'
 OUT.mkdir(exist_ok=True)
 raw=Path(sys.argv[1])
-boardpath=OUT/'desk-knob-reve2.kicad_pcb'
+boardpath=OUT/'desk-knob-reve3.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),
@@ -23,6 +23,11 @@ loaded_boards=[b]
 source=json.loads((ROOT/'dist/index/circuit.json').read_text())
 expected={c['name'] for c in source if c['type']=='source_component'}
 assert {f.GetReference() for f in b.GetFootprints() if f.GetReference()}==expected, 'Raw KiCad export is stale; export the current circuit JSON first'
+# Preserve the source's optional-component population flag in KiCad.
+dnp={c['source_component_id'] for c in source if c['type']=='pcb_component' and c.get('do_not_place')}
+dnp_refs={c['name'] for c in source if c['type']=='source_component' and c['source_component_id'] in dnp}
+for fp in b.GetFootprints():
+ if fp.GetReference() in dnp_refs:fp.SetDNP(True)
 # All coordinates and nets come from tscircuit; refill removes floating copper islands.
 for priority,z in enumerate(b.Zones(),1):
     if z.GetIsRuleArea():
@@ -115,7 +120,7 @@ with position_file.open(newline='') as f:
 fields=list(rows[0]); rows=[r for r in rows if r['Ref']]
 with position_file.open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(rows)
-assert {r['Ref'] for r in rows}==expected, 'Placement population differs from the source BOM'
+assert {r['Ref'] for r in rows}==expected-dnp_refs, 'Placement population differs from the source BOM'
 
 # Normalize generator whitespace without changing plotted geometry.
 for svg in gerbers.glob('*.svg'):

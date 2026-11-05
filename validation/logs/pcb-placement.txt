@@ -2,12 +2,12 @@ $ bun validation/check-placement.mjs
 placement summary: no placement issues
 
 board top-layer utilization:
-- occupied: 13.558% (692.379mm^2 of 5106.8mm^2)
+- occupied: 13.335% (754.439mm^2 of 5657.6mm^2)
 - empty spaces over 5% of board area:
-  - 24.403% (1246.223mm^2); bounds=(minX=-12.75mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
-  - 10.283% (525.124mm^2); bounds=(minX=11.53mm, maxX=34mm, minY=17.73mm, maxY=41.1mm)
-  - 7.33% (374.306mm^2); bounds=(minX=-34mm, maxX=-23.68mm, minY=-34mm, maxY=2.27mm)
-  - 5.385% (275.016mm^2); bounds=(minX=-34mm, maxX=-17.2mm, minY=24.73mm, maxY=41.1mm)
+  - 21.008% (1188.527mm^2); bounds=(minX=-11.3mm, maxX=18.57mm, minY=-23.52mm, maxY=16.27mm)
+  - 9.282% (525.124mm^2); bounds=(minX=11.53mm, maxX=34mm, minY=17.73mm, maxY=41.1mm)
+  - 7.623% (431.276mm^2); bounds=(minX=-34mm, maxX=-24.28mm, minY=-42.1mm, maxY=2.27mm)
+  - 5.98% (338.342mm^2); bounds=(minX=22.48mm, maxX=34mm, minY=-42.1mm, maxY=-12.73mm)
 
 board-edge status:
 - U1: 3.9mm inside right edge
@@ -16,19 +16,19 @@ board-edge status:
 - R2: 4.625mm inside top edge
 - U6: 6.05mm inside top edge
 - C1: 6.475mm inside top edge
-- U4: 4.175mm inside bottom edge
-- C2: 4.525mm inside bottom edge
-- C3: 1.525mm inside bottom edge
-- R21: 7.775mm inside bottom edge
-- U5: 5.25mm inside bottom edge
-- C5: 5.525mm inside bottom edge
-- C6: 8.3mm inside bottom edge
-- C7: 10.325mm inside right edge
-- C8: 7.02mm inside right edge
+- U4: 12.275mm inside bottom edge
+- C2: 12.625mm inside bottom edge
+- C3: 9.625mm inside bottom edge
+- R21: 15.875mm inside bottom edge
+- U5: 13.35mm inside bottom edge
+- C5: 13.625mm inside bottom edge
+- C6: 9.975mm inside left edge
+- C7: 9.5mm inside right edge
+- C8: 6.76mm inside right edge
 - C9: 2.425mm inside right edge
 - C10: 10.52mm inside right edge
 - C11: 14.225mm inside right edge
-- C17: 6.26mm inside right edge
+- C17: 6mm inside right edge
 - C18: 10.277mm inside right edge
 - C12: 8.375mm inside right edge
 - C13: 5.275mm inside right edge
@@ -44,14 +44,13 @@ board-edge status:
 - R13: 9.775mm inside left edge
 - U3: 10.895mm inside top edge
 - C16: 9.625mm inside top edge
-- SW1: 1.65mm inside bottom edge
-- J6: 13.625mm inside left edge
+- SW1: 0.35mm inside bottom edge
+- J6: 11.5mm inside left edge
 - R27: 13.775mm inside right edge
 - R28: 10.775mm inside right edge
 - C15: 4.775mm inside left edge
 
 placement drc:
 Errors: 0
-Warnings: 1
-- pcb_connector_not_in_accessible_orientation_warning: J6 is facing x+ but should face x- so the connector is accessible from the board edge
-Placement passed: no orientation or courtyard issues. J6 faces the internal PCB window, verified with its actual housing and harness. Full copper, shorts and independent KiCad checks remain required.
+Warnings: 0
+Placement passed: no orientation or courtyard issues. J6 is the labelled cable termination row; the optional header is DNP. Full copper, shorts and independent KiCad checks remain required.

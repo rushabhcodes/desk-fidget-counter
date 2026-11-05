@@ -120,26 +120,6 @@
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
-    "name": "button-plunger",
-    "printed": true,
-    "color": "#de744e",
-    "asset": "button-plunger.obj",
-    "bounds_pcb_mm": [
-      [
-        -2.6,
-        -42.400002,
-        -1.1
-      ],
-      [
-        2.6,
-        -33.549999,
-        4.1
-      ]
-    ],
-    "explode_z_mm": 12,
-    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
-  },
-  {
     "name": "bearing-clamp",
     "printed": true,
     "color": "#95a5ad",
@@ -220,26 +200,6 @@
     "description": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm"
   },
   {
-    "name": "lcd-cable-board-plug",
-    "printed": false,
-    "color": "#b9b9ac",
-    "asset": "lcd-cable-board-plug.obj",
-    "bounds_pcb_mm": [
-      [
-        -18.1,
-        -12.4,
-        0.95
-      ],
-      [
-        -11.25,
-        5.4,
-        5.45
-      ]
-    ],
-    "explode_z_mm": 40,
-    "description": "PHR-8 / SPH-004T-P0.5S LCD harness; see harness.json pin mapping and bend radii"
-  },
-  {
     "name": "lcd-cable-screen-plug",
     "printed": false,
     "color": "#b9b9ac",
@@ -266,14 +226,14 @@
     "asset": "lcd-wire-bl.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -10.8048,
-        -0.604792
+        -21.999874,
+        -13.889998,
+        -0.799993
       ],
       [
-        8.504773,
-        -6.6952,
-        5.904057
+        8.699968,
+        -6.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -286,14 +246,14 @@
     "asset": "lcd-wire-rst.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -8.8048,
-        -0.604792
+        -21.999874,
+        -11.349998,
+        -0.799993
       ],
       [
-        8.504773,
-        -4.6952,
-        5.904057
+        8.699968,
+        -4.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -306,14 +266,14 @@
     "asset": "lcd-wire-dc.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -6.8048,
-        -0.604792
+        -21.999874,
+        -8.809998,
+        -0.799993
       ],
       [
-        8.504773,
-        -2.6952,
-        5.904057
+        8.699968,
+        -2.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -326,14 +286,14 @@
     "asset": "lcd-wire-cs.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -4.8048,
-        -0.604792
+        -21.999874,
+        -6.269998,
+        -0.799993
       ],
       [
-        8.504773,
-        -0.6952,
-        5.904057
+        8.699968,
+        -0.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -346,14 +306,14 @@
     "asset": "lcd-wire-clk.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -2.8048,
-        -0.604792
+        -21.999874,
+        -3.729998,
+        -0.799993
       ],
       [
-        8.504773,
-        1.3048,
-        5.904057
+        8.699968,
+        1.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -366,14 +326,14 @@
     "asset": "lcd-wire-din.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        -0.8048,
-        -0.604792
+        -21.999874,
+        -1.189998,
+        -0.799993
       ],
       [
-        8.504773,
-        3.3048,
-        5.904057
+        8.699968,
+        3.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -386,14 +346,14 @@
     "asset": "lcd-wire-gnd.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        1.1952,
-        -0.604792
+        -21.999874,
+        1.350002,
+        -0.799993
       ],
       [
-        8.504773,
-        5.3048,
-        5.904057
+        8.699968,
+        5.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -406,14 +366,14 @@
     "asset": "lcd-wire-vcc.obj",
     "bounds_pcb_mm": [
       [
-        -11.250111,
-        3.1952,
-        -0.604792
+        -21.999874,
+        3.890002,
+        -0.799993
       ],
       [
-        8.504773,
-        7.3048,
-        5.904057
+        8.699968,
+        7.5,
+        5.905691
       ]
     ],
     "explode_z_mm": 40,
@@ -426,9 +386,9 @@
     "asset": "lcd-cable-contacts.obj",
     "bounds_pcb_mm": [
       [
-        -16.95,
-        -10.75,
-        2.95
+        -21.66,
+        -13.55,
+        -1.6
       ],
       [
         8.45,

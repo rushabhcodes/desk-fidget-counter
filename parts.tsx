@@ -33,8 +33,16 @@ export const phFootprint = (count: number, sideEntry = false) => <footprint inse
 export const frontButtonFootprint = <footprint>
  <smtpad shape="rect" width={.9} height={1.7} pcbX={-1.7} portHints={["pin1"]}/>
  <smtpad shape="rect" width={.9} height={1.7} pcbX={1.7} portHints={["pin2"]}/>
- <silkscreenpath route={[{x:-1.65,y:1.1},{x:-1.65,y:1.4},{x:-1,y:1.4},{x:-.5,y:2.1},{x:.5,y:2.1},{x:1,y:1.4},{x:1.65,y:1.4},{x:1.65,y:1.1}]}/>
  <silkscreenpath route={[{x:-1.65,y:-1.1},{x:-1.65,y:-1.4},{x:1.65,y:-1.4},{x:1.65,y:-1.1}]}/>
  <courtyardrect width={4.8} height={4} pcbY={.35}/>
 </footprint>
 export const FRAM = (props: ChipProps) => <chip {...props} cadModel={packageCad("soic8")} manufacturerPartNumber="MB85RC256VPNF-G-AMERE2" pinAttributes={{VDD:{requiresPower:true},VSS:{requiresGround:true},A0:{isInput:true},A1:{isInput:true},A2:{isInput:true},SDA:{isBidirectional:true},SCL:{isInput:true},WP:{isInput:true}}} pinLabels={labels(["A0","A1","A2","VSS","SDA","SCL","WP","VDD"])} footprint="soic8_w3.9mm_p1.27mm" />
+
+// Würth 61300811021: 2.54mm row, Ø1.1±0.2mm recommended holes.
+// Use Ø1.2mm finished drills within that range and 2mm lands. Pin 1 is +X.
+// Outward posts point -Y, rotated +90deg to enter the internal window.
+export const displayHeaderFootprint = <footprint insertionDirection="from_above">
+ {Array.from({length:8},(_,i)=><Fragment key={i}><platedhole shape="circular_hole_with_rect_pad" holeOffsetX={0} holeOffsetY={0} holeDiameter={1.2} rectPadWidth={2} rectPadHeight={2} rectBorderRadius={.25} pcbX={8.89-i*2.54} portHints={[`pin${i+1}`]}/></Fragment>)}
+ <silkscreenpath route={[{x:-10.3,y:.9},{x:-10.3,y:1.4},{x:10.3,y:1.4},{x:10.3,y:.9}]}/>
+ <courtyardrect width={20.92} height={11} pcbY={-4.7}/>
+</footprint>

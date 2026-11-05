@@ -1,10 +1,9 @@
-base watertight 14928.2
-lid watertight 8486.3
+base watertight 14835.6
+lid watertight 8492.3
 knob watertight 16134.6
 outer-retainer watertight 1675.6
 inner-retainer watertight 879.3
 screen-bezel watertight 1223.0
-button-plunger watertight 51.9
 bearing-clamp watertight 809.0
 encoder-skirt watertight 1942.9
 fit-coupon watertight 3205.1

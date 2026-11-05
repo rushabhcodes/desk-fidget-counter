@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Rev E2 nested PCB pocket and printable solids.
+"""SPDX-License-Identifier: MIT. Rev E3 nested PCB pocket and printable solids.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -30,9 +30,6 @@ top=P['pcb_bottom_z']+P['pcb_thickness'];bearing=P['bearing'];bt=bearing['bottom
 lid_screws=P['chassis_screw_axes']
 outer=P['base_diameter']/2
 usb_access=P['usb_access']
-head_start=-outer;head_end=-outer+1.1
-guide_start=-outer+2.1;guide_end=P['front_button']['guide_end_y']
-flange_start=-outer+2.5;flange_end=-outer+3.1
 base=cyl(outer,2)+ring(outer-.2,outer-2.2,7.2,2)
 for x,y in P['mount_holes']:
  # Unplated locator pegs and lid pads capture the board; no tall PCB standoffs.
@@ -50,20 +47,26 @@ for h in [c for c in cj if c['type']=='pcb_plated_hole']:
 usb=box((usb_access['opening_width_mm'],usb_access['opening_length_mm'],usb_access['opening_top_z']-usb_access['opening_bottom_z']),
  (0,usb_access['opening_center_y'],(usb_access['opening_top_z']+usb_access['opening_bottom_z'])/2))
 base-=usb
-# Front button opposite USB. Open-top guide permits assembly before fitting
-# the lid; the lid supplies its keeper. Only the thin nose reaches over PCB.
-button_z=P['front_button']['axis_z']
-guide=cyl_y(3.3,guide_start,guide_end,button_z)
-guide-=box((8,guide_end-guide_start+2,8),(0,(guide_start+guide_end)/2,button_z+4))
-base+=guide
-base-=cyl_y(2.2,-outer-2,-outer+2.3,button_z)
-base-=cyl_y(1.35,-outer+2,-34.8,button_z)
-base-=cyl_y(2.85,flange_start,flange_end+P['front_button']['plunger_travel_mm'],button_z)
+# The switch sits on an integral front PCB tab. Its own actuator is exposed.
+button=P['front_button'];button_z=button['axis_z']
+button_opening=box((button['opening_width_mm'],16,button['opening_top_z']-button['opening_bottom_z']),
+ (0,-42,(button['opening_top_z']+button['opening_bottom_z'])/2))
+base-=button_opening
+# Recess only the actual PCB nose, retaining the outer wall wherever there is
+# room. The 0.25mm side allowance clears the FR-4 without a large front opening.
+board_outline=next(c['outline'] for c in cj if c['type']=='pcb_board')
+front_pocket=m.CrossSection([[(q['x'],q['y']) for q in board_outline]]).offset(.25).extrude(1.8).translate((0,0,2.6))
+base-=(front_pocket^box((24,16,3),(0,-40,3.5)))
+# Open the narrow FR-4 band cleanly instead of retaining sub-nozzle wall slivers.
+base-=box((11,12,1.8),(0,-42.5,3.5))
+# Support the switch tab directly underneath the solder-free PCB underside.
+base+=box((9,6,.6),(0,-38.6,2.3))
 
 lid=ring(outer-.35,27.3,1.2,9.2)
 # The large hollow bearing post surrounds, rather than stacks over, the screen.
 lid+=ring(31.2,27.3,1.62,10.39)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
 for x,y in P['mount_holes']:lid+=cyl(2.0,5.0,top,x,y)
+for x in [-6,6]:lid+=cyl(1.3,5.0,top,x,-37)
 for x,y in lid_screws:
  lid-=cyl(1.1,2,9,x,y);lid-=csk_hole(x,y,10.4)
 # Bearing clamp uses the thick wall of the hollow post; screen supports rise
@@ -71,8 +74,6 @@ for x,y in lid_screws:
 for i in range(3):
  x,y=polar(28.6,i*TAU/3);lid-=cyl(.8,5.2,14,x,y)
 # The flush port keeps the plug body outside the lid; retain its full roof.
-# Keeper closes the open-top plunger guide, with 0.3 mm flange clearance.
-lid+=box((6.6,guide_end-guide_start,1.4),(0,(guide_start+guide_end)/2,8.5))
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 
 
@@ -117,15 +118,12 @@ bezel-=cyl(19,.21,20.89)+box((5,15,.21),(-18.75,0,20.995))
 for x,y in bezel_screws:
  bezel-=cyl(1.1,1.6,20.8,x,y)
  bezel-=csk_hole(x,y,22.3)
-plunger=(cyl_y(2,head_start,head_end,button_z)+cyl_y(1.2,head_end,-35.2,button_z)
- +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y'],button_z)
- +cyl_y(2.6,flange_start,flange_end,button_z))
 # Park the rotor at these three windows to reach its underside screws.
 for i in range(3):
  x,y=polar(39.6,i*TAU/3)
  base-=cyl(usb_access['driver_window_diameter_mm']/2,11,-.1,x,y);lid-=cyl(usb_access['driver_window_diameter_mm']/2,3,8.9,x,y)
 coupon=ring(40,P['bearing_pocket_id']/2,3)+ring(P['bearing_stem_od']/2,27.3,3).translate((74,0,0))
-parts={'base':base,'lid':lid,'knob':cap,'outer-retainer':outer_retainer,'inner-retainer':cradle,'screen-bezel':bezel,'button-plunger':plunger,'bearing-clamp':bearing_clamp,'encoder-skirt':encoder_skirt,'fit-coupon':coupon}
+parts={'base':base,'lid':lid,'knob':cap,'outer-retainer':outer_retainer,'inner-retainer':cradle,'screen-bezel':bezel,'bearing-clamp':bearing_clamp,'encoder-skirt':encoder_skirt,'fit-coupon':coupon}
 (ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
 for name,s in parts.items():
  invert=name in ['knob','outer-retainer','encoder-skirt'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
@@ -140,7 +138,7 @@ for name,s in parts.items():
 # Use a full solid ring in place of slots to cover every possible rotor angle.
 swept_skirt=ring(r+.5,r-.5,12.74,7.9)
 moving=[('grip',cap),('retainer',outer_retainer),('swept skirt',swept_skirt),('skirt flange',ring(P['encoder']['bond_outer_radius'],r-.5,1.2,19.44))]
-for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel),('bearing clamp',bearing_clamp),('plunger',plunger)]:
+for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel),('bearing clamp',bearing_clamp)]:
  for mn,mov in moving:assert (mov^fixed).volume()<1e-4,(name,mn,'collision',(mov^fixed).volume())
 assert (cap^outer_retainer).volume()<1e-4
 # Manufacturer screen STEP transformed rigidly: tab -X, rear connector +X.
@@ -166,13 +164,13 @@ pcb=outline-window
 for x,y in P['mount_holes']:pcb-=cyl(1.35,2,2.4,x,y)
 assert (base^pcb).volume()<1e-4,'Base must clear actual PCB material and NPTHs'
 assert (pcb^lcd).volume()<1e-4
-# Exact swept solid of the complete linear plunger stroke, including stops.
-travel=P['front_button']['plunger_travel_mm']
-button_sweep=(cyl_y(2,head_start,head_end+travel,button_z)+cyl_y(1.2,head_end,-35.2+travel,button_z)
- +cyl_y(P['front_button']['tip_radius_mm'],-35.2,P['front_button']['rest_tip_y']+travel,button_z)
- +cyl_y(2.6,flange_start,flange_end+travel,button_z))
+# Direct finger access remains clear even at maximum specified pretravel.
+# A 12mm fingertip sphere is tangent to the fully depressed original actuator.
+finger_radius=button['finger_check_radius_mm'];pressed_face=button['actuator_front_y']+button['datasheet_pretravel_mm']['max']
+finger=m.Manifold.sphere(finger_radius,96).translate((0,pressed_face-finger_radius,button_z))
 for label,part in [('base',base),('lid',lid),('PCB',pcb),*moving]:
- assert (button_sweep^part).volume()<1e-4,(label,'button stroke collision',(button_sweep^part).volume())
+ assert (finger^part).volume()<1e-4,(label,'direct finger access collision',(finger^part).volume())
+actuator_region=box((2.0,.8,1.2),(0,button['actuator_front_y']+.35,button_z))
 # Top-side component and mated cable envelopes, including the full sensor arms.
 # A continuous approach prism covers the entire maximum plug body from a
 # conservative shoulder plane at the socket mouth to beyond every case part.
@@ -182,7 +180,7 @@ plug_gauge=box((usb_access['plug_width_mm'],plug_length,usb_access['plug_height_
 assert plug_start+plug_length>outer+5
 for label,part in [('base',base),('lid',lid),('PCB',pcb),('LCD',lcd),*moving]:
  assert (plug_gauge^part).volume()<1e-4,(label,'USB insertion clearance',(plug_gauge^part).volume())
-fixed_hardware=[('USB plug approach gauge',plug_gauge),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('display header/mate',box((9.6,17.9,4.85),(-16.05,-3.5,6.625))),('LCD manufacturer model',lcd),('PCB',pcb)]
+fixed_hardware=[('USB plug approach gauge',plug_gauge),('programming header',box((13.9,4.5,6),(0,19.95,7.2))),('LCD manufacturer model',lcd),('PCB',pcb)]
 for name,mesh in harness_meshes.items():fixed_hardware.append((name,from_mesh(mesh)))
 for dx in [-2.125,2.125]:
  fixed_hardware.append(('sensor arm',located(box((1.25,4,5.7),(dx,0,7.05)),-23,10,P['encoder']['rotation_deg'])))
@@ -213,6 +211,8 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
   if not shell.is_watertight:raise AssertionError(('Open vendor shell',filename))
   solids.append(from_mesh(shell))
  physical=m.Manifold.batch_boolean(solids,m.OpType.Add)
+ for wn,wire_mesh in harness_meshes.items():
+  if wn.startswith('lcd-wire-'):assert (physical^from_mesh(wire_mesh)).volume()<1e-4,(filename,wn,'wire/package collision')
  assert (physical^plug_gauge).volume()<1e-4,(filename,'USB plug approach/package collision')
  if filename=='C165948.obj':
   assert abs(mesh.bounds[1,1]-usb_access['socket_face_y'])<.001,'USB socket must use its real CAD face datum'
@@ -222,11 +222,11 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
   assert (physical^printed).volume()<1e-4,(filename,name,'package/print collision',(physical^printed).volume())
  for name,mov in moving:
   assert (physical^mov).volume()<1e-4,(filename,name,'package/rotor collision',(physical^mov).volume())
- # At rest, the plunger must not preload the real switch or touch any
- # other package. Pressed motion intentionally actuates SW1's moving nose.
- assert (physical^plunger).volume()<1e-4,(filename,'rest plunger collision',(physical^plunger).volume())
- if filename!='b3u3000.obj':assert (physical^button_sweep).volume()<1e-4,(filename,'button sweep collision')
- else:assert (physical^button_sweep).volume()>1e-4,'Plunger stroke must reach the real actuator'
+ # Fingers may touch only the original SW1 actuator, never other packages.
+ if filename!='b3u3000.obj':assert (physical^finger).volume()<1e-4,(filename,'finger access collision')
+ else:
+  assert abs(mesh.bounds[0,1]-button['actuator_front_y'])<.001,'Use real actuator datum'
+  assert ((physical^finger)-actuator_region).volume()<1e-4,'Finger may contact only the actuator'
  package_checks+=1
 wire_solids=[]
 for name,mesh in harness_meshes.items():
@@ -239,14 +239,10 @@ for name,mesh in harness_meshes.items():
 report['purchased_package_models_checked']=package_checks
 report['individual_wires_checked']=len(wire_solids)
 report['front_button']=P['front_button']
-report['complete_button_stroke_sweep_checked']=True
-# Conservative downward tip play using the front head/aperture and inner
-# stem/guide radii. FDM dimensional error is separate and must be measured.
-head_axis_y=(head_start+head_end)/2;inner_guide_y=P['front_button']['guide_end_y'];tip_y=P['front_button']['rest_tip_y']
-tip_drop=.15+(.2+.15)*(tip_y-inner_guide_y)/(inner_guide_y-head_axis_y)
-tip_clearance=button_z-P['front_button']['tip_radius_mm']-tip_drop-top
-assert tip_clearance>.15,'Allow nominal guide play above the PCB edge'
-report['front_button_nominal_play_clearance_mm']=round(tip_clearance,4)
+report['direct_finger_access_checked']=True
+report['separate_button_plunger']=False
+report['button_projection_beyond_wall_mm']=round(-button['actuator_front_y']-(outer-.2),3)
+report['pressed_button_projection_beyond_wall_mm']=round(-pressed_face-(outer-.2),3)
 report['USB_access']={**usb_access,'outer_case_diameter_mm':P['base_diameter'],
  'socket_recess_from_floor_outer_edge_mm':round(outer-usb_access['socket_face_y'],4),
  'socket_projection_beyond_side_wall_mm':round(usb_access['socket_face_y']-(outer-.2),4),

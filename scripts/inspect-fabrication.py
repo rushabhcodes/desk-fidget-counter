@@ -19,7 +19,7 @@ assert pth['Line']==4,'USB must have four routed plated shield slots'
 assert npth==Counter({2.7:4,.6:2}),npth
 assert len(s.drill_pth.objects)==sum(c['type'] in ['pcb_via','pcb_plated_hole'] for c in cj)
 assert len(s.drill_npth.objects)==sum(c['type']=='pcb_hole' for c in cj)
-assert sum(abs(o.aperture.diameter-.75)<1e-8 for o in s.drill_pth.objects)==14,'JST drills missing'
+assert sum(abs(o.aperture.diameter-.75)<1e-8 for o in s.drill_pth.objects)==6,'Programming JST drills missing'
 outline=s.outline.instance
 xs=[v for o in outline.objects for v in (o.x1,o.x2)];ys=[v for o in outline.objects for v in (o.y1,o.y2)]
 board=next(v for v in cj if v['type']=='pcb_board')
@@ -50,7 +50,9 @@ assert abs(areas[0]-area([(p['x'],p['y']) for p in cut['points']]))<.01,'Gerbers
 
 with (ROOT/'manufacturing/BOM.csv').open() as f:bom=list(csv.DictReader(f))
 with (ROOT/'manufacturing/pick-and-place.csv').open() as f:pnp=list(csv.DictReader(f))
-assert len(bom)==len(pnp)==sum(c['type']=='source_component' for c in cj)
+assert len(bom)==sum(c['type']=='source_component' for c in cj)
+assert len(pnp)==sum(c['type']=='pcb_component' and not c.get('do_not_place') for c in cj)
+assert sum(abs(o.aperture.diameter-1.2)<1e-8 for o in s.drill_pth.objects)==8,'Display termination drills missing'
 assert all(r['Side']=='top' for r in bom),'All component assembly must be top side'
 assert all(r['Side']=='top' for r in pnp),'All placements must be top side'
 assert {r['Reference'] for r in bom if r['Populate']=='YES'}=={r['Ref'] for r in pnp}
@@ -64,6 +66,6 @@ for side in ['top','bottom']:
  text=str(svg)
  (ROOT/f'previews/gerber-{side}.svg').write_text(text)
  cairosvg.svg2png(bytestring=text.encode(),write_to=str(ROOT/f'previews/gerber-{side}.png'),output_width=1500,output_height=1500,background_color='white')
-report={'parser':'gerbonara 1.5.0','graphical_layers':sorted(' '.join(k) for k in s.graphic_layers),'outline_centerline_mm':[round(expected_width,4),round(expected_height,4)],'outline_segments':len(outline.objects),'closed_edge_contours':2,'internal_window_area_mm2':round(areas[0],5),'plated_round_drills':pth['Flash'],'plated_slots':pth['Line'],'npth_diameters_and_counts':dict(npth),'JST_0.75mm_drills':14,'source_vias':sum(c['type']=='pcb_via' for c in cj),'source_plated_holes':sum(c['type']=='pcb_plated_hole' for c in cj),'BOM_rows':len(bom),'populated_placements':len(pnp),'parser_note':'KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped.'}
+report={'parser':'gerbonara 1.5.0','graphical_layers':sorted(' '.join(k) for k in s.graphic_layers),'outline_centerline_mm':[round(expected_width,4),round(expected_height,4)],'outline_segments':len(outline.objects),'closed_edge_contours':2,'internal_window_area_mm2':round(areas[0],5),'plated_round_drills':pth['Flash'],'plated_slots':pth['Line'],'npth_diameters_and_counts':dict(npth),'JST_0.75mm_drills':6,'display_1.2mm_drills':8,'source_vias':sum(c['type']=='pcb_via' for c in cj),'source_plated_holes':sum(c['type']=='pcb_plated_hole' for c in cj),'BOM_rows':len(bom),'populated_placements':len(pnp),'parser_note':'KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped.'}
 (ROOT/'validation/manufacturing-inspection.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))
