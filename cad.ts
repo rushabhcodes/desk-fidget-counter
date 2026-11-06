@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 import models from "./mechanical/vendor/models.json"
-import { version } from "./package.json"
-const base=`https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v${version}/`
+// Resolve included assets through the local server or the publishing platform.
+const base="./"
 export function packageCad(name: keyof typeof models) {
   const m=models[name]
   return {objUrl:base+m.obj,modelOriginPosition:{x:0,y:0,z:0},

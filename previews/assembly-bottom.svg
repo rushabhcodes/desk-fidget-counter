@@ -9,4 +9,4 @@
 <circle cx="886.201804" cy="355.92247840000005" r="6.599986800000001" fill="white" stroke="#566"/>
 <circle cx="1013.798196" cy="355.92247840000005" r="6.599986800000001" fill="white" stroke="#566"/>
 <text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots mark physical pin 1. J4 is JST PH6 SWD; J6 takes the shortened included display lead; header DNP. USB power only.</text>
-<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Read with BOM.csv; USB-C faces +Y.</text></svg>
+<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Use exact source MPNs; USB-C faces +Y.</text></svg>

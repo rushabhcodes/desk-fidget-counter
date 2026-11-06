@@ -1,48 +1,40 @@
 import { packageCad } from "./cad"
-import { Fragment } from "react"
+import { jlcFootprintPart } from "./jlc-parts"
 import type { ChipProps } from "@tscircuit/props"
 
-// Pin numbers are physical package numbers, viewed from above. See reference/DATASHEETS.md.
+// Physical package numbers viewed from above; see reference/DATASHEETS.md.
 export const mcuPins = ["VBAT","PC13","PC14","PC15","PF0","PF1","NRST","VSSA","VDDA","PA0","PA1","PA2","PA3","PA4","PA5","PA6","PA7","PB0","PB1","PB2","PB10","PB11","VSS1","VDD1","PB12","PB13","PB14","PB15","PA8","PA9","PA10","PA11","PA12","PA13","VSS2","VDDIO2","PA14","PA15","PB3","PB4","PB5","PB6","PB7","BOOT0","PB8","PB9","VSS3","VDD2"] as const
 const attributes = (pins: readonly string[], power: string[], ground: string[]) => Object.fromEntries(pins.map(p=>[p, power.includes(p)?{requiresPower:true,mustBeConnected:true}:ground.includes(p)?{requiresGround:true,mustBeConnected:true}:{isBidirectional:true}]))
 const labels = (pins: readonly string[]) => Object.fromEntries(pins.map((p,i)=>[`pin${i+1}`,p]))
-export const MCU = (props: ChipProps) => <chip {...props} cadModel={packageCad("lqfp48")} manufacturerPartNumber="STM32F072CBT6" pinLabels={labels(mcuPins)} pinAttributes={attributes(mcuPins,["VBAT","VDDA","VDD1","VDD2","VDDIO2"],["VSSA","VSS1","VSS2","VSS3"])} footprint="lqfp48_w7_h7_p0.5mm" />
-// TCUT1600X01_A recommended land pattern (Vishay 84174). Library pin IDs
-// follow the top-view perimeter; vendor identifies the leads by A/K/C/E labels.
-export const OpticalSensor = (props: ChipProps) => <chip {...props} manufacturerPartNumber="TCUT1600X01_A" cadModel={packageCad("tcut1600")}
+// Exact imports use different zero angles. Adapt placement, not pad geometry.
+// CAD supplied by this project retains the previous verified package axes.
+export const libraryAngle: Record<string, number> = {
+ "STM32F072CBT6":-90, "MB85RC256VPNF-G-AMERE2":-90,
+ "USBLC6-2SC6":-90, "SN74LVC2G17DBVR":-90,
+ "TPS22919DCKR":180, "TLV75533PDBVR":180,
+ "B6B-PH-K-S(LF)(SN)":180, "2.54-1*8":180,
+}
+export function JlcChip(props: any) {
+ const {manufacturerPartNumber:mpn,pcbRotation=0,cadModel,...rest}=props
+ const delta=libraryAngle[mpn]??0
+ return jlcFootprintPart(mpn,{...rest,symbol:undefined,pcbRotation:pcbRotation+delta,
+  ...(cadModel?{cadModel:{...cadModel,pcbRotationOffset:(cadModel.pcbRotationOffset??0)-delta}}:{})})
+}
+export const JlcConnector=JlcChip
+export const JlcButton=(props:any)=>jlcFootprintPart("B3U-3000P",props)
+export const JlcResistor=(props:any)=>jlcFootprintPart(props.manufacturerPartNumber,props)
+export const JlcCapacitor=(props:any)=>jlcFootprintPart(props.manufacturerPartNumber,props)
+export const MCU = (props: ChipProps) => <JlcChip {...props} cadModel={packageCad("lqfp48")} manufacturerPartNumber="STM32F072CBT6" pinLabels={labels(mcuPins)} pinAttributes={attributes(mcuPins,["VBAT","VDDA","VDD1","VDD2","VDDIO2"],["VSSA","VSS1","VSS2","VSS3"])} />
+// Genuine stocked pre-PCN sensor; _A has unchanged fit/form/function per Vishay PCN.
+// JLC's pin3 alias C2 means cathode here; use the manufacturer's A/K/C/E functions.
+export const OpticalSensor = (props: ChipProps) => <JlcChip {...props} manufacturerPartNumber="TCUT1600X01" cadModel={packageCad("tcut1600")}
  pinLabels={labels(["A","NC","K","EB","EA","COL"])}
- pinAttributes={{A:{isPassive:true},K:{requiresGround:true},COL:{requiresPower:true},EA:{isOutput:true},EB:{isOutput:true},NC:{doNotConnect:true}}}
- footprint={<footprint>
-  {[1,2,3].map((n,i)=><Fragment key={n}><smtpad shape="rect" width={1.9} height={n===2?1:.7} pcbX={-2.45} pcbY={1.4-i*1.4} portHints={[`pin${n}`]}/></Fragment>)}
-  {[6,5,4].map((n,i)=><Fragment key={n}><smtpad shape="rect" width={1.0} height={.7} pcbX={2.0} pcbY={1.4-i*1.4} portHints={[`pin${n}`]}/></Fragment>)}
-  <silkscreenpath route={[{x:-2.75,y:2.1},{x:2.75,y:2.1}]}/>
-  <silkscreenpath route={[{x:-2.75,y:-2.1},{x:2.75,y:-2.1}]}/>
-  {/* 0.3mm courtyard beyond the full 5.9mm land span and 4mm body. */}
-  <courtyardrect width={6.5} height={4.6} pcbX={-.45}/>
- </footprint>}/>
-// Exact JST PH land pattern, centred row; +Y is opposite the housing latch.
-export const phFootprint = (count: number, sideEntry = false) => <footprint insertionDirection={sideEntry?"from_bottom":"from_above"}>
- {Array.from({length:count},(_,i)=><Fragment key={i}><platedhole shape="circular_hole_with_rect_pad" holeOffsetX={0} holeOffsetY={0} holeDiameter={.75} rectPadWidth={1.2} rectPadHeight={1.75} rectBorderRadius={.25} pcbX={(i-(count-1)/2)*2} portHints={[`pin${i+1}`]}/></Fragment>)}
- {/* Housing/mate overhangs the window; print only the back edge on PCB material. */}
- <silkscreenpath route={[{x:-(count-1)-2.06,y:sideEntry ? .86:1.21},{x:-(count-1)-2.06,y:sideEntry?1.46:1.81},{x:(count-1)+2.06,y:sideEntry?1.46:1.81},{x:(count-1)+2.06,y:sideEntry ? .86:1.21}]}/>
- <silkscreenpath route={[{x:-(count-1),y:sideEntry?1.46:1.81},{x:-(count-1),y:sideEntry?2.26:2.61}]}/>
+ pinAttributes={{A:{isPassive:true},K:{requiresGround:true},COL:{requiresPower:true},EA:{isOutput:true},EB:{isOutput:true},NC:{doNotConnect:true}}}/>
+export const FRAM = (props: ChipProps) => <JlcChip {...props} cadModel={packageCad("soic8")} manufacturerPartNumber="MB85RC256VPNF-G-AMERE2" pinAttributes={{VDD:{requiresPower:true},VSS:{requiresGround:true},A0:{isInput:true},A1:{isInput:true},A2:{isInput:true},SDA:{isBidirectional:true},SCL:{isInput:true},WP:{isInput:true}}} pinLabels={labels(["A0","A1","A2","VSS","SDA","SCL","WP","VDD"])} />
 
- <courtyardrect width={(count-1)*2+4.9} height={sideEntry?8.6:5.5} pcbY={sideEntry?-2.45:-.55}/>
- </footprint>
-// Omron B3U-3000P, exact KiCad/Omron land pattern. Actuator points +Y.
-export const frontButtonFootprint = <footprint>
- <smtpad shape="rect" width={.9} height={1.7} pcbX={-1.7} portHints={["pin1"]}/>
- <smtpad shape="rect" width={.9} height={1.7} pcbX={1.7} portHints={["pin2"]}/>
- <silkscreenpath route={[{x:-1.65,y:-1.1},{x:-1.65,y:-1.4},{x:1.65,y:-1.4},{x:1.65,y:-1.1}]}/>
- <courtyardrect width={4.8} height={4} pcbY={.35}/>
-</footprint>
-export const FRAM = (props: ChipProps) => <chip {...props} cadModel={packageCad("soic8")} manufacturerPartNumber="MB85RC256VPNF-G-AMERE2" pinAttributes={{VDD:{requiresPower:true},VSS:{requiresGround:true},A0:{isInput:true},A1:{isInput:true},A2:{isInput:true},SDA:{isBidirectional:true},SCL:{isInput:true},WP:{isInput:true}}} pinLabels={labels(["A0","A1","A2","VSS","SDA","SCL","WP","VDD"])} footprint="soic8_w3.9mm_p1.27mm" />
-
-// Würth 61300811021: 2.54mm row, Ø1.1±0.2mm recommended holes.
-// Use Ø1.2mm finished drills within that range and 2mm lands. Pin 1 is +X.
-// Outward posts point -Y, rotated +90deg to enter the internal window.
-export const displayHeaderFootprint = <footprint insertionDirection="from_above">
- {Array.from({length:8},(_,i)=><Fragment key={i}><platedhole shape="circular_hole_with_rect_pad" holeOffsetX={0} holeOffsetY={0} holeDiameter={1.2} rectPadWidth={2} rectPadHeight={2} rectBorderRadius={.25} pcbX={8.89-i*2.54} portHints={[`pin${i+1}`]}/></Fragment>)}
- <silkscreenpath route={[{x:-10.3,y:.9},{x:-10.3,y:1.4},{x:10.3,y:1.4},{x:10.3,y:.9}]}/>
- <courtyardrect width={20.92} height={11} pcbY={-4.7}/>
-</footprint>
+// Keep USB schematic semantics while reusing every primitive of the exact import.
+export const USB = (props:any) => {
+ const imported=jlcFootprintPart("TYPE-C-31-M-12",{})
+ return <connector standard="usb_c" {...imported.props} {...props}
+  pinAttributes={Object.fromEntries([5,6,7,8,9,10,11,12].map(n=>[`pin${n}`,{isPassive:true}]))}/>
+}

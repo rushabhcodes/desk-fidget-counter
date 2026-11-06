@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. BOM and pin-1 assembly drawings from the released circuit."""
+"""SPDX-License-Identifier: MIT. BOM and pin-1 assembly drawings from the built circuit."""
 from pathlib import Path
-import csv,json,html,math
+import argparse,csv,json,html,math
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--drawings-only",action="store_true",help="Refresh assembly views without writing a BOM")
+args=parser.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
 cj=json.loads((ROOT/'dist/index/circuit.json').read_text())
 components={c['source_component_id']:c for c in cj if c['type']=='source_component'}
 placed={p['source_component_id']:p for p in cj if p['type']=='pcb_component' and p.get('source_component_id') in components}
 ports={p['source_port_id']:p for p in cj if p['type']=='source_port'}
 dnp={components[cid]['name'] for cid,p in placed.items() if p.get('do_not_place')}
-makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'HRO','J4':'JST','J6':'Würth Elektronik','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
+makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'HRO','J4':'JST','J6':'ZHOURI','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
 rows=[]
 for cid,c in components.items():
     n=c['name'];p=placed[cid]
@@ -18,8 +21,9 @@ for cid,c in components.items():
     if n=='J6':note='DNP optional header; solder shortened included display lead into these pads'
     rows.append({'Reference':n,'Quantity':1,'Value':value,'Manufacturer':maker,'MPN':c['manufacturer_part_number'],'Side':p['layer'],'Populate':'NO' if n in dnp else 'YES','Assembly notes':note})
 rows.sort(key=lambda x:(''.join(c for c in x['Reference'] if not c.isdigit()),int(''.join(c for c in x['Reference'] if c.isdigit()) or 0)))
-with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
-    w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+if not args.drawings_only:
+    with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 # Coordinates in these drawings are the board's native mm frame; bottom is mirrored for assembly.
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
@@ -45,6 +49,6 @@ for side in ['top','bottom']:
         svg.append(f'<text x="{a}" y="{b+5}" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="16">{html.escape(n)}</text>')
         if n in dnp:svg.append(f'<text x="{a}" y="{b+h/2+18}" text-anchor="middle" font-family="sans-serif" font-size="13">DNP</text>')
     svg.append('<text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots mark physical pin 1. J4 is JST PH6 SWD; J6 takes the shortened included display lead; header DNP. USB power only.</text>')
-    svg.append('<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Read with BOM.csv; USB-C faces +Y.</text></svg>')
+    svg.append('<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Use exact source MPNs; USB-C faces +Y.</text></svg>')
     (ROOT/f'previews/assembly-{side}.svg').write_text('\n'.join(svg))
-print(f'BOM: {len(rows)} source components, {len(rows)-len(dnp)} populated; assembly views exported.')
+print(f'{len(rows)} source components, {len(rows)-len(dnp)} populated; assembly views exported. BOM written: {not args.drawings_only}.')

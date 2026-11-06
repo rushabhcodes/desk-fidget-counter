@@ -1,0 +1,29 @@
+16:22:05: Debug: Adding duplicate image handler for 'PNG file'
+16:22:05: Debug: Adding duplicate image handler for 'JPEG file'
+16:22:05: Debug: Adding duplicate image handler for 'TIFF file'
+16:22:05: Debug: Adding duplicate image handler for 'GIF file'
+16:22:05: Debug: Adding duplicate image handler for 'PNM file'
+16:22:05: Debug: Adding duplicate image handler for 'PCX file'
+16:22:05: Debug: Adding duplicate image handler for 'IFF file'
+16:22:05: Debug: Adding duplicate image handler for 'Windows icon file'
+16:22:05: Debug: Adding duplicate image handler for 'Windows cursor file'
+16:22:05: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+16:22:05: Debug: Adding duplicate image handler for 'TGA file'
+16:22:05: Debug: Adding duplicate image handler for 'XPM file'
+Found 0 violations
+Found 0 unconnected items
+Saved DRC Report to /tmp/desk-fab-check-663lujgi/kicad-drc.json
+Saved board
+16:22:14: Debug: Adding duplicate image handler for 'PNG file'
+16:22:14: Debug: Adding duplicate image handler for 'JPEG file'
+16:22:14: Debug: Adding duplicate image handler for 'TIFF file'
+16:22:14: Debug: Adding duplicate image handler for 'GIF file'
+16:22:14: Debug: Adding duplicate image handler for 'PNM file'
+16:22:14: Debug: Adding duplicate image handler for 'PCX file'
+16:22:14: Debug: Adding duplicate image handler for 'IFF file'
+16:22:14: Debug: Adding duplicate image handler for 'Windows icon file'
+16:22:14: Debug: Adding duplicate image handler for 'Windows cursor file'
+16:22:14: Debug: Adding duplicate image handler for 'Windows animated cursor file'
+16:22:14: Debug: Adding duplicate image handler for 'TGA file'
+16:22:14: Debug: Adding duplicate image handler for 'XPM file'
+Independent fabrication check passed; native traces/vias unchanged. Temporary evidence: /tmp/desk-fab-check-663lujgi

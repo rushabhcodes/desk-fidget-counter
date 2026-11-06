@@ -1,0 +1,22 @@
+{
+  "manufacturer": "JLCPCB",
+  "checked_date": "2026-11-06",
+  "source": "https://jlcpcb.com/capabilities/pcb-capabilities/",
+  "scope": "Two-layer, 1oz FR-4. Rules for repository verification, not an order or fabrication kit.",
+  "units": "mm",
+  "minimum_track_width": 0.1,
+  "minimum_track_and_via_copper_clearance": 0.1,
+  "minimum_component_pad_clearance": 0.15,
+  "minimum_nonplated_hole_to_copper": 0.2,
+  "minimum_via_drill_to_copper": 0.2,
+  "minimum_component_plated_drill_to_copper": 0.28,
+  "minimum_via_drill_to_drill": 0.2,
+  "minimum_component_plated_drill_to_drill": 0.45,
+  "minimum_copper_to_board_edge": 0.3,
+  "via_drill_diameter": 0.3,
+  "via_pad_diameter": 0.6,
+  "note": "The native phases request 0.15mm tracks; ordinary neck-downs must remain at least 0.10mm. The explicitly requested MCU bypass/return branches remain at least 0.15mm. General track/via clearance uses 0.10mm; component-pad spacing is separately checked at 0.15mm. Vias have a 0.15mm annular ring, so 0.10mm via-edge clearance also gives at least 0.25mm drill-to-copper clearance. PTH annular-ring guidance is distinct from routing-via diameter guidance. Acceptance uses these documented JLCPCB fabrication rules.",
+  "minimum_mcu_local_bypass_width": 0.15,
+  "minimum_standard_plated_slot_length_width_ratio": 2,
+  "open_process_review": "J1 exact-import plated slots are shorter than the published 2:1 guidance. See validation/supplier-review.json; JLCPCB confirmation has not been obtained."
+}

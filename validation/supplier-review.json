@@ -1,0 +1,48 @@
+{
+  "checked_date": "2026-11-06",
+  "status": "JLCPCB short plated-slot process confirmation required before fabrication",
+  "reference": "J1",
+  "MPN": "TYPE-C-31-M-12",
+  "catalogue_id": "C165948",
+  "source_import": "imports/jlc/TYPE_C_31_M_12.tsx",
+  "geometry_unchanged_from_supplier_import": true,
+  "published_standard_length_to_width_guidance": 2,
+  "slots": [
+    {
+      "physical_pin": "pin2",
+      "finished_width_mm": 0.7999984,
+      "finished_length_mm": 1.1999976,
+      "length_width_ratio": 1.5000000000000002
+    },
+    {
+      "physical_pin": "pin1",
+      "finished_width_mm": 0.7999984,
+      "finished_length_mm": 1.499997,
+      "length_width_ratio": 1.875
+    },
+    {
+      "physical_pin": "pin4",
+      "finished_width_mm": 0.7999984,
+      "finished_length_mm": 1.499997,
+      "length_width_ratio": 1.875
+    },
+    {
+      "physical_pin": "pin3",
+      "finished_width_mm": 0.7999984,
+      "finished_length_mm": 1.1999976,
+      "length_width_ratio": 1.5000000000000002
+    }
+  ],
+  "primary_sources": [
+    "https://jlcpcb.com/capabilities/pcb-capabilities/",
+    "https://jlcpcb.com/help/article/instructions-for-ordering",
+    "https://jlcpcb.com/blog/reliable-pcb-slot-holes-design",
+    "https://jlcpcb.com/partdetail/TYPE-C-31-M-12/C165948"
+  ],
+  "interpretation": "The capability/order guidance says plated-slot length should be at least twice its width. This exact library footprint has two 1.5:1 and two 1.875:1 slots. JLCPCB also describes drilling short plated slots, but that is not approval for this geometry. Generic KiCad DRC does not check this process ratio.",
+  "resolution": "Obtain explicit JLCPCB DFM/process acceptance for the original shield slots and finished-hole tolerances, or qualify another USB connector/footprint and rerun routing, mechanical and fabrication checks. Do not silently enlarge/replace the imported slots or assume catalogue availability is fabrication approval.",
+  "approval_obtained": false,
+  "supplier_contact_or_upload_performed_this_task": false,
+  "source_circuit_sha256": "9cbc5968370b845575333b94a4d52fef16f10371c11ae291fa94f8658cbd8a4c",
+  "supplier_import_sha256": "cd9c6d214938f7fe823eee6712b29385880a27ca906e115392b1c6bbe215bcaa"
+}

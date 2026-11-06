@@ -1,0 +1,282 @@
+{
+  "checked_date": "2026-11-06",
+  "method": "bunx tsci search --jlcpcb --json; then signed-in JLCPCB upload of actual Gerbers, BOM-complete.csv and CPL-complete.csv. No order placed and no stock reserved.",
+  "baseline_release": "5.4.0",
+  "selected_unique_lines": 22,
+  "selected_placements_per_board": 38,
+  "all_top": true,
+  "bare_pcb_quantity": 5,
+  "assembled_pcb_quantity": 2,
+  "quantity_note": "Live Standard PCBA form required 2 to 5 assembled boards for this 5-board batch. One desired complete prototype therefore leaves a spare assembled PCB and three bare boards.",
+  "matched_parts": [
+    {
+      "references": "C1,C7,C9,C11,C13,C14,C16",
+      "jlcpcb_code": "C45000",
+      "procurement_quantity_for_batch": 24,
+      "batch_part_cost_usd": 0.4104,
+      "matched_and_priced": true
+    },
+    {
+      "references": "C2,C3,C5,C15,C17",
+      "jlcpcb_code": "C86012",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.672,
+      "matched_and_priced": true
+    },
+    {
+      "references": "C6,C12,C18",
+      "jlcpcb_code": "C1746",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.902,
+      "matched_and_priced": true
+    },
+    {
+      "references": "C8",
+      "jlcpcb_code": "C77019",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.124,
+      "matched_and_priced": true
+    },
+    {
+      "references": "C10",
+      "jlcpcb_code": "C71629",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.064,
+      "matched_and_priced": true
+    },
+    {
+      "references": "J1",
+      "jlcpcb_code": "C165948",
+      "procurement_quantity_for_batch": 2,
+      "batch_part_cost_usd": 0.374,
+      "matched_and_priced": true
+    },
+    {
+      "references": "J4",
+      "jlcpcb_code": "C131342",
+      "procurement_quantity_for_batch": 2,
+      "batch_part_cost_usd": 0.1454,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R1,R2",
+      "jlcpcb_code": "C105580",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.04,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R10",
+      "jlcpcb_code": "C98220",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.054,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R12,R13",
+      "jlcpcb_code": "C99782",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.064,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R21",
+      "jlcpcb_code": "C14675",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.042,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R24",
+      "jlcpcb_code": "C114608",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.052,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R25,R26",
+      "jlcpcb_code": "C114065",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.08,
+      "matched_and_priced": true
+    },
+    {
+      "references": "R27,R28",
+      "jlcpcb_code": "C107701",
+      "procurement_quantity_for_batch": 20,
+      "batch_part_cost_usd": 0.056,
+      "matched_and_priced": true
+    },
+    {
+      "references": "SW1",
+      "jlcpcb_code": "C963349",
+      "procurement_quantity_for_batch": 5,
+      "batch_part_cost_usd": 2.3895,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U1",
+      "jlcpcb_code": "C81720",
+      "procurement_quantity_for_batch": 2,
+      "batch_part_cost_usd": 6.8496,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U2",
+      "jlcpcb_code": "C511085",
+      "procurement_quantity_for_batch": 2,
+      "batch_part_cost_usd": 2.8748,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U3",
+      "jlcpcb_code": "C45273903",
+      "procurement_quantity_for_batch": 2,
+      "batch_part_cost_usd": 4.3284,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U4",
+      "jlcpcb_code": "C2149796",
+      "procurement_quantity_for_batch": 5,
+      "batch_part_cost_usd": 0.6115,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U5",
+      "jlcpcb_code": "C404027",
+      "procurement_quantity_for_batch": 5,
+      "batch_part_cost_usd": 0.6085,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U6",
+      "jlcpcb_code": "C7519",
+      "procurement_quantity_for_batch": 5,
+      "batch_part_cost_usd": 0.812,
+      "matched_and_priced": true
+    },
+    {
+      "references": "U7",
+      "jlcpcb_code": "C10429",
+      "procurement_quantity_for_batch": 6,
+      "batch_part_cost_usd": 1.0866,
+      "matched_and_priced": true
+    }
+  ],
+  "special_sourcing": {
+    "J4": {
+      "mpn": "B6B-PH-K-S(LF)(SN)",
+      "code": "C131342",
+      "jlc_stock_displayed": 32605,
+      "tsci_stock_displayed": 33601,
+      "source": "https://jlcpcb.com/partdetail/JST-B6B_PH_K_S_LF_SN/C131342"
+    },
+    "U2": {
+      "selected_mpn": "TCUT1600X01",
+      "selected_code": "C511085",
+      "jlc_stock_displayed": 1305,
+      "current_revision": "TCUT1600X01_A",
+      "current_code": "C24626661",
+      "current_revision_jlc_stock_displayed": 0,
+      "basis": "Vishay PCN states no change in characteristics, fit, form or function for the wafer change. Application testing still required; legacy order code selected for this prototype only.",
+      "pcn": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/PCN-OPT-1311-2024-REV-0.pdf"
+    }
+  },
+  "baseline_quote_usd": {
+    "pcb": 72.21,
+    "standard_pcba": 117.94,
+    "total_before_shipping_and_import": 190.15,
+    "pcb_details": {
+      "base": 4,
+      "enig": 17.3,
+      "via_covering": 16.59,
+      "kelvin_test": 16.97,
+      "minimum_via_process": 17.35
+    },
+    "assembly_details": {
+      "setup": 25.75,
+      "stencil": 8.27,
+      "components": 22.64,
+      "feeder_loading": 32.55,
+      "smt_assembly": 1.32,
+      "placement_confirmation": 0.45,
+      "hand_soldering_labor": 3.61,
+      "manual_assembly": 0.2,
+      "handling": 22.65,
+      "packaging": 0.5
+    }
+  },
+  "tsci_basic_candidates": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 25804,
+      "mfr": "0603WAF1002T5E",
+      "package": "0603",
+      "is_basic": true,
+      "is_preferred": false,
+      "description": "-55\u2103~+155\u2103 100mW 10k\u03a9 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+      "stock": 45479613,
+      "price": 0.0012
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 25803,
+      "mfr": "0603WAF1003T5E",
+      "package": "0603",
+      "is_basic": true,
+      "is_preferred": false,
+      "description": "-55\u2103~+155\u2103 100k\u03a9 100mW 75V Thick Film Resistor \u00b11% \u00b1100ppm/\u2103 0603 Chip Resistor - Surface Mount ROHS",
+      "stock": 17017839,
+      "price": 0.0016
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 14663,
+      "mfr": "CC0603KRX7R9BB104",
+      "package": "0603",
+      "is_basic": true,
+      "is_preferred": false,
+      "description": "100nF 50V X7R \u00b110% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "stock": 38532331,
+      "price": 0.0106
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 15849,
+      "mfr": "CL10A105KB8NNNC",
+      "package": "0603",
+      "is_basic": true,
+      "is_preferred": false,
+      "description": "1uF 50V X5R \u00b110% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "stock": 12348301,
+      "price": 0.0297
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 1525,
+      "mfr": "CL05B104KO5NNNC",
+      "package": "0402",
+      "description": "100nF 16V X7R \u00b110% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "is_basic": true,
+      "is_preferred": false,
+      "stock": null,
+      "price": 0.0032,
+      "stock_checked_at": "2026-10-31T03:33:14.000Z"
+    }
+  ],
+  "candidate_note": "Search unit prices are discovery estimates, not this batch quote. Package name/value alone is not a validated substitution. Standard PCBA charges feeder loading for both Basic and Extended parts. Existing selected passives are available and inexpensive; retain qualified parts unless full quoted savings justify requalification.",
+  "fee_source": "https://jlcpcb.com/help/article/pcb-assembly-price",
+  "search_service_limitations": "Several exact-MPN, C-code and decimal-value queries returned HTTP 500; they were not treated as zero stock. Broader value queries succeeded and the live JLCPCB matcher resolved the two missing original lines.",
+  "placement_review": "All 38 supplied CPL positions imported onto the top. Preview compared with copper/pin map; final JLC engineering DFM feeder/origin review required before manufacture. Confirm Parts Placement enabled with automatic confirmation disabled.",
+  "trace_width_warning": {
+    "trace": "U1.VSSA to C8.pin2",
+    "requested_width_mm": 0.15,
+    "actual_width_mm": 0.1,
+    "length_mm": 1.5,
+    "layer": "top",
+    "note": "Real native-routing width mismatch, not an open connection. Board minimum is 0.10 mm. Warning retained; requested width was not reduced to silence it."
+  },
+  "baseline_manufacturing_status": "FABRICATION HOLD: live review found undersized U3 FRAM lands and imported-library angle differences. The historical baseline quote is retained for comparison only; it is not an approved production package.",
+  "exact_footprint_replacement": "v5.5.0 candidate replaces all 22 populated part types plus the DNP J6 header pad row with tsci --use-exact-footprint JLCPCB imports. Native routing and manufacturing validation must pass before release."
+}

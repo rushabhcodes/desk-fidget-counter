@@ -1,0 +1,33 @@
+base watertight 14829.8
+lid watertight 8143.1
+knob watertight 15420.0
+outer-retainer watertight 1593.4
+inner-retainer watertight 879.3
+screen-bezel watertight 1161.1
+bearing-clamp watertight 762.2
+encoder-skirt watertight 1586.0
+fit-coupon-tight watertight 3219.2
+fit-coupon watertight 3155.7
+fit-coupon-loose watertight 3028.5
+{
+  "overall_height_mm": 22.3,
+  "previous_height_mm": 47,
+  "height_reduction_percent": 52.6,
+  "grip_lower_edge_mm": 10.8,
+  "previous_grip_lower_edge_mm": 22,
+  "USB_plug_max_height_mm": 6.9,
+  "USB_plug_to_rotor_vertical_mm": 1.5,
+  "bezel_to_grip_radial_mm": 0.8,
+  "skirt_to_sensor_radial_each_side_mm": 1.1,
+  "PCB_bottom_z_mm": 2.6,
+  "LCD_connector_in_PCB_window": true,
+  "bearing_id_mm": 60,
+  "bearing_od_mm": 75,
+  "bearing_width_mm": 7,
+  "bearing_stem_diametral_mm": 0.2,
+  "bearing_outer_diametral_mm": 0.2,
+  "encoder_slot_count": 48,
+  "quadrature_edges_per_turn": 192,
+  "all_components_top_side": true,
+  "solder_well_floor_remaining_mm": 1.2
+}

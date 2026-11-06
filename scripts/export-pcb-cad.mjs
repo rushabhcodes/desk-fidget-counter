@@ -2,7 +2,7 @@
 import fs from 'node:fs'
 import { convertCircuitJsonToGltf } from 'circuit-json-to-gltf'
 const circuit = JSON.parse(fs.readFileSync('dist/index/circuit.json', 'utf8'))
-// Resolve the same immutable model bytes locally before the tag is published.
+// Resolve the included model bytes locally for an offline CAD export.
 for (const part of circuit.filter(c=>c.type==='cad_component')) {
   const url=part.model_obj_url
   if(url?.includes('/mechanical/vendor/obj/') || url?.includes('/easyeda_models/assets/')) {

@@ -248,7 +248,7 @@
       14.5
     ],
     "dimensions_status": "Manufacturer confirms PH2.0 8-pin / 20cm lead. User authorized best approximations: 1.2mm model wire, 1.5mm clearance check, 3mm XZ projected bend (approximately 1.44mm minimum 3D curve radius), nominal PH housing. These are not supplier-qualified limits.",
-    "assembly": "Shorten the included lead; keep its original display plug. Solder stripped board ends into J6; optional 61300811021 header is DNP.",
+    "assembly": "Shorten the included lead and keep its original display plug. Solder stripped board ends into the imported C5156616 eight-pad J6 footprint; no header is populated or purchased.",
     "trimmed_free_wire_target_mm": 37.0,
     "trimmed_free_wire_tolerance_mm": 1.0,
     "board_end_strip_mm": 2.55,

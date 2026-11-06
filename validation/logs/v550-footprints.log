@@ -1,0 +1,2 @@
+$ bun validation/check-jlc-footprints.ts
+Exact JLCPCB imports verified: 39 references, 173 copper pad centres/shapes/dimensions and plated drills; FRAM physical lead envelope covered.

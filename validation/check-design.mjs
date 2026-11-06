@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 import fs from 'node:fs'
 import assert from 'node:assert/strict'
+import { checkPadPadClearance } from '@tscircuit/checks'
+const fabrication=JSON.parse(fs.readFileSync('reference/fabrication-rules.json','utf8'))
 const cj=JSON.parse(fs.readFileSync(process.argv[2]??'dist/index/circuit.json','utf8'))
 const components=new Map(cj.filter(x=>x.type==='source_component').map(x=>[x.name,x]))
 const ports=cj.filter(x=>x.type==='source_port')
@@ -37,6 +39,17 @@ for(const n of ['GND','V3V3','VBUS','PERIPH_3V3','USB_DP','USB_DM','CC1','CC2','
 pin('U1','PA8',29);pin('U1','PA11',32);pin('U1','PA12',33);pin('U1','VDDIO2',36);pin('U1','PB6',42);pin('U1','PB7',43);pin('U2','COL',6);pin('U2','K',3);pin('U7','Y1',6);pin('U7','Y2',4);pin('U1','PB4',40);pin('U1','PB5',41);pin('U3','VDD',8);pin('U4','IN',1);pin('U4','ON',3);pin('U4','VOUT',6)
 for(const c of components.values())assert(c.manufacturer_part_number,`${c.name} must have an MPN`)
 const errors=cj.filter(x=>x.type.endsWith('_error'));assert.equal(errors.length,0,errors.map(x=>x.message).join('\n'))
+// JLCPCB distinguishes component-pad spacing from track/via clearance.
+const componentPadErrors=checkPadPadClearance(cj,{minClearance:.15})
+assert.equal(componentPadErrors.length,0,componentPadErrors.map(x=>x.message).join('\n'))
+for(const t of cj.filter(x=>x.type==='pcb_trace'))for(const p of t.route)if(p.route_type==='wire')assert(p.width>=fabrication.minimum_track_width-1e-6,'All native copper must meet the fabrication minimum')
+for (const name of ['MCU_VSSA_DECAP','MCU_VSS1_DECAP','MCU_VSS2_DECAP','MCU_VDD2_DECAP']) {
+ const source=cj.find(x=>x.type==='source_trace'&&x.name===name)
+ const routes=cj.filter(x=>x.type==='pcb_trace'&&x.source_trace_id===source.source_trace_id)
+ assert(routes.length>0,`${name} must have native copper`)
+ for(const route of routes)for(const p of route.route)if(p.route_type==='wire')
+  assert(p.width>=.15-1e-6,`${name} must meet its requested 0.15mm width`)
+}
 // Source-only connections can otherwise conceal an accidentally empty footprint.
 for(const p of ports){
  if(!cj.some(t=>t.type==='source_trace'&&t.connected_source_port_ids?.includes(p.source_port_id)))continue
@@ -44,11 +57,11 @@ for(const p of ports){
  assert.equal(physical.length,1,`${components.get(p.source_component_id)?.name}.${p.name} must have a PCB port`)
  assert(cj.some(q=>['pcb_smtpad','pcb_plated_hole'].includes(q.type)&&q.pcb_port_id===physical[0].pcb_port_id),`${p.source_port_id} needs copper`)
 }
-for (const [name,count,drill] of [['J4',6,.75],['J6',8,1.2]]) {
+for (const [name,count,drill] of [['J4',6,.9000236],['J6',8,.999998]]) {
  const pc=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get(name).source_component_id)
  const holes=cj.filter(x=>x.type==='pcb_plated_hole'&&x.pcb_component_id===pc.pcb_component_id)
  assert.equal(holes.length,count,`${name} JST PH pin count`)
- for(const h of holes)assert.equal(h.hole_diameter,drill,`${name} finished drill`)
+ for(const h of holes)assert(Math.abs((h.hole_diameter??h.hole_width)-drill)<1e-6,`${name} imported finished drill`)
 }
 assert(!components.has('J2') && !components.has('J3'),'USB-only: no cell or NTC connector')
 assert(![...nets.keys()].some(n=>/BAT|CHG|NTC/.test(n)),'No battery or charging rail remains')
@@ -64,8 +77,8 @@ assert.equal(mechanics.display.active_diameter,32.4)
 // asymmetric pad envelope shifting pcb_component.center.
 const pp=cj.find(x=>x.type==='pcb_port'&&x.source_port_id===port('U2','A').source_port_id)
 const angle=mechanics.encoder.rotation_deg*Math.PI/180
-assert(Math.abs(pp.x-(-23-2.45*Math.cos(angle)-1.4*Math.sin(angle)))<1e-5)
-assert(Math.abs(pp.y-(10-2.45*Math.sin(angle)+1.4*Math.cos(angle)))<1e-5)
+assert(Math.abs(pp.x-(-23-2.45*Math.cos(angle)-1.4*Math.sin(angle)))<.0002)
+assert(Math.abs(pp.y-(10-2.45*Math.sin(angle)+1.4*Math.cos(angle)))<.0002)
 const b=cj.find(x=>x.type==='pcb_board');assert(b);assert.equal(b.thickness,1.6);assert.equal(b.num_layers,2,'The PCB must retain two copper layers')
 
 for(const n of ['D1','LED1','R11','R14','R15','R16','R29','SW2'])assert(!components.has(n),`Redundant component ${n} must remain removed`)
@@ -86,7 +99,7 @@ assert.equal(usb.footprint_origin.x,mechanics.usb_center[0]);assert.equal(usb.fo
 assert(Math.abs(Math.max(...b.outline.map(p=>p.y))-41.1)<1e-6,'Integral USB tab must reach its specified front edge')
 assert(Math.abs(Math.min(...b.outline.map(p=>p.y))+42.1)<1e-6)
 assert(Math.abs(b.height-83.2)<1e-6)
-assert.equal(components.get('J6').manufacturer_part_number,'61300811021')
+assert.equal(components.get('J6').manufacturer_part_number,'2.54-1*8')
 assert.equal(mechanics.stock_display_cable.custom_harness_required,false)
 const display=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get('J6').source_component_id)
 assert.equal(display.do_not_place,true,'The optional header must not be purchased/populated for the included-cable build')

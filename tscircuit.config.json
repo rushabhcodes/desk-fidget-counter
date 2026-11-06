@@ -1,12 +1,18 @@
 {
   "mainEntrypoint": "assembly.circuit.tsx",
-  "build": { "workerTimeoutMs": 1200000 },
+  "build": {
+    "workerTimeoutMs": 1200000
+  },
   "ignoredFiles": [
     "node_modules/**",
     "dist/autorouter-debug/**",
     "**/*.kicad_prl",
     "firmware/build/*.map",
     "**/__pycache__/**",
-    "release/*.zip"
+    "release/*.zip",
+    "checks/**",
+    "dist/*/kicad/**",
+    "firmware/downloads/**",
+    "routing/candidate.json"
   ]
 }

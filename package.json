@@ -1,6 +1,6 @@
 {
   "name": "@tsci/rushabhcodes.desk-fidget-counter",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "private": false,
   "description": "USB-powered scroll ring, persistent turn counter and laptop dashboard",
   "type": "module",
@@ -15,7 +15,8 @@
     "dev": "tsci dev",
     "cad:pcb": "bun scripts/export-pcb-cad.mjs",
     "check:assembly": "bun validation/check-assembly.mjs",
-    "export:jlcpcb": "python3 scripts/export-jlcpcb.py"
+    "export:jlcpcb": "python3 scripts/export-jlcpcb.py",
+    "check:footprints": "bun validation/check-jlc-footprints.ts"
   },
   "dependencies": {
     "react": "19.2.0",

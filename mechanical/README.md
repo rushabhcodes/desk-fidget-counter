@@ -26,7 +26,7 @@ bun run check:assembly
 python mechanical/render.py
 ```
 
-The renderer uses pyrender 0.1.45, PyOpenGL 3.1.10, Pillow and Mesa EGL. Versioned model URLs resolve to the immutable release tag. The local exporter uses those same checked-in bytes before publication. The complete rotation check uses tolerance-expanded circular envelopes and verifies four independent race contacts. Calibrate bearing fits to ±0.10 mm diameter and relative mating heights to ±0.10 mm; hardware bring-up remains a first-prototype step.
+The renderer uses pyrender 0.1.45, PyOpenGL 3.1.10, Pillow and Mesa EGL. Model URLs are relative to the repository and resolve to the included OBJ files. The local exporter uses those same checked-in bytes; a new remote release tag is not required to view or rebuild them. The complete rotation check uses tolerance-expanded circular envelopes and verifies four independent race contacts. Calibrate bearing fits to ±0.10 mm diameter and relative mating heights to ±0.10 mm; hardware bring-up remains a first-prototype step.
 
 The comparison renders use actual immutable predecessor assemblies at identical camera scale: [v5.1.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.1.0/assembled.glb) for the old plunger and [v5.0.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.0.0/assembled.glb) for the old USB recess. `render.py --button-before … --usb-before …` accepts these downloaded GLBs.
 

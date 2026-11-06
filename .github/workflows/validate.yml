@@ -12,7 +12,7 @@ jobs:
       - run: bun run typecheck && bun run test
       - run: bun run check:netlist && bun run check:schematic
       - run: bun run build
-      - run: bun run check:placement && bun validation/check-design.mjs && bun run check:shorts && bun run check:assembly
+      - run: bun run check:placement && bun validation/check-design.mjs && bun run check:footprints && bun run check:shorts && bun run check:assembly
       - uses: actions/upload-artifact@v4
         with:
           name: circuit

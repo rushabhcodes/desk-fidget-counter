@@ -306,5 +306,10 @@
   "optional_unpopulated_components": [
     "J6"
   ],
-  "display_cable": "Use the cable included with Waveshare 19192. Shorten and solder at J6; original PH plug retained. No custom harness required."
+  "display_cable": "Use the cable included with Waveshare 19192. Shorten and solder at J6; original PH plug retained. No custom harness required.",
+  "prototype_sourcing_review": {
+    "date": "2026-11-06",
+    "J4": "Exact JST C131342 found with bunx tsci search --jlcpcb --json B6B-PH-K-S and matched in JLCPCB Standard manual assembly.",
+    "U2": "Use genuine pre-PCN TCUT1600X01 / C511085 stocked at JLCPCB, with unchanged pinout, package and characteristics documented by Vishay PCN-OPT-1311-2024. Current TCUT1600X01_A / C24626661 had zero stock. Historical previous_mpn entries remain historical."
+  }
 }

@@ -2,11 +2,8 @@
 import { assembly } from "tscircuit"
 import Board from "./index.circuit"
 import parts from "./mechanical/cad/parts.json"
-import { version } from "./package.json"
-
-// Immutable release URLs keep the CAD viewer independent of local file servers.
-// The same OBJ files are also included in this project for offline inspection.
-const assetBase = `https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v${version}/mechanical/cad/`
+// The platform resolves these included assets relative to the project.
+const assetBase = "./mechanical/cad/"
 
 export default () => (
   <assembly.device name="DESK_KNOB_ASSEMBLY">

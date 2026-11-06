@@ -1,0 +1,147 @@
+{
+  "imported_date": "2026-11-06",
+  "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes <C-code>",
+  "source": "JLCPCB/EasyEDA via tscircuit CLI",
+  "note": "Generated imports retained byte-for-byte. Wrappers set electrical aliases, placement/CAD angles and top-entry metadata; imported copper, drill, mask and courtyard geometry is not overridden. Body silkscreen for the USB receptacle, side button and J4/J6 headers is omitted where it crosses board edges/windows or represents the unpopulated J6 body; J4 has a separate pin-1 marker. One outline in each closely spaced R12/R13 and R27/R28 pair is omitted to preserve printable ink clearance. J6 uses an imported DNP header footprint only as the supplied cable solder-pad row; do not buy or populate that header.",
+  "parts": {
+    "MB85RC256VPNF-G-AMERE2": {
+      "code": "C45273903",
+      "path": "imports/jlc/MB85RC256VPNF_G_AMERE2.tsx",
+      "export": "MB85RC256VPNF_G_AMERE2",
+      "sha256": "4543a14afae1b551a51452e145a3e12d79d3f767d56434de629f011bb5baa90c"
+    },
+    "GRM188R61A105KA61D": {
+      "code": "C86012",
+      "path": "imports/jlc/GRM188R61A105KA61D.tsx",
+      "export": "GRM188R61A105KA61D",
+      "sha256": "fae1f23058350cb11c87936c5cdede1be0892a8625d7ebb5154f13a5e2001b21"
+    },
+    "CL21A475KOFNNNE": {
+      "code": "C1746",
+      "path": "imports/jlc/CL21A475KOFNNNE.tsx",
+      "export": "CL21A475KOFNNNE",
+      "sha256": "f334fbb1431c02dd02129816c2d76ff6c8ebfb0e874bc7405465c6e3715e11db"
+    },
+    "GRM188R71C104KA01D": {
+      "code": "C45000",
+      "path": "imports/jlc/GRM188R71C104KA01D.tsx",
+      "export": "GRM188R71C104KA01D",
+      "sha256": "a51a7f1ebf41c2853ae4c0a4c0392ad6384202091a0776f40991250b43d67660"
+    },
+    "GRM155R71C104KA88D": {
+      "code": "C71629",
+      "path": "imports/jlc/GRM155R71C104KA88D.tsx",
+      "export": "GRM155R71C104KA88D",
+      "sha256": "22b58760462f248099f74ac4125df7153bdbce3a8611643c47ecc89ea18e87b7"
+    },
+    "GRM155R71H103KA88D": {
+      "code": "C77019",
+      "path": "imports/jlc/GRM155R71H103KA88D.tsx",
+      "export": "GRM155R71H103KA88D",
+      "sha256": "dd5e7eadb0fa7a931d5f21e7865f70d06a8350a64aa1b35a3c99a11257273913"
+    },
+    "TYPE-C-31-M-12": {
+      "code": "C165948",
+      "path": "imports/jlc/TYPE_C_31_M_12.tsx",
+      "export": "TYPE_C_31_M_12",
+      "sha256": "cd9c6d214938f7fe823eee6712b29385880a27ca906e115392b1c6bbe215bcaa"
+    },
+    "B6B-PH-K-S(LF)(SN)": {
+      "code": "C131342",
+      "path": "imports/jlc/B6B_PH_K_S_LF__SN_.tsx",
+      "export": "B6B_PH_K_S_LF__SN_",
+      "sha256": "7887abb6f1b2700a8bc98c9fe2b6f318b9afba21e0ae96bf4d8a421d09ed3c80"
+    },
+    "RC0603FR-0710KL": {
+      "code": "C98220",
+      "path": "imports/jlc/RC0603FR_0710KL.tsx",
+      "export": "RC0603FR_0710KL",
+      "sha256": "28f4b5b05c824e455eb25786de2319d6fb0d4a2f3958b6f9ddc3bd04a60df6f7"
+    },
+    "RC0603FR-075K1L": {
+      "code": "C105580",
+      "path": "imports/jlc/RC0603FR_075K1L.tsx",
+      "export": "RC0603FR_075K1L",
+      "sha256": "9fe881602143298cc5a3b6325956c56d01205b39205cf884f806f5777f058835"
+    },
+    "RC0603FR-074K7L": {
+      "code": "C99782",
+      "path": "imports/jlc/RC0603FR_074K7L.tsx",
+      "export": "RC0603FR_074K7L",
+      "sha256": "e23f84396284cf369c3e284edcbfe42ab0e836bb0c3851c972693b4eadf19328"
+    },
+    "RC0603FR-07100KL": {
+      "code": "C14675",
+      "path": "imports/jlc/RC0603FR_07100KL.tsx",
+      "export": "RC0603FR_07100KL",
+      "sha256": "7e2c14e88310ce506c28a06ec0596f484d3776c4d1466511b9fa116eb5bb2130"
+    },
+    "RC0603FR-07150RL": {
+      "code": "C114608",
+      "path": "imports/jlc/RC0603FR_07150RL.tsx",
+      "export": "RC0603FR_07150RL",
+      "sha256": "deb231ea9d58f06388e833ccfcf1080de4e3abb15e8db1cba208fd260f003cb7"
+    },
+    "RC0603FR-0722KL": {
+      "code": "C114065",
+      "path": "imports/jlc/RC0603FR_0722KL.tsx",
+      "export": "RC0603FR_0722KL",
+      "sha256": "72292b461b9c3ea96c2bce0a8d6969877a12b56e1138e391913ffa9445a7574a"
+    },
+    "RC0603FR-0722RL": {
+      "code": "C107701",
+      "path": "imports/jlc/RC0603FR_0722RL.tsx",
+      "export": "RC0603FR_0722RL",
+      "sha256": "a0fbf7fab20fbbb6d0dadcc62bdaf5241b94d5d7a82c213be08aa466e3fd1452"
+    },
+    "B3U-3000P": {
+      "code": "C963349",
+      "path": "imports/jlc/B3U_3000P.tsx",
+      "export": "B3U_3000P",
+      "sha256": "000bae73e4ccc0a9898233e16bc34d3e83eaa01e321f7cf340489959fb91ff1f"
+    },
+    "TPS22919DCKR": {
+      "code": "C2149796",
+      "path": "imports/jlc/TPS22919DCKR.tsx",
+      "export": "TPS22919DCKR",
+      "sha256": "3bc223f751b7aba426f915aa5cd7760f2890c41cdc18c067d3cb80c64c918d62"
+    },
+    "TLV75533PDBVR": {
+      "code": "C404027",
+      "path": "imports/jlc/TLV75533PDBVR.tsx",
+      "export": "TLV75533PDBVR",
+      "sha256": "8c7067902c542c63334198ae33bd6ea81b82afa917c551cf541271cb0ba42d7a"
+    },
+    "STM32F072CBT6": {
+      "code": "C81720",
+      "path": "imports/jlc/STM32F072CBT6.tsx",
+      "export": "STM32F072CBT6",
+      "sha256": "2d93aefdf984841a5eff9b973f017ff4ff1bfb968a50c9337cd86f92ca248b70"
+    },
+    "USBLC6-2SC6": {
+      "code": "C7519",
+      "path": "imports/jlc/USBLC6_2SC6.tsx",
+      "export": "USBLC6_2SC6",
+      "sha256": "8500e4493651c5174911a619d96a75737698466213740a6358fd6b6ac7a5a558"
+    },
+    "SN74LVC2G17DBVR": {
+      "code": "C10429",
+      "path": "imports/jlc/SN74LVC2G17DBVR.tsx",
+      "export": "SN74LVC2G17DBVR",
+      "sha256": "32265c735d8b0ca3322bc0c4fa826ab3d5c28a463feb74aa9532283a751642c1"
+    },
+    "TCUT1600X01": {
+      "code": "C511085",
+      "path": "imports/jlc/TCUT1600X01.tsx",
+      "export": "TCUT1600X01",
+      "sha256": "10b9d3b43780e13a9350d16730cecaa1b1393c2c288ddb6743562e6ae945719e"
+    },
+    "2.54-1*8": {
+      "code": "C5156616",
+      "path": "imports/jlc/A_2_54_1_8.tsx",
+      "export": "A_2_54_1_8",
+      "sha256": "bb33ee1863f3d171bc9719e19d351734cf1ed28723f0468cb8c72a53f7dfb6ba"
+    }
+  },
+  "access_metadata": "The project adds insertionDirection=from_above to the J4 and J6 footprint root only. Imported pad, hole, mask, silk and courtyard children are unchanged."
+}

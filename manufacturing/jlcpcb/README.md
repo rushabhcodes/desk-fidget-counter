@@ -1,63 +1,30 @@
-# JLCPCB upload guide — one prototype, India
+# JLCPCB handoff guidance — one prototype, India
 
-Use **v5.4.0 / PCB E3 / mechanics E4**. You place the order and handle shipping/payment. No order has been placed. JLCPCB's Gerber parser accepted the board on 6 November 2026 and detected **2 layers, 68 × 83.2 mm**. This is parser acceptance, not an engineering DFM sign-off.
+The repository is the deliverable; no new fabrication kit, supplier upload or order has been created. Project source is published separately to GitHub and TSCircuit. You will export/download the fabrication files and order later. [Board requirements and local verification](../README.md) and [validation evidence](../../validation/REPORT.md) describe the checked source.
 
-## Files to upload
+**Do not order the historical v5.4.0 outputs.** Their FRAM footprint was undersized and several library zero angles differed. Those generated files have been removed from this working revision. Export a complete new set from the corrected source; never mix revisions.
 
-| Step | File | Contents |
-|---|---|---|
-| PCB fabrication | `../desk-knob-reve3-gerbers.zip` | Authoritative Gerbers and drills; upload this ZIP, not the full project ZIP |
-| Complete assembly request | `BOM-complete.csv` + `CPL-complete.csv` | **38** fitted references, all top, including through-hole J4 |
-| SMT assembly, J4 fitted locally | `BOM-smt.csv` + `CPL-smt.csv` | **37** fitted references; solder the genuine JST J4 header after SMT assembly |
-| Engineering reference | `physical-pin-map.csv` and `../../previews/assembly-top.svg` | Actual physical pin positions and top assembly drawing |
-| Verification | `checks.json` | Source/output hashes, population and coordinate checks |
+## Your future upload
 
-Keep each BOM with its matching CPL. J6's optional header is **DNP** in both sets; its pads take the shortened display cable later. The display, bearing, screws, adhesives, foam and printed housing are separate purchases in the root README.
+1. Resolve the [USB shield-slot process review](../../validation/supplier-review.json) with JLCPCB: the original 0.8×1.2/1.5 mm plated slots are shorter than its published 2:1 guidance. KiCad does not check this process ratio. Obtain acceptance for the unchanged geometry/tolerances, or qualify a different connector and rerun checks.
+2. Build the current bare PCB and export its Gerbers, outline, plated drills and NPTH drills together. Keep two layers, 1.6 mm FR-4, 1 oz copper, ENIG, 68×83.2 mm outline extents and the routed inner window. Current vias are **Ø0.30 mm drills / Ø0.60 mm pads**, replacing the old Ø0.20 mm drills. Preserve the actual drill files.
+3. Export matching BOM and CPL: **38 fitted components, all top**, including genuine JST J4. J6 is an unpopulated optional header footprint used only for the display-cable solder pads. Do not buy or populate it. An SMT-only assembly option has 37 fitted parts and leaves J4 for local soldering.
+4. Match exact manufacturer/MPN/catalogue IDs from [the part catalogue](../../reference/jlcpcb-parts.json). Use JLCPCB's documented [BOM](https://jlcpcb.com/help/article/bill-of-materials-for-pcb-assembly) and [CPL](https://jlcpcb.com/help/article/pick-place-file-for-pcb-assembly) fields. Keep the CPL origin consistent with the exported Gerbers; never take absolute values or mirror only the placement file.
+5. Inspect every placement against its real copper and physical pin 1, particularly U1/U3–U7, U2, J1/J4 and SW1. Library zero angles differ, as [JLCPCB explains](https://jlcpcb.com/help/article/pcb-assembly-faqs-part-2). Request engineering confirmation of feeder origin/rotation. J1 faces +Y; the side button faces −Y. Preserve the supported overhanging housings, finished outline and window. Assembly rails/fiducials may be added outside that finished outline by the supplier.
+6. Recheck availability, assembly eligibility, price, quantity minimums and India shipping/import charges in your new quote. Keep placement confirmation manual. You place/pay the order; none has been placed here.
 
-These CSVs follow JLCPCB's [BOM fields](https://jlcpcb.com/help/article/bill-of-materials-for-pcb-assembly) and [CPL fields](https://jlcpcb.com/help/article/pick-place-file-for-pcb-assembly): UTF-8, millimetres, `Top`, counter-clockwise degrees. **Negative Y is intentional** and shares the KiCad Gerber origin. Do not take absolute values or move/mirror only the CPL. Every location is checked against its source footprint origin. Rotations are normalized to 0–360° without guessed feeder corrections.
+The [top assembly view](../../previews/assembly-top.svg) marks actual physical pin 1. Source adapters preserve the imported physical pad numbering and copper/drill geometry; the [footprint check](../../validation/check-jlc-footprints.ts) compares all **173 pads across 39 references**, including the DNP row. Supplier feeder approval is a separate step from that geometry check.
 
-## PCB order settings
+The screen, bearing, fasteners, adhesives, foam and eight printed parts are separate from PCB assembly. Use the Waveshare 19192 kit's own lead, shortened and soldered at J6; no additional display connector/harness purchase is required. [Wiring](../WIRING.md), [parts list](../../README.md) and [first-build tests](../../validation/BRINGUP.md).
 
-| Field | Selection |
-|---|---|
-| Material | FR-4, Tg ≥135°C |
-| Layers / thickness | **2 / 1.6 mm** |
-| Dimensions | **68 × 83.2 mm** (either orientation) |
-| Copper | 1 oz outer copper |
-| Finish / mask / silk | ENIG / green / white |
-| Actual minimum trace / copper gap | 0.10 / 0.15 mm |
-| Actual vias | **Ø0.20 mm drills / Ø0.60 mm pads**; preserve drill files |
-| Format | Single PCB; JLCPCB may add external rails/panelization for assembly |
-| Test | Full electrical test and any tests required by the chosen process |
-| Quantity | Target **one complete prototype**; select the smallest offered bare-board quantity and request one assembled board through Standard Assembly if available in your quote |
+## Recorded availability and cost evidence
 
-Select the **0.2 mm drill class**, not 0.3 mm. In the live quote, this displayed a high-precision notice automatically selecting Kelvin testing and plugged vias. Review those options/cost using the actual **0.20/0.60 mm** geometry; the class caption's 0.30/0.35 mm pad sizes are not this board's pad sizes. Do not enlarge drills or alter Gerbers to bypass a quote warning.
+On 6 November 2026 the signed-in **old v5.4.0 draft** matched **22/22 BOM lines and 38 top placements**. Its placement preview exposed the footprint/angle defects, so it was not approved for ordering. This establishes historical part matching only; the corrected layout has not been uploaded as part of this task.
 
-Paste for engineering review:
+- U2 is genuine **Vishay TCUT1600X01 / C511085**, stocked pre-PCN material. The `_A` version, C24626661, was unavailable. [Vishay's PCN](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/PCN-OPT-1311-2024-REV-0.pdf) documents unchanged fit/form/function for its wafer change. Retain the dual-channel part and verify optical performance on the prototype.
+- J4 is genuine **JST B6B-PH-K-S(LF)(SN) / C131342**, found through TSCI's JLCPCB search; it was selected for Standard manual assembly.
+- C6/C12/C18 use stocked **Samsung CL21A475KOFNNNE / C1746**, 4.7 µF/16 V/X5R/0805, replacing the obsolete Murata selection.
 
-> Two-layer 1.6 mm FR-4, 68 × 83.2 mm. One closed outer profile and one closed routed inner window. Minimum trace 0.10 mm, clearance 0.15 mm; vias drill 0.20 / pad 0.60 mm. J1 USB-C and SW1 intentionally overhang their supported PCB tips; retain their lands/slots. All components on TOP. Do not fit J6. Verify exact manufacturer/MPN, feeder origin and rotation against the physical-pin map and top drawing. J1 mouth faces +Y; SW1 actuator faces −Y. Add assembly rails/fiducials outside the finished board as necessary; preserve finished outline, window and placements.
+The [point-in-time review](../../reference/jlcpcb-cost-review.json) records selected codes, quantities and costs. The old baseline was **$190.15** for five bare boards and two Standard assemblies before shipping/import: PCB $72.21, PCBA $117.94, including $22.64 parts and $32.55 feeder loading. The form required five bare/minimum two assembled boards, leaving extras for a one-device prototype. This is not a quote or stock reservation for the corrected board.
 
-JLCPCB's [published copper rules](https://jlcpcb.com/help/article/jlcpcb-copper-weight) allow 0.10 mm tracks on 1–2 layer FR-4 with 1 oz copper. Keep 1 oz; 2 oz would require wider tracks.
-
-## Match the components
-
-`../../reference/jlcpcb-parts.json` records exact MPNs, packages, known catalogue codes and primary sources checked on 6 November 2026. **Catalogue identity is not a stock reservation or current assembly-eligibility guarantee.** Check manufacturer as well as MPN; ST USBLC6-2SC6 and TI SN74LVC2G17DBVR have similarly named parts from other manufacturers.
-
-- **U2, Vishay TCUT1600X01_A:** no exact JLCPCB catalogue code was verified. Use JLCPCB Global Sourcing/consignment for this exact part, or buy and fit it locally. [DigiKey's exact part](https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TCUT1600X01-A/25823737) was active and stocked when checked. It is a dual-channel, 3 mm-fork sensor; do not substitute TCPT/TCST or a single-channel part.
-- **J4, JST B6B-PH-K-S(LF)(SN):** through-hole. Match supported manual assembly in the complete set, or use the SMT-only set and solder J4 locally. Its code is blank because an exact catalogue match was not verified.
-- **C6/C12/C18:** Samsung **CL21A475KOFNNNE / C1746**, 4.7 µF, 16 V, ±10%, X5R, 0805, replacing obsolete Murata GRM21BR61A475KA73L. Lands and nominal 2.0 × 1.25 × 1.25 mm body are retained.
-- Verify U3 FRAM and SW1 availability/service eligibility in the matching page. Do not accept an unselected required component as a completed device. If fitting U2 locally, deselect it consistently in the order BOM/CPL and record the omission; operation still requires it.
-
-Compare the final preview against physical copper pins, particularly U1/U3–U7, asymmetric U2, J1/J4 and SW1's actuation direction. JLCPCB [documents differing library zero-angle conventions](https://jlcpcb.com/help/article/pcb-assembly-faqs-part-2); a generic red dot is insufficient. The supplied map includes all physical pad centres in the Gerber frame. A logged-in JLCPCB feeder preview has **not** been approved by this package.
-
-## Prints and final assembly
-
-The PCB order alone is not the complete device. Supply Waveshare **19192** with its included lead, a **6712ZZ 60 × 75 × 7 mm** bearing, eight prints, six PORON pads, adhesives and screws from the shopping list. Solder the shortened lead into J6, program through J4 and follow ASSEMBLY.md/BRINGUP.md.
-
-Print the three fit coupons first. The design requires **±0.10 mm bearing-fit diameters and ±0.10 mm relative mating heights** after calibration/finishing. JLC3DP's [standard FDM tolerance](https://jlc3dp.com/help/article/3d-printing-design-guideline) is **±0.3 mm within 100 mm and ±0.4 mm for holes**; it does **not** meet this fit budget. Request critical-dimension finishing/inspection, or calibrate and print locally. Do not assume a default-tolerance enclosure order will fit. Preserve the 0.8 mm encoder wall and verify 950 nm opacity of the actual material.
-
-## Shipping to India
-
-Select **India** and your actual address/postal code in your own checkout. The checkout/carrier determines shipping and import charges; this package contains no delivered-price quote. JLCPCB's [shipping information](https://jlcpcb.com/help/article/shipping-methods-and-delivery-time) and [customs guidance](https://jlcpcb.com/help/article/customs%2C-duties-and-taxes) describe destination charges and India's courier KYC process. Supply any identification directly through the verified supplier/carrier flow. No identity documents are stored in this public project.
-
-Physical power, USB, counting and print-fit checks remain in `../../validation/BRINGUP.md`. Unpublished bearing/cable details retain the accepted approximations.
+TSCI search also found inexpensive Basic alternatives C25804, C25803, C14663, C15849 and C1525. They are discovery candidates, not approved substitutions; the selected passives were already stocked and inexpensive. [Standard PCBA pricing](https://jlcpcb.com/help/article/pcb-assembly-price) charges feeder loading for Basic as well as Extended parts, so changing labels alone does not remove that cost. Qualify any future substitution against package, ratings, footprint, stock and assembly process, then rerun checks.

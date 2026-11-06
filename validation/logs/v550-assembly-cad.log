@@ -1,0 +1,19 @@
+{
+  "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
+  "glb_frame": "glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front",
+  "part_count": 30,
+  "source_parameters_sha256": "7ea467ecc5493a8e4554bf9c91d4040d07ea9f32f5aa702f8beb67cfcefbc657",
+  "source_board_tsx_sha256": "583257dfdc6c7c3d6e731ee188972b35917bc983a72bdd68172fa1b103902b11",
+  "printed_meshes_restored_from_print_orientation": 8,
+  "cad_files": {
+    "assembled.glb": {
+      "bytes": 4995960,
+      "sha256": "5fe7f248815970090c51dba56cc977e26d4cda1d9de84458a25163e6f7d4f648"
+    },
+    "exploded.glb": {
+      "bytes": 4996020,
+      "sha256": "a302d8a067a313c2f56de3ea4934de586280a1ac2b3ffb87effc61a0f6134b93"
+    }
+  },
+  "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"
+}

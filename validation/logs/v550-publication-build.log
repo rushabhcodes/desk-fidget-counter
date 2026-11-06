@@ -1,0 +1,29 @@
+$ tsci build index.circuit.tsx && tsci build assembly.circuit.tsx
+Building 1 file(s)...
+Building index.circuit.tsx...
+Generating circuit JSON...
+Saved autorouting paths to .tscircuit/autorouting-artifacts/index-circuit-tsx-2e2764dae4/subcircuit_source_group_0-phase-0-order-0-stage-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Circuit JSON written to dist/index/circuit.json
+.U1 > .PB5 to net.ENC_B has a 5.06 mm segment on bottom at 186.10°, 6.10° from the nearest allowed direction (180°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully
+Building 1 file(s)...
+Building assembly.circuit.tsx...
+Generating circuit JSON...
+Saved autorouting paths to .tscircuit/autorouting-artifacts/assembly-circuit-tsx-fe4200ca81/subcircuit_source_group_0-phase-0-order-0-stage-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Circuit JSON written to dist/assembly/circuit.json
+.U1 > .PB5 to net.ENC_B has a 5.06 mm segment on bottom at 186.10°, 6.10° from the nearest allowed direction (180°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

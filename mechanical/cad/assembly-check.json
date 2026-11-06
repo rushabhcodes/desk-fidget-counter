@@ -2,17 +2,17 @@
   "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
   "glb_frame": "glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front",
   "part_count": 30,
-  "source_parameters_sha256": "307fd2519fbba5c75109e4424ca8e86801d9dbcf9cdf5617fc2ec24c1da2432a",
-  "source_board_tsx_sha256": "5e410b10e7119d07e889e518deac3fe6e9d680b5a59c0dfdcf1823ba68be972f",
+  "source_parameters_sha256": "7ea467ecc5493a8e4554bf9c91d4040d07ea9f32f5aa702f8beb67cfcefbc657",
+  "source_board_tsx_sha256": "583257dfdc6c7c3d6e731ee188972b35917bc983a72bdd68172fa1b103902b11",
   "printed_meshes_restored_from_print_orientation": 8,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 4980200,
-      "sha256": "dfe566d7245673a1e3b7f9a8168709cc2dbc884fef676ed5f5fc98f1018c97c3"
+      "bytes": 4995960,
+      "sha256": "5fe7f248815970090c51dba56cc977e26d4cda1d9de84458a25163e6f7d4f648"
     },
     "exploded.glb": {
-      "bytes": 4980264,
-      "sha256": "2bc9410e7ccb7b18e9c5ecb8a964acdbc0ebb223963ed38eb7a8bbb0cd417a14"
+      "bytes": 4996020,
+      "sha256": "a302d8a067a313c2f56de3ea4934de586280a1ac2b3ffb87effc61a0f6134b93"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

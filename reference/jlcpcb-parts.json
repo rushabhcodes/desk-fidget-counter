@@ -1,6 +1,6 @@
 {
   "checked_date": "2026-11-06",
-  "scope": "Exact MPN/catalogue identity only. LCSC catalogue IDs are not a promise of JLCPCB assembly stock, service eligibility or feeder orientation. No stock reserved. Blank codes require exact-MPN sourcing or manual assembly; never auto-substitute.",
+  "scope": "Exact MPN/catalogue identity and signed-in JLCPCB BOM/CPL matching checked 2026-11-06. All 22 selected lines were available and priced for two assembled boards. No stock reserved; recheck before ordering. Feeder origin/rotation remains subject to JLC engineering DFM confirmation.",
   "parts": {
     "GRM188R71C104KA01D": {
       "lcsc": "C45000",
@@ -39,10 +39,10 @@
       "source": "https://jlcpcb.com/partdetail/HRO_TYPEC-31-M12/C165948"
     },
     "B6B-PH-K-S(LF)(SN)": {
-      "lcsc": "",
+      "lcsc": "C131342",
       "footprint": "JST-PH-6-P2.0-THT",
       "description": "6-pin top-entry programming header",
-      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+      "source": "https://jlcpcb.com/partdetail/JST-B6B_PH_K_S_LF_SN/C131342"
     },
     "RC0603FR-075K1L": {
       "lcsc": "C105580",
@@ -98,12 +98,6 @@
       "description": "USB MCU",
       "source": "https://jlcpcb.com/partdetail/STMicroelectronics-STM32F072CBT6/C81720"
     },
-    "TCUT1600X01_A": {
-      "lcsc": "",
-      "footprint": "Vishay-TCUT1600-SMD-6",
-      "description": "dual optical interrupter 3mm slot",
-      "source": "https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TCUT1600X01-A/25823737"
-    },
     "MB85RC256VPNF-G-AMERE2": {
       "lcsc": "C45273903",
       "footprint": "SOP-8-150mil",
@@ -133,6 +127,14 @@
       "footprint": "SOT-23-6",
       "description": "TI dual Schmitt buffer",
       "source": "https://jlcpcb.com/partdetail/TexasInstruments-SN74LVC2G17DBVR/C10429"
+    },
+    "TCUT1600X01": {
+      "lcsc": "C511085",
+      "footprint": "Vishay-TCUT1600-SMD-6",
+      "description": "dual optical interrupter 3mm slot",
+      "source": "https://jlcpcb.com/partdetail/VishayIntertech-TCUT1600X01/C511085",
+      "revision_note": "Pre-PCN genuine Vishay stock selected for this prototype. PCN-OPT-1311-2024 describes unchanged characteristics, fit, form and function for the _A wafer revision. Legacy order code; recheck stock. TCUT1600X01_A/C24626661 is the current revision but had zero JLC stock on 2026-11-06.",
+      "pcn": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/PCN-OPT-1311-2024-REV-0.pdf"
     }
   }
 }
