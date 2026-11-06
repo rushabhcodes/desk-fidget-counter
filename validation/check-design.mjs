@@ -71,6 +71,7 @@ const b=cj.find(x=>x.type==='pcb_board');assert(b);assert.equal(b.thickness,1.6)
 for(const n of ['D1','LED1','R11','R14','R15','R16','R29','SW2'])assert(!components.has(n),`Redundant component ${n} must remain removed`)
 assert.equal(components.size,39,'Rev E reviewed component count')
 assert.equal(components.get('C8').capacitance,10e-9);assert.equal(components.get('C17').capacitance,1e-6);assert.equal(components.get('C18').capacitance,4.7e-6)
+for(const ref of ['C6','C12','C18'])assert.equal(components.get(ref).manufacturer_part_number,'CL21A475KOFNNNE','Use the current 16V Samsung bulk capacitor, not the obsolete Murata part')
 const audit=JSON.parse(fs.readFileSync('reference/component-audit.json','utf8'));assert.equal(audit.baseline_components.length,45);assert.deepEqual([...components.keys()].sort(),[...audit.baseline_components.filter(x=>x.decision!=='remove'),...audit.added_components].map(x=>x.reference).sort())
 
 const usb=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get('J1').source_component_id)

@@ -3,16 +3,16 @@
   "glb_frame": "glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front",
   "part_count": 30,
   "source_parameters_sha256": "307fd2519fbba5c75109e4424ca8e86801d9dbcf9cdf5617fc2ec24c1da2432a",
-  "source_board_tsx_sha256": "8a1bcd99a067be3d9c6ba531ce8690f3e5ae8b38b522d1794614782440ad5020",
+  "source_board_tsx_sha256": "5e410b10e7119d07e889e518deac3fe6e9d680b5a59c0dfdcf1823ba68be972f",
   "printed_meshes_restored_from_print_orientation": 8,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 4980280,
-      "sha256": "e0bc3f63e0e6bc7835bdef382449354006e5798425c9b6c5c380fbab826bed0d"
+      "bytes": 4980200,
+      "sha256": "dfe566d7245673a1e3b7f9a8168709cc2dbc884fef676ed5f5fc98f1018c97c3"
     },
     "exploded.glb": {
-      "bytes": 4980344,
-      "sha256": "c8a0ee38d2b32621effede9a4b4b49cec21fd809f4de82863789209254a4ea94"
+      "bytes": 4980264,
+      "sha256": "2bc9410e7ccb7b18e9c5ecb8a964acdbc0ebb223963ed38eb7a8bbb0cd417a14"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

@@ -1,6 +1,6 @@
 # Manufacturing / Rev E3
 
-Manufacturer: **JLCPCB bare-board fabrication**, followed by supervised manual/reflow assembly. No board or assembly order has been placed. The provided placement file is a coordinate reference; automated assembly requires the assembler to map feeder rotations to the verified pin-1 assembly drawing.
+Manufacturer: **JLCPCB bare-board fabrication and a PCB assembly request**, with final wiring/mechanical assembly locally. The [JLCPCB upload guide](jlcpcb/README.md) supplies matched BOM/CPL files and exact order settings for one prototype shipped to India. No board or assembly order has been placed. The JLCPCB CSVs preserve native placement coordinates; match feeder origins/rotations against the physical-pin map and pin-1 drawing during supplier review.
 
 ## Stackup and rules
 
@@ -19,7 +19,7 @@ Manufacturer: **JLCPCB bare-board fabrication**, followed by supervised manual/r
 | Solder paste | 100 µm stencil starting point; no exposed-pad charger is present in Rev E3 |
 | Assembly | All components on top; J4 and display wires hand soldered after SMT reflow; tails ≤0.8 mm |
 
-See [JLCPCB's capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/) for current process limits. These project rules are more conservative than the process's minimum trace and hole sizes. No controlled-impedance order is claimed: USB is 12 Mbit/s over short PCB runs; signal integrity must be measured on the prototype.
+See [JLCPCB's capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/) for current process limits. The 0.10 mm neck-downs meet JLCPCB's published 1 oz minimum; retain 1 oz copper, since 2 oz requires wider tracks. The project uses 0.15 mm copper gaps. No controlled-impedance order is claimed: USB is 12 Mbit/s over short PCB runs; signal integrity must be measured on the prototype.
 
 ## Authoritative output
 

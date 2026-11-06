@@ -38,8 +38,9 @@
     {
       "reference": "C6",
       "previous_mpn": "GRM21BR61A475KA73L",
-      "decision": "keep",
-      "reason": "LDO output stability and bulk capacitance."
+      "decision": "replace",
+      "reason": "Replace obsolete Murata GRM21BR61A475KA73L with mass-production Samsung 4.7uF 16V X5R 10% 0805; same lands and nominal body.",
+      "new_mpn": "CL21A475KOFNNNE"
     },
     {
       "reference": "C7",
@@ -76,8 +77,9 @@
     {
       "reference": "C12",
       "previous_mpn": "GRM21BR61A475KA73L",
-      "decision": "keep",
-      "reason": "Digital VDD bulk decoupling."
+      "decision": "replace",
+      "reason": "Replace obsolete Murata GRM21BR61A475KA73L with mass-production Samsung 4.7uF 16V X5R 10% 0805; same lands and nominal body.",
+      "new_mpn": "CL21A475KOFNNNE"
     },
     {
       "reference": "C13",
@@ -297,7 +299,7 @@
       "reference": "C18",
       "capacitance": "4.7uF",
       "reason": "VDDIO2 local bulk decoupling in addition to C10 100 nF.",
-      "mpn": "GRM21BR61A475KA73L"
+      "mpn": "CL21A475KOFNNNE"
     }
   ],
   "mechanical_revision_note": "USB cluster J1/U6/C1/R1/R2 translated +9 mm on integral PCB tab; 39-part population and firmware 5.0.0 pin assignments retained.",

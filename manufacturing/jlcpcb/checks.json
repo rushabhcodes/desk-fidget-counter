@@ -1,0 +1,35 @@
+{
+  "release": "5.4.0",
+  "pcb_revision": "E3",
+  "mechanical_revision": "E4",
+  "complete_placements": 38,
+  "smt_only_placements": 37,
+  "DNP": [
+    "J6"
+  ],
+  "physical_pins": 165,
+  "all_components_top": true,
+  "bom_cpl_reference_sets_match": true,
+  "native_placement_coordinates_preserved": true,
+  "rotation_convention": "KiCad placement degrees normalized to [0,360); positive CCW. Feeder zero/origin must be checked in JLCPCB preview against the physical-pin map.",
+  "sourcing_attention": [
+    "J4",
+    "U2"
+  ],
+  "stock": "Not reserved or checkout-verified; match exact manufacturer and MPN before payment.",
+  "gerber_zip_sha256": "0c6f94efebf422f7ff4b8baf0ec876b4a29408bcc5eaa372c88f381f4b895690",
+  "input_hashes": {
+    "manufacturing/BOM.csv": "65e6246f3e9c7cbe56f1dada344239eb37d1d99182002ce5236071e7b9d5625c",
+    "manufacturing/pick-and-place.csv": "b15594b162b5fb7cdd9c1f38eb416869f3b0ee1687b095033793c2c16c013886",
+    "dist/index/circuit.json": "e20681d90d73f04f9336d45864362c9c7abdd2be3b25ad28360790b93e718ffe",
+    "reference/jlcpcb-parts.json": "36c49afac0a3b7623af10554dbbb7c9372d6aa4c74ac63cf2280a46309d08af5"
+  },
+  "output_hashes": {
+    "BOM-complete.csv": "8fbd8acf4aa128ba0b448ceaadab16ebecdebc3566dbbac7650c4883d1504cf6",
+    "BOM-smt.csv": "227c992822cdfa716af3bc20ac59f0c41a49310e972a3929656919dce729b149",
+    "CPL-complete.csv": "e077f38001e6e8b3e67ee78bb03d2276eaeb87916b47766d86d5cf4afec450dd",
+    "CPL-smt.csv": "ab0ea777166bb90577f5668e6f47847697cf70dc23ed07945529692352cd813c",
+    "physical-pin-map.csv": "9147420f1928ba9ce1bfb9c7ebbcca6276530bb553ad0e0804af219f78ab53be"
+  },
+  "supplier_upload": "Gerber ZIP accepted by JLCPCB on 2026-11-06: detected 2 layers, 68 x 83.2 mm. This is parser acceptance, not engineering DFM or paid-order approval."
+}

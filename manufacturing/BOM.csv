@@ -3,19 +3,19 @@ C1,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C2,1,1uF,Murata,GRM188R61A105KA61D,top,YES,Top reflow
 C3,1,1uF,Murata,GRM188R61A105KA61D,top,YES,Top reflow
 C5,1,1uF,Murata,GRM188R61A105KA61D,top,YES,Top reflow
-C6,1,4.7uF,Murata,GRM21BR61A475KA73L,top,YES,Top reflow
+C6,1,4.7uF,Samsung Electro-Mechanics,CL21A475KOFNNNE,top,YES,Top reflow
 C7,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C8,1,10nF,Murata,GRM155R71H103KA88D,top,YES,Top reflow
 C9,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C10,1,100nF,Murata,GRM155R71C104KA88D,top,YES,Top reflow
 C11,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
-C12,1,4.7uF,Murata,GRM21BR61A475KA73L,top,YES,Top reflow
+C12,1,4.7uF,Samsung Electro-Mechanics,CL21A475KOFNNNE,top,YES,Top reflow
 C13,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C14,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C15,1,1uF,Murata,GRM188R61A105KA61D,top,YES,Top reflow
 C16,1,100nF,Murata,GRM188R71C104KA01D,top,YES,Top reflow
 C17,1,1uF,Murata,GRM188R61A105KA61D,top,YES,Top reflow
-C18,1,4.7uF,Murata,GRM21BR61A475KA73L,top,YES,Top reflow
+C18,1,4.7uF,Samsung Electro-Mechanics,CL21A475KOFNNNE,top,YES,Top reflow
 J1,1,TYPE-C-31-M-12,HRO,TYPE-C-31-M-12,top,YES,Top reflow
 J4,1,B6B-PH-K-S(LF)(SN),JST,B6B-PH-K-S(LF)(SN),top,YES,Hand solder
 J6,1,61300811021,Würth Elektronik,61300811021,top,NO,DNP optional header; solder shortened included display lead into these pads

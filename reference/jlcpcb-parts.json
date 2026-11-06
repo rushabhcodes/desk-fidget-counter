@@ -1,0 +1,138 @@
+{
+  "checked_date": "2026-11-06",
+  "scope": "Exact MPN/catalogue identity only. LCSC catalogue IDs are not a promise of JLCPCB assembly stock, service eligibility or feeder orientation. No stock reserved. Blank codes require exact-MPN sourcing or manual assembly; never auto-substitute.",
+  "parts": {
+    "GRM188R71C104KA01D": {
+      "lcsc": "C45000",
+      "footprint": "0603",
+      "description": "100nF 16V X7R 10%",
+      "source": "https://jlcpcb.com/partdetail/MurataElectronics-GRM188R71C104KA01D/C45000"
+    },
+    "GRM188R61A105KA61D": {
+      "lcsc": "C86012",
+      "footprint": "0603",
+      "description": "1uF 10V X5R 10%",
+      "source": "https://lcsc.com/product-detail/multilayer-ceramic-capacitors-mlcc-smd-smt_murata-electronics-grm188r61a105ka61d_C86012.html"
+    },
+    "CL21A475KOFNNNE": {
+      "lcsc": "C1746",
+      "footprint": "0805",
+      "description": "4.7uF 16V X5R 10%",
+      "source": "https://www.lcsc.com/product-detail/C1746.html"
+    },
+    "GRM155R71H103KA88D": {
+      "lcsc": "C77019",
+      "footprint": "0402",
+      "description": "10nF 50V X7R 10%",
+      "source": "https://jlcpcb.com/partdetail/MurataElectronics-GRM155R71H103KA88D/C77019"
+    },
+    "GRM155R71C104KA88D": {
+      "lcsc": "C71629",
+      "footprint": "0402",
+      "description": "100nF 16V X7R 10%",
+      "source": "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Murata-Electronics-GRM155R71C104KA88D_C71629.html"
+    },
+    "TYPE-C-31-M-12": {
+      "lcsc": "C165948",
+      "footprint": "USB-C-16P",
+      "description": "USB2 receptacle",
+      "source": "https://jlcpcb.com/partdetail/HRO_TYPEC-31-M12/C165948"
+    },
+    "B6B-PH-K-S(LF)(SN)": {
+      "lcsc": "",
+      "footprint": "JST-PH-6-P2.0-THT",
+      "description": "6-pin top-entry programming header",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+    },
+    "RC0603FR-075K1L": {
+      "lcsc": "C105580",
+      "footprint": "0603",
+      "description": "5.1k 1% 100mW",
+      "source": "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_YAGEO-RC0603FR-075K1L_C105580.html"
+    },
+    "RC0603FR-0710KL": {
+      "lcsc": "C98220",
+      "footprint": "0603",
+      "description": "10k 1% 100mW",
+      "source": "https://www.lcsc.com/product-detail/C98220.html"
+    },
+    "RC0603FR-074K7L": {
+      "lcsc": "C99782",
+      "footprint": "0603",
+      "description": "4.7k 1% 100mW",
+      "source": "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_YAGEO-RC0603FR-074K7L_C99782.html"
+    },
+    "RC0603FR-07100KL": {
+      "lcsc": "C14675",
+      "footprint": "0603",
+      "description": "100k 1% 100mW",
+      "source": "https://www.lcsc.com/product-detail/C14675.html"
+    },
+    "RC0603FR-07150RL": {
+      "lcsc": "C114608",
+      "footprint": "0603",
+      "description": "150R 1% 100mW",
+      "source": "https://www.lcsc.com/product-detail/C114608.html?is_substitute=1&original_product_code=C227596&original_unit_price=0.0071"
+    },
+    "RC0603FR-0722KL": {
+      "lcsc": "C114065",
+      "footprint": "0603",
+      "description": "22k 1% 100mW",
+      "source": "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_YAGEO-RC0603FR-0722KL_C114065.html"
+    },
+    "RC0603FR-0722RL": {
+      "lcsc": "C107701",
+      "footprint": "0603",
+      "description": "22R 1% 100mW",
+      "source": "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_YAGEO-RC0603FR-0722RL_C107701.html"
+    },
+    "B3U-3000P": {
+      "lcsc": "C963349",
+      "footprint": "Omron-B3U-3000P",
+      "description": "side-actuated SMT switch",
+      "source": "https://www.lcsc.com/product-detail/C963349.html"
+    },
+    "STM32F072CBT6": {
+      "lcsc": "C81720",
+      "footprint": "LQFP-48-7x7-P0.5",
+      "description": "USB MCU",
+      "source": "https://jlcpcb.com/partdetail/STMicroelectronics-STM32F072CBT6/C81720"
+    },
+    "TCUT1600X01_A": {
+      "lcsc": "",
+      "footprint": "Vishay-TCUT1600-SMD-6",
+      "description": "dual optical interrupter 3mm slot",
+      "source": "https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TCUT1600X01-A/25823737"
+    },
+    "MB85RC256VPNF-G-AMERE2": {
+      "lcsc": "C45273903",
+      "footprint": "SOP-8-150mil",
+      "description": "256kbit I2C FRAM",
+      "source": "https://jlcpcb.com/partdetail/RAMXEEDFUJITSU-FeRAM_I2C/C45273903"
+    },
+    "TPS22919DCKR": {
+      "lcsc": "C2149796",
+      "footprint": "SC70-6",
+      "description": "load switch",
+      "source": "https://www.lcsc.com/product-detail/power-distribution-switches_ti-tps22919dckr_C2149796.html"
+    },
+    "TLV75533PDBVR": {
+      "lcsc": "C404027",
+      "footprint": "SOT-23-5",
+      "description": "3.3V LDO",
+      "source": "https://lcsc.com/product-detail/Low-Dropout-Regulators-LDO_Texas-Instruments-TI-TLV75533PDBVR_C404027.html"
+    },
+    "USBLC6-2SC6": {
+      "lcsc": "C7519",
+      "footprint": "SOT-23-6",
+      "description": "ST USB ESD array",
+      "source": "https://www.lcsc.com/product-detail/esd-and-surge-protection-tvs-esd_stmicroelectronics-usblc6-2sc6_C7519.html"
+    },
+    "SN74LVC2G17DBVR": {
+      "lcsc": "C10429",
+      "footprint": "SOT-23-6",
+      "description": "TI dual Schmitt buffer",
+      "source": "https://jlcpcb.com/partdetail/TexasInstruments-SN74LVC2G17DBVR/C10429"
+    }
+  }
+}

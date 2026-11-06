@@ -8,7 +8,7 @@ import type { PartsEngine } from "@tscircuit/props"
 const refStyle={"& silkscreentext":{visibility:"hidden" as const}}
 const fixedParts: PartsEngine = {findPart:({sourceComponent})=>sourceComponent.type==="source_component"?sourceComponent.supplier_part_numbers??{}:{}}
 const resistorMpns: Record<string,string>={"5.1k":"RC0603FR-075K1L","4.42k":"RC0603FR-074K42L","3.09k":"RC0603FR-073K09L","30k":"RC0603FR-0730KL","100k":"RC0603FR-07100KL","10k":"RC0603FR-0710KL","4.7k":"RC0603FR-074K7L","1k":"RC0603FR-071KL","1M":"RC0603FR-071ML","470k":"RC0603FR-07470KL","150":"RC0603FR-07150RL","22k":"RC0603FR-0722KL","22":"RC0603FR-0722RL"}
-const capacitorMpns: Record<string,string>={"100nF":"GRM188R71C104KA01D","1uF":"GRM188R61A105KA61D","4.7uF":"GRM21BR61A475KA73L","10nF":"GRM155R71H103KA88D","2.2uF":"GRM188R61C225KE11D","10uF":"GRM21BR61C106KE15L"}
+const capacitorMpns: Record<string,string>={"100nF":"GRM188R71C104KA01D","1uF":"GRM188R61A105KA61D","4.7uF":"CL21A475KOFNNNE","10nF":"GRM155R71H103KA88D","2.2uF":"GRM188R61C225KE11D","10uF":"GRM21BR61C106KE15L"}
 const R=(p:any)=><resistor cadModel={packageCad("r0603")} manufacturerPartNumber={resistorMpns[p.resistance]} pcbSx={refStyle} footprint="0603" schRotation={p.connections?.pin2==="net.V3V3"?90:-90} {...p}/>
 // Preserve library copper/courtyards; omit body ink where it crowds nearby parts.
 const dense0603=fp.string("0603").circuitJson().filter(p=>p.type!=="pcb_silkscreen_path")
