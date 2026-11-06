@@ -3569,99 +3569,155 @@
     "type": "source_component",
     "source_component_id": "source_component_47",
     "ftype": "subassembly",
-    "name": "bearing",
-    "display_name": "Maysme 6712ZZ 60 x 75 x 7 mm catalog envelope; steel appearance only, race/shield geometry unpublished and not modelled"
+    "name": "bearing-inner-race",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
   },
   {
     "type": "source_component",
     "source_component_id": "source_component_48",
+    "ftype": "subassembly",
+    "name": "bearing-outer-race",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_49",
+    "ftype": "subassembly",
+    "name": "bearing-shield-bottom",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_50",
+    "ftype": "subassembly",
+    "name": "bearing-shield-top",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_51",
+    "ftype": "subassembly",
+    "name": "bearing-balls",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_52",
+    "ftype": "subassembly",
+    "name": "bearing-cage",
+    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_53",
+    "ftype": "subassembly",
+    "name": "pcb-capture-pads",
+    "display_name": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_54",
+    "ftype": "subassembly",
+    "name": "pcb-pad-adhesive",
+    "display_name": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_55",
+    "ftype": "subassembly",
+    "name": "encoder-adhesive",
+    "display_name": "3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_56",
     "ftype": "subassembly",
     "name": "screen-module",
     "display_name": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_49",
+    "source_component_id": "source_component_57",
     "ftype": "subassembly",
     "name": "lcd-cable-screen-plug",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_50",
+    "source_component_id": "source_component_58",
     "ftype": "subassembly",
     "name": "lcd-wire-bl",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_51",
+    "source_component_id": "source_component_59",
     "ftype": "subassembly",
     "name": "lcd-wire-rst",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_52",
+    "source_component_id": "source_component_60",
     "ftype": "subassembly",
     "name": "lcd-wire-dc",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_53",
+    "source_component_id": "source_component_61",
     "ftype": "subassembly",
     "name": "lcd-wire-cs",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_54",
+    "source_component_id": "source_component_62",
     "ftype": "subassembly",
     "name": "lcd-wire-clk",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_55",
+    "source_component_id": "source_component_63",
     "ftype": "subassembly",
     "name": "lcd-wire-din",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_56",
+    "source_component_id": "source_component_64",
     "ftype": "subassembly",
     "name": "lcd-wire-gnd",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_57",
+    "source_component_id": "source_component_65",
     "ftype": "subassembly",
     "name": "lcd-wire-vcc",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_58",
+    "source_component_id": "source_component_66",
     "ftype": "subassembly",
     "name": "lcd-cable-contacts",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_59",
+    "source_component_id": "source_component_67",
     "ftype": "subassembly",
     "name": "screen-ui",
     "display_name": "Illustrative laptop clock, CPU, RAM, laptop battery and turns from the tested firmware renderer"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_60",
+    "source_component_id": "source_component_68",
     "ftype": "subassembly",
     "name": "fasteners",
-    "display_name": "Dimensioned shanks/heads illustrate access; threads and drive recesses omitted"
+    "display_name": "DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted"
   },
   {
     "type": "source_trace",
@@ -27198,7 +27254,7 @@
     },
     "pcb_component_id": "pcb_component_0",
     "source_component_id": "source_component_0",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/lqfp48.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/lqfp48.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27253,7 +27309,7 @@
     },
     "pcb_component_id": "pcb_component_2",
     "source_component_id": "source_component_2",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27283,7 +27339,7 @@
     },
     "pcb_component_id": "pcb_component_3",
     "source_component_id": "source_component_3",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27313,7 +27369,7 @@
     },
     "pcb_component_id": "pcb_component_4",
     "source_component_id": "source_component_4",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/sot23-6.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/sot23-6.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27343,7 +27399,7 @@
     },
     "pcb_component_id": "pcb_component_5",
     "source_component_id": "source_component_5",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27373,7 +27429,7 @@
     },
     "pcb_component_id": "pcb_component_6",
     "source_component_id": "source_component_6",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/sc70-6.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/sc70-6.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27403,7 +27459,7 @@
     },
     "pcb_component_id": "pcb_component_7",
     "source_component_id": "source_component_7",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27433,7 +27489,7 @@
     },
     "pcb_component_id": "pcb_component_8",
     "source_component_id": "source_component_8",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27463,7 +27519,7 @@
     },
     "pcb_component_id": "pcb_component_9",
     "source_component_id": "source_component_9",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27493,7 +27549,7 @@
     },
     "pcb_component_id": "pcb_component_10",
     "source_component_id": "source_component_10",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/sot23-5.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/sot23-5.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27523,7 +27579,7 @@
     },
     "pcb_component_id": "pcb_component_11",
     "source_component_id": "source_component_11",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27553,7 +27609,7 @@
     },
     "pcb_component_id": "pcb_component_12",
     "source_component_id": "source_component_12",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0805.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0805.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27583,7 +27639,7 @@
     },
     "pcb_component_id": "pcb_component_13",
     "source_component_id": "source_component_13",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27613,7 +27669,7 @@
     },
     "pcb_component_id": "pcb_component_14",
     "source_component_id": "source_component_14",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0402.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0402.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27643,7 +27699,7 @@
     },
     "pcb_component_id": "pcb_component_15",
     "source_component_id": "source_component_15",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27673,7 +27729,7 @@
     },
     "pcb_component_id": "pcb_component_16",
     "source_component_id": "source_component_16",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0402.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0402.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27703,7 +27759,7 @@
     },
     "pcb_component_id": "pcb_component_17",
     "source_component_id": "source_component_17",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27733,7 +27789,7 @@
     },
     "pcb_component_id": "pcb_component_18",
     "source_component_id": "source_component_18",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27763,7 +27819,7 @@
     },
     "pcb_component_id": "pcb_component_19",
     "source_component_id": "source_component_19",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0805.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0805.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27793,7 +27849,7 @@
     },
     "pcb_component_id": "pcb_component_20",
     "source_component_id": "source_component_20",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0805.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0805.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27823,7 +27879,7 @@
     },
     "pcb_component_id": "pcb_component_21",
     "source_component_id": "source_component_21",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27853,7 +27909,7 @@
     },
     "pcb_component_id": "pcb_component_22",
     "source_component_id": "source_component_22",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27883,7 +27939,7 @@
     },
     "pcb_component_id": "pcb_component_23",
     "source_component_id": "source_component_23",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/jst-ph6.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/jst-ph6.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27913,7 +27969,7 @@
     },
     "pcb_component_id": "pcb_component_24",
     "source_component_id": "source_component_24",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/tcut1600.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/tcut1600.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27943,7 +27999,7 @@
     },
     "pcb_component_id": "pcb_component_25",
     "source_component_id": "source_component_25",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/sot23-6.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/sot23-6.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -27973,7 +28029,7 @@
     },
     "pcb_component_id": "pcb_component_26",
     "source_component_id": "source_component_26",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28003,7 +28059,7 @@
     },
     "pcb_component_id": "pcb_component_27",
     "source_component_id": "source_component_27",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28033,7 +28089,7 @@
     },
     "pcb_component_id": "pcb_component_28",
     "source_component_id": "source_component_28",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28063,7 +28119,7 @@
     },
     "pcb_component_id": "pcb_component_29",
     "source_component_id": "source_component_29",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28093,7 +28149,7 @@
     },
     "pcb_component_id": "pcb_component_30",
     "source_component_id": "source_component_30",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28123,7 +28179,7 @@
     },
     "pcb_component_id": "pcb_component_31",
     "source_component_id": "source_component_31",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28153,7 +28209,7 @@
     },
     "pcb_component_id": "pcb_component_32",
     "source_component_id": "source_component_32",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/soic8.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/soic8.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28183,7 +28239,7 @@
     },
     "pcb_component_id": "pcb_component_33",
     "source_component_id": "source_component_33",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28213,7 +28269,7 @@
     },
     "pcb_component_id": "pcb_component_34",
     "source_component_id": "source_component_34",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/b3u3000.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/b3u3000.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28243,7 +28299,7 @@
     },
     "pcb_component_id": "pcb_component_36",
     "source_component_id": "source_component_36",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28273,7 +28329,7 @@
     },
     "pcb_component_id": "pcb_component_37",
     "source_component_id": "source_component_37",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/r0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/r0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28303,7 +28359,7 @@
     },
     "pcb_component_id": "pcb_component_38",
     "source_component_id": "source_component_38",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/vendor/obj/c0603.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/vendor/obj/c0603.obj",
     "model_unit_to_mm_scale_factor": 1,
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
@@ -28321,7 +28377,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_38",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/base.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/base.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28348,7 +28404,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_39",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lid.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lid.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28375,7 +28431,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_40",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/knob.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/knob.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28402,7 +28458,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_41",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/outer-retainer.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/outer-retainer.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28429,7 +28485,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_42",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/inner-retainer.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/inner-retainer.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28456,7 +28512,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_43",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/screen-bezel.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/screen-bezel.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28483,7 +28539,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_44",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/bearing-clamp.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-clamp.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28510,7 +28566,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_45",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/encoder-skirt.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/encoder-skirt.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28537,7 +28593,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_46",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/bearing.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-inner-race.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28563,7 +28619,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_47",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/screen-module.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-outer-race.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28589,7 +28645,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_48",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-cable-screen-plug.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-shield-bottom.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28615,7 +28671,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_49",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-bl.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-shield-top.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28641,7 +28697,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_50",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-rst.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-balls.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28667,7 +28723,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_51",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-dc.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/bearing-cage.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28693,7 +28749,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_52",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-cs.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/pcb-capture-pads.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28719,7 +28775,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_53",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-clk.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/pcb-pad-adhesive.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28745,7 +28801,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_54",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-din.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/encoder-adhesive.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28771,7 +28827,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_55",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-gnd.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/screen-module.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28797,7 +28853,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_56",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-wire-vcc.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-cable-screen-plug.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28823,7 +28879,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_57",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/lcd-cable-contacts.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-bl.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28849,7 +28905,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_58",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/screen-ui.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-rst.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28875,7 +28931,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_59",
-    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.2.1/mechanical/cad/fasteners.obj",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-dc.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -28888,6 +28944,214 @@
     },
     "layer": "top",
     "source_component_id": "source_component_60",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_60",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-cs.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_61",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_61",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-clk.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_62",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_62",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-din.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_63",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_63",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-gnd.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_64",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_64",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-wire-vcc.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_65",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_65",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/lcd-cable-contacts.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_66",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_66",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/screen-ui.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_67",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_67",
+    "model_obj_url": "https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/cad/fasteners.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_68",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -71223,6 +71487,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "2249d10e2068120db863e0bd29e4a934"
+    "source_filesystem_md5_hash": "5e72dbed119b41264555ca55e22c5a2c"
   }
 ]

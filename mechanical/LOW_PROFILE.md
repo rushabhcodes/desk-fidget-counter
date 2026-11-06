@@ -1,6 +1,6 @@
 # Rev C low-profile architecture
 
-> Current Rev E3: USB-only, Ø84.8×22.3 mm body, real Waveshare screen STEP and side USB on a rear PCB tab. The original front switch is directly accessible without a plunger. The included display lead is shortened and soldered at J6; its optional header is DNP, giving 38 populated PCB parts. Use the **E3** [assembly guide](../ASSEMBLY.md), [wiring](../manufacturing/WIRING.md) and [fit measurements](FIT.md). The Rev C measurements and design exploration below are historical context, including its removed battery and toggle; they are not current assembly instructions.
+> Current mechanics E4 / PCB E3: USB-only, Ø84.8×22.3 mm, original side switch without plunger, included display lead soldered at J6 and 38 populated PCB parts. E4 adds accepted approximate bearing internals, independent self-seating race retainers, soft PCB capture pads and full swept tolerance checks. Use [ASSEMBLY.md](../ASSEMBLY.md) and [FIT.md](FIT.md). Rev C measurements below are historical context, including the removed battery and toggle.
 
 
 Rev C is **Ø86 ×22.3 mm** before feet, compared with Ø80×47 mm for Rev B. The grip starts at **z10.8 mm**, previously z22 mm. Width increases by 6 mm to accommodate a 60×75×7 mm hollow bearing and useful printed bearing-retainer walls. The dimensions are nominal CAD results; no prototype has been measured.

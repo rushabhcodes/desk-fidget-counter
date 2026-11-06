@@ -36,13 +36,26 @@ def solid_mesh(s):
     a=s.to_mesh();return trimesh.Trimesh(np.asarray(a.vert_properties)[:,:3],np.asarray(a.tri_verts),process=True)
 def cyl(r,h,z=0,x=0,y=0):return manifold.Manifold.cylinder(h,r,r,96).translate((x,y,z))
 def box(size,at):return trimesh.creation.box(size,transform=trimesh.transformations.translation_matrix(at))
-b=P['bearing'];bearing=cyl(b['od']/2,b['width'],b['bottom_z'])-cyl(b['id']/2,b['width']+.2,b['bottom_z']-.1)
-add('bearing',solid_mesh(bearing),'Maysme 6712ZZ 60 x 75 x 7 mm catalog envelope; steel appearance only, race/shield geometry unpublished and not modelled')
-# Improve the supplied GLB's steel appearance without inventing race widths or
-# moving an envelope vertex. OBJ viewers retain the original neutral steel RGB.
-bearing_mesh=parts['bearing']
-bearing_mesh.visual=trimesh.visual.TextureVisuals(material=trimesh.visual.material.PBRMaterial(
- name='bearing-steel',baseColorFactor=[183,190,197,255],metallicFactor=.9,roughnessFactor=.28))
+from bearing import build as build_bearing
+bearing_meshes,_,bearing_report=build_bearing(P)
+(ROOT/'bearing-model.json').write_text(json.dumps(bearing_report,indent=2)+'\n')
+for name,mesh in bearing_meshes.items():
+ colors[name]='#c8ced3' if name.endswith('balls') else '#687780' if name.endswith('cage') else '#929da5' if 'shield' in name else '#b7bec5'
+ explosion[name]=48
+ add(name,mesh,'6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry')
+ parts[name].visual=trimesh.visual.TextureVisuals(material=trimesh.visual.material.PBRMaterial(
+  name=name,baseColorFactor=trimesh.visual.color.hex_to_rgba(colors[name]),metallicFactor=.9,roughnessFactor=.16 if name.endswith('balls') else .3))
+# Six compliant pads avoid clamping a variable-thickness PCB between hard faces.
+capture=P['pcb_capture'];top=P['pcb_bottom_z']+P['pcb_thickness'];pads=[];adhesive=[]
+for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),(-6,-37,1.3),(6,-37,1.3)]:
+ pads.append(cyl(radius,capture['compressed_pad_height']-capture['adhesive_thickness'],top,x,y))
+ adhesive.append(cyl(radius,capture['adhesive_thickness'],top+capture['compressed_pad_height']-capture['adhesive_thickness'],x,y))
+for name,solids,color in [('pcb-capture-pads',pads,'#24292d'),('pcb-pad-adhesive',adhesive,'#bbc4c9')]:
+ colors[name]=color;explosion[name]=27
+ add(name,trimesh.util.concatenate([solid_mesh(q) for q in solids]),'PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive')
+colors['encoder-adhesive']='#b7c5b1';explosion['encoder-adhesive']=120
+bond=cyl(P['encoder']['bond_outer_radius'],.05,20.64)-cyl(24.8,.07,20.63)
+add('encoder-adhesive',solid_mesh(bond),'3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance')
 # Exact rigid manufacturer STEP geometry, tessellated without axis scaling.
 screen=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
 screen.apply_transform(np.diag([-1.,1.,-1.,1.]));screen.apply_translation([0,0,17.75])
@@ -71,15 +84,21 @@ add('screen-ui',ui,'Illustrative laptop clock, CPU, RAM, laptop battery and turn
 fasteners=[]
 def csk(x,y,z,up=False,length=6):
  # DIN965 M2 nominal: dk3.8, k1.2, 90deg cone plus 0.3mm rim.
- if up:return [cyl(1,length-1.2,z+1.2,x,y),cyl(1.9,.3,z,x,y),manifold.Manifold.cylinder(.9,1.9,1,64).translate((x,y,z+.3))]
- return [cyl(1,length-1.2,z-length,x,y),cyl(1.9,.3,z-.3,x,y),manifold.Manifold.cylinder(.9,1,1.9,64).translate((x,y,z-1.2))]
+ if up:solids=[cyl(1,length-1.2,z+1.2,x,y),cyl(1.9,.3,z,x,y),manifold.Manifold.cylinder(.9,1.9,1,64).translate((x,y,z+.3))]
+ else:solids=[cyl(1,length-1.2,z-length,x,y),cyl(1.9,.3,z-.3,x,y),manifold.Manifold.cylinder(.9,1,1.9,64).translate((x,y,z-1.2))]
+ body=manifold.Manifold.batch_boolean(solids,manifold.OpType.Add)
+ # Cross recess is a visual approximation; outside head/shank dimensions stay
+ # nominal. Select a driver to match the actual purchased DIN965 screw.
+ level=z+.15 if up else z-.15
+ recess=manifold.Manifold.cube((1.7,.45,.5),True).translate((x,y,level))+manifold.Manifold.cube((.45,1.7,.5),True).translate((x,y,level))
+ return [body-recess]
 for x,y in P['chassis_screw_axes']:fasteners.extend(csk(x,y,10.4))
 for x,y in P['screen_posts']:fasteners.extend(csk(x,y,17.3,length=10))
 for i in range(3):
  a=2*math.pi*i/3;x,y=28.6*math.cos(a),28.6*math.sin(a);fasteners.extend(csk(x,y,20.2))
  x,y=39.6*math.cos(a),39.6*math.sin(a);fasteners.extend(csk(x,y,10.8,up=True))
  a=2*math.pi*i/3;x,y=21.1*math.cos(a),21.1*math.sin(a);fasteners.extend(csk(x,y,22.3))
-add('fasteners',trimesh.util.concatenate([solid_mesh(q) for q in fasteners]),'Dimensioned shanks/heads illustrate access; threads and drive recesses omitted')
+add('fasteners',trimesh.util.concatenate([solid_mesh(q) for q in fasteners]),'DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted')
 # Native tscircuit GLB: exported (-X, +Z, +Y). Convert back to PCB +Z-up.
 pcb=trimesh.load(OUT/'pcb-source.glb',force='scene')
 for mesh in pcb.geometry.values():mesh.merge_vertices()
@@ -102,7 +121,7 @@ for exploded in [False,True]:
     for name,mesh in pcb_geometry:
         transform=to_gltf@trimesh.transformations.translation_matrix([0,0,0])
         scene.add_geometry(mesh,node_name='pcb-'+name,geom_name='pcb-'+name,transform=transform)
-    scene.metadata={'description':'Desk fidget counter Rev E3 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP, KiCad package models and nominal datum-based harness. See mechanical/vendor/README.md.'}
+    scene.metadata={'description':'Desk fidget counter Mechanics E4 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
     path=OUT/('exploded.glb' if exploded else 'assembled.glb');scene.export(path)
     reloaded=trimesh.load(path,force='scene');assert len(reloaded.geometry)>=len(parts)
     if not exploded:
@@ -113,7 +132,7 @@ for exploded in [False,True]:
 records=[]
 for name,mesh in parts.items():
     asset=mesh.copy();asset.apply_translation([0,0,-BOARD_CENTER])
-    if name=='bearing':asset.visual=trimesh.visual.ColorVisuals(asset,vertex_colors=trimesh.visual.color.hex_to_rgba(colors[name]))
+    if name.startswith('bearing-') and name!='bearing-clamp':asset.visual=trimesh.visual.ColorVisuals(asset,vertex_colors=trimesh.visual.color.hex_to_rgba(colors[name]))
     asset.export(OUT/f'{name}.obj',include_color=True,include_normals=False,header='PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.')
     obj_path=OUT/f'{name}.obj'
     obj_path.write_text(obj_path.read_text().rstrip()+'\n')
@@ -130,7 +149,7 @@ ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,
 # painter-style preview; the GLB uses its normal depth-tested physical pose.
 ui=parts['screen-ui'];ax.add_collection3d(Poly3DCollection(ui.triangles,facecolors=np.asarray(ui.visual.face_colors,dtype=float)/255,edgecolor='none',zorder=10))
 ax.set(xlim=(-45,45),ylim=(-45,45),zlim=(0,26));ax.set_box_aspect((90,90,26));ax.view_init(55,-110);ax.set_axis_off()
-ax.set_title('Desk knob Rev E3 — fixed 1.28-inch display\nRotating grip ring / front mode button / Ø84.8 × 22.3 mm',pad=10)
+ax.set_title('Desk knob Mechanics E4 — fixed 1.28-inch display\nRotating grip ring / front mode button / Ø84.8 × 22.3 mm',pad=10)
 fig.tight_layout();fig.savefig(ROOT/'assembly.png',dpi=160);plt.close(fig)
 # Exploded assembly overview for the guide. Offsets are illustrative movements,
 # not claimed disassembly trajectories; assembled dimensions remain authoritative.
@@ -149,7 +168,7 @@ for name,mesh in pcb_geometry:
     display=mesh.copy();display.apply_translation([0,0,0]);polys.extend(display.triangles);facecolors.extend(['#246b47']*len(display.faces))
 ax.add_collection3d(Poly3DCollection(polys,facecolors=facecolors,edgecolor='none',zsort='average'))
 ax.set(xlim=(-42,65),ylim=(-42,42),zlim=(-20,185),xlabel='X / mm',ylabel='Y / mm',zlabel='Z / mm')
-ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Rev E3 — exploded assembly\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
+ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Mechanics E4 — exploded assembly\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
 fig.tight_layout();fig.savefig(ROOT/'exploded.png',dpi=140);plt.close(fig)
-report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front','part_count':len(parts),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
+report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front','part_count':len(parts),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
 (OUT/'assembly-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

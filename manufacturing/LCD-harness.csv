@@ -1,9 +1,9 @@
 Assembly,PCB pad,PCB pad XY mm,Signal,Original screen pin,Modeled insulated span mm,Required purchased parts
-Included Waveshare lead; shorten PCB end,1,"-21.50,4.39",VCC,8,35.222,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,2,"-21.50,1.85",GND,7,35.286,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,3,"-21.50,-0.69",DIN,6,35.368,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,4,"-21.50,-3.23",CLK,5,35.467,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,5,"-21.50,-5.77",CS,4,35.584,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,6,"-21.50,-8.31",DC,3,35.717,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,7,"-21.50,-10.85",RST,2,35.867,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,8,"-21.50,-13.39",BL,1,36.032,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,1,"-21.50,4.39",VCC,8,36.697,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,2,"-21.50,1.85",GND,7,36.692,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,3,"-21.50,-0.69",DIN,6,36.707,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,4,"-21.50,-3.23",CLK,5,36.742,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,5,"-21.50,-5.77",CS,4,36.795,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,6,"-21.50,-8.31",DC,3,36.867,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,7,"-21.50,-10.85",RST,2,36.957,None; retain factory PH display plug
+Included Waveshare lead; shorten PCB end,8,"-21.50,-13.39",BL,1,37.066,None; retain factory PH display plug

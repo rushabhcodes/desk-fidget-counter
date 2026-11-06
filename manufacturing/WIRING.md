@@ -1,4 +1,4 @@
-# Rev E3 physical wiring and connector views
+# PCB E3 / Mechanics E4 physical wiring and connector views
 
 All board components mount from the top. The PCB frame is +X right/+Y toward USB, with the PCB top at Z=4.2 mm above the enclosure floor. Pin numbers below refer to the **board header pads**, not an arbitrary view of the mating plug. Match the moulded pin-1 mark and the LCD's printed signal labels, then check continuity before applying power.
 
@@ -6,7 +6,7 @@ All board components mount from the top. The PCB frame is +X right/+Y toward USB
 
 Waveshare SKU 19192 includes a **PH2.0 8-pin, 20 cm cable**, with the PH plug at the display end and eight individual female jumper sockets at the board end. See the [manufacturer package list](https://www.waveshare.com/product/1.28inch-lcd-module.htm) and its [actual cable photograph](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg). The former JST-PH board header did **not** accept those jumper sockets.
 
-The compact E3 build keeps the original display plug, shortens the supplied wires, and solders their stripped board ends into J6. **Do not populate J6's optional 61300811021 male header. No extra PH housings, crimp contacts, replacement wire or adapter cable is needed.** J6 has eight Ø1.2 mm plated holes at 2.54 mm pitch, inserted/soldered from the top. The same row can take the optional right-angle male header if the cable is kept intact, but storage of all 20 cm is not modelled or fit-qualified in this low enclosure.
+The compact E4 build keeps the original display plug, shortens the supplied wires, and solders their stripped board ends into J6. **Do not populate J6's optional 61300811021 male header. No extra PH housings, crimp contacts, replacement wire or adapter cable is needed.** J6 has eight Ø1.2 mm plated holes at 2.54 mm pitch, inserted/soldered from the top. The same row can take the optional right-angle male header if the cable is kept intact, but storage of all 20 cm is not modelled or fit-qualified in this low enclosure.
 
 | J6 pin / pad XY mm | Signal | Original display connector pin |
 |---|---|---|
@@ -19,9 +19,9 @@ The compact E3 build keeps the original display plug, shortens the supplied wire
 | 7 / (−21.5,−10.85) | RST | 2 / RST |
 | 8 / (−21.5,−13.39) | BL | 1 / BL |
 
-Route and trial-fit before cutting. The CAD's insulated spans are about 35.5 mm from the PH housing back to the board dressing bend; leave a further 3.4 mm for the stripped solder end and trim each wire to its actual path. Preserve the factory PH termination. Strip/tin the board ends, insert from above, solder without loose strands, and trim tails to ≤0.8 mm below the board. Verify **every signal by continuity and the display's printed labels**, never by colour alone: factory colours may vary. Check VCC/GND and all eight channels before powering.
+Route and trial-fit before cutting. The CAD's insulated spans are about 37 mm from the PH housing back to the board dressing bend; leave a further 2.55 mm for the stripped solder end and trim each wire to its actual path. Preserve the factory PH termination. Strip/tin the board ends, insert from above, solder without loose strands, and trim tails to ≤0.8 mm below the board. Verify **every signal by continuity and the display's printed labels**, never by colour alone: factory colours may vary. Check VCC/GND and all eight channels before powering.
 
-The supplied wire OD, conductor size, minimum bend radius, exact free-wire length and jumper-sleeve dimensions are **not published by Waveshare**. The model uses a stated Ø1 mm wire envelope and nominal PH plug; the 2 mm dressing bend is a layout allowance, not a manufacturer-qualified bend radius. Actual cable dressing, mechanical support and physical fit remain to be measured. Handle the PH housing when unplugging, support the soldered ends during assembly, and unplug at the display before lifting the screen. There is no long service loop.
+The supplied wire OD, conductor size, minimum bend radius, exact free-wire length and jumper-sleeve dimensions were not found in the manufacturer resources. Following the requested best approximation, E4 draws **Ø1.2 mm wires**, checks **Ø1.5 mm clearance**, and uses a nominal PH plug. The static fan has a 3 mm bend in XZ projection; its calculated minimum 3D centreline radius is about **1.44 mm**, not a manufacturer-qualified bend limit. Trial-route the actual wires before trimming and avoid repeated flexing. Support the soldered ends during assembly and unplug at the display before lifting the screen. There is no long service loop.
 
 ## Removable programming harness H2
 
@@ -40,6 +40,6 @@ Power the target through USB-C while programming. VTref senses target voltage; d
 
 ## USB cable and mechanical fit
 
-The rear USB-C face is 0.15 mm beyond the side wall. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.85 mm and the rotor clearance is 1.50 mm. The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
+The rear USB-C face is 0.15 mm beyond the side wall. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.85 mm and the nominal rotor clearance is 1.50 mm (1.04 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
 
 There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E3.

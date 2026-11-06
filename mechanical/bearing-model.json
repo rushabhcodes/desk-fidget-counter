@@ -1,0 +1,25 @@
+{
+  "purchased_part": "Maysme 6712ZZ",
+  "verified_boundary_mm": {
+    "id": 60,
+    "od": 75,
+    "width": 7
+  },
+  "approximation": {
+    "inner_race_od": 64.0,
+    "outer_race_id": 71.0,
+    "pitch_diameter": 67.5,
+    "ball_diameter": 4.0,
+    "ball_count": 44,
+    "groove_radius": 2.05,
+    "edge_chamfer": 0.3,
+    "shield_thickness": 0.2,
+    "shield_recess": 0.35,
+    "shield_inner_diameter": 64.16,
+    "shield_outer_diameter": 71.5,
+    "basis": "Maysme 6712ZZ envelope; NSK NB712A 60x75x7 mounting analogue. Internal dimensions are engineering/visual estimates, not Maysme manufacturing data."
+  },
+  "component_count": 6,
+  "internal_intersections": 0,
+  "status": "User-authorized best approximation. Race/shield geometry and ball/cage internals are not manufacturer CAD."
+}

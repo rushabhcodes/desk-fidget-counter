@@ -36,6 +36,7 @@ for (const part of parts) {
   }
 }
 const geometry = read('mechanical/cad/assembly-check.json')
+assert.equal(geometry.source_parameters_sha256, createHash('sha256').update(fs.readFileSync('mechanical/parameters.json')).digest('hex'))
 assert.equal(geometry.source_board_tsx_sha256, createHash('sha256').update(fs.readFileSync('index.circuit.tsx')).digest('hex'))
 for (const [name, artifact] of Object.entries(geometry.cad_files)) {
   assert.equal(createHash('sha256').update(fs.readFileSync(`mechanical/cad/${name}`)).digest('hex'), artifact.sha256)

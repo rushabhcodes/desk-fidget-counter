@@ -35,16 +35,24 @@ render([-.07,.075,.095],[0,.010,0],ROOT/'assembly.png')
 render([-.10,.018,.10],[0,.010,0],ROOT/'side-profile.png',1400,1050)
 print('Rendered assembled product and low side profile with depth testing')
 
-# Show the real catalogue envelope and its improved steel material on its own.
-# No race/shield dimensions are implied by this material preview.
+# Verified outer dimensions with the user-authorized approximate internals.
 steel=source.copy()
 for node in list(steel.graph.nodes_geometry):
- if node!='bearing':steel.graph.transforms.remove_node(node)
+ if not node.startswith('bearing-') or node=='bearing-clamp':steel.graph.transforms.remove_node(node)
 render([.065,.065,.080],[0,.0155,0],ROOT/'bearing-envelope.png',1400,1050,model=steel,metal=True)
 preview=Image.open(ROOT/'bearing-envelope.png').convert('RGB');draw=ImageDraw.Draw(preview)
-draw.text((45,30),'6712ZZ - 60 x 75 x 7 mm catalogue envelope',(36,57,67),font=ImageFont.load_default(size=30))
-draw.text((45,980),'Steel material preview; race/shield dimensions are not modelled',(73,95,106),font=ImageFont.load_default(size=24))
+draw.text((45,30),'6712ZZ - verified 60 x 75 x 7 mm envelope',(36,57,67),font=ImageFont.load_default(size=30))
+draw.text((45,980),'Races and shields: best approximation, not manufacturer CAD',(73,95,106),font=ImageFont.load_default(size=24))
 preview.save(ROOT/'bearing-envelope.png')
+opened=steel.copy();opened.graph.transforms.remove_node('bearing-shield-top')
+temp=ROOT/'cad/.bearing-open.png'
+render([.065,.065,.080],[0,.0155,0],temp,1400,1050,model=opened,metal=True)
+detail=Image.new('RGB',(2800,1180),(247,249,250));detail.paste(preview,(0,100));detail.paste(Image.open(temp).convert('RGB'),(1400,100))
+draw=ImageDraw.Draw(detail)
+draw.text((45,25),'Shielded assembly',(36,57,67),font=ImageFont.load_default(size=34))
+draw.text((1445,25),'Top shield hidden: races, balls and cage',(36,57,67),font=ImageFont.load_default(size=34))
+draw.text((1445,1100),'Ball count / internal geometry are illustrative estimates',(73,95,106),font=ImageFont.load_default(size=24))
+detail.save(ROOT/'bearing-detail.png');temp.unlink()
 
 if options.compare_to:
  previous=trimesh.load(options.compare_to,force='scene')
@@ -54,7 +62,7 @@ if options.compare_to:
  comparison=Image.new('RGB',(2800,1170),(247,249,250));comparison.paste(old,(0,120));comparison.paste(new,(1400,120))
  draw=ImageDraw.Draw(comparison);font=ImageFont.load_default(size=36)
  draw.text((100,30),'Previous Rev B · 47 mm',(36,57,67),font=font)
- draw.text((1500,30),'Rev E3 · 22.3 mm · 52.6% lower',(36,57,67),font=font)
+ draw.text((1500,30),'Mechanics E4 · 22.3 mm · 52.6% lower',(36,57,67),font=font)
  draw.text((1500,80),'Same scale; side USB-C retained',(73,95,106),font=ImageFont.load_default(size=24))
  comparison.save(ROOT/'height-comparison.png');old_path.unlink()
  print('Rendered previous/current side profiles at identical camera scale')
@@ -62,7 +70,7 @@ if options.compare_to:
 # Actual assembled meshes with the upper parts hidden to expose the fixed cable.
 cutaway=source.copy()
 for node in list(cutaway.graph.nodes_geometry):
- if node in ['lid','knob','outer-retainer','bearing','screen-bezel','encoder-skirt','bearing-clamp','screen-module','screen-ui','fasteners']:
+ if node.startswith('bearing-') or node in ['lid','knob','outer-retainer','screen-bezel','encoder-skirt','screen-module','screen-ui','fasteners','pcb-capture-pads','pcb-pad-adhesive','encoder-adhesive']:
   cutaway.graph.transforms.remove_node(node)
 render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
 print('Rendered PCB, actual packages, original display plug and eight supplied wires in cutaway')
@@ -78,7 +86,7 @@ if options.usb_before:
  out=Image.new('RGB',(2800,810),(247,249,250));out.paste(a,(0,110));out.paste(b,(1400,110))
  d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
  d.text((45,25),'Before: USB mouth recessed 9.65 mm',(36,57,67),font=font)
- d.text((1445,25),'Rev E3: USB mouth at the side wall',(36,57,67),font=font)
+ d.text((1445,25),'Mechanics E4: USB mouth at the side wall',(36,57,67),font=font)
  d.text((1445,70),'Shell diameter 86 -> 84.8 mm; height stays 22.3 mm',(73,95,106),font=ImageFont.load_default(size=24))
  out.save(ROOT/'usb-access-comparison.png');temp.unlink()
 print('Rendered USB side access from the actual CAD')

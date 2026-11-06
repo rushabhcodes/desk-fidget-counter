@@ -1,7 +1,7 @@
 {
   "base": {
     "watertight": true,
-    "volume_mm3": 14835.6,
+    "volume_mm3": 14815.7,
     "bounds_mm": [
       [
         -42.4,
@@ -17,7 +17,7 @@
   },
   "lid": {
     "watertight": true,
-    "volume_mm3": 8492.25,
+    "volume_mm3": 8143.08,
     "bounds_mm": [
       [
         -42.05,
@@ -27,13 +27,13 @@
       [
         42.05,
         42.05,
-        14.8
+        13.3
       ]
     ]
   },
   "knob": {
     "watertight": true,
-    "volume_mm3": 16134.58,
+    "volume_mm3": 15420.01,
     "bounds_mm": [
       [
         -42.39,
@@ -43,13 +43,13 @@
       [
         42.39,
         42.39,
-        10.1
+        9.7
       ]
     ]
   },
   "outer-retainer": {
     "watertight": true,
-    "volume_mm3": 1675.57,
+    "volume_mm3": 1593.38,
     "bounds_mm": [
       [
         -42.0,
@@ -65,7 +65,7 @@
   },
   "inner-retainer": {
     "watertight": true,
-    "volume_mm3": 879.35,
+    "volume_mm3": 879.25,
     "bounds_mm": [
       [
         -24.0,
@@ -81,7 +81,7 @@
   },
   "screen-bezel": {
     "watertight": true,
-    "volume_mm3": 1223.03,
+    "volume_mm3": 1161.09,
     "bounds_mm": [
       [
         -24.0,
@@ -97,23 +97,23 @@
   },
   "bearing-clamp": {
     "watertight": true,
-    "volume_mm3": 809.04,
+    "volume_mm3": 762.16,
     "bounds_mm": [
       [
-        -31.2,
-        -31.2,
+        -31.0,
+        -31.0,
         0.0
       ],
       [
-        31.2,
-        31.2,
+        31.0,
+        31.0,
         1.2
       ]
     ]
   },
   "encoder-skirt": {
     "watertight": true,
-    "volume_mm3": 1942.94,
+    "volume_mm3": 1586.01,
     "bounds_mm": [
       [
         -25.9,
@@ -129,7 +129,7 @@
   },
   "fit-coupon-tight": {
     "watertight": true,
-    "volume_mm3": 3268.71,
+    "volume_mm3": 3219.25,
     "bounds_mm": [
       [
         -40.0,
@@ -137,7 +137,7 @@
         0.0
       ],
       [
-        103.975,
+        103.95,
         40.0,
         3.0
       ]
@@ -145,7 +145,7 @@
   },
   "fit-coupon": {
     "watertight": true,
-    "volume_mm3": 3205.15,
+    "volume_mm3": 3155.66,
     "bounds_mm": [
       [
         -40.0,
@@ -153,7 +153,7 @@
         0.0
       ],
       [
-        103.925,
+        103.9,
         40.0,
         3.0
       ]
@@ -161,7 +161,7 @@
   },
   "fit-coupon-loose": {
     "watertight": true,
-    "volume_mm3": 3078.01,
+    "volume_mm3": 3028.47,
     "bounds_mm": [
       [
         -40.0,
@@ -169,7 +169,7 @@
         0.0
       ],
       [
-        103.825,
+        103.8,
         40.0,
         3.0
       ]
@@ -177,6 +177,16 @@
   },
   "purchased_package_models_checked": 38,
   "individual_wires_checked": 8,
+  "tolerance_envelopes_checked": {
+    "print_xy_mm": 0.62,
+    "hardware_xy_mm": 0.945,
+    "print_z_mm": 0.3,
+    "hardware_z_mm": 0.46,
+    "wire_od_mm": 1.5,
+    "full_rotor_sweep": true
+  },
+  "bearing_retainer_contacts_checked": 4,
+  "button_tolerance_access_checks": 4,
   "front_button": {
     "part": "Omron B3U-3000P",
     "pcb_center": [
@@ -193,8 +203,8 @@
     },
     "direct_actuation": true,
     "opening_width_mm": 8,
-    "opening_bottom_z": 4.2,
-    "opening_top_z": 6.0,
+    "opening_bottom_z": 2.8,
+    "opening_top_z": 6.8,
     "finger_check_radius_mm": 6,
     "fit_status": "Direct original switch actuator; no separate cap or plunger. Nominal CAD only; measure actuator tolerance, force and accessibility on the prototype."
   },
@@ -235,19 +245,19 @@
     "previous_grip_lower_edge_mm": 22,
     "USB_plug_max_height_mm": 6.9,
     "USB_plug_to_rotor_vertical_mm": 1.5,
-    "bezel_to_grip_radial_mm": 0.6,
-    "skirt_to_sensor_radial_each_side_mm": 1.0,
+    "bezel_to_grip_radial_mm": 0.8,
+    "skirt_to_sensor_radial_each_side_mm": 1.1,
     "PCB_bottom_z_mm": 2.6,
     "LCD_connector_in_PCB_window": true,
     "bearing_id_mm": 60,
     "bearing_od_mm": 75,
     "bearing_width_mm": 7,
-    "bearing_stem_diametral_mm": 0.15,
-    "bearing_outer_diametral_mm": 0.1,
+    "bearing_stem_diametral_mm": 0.2,
+    "bearing_outer_diametral_mm": 0.2,
     "encoder_slot_count": 48,
     "quadrature_edges_per_turn": 192,
     "all_components_top_side": true,
     "solder_well_floor_remaining_mm": 1.2
   },
-  "scope": "Nominal CAD checks using manufacturer screen geometry and specified static harness. Physical fit, crimp quality, tolerances, 950nm opacity, optical response and grip feel require prototype measurements."
+  "scope": "Manufacturer screen/package models with user-authorized estimated bearing/cable details. Nominal contacts and full-rotation tolerance envelopes checked under fit-budget.json assumptions. Hardware operation and actual print capability are not measured."
 }

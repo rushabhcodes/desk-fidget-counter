@@ -28,12 +28,12 @@
       [
         -42.049999,
         -42.049999,
-        0.8
+        1.9
       ],
       [
         42.049999,
         42.049999,
-        15.6
+        15.2
       ]
     ],
     "explode_z_mm": 27,
@@ -48,7 +48,7 @@
       [
         -42.390289,
         -42.390289,
-        8.6
+        9.0
       ],
       [
         42.390289,
@@ -126,13 +126,13 @@
     "asset": "bearing-clamp.obj",
     "bounds_pcb_mm": [
       [
-        -31.200001,
-        -31.200001,
+        -31.0,
+        -31.0,
         15.6
       ],
       [
-        31.200001,
-        31.200001,
+        31.0,
+        31.0,
         16.8
       ]
     ],
@@ -160,10 +160,30 @@
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
-    "name": "bearing",
+    "name": "bearing-inner-race",
     "printed": false,
     "color": "#b7bec5",
-    "asset": "bearing.obj",
+    "asset": "bearing-inner-race.obj",
+    "bounds_pcb_mm": [
+      [
+        -32.0,
+        -32.0,
+        8.6
+      ],
+      [
+        32.0,
+        32.0,
+        15.6
+      ]
+    ],
+    "explode_z_mm": 48,
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "bearing-outer-race",
+    "printed": false,
+    "color": "#b7bec5",
+    "asset": "bearing-outer-race.obj",
     "bounds_pcb_mm": [
       [
         -37.5,
@@ -177,7 +197,147 @@
       ]
     ],
     "explode_z_mm": 48,
-    "description": "Maysme 6712ZZ 60 x 75 x 7 mm catalog envelope; steel appearance only, race/shield geometry unpublished and not modelled"
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "bearing-shield-bottom",
+    "printed": false,
+    "color": "#929da5",
+    "asset": "bearing-shield-bottom.obj",
+    "bounds_pcb_mm": [
+      [
+        -35.75,
+        -35.75,
+        8.95
+      ],
+      [
+        35.75,
+        35.75,
+        9.15
+      ]
+    ],
+    "explode_z_mm": 48,
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "bearing-shield-top",
+    "printed": false,
+    "color": "#929da5",
+    "asset": "bearing-shield-top.obj",
+    "bounds_pcb_mm": [
+      [
+        -35.75,
+        -35.75,
+        15.05
+      ],
+      [
+        35.75,
+        35.75,
+        15.25
+      ]
+    ],
+    "explode_z_mm": 48,
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "bearing-balls",
+    "printed": false,
+    "color": "#c8ced3",
+    "asset": "bearing-balls.obj",
+    "bounds_pcb_mm": [
+      [
+        -35.75,
+        -35.75,
+        10.1
+      ],
+      [
+        35.75,
+        35.75,
+        14.1
+      ]
+    ],
+    "explode_z_mm": 48,
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "bearing-cage",
+    "printed": false,
+    "color": "#687780",
+    "asset": "bearing-cage.obj",
+    "bounds_pcb_mm": [
+      [
+        -34.1,
+        -34.1,
+        9.85
+      ],
+      [
+        34.1,
+        34.1,
+        14.35
+      ]
+    ],
+    "explode_z_mm": 48,
+    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+  },
+  {
+    "name": "pcb-capture-pads",
+    "printed": false,
+    "color": "#24292d",
+    "asset": "pcb-capture-pads.obj",
+    "bounds_pcb_mm": [
+      [
+        -32.0,
+        -38.299999,
+        0.8
+      ],
+      [
+        32.0,
+        17.0,
+        1.85
+      ]
+    ],
+    "explode_z_mm": 27,
+    "description": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
+  },
+  {
+    "name": "pcb-pad-adhesive",
+    "printed": false,
+    "color": "#bbc4c9",
+    "asset": "pcb-pad-adhesive.obj",
+    "bounds_pcb_mm": [
+      [
+        -32.0,
+        -38.299999,
+        1.85
+      ],
+      [
+        32.0,
+        17.0,
+        1.9
+      ]
+    ],
+    "explode_z_mm": 27,
+    "description": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
+  },
+  {
+    "name": "encoder-adhesive",
+    "printed": false,
+    "color": "#b7c5b1",
+    "asset": "encoder-adhesive.obj",
+    "bounds_pcb_mm": [
+      [
+        -25.9,
+        -25.9,
+        17.239999
+      ],
+      [
+        25.9,
+        25.9,
+        17.290001
+      ]
+    ],
+    "explode_z_mm": 120,
+    "description": "3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance"
   },
   {
     "name": "screen-module",
@@ -226,14 +386,14 @@
     "asset": "lcd-wire-bl.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -13.889998,
-        -0.799993
+        -22.099849,
+        -13.989993,
+        -0.899992
       ],
       [
-        8.699968,
-        -6.5,
-        5.905691
+        8.799961,
+        -6.4,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -246,14 +406,14 @@
     "asset": "lcd-wire-rst.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -11.349998,
-        -0.799993
+        -22.099849,
+        -11.449993,
+        -0.899992
       ],
       [
-        8.699968,
-        -4.5,
-        5.905691
+        8.799961,
+        -4.4,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -266,14 +426,14 @@
     "asset": "lcd-wire-dc.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -8.809998,
-        -0.799993
+        -22.099849,
+        -8.909993,
+        -0.899992
       ],
       [
-        8.699968,
-        -2.5,
-        5.905691
+        8.799961,
+        -2.4,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -286,14 +446,14 @@
     "asset": "lcd-wire-cs.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -6.269998,
-        -0.799993
+        -22.099849,
+        -6.369993,
+        -0.899992
       ],
       [
-        8.699968,
-        -0.5,
-        5.905691
+        8.799961,
+        -0.4,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -306,14 +466,14 @@
     "asset": "lcd-wire-clk.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -3.729998,
-        -0.799993
+        -22.099849,
+        -3.829993,
+        -0.899992
       ],
       [
-        8.699968,
-        1.5,
-        5.905691
+        8.799961,
+        1.6,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -326,14 +486,14 @@
     "asset": "lcd-wire-din.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        -1.189998,
-        -0.799993
+        -22.099849,
+        -1.289993,
+        -0.899992
       ],
       [
-        8.699968,
-        3.5,
-        5.905691
+        8.799961,
+        3.6,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -346,14 +506,14 @@
     "asset": "lcd-wire-gnd.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        1.350002,
-        -0.799993
+        -22.099849,
+        1.250007,
+        -0.899992
       ],
       [
-        8.699968,
-        5.5,
-        5.905691
+        8.799961,
+        5.6,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -366,14 +526,14 @@
     "asset": "lcd-wire-vcc.obj",
     "bounds_pcb_mm": [
       [
-        -21.999874,
-        3.890002,
-        -0.799993
+        -22.099849,
+        3.790007,
+        -0.899992
       ],
       [
-        8.699968,
-        7.5,
-        5.905691
+        8.799961,
+        7.989998,
+        5.906829
       ]
     ],
     "explode_z_mm": 40,
@@ -437,6 +597,6 @@
       ]
     ],
     "explode_z_mm": 106,
-    "description": "Dimensioned shanks/heads illustrate access; threads and drive recesses omitted"
+    "description": "DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted"
   }
 ]

@@ -1,9 +1,9 @@
 {
-  "release": "v5.2.1",
-  "hardware": "Rev E3 / E3",
+  "release": "v5.3.0",
+  "hardware": "PCB Rev E3 / Mechanics E4",
   "repository": "https://github.com/rushabhcodes/desk-fidget-counter",
   "tscircuit": "https://tscircuit.com/rushabhcodes/desk-fidget-counter",
-  "source_revision": "Git tag v5.2.1; resolve tag to its commit; source file hashes below",
+  "source_revision": "Git tag v5.3.0; resolve tag to its commit; source file hashes below",
   "toolchain": {
     "Bun": "1.3.3",
     "tscircuit": "0.0.3077",
@@ -31,7 +31,7 @@
     },
     {
       "path": "ASSEMBLY.md",
-      "sha256": "28a50d244e7c301a14caceab16818c3322ca8de973a523ccec793b469d67b2b6"
+      "sha256": "3e5dfdbca05965c677fd7c9cf3ebbb44c66abc4c338083a495b65b634b92a108"
     },
     {
       "path": "LICENSE",
@@ -39,7 +39,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "6ec9fbfce9cfd1b29375576691836142c4485ad80ee60c3cb7b92fefa2ae621b"
+      "sha256": "49672e59d55470534d5b41aede109635af3a3eeb18eca010587d31b8cf60ca14"
     },
     {
       "path": "assembly.circuit.tsx",
@@ -183,7 +183,7 @@
     },
     {
       "path": "manufacturing/WIRING.md",
-      "sha256": "ea70ef3df6b7c2db6add773d2c5df58eeb128c0c85127408ff501eeefb3b10ff"
+      "sha256": "82ee4254f558da361e43b7e9133762160c1e7c3b72da6077a5798ce6b44bf146"
     },
     {
       "path": "manufacturing/fp-lib-table",
@@ -191,23 +191,31 @@
     },
     {
       "path": "mechanical/FIT.md",
-      "sha256": "1dcba7ddd0deb0d1efb060292a24cea014c8bb0fe68c85aac7c68fca9d77583b"
+      "sha256": "ea8bf4153dc84edda026aac7e36acb02c4296527d5d8f0861b148f06b5f1fe35"
     },
     {
       "path": "mechanical/LOW_PROFILE.md",
-      "sha256": "be2ce59a79a7f5a6a8963958200707f566e5e86af8d35cd3ad9fbedf3fba5a12"
+      "sha256": "1ae44dbe1514be94b3c353e479413b2a96d0ff58c811699b354c176ca8555c09"
     },
     {
       "path": "mechanical/README.md",
-      "sha256": "e214ecd1bce4e7fa2fbfa18d6be610a468c9de7fb872e8f7c183afb480929672"
+      "sha256": "7abadcc2b8cdd29d063abd17273e711c6928164ac1b0d671b1a4bcf68e79081e"
+    },
+    {
+      "path": "mechanical/bearing.py",
+      "sha256": "d215d94ad2a4321232e6c12544943c7330ae1c4f5a9abc9fbd202e572ce3d067"
+    },
+    {
+      "path": "mechanical/fit.py",
+      "sha256": "2c1bfe3e4b992555290b0b953f066f1ea2a988b625842aa90d74eae90312e109"
     },
     {
       "path": "mechanical/generate-assembly.py",
-      "sha256": "97d9695cc294b8366476cc57f49782e0937046a7038846f0fcc4d8dde9c6ba70"
+      "sha256": "83c82da02b3d11bc2b12fd2a1d4c6607322b74976ab8b57310e6a5409c378206"
     },
     {
       "path": "mechanical/generate.py",
-      "sha256": "02215136782c9b02a838122ab2edfbc23fe335d062bad3e7105ede20d3d58462"
+      "sha256": "3a4ba87598fdc6ffea105701f20cc9fd6c1ab8b2add7157c464d1fc0d78a62d8"
     },
     {
       "path": "mechanical/hardware.csv",
@@ -215,15 +223,15 @@
     },
     {
       "path": "mechanical/harness.py",
-      "sha256": "832e3ab1222657b7965ef410b4645fc1f7d441dd237618e83fd89a0bc6936014"
+      "sha256": "18513715d2dbc40f2a7b59a36108c0448e99b9e3c4a34bc0e72663c92706c314"
     },
     {
       "path": "mechanical/parameters.json",
-      "sha256": "a8a218ade45d579a0e11a1cdec22909061e3a36fdbc7f5e063dbbae887c300c2"
+      "sha256": "307fd2519fbba5c75109e4424ca8e86801d9dbcf9cdf5617fc2ec24c1da2432a"
     },
     {
       "path": "mechanical/render.py",
-      "sha256": "5794bcd2051f9cefe266d06c22bff7ec6193f5b7d97507a38911e2795605c1e1"
+      "sha256": "9db961ae649a067d1ae39022bd7b6e14357ee37e565e323688d3cd8f22e7103c"
     },
     {
       "path": "mechanical/step-mesh.py",
@@ -231,7 +239,7 @@
     },
     {
       "path": "mechanical/vendor/README.md",
-      "sha256": "307c1c53f2310842957df4db47bfa4be926d2ad7c006a0f3a0db52f2cc344e89"
+      "sha256": "cc032d57230a59f3b52910d85ba6683dbe0c93349541190f81f608cdd415edf7"
     },
     {
       "path": "mechanical/vendor/custom-models.py",
@@ -411,7 +419,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "8c3f73e84c37073568556b026ed0ae1b1e31ad9b0ec5ac7cda3e211cc71bddb7"
+      "sha256": "ecec3bd36ae9372f04d54fa86cf8fda1a502b96ad3509e4e9769341f234cab81"
     },
     {
       "path": "parts.tsx",
@@ -419,7 +427,7 @@
     },
     {
       "path": "reference/DATASHEETS.md",
-      "sha256": "9e28e21a4900152754c574d017264d3fad85c0ecc63d8c6be151888ef09a483c"
+      "sha256": "53aacd8f234f85d44041765338a0aa4cd5487e7d876c814a9191f6ce63d69c63"
     },
     {
       "path": "reference/JST_PH_B6B-PH-K.kicad_mod",
@@ -475,7 +483,7 @@
     },
     {
       "path": "routing/README.md",
-      "sha256": "5d13cbfaac0c9abfddc3a0ace1d89e67f9904a82d80b371497818d9853d1cd51"
+      "sha256": "3f976d53d66edc4eea6bc1ca59afa280b5c56345d01ea60594805c57ebe0a990"
     },
     {
       "path": "scripts/bom-and-assembly.py",
@@ -499,7 +507,7 @@
     },
     {
       "path": "scripts/package-release.py",
-      "sha256": "a5214810a90cf39b3e2214047db630a9fca409bc1b39482f8f7f49581092112b"
+      "sha256": "3b635bfaabe60a4f362e7fa9a6762541448349df4ec4dd17ed4ef3be51bbe0fc"
     },
     {
       "path": "scripts/previews.mjs",
@@ -511,7 +519,7 @@
     },
     {
       "path": "scripts/wiring-preview.py",
-      "sha256": "ec95c5e64311a8dacbdc9f762c5be259829e8d4815d6584b00038f26929ff675"
+      "sha256": "42813ce16d4b17e0d694bf1e33f2fada5baece3b1f123c0da11f2461dae0d8e3"
     },
     {
       "path": "tests/test_button.c",
@@ -543,15 +551,15 @@
     },
     {
       "path": "validation/BRINGUP.md",
-      "sha256": "e7364cfbd25819758da0759bddf0c866c3db693ef8ed05fa797f2c53c9b95f56"
+      "sha256": "8eb82275cf252aa2ffa5bee3ab7b644966159919bb23a880af7bfe86f29b73cf"
     },
     {
       "path": "validation/REPORT.md",
-      "sha256": "5c32ddc8b2b3e32d16c919f6fa5b1c2e2b3af77ba0dbe828b6c0b8301bb5e1af"
+      "sha256": "bc1c411eb5bc1995d757c8d9362bf332760965067e0bc9c53979e607aca66978"
     },
     {
       "path": "validation/check-assembly.mjs",
-      "sha256": "44ab19e1c5922f2842cbc21632ff5ea2f3b0f911c2f1ea772cc9143e4d19ea0e"
+      "sha256": "7fb3efd685349c591e9cba2aebc3c5823baa6b43367b808fee401b9d37f63ebe"
     },
     {
       "path": "validation/check-design.mjs",
@@ -569,11 +577,11 @@
   "artifacts": [
     {
       "path": "dist/assembly/circuit.json",
-      "sha256": "5a17af965f86260d1555a8a297d0350d9a90f001f6a79d88ecadb200da5ba8de"
+      "sha256": "577d961d88818958f7bd1a79437d3bf8538edd1aa23381a2e53f21c9971f0004"
     },
     {
       "path": "dist/index/circuit.json",
-      "sha256": "28bb02a7912fc8be850c622b28a782c53aac6a021e62384aa70b9ae07e635409"
+      "sha256": "08306497d9050cb64f235ff09328f364a8c9245eff6c5036a45b3331e74a11c5"
     },
     {
       "path": "dist/index/pcb.png",
@@ -609,7 +617,7 @@
     },
     {
       "path": "manufacturing/LCD-harness.csv",
-      "sha256": "7abf8331dae815bb7677ae7c8dd041c4d955f290c327eb8fca328568573898e4"
+      "sha256": "ceb17e2ad72341ecfe2e1dbb7cfdc88dbe44699144a390f50d7cb1a466e231b3"
     },
     {
       "path": "manufacturing/desk-knob-reve3-gerbers.zip",
@@ -845,63 +853,95 @@
     },
     {
       "path": "mechanical/assembly.png",
-      "sha256": "76eba840e9243062c62c46851a3f31fd95f130a59407de8606d396481dacb389"
+      "sha256": "125396fd1ffe85f31eb2db00c1abf3fd0d47fb28f0fc86c9c2e1eb195278134d"
+    },
+    {
+      "path": "mechanical/bearing-detail.png",
+      "sha256": "b2cbc6183f198f1e848d1aeff40e94b361134ffe0e8e62de17bcb98ceec09a27"
     },
     {
       "path": "mechanical/bearing-envelope.png",
-      "sha256": "78cc15febf9dc8e3f82d484e1f8779387a3d1edbc3bcab9fa45cc8fef396de7d"
+      "sha256": "35110c310f273baadc81057c24e1074f25b618ea141286317eefa60ae7265aa5"
+    },
+    {
+      "path": "mechanical/bearing-model.json",
+      "sha256": "32a150db25799bcfb5cdec0e581d21f834cac2c220322f3d74d41e5d9ee6c7a9"
     },
     {
       "path": "mechanical/button-access-comparison.png",
-      "sha256": "6b74592b83ed738457c8a1ac963a9344a18df4479602626fe84da26d98d755bf"
+      "sha256": "9098ccb96d51d8d534df3fcd8dd159ca9841de8768b21e4c6ce1678351ea34c1"
     },
     {
       "path": "mechanical/button-access.png",
-      "sha256": "b5b09137fc15060991d1edbdb088cfbf762b364f0b89e8d27479673230d2682a"
+      "sha256": "0f0e07000d26f2225d0bb9422bc00582f99bf2bb42796e40f24ffd57a59da6c3"
     },
     {
       "path": "mechanical/cad/assembled.glb",
-      "sha256": "95d9e5ac4d3a6e7da167093e5d5d37137dea5d0b0a4c702485528389c5e713de"
+      "sha256": "e0bc3f63e0e6bc7835bdef382449354006e5798425c9b6c5c380fbab826bed0d"
     },
     {
       "path": "mechanical/cad/assembly-check.json",
-      "sha256": "9856d1a84bb635b807b0d0dbf7398a265b66dbebefc96e20f1a7b11beeb12e59"
+      "sha256": "c60f0b0b1f6c4f56ed78ae52b655518285f2e00b833c29d8b9fae4ea72a731ac"
     },
     {
       "path": "mechanical/cad/base.obj",
-      "sha256": "f42b693c98074cebd9172b53b1beed7ea560b7fa68bcbb8901fc0b5bedfcebde"
+      "sha256": "0671e42c55cd743a42ab10c0faa8fd9ce14839c4c77be659a1e9c55f50495898"
+    },
+    {
+      "path": "mechanical/cad/bearing-balls.obj",
+      "sha256": "60657a15338986afaa7432312c9f4772bedd67444de0be2436754543b7f4e8c7"
+    },
+    {
+      "path": "mechanical/cad/bearing-cage.obj",
+      "sha256": "08db97caf2a889bc78e7709acb8c3e818c050190feb5f8609c5441bd7cea69f8"
     },
     {
       "path": "mechanical/cad/bearing-clamp.obj",
-      "sha256": "a4abe37414abd8c485982515b6f8c460c95b89c96b7f0f38f09390d01aca93a6"
+      "sha256": "35b901bef8064ba2e041519172be0b3cb85e4ed9103fa283d7cd188aed33f74c"
     },
     {
-      "path": "mechanical/cad/bearing.obj",
-      "sha256": "27435b1222aff7395e1552850242262505d192fc15b2d3e804089c25dd751d96"
+      "path": "mechanical/cad/bearing-inner-race.obj",
+      "sha256": "22a5da53273ba4c192de2d0bbe4d643bd46f77470803cc7a43fe590d45641cbd"
+    },
+    {
+      "path": "mechanical/cad/bearing-outer-race.obj",
+      "sha256": "860b79edbefb680346367eb92e76df20519fea7811983ff60084d84dce1aabde"
+    },
+    {
+      "path": "mechanical/cad/bearing-shield-bottom.obj",
+      "sha256": "b7fe55fb8dfd8d202fd9ba3ac5f16d55eac5d70603747324f3ea08ae5c594f3d"
+    },
+    {
+      "path": "mechanical/cad/bearing-shield-top.obj",
+      "sha256": "c6a1a7772c8872709d76425737ef5381759e454a80fe79552c38fbed57b037d7"
+    },
+    {
+      "path": "mechanical/cad/encoder-adhesive.obj",
+      "sha256": "ba41893ee63c4bcc4d2d652a5e7597b8337f478acafdfb2cd406d2de33a54640"
     },
     {
       "path": "mechanical/cad/encoder-skirt.obj",
-      "sha256": "da28cb339f3ff8af1e78e35f8906d7aeb252422f54e5e469ad576d53e1224192"
+      "sha256": "0c55336b7f7d49633665c3c17d42dda4f19d70b338ed3125237ef60dc1e69a6f"
     },
     {
       "path": "mechanical/cad/exploded.glb",
-      "sha256": "07bd26c512129d30289b53288c8a185624eda59b3f7da1fabe38724a40ee599b"
+      "sha256": "c8a0ee38d2b32621effede9a4b4b49cec21fd809f4de82863789209254a4ea94"
     },
     {
       "path": "mechanical/cad/fasteners.obj",
-      "sha256": "7192442440bf1b275966402003917cc062002a515c05349776eb00437af8695c"
+      "sha256": "deae0ef3519a24445484a75a06f2b6fea665e2f9793c561f95bc4ff25b6a2ba9"
     },
     {
       "path": "mechanical/cad/inner-retainer.obj",
-      "sha256": "0a678a3d52ebd491588a6acbed900817d868c072597da840f39280c6fb8d45f6"
+      "sha256": "12de5573f053b289917401f48e82d4f7353fa00ca7b60acf38adb882c0516844"
     },
     {
       "path": "mechanical/cad/knob.obj",
-      "sha256": "cfa04195eb20757b2b0ae43ac6eee9944a36e5abf1c950761217752a2764efb2"
+      "sha256": "76411046208972a5feb6fa5409ac202fb5e1a9c5b82bd97c57ccbe5a33050155"
     },
     {
       "path": "mechanical/cad/lcd-cable-contacts.obj",
-      "sha256": "33e38443fb126004d94908d4a293066ca74a5b003495daf25d59ba29ef2c279b"
+      "sha256": "bdb9469767dec8009287bcdcff50cdeaedba4c1191bbf055cd44656f85b89154"
     },
     {
       "path": "mechanical/cad/lcd-cable-screen-plug.obj",
@@ -909,55 +949,63 @@
     },
     {
       "path": "mechanical/cad/lcd-wire-bl.obj",
-      "sha256": "02ddaf2e3ccdeb0115fd6acac3ceec92a01693b6bb24de7d4e5be8da77f7369d"
+      "sha256": "c403d530f4b4c412412ac8ae8da85127737f4506f7e0f65244dafb4b8f6dcde0"
     },
     {
       "path": "mechanical/cad/lcd-wire-clk.obj",
-      "sha256": "65571bd43fef96ae26fc4e6ee2f993e6f9855fcc9563fbc45d6eb1552c1e0e34"
+      "sha256": "a637fba98a0aaf708a6de51dfd87eb7368d4f3809460b0a7e3a9ced8cfd7cf78"
     },
     {
       "path": "mechanical/cad/lcd-wire-cs.obj",
-      "sha256": "92fdde3419d40479fa7a5bfd5e993d22b567781f749e05c8750c046b1adf75da"
+      "sha256": "16e5cd60aa8bfb744076f927b5a08befd047068a5f43f98e16a3969e05a75327"
     },
     {
       "path": "mechanical/cad/lcd-wire-dc.obj",
-      "sha256": "8c51d983e1300775cd337bbfface69db2dcc38442237af9b2c06caf230b79e1a"
+      "sha256": "616d7778bd62406be1c7f9512ebf4e6c57bf4f503cc0b8e9af422a46974fefc0"
     },
     {
       "path": "mechanical/cad/lcd-wire-din.obj",
-      "sha256": "804735066b2f08d9dc745301600e1eb89e23f522762d00254ade5e0ea4747395"
+      "sha256": "dce03a4d3ba5fbd4d08e2d250a8434ec20a4afbc7fda29bd85a0bb530449231c"
     },
     {
       "path": "mechanical/cad/lcd-wire-gnd.obj",
-      "sha256": "90a9c6fd6c3e09131b35b097357a2a5556eb5589c225abaf7fe1697459efa753"
+      "sha256": "d5c8d64c341b859696e72f507e13e9888626d8dc28d74129968c426252f89225"
     },
     {
       "path": "mechanical/cad/lcd-wire-rst.obj",
-      "sha256": "b1fa86442ea8b2041f70e1ac57b2973127329c8c3fe120284c85a830d829058d"
+      "sha256": "f527b06356e4b390a3f077d35265cae463bbde27191474e88141964a12731fd1"
     },
     {
       "path": "mechanical/cad/lcd-wire-vcc.obj",
-      "sha256": "4ccd308293b3086f283703c794d8c4cff067d90418aa43566329ed690bf6575d"
+      "sha256": "d64e740718a160339331ec78a9d055bdad64433ef6d95c49ae0cb1db3b5f5b86"
     },
     {
       "path": "mechanical/cad/lid.obj",
-      "sha256": "478f38d157053a68b950fc6adffde17c235a36c4ac48108f992e4498f09312e0"
+      "sha256": "dab6a2ac3945548d7afeaf458622ab88b87d6b9712f8b1b630bf7c9e2632c719"
     },
     {
       "path": "mechanical/cad/outer-retainer.obj",
-      "sha256": "20eb1fa82a492626a7cffea6f7fb7a150bf47511017f569e6482c1a986cb5676"
+      "sha256": "5cb5e0b18409baaee1adc1404ccee5aca7c042baf9339add5d5103ca66bac26e"
     },
     {
       "path": "mechanical/cad/parts.json",
-      "sha256": "f46090f26adb8939d917e079a511613198fdea4673fdfefb0a1d5901b059e0a9"
+      "sha256": "4157bdd47dedcc354fbb6fd69b25e2342ff085c6e2d81df069d0d652e44efc1a"
+    },
+    {
+      "path": "mechanical/cad/pcb-capture-pads.obj",
+      "sha256": "fd0ea8a6580ab04ebf961d17b922179134746245b60883ed3b2262f9c717d578"
+    },
+    {
+      "path": "mechanical/cad/pcb-pad-adhesive.obj",
+      "sha256": "f4184e11bf589be02ffe546d343cec9c6107692d1e556c6eff447c8988110694"
     },
     {
       "path": "mechanical/cad/pcb-source.glb",
-      "sha256": "611e4a5977fc16fd4f63a3716cc06e2d9f2bc5dc1fd3d80229b0ec33ae354055"
+      "sha256": "0ea305981e761b4a24cc5635b8245604396fb75d7dfae582129900183855de31"
     },
     {
       "path": "mechanical/cad/screen-bezel.obj",
-      "sha256": "4268a91ac75448aedb74bcdb2ccb8a142537dec9b74f51724ce02eae592f3238"
+      "sha256": "ff9c3bd7cc992738c62b5ffb505f75f109ff5ee7a875f7e5ba69869d18139a7c"
     },
     {
       "path": "mechanical/cad/screen-module.obj",
@@ -969,87 +1017,91 @@
     },
     {
       "path": "mechanical/exploded.png",
-      "sha256": "9885ce9bac78f792b816832c5e8d53daf135cd61616db47398ccc235443c35d3"
+      "sha256": "e12c9dc6e006ce7ced97fbbc3909d71765119c40834798de9133b6b985bf098a"
+    },
+    {
+      "path": "mechanical/fit-budget.json",
+      "sha256": "7dc57edca8a84a2f78ca2fe107b3becc9e894120715320173818836cf6a7cf7b"
     },
     {
       "path": "mechanical/fit-coupons.json",
-      "sha256": "97a08075ac1fcac83235134ca2b0e6606108531b59e47f117d8ae2637ca5decb"
+      "sha256": "528c621db2394e7d1f740d64850dc9c61da1dc0f62124c78387cd0e27202c73b"
     },
     {
       "path": "mechanical/geometry-check.json",
-      "sha256": "87c57c5bfa1c47941c08df70af894f4e776cf9336ecd2b17a285b0f289ab912f"
+      "sha256": "3fcd3435c8e34f065f4a9603ea388e971630d3deb91db4c2b233790d650c0b58"
     },
     {
       "path": "mechanical/harness.json",
-      "sha256": "21cb0ce9358b67b16e353192ed769a70036150bcecd968b3d8e34147b8ea452d"
+      "sha256": "6a6affc02f19db82c2a7de7c3746f8a8d0876c9f0fe1503eeeec594e738995f1"
     },
     {
       "path": "mechanical/height-comparison.png",
-      "sha256": "0435a7c40244e087f0ec45351614267bf3101841632b2ed51cb00fd414003ba9"
+      "sha256": "d1686d3b761abc9d1379d33482cb1e36497ad86a25e56e41a90e47b58269612b"
     },
     {
       "path": "mechanical/print-poses.json",
-      "sha256": "305938cdf38756e7998da446034eca8fbbdfe6c637e200e9a76798683792f848"
+      "sha256": "2e74f3056b55f90f03a255bfc0d132ee1eac4ab006bb2085e94437a20b217ef3"
     },
     {
       "path": "mechanical/side-profile.png",
-      "sha256": "e6d01d8ff5dc20dbc061e8783d41e10aae86669f1f08b0816a338e5682ad2ee8"
+      "sha256": "e76f360d1da62ee083f9ea50922748b5df4976439e93ddda4af00af8698689ec"
     },
     {
       "path": "mechanical/stl/base.stl",
-      "sha256": "d5099537e5c1f48891fc6073c492c322fcad3a735b4f47c9877db8db1612d614"
+      "sha256": "7fa4b3edd3cbf9f01dda459ce7889b5cbd662115c846f682be6686591e7c0ae3"
     },
     {
       "path": "mechanical/stl/bearing-clamp.stl",
-      "sha256": "eefe964e9f6787cf3930f47f4b3ff1ebedfc42055bddc4b6111c524267443f77"
+      "sha256": "9621927e3ac4cb8641803aff6ad2c27d96032381fcac8c53bf1d8d9d7a345d64"
     },
     {
       "path": "mechanical/stl/encoder-skirt.stl",
-      "sha256": "2f8745bd7a80c33d7771a229eb1e835e3acb052781d349ce662c0ea1780e5502"
+      "sha256": "5f101b9adf376e69a15d1bcf1ff1ab0d619a7f8db6e7b2bc7bb48eb539a10c0f"
     },
     {
       "path": "mechanical/stl/fit-coupon-loose.stl",
-      "sha256": "4397d1ecd762a94d5a446cf7bffbbe39cb49c6f7d049b045485657a6078dfa07"
+      "sha256": "389dbd74cdf640d2391aa7ad34fd773fca8066ecb82a32817869de258bf6ccf6"
     },
     {
       "path": "mechanical/stl/fit-coupon-tight.stl",
-      "sha256": "b47558da5cd9c34bf16be9688dc419319d7b3363b0f3c872ce8581a88ff01b8c"
+      "sha256": "b0d693d16d0a8892cbc084d023bb6320198c0301c411b6c6cb541f29b76cbefb"
     },
     {
       "path": "mechanical/stl/fit-coupon.stl",
-      "sha256": "fb099cfca677825d0866b535d6d01d75baa452b5a53e8a4d511dd58218ebb177"
+      "sha256": "bdbfa4edd1b32bd07ef6f3b7973118e62f52589e2f87eace029031af67e73a8b"
     },
     {
       "path": "mechanical/stl/inner-retainer.stl",
-      "sha256": "f1448af871583b1c8fb28a8236f32d24d36970331f413a1994ee1c76af9b6700"
+      "sha256": "1eafce079d3f73bf5cdf59dde19c5e586f7a25e831a6763563575ea4a1b9b80f"
     },
     {
       "path": "mechanical/stl/knob.stl",
-      "sha256": "87ffb6fd0352135f5f2453fdbb089a41a5decdecaf95c58d240cd04773d22265"
+      "sha256": "1a8acd9dfbf05591bb9d16663780acefffa9ad568dcff26c2909f0aabefdab95"
     },
     {
       "path": "mechanical/stl/lid.stl",
-      "sha256": "24c74eaff4604e9e41ea1bcde5034bd1aef39d4915e28b71412951a562a2e4cf"
+      "sha256": "20e31ecbf6c2f7281ad8589ed254b3f34e2d15e467f5f933f385f2a79d88190a"
     },
     {
       "path": "mechanical/stl/outer-retainer.stl",
-      "sha256": "05e797bd345a86722670cdc58ce310ebf88a3b2b3fa85697a42efd400bd1f664"
+      "sha256": "b0c6a746021f87aa50fbf8ba84d9c0a9311eb14c931f0bc47786e86e8b6b7707"
     },
     {
       "path": "mechanical/stl/screen-bezel.stl",
-      "sha256": "732f2d8362ef91525a3f3b07c53efe39202f5b0b4ce26532867c47de1bae6a79"
+      "sha256": "4f0c3291cd72dacc27c59b6671f3e717974c1401405eeb532f048e3e479d2b86"
     },
     {
       "path": "mechanical/usb-access-comparison.png",
-      "sha256": "9bf6f975845fdc84046745479d11ef926823701134a7225b7474c3fdfd773380"
+      "sha256": "575172b7d46d358cc7596736d3f935171c70c24af17ec5fac503e5b14fc0b862"
     },
     {
       "path": "mechanical/usb-access.png",
-      "sha256": "74c08b4eb768cdf1f16bb34900ded37857ff3fc3e45060c3e928492af57e0403"
+      "sha256": "4ee42f3081a1b860baefd16a046c45126667b420a5f8597e6f87edd88b0db976"
     },
     {
       "path": "mechanical/wiring-cutaway.png",
-      "sha256": "2bbcc0a1b4e7417f1bbdd562daf951195e2c63122fba24c1d00811e12c793124"
+      "sha256": "93f8e07b30eab0fbdba509e1ffdcbcfaac4f266a22e2cf9005021f4d2b8fc1b6"
     },
     {
       "path": "previews/assembly-bottom.png",
@@ -1165,7 +1217,7 @@
     },
     {
       "path": "previews/wiring.svg",
-      "sha256": "2483cac7ee9ca0959553ca6c193da512578e1d34f83bb44f2eeac488ecf99f42"
+      "sha256": "d615b6e801ccd33b3f60d81665be7667396677c1b6c0a5a5a06d968273f0d304"
     },
     {
       "path": "validation/firmware-image-check.json",
@@ -1224,6 +1276,54 @@
       "sha256": "fadc135484013f0fb9a42d9f6bb6b84feddaa28754d7d56b23c352f357331632"
     },
     {
+      "path": "validation/logs/e4-assembly.log",
+      "sha256": "c60f0b0b1f6c4f56ed78ae52b655518285f2e00b833c29d8b9fae4ea72a731ac"
+    },
+    {
+      "path": "validation/logs/e4-build-assembly.log",
+      "sha256": "0f3b20c893eaba12bbe5bbcea7efd0fadae893cd49fa0073b440164515900526"
+    },
+    {
+      "path": "validation/logs/e4-build-board.log",
+      "sha256": "c781c042b8b0705cde1be0daa121b7cb0034f66b40c91ffab7f73c5db9c8b59f"
+    },
+    {
+      "path": "validation/logs/e4-check-assembly.log",
+      "sha256": "dcbdea6f5416fdd1b6b6fd23c953ea7f079e6e8ccc77cf6658dd6644e0ac63dd"
+    },
+    {
+      "path": "validation/logs/e4-design.log",
+      "sha256": "bee5218983954789a711f1019ed5b45d2d54e5e8805b50d7486e4c5947f24005"
+    },
+    {
+      "path": "validation/logs/e4-geometry.log",
+      "sha256": "dc138a2190f0de69d8110bea55cb47fe3ea4de23e789b4ec8c842dd2765417d7"
+    },
+    {
+      "path": "validation/logs/e4-inspection.log",
+      "sha256": "de99298d2ff15b17270f1efcfa622b94f6a1db97e18590cf3436c57144a6d274"
+    },
+    {
+      "path": "validation/logs/e4-kicad.log",
+      "sha256": "5501a6a685a5b8f5e4847ac6ca4cff8500b08821fe9376c73e01354d4667405d"
+    },
+    {
+      "path": "validation/logs/e4-preflight.log",
+      "sha256": "24cfecda7102464b230a7ba25a288791e30fec928e0f351b8477db65b57db6d4"
+    },
+    {
+      "path": "validation/logs/e4-render.log",
+      "sha256": "33073266ae4bb0f17fbb498c2516cc1caec1be746e5cd7da8a6f5df96396f619"
+    },
+    {
+      "path": "validation/logs/e4-shorts.log",
+      "sha256": "fadc135484013f0fb9a42d9f6bb6b84feddaa28754d7d56b23c352f357331632"
+    },
+    {
+      "path": "validation/logs/e4-typecheck.log",
+      "sha256": "8366207267355d3e3d5bf3bf6e8c94c5f93f6078c34f08973fa2b38cdda6cc92"
+    },
+    {
       "path": "validation/logs/fabrication-export.txt",
       "sha256": "5b4a22be73cf40cbc4f5f78ca59651e81b91f3da158cf4843f364fa630bfdc10"
     },
@@ -1280,5 +1380,5 @@
       "sha256": "4da2137ea03928f18e02d511944d7f33ed753af542bda5a90a8c5ed4dba3b082"
     }
   ],
-  "physical_prototype_tests": "Unperformed; bearing race faces, calibrated prints, PCB capture fit and supplied-cable OD/bends/termination need measurement before physical-fit signoff. See mechanical/FIT.md and validation/BRINGUP.md"
+  "physical_prototype_tests": "Unperformed. User authorized best approximations for unavailable bearing/cable details. Digital tolerance/contact checks cover the stated calibration targets; first-prototype bring-up remains in mechanical/FIT.md and validation/BRINGUP.md."
 }

@@ -1,0 +1,16 @@
+Building 1 file(s)...
+Building assembly.circuit.tsx...
+Generating circuit JSON...
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Circuit JSON written to dist/assembly/circuit.json
+Trace [.U1 > .VSSA to .C8 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
+Trace [.U1 > .VSS1 to .C9 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
+Trace [.U1 > .VSS2 to .C10 > .pin2] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
+Trace [.U1 > .VDD2 to .C11 > .pin1] is routed thinner than requested (requested: 0.15mm, actual: 0.1mm).
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully
