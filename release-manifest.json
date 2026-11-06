@@ -1,9 +1,9 @@
 {
-  "release": "v5.3.0",
+  "release": "v5.3.1",
   "hardware": "PCB Rev E3 / Mechanics E4",
   "repository": "https://github.com/rushabhcodes/desk-fidget-counter",
   "tscircuit": "https://tscircuit.com/rushabhcodes/desk-fidget-counter",
-  "source_revision": "Git tag v5.3.0; resolve tag to its commit; source file hashes below",
+  "source_revision": "Git tag v5.3.1; resolve tag to its commit; source file hashes below",
   "toolchain": {
     "Bun": "1.3.3",
     "tscircuit": "0.0.3077",
@@ -39,7 +39,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "49672e59d55470534d5b41aede109635af3a3eeb18eca010587d31b8cf60ca14"
+      "sha256": "d700cdcea2067182c0107f2a5d9aad23635959154ce3d22e23ff1f224825ec65"
     },
     {
       "path": "assembly.circuit.tsx",
@@ -419,7 +419,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "ecec3bd36ae9372f04d54fa86cf8fda1a502b96ad3509e4e9769341f234cab81"
+      "sha256": "1846cf25cd2e02ed238da49b2eb133f2bd68c16eb5273c031af3bcc12e597ed7"
     },
     {
       "path": "parts.tsx",
@@ -427,7 +427,7 @@
     },
     {
       "path": "reference/DATASHEETS.md",
-      "sha256": "53aacd8f234f85d44041765338a0aa4cd5487e7d876c814a9191f6ce63d69c63"
+      "sha256": "ba1bc3fd272d1338f366426bc4a46a14aaf00f51ffc610164108ebe2c9c6fefb"
     },
     {
       "path": "reference/JST_PH_B6B-PH-K.kicad_mod",
@@ -483,7 +483,7 @@
     },
     {
       "path": "routing/README.md",
-      "sha256": "3f976d53d66edc4eea6bc1ca59afa280b5c56345d01ea60594805c57ebe0a990"
+      "sha256": "21fdb8bef52ba673c5bb9cb1b7ae18f102f20006d5b51530ed64601bfbd9b1e7"
     },
     {
       "path": "scripts/bom-and-assembly.py",
@@ -555,7 +555,7 @@
     },
     {
       "path": "validation/REPORT.md",
-      "sha256": "bc1c411eb5bc1995d757c8d9362bf332760965067e0bc9c53979e607aca66978"
+      "sha256": "0a9e1e78578a12ea761a9940178af13f5de5d2ee1504d337dd00e0c712383dd8"
     },
     {
       "path": "validation/check-assembly.mjs",
@@ -577,11 +577,11 @@
   "artifacts": [
     {
       "path": "dist/assembly/circuit.json",
-      "sha256": "577d961d88818958f7bd1a79437d3bf8538edd1aa23381a2e53f21c9971f0004"
+      "sha256": "eab4df2faeeb2a0c070fd4afb24c1196543f01b49b54a7b8725010d1d6ea05b3"
     },
     {
       "path": "dist/index/circuit.json",
-      "sha256": "08306497d9050cb64f235ff09328f364a8c9245eff6c5036a45b3331e74a11c5"
+      "sha256": "77346872cb7e0364b5b098b13b2ba9bc332c1e535cd195567da0a8a2cb19b5da"
     },
     {
       "path": "dist/index/pcb.png",
@@ -1306,6 +1306,18 @@
     {
       "path": "validation/logs/e4-kicad.log",
       "sha256": "5501a6a685a5b8f5e4847ac6ca4cff8500b08821fe9376c73e01354d4667405d"
+    },
+    {
+      "path": "validation/logs/e4-patch-assembly-check.log",
+      "sha256": "dcbdea6f5416fdd1b6b6fd23c953ea7f079e6e8ccc77cf6658dd6644e0ac63dd"
+    },
+    {
+      "path": "validation/logs/e4-patch-build.log",
+      "sha256": "c6d37f3008763e270a8d8111f2b252c0038cbcc05989d5a9b87e3c259cf5eea5"
+    },
+    {
+      "path": "validation/logs/e4-patch-typecheck.log",
+      "sha256": "8366207267355d3e3d5bf3bf6e8c94c5f93f6078c34f08973fa2b38cdda6cc92"
     },
     {
       "path": "validation/logs/e4-preflight.log",

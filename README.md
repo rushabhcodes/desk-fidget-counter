@@ -2,11 +2,11 @@
 
 A **USB-powered** scroll ring with a fixed 1.28-inch colour display. The screen shows the laptop's **clock, CPU/RAM usage and battery**, alongside retained full turns and scroll status. A **front side button**, opposite USB-C, switches Scroll / Count-only modes; a three-second hold clears the retained count. Counting continues with scrolling disabled while the computer is awake. There is no internal battery or charging circuit.
 
-**v5.3.0 / PCB Rev E3 / Mechanics E4**: [GitHub release](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v5.3.0) · [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter#3d) · [complete project ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.0/desk-knob-v5.3.0.zip) · [Gerber ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.0/desk-knob-reve3-gerbers.zip).
+**v5.3.1 / PCB Rev E3 / Mechanics E4**: [GitHub release](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v5.3.1) · [tscircuit project](https://tscircuit.com/rushabhcodes/desk-fidget-counter#3d) · [complete project ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.1/desk-knob-v5.3.1.zip) · [Gerber ZIP](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.1/desk-knob-reve3-gerbers.zip).
 
-![Assembled design](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/assembly.png)
+![Assembled design](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.1/mechanical/assembly.png)
 
-![Actual firmware dashboard renderer](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/previews/screen-ui.png)
+![Actual firmware dashboard renderer](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.1/previews/screen-ui.png)
 
 This package is prepared for **first-prototype fabrication**, using real catalogue parts and **best approximations where supplier details are unavailable**, as requested. The PCB uses checked manufacturing outputs; the assembly uses the official display STEP, package models, a detailed estimated bearing and an oversized cable-clearance check. [Fit assumptions and results](mechanical/FIT.md) distinguish published dimensions from estimates. Physical operation and printer capability have not been tested; [BRINGUP.md](validation/BRINGUP.md) covers first-build verification.
 
@@ -23,7 +23,7 @@ This package is prepared for **first-prototype fabrication**, using real catalog
 | Connectors | USB-C at the rear shell wall, top JST-PH6 SWD, labelled display-cable solder pads; optional 2.54 mm header DNP |
 | Mechanics | **Ø84.8×22.3 mm**, Ø84.8 rotating ring, fixed Ø48 bezel, 6712ZZ 60×75×7 mm bearing |
 
-The **two-layer, 1.6 mm PCB** is routed entirely by tscircuit’s native autorouter. All **38 populated PCB components assemble from the top**; the optional J6 header is DNP. The board has a clipped circular body, integral rear USB and front button tabs (68×83.2 mm total) and a 34.6×40.6 mm rounded window for the static cable and rear display connector. The screen model now comes from **Waveshare's actual STEP file**; package models, the original display PH plug and eight individual wires are included. [Model sources and exact detail limits](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/mechanical/vendor/README.md). Removing the cell frees cable space; the bearing and side port still set the 22.3 mm height.
+The **two-layer, 1.6 mm PCB** is routed entirely by tscircuit’s native autorouter. All **38 populated PCB components assemble from the top**; the optional J6 header is DNP. The board has a clipped circular body, integral rear USB and front button tabs (68×83.2 mm total) and a 34.6×40.6 mm rounded window for the static cable and rear display connector. The screen model now comes from **Waveshare's actual STEP file**; package models, the original display PH plug and eight individual wires are included. [Model sources and exact detail limits](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/mechanical/vendor/README.md). Removing the cell frees cable space; the bearing and side port still set the 22.3 mm height.
 
 ## What to buy or supply for one prototype
 
@@ -68,16 +68,16 @@ python -m pip install -r companion/requirements.txt
 python companion/dashboard.py
 ```
 
-[Companion installation for macOS/Windows/Linux](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/companion/README.md). `HOST OFFLINE` replaces stale laptop metrics after five seconds. Laptop battery values come from the computer; desktop machines show `NO HOST BATTERY`. USB suspend blanks the display and powers the optical emitter down, so turns during suspend are not measured. Completed journal records survive unplugging; an update interrupted during its brief write may roll back to the previous committed record.
+[Companion installation for macOS/Windows/Linux](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/companion/README.md). `HOST OFFLINE` replaces stale laptop metrics after five seconds. Laptop battery values come from the computer; desktop machines show `NO HOST BATTERY`. USB suspend blanks the display and powers the optical emitter down, so turns during suspend are not measured. Completed journal records survive unplugging; an update interrupted during its brief write may roll back to the previous committed record.
 
 The screen and wires stay fixed; the grip rotates around them without slip rings. The ring has no mechanical detents. Use an optical skirt proven opaque at 950 nm.
 
 ## Build files
 
-- [Assembly guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/ASSEMBLY.md), [physical wiring and JST pin views](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/manufacturing/WIRING.md).
-- [3D CAD and printing](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/mechanical/README.md), [assembled GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.0/assembled.glb), [exploded GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.0/exploded.glb).
-- [Manufacturing outputs](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/manufacturing/README.md): checked KiCad board, Gerbers, BOM and pick-and-place.
-- [Firmware, programming and USB protocol](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/firmware/README.md), [component references](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/reference/DATASHEETS.md).
+- [Assembly guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/ASSEMBLY.md), [physical wiring and JST pin views](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/manufacturing/WIRING.md).
+- [3D CAD and printing](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/mechanical/README.md), [assembled GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.1/assembled.glb), [exploded GLB](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.3.1/exploded.glb).
+- [Manufacturing outputs](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/manufacturing/README.md): checked KiCad board, Gerbers, BOM and pick-and-place.
+- [Firmware, programming and USB protocol](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/firmware/README.md), [component references](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/reference/DATASHEETS.md).
 
 ```sh
 bun install --frozen-lockfile
@@ -87,7 +87,7 @@ bun run build
 bun run check:placement && bun validation/check-design.mjs && bun run check:shorts && bun run check:assembly
 ```
 
-The native Pipeline 9 build generates every trace and via. The electronic audit and unpopulated display header reduce the default population from 45 to 38. The original switch is now pressed directly, without a printed plunger. See [the part-by-part audit](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/reference/component-audit.json). See [routing and reproduction](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/routing/README.md). Firmware remains version 5.0.0 and enables the button input’s internal pull-up.
+The native Pipeline 9 build generates every trace and via. The electronic audit and unpopulated display header reduce the default population from 45 to 38. The original switch is now pressed directly, without a printed plunger. See [the part-by-part audit](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/reference/component-audit.json). See [routing and reproduction](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/routing/README.md). Firmware remains version 5.0.0 and enables the button input’s internal pull-up.
 
 The seven schematics have descriptive functional titles and chip-function/rating annotations, following the [tscircuit handbook's design-review guide](https://github.com/tscircuit/handbook/blob/main/guides/preparing-for-design-review.md). `assembly.circuit.tsx` is the published full-product entrypoint; `index.circuit.tsx` is the bare PCB. GitHub is linked to tscircuit and updates synchronize through that integration. Versioned CAD URLs and the release manifest bind viewer models and fabrication outputs to the corresponding release.
 
@@ -95,18 +95,18 @@ The seven schematics have descriptive functional titles and chip-function/rating
 
 Concepts: [Ploopy Knob](https://ploopy.co/knob/) and [rushabhcodes/fidget-counter](https://tscircuit.com/rushabhcodes/fidget-counter).
 
-The base is reduced from Ø86 to Ø84.8 mm. J1 and its USB protection/CC components move 9 mm outward onto the PCB tab: the real socket face is Y=42.350 mm, 0.15 mm beyond the stationary side wall. A 22 mm access opening and a tolerance-expanded 13.4×6.9 mm plug-body approach gauge clear the PCB, chassis and rotor. The 22.3 mm height is retained. [USB access comparison](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/usb-access-comparison.png).
+The base is reduced from Ø86 to Ø84.8 mm. J1 and its USB protection/CC components move 9 mm outward onto the PCB tab: the real socket face is Y=42.350 mm, 0.15 mm beyond the stationary side wall. A 22 mm access opening and a tolerance-expanded 13.4×6.9 mm plug-body approach gauge clear the PCB, chassis and rotor. The 22.3 mm height is retained. [USB access comparison](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.1/mechanical/usb-access-comparison.png).
 
-E3 uses the **cable included with Waveshare 19192**, shortened and soldered at J6 while retaining its original display plug. No custom harness, extra PH housings or crimp contacts are required. J6's optional male header is unpopulated; using the full 20 cm cable instead needs a separate mechanical fit check. [Wiring and trimming instructions](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.0/manufacturing/WIRING.md). Stock cable OD and bend data are unpublished: the accepted model uses Ø1.2 mm wires, checks clearance at Ø1.5 mm, and estimates static dressing bends. Trial-fit before trimming.
+E3 uses the **cable included with Waveshare 19192**, shortened and soldered at J6 while retaining its original display plug. No custom harness, extra PH housings or crimp contacts are required. J6's optional male header is unpopulated; using the full 20 cm cable instead needs a separate mechanical fit check. [Wiring and trimming instructions](https://github.com/rushabhcodes/desk-fidget-counter/blob/v5.3.1/manufacturing/WIRING.md). Stock cable OD and bend data are unpublished: the accepted model uses Ø1.2 mm wires, checks clearance at Ø1.5 mm, and estimates static dressing bends. Trial-fit before trimming.
 
 The direct button actuator projects 0.65 mm beyond the side wall on a supported front PCB tab. There is no separate plunger, keeper or printed cap. Body diameter and height stay 84.8×22.3 mm; the exposed actuator makes total depth approximately 85.25 mm.
 
-![Direct front switch, no separate plunger](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/button-access-comparison.png)
+![Direct front switch, no separate plunger](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.1/mechanical/button-access-comparison.png)
 
 ## Mechanical fit and bearing detail
 
 The bearing now has six named model parts: inner/outer races, two recessed shields, balls and cage. Its **60×75×7 mm envelope is published**; the internals are explicitly estimated. The printed retainers contact each race separately and have 0.4 mm nominal hard-stop relief, so tightening can seat on the bearing. The calibrated fit budget retains positive running margins; the bezel gap is 0.8 mm and the optical skirt is 0.8 mm thick. All eight product prints remain within the **84.8×22.3 mm nominal** body.
 
-![Detailed bearing approximation](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.0/mechanical/bearing-detail.png)
+![Detailed bearing approximation](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/v5.3.1/mechanical/bearing-detail.png)
 
 The six PORON pads accommodate PCB thickness variation. [fit-budget.json](mechanical/fit-budget.json) records the numerical assumptions and margins; [geometry-check.json](mechanical/geometry-check.json) records the full-rotation clearance checks, all populated package models, larger wire envelope and four race-contact checks. These are engineering checks under the stated assumptions, not a claim of measured hardware performance.

@@ -1,6 +1,6 @@
-# PCB E3 / Mechanics E4 / v5.3.0 validation record
+# PCB E3 / Mechanics E4 / v5.3.1 validation record
 
-Reviewed 2026-11-06. This is a **software-checked prototype design**; physical hardware tests remain unperformed. Rev E3 exposes the original side switch on a supported front PCB tab and removes the printed plunger. It uses the display’s included cable, shortened and soldered at J6; the optional male header is DNP, leaving 38 populated parts. The Ø84.8×22.3 mm assembly retains side USB-C and the fixed Waveshare 19192 screen; an accessible front mode/clear button replaces the toggle and separate top button. Its 68×83.2 mm PCB with a USB extension has a 34.6×40.6 mm R2 window for the static display harness and independent supports.
+Reviewed 2026-11-06. Patch v5.3.1 includes the regenerated wiring preview in the tagged source; the mechanical design is unchanged from v5.3.0. This is a **software-checked prototype design**; physical hardware tests remain unperformed. Rev E3 exposes the original side switch on a supported front PCB tab and removes the printed plunger. It uses the display’s included cable, shortened and soldered at J6; the optional male header is DNP, leaving 38 populated parts. The Ø84.8×22.3 mm assembly retains side USB-C and the fixed Waveshare 19192 screen; an accessible front mode/clear button replaces the toggle and separate top button. Its 68×83.2 mm PCB with a USB extension has a 34.6×40.6 mm R2 window for the static display harness and independent supports.
 
 | Check | Result |
 |---|---|
@@ -21,7 +21,7 @@ Reviewed 2026-11-06. This is a **software-checked prototype design**; physical h
 
 ## Default population and placement
 
-Release v5.3.0 uses the user-authorized best approximations for unavailable bearing/cable details. Mechanics E4 adds six separate bearing model parts, six compliant PCB capture pads and adhesive layers, self-seating independent race retainers, 0.8 mm running gap and optical wall, 0.4 mm glass relief, and a clipped cradle envelope. The full rotor sweep is checked with the stated radial/axial tolerance budget against prints, all 38 package models, official screen geometry and Ø1.5 mm wire envelopes. Four intended race contacts are tested separately. The PCB copper/placements and firmware binaries remain identical to v5.2.1. Physical hardware tests have not been performed.
+Release v5.3.1 uses the user-authorized best approximations for unavailable bearing/cable details. Mechanics E4 adds six separate bearing model parts, six compliant PCB capture pads and adhesive layers, self-seating independent race retainers, 0.8 mm running gap and optical wall, 0.4 mm glass relief, and a clipped cradle envelope. The full rotor sweep is checked with the stated radial/axial tolerance budget against prints, all 38 package models, official screen geometry and Ø1.5 mm wire envelopes. Four intended race contacts are tested separately. The PCB copper/placements and firmware binaries remain identical to v5.2.1. Physical hardware tests have not been performed.
 
 The board has 39 source references and 38 populated physical components. J6's optional male header is explicitly `doNotPlace`; its eight 2.54 mm-pitch plated holes terminate the shortened included display lead from above. No body is hidden or modelled as installed. The PCB pads, nets, drills and full copper checks remain present. BOM, placement export and KiCad DNP flags agree.
 
@@ -35,7 +35,7 @@ Eight references are removed: D1, LED1, R11, R14, R15, R16, R29 and SW2. U6 stil
 
 C8 is 10 nF 0402, paired with new C17 1 µF local VDDA bulk. C10 remains 100 nF in 0402, paired with new C18 4.7 µF VDDIO2 bulk. Compact bypasses and aligned return pads let native routing meet every checked 4 mm bypass limit. C8/C10 body ink is omitted where it crowds the nearby bulk-capacitor ink, and the mode label clears U4. Rev E3 translates J1, U6, C1, R1 and R2 by +9 mm in Y and adds an integral PCB tab. The complete two-layer board is freshly routed by the native autorouter; local MCU bypass placements are tightened while retaining every 4 mm trace-length limit. See [the full component audit](../reference/component-audit.json).
 
-All 38 populated components remain top mounted. Firmware is version 5.0.0; its button behavior, internal pull-up and removed PA1/PA6 controls support the pin-compatible Rev E and Rev E3 boards. The firmware source and binaries are unchanged in hardware release v5.3.0. Previous FRAM journal records remain compatible.
+All 38 populated components remain top mounted. Firmware is version 5.0.0; its button behavior, internal pull-up and removed PA1/PA6 controls support the pin-compatible Rev E and Rev E3 boards. The firmware source and binaries are unchanged in hardware release v5.3.1. Previous FRAM journal records remain compatible.
 
 Power/ground request nominal 0.19 mm routing with 0.10 mm minimum neck-downs. Native vias use Ø0.60 mm pads / Ø0.20 mm drills. Physical copper clearance remains 0.15 mm and board-edge clearance remains 0.30 mm. The native routing phase requests 0.16 mm trace/pad and 0.25 mm via/pad clearance as a numerical margin. The source's window and USB locating-hole keepouts block copper on both layers. The native phase requests 0.80 mm via drill-edge spacing as a numerical margin over the board's retained 0.55 mm requirement; fabrication minimum remains 0.50 mm.
 

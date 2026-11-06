@@ -64,7 +64,7 @@ The board now puts SW1 at (0,−40.9), with the native actuator at Y−42.85 and
 
 The [Waveshare product package](https://www.waveshare.com/product/1.28inch-lcd-module.htm) explicitly includes a PH2.0 8PIN 20cm cable. Its [photo](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg) shows eight individual female jumper ends. The former board PH8 header did not accept those sockets. E3 uses the shortened original cable directly at J6; no new harness parts. Optional [Würth 61300811021](https://www.we-online.com/components/products/datasheet/61300811021.pdf) is DNP. Its 2.54 mm row has eight Ø1.2 mm holes within the published Ø1.1±0.2 mm pattern. Stock wire/terminal dimensions and bend limits are unpublished; CAD cable envelopes remain provisional.
 
-## Mechanics E4 / v5.3.0 approximation basis
+## Mechanics E4 / v5.3.1 approximation basis
 
 The user explicitly requested best approximations where online supplier details could not be found. Maysme 6712ZZ remains the purchased bearing; its 60×75×7 mm boundary is verified. [NSK E1153a](https://www.nsk.com/content/dam/nsk/common/catalogs/ctrgPdf/bearings/e1153a.pdf#page=4) gives the same-size open NB712A mounting analogue (da ≥62, Da ≤73, ra ≤0.3 mm). The E4 race faces, shields, 44 balls and cage are estimates, not NSK or Maysme supplier CAD. Six separate model parts expose their roles and four checked retainer contacts.
 
