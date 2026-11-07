@@ -7,7 +7,7 @@
     "bounds_pcb_mm": [
       [
         -42.400002,
-        -42.400002,
+        -44.799999,
         -3.4
       ],
       [
@@ -27,13 +27,13 @@
     "bounds_pcb_mm": [
       [
         -42.049999,
-        -42.049999,
+        -44.799999,
         1.9
       ],
       [
         42.049999,
         42.049999,
-        15.2
+        15.6
       ]
     ],
     "explode_z_mm": 27,
@@ -46,13 +46,13 @@
     "asset": "knob.obj",
     "bounds_pcb_mm": [
       [
-        -42.390289,
-        -42.390289,
-        9.0
+        -42.39352,
+        -42.39352,
+        4.5
       ],
       [
-        42.390289,
-        42.390289,
+        42.39352,
+        42.39352,
         18.7
       ]
     ],
@@ -60,30 +60,10 @@
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
-    "name": "outer-retainer",
-    "printed": true,
-    "color": "#24292d",
-    "asset": "outer-retainer.obj",
-    "bounds_pcb_mm": [
-      [
-        -42.0,
-        -42.0,
-        7.4
-      ],
-      [
-        42.0,
-        42.0,
-        8.6
-      ]
-    ],
-    "explode_z_mm": 38,
-    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
-  },
-  {
-    "name": "inner-retainer",
+    "name": "screen-carrier",
     "printed": true,
     "color": "#95a5ad",
-    "asset": "inner-retainer.obj",
+    "asset": "screen-carrier.obj",
     "bounds_pcb_mm": [
       [
         -24.0,
@@ -120,70 +100,30 @@
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
-    "name": "bearing-clamp",
+    "name": "button-cap",
     "printed": true,
-    "color": "#95a5ad",
-    "asset": "bearing-clamp.obj",
+    "color": "#26343d",
+    "asset": "button-cap.obj",
     "bounds_pcb_mm": [
       [
-        -31.0,
-        -31.0,
-        15.6
+        -5.0,
+        -45.599998,
+        -0.6
       ],
       [
-        31.0,
-        31.0,
-        16.8
+        5.0,
+        -43.049999,
+        3.4
       ]
     ],
-    "explode_z_mm": 58,
+    "explode_z_mm": -4,
     "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
   },
   {
-    "name": "encoder-skirt",
-    "printed": true,
-    "color": "#24292d",
-    "asset": "encoder-skirt.obj",
-    "bounds_pcb_mm": [
-      [
-        -25.9,
-        -25.9,
-        4.5
-      ],
-      [
-        25.9,
-        25.9,
-        17.24
-      ]
-    ],
-    "explode_z_mm": 120,
-    "description": "Exact printable mesh restored to assembly pose; see print-poses.json"
-  },
-  {
-    "name": "bearing-inner-race",
+    "name": "bearing",
     "printed": false,
     "color": "#b7bec5",
-    "asset": "bearing-inner-race.obj",
-    "bounds_pcb_mm": [
-      [
-        -32.0,
-        -32.0,
-        8.6
-      ],
-      [
-        32.0,
-        32.0,
-        15.6
-      ]
-    ],
-    "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "name": "bearing-outer-race",
-    "printed": false,
-    "color": "#b7bec5",
-    "asset": "bearing-outer-race.obj",
+    "asset": "bearing.obj",
     "bounds_pcb_mm": [
       [
         -37.5,
@@ -197,87 +137,7 @@
       ]
     ],
     "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "name": "bearing-shield-bottom",
-    "printed": false,
-    "color": "#929da5",
-    "asset": "bearing-shield-bottom.obj",
-    "bounds_pcb_mm": [
-      [
-        -35.75,
-        -35.75,
-        8.95
-      ],
-      [
-        35.75,
-        35.75,
-        9.15
-      ]
-    ],
-    "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "name": "bearing-shield-top",
-    "printed": false,
-    "color": "#929da5",
-    "asset": "bearing-shield-top.obj",
-    "bounds_pcb_mm": [
-      [
-        -35.75,
-        -35.75,
-        15.05
-      ],
-      [
-        35.75,
-        35.75,
-        15.25
-      ]
-    ],
-    "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "name": "bearing-balls",
-    "printed": false,
-    "color": "#c8ced3",
-    "asset": "bearing-balls.obj",
-    "bounds_pcb_mm": [
-      [
-        -35.75,
-        -35.75,
-        10.1
-      ],
-      [
-        35.75,
-        35.75,
-        14.1
-      ]
-    ],
-    "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "name": "bearing-cage",
-    "printed": false,
-    "color": "#687780",
-    "asset": "bearing-cage.obj",
-    "bounds_pcb_mm": [
-      [
-        -34.1,
-        -34.1,
-        9.85
-      ],
-      [
-        34.1,
-        34.1,
-        14.35
-      ]
-    ],
-    "explode_z_mm": 48,
-    "description": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
+    "description": "Complete 6712ZZ bearing, including both races, both shields, balls and cage; verified 60x75x7 envelope, accepted approximate internals"
   },
   {
     "name": "pcb-capture-pads",
@@ -318,26 +178,6 @@
     ],
     "explode_z_mm": 27,
     "description": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
-  },
-  {
-    "name": "encoder-adhesive",
-    "printed": false,
-    "color": "#b7c5b1",
-    "asset": "encoder-adhesive.obj",
-    "bounds_pcb_mm": [
-      [
-        -25.9,
-        -25.9,
-        17.239999
-      ],
-      [
-        25.9,
-        25.9,
-        17.290001
-      ]
-    ],
-    "explode_z_mm": 120,
-    "description": "3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance"
   },
   {
     "name": "screen-module",
@@ -587,16 +427,16 @@
     "bounds_pcb_mm": [
       [
         -29.5,
-        -36.194607,
+        -29.5,
         1.0
       ],
       [
-        41.5,
-        36.194607,
+        29.5,
+        29.5,
         18.899999
       ]
     ],
     "explode_z_mm": 106,
-    "description": "DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted"
+    "description": "Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted"
   }
 ]

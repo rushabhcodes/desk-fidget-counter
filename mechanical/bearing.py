@@ -47,5 +47,5 @@ def build(parameters):
     for i,(name,s) in enumerate(solids.items()):
         for other,t in list(solids.items())[i+1:]:
             assert (s^t).volume()<1e-4,(name,other,'bearing internal collision',(s^t).volume())
-    report={'purchased_part':'Maysme 6712ZZ','verified_boundary_mm':{'id':b['id'],'od':b['od'],'width':h},'approximation':a,'component_count':len(solids),'internal_intersections':0,'status':'User-authorized best approximation. Race/shield geometry and ball/cage internals are not manufacturer CAD.'}
+    report={'purchased_part':'Maysme 6712ZZ','verified_boundary_mm':{'id':b['id'],'od':b['od'],'width':h},'approximation':a,'assembly_object_count':1,'assembly_object_name':'bearing','internal_solid_count':len(solids),'internal_intersections':0,'status':'User-authorized best approximation. Race/shield geometry and ball/cage internals are not manufacturer CAD. All internals are combined into one bearing object in the product assembly.'}
     return {name:mesh(s) for name,s in solids.items()},solids,report

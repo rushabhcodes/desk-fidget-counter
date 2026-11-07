@@ -1,0 +1,2 @@
+$ bun scripts/export-pcb-cad.mjs
+Exported source PCB CAD, with component models and board textures.

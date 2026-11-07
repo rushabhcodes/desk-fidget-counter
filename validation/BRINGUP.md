@@ -1,4 +1,4 @@
-# Rev E3 prototype bring-up
+# E4 PCB / E5 enclosure prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -31,18 +31,13 @@
 
 ## Mechanics and fabrication
 
-- [ ] Print the bearing-fit coupon variants first; record actual inner/outer race contact faces, printed diameters/shrinkage, full-seat taper, axial capture and running torque in [FIT.md](../mechanical/FIT.md). Clamp each race independently without shield preload.
-- [ ] Inspect every through-hole tail: trimmed to ≤0.8mm below the PCB, deburred, clear of base and insulating film. Check each solder well and all top-side package heights.
-- [ ] Check original screen carrier, bosses, tab, front and connector against the cradle/bezel. Tightening must not bow the PCB or load active glass.
-- [ ] Confirm H1's shortened stock cable and its actual dressed bends/OD, whose manufacturer limits are unpublished. It must clear posts, PCB, every optical-skirt angle and all package bodies. Unplug before lifting the screen for service; there is no long service loop.
-- [ ] Check DIN965 screw seating and engagement, access windows, direct switch actuation, return, side-load protection and PCB-tab support, the now-exposed USB socket, specified plug's full insertion/withdrawal and shoulder/strain relief, 0.8mm bezel/grip gap, and the full rotating swept volume.
-- [ ] Confirm no loose wire can enter the moving skirt. Rotate many complete turns before final closure. Check bearing retention, skirt adhesive and feet over time.
-- [ ] Have the fabricator review the two-layer board rules and closed internal routing contour. Reflow/feeder rotations and solder-mask clearances must match pin-1 drawings before an assembly order.
-
-- [ ] Measure original Omron actuator position and pretravel; check direct fingertip access through the front aperture. Verify return without shell interference, excessive travel or PCB flex. There is no printed plunger, guide or stop to tune. Check the base/lid support pads on the new tab.
-
-- [ ] Verify the E3 USB tab seats in the wider rear aperture, its four shield solder joints remain supported, and both plug orientations fully latch without the plastic body touching PCB or shell. Compare the actual cable with the 13.4×6.9 mm tolerance-expanded body gauge. Check the Ø4.4 mm driver windows pass the actual M2 heads and driver.
-
-- [ ] Confirm the exact Waveshare 19192 package includes the PH2.0 8PIN 20cm lead shown by the manufacturer. Trial-route before cutting; retain its PH display plug, shorten the board end and solder into J6. Leave the optional header DNP. Meter all eight signals by label, not colour. The E4 model uses the requested best approximation; check actual wire OD, stripped-core fit, plug revision, bending and termination strength during first-prototype assembly. Do not substitute a newly purchased custom harness.
-
-- [ ] Fit all six PORON discs under the E4 lid, inspect compression and PCB restraint, and confirm that each race retainer seats on the bearing before reaching a printed hard stop. Check the 0.8 mm optical wall and opaque filament/coating. The accepted digital fit budget does not replace these first-build observations.
+- [ ] Print the nominal bearing-fit coupon first with the actual bearing and production print settings. Use the alternatives to determine local printer compensation. Record fitted diameters, full seating, pull-off retention and running torque in [FIT.md](../mechanical/FIT.md). Both races must seat without hammering, shield preload or binding. Recheck retention after handling and time under load.
+- [ ] Inspect every through-hole tail/joint: ≤0.8 mm below the PCB, deburred, clear of the base and covered by the specified insulating film only after electrical inspection. Check solder wells and actual top-side package heights.
+- [ ] Verify the six product prints and four screws: two M2×6 chassis screws, two shared M2×10 carrier/bezel screws. Check pilot threads, screw seating and engagement without using the glass as a stop. Fit all six PORON discs under the lid; check compression and PCB restraint.
+- [ ] Check the real screen's mounting bosses, tab, glass and connector against the carrier/bezel. The two shared supports must remain seated without bowing the module or pressing its active glass.
+- [ ] Verify the Waveshare 19192 kit includes its PH2.0 8-pin lead. Trial-route before cutting; retain the factory PH plug and solder the shortened board ends at J6, leaving its optional header DNP. Meter every signal by label. Measure the actual wire OD, bend allowance, plug revision and termination strength against the accepted CAD approximations. There is no long service loop: unplug before lifting the screen.
+- [ ] Check all wires remain stationary and clear of both posts, packages and the integral optical track throughout complete rotations. Test the 0.8 mm wall for 950 nm opacity and inspect all 48 slots for stringing. No separate skirt adhesive joint is used.
+- [ ] Test the printed cap in its guide: no rest preload, electrical closure before the 0.6 mm nominal stop, free release and repeated short/long presses. Its nominal 0.2 mm free play plus 0.4 mm switch travel are geometry checks only. Calibrate the boss against the actual switch and printer; verify safe overtravel and no housing contact before closing the prototype.
+- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported E4 rear tab. No underside driver windows are required in E5.
+- [ ] Verify the 0.8 mm bezel/grip running gap, full rotor swept volume, push-fit retention and optional feet. Check lid and grip support removal and fit-surface finish before assembly.
+- [ ] Have the fabricator review the ordinary two-layer rules, routed inner contour and documented J1 slot allowance. Confirm current stock and feeder origin/rotations against real pads and physical pin 1 in the final order preview.

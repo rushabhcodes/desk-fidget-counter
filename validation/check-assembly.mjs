@@ -7,7 +7,8 @@ const read = path => JSON.parse(fs.readFileSync(path, 'utf8'))
 const board = read('dist/index/circuit.json')
 const assembled = read('dist/assembly/circuit.json')
 const parts = read('mechanical/cad/parts.json')
-for(const removed of ['button-plunger','lcd-cable-board-plug'])assert(!parts.some(p=>p.name===removed),`${removed} must not appear in the current assembly`)
+assert.deepEqual(parts.filter(p=>p.name==='bearing'||p.name.startsWith('bearing-')).map(p=>p.name),['bearing'],'The complete bearing must have one visibility control')
+for(const removed of ['button-plunger','lcd-cable-board-plug','outer-retainer','inner-retainer','bearing-clamp','encoder-skirt','encoder-adhesive'])assert(!parts.some(p=>p.name===removed),`${removed} must not appear in the current assembly`)
 assert.equal(read('tscircuit.config.json').mainEntrypoint, 'assembly.circuit.tsx')
 assert.equal(assembled.filter(c => c.type.endsWith('_error')).length, 0)
 // Adding mechanical parts must not perturb a single manufactured PCB record.
@@ -35,6 +36,9 @@ for (const part of parts) {
   }
 }
 const geometry = read('mechanical/cad/assembly-check.json')
+assert.equal(geometry.fastener_count,4)
+assert.equal(geometry.product_print_count,6)
+assert.deepEqual(parts.filter(p=>p.printed).map(p=>p.name).sort(),['base','button-cap','knob','lid','screen-bezel','screen-carrier'])
 assert.equal(geometry.source_parameters_sha256, createHash('sha256').update(fs.readFileSync('mechanical/parameters.json')).digest('hex'))
 assert.equal(geometry.source_board_tsx_sha256, createHash('sha256').update(fs.readFileSync('index.circuit.tsx')).digest('hex'))
 for (const [name, artifact] of Object.entries(geometry.cad_files)) {

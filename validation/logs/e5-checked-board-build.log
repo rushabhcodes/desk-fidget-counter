@@ -1,0 +1,45 @@
+Building 1 file(s)...
+Building index.circuit.tsx...
+Generating circuit JSON...
+Wrote debug artifact: dist/autorouter-debug/placement-unrouted.png
+Autorouting <board#317 name=".DESK_KNOB_REVE3" /> phase 1/2 "MCU local decoupling" start: connections=14, obstacles=250, previous_traces=0, router=tscircuit, version=beta_pipeline7, solver=AutoroutingPipelineSolver7_MultiGraph, effort=2x, cache=miss, cache_id=8a4fb521/93fb7f50
+  connections: MCU_VBAT_DECAP, MCU_VBAT_GROUND, MCU_VDDA_DECAP, MCU_VSSA_DECAP, MCU_VDD1_DECAP, MCU_VSS1_DECAP, MCU_VDDIO_DECAP, MCU_VSS2_DECAP, MCU_VDD2_DECAP, MCU_VSS3_DECAP, MCU_VDDA_LOCAL_BULK, MCU_VDDA_LOCAL_RETURN, MCU_VDDIO_LOCAL_BULK, MCU_VDDIO_LOCAL_RETURN
+Wrote debug artifact: dist/autorouter-debug/phase-0.input.simple-route.json
+  phase 1/2 "MCU local decoupling" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=topologyPlanningSolver steps=1 progress=18% iterations_per_second=21 elapsed=4.3s
+  phase 1/2 "MCU local decoupling" done: routed_traces=14, jumpers=0, errors=0, elapsed=13.8s
+Wrote debug artifact: dist/autorouter-debug/phase-0.output.traces.json
+Wrote debug artifact: dist/autorouter-debug/phase-0-routed.png
+Saved autorouting paths to .tscircuit/autorouting-artifacts/index-circuit-tsx-2e2764dae4/subcircuit_source_group_0-phase-0-order-0-stage-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Autorouting <board#317 name=".DESK_KNOB_REVE3" /> phase 2/2 "Remaining two-layer board" start: connections=31, obstacles=250, previous_traces=14, router=tscircuit, version=beta_pipeline7, solver=AutoroutingPipelineSolver7_MultiGraph, effort=2x, cache=miss, cache_id=8a4fb521/fb19708b
+  connections: USB_CC1_RD, USB_CC2_RD, net.GND, net.V3V3, net.VBUS, net.PERIPH_3V3, net.PERIPH_EN, net.NRST, net.BOOT0, net.MODE_BTN, net.USB_DM, net.USB_DP, net.SWDIO, net.SWCLK, net.SCL, net.SDA, net.CC1, net.CC2, net.IR_A, net.OPT_A, net.OPT_B, net.ENC_A, net.ENC_B, net.LCD_RST, net.LCD_BL, net.LCD_CS, net.SPI_SCK, net.LCD_DC, net.SPI_MOSI, net.LCD_SCK, net.LCD_MOSI
+Wrote debug artifact: dist/autorouter-debug/phase-1.input.simple-route.json
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=topologyPlanningSolver steps=1 progress=18% iterations_per_second=33 elapsed=1.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=portPointPathingSolver steps=20 progress=45% iterations_per_second=147776 elapsed=11.6s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=34 progress=55% iterations_per_second=43 elapsed=24.6s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=61 progress=55% iterations_per_second=741 elapsed=35.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=88 progress=55% iterations_per_second=2659 elapsed=45.5s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=108 progress=55% iterations_per_second=668 elapsed=55.6s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=135 progress=55% iterations_per_second=2546 elapsed=65.8s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=161 progress=55% iterations_per_second=576 elapsed=76.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=189 progress=55% iterations_per_second=1892 elapsed=86.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=218 progress=55% iterations_per_second=1124 elapsed=96.6s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRepairSolver steps=237 progress=64% iterations_per_second=438 elapsed=106.7s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=traceSimplificationSolver steps=254 progress=73% iterations_per_second=2224 elapsed=116.7s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=269 progress=82% iterations_per_second=0 elapsed=133.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=271 progress=82% iterations_per_second=0 elapsed=144.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=273 progress=82% iterations_per_second=0 elapsed=154.8s
+  phase 2/2 "Remaining two-layer board" done: routed_traces=104, jumpers=0, errors=0, elapsed=160.9s
+Wrote debug artifact: dist/autorouter-debug/phase-1.output.traces.json
+Wrote debug artifact: dist/autorouter-debug/phase-1-routed.png
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Wrote debug artifact: dist/autorouter-debug/board.meta.json
+Circuit JSON written to dist/index/circuit.json
+.U1 > .PB5 to net.ENC_B has a 5.06 mm segment on bottom at 186.10°, 6.10° from the nearest allowed direction (180°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+
+Build complete
+  Circuits  1 passed
+  Options   autorouter-debug, autorouter-dump-srj
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

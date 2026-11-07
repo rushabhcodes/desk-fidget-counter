@@ -15,7 +15,7 @@ The repository is the deliverable; no new fabrication kit, supplier upload or or
 
 The [top assembly view](../../previews/assembly-top.svg) marks actual physical pin 1. Source adapters preserve the imported physical pad numbering and copper/drill geometry; the [footprint check](../../validation/check-jlc-footprints.ts) compares all **173 pads across 39 references**, including the DNP row. Supplier feeder approval is a separate step from that geometry check.
 
-The screen, bearing, fasteners, adhesives, foam and eight printed parts are separate from PCB assembly. Use the Waveshare 19192 kit's own lead, shortened and soldered at J6; no additional display connector/harness purchase is required. [Wiring](../WIRING.md), [parts list](../../README.md) and [first-build tests](../../validation/BRINGUP.md).
+The screen, bearing, fasteners, adhesives, foam and six printed parts are separate from PCB assembly. Use the Waveshare 19192 kit's own lead, shortened and soldered at J6; no additional display connector/harness purchase is required. [Wiring](../WIRING.md), [parts list](../../README.md) and [first-build tests](../../validation/BRINGUP.md).
 
 ## Recorded availability and cost evidence
 

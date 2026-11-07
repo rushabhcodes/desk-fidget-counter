@@ -17,8 +17,8 @@ P=json.loads((ROOT/'parameters.json').read_text())
 OUT=ROOT/'cad';OUT.mkdir(exist_ok=True)
 BOARD_CENTER=P['pcb_bottom_z']+P['pcb_thickness']/2
 parts={};description={}
-colors={'base':'#344752','lid':'#6b8797','knob':'#e9bd65','outer-retainer':'#24292d','inner-retainer':'#95a5ad','screen-bezel':'#95a5ad','bearing':'#b7bec5','fasteners':'#69747e','screen-module':'#2e5846','screen-ui':'#ffffff','bearing-clamp':'#95a5ad','encoder-skirt':'#24292d'}
-explosion={'base':-18,'lid':27,'outer-retainer':38,'bearing':48,'inner-retainer':62,'screen-module':81,'screen-ui':81,'screen-bezel':94,'fasteners':106,'knob':130,'bearing-clamp':58,'encoder-skirt':120}
+colors={'base':'#344752','lid':'#6b8797','knob':'#e9bd65','screen-carrier':'#95a5ad','screen-bezel':'#95a5ad','button-cap':'#26343d','bearing':'#b7bec5','fasteners':'#69747e','screen-module':'#2e5846','screen-ui':'#ffffff'}
+explosion={'base':-18,'lid':27,'bearing':48,'screen-carrier':62,'screen-module':81,'screen-ui':81,'screen-bezel':94,'button-cap':-4,'fasteners':106,'knob':130}
 for old in OUT.glob('*.obj'):old.unlink()
 def add(name,mesh,note,preserve_colors=False):
  mesh=mesh.copy()
@@ -39,12 +39,18 @@ def box(size,at):return trimesh.creation.box(size,transform=trimesh.transformati
 from bearing import build as build_bearing
 bearing_meshes,_,bearing_report=build_bearing(P)
 (ROOT/'bearing-model.json').write_text(json.dumps(bearing_report,indent=2)+'\n')
+# One purchased bearing has one selectable/visible assembly object. Keep every
+# internal surface and its colour while combining the six constituent meshes.
+bearing_pieces=[]
 for name,mesh in bearing_meshes.items():
- colors[name]='#c8ced3' if name.endswith('balls') else '#687780' if name.endswith('cage') else '#929da5' if 'shield' in name else '#b7bec5'
- explosion[name]=48
- add(name,mesh,'6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry')
- parts[name].visual=trimesh.visual.TextureVisuals(material=trimesh.visual.material.PBRMaterial(
-  name=name,baseColorFactor=trimesh.visual.color.hex_to_rgba(colors[name]),metallicFactor=.9,roughnessFactor=.16 if name.endswith('balls') else .3))
+ color='#c8ced3' if name.endswith('balls') else '#687780' if name.endswith('cage') else '#929da5' if 'shield' in name else '#b7bec5'
+ piece=mesh.copy()
+ piece.visual=trimesh.visual.ColorVisuals(piece,vertex_colors=trimesh.visual.color.hex_to_rgba(color))
+ bearing_pieces.append(piece)
+add('bearing',trimesh.util.concatenate(bearing_pieces),
+ 'Complete 6712ZZ bearing, including both races, both shields, balls and cage; verified 60x75x7 envelope, accepted approximate internals',True)
+assert len(parts['bearing'].faces)==sum(len(mesh.faces) for mesh in bearing_meshes.values())
+assert np.allclose(parts['bearing'].bounds,[np.min([m.bounds[0] for m in bearing_meshes.values()],axis=0),np.max([m.bounds[1] for m in bearing_meshes.values()],axis=0)])
 # Six compliant pads avoid clamping a variable-thickness PCB between hard faces.
 capture=P['pcb_capture'];top=P['pcb_bottom_z']+P['pcb_thickness'];pads=[];adhesive=[]
 for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),(-6,-37,1.3),(6,-37,1.3)]:
@@ -53,9 +59,6 @@ for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),(-6,-37,1.3),(6,-37
 for name,solids,color in [('pcb-capture-pads',pads,'#24292d'),('pcb-pad-adhesive',adhesive,'#bbc4c9')]:
  colors[name]=color;explosion[name]=27
  add(name,trimesh.util.concatenate([solid_mesh(q) for q in solids]),'PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive')
-colors['encoder-adhesive']='#b7c5b1';explosion['encoder-adhesive']=120
-bond=cyl(P['encoder']['bond_outer_radius'],.05,20.64)-cyl(24.8,.07,20.63)
-add('encoder-adhesive',solid_mesh(bond),'3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance')
 # Exact rigid manufacturer STEP geometry, tessellated without axis scaling.
 screen=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
 screen.apply_transform(np.diag([-1.,1.,-1.,1.]));screen.apply_translation([0,0,17.75])
@@ -93,12 +96,9 @@ def csk(x,y,z,up=False,length=6):
  recess=manifold.Manifold.cube((1.7,.45,.5),True).translate((x,y,level))+manifold.Manifold.cube((.45,1.7,.5),True).translate((x,y,level))
  return [body-recess]
 for x,y in P['chassis_screw_axes']:fasteners.extend(csk(x,y,10.4))
-for x,y in P['screen_posts']:fasteners.extend(csk(x,y,17.3,length=10))
-for i in range(3):
- a=2*math.pi*i/3;x,y=28.6*math.cos(a),28.6*math.sin(a);fasteners.extend(csk(x,y,20.2))
- x,y=39.6*math.cos(a),39.6*math.sin(a);fasteners.extend(csk(x,y,10.8,up=True))
- a=2*math.pi*i/3;x,y=21.1*math.cos(a),21.1*math.sin(a);fasteners.extend(csk(x,y,22.3))
-add('fasteners',trimesh.util.concatenate([solid_mesh(q) for q in fasteners]),'DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted')
+for x,y in P['bezel_screw_axes']:fasteners.extend(csk(x,y,22.3,length=10))
+assert len(fasteners)==4
+add('fasteners',trimesh.util.concatenate([solid_mesh(q) for q in fasteners]),'Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted')
 # Native tscircuit GLB: exported (-X, +Z, +Y). Convert back to PCB +Z-up.
 pcb=trimesh.load(OUT/'pcb-source.glb',force='scene')
 for mesh in pcb.geometry.values():mesh.merge_vertices()
@@ -110,7 +110,8 @@ for node in pcb.graph.nodes_geometry:
     mesh.apply_transform(to_cad@transform);mesh.merge_vertices();pcb_geometry.append((node,mesh))
 assert np.isclose(min(m.bounds[0,2] for name,m in pcb_geometry if name.startswith('Box')),P['pcb_bottom_z'],atol=.01)
 assert min(m.bounds[0,2] for _,m in pcb_geometry)>=P['pcb_bottom_z']-P['header_tail_below_pcb_mm']-.01
-# Keep every authored part separate and named in both GLBs for hide/select tools.
+# Keep every assembly part named in both GLBs for hide/select tools. The complete
+# bearing is one object; its internals are never separate visibility entries.
 # Rotate +Z-up CAD to glTF +Y-up and convert mm to metres.
 to_gltf=np.array([[.001,0,0,0],[0,0,.001,0],[0,-.001,0,0],[0,0,0,1]],float)
 for exploded in [False,True]:
@@ -121,18 +122,19 @@ for exploded in [False,True]:
     for name,mesh in pcb_geometry:
         transform=to_gltf@trimesh.transformations.translation_matrix([0,0,0])
         scene.add_geometry(mesh,node_name='pcb-'+name,geom_name='pcb-'+name,transform=transform)
-    scene.metadata={'description':'Desk fidget counter Mechanics E4 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
+    scene.metadata={'description':'Desk fidget counter Mechanics E5 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
     path=OUT/('exploded.glb' if exploded else 'assembled.glb');scene.export(path)
     reloaded=trimesh.load(path,force='scene');assert len(reloaded.geometry)>=len(parts)
+    assert [n for n in reloaded.graph.nodes_geometry if n=='bearing' or n.startswith('bearing-')]==['bearing']
     if not exploded:
         assert abs(reloaded.extents[0]-P['base_diameter']*.001)<.0001 and abs(reloaded.extents[1]-.0223)<.0001
-        assert reloaded.extents[2]<.086, reloaded.extents
+        assert reloaded.extents[2]<.089, reloaded.extents
 # Per-part OBJ assets use tscircuit's board-centred mm frame. Vertex colours
 # survive its OBJ loader. Printed STLs remain in their original print frame.
 records=[]
 for name,mesh in parts.items():
     asset=mesh.copy();asset.apply_translation([0,0,-BOARD_CENTER])
-    if name.startswith('bearing-') and name!='bearing-clamp':asset.visual=trimesh.visual.ColorVisuals(asset,vertex_colors=trimesh.visual.color.hex_to_rgba(colors[name]))
+    if name.startswith('bearing-'):asset.visual=trimesh.visual.ColorVisuals(asset,vertex_colors=trimesh.visual.color.hex_to_rgba(colors[name]))
     asset.export(OUT/f'{name}.obj',include_color=True,include_normals=False,header='PCB-centred millimetres, +Z up. Vendor models retain upstream rights; see mechanical/vendor/README.md. Other geometry MIT.')
     obj_path=OUT/f'{name}.obj'
     obj_path.write_text(obj_path.read_text().rstrip()+'\n')
@@ -141,7 +143,7 @@ for name,mesh in parts.items():
 (OUT/'parts.json').write_text(json.dumps(records,indent=2)+'\n')
 # Exterior rendering uses the exact assembled meshes and the firmware UI.
 fig=plt.figure(figsize=(10,8));ax=fig.add_subplot(111,projection='3d');triangles=[];facecolors=[]
-for name in ['base','lid','knob','screen-bezel','screen-module']:
+for name in ['base','lid','knob','screen-bezel','screen-module','button-cap']:
  mesh=parts[name];triangles.extend(mesh.triangles);facecolors.extend(mesh.visual.face_colors/255)
 ax.computed_zorder=False
 ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,dtype=float),edgecolor='none',zsort='average',zorder=1))
@@ -149,26 +151,28 @@ ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,
 # painter-style preview; the GLB uses its normal depth-tested physical pose.
 ui=parts['screen-ui'];ax.add_collection3d(Poly3DCollection(ui.triangles,facecolors=np.asarray(ui.visual.face_colors,dtype=float)/255,edgecolor='none',zorder=10))
 ax.set(xlim=(-45,45),ylim=(-45,45),zlim=(0,26));ax.set_box_aspect((90,90,26));ax.view_init(55,-110);ax.set_axis_off()
-ax.set_title('Desk knob Mechanics E4 — fixed 1.28-inch display\nRotating grip ring / front mode button / Ø84.8 × 22.3 mm',pad=10)
+ax.set_title('Desk knob Mechanics E5 — fixed 1.28-inch display\nRotating grip ring / front printed mode button / Ø84.8 body × 22.3 mm high',pad=10)
 fig.tight_layout();fig.savefig(ROOT/'assembly.png',dpi=160);plt.close(fig)
 # Exploded assembly overview for the guide. Offsets are illustrative movements,
 # not claimed disassembly trajectories; assembled dimensions remain authoritative.
 fig=plt.figure(figsize=(11,12));ax=fig.add_subplot(111,projection='3d');polys=[];facecolors=[]
 for name,mesh in parts.items():
-    if name in ['fasteners','screen-ui']:continue
+    if name=='screen-ui':continue
     display=mesh.copy();display.apply_translation([0,0,explosion[name]])
     polys.extend(display.triangles);facecolors.extend([colors[name]]*len(display.faces))
     x,y,z=display.centroid
     if name.startswith('lcd-'):
         if name=='lcd-cable-screen-plug':ax.text(43,0,z,'H1 LCD harness (8 wires)',fontsize=8)
+    elif name=='pcb-pad-adhesive':
+        pass  # Label the six foam/adhesive pairs together for a readable guide.
     else:
-        label_z=z+5 if name=='inner-retainer' else z-1 if name=='bearing-clamp' else z
-        ax.text(43,0,label_z,name,fontsize=8)
+        label_z=z+5 if name=='screen-carrier' else z
+        ax.text(43,0,label_z,'fasteners: 2 x M2x6 + 2 x M2x10' if name=='fasteners' else 'PCB capture: 6 foam/adhesive pairs' if name=='pcb-capture-pads' else name,fontsize=8)
 for name,mesh in pcb_geometry:
     display=mesh.copy();display.apply_translation([0,0,0]);polys.extend(display.triangles);facecolors.extend(['#246b47']*len(display.faces))
 ax.add_collection3d(Poly3DCollection(polys,facecolors=facecolors,edgecolor='none',zsort='average'))
 ax.set(xlim=(-42,65),ylim=(-42,42),zlim=(-20,185),xlabel='X / mm',ylabel='Y / mm',zlabel='Z / mm')
-ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Mechanics E4 — exploded assembly\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
+ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Mechanics E5 — six prints / four screws\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
 fig.tight_layout();fig.savefig(ROOT/'exploded.png',dpi=140);plt.close(fig)
-report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; direct actuator projects at front','part_count':len(parts),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
+report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; front printed cap gives 88.0mm overall depth','part_count':len(parts),'fastener_count':4,'product_print_count':len(printed_names),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
 (OUT/'assembly-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

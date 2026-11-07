@@ -15,29 +15,31 @@
     "moving_z_check": 0.2,
     "status": "Conservative engineering approximation and required print calibration targets; not measured production capability.",
     "moving_z_print_check": 0.3,
-    "moving_z_hardware_check": 0.46
+    "moving_z_hardware_check": 0.46,
+    "pcb_cutout_edge_error": 0.2
   },
   "results": {
-    "bearing_stem_min_diametral_clearance_mm": 0.08,
-    "bearing_pocket_min_diametral_clearance_mm": 0.08,
     "PCB_peg_min_diametral_clearance_mm": 0.35,
-    "maximum_bearing_radial_eccentricity_mm": 0.32,
-    "fixed_print_to_rotor_xy_budget_mm": 0.62,
-    "PCB_to_rotor_xy_budget_mm": 0.945,
+    "maximum_bearing_radial_eccentricity_mm": 0.12,
+    "fixed_print_to_rotor_xy_budget_mm": 0.42,
+    "PCB_to_rotor_xy_budget_mm": 0.745,
     "PCB_maximum_in_plane_play_mm": 0.325,
-    "bezel_to_rotor_remaining_radial_clearance_mm": 0.18,
-    "optical_fork_remaining_radial_clearance_mm": 0.0751,
+    "bezel_to_rotor_remaining_radial_clearance_mm": 0.38,
+    "optical_fork_remaining_radial_clearance_mm": 0.2751,
     "optical_slot_remaining_vertical_beam_margin_mm": 0.19,
     "screen_glass_remaining_axial_clearance_mm": 0.2,
-    "inner_clamp_min_hard_stop_gap_mm": 0.1,
-    "outer_retainer_min_hard_stop_gap_mm": 0.1,
-    "inner_clamp_min_thread_engagement_mm": 4.1,
-    "outer_retainer_min_thread_engagement_mm": 4.1,
     "foam_minimum_compression_mm": 0.093,
     "foam_maximum_compression_percent": 54.835,
     "foam_nominal_compression_percent": 33.121,
     "USB_plug_to_rotor_min_vertical_clearance_mm": 1.04
   },
-  "all_margins_positive": true,
+  "all_running_margins_positive": true,
+  "push_fit": {
+    "nominal_stem_clearance_mm": 0.0,
+    "nominal_pocket_clearance_mm": 0.0,
+    "diameter_uncertainty_mm": 0.12000000000000001,
+    "calibration_required": true,
+    "physical_retention_verified": false
+  },
   "physical_tests": "Not performed; first-build checks remain documented in validation/BRINGUP.md."
 }

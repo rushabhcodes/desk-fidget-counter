@@ -20,8 +20,6 @@ def evaluate(p):
     radial_slot=(3-p['encoder']['track_thickness'])/2-pcb_xy-sagitta
     margin_width=f['bearing_width_error']+f['relative_print_z_error']
     values={
-      'bearing_stem_min_diametral_clearance_mm':inner-diameter_error,
-      'bearing_pocket_min_diametral_clearance_mm':outer-diameter_error,
       'PCB_peg_min_diametral_clearance_mm':2.7-f['pcb_hole_diameter_error']-c['peg_diameter']-f['printed_fit_diameter_error'],
       'maximum_bearing_radial_eccentricity_mm':eccentricity,
       'fixed_print_to_rotor_xy_budget_mm':print_xy,
@@ -31,10 +29,6 @@ def evaluate(p):
       'optical_fork_remaining_radial_clearance_mm':radial_slot,
       'optical_slot_remaining_vertical_beam_margin_mm':.9-.1-.15-f['pcb_thickness_error']-f['relative_print_z_error']-f['moving_z_check'],
       'screen_glass_remaining_axial_clearance_mm':p['display']['glass_relief_mm']-.1-f['relative_print_z_error'],
-      'inner_clamp_min_hard_stop_gap_mm':m['stem_top_relief']-margin_width,
-      'outer_retainer_min_hard_stop_gap_mm':m['housing_bottom_relief']-margin_width,
-      'inner_clamp_min_thread_engagement_mm':6-1.2-m['stem_top_relief']-margin_width,
-      'outer_retainer_min_thread_engagement_mm':6-1.2-m['housing_bottom_relief']-margin_width,
       'foam_minimum_compression_mm':compression_min,
       'foam_maximum_compression_percent':100*compression_max/foam_max,
       'foam_nominal_compression_percent':100*(c['uncompressed_pad_height']-c['compressed_pad_height']+c['adhesive_thickness'])/c['uncompressed_pad_height'],
@@ -42,10 +36,8 @@ def evaluate(p):
     }
     for key,value in values.items():assert value>0,(key,value)
     assert values['foam_maximum_compression_percent']<60,'Engineering compression criterion, not a supplier operating rating'
-    assert values['inner_clamp_min_thread_engagement_mm']>=4
-    assert values['outer_retainer_min_thread_engagement_mm']>=4
-    assert abs(print_xy-f['moving_xy_print_check'])<1e-8
-    assert abs(pcb_xy-f['moving_xy_pcb_check'])<1e-8
+    assert print_xy<=f['moving_xy_print_check']+1e-8
+    assert pcb_xy<=f['moving_xy_pcb_check']+1e-8
     assert abs(f['moving_z_print_check']-f['bearing_width_error']-f['relative_print_z_error'])<1e-8
     assert abs(f['moving_z_hardware_check']-f['bearing_width_error']-f['pcb_thickness_error']-f['relative_print_z_error'])<1e-8
-    return {'basis':'Catalogue boundaries plus explicitly accepted engineering approximations; calibrated print target, not measured process capability.','assumptions':f,'results':{k:round(v,4) for k,v in values.items()},'all_margins_positive':True,'physical_tests':'Not performed; first-build checks remain documented in validation/BRINGUP.md.'}
+    return {'basis':'Catalogue boundaries plus explicitly accepted engineering approximations; calibrated print target, not measured process capability.','assumptions':f,'results':{k:round(v,4) for k,v in values.items()},'all_running_margins_positive':True,'push_fit':{'nominal_stem_clearance_mm':inner,'nominal_pocket_clearance_mm':outer,'diameter_uncertainty_mm':diameter_error,'calibration_required':True,'physical_retention_verified':False},'physical_tests':'Not performed; first-build checks remain documented in validation/BRINGUP.md.'}

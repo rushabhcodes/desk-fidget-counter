@@ -19,7 +19,9 @@
     "shield_outer_diameter": 71.5,
     "basis": "Maysme 6712ZZ envelope; NSK NB712A 60x75x7 mounting analogue. Internal dimensions are engineering/visual estimates, not Maysme manufacturing data."
   },
-  "component_count": 6,
+  "assembly_object_count": 1,
+  "assembly_object_name": "bearing",
+  "internal_solid_count": 6,
   "internal_intersections": 0,
-  "status": "User-authorized best approximation. Race/shield geometry and ball/cage internals are not manufacturer CAD."
+  "status": "User-authorized best approximation. Race/shield geometry and ball/cage internals are not manufacturer CAD. All internals are combined into one bearing object in the product assembly."
 }

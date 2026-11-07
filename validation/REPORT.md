@@ -1,6 +1,6 @@
-# Repository readiness / v5.5.0
+# Repository readiness / v5.6.0
 
-Reviewed **6 November 2026**. **Local design checks pass; full fabrication clearance remains conditional on JLCPCB accepting the short USB plated slots.** Native routing, source/footprint checks, independent export DRC and mechanical checks pass. Physical operation and manufacturing tolerances remain first-prototype tests. This source revision is prepared for publication on GitHub and TSCircuit. No new fabrication kit, release archive, supplier upload or order is created; you will export/download fabrication files and order later.
+Reviewed **7 November 2026**. **Local design checks pass; full fabrication clearance remains conditional on JLCPCB accepting the short USB plated slots.** Native routing, source/footprint checks, independent export DRC and mechanical checks pass. Physical operation and manufacturing tolerances remain first-prototype tests. The E5 enclosure has six printed parts and four screws, reduced from eight prints and fourteen screws. The grip includes its optical track, and two screen screws retain both carrier and bezel. Physical bearing retention and printed fit still require the coupon and prototype checks. This source revision is prepared for publication on GitHub and TSCircuit. No new fabrication kit, release archive, supplier upload or order is created; you will export/download fabrication files and order later.
 
 **Do not order v5.4.0.** That historical release has an undersized U3 FRAM footprint and outdated assembly angles. Its generated manufacturing outputs and manifest were removed from the working revision. Old reports or hashes do not validate a new export. Use the current source and freshly export a complete consistent set when ordering.
 
@@ -16,11 +16,11 @@ Reviewed **6 November 2026**. **Local design checks pass; full fabrication clear
 | Gerber-derived shorts | No shorts on either copper layer |
 | Independent KiCad 10.0.7 DRC | Zero violations and zero unconnected items; errors and warnings included |
 | Export preservation | All 173 physical pad centres and plated drills match source; every native trace/via unchanged after finalization |
-| Assembly CAD | 30 named mechanical parts; 38 fitted package models; same PCB geometry in bare/assembly entrypoints |
-| Mechanical fit | Eight watertight product prints; full rotor sweep, package/screen/wire clearance, USB/button access and four bearing-race contacts pass under stated assumptions |
+| Assembly CAD | 22 named mechanical parts; 38 fitted package models; same PCB geometry in bare/assembly entrypoints |
+| Mechanical fit | Six watertight product prints; full rotor sweep, package/screen/wire clearance, USB/button access and four bearing-race contacts pass under stated assumptions |
 | Firmware/companion | Software tests and linked ARM image checks pass; unchanged firmware 5.0.0, 61,344-byte image |
 
-The machine-readable [readiness record](readiness.json) fingerprints the validated source and evidence. The [KiCad report](kicad-drc.json), [zone-refill record](pour-cleanup.json), [mechanical geometry checks](../mechanical/geometry-check.json) and [assembly checks](../mechanical/cad/assembly-check.json) hold the underlying results. Current validation logs are named `v550-*`; older logs are historical.
+The machine-readable [readiness record](readiness.json) fingerprints the validated source and evidence. The [KiCad report](kicad-drc.json), [zone-refill record](pour-cleanup.json), [mechanical geometry checks](../mechanical/geometry-check.json) and [assembly checks](../mechanical/cad/assembly-check.json) hold the underlying results. The E5 CAD update retains the checked E3 PCB geometry and native routing. Current local recheck logs are recorded with the `e5-` prefix; prior `v550-*` copper reports refer to this unchanged board.
 
 All purchased PCB footprints use byte-for-byte exact `tsci import --jlcpcb --use-exact-footprint` files in `imports/jlc`, with [hashes/catalogue IDs](../reference/jlcpcb-footprints.json). Logical aliases retain physical pin numbers. The project adapters account for library zero angles and top-entry metadata without replacing copper, drills, mask or courtyards. Unprintable body silkscreen is omitted for J1/J4/J6/SW1 and one outline in each closely spaced resistor pair; J4 has a separate pin-1 mark. Display labels sit left of J6.
 
@@ -44,7 +44,7 @@ Run the commands in [manufacturing guidance](../manufacturing/README.md). The in
 
 KiCad's default informational ignored checks are listed in its report: missing courtyard, off-centre track/via endpoint, tuning geometry, schematic footprint filters and footprint-type classification. No electrical clearance, short, drill or connectivity violation is suppressed. Supplier footprint geometry is additionally verified directly against its unmodified imports.
 
-CAD uses included relative asset paths and regenerated source-bound hashes. It does not depend on an unpublished remote tag. Bare PCB and full assembly circuit JSON have identical manufactured PCB records. The assembled and exploded models include the fixed screen, original display plug, eight wires, fasteners, separate bearing pieces and soft capture pads.
+CAD uses included relative asset paths and regenerated source-bound hashes. It does not depend on an unpublished remote tag. Bare PCB and full assembly circuit JSON have identical manufactured PCB records. The cap sweep is checked at 13 positions from 0 to 0.6 mm, with fingertip clearance, fixed switch-housing clearance and side-ear stop engagement. These nominal checks do not certify printed friction or safe switch overtravel. The assembled and exploded models include the fixed screen, original display plug, eight wires, fasteners, one complete bearing object and soft capture pads.
 
 ## Open manufacturer process review: USB shield slots
 
@@ -58,4 +58,6 @@ The historical signed-in v5.4.0 upload matched 22/22 BOM lines and 38 top placem
 
 When you export later, recheck exact part availability and the BOM/CPL preview against real copper and physical pin 1. Keep all 38 fitted parts on top and J6 DNP. Supplier engineering DFM approval and final assembly feeder/origin confirmation remain part of your future order, as with any prototype.
 
-Physical USB operation, power/suspend behaviour, optical counts, actual printed fit, supplied-wire dressing, bearing race contact and tactile access remain unmeasured. The bearing's 60×75×7 mm boundary is published; internal/race details and unpublished cable dimensions use the accepted approximations. [BRINGUP.md](BRINGUP.md) and [FIT.md](../mechanical/FIT.md) specify first-build checks. The nominal body remains Ø84.8×22.3 mm. Calibrate/finish the bearing fits to the documented targets; a generic FDM service tolerance is insufficient by itself.
+Physical USB operation, power/suspend behaviour, optical counts, actual printed fit, supplied-wire dressing, bearing race contact and tactile access remain unmeasured. The bearing's 60×75×7 mm boundary is published; internal/race details and unpublished cable dimensions use the accepted approximations. [BRINGUP.md](BRINGUP.md) and [FIT.md](../mechanical/FIT.md) specify first-build checks. The circular body remains Ø84.8×22.3 mm; the front cap brings overall depth to 88.0 mm. Calibrate/finish the bearing fits to the documented targets; a generic FDM service tolerance is insufficient by itself.
+
+GitHub Actions for commit `72e4b85` could not start because GitHub reported an account billing lock. Local results are recorded separately; no hosted CI pass is claimed.

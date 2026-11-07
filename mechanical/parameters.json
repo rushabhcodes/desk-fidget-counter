@@ -47,8 +47,8 @@
       "basis": "Maysme 6712ZZ envelope; NSK NB712A 60x75x7 mounting analogue. Internal dimensions are engineering/visual estimates, not Maysme manufacturing data."
     }
   },
-  "bearing_stem_od": 59.8,
-  "bearing_pocket_id": 75.2,
+  "bearing_stem_od": 60.0,
+  "bearing_pocket_id": 75.0,
   "knob_diameter": 84.8,
   "knob_top_z": 22.1,
   "usb_center": [
@@ -183,16 +183,12 @@
   ],
   "screen_posts": [
     [
-      -15.8,
-      14
+      -14.6,
+      15.96
     ],
     [
-      -15.8,
-      -15
-    ],
-    [
-      14.6,
-      -15
+      13.8,
+      -16.65
     ]
   ],
   "usb_cable_part": "L-com CAU4CC-40M-1M",
@@ -210,12 +206,24 @@
       "typ": 0.2,
       "max": 0.4
     },
-    "direct_actuation": true,
+    "direct_actuation": false,
     "opening_width_mm": 8,
     "opening_bottom_z": 2.8,
     "opening_top_z": 6.8,
     "finger_check_radius_mm": 6,
-    "fit_status": "Direct original switch actuator; no separate cap or plunger. Nominal CAD only; measure actuator tolerance, force and accessibility on the prototype."
+    "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
+    "printed_cap": {
+      "part": "button-cap",
+      "face_width_mm": 8,
+      "face_height_mm": 4,
+      "face_front_y": -45.6,
+      "rest_tip_y": -43.05,
+      "nominal_rest_gap_mm": 0.2,
+      "nominal_max_travel_mm": 0.6,
+      "minimum_slide_clearance_mm": 0.4,
+      "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+      "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
+    }
   },
   "usb_access": {
     "axis_z": 5.85,
@@ -229,7 +237,6 @@
     "plug_height_mm": 6.9,
     "plug_shoulder_y": 42.35003,
     "plug_check_length_mm": 35,
-    "driver_window_diameter_mm": 4.4,
     "scope": "Socket face/axis from original C165948 STEP. Plug gauge uses L-com nominal 12.9x6.4 mm plus general +/-0.5 mm tolerance; its shoulder is conservatively placed flush with the socket face. Gauge length is a checking volume, not a claimed cable dimension. Undimensioned mating details require actual fit verification.",
     "plug_nominal_width_mm": 12.9,
     "plug_nominal_height_mm": 6.4,
@@ -261,9 +268,7 @@
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
-    "stem_top_relief": 0.4,
-    "housing_bottom_relief": 0.4,
-    "basis": "NSK NB712A mounting analogue: da min62, Da max73, ra max0.3; estimates for the selected shielded bearing. Retainers seat on each race before reaching printed hard stops."
+    "basis": "Inner-race lower shoulder and outer-race upper shoulder locate the bearing axially. Calibrated bore/pocket push fits retain it; no separate clamps or lower retainer."
   },
   "pcb_capture": {
     "peg_diameter": 2.2,
@@ -290,6 +295,36 @@
     "moving_z_check": 0.2,
     "status": "Conservative engineering approximation and required print calibration targets; not measured production capability.",
     "moving_z_print_check": 0.3,
-    "moving_z_hardware_check": 0.46
+    "moving_z_hardware_check": 0.46,
+    "pcb_cutout_edge_error": 0.2
+  },
+  "bezel_screw_axes": [
+    [
+      -14.6,
+      15.96
+    ],
+    [
+      13.8,
+      -16.65
+    ]
+  ],
+  "assembly_simplification": {
+    "revision": "E5",
+    "product_print_count": 6,
+    "fasteners": [
+      {
+        "part": "DIN 965 M2x6",
+        "quantity": 2,
+        "use": "base/lid"
+      },
+      {
+        "part": "DIN 965 M2x10",
+        "quantity": 2,
+        "use": "bezel and screen carrier into base posts"
+      }
+    ],
+    "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
+    "integral_encoder_skirt": true,
+    "separate_bearing_retainers": false
   }
 }

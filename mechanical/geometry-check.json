@@ -1,11 +1,11 @@
 {
   "base": {
     "watertight": true,
-    "volume_mm3": 14829.84,
+    "volume_mm3": 15099.43,
     "bounds_mm": [
       [
         -42.4,
-        -42.4,
+        -44.8,
         0.0
       ],
       [
@@ -17,55 +17,39 @@
   },
   "lid": {
     "watertight": true,
-    "volume_mm3": 8143.08,
+    "volume_mm3": 8665.73,
     "bounds_mm": [
       [
         -42.05,
-        -42.05,
+        -44.8,
         0.0
       ],
       [
         42.05,
         42.05,
-        13.3
+        13.7
       ]
     ]
   },
   "knob": {
     "watertight": true,
-    "volume_mm3": 15420.01,
+    "volume_mm3": 19124.0,
     "bounds_mm": [
       [
-        -42.39,
-        -42.39,
+        -42.394,
+        -42.394,
         0.0
       ],
       [
-        42.39,
-        42.39,
-        9.7
+        42.394,
+        42.394,
+        14.2
       ]
     ]
   },
-  "outer-retainer": {
+  "screen-carrier": {
     "watertight": true,
-    "volume_mm3": 1593.38,
-    "bounds_mm": [
-      [
-        -42.0,
-        -42.0,
-        0.0
-      ],
-      [
-        42.0,
-        42.0,
-        1.2
-      ]
-    ]
-  },
-  "inner-retainer": {
-    "watertight": true,
-    "volume_mm3": 879.25,
+    "volume_mm3": 905.13,
     "bounds_mm": [
       [
         -24.0,
@@ -81,7 +65,7 @@
   },
   "screen-bezel": {
     "watertight": true,
-    "volume_mm3": 1161.09,
+    "volume_mm3": 1173.34,
     "bounds_mm": [
       [
         -24.0,
@@ -95,41 +79,25 @@
       ]
     ]
   },
-  "bearing-clamp": {
+  "button-cap": {
     "watertight": true,
-    "volume_mm3": 762.16,
+    "volume_mm3": 59.62,
     "bounds_mm": [
       [
-        -31.0,
-        -31.0,
+        -5.0,
+        -45.6,
         0.0
       ],
       [
-        31.0,
-        31.0,
-        1.2
-      ]
-    ]
-  },
-  "encoder-skirt": {
-    "watertight": true,
-    "volume_mm3": 1586.01,
-    "bounds_mm": [
-      [
-        -25.9,
-        -25.9,
-        0.0
-      ],
-      [
-        25.9,
-        25.9,
-        12.74
+        5.0,
+        -43.05,
+        4.0
       ]
     ]
   },
   "fit-coupon-tight": {
     "watertight": true,
-    "volume_mm3": 3219.25,
+    "volume_mm3": 7810.08,
     "bounds_mm": [
       [
         -40.0,
@@ -137,15 +105,31 @@
         0.0
       ],
       [
-        103.95,
+        104.05,
         40.0,
-        3.0
+        7.0
       ]
     ]
   },
   "fit-coupon": {
     "watertight": true,
-    "volume_mm3": 3155.66,
+    "volume_mm3": 7661.67,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        104.0,
+        40.0,
+        7.0
+      ]
+    ]
+  },
+  "fit-coupon-loose": {
+    "watertight": true,
+    "volume_mm3": 7364.84,
     "bounds_mm": [
       [
         -40.0,
@@ -155,26 +139,11 @@
       [
         103.9,
         40.0,
-        3.0
+        7.0
       ]
     ]
   },
-  "fit-coupon-loose": {
-    "watertight": true,
-    "volume_mm3": 3028.47,
-    "bounds_mm": [
-      [
-        -40.0,
-        -40.0,
-        0.0
-      ],
-      [
-        103.8,
-        40.0,
-        3.0
-      ]
-    ]
-  },
+  "screen_post_to_window_tolerance_checked_mm": 0.625,
   "purchased_package_models_checked": 38,
   "individual_wires_checked": 8,
   "tolerance_envelopes_checked": {
@@ -185,8 +154,42 @@
     "wire_od_mm": 1.5,
     "full_rotor_sweep": true
   },
-  "bearing_retainer_contacts_checked": 4,
+  "bearing_contacts_checked": 4,
+  "assembly_simplification": {
+    "revision": "E5",
+    "product_print_count": 6,
+    "fasteners": [
+      {
+        "part": "DIN 965 M2x6",
+        "quantity": 2,
+        "use": "base/lid"
+      },
+      {
+        "part": "DIN 965 M2x10",
+        "quantity": 2,
+        "use": "bezel and screen carrier into base posts"
+      }
+    ],
+    "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
+    "integral_encoder_skirt": true,
+    "separate_bearing_retainers": false
+  },
   "button_tolerance_access_checks": 4,
+  "printed_button": {
+    "part": "button-cap",
+    "face_width_mm": 8,
+    "face_height_mm": 4,
+    "face_front_y": -45.6,
+    "rest_tip_y": -43.05,
+    "nominal_rest_gap_mm": 0.2,
+    "nominal_max_travel_mm": 0.6,
+    "minimum_slide_clearance_mm": 0.4,
+    "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+    "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required.",
+    "checked_travel_poses": 13,
+    "nominal_switch_travel_at_stop_mm": 0.4,
+    "checks": "Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified."
+  },
   "front_button": {
     "part": "Omron B3U-3000P",
     "pcb_center": [
@@ -201,17 +204,29 @@
       "typ": 0.2,
       "max": 0.4
     },
-    "direct_actuation": true,
+    "direct_actuation": false,
     "opening_width_mm": 8,
     "opening_bottom_z": 2.8,
     "opening_top_z": 6.8,
     "finger_check_radius_mm": 6,
-    "fit_status": "Direct original switch actuator; no separate cap or plunger. Nominal CAD only; measure actuator tolerance, force and accessibility on the prototype."
+    "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
+    "printed_cap": {
+      "part": "button-cap",
+      "face_width_mm": 8,
+      "face_height_mm": 4,
+      "face_front_y": -45.6,
+      "rest_tip_y": -43.05,
+      "nominal_rest_gap_mm": 0.2,
+      "nominal_max_travel_mm": 0.6,
+      "minimum_slide_clearance_mm": 0.4,
+      "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+      "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
+    }
   },
   "direct_finger_access_checked": true,
-  "separate_button_plunger": false,
-  "button_projection_beyond_wall_mm": 0.65,
-  "pressed_button_projection_beyond_wall_mm": 0.25,
+  "separate_button_plunger": true,
+  "button_projection_beyond_wall_mm": 3.4,
+  "pressed_button_projection_beyond_wall_mm": 2.8,
   "USB_access": {
     "axis_z": 5.85,
     "socket_face_y": 42.35003,
@@ -224,7 +239,6 @@
     "plug_height_mm": 6.9,
     "plug_shoulder_y": 42.35003,
     "plug_check_length_mm": 35,
-    "driver_window_diameter_mm": 4.4,
     "scope": "Socket face/axis from original C165948 STEP. Plug gauge uses L-com nominal 12.9x6.4 mm plus general +/-0.5 mm tolerance; its shoulder is conservatively placed flush with the socket face. Gauge length is a checking volume, not a claimed cable dimension. Undimensioned mating details require actual fit verification.",
     "plug_nominal_width_mm": 12.9,
     "plug_nominal_height_mm": 6.4,
@@ -252,8 +266,8 @@
     "bearing_id_mm": 60,
     "bearing_od_mm": 75,
     "bearing_width_mm": 7,
-    "bearing_stem_diametral_mm": 0.2,
-    "bearing_outer_diametral_mm": 0.2,
+    "bearing_stem_diametral_mm": 0.0,
+    "bearing_outer_diametral_mm": 0.0,
     "encoder_slot_count": 48,
     "quadrature_edges_per_turn": 192,
     "all_components_top_side": true,

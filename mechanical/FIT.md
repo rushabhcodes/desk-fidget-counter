@@ -1,58 +1,41 @@
-# Mechanics E4 fit basis for PCB E3
+# E5 print and fit checks
 
-The fabrication package uses published component boundaries and the requested **best approximations** where detailed supplier data is unavailable. Estimated dimensions remain identified as estimates. This is a design for a first prototype, with calibrated FDM targets; it is not represented as physically tested production hardware.
+The bearing is one purchased **6712ZZ, 60×75×7 mm**, with two metal shields. [Maysme's catalogue](https://maysmeprecision.com/Show/?Cid=677) confirms that boundary. Race/shield details, ball count and grooves in the detailed model are accepted engineering approximations, not manufacturer CAD. The product viewer presents the complete bearing as one object.
 
-## Bearing interfaces
+## Calibrate the bearing fits
 
-The purchased part remains **6712ZZ, 60 mm bore ×75 mm OD ×7 mm width, two metal shields**. [Maysme's catalogue](https://maysmeprecision.com/Show/?Cid=677) confirms the envelope and shielded option. The six-piece model adds separate chamfered races, two recessed shields, balls and a cage. Its internal dimensions, 44-ball count and groove details are engineering/visual approximations in `parameters.json`, not a drawing for manufacturing a bearing.
+The E5 enclosure uses Ploopy-style **hand-push fits** instead of screw-on bearing retainers. Nominal CAD mating diameters are **60.00 mm for the stationary post and 75.00 mm for the grip pocket**. The inner race rests on the lid shoulder; the outer race seats against the grip shoulder. No thread, separate clamp or lower retainer is involved.
 
-The same-size open **NSK NB712A** provides a mounting analogue: [NSK E1153a, printed pages 4–5](https://www.nsk.com/content/dam/nsk/common/catalogs/ctrgPdf/bearings/e1153a.pdf#page=4) gives shaft shoulder da ≥62 mm, housing shoulder Da ≤73 mm, maximum fillet 0.3 mm. Those values inform the estimated Maysme interfaces; NSK is not the selected purchased part and its data does not certify Maysme internals.
+Print the nominal coupon with the same material, orientation and settings as the product. Its two rings reproduce the mating diameters over the full 7 mm bearing width. Use the actual bearing to check both fits before committing to the larger prints:
 
-E4 uses a **Ø62 mm inner-race contact**, **Ø73 mm outer-race contact**, **Ø59.80 mm stem**, and **Ø75.20 mm pocket**. The post ends 0.4 mm below the nominal upper clamp and the rotating housing wall ends 0.4 mm above its lower retainer. Tightening therefore seats each retainer on its own race before a printed hard stop. Both races are retained independently; the rotor is free to settle axially with bearing width. The CAD checks all four intended race contacts and rejects contact with a shield, cage, balls or the opposite race.
-
-The approximated flat race faces provide 0.7 mm nominal radial contact width outside their edge chamfers. These contact widths and estimated shield recess are accepted model assumptions. Do not use the ball/cage model as a load, precision or life rating.
-
-## Print calibration and numerical fit budget
-
-Use PETG at 0.2 mm layers, ≥4 requested perimeters on structural parts, with the optical wall printed as two 0.4 mm lines. The optical wall is **0.8 mm**, so the fixed sensor's 3 mm gap has 1.1 mm nominal radial clearance per side. Print the three coupon choices with the final material, orientation and slicer compensation. Target **±0.10 mm on bearing-fit diameters** and **±0.10 mm relative mating height**. The budget is a required calibration target and an engineering estimate, not a claim about an uncalibrated printer.
-
-| Coupon STL | Pocket ID | Stem OD |
+| Coupon | Pocket ID | Post OD |
 |---|---:|---:|
-| `fit-coupon-tight.stl` | 75.10 mm | 59.90 mm |
-| `fit-coupon.stl` | 75.20 mm | 59.80 mm |
-| `fit-coupon-loose.stl` | 75.40 mm | 59.60 mm |
+| `fit-coupon-tight` | 74.90 mm | 60.10 mm |
+| `fit-coupon` | 75.00 mm | 60.00 mm |
+| `fit-coupon-loose` | 75.20 mm | 59.80 mm |
 
-Each file contains two separate 3 mm-high rings. The larger ring tests bearing OD, the smaller ring tests the bore. A short coupon does not establish full-seat taper; trial-fit the complete seats too. Update `bearing_pocket_id` / `bearing_stem_od` and regenerate the complete print set when compensating a particular printer.
+Start with the nominal pair. The alternatives help identify printer compensation; they are not additional product parts. Correct printer fit compensation locally rather than uniformly scaling the enclosure, which would also move the encoder track, screw axes and port openings.
 
-[fit-budget.json](fit-budget.json) records the assumptions and calculations. Bearing diameters are allowed ±0.02 mm and width ±0.20 mm as conservative estimates, not Maysme tolerances. PCB thickness is allowed ±0.16 mm. The case/lid alignment, printed surface and SMT placement allowances are included explicitly.
+A suitable fit seats with light, even hand pressure, stays seated during normal handling and allows the bearing to spin freely. Stop if force is required; do not hammer, force a fit with screws or accept a loose assembly. Check pull-off retention and drag on the completed prototype. CAD intersection tests cannot certify friction, creep or a printer's dimensional capability.
 
-| Result under the stated budget | Remaining margin |
-|---|---:|
-| Stem / bore, minimum diametral clearance | 0.08 mm |
-| Pocket / bearing, minimum diametral clearance | 0.08 mm |
-| PCB hole / locator peg, minimum diametral clearance | 0.35 mm |
-| Bezel / grip after estimated eccentricity and print errors | 0.18 mm radial |
-| Optical fork after positional errors and circular-track sagitta | 0.075 mm radial |
-| Optical slot / beam after estimated height errors | 0.19 mm axial |
-| Front glass / relieved bezel | 0.20 mm axial |
-| Each retainer / printed hard stop | 0.10 mm axial |
-| Each bearing-retainer M2 screw, minimum thread engagement | 4.10 mm |
-| USB plug gauge / lower rotor | 1.04 mm vertical |
+## Printing
 
-The geometric check expands complete circular rotor envelopes by **0.62 mm XY / 0.30 mm Z** against fixed prints, and **0.945 mm XY / 0.46 mm Z** against PCB hardware and cable. Filling grooves and screw holes covers every rotor angle. The front opening is 8×4 mm (Z2.8–6.8 mm); four worst-case PCB positions are checked for fingertip access at maximum switch travel. The larger envelope accounts for bearing fits, PCB locator play, lid alignment and estimated package placement. The full selected package meshes and the official screen geometry remain in these checks.
+Use the orientations in `print-poses.json`. Base and screen carrier print flat; grip and bezel print front-face down. The lid requires support beneath its annular plate above the PCB capture feet. Keep support contact off the bearing mating surfaces. A 0.4 mm nozzle, 0.2 mm layers and at least four perimeters are starting settings. All six product STLs must remain single connected, watertight solids.
 
-## Compliant PCB capture
+The integral encoder wall is **0.8 mm**, with 48 slots. Its material must be tested opaque at **950 nm**; visible black colour is insufficient evidence. Clear stringing from the slots without changing the track radius or damaging its fingers. Check the complete rotation before powering the device.
 
-Use six Rogers **PORON 4701-30-20062-04** foam discs: four Ø4 mm at the PCB mounting-hole axes and two Ø2.6 mm at (±6,−37) mm. [Rogers 4701-30 data](https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf) supports the 320 kg/m³ grade, 1.57 mm thickness and ±10% thickness tolerance. Attach them under the E4 lid with 0.05 mm 467MP adhesive.
+## Other interfaces
 
-The assembled CAD shows 1.05 mm compressed foam plus 0.05 mm adhesive in the 1.10 mm space above the PCB. The budget gives approximately **6.6–54.8% compression**, including PCB, printing, foam and adhesive allowances. A 60% upper compression limit is our engineering criterion, not a Rogers operating rating. The four locator pegs are reduced to Ø2.2 mm. The pads restrain the supported board without forcing it between rigid nominally coincident planes. The E3 lid has no room for these pads: use the complete E4 set.
+- The six PCB pads use **PORON 4701-30-20062-04**, 1.57 mm nominal, with 0.05 mm 467MP adhesive. The model compresses the foam to 1.05 mm; PCB thickness variation is included in the fit budget.
+- The glass relief remains 0.4 mm. The two M2×10 screws secure the bezel and carrier through their plastic supports; do not use the glass as a screw stop. Inspect the real module's support and retention before final tightening.
+- The bezel/grip radial gap is 0.8 mm. The sensor fork is 3 mm wide around the 0.8 mm optical wall. The full moving envelopes include the stated print, bearing, PCB and assembly errors.
+- The USB plug approach gauge is 13.4×6.9 mm. Verify your actual cable's undimensioned mating details and clearance below the rotor. The front button must release cleanly at full pretravel.
+- The supplied LCD lead uses the accepted Ø1.2 mm render / Ø1.5 mm clearance envelope. Actual wire OD and bend limits are unpublished; trial-route before shortening. Keep all wires stationary inside the optical track.
 
-## Supplied display cable
+[fit-budget.json](fit-budget.json) separates positive running margins from the push-fit calibration requirement. [geometry-check.json](geometry-check.json) records nominal collisions, tolerance envelopes, actual package/screen/wire checks, four race-specific interfaces and access checks. These are design checks under the stated assumptions; physical prototype validation is still required.
 
-Use the **cable included with Waveshare 19192**, keeping its factory display PH plug and shortening/soldering the PCB end at J6. No replacement display lead or extra connector contacts are required. The model uses **Ø1.2 mm wire**, a **Ø1.5 mm clearance check**, a nominal PH plug, and an estimated static dressed path. The 3 mm dressing radius describes its XZ projection; the actual 3D centreline minimum is calculated per wire in [harness.json](harness.json), rather than claimed as a supplier bend rating.
+## Captive front button
 
-The insulated spans are approximately 37 mm; leave about 2.55 mm stripped at the PCB end and trim each wire to its dressed path. Trial-route before cutting. Wires are fixed in service. Their OD, conductor size, contact microgeometry and bend limits remain estimates because the supplier resources found publish only the cable type and 20 cm nominal length. Check continuity by signal labels rather than colour.
+The rounded 8×4 mm face presses the existing B3U-3000P. Drop it into the base guide before installing the lid. Its side ears retain it and stop nominal inward travel at 0.6 mm. The contact boss starts 0.2 mm ahead of the switch; at the stop it reaches the datasheet maximum pretravel of 0.4 mm. The switch may return the cap only to the end of its free play. Nominal slide clearance is 0.4 mm per side. Print the cap on its lower edge, optionally with a small brim, and remove burrs from the guide.
 
-## First-prototype checks
-
-Before extended use or a production order, carry out [BRINGUP.md](../validation/BRINGUP.md): physical fit and free rotation, correct retainer seating, supplied-wire dressing/continuity, pad compression, original button access, USB insertion, 950 nm optical contrast/counting, and host USB operation. These checks are not marked as performed. The accepted approximations allow the digital fabrication package to proceed without supplier replies; they do not turn estimates into measurements.
+Actual switch position, print tolerance, sliding friction and safe overtravel are not established by this CAD. Test continuity and free release with the real board before final closure. Trim the boss only as needed to remove preload; confirm it still closes before the stop. The cap must not touch the fixed switch housing. No force or service-life guarantee is inferred from the nominal sweep.

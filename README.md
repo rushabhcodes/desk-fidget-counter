@@ -1,121 +1,79 @@
-# Desk fidget counter / laptop dashboard
+# Desk fidget counter
 
-A **USB-powered** scroll ring with a fixed 1.28-inch colour display. The screen shows the laptop's **clock, CPU/RAM usage and battery**, alongside retained full turns and scroll status. A **front side button**, opposite USB-C, switches Scroll / Count-only modes; a three-second hold clears the retained count. Counting continues with scrolling disabled while the computer is awake. There is no internal battery or charging circuit.
+A USB-powered scroll ring with a fixed **1.28-inch round display**. It counts complete turns, retains the count in FRAM, and shows your computer’s clock, CPU/RAM usage and battery through a USB companion app.
 
-**Local design checks pass; JLCPCB slot-process confirmation remains open — v5.5.0 source.** The two-layer native route, exact JLCPCB footprints, placement, shorts and independent fabrication checks pass. All 38 fitted components assemble from the top. You will export/download fabrication files and place the order later; no new fabrication kit or release archive is prepared. Source updates are published to GitHub and TSCircuit. The USB connector’s imported plated slots are below JLCPCB’s published 2:1 length/width guidance; [specific process confirmation](validation/supplier-review.json) is required before fabrication.
+Short-press the front button to switch between scrolling and counting only. Hold for three seconds to clear the count. The screen and cable stay fixed while the outer grip rotates.
 
-**Do not order the old [v5.4.0 release](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v5.4.0).** It contains an undersized U3 FRAM footprint and outdated assembly angles. Its manufacturing exports and manifest have been removed from this working revision. Export a fresh, consistent set from the corrected source.
+![Desk knob assembly](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/main/mechanical/assembly.png)
 
-![Current mechanical assembly](./mechanical/assembly.png)
+## Board and enclosure
 
-![Actual firmware dashboard renderer](./previews/screen-ui.png)
+- **Two-layer, 1.6 mm PCB**, with all 38 fitted components on top. USB-C is on the rear; an 8×4 mm captive printed cap operates the front Omron switch.
+- **Six product prints and four screws**, in an approximately **Ø84.8 × 22.3 mm** body; the front cap brings overall depth to **88.0 mm**. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
+- **One complete 6712ZZ bearing object** in the CAD viewer, including its races, shields, balls and cage. Calibrate the printed bearing fits with the coupons before printing the enclosure.
+- Every trace and via comes from **TSCircuit’s native autorouter**. The source defines connectivity, placement and fabrication rules; it contains no hand-routed paths or saved-route imports.
 
-This is a prototype design verified against the recorded manufacturing rules. The assembly uses the official display STEP, package models, an estimated bearing and a cable-clearance envelope. [Fit assumptions](mechanical/FIT.md) distinguish published dimensions from accepted estimates. Physical operation and printer capability remain untested; [BRINGUP.md](validation/BRINGUP.md) describes the required first-build checks.
+**Prototype status:** the E5 enclosure retains the checked E3 PCB. **Fabrication is on hold until JLCPCB accepts the original USB shield-slot geometry**, or a replacement is qualified. Printed bearing retention and physical operation still need prototype tests. Check the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md) before fabrication. Export fresh files from the revision you intend to order. The obsolete v5.4.0 manufacturing files have an incorrect FRAM footprint and must not be used.
 
-| Function | Implementation |
-|---|---|
-| Display | Waveshare **19192**, non-touch GC9A01, 240×240, active Ø32.4 mm |
-| Laptop information | Local USB companion for macOS, Windows and Linux; clock/date, overall CPU%, RAM%, laptop battery%/AC |
-| Rotation | 48-slot optical skirt; Vishay TCUT1600X01 dual sensor, Schmitt conditioning, TIM3 quadrature; 192 edges/turn |
-| Counting | Unsigned 64-bit completed turns; either direction adds one; partial reversal cancels |
-| Scrolling | Standard USB HID wheel, 32 wheel units/turn, enabled by a short press of the Omron B3U-3000P front button |
-| Persistence | MB85RC256V FRAM with two CRC-protected journal slots and read-back verification |
-| USB controller | STM32F072CBT6, 48MHz HSI48/CRS; composite HID + CDC |
-| Power | USB-C 5V → TLV75533 3.3V; TPS22919 gates LCD/IR power during USB suspend; 100mA bus-powered configuration |
-| Connectors | USB-C at the rear shell wall, top JST-PH6 SWD, labelled display-cable solder pads; optional 2.54 mm header DNP |
-| Mechanics | **Ø84.8×22.3 mm**, Ø84.8 rotating ring, fixed Ø48 bezel, 6712ZZ 60×75×7 mm bearing |
+## What to buy outside JLCPCB
 
-The **two-layer, 1.6 mm PCB** is routed entirely by tscircuit’s native autorouter. All **38 populated PCB components assemble from the top**; the optional J6 header is DNP. The board has a clipped circular body, integral rear USB and front button tabs (68×83.2 mm total) and a 34.6×40.6 mm rounded window for the static cable and rear display connector. The screen model now comes from **Waveshare's actual STEP file**; package models, the original display PH plug and eight individual wires are included. [Model sources and exact detail limits](./mechanical/vendor/README.md). Removing the cell frees cable space; the bearing and side port still set the 22.3 mm height.
+Quantities below are for **one complete device**. A complete JLCPCB **assembly** order supplies the PCB and its 38 fitted electronic components, including the MCU, optical sensor, FRAM, USB connector, front button and J4 programming header. A bare-PCB order supplies the board only.
 
-## Fabrication readiness
-
-The source, pin mapping, exact footprints, placement, native routing, mechanical and independent fabrication checks pass. The KiCad check reports **zero violations and zero unconnected items**, with all native traces/vias preserved. See [the current validation record](validation/REPORT.md). JLCPCB must also confirm the short USB plated slots before fabrication. You will download the fabrication files and place the order later; producing an order kit is outside the current scope.
-
-The historical v5.4.0 JLCPCB upload matched 22 BOM lines and 38 top placements, including genuine JST J4 and Vishay U2. That matching check exposed the held footprint/angle defects; the corrected layout has been checked locally and has not been uploaded again. [Stock and cost evidence](reference/jlcpcb-cost-review.json) is a point-in-time record, not a stock reservation or current quote.
-
-## What to buy or supply for one prototype
-
-| Qty | Item | Exact selection / assembly requirement |
+| Qty | Buy or supply separately | Specification and purpose |
 |---|---|---|
-| 1 | Main PCB and its **38 populated components** | Two layers, 1.6 mm; follow [manufacturing guidance](manufacturing/README.md). Selected MPNs and supplier IDs are recorded in [the part catalogue](reference/jlcpcb-parts.json) and source. The historical BOM/CPL files have been removed; export fresh files from the validated source later. **J6 is DNP: do not buy or install its optional header for this build.** |
-| 1 kit | Display with its supplied cable | [Waveshare **19192**, non-touch 1.28-inch LCD Module](https://www.waveshare.com/product/1.28inch-lcd-module.htm). Kit includes one PH2.0 8-pin, 20 cm lead. Retain the display plug; trial-route, shorten and solder the board ends at J6. **No separate display cable, adapter, housing or crimp contacts.** |
-| 1 | Shielded bearing | [Maysme **6712ZZ**](https://maysmeprecision.com/Show/?Cid=677), **60×75×7 mm**, chrome steel with two metal shields. Boundary dimensions are confirmed; actual race-face fit and seller availability are unverified. The detailed race/shield/ball model is an accepted approximation; [FIT.md](mechanical/FIT.md) gives the mounting basis and coupons. |
-| 11 | Countersunk screws | **DIN 965 M2×6**, nominal Ø3.8 mm head / 1.2 mm head height: 2 chassis, 3 inner-race clamp, 3 outer-race retainer, 3 screen bezel. Check purchased head and drive dimensions. |
-| 3 | Longer countersunk screws | **DIN 965 M2×10**, same head; attach the screen cradle to the three base posts. |
-| 1 small piece | Optical-skirt transfer adhesive | [**3M 467MP**, 0.05 mm without liner](https://www.3m.com/3M/en_US/p/dc/v000185218/). Cut one annulus, nominal **Ø51.8 mm OD / Ø49.6 mm ID**, keep slots clear. Use offcuts for the six PCB pad adhesive discs. Verify bond to the actual print. |
-| As needed | Solder-well insulation | [**3M 5413** polyimide tape, 0.069 mm total](https://www.3m.co.uk/3M/en_GB/p/d/v000091659/). Cover inspected solder wells without obstructing posts or openings; use one layer. It does not make sharp/untrimmed leads acceptable. |
-| 1 small sheet | PCB capture foam | Rogers **PORON 4701-30-20062-04**, 320 kg/m³, **1.57 mm** nominal (±10% thickness); [manufacturer data](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30). Cut **four Ø4 mm and two Ø2.6 mm discs**. A 20×20 mm sample is enough. Attach to the E4 lid with 0.05 mm 467MP; drawn compressed to 1.05 mm foam + adhesive. |
-| 8 prints | Enclosure and rotor parts | `base`, `lid`, `knob`, `outer-retainer`, `bearing-clamp`, `encoder-skirt`, `inner-retainer`, `screen-bezel` from [mechanical/stl](mechanical/stl). PETG starting settings: 0.2 mm layers, ≥4 perimeters; print coupons first. |
-| Print stock | PETG filament | Enough for the eight parts, coupons and process waste; actual amount depends on slicer infill/supports. The optical skirt needs material **tested opaque at 950 nm**; black colour alone is insufficient. Six soft PCB capture pads are specified in the table. The screen has no added foam spacer; M2 pilots are tapped directly without threaded inserts. |
-| 1, reuse if suitable | Computer USB data cable | USB-C at the device. [L-com **CAU4CC-40M-1M** drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf) supplies the current plug gauge, nominal 12.9×6.4 mm plus drawing tolerance. USB 2.0 data is sufficient electrically; a different cable needs its plug checked against the enclosure. |
-| Optional | Removable feet / service-window covers | Cut three **Ø5×1 mm** discs from removable adhesive silicone sheet, centred on the three underside driver windows. Adds 1 mm height. Keep access possible for servicing; feet are not included in the 22.3 mm CAD height. |
+| 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. **The kit includes the PH2.0 8-pin cable.** Retain its display plug, shorten the board ends and solder them at J6. |
+| 1 | [Complete 6712ZZ bearing](https://maysmeprecision.com/Show/?Cid=677) | **60 mm bore × 75 mm OD × 7 mm**, double metal shields. Buy the assembled bearing; its internal balls/races are not separate purchases. |
+| 6 | [E5 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PETG; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
+| 2 | Countersunk **DIN 965 M2×6** screws | Attach the base and lid. Nominal head Ø3.8 mm; check the actual purchased head/drive against the model. |
+| 2 | Countersunk **DIN 965 M2×10** screws | One shared pair retains the screen bezel and carrier on the base posts. |
+| 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads; a 20×20 mm sample is sufficient. |
+| 1 small piece | [3M 467MP transfer adhesive](https://www.3m.com/3M/en_US/p/dc/v000185218/) | **0.05 mm** adhesive for the six foam pads. The integral optical skirt needs no separate adhesive joint. |
+| As needed | [3M 5413 polyimide tape](https://www.3m.co.uk/3M/en_GB/p/d/v000091659/) | **0.069 mm** insulation over inspected underside solder wells. Trim through-hole tails/joints to the documented ≤0.8 mm allowance first. |
+| 1, reuse if suitable | USB data cable | USB-C at the device; ordinary USB 2.0 data is sufficient. Check the plug against the enclosure’s documented 13.4×6.9 mm approach gauge. |
+| Optional: 3 | Adhesive silicone feet | Approximately Ø5×1 mm. These add 1 mm to the nominal body height. |
 
-Programming equipment is reusable and removed before closure:
+**No additional display cable, adapter or J6 header is required. J6 is DNP.** The display, bearing, printed parts and final wiring/mechanical assembly are not supplied as part of PCB assembly.
 
-| Qty | Item | Specification |
+### Programming equipment and tools
+
+These items are reusable and removed before closing the enclosure:
+
+| Qty | Item | Requirement |
 |---|---|---|
-| 1 | SWD programmer | Genuine [ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html) or an STM32-compatible SWD probe with documented SWDIO, SWCLK, NRST, GND and VTref. USB powers the board; VTref is sense only. |
-| 1 | J4 service housing | JST **PHR-6**, 2.0 mm PH series; mates with the populated B6B-PH-K-S(LF)(SN) board header. This is for programming, **not an extra display connector**. |
-| 5 plus spares | Service-harness contacts | JST **SPH-004T-P0.5S** for VREF/SWDIO/SWCLK/NRST/GND; sixth BOOT0 cavity may stay empty for SWD. Use [JST-qualified](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) 32–28 AWG wire, insulation Ø0.5–0.9 mm; about five 150 mm lengths. A correctly specified precrimped PH service lead can replace loose contacts/wire. |
-| 1 set | Probe-end termination | Match the actual probe. For genuine ST-LINK/V2, follow the 20-pin map in [WIRING.md](manufacturing/WIRING.md); pin-number maps for other probes differ. Buy a compatible service harness or the required socket termination for your probe, rather than assuming the display lead fits J4. |
+| 1 | SWD programmer | ST-LINK/V2 or a compatible STM32 SWD probe. USB powers the board; VTref is a sense connection. |
+| 1 | J4 programming lead | JST **PHR-6**, 2.0 mm PH series, with the correct probe-end termination. A precrimped lead can be used. If making it, use five **SPH-004T-P0.5S** contacts plus spares and qualified 32–28 AWG wire, insulation Ø0.5–0.9 mm. See the [physical pin map](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md). |
+| Only for SMT-only PCBA | J4 board header | If you order the **37-placement SMT-only** option, buy and hand-solder **JST B6B-PH-K-S(LF)(SN), C131342**. The complete 38-placement assembly includes it. |
 
-For hand assembly, supply a suitable soldering/reflow setup, solder/flux, fine wire stripper and flush cutters, multimeter, caliper, an **M2×0.4 tap**, and a matching precision screwdriver whose shaft passes the **Ø4.4 mm** service windows. Loose JST contacts also require a crimp tool appropriate for that exact contact; buying a correctly precrimped service lead avoids that tooling step. A PCB assembler can supply the BOM parts and soldering work. Use the documented print calibration targets and first-build checks in [FIT.md](mechanical/FIT.md). Production qualification remains a later hardware step.
+Have solder/flux and a soldering setup, wire stripper, flush cutters, multimeter, caliper, an M2×0.4 tap and a screwdriver matching your screws. Follow the [printing and fit guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/FIT.md); the supplied print orientations and support notes matter.
 
-## Start using it
+## Software and controls
 
-Flash firmware 5.0.0 through J4, then initialize a new FRAM deliberately:
+Flash the firmware through J4, then initialize a fresh FRAM with a three-second button hold or the explicit console command in the [firmware guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/firmware/README.md).
 
-```sh
-python scripts/count.py --port /dev/ttyACM0 reset --confirm
-```
-
-Boot starts in Count-only mode. Short-press the front button to enable scrolling; short-press again to return to counting alone. Hold it for three seconds to clear or initialize the count. Turn counting and scrolling work without the companion; laptop information needs it running:
+For laptop information:
 
 ```sh
 python -m pip install -r companion/requirements.txt
 python companion/dashboard.py
 ```
 
-[Companion installation for macOS/Windows/Linux](./companion/README.md). `HOST OFFLINE` replaces stale laptop metrics after five seconds. Laptop battery values come from the computer; desktop machines show `NO HOST BATTERY`. USB suspend blanks the display and powers the optical emitter down, so turns during suspend are not measured. Completed journal records survive unplugging; an update interrupted during its brief write may roll back to the previous committed record.
+The [companion guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/companion/README.md) covers macOS, Windows and Linux. Counting and scrolling work without the companion while USB is awake. USB suspend switches the display and encoder off; turns during suspend are not measured.
 
-The screen and wires stay fixed; the grip rotates around them without slip rings. The ring has no mechanical detents. Use an optical skirt proven opaque at 950 nm.
-
-## Build files
-
-- [Assembly guide](./ASSEMBLY.md), [physical wiring and JST pin views](./manufacturing/WIRING.md).
-- [3D CAD and printing](./mechanical/README.md), [assembled GLB](./mechanical/cad/assembled.glb), [exploded GLB](./mechanical/cad/exploded.glb).
-- [Manufacturing guidance](./manufacturing/README.md): checked board rules and verification instructions; export order files yourself later.
-- [Firmware, programming and USB protocol](./firmware/README.md), [component references](./reference/DATASHEETS.md).
+## Build and validation
 
 ```sh
 bun install --frozen-lockfile
 bun run typecheck && bun run test
 bun run check:netlist && bun run check:schematic
 bun run build
-bun run check:placement && bun validation/check-design.mjs && bun run check:footprints
-bun run check:shorts && bun run check:assembly
+bun run check:placement && bun validation/check-design.mjs
+bun run check:footprints && bun run check:shorts && bun run check:assembly
 ```
 
-The native autorouter generates all 118 traces and 136 vias. The build has no error records and one cosmetic trace-angle warning; the minimum routed neck is 0.11571 mm against the documented 0.10 mm fabrication limit. Explicit MCU return/bypass width requests remain 0.15 mm. The electronic audit and unpopulated display header reduce the default population from 45 to 38. The original switch is now pressed directly, without a printed plunger. See [the part-by-part audit](./reference/component-audit.json). See [routing and reproduction](./routing/README.md). Firmware remains version 5.0.0 and enables the button input’s internal pull-up.
+`assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. You will export/download the fabrication files and place the order; no new fabrication kit is prepared.
 
-The seven schematics have descriptive functional titles and chip-function/rating annotations, following the [tscircuit handbook's design-review guide](https://github.com/tscircuit/handbook/blob/main/guides/preparing-for-design-review.md). `assembly.circuit.tsx` is the full-product entrypoint; `index.circuit.tsx` is the bare PCB. CAD URLs are relative to the repository and use its included model assets, so a new release tag is not required. GitHub and TSCircuit carry the project source; fabrication files should be exported fresh from the revision you intend to order.
+- [Assembly steps](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/ASSEMBLY.md) · [Wiring and programming connections](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md)
+- [Mechanical source and CAD](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/README.md) · [Model provenance and limitations](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/vendor/README.md)
+- [Manufacturing requirements](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/README.md) · [Validation results](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md) · [First-prototype bring-up](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/BRINGUP.md)
 
-**Use the complete E4 print set and six soft pads with the E3 PCB.** The E3 lid lacks pad clearance. Firmware 5.0.0 supports Rev E, E2 and E3 with unchanged pin assignments. The former toggle board remains under [v4.1.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v4.1.0). Earlier battery-powered Rev C remains available under [v3.0.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/tag/v3.0.0). Project code is MIT; supplier/package assets retain upstream rights. USB identifiers are TinyUSB development examples; see the firmware guide before distributing a commercial product.
-
-Concepts: [Ploopy Knob](https://ploopy.co/knob/) and [rushabhcodes/fidget-counter](https://tscircuit.com/rushabhcodes/fidget-counter).
-
-The base is reduced from Ø86 to Ø84.8 mm. J1 and its USB protection/CC components move 9 mm outward onto the PCB tab: the real socket face is Y=42.350 mm, 0.15 mm beyond the stationary side wall. A 22 mm access opening and a tolerance-expanded 13.4×6.9 mm plug-body approach gauge clear the PCB, chassis and rotor. The 22.3 mm height is retained. [USB access comparison](./mechanical/usb-access-comparison.png).
-
-E3 uses the **cable included with Waveshare 19192**, shortened and soldered at J6 while retaining its original display plug. No custom harness, extra PH housings or crimp contacts are required. J6's optional male header is unpopulated; using the full 20 cm cable instead needs a separate mechanical fit check. [Wiring and trimming instructions](./manufacturing/WIRING.md). Stock cable OD and bend data are unpublished: the accepted model uses Ø1.2 mm wires, checks clearance at Ø1.5 mm, and estimates static dressing bends. Trial-fit before trimming.
-
-The direct button actuator projects 0.65 mm beyond the side wall on a supported front PCB tab. There is no separate plunger, keeper or printed cap. Body diameter and height stay 84.8×22.3 mm; the exposed actuator makes total depth approximately 85.25 mm.
-
-![Direct front switch, no separate plunger](./mechanical/button-access-comparison.png)
-
-## Mechanical fit and bearing detail
-
-The bearing now has six named model parts: inner/outer races, two recessed shields, balls and cage. Its **60×75×7 mm envelope is published**; the internals are explicitly estimated. The printed retainers contact each race separately and have 0.4 mm nominal hard-stop relief, so tightening can seat on the bearing. The calibrated fit budget retains positive running margins; the bezel gap is 0.8 mm and the optical skirt is 0.8 mm thick. All eight product prints remain within the **84.8×22.3 mm nominal** body.
-
-![Detailed bearing approximation](./mechanical/bearing-detail.png)
-
-The six PORON pads accommodate PCB thickness variation. [fit-budget.json](mechanical/fit-budget.json) records the numerical assumptions and margins; [geometry-check.json](mechanical/geometry-check.json) records the full-rotation clearance checks, all populated package models, larger wire envelope and four race-contact checks. These are engineering checks under the stated assumptions, not a claim of measured hardware performance.
+Inspired by the [Ploopy Knob](https://ploopy.co/knob/) and [original fidget counter](https://tscircuit.com/rushabhcodes/fidget-counter). Project code and original geometry are MIT; purchased-part assets retain their upstream rights.

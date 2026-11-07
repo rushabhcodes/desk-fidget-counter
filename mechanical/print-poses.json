@@ -11,25 +11,17 @@
     "inverted": true,
     "z": 22.099999999999998
   },
-  "outer-retainer": {
-    "inverted": true,
-    "z": 12.0
-  },
-  "inner-retainer": {
+  "screen-carrier": {
     "inverted": false,
     "z": 16.1
   },
   "screen-bezel": {
-    "inverted": false,
-    "z": 20.9
-  },
-  "bearing-clamp": {
-    "inverted": false,
-    "z": 19.0
-  },
-  "encoder-skirt": {
     "inverted": true,
-    "z": 20.64
+    "z": 22.299999999999997
+  },
+  "button-cap": {
+    "inverted": false,
+    "z": 2.8
   },
   "fit-coupon-tight": {
     "inverted": false,

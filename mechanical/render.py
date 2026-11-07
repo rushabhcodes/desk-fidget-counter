@@ -2,7 +2,7 @@
 """SPDX-License-Identifier: MIT. Depth-tested renders of the actual product GLB.
 Requires pyrender 0.1.45, Pillow and Mesa EGL. Geometry is not rescaled by axis.
 """
-import os,argparse
+import os,argparse,json
 os.environ.setdefault('PYOPENGL_PLATFORM','egl')
 from pathlib import Path
 import numpy as np
@@ -38,13 +38,23 @@ print('Rendered assembled product and low side profile with depth testing')
 # Verified outer dimensions with the user-authorized approximate internals.
 steel=source.copy()
 for node in list(steel.graph.nodes_geometry):
- if not node.startswith('bearing-') or node=='bearing-clamp':steel.graph.transforms.remove_node(node)
+ if node!='bearing':steel.graph.transforms.remove_node(node)
 render([.065,.065,.080],[0,.0155,0],ROOT/'bearing-envelope.png',1400,1050,model=steel,metal=True)
 preview=Image.open(ROOT/'bearing-envelope.png').convert('RGB');draw=ImageDraw.Draw(preview)
 draw.text((45,30),'6712ZZ - verified 60 x 75 x 7 mm envelope',(36,57,67),font=ImageFont.load_default(size=30))
 draw.text((45,980),'Races and shields: best approximation, not manufacturer CAD',(73,95,106),font=ImageFont.load_default(size=24))
 preview.save(ROOT/'bearing-envelope.png')
-opened=steel.copy();opened.graph.transforms.remove_node('bearing-shield-top')
+# Explanatory cutaway only: rebuild internal solids for this static illustration.
+# Product GLBs and the TSCircuit assembly retain one complete bearing object.
+from bearing import build as build_bearing
+bearing_meshes,_,_=build_bearing(json.loads((ROOT/'parameters.json').read_text()))
+opened=trimesh.Scene()
+to_gltf=np.array([[.001,0,0,0],[0,0,.001,0],[0,-.001,0,0],[0,0,0,1]],float)
+for name,mesh in bearing_meshes.items():
+ if name=='bearing-shield-top':continue
+ color='#c8ced3' if name.endswith('balls') else '#687780' if name.endswith('cage') else '#929da5' if 'shield' in name else '#b7bec5'
+ mesh.visual=trimesh.visual.TextureVisuals(material=trimesh.visual.material.PBRMaterial(name=name,baseColorFactor=trimesh.visual.color.hex_to_rgba(color),metallicFactor=.9,roughnessFactor=.3))
+ opened.add_geometry(mesh,node_name=name,geom_name=name,transform=to_gltf)
 temp=ROOT/'cad/.bearing-open.png'
 render([.065,.065,.080],[0,.0155,0],temp,1400,1050,model=opened,metal=True)
 detail=Image.new('RGB',(2800,1180),(247,249,250));detail.paste(preview,(0,100));detail.paste(Image.open(temp).convert('RGB'),(1400,100))
@@ -70,7 +80,7 @@ if options.compare_to:
 # Actual assembled meshes with the upper parts hidden to expose the fixed cable.
 cutaway=source.copy()
 for node in list(cutaway.graph.nodes_geometry):
- if node.startswith('bearing-') or node in ['lid','knob','outer-retainer','screen-bezel','encoder-skirt','screen-module','screen-ui','fasteners','pcb-capture-pads','pcb-pad-adhesive','encoder-adhesive']:
+ if node=='bearing' or node.startswith('bearing-') or node in ['lid','knob','outer-retainer','screen-bezel','encoder-skirt','screen-module','screen-ui','fasteners','pcb-capture-pads','pcb-pad-adhesive','encoder-adhesive']:
   cutaway.graph.transforms.remove_node(node)
 render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
 print('Rendered PCB, actual packages, original display plug and eight supplied wires in cutaway')
@@ -91,9 +101,12 @@ if options.usb_before:
  out.save(ROOT/'usb-access-comparison.png');temp.unlink()
 print('Rendered USB side access from the actual CAD')
 
-# Real front actuator/PCB extension compared at the same camera scale.
+# Front printed cap in its assembled guide.
 front_eye=[.006,.013,.13];front_target=[0,.005,.039]
 render(front_eye,front_target,ROOT/'button-access.png',1400,700,xmag=.018,ymag=.009)
+button_preview=Image.open(ROOT/'button-access.png').convert('RGB');draw=ImageDraw.Draw(button_preview)
+draw.text((35,25),'8 x 4 mm printed MODE button - captive in shell',(36,57,67),font=ImageFont.load_default(size=26))
+button_preview.save(ROOT/'button-access.png')
 if options.button_before:
  previous=trimesh.load(options.button_before,force='scene');temp=ROOT/'cad/.button-before.png'
  render(front_eye,front_target,temp,1400,700,model=previous,xmag=.018,ymag=.009)

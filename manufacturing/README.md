@@ -23,7 +23,7 @@ The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were r
 
 [Fabrication rules](../reference/fabrication-rules.json) record the checked [JLCPCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/). Keep 1 oz copper. This is not a controlled-impedance design; USB full-speed signal integrity is a prototype test.
 
-J1 sits at (0,+37) mm; its housing overhangs the supported rear tab so its mouth reaches the shell wall. SW1 sits at (0,−40.9) mm, exposing the original side actuator directly. No toggle or printed plunger is installed. J6's pad row is X−21.5 mm, from Y+4.39 downward in 2.54 mm steps: VCC/GND/DIN/CLK/CS/DC/RST/BL. Its labels are to the left of the row. [Wiring and service pin maps](WIRING.md).
+J1 sits at (0,+37) mm; its housing overhangs the supported rear tab so its mouth reaches the shell wall. SW1 remains at (0,−40.9) mm. A captive printed cap operates its original actuator; the lid retains the cap without extra screws. No toggle is installed. J6's pad row is X−21.5 mm, from Y+4.39 downward in 2.54 mm steps: VCC/GND/DIN/CLK/CS/DC/RST/BL. Its labels are to the left of the row. [Wiring and service pin maps](WIRING.md).
 
 ## Verification without producing a kit
 
@@ -54,4 +54,4 @@ J1's exact imported shield slots are 0.8×1.2 mm (two) and 0.8×1.5 mm (two), be
 
 Export all Gerbers, plated/nonplated drills, BOM and placement files from the same freshly built revision. Verify window/outline geometry, exact MPNs, 38 top placements and J6 DNP. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
 
-[JLCPCB guidance](jlcpcb/README.md) records part matching/cost evidence and the remaining supplier steps. The screen, bearing, eight prints and final wire/mechanical assembly are separate from PCB assembly. The first prototype still needs [bring-up](../validation/BRINGUP.md) and [fit verification](../mechanical/FIT.md).
+[JLCPCB guidance](jlcpcb/README.md) records part matching/cost evidence and the remaining supplier steps. The screen, bearing, six prints and final wire/mechanical assembly are separate from PCB assembly. The first prototype still needs [bring-up](../validation/BRINGUP.md) and [fit verification](../mechanical/FIT.md).

@@ -1,4 +1,4 @@
-# PCB E3 / Mechanics E4 physical wiring and connector views
+# PCB E3 / Mechanics E5 physical wiring and connector views
 
 All board components mount from the top. The PCB frame is +X right/+Y toward USB, with the PCB top at Z=4.2 mm above the enclosure floor. Pin numbers below refer to the **board header pads**, not an arbitrary view of the mating plug. Match the moulded pin-1 mark and the LCD's printed signal labels, then check continuity before applying power.
 

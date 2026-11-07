@@ -3615,21 +3615,13 @@
     "type": "source_component",
     "source_component_id": "source_component_42",
     "ftype": "printedpart",
-    "name": "outer-retainer",
-    "color": "#24292d",
-    "material": "petg"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_43",
-    "ftype": "printedpart",
-    "name": "inner-retainer",
+    "name": "screen-carrier",
     "color": "#95a5ad",
     "material": "petg"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_44",
+    "source_component_id": "source_component_43",
     "ftype": "printedpart",
     "name": "screen-bezel",
     "color": "#95a5ad",
@@ -3637,173 +3629,123 @@
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_45",
+    "source_component_id": "source_component_44",
     "ftype": "printedpart",
-    "name": "bearing-clamp",
-    "color": "#95a5ad",
+    "name": "button-cap",
+    "color": "#26343d",
     "material": "petg"
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_45",
+    "ftype": "subassembly",
+    "name": "bearing",
+    "display_name": "Complete 6712ZZ bearing, including both races, both shields, balls and cage; verified 60x75x7 envelope, accepted approximate internals"
   },
   {
     "type": "source_component",
     "source_component_id": "source_component_46",
-    "ftype": "printedpart",
-    "name": "encoder-skirt",
-    "color": "#24292d",
-    "material": "petg"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_47",
-    "ftype": "subassembly",
-    "name": "bearing-inner-race",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_48",
-    "ftype": "subassembly",
-    "name": "bearing-outer-race",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_49",
-    "ftype": "subassembly",
-    "name": "bearing-shield-bottom",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_50",
-    "ftype": "subassembly",
-    "name": "bearing-shield-top",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_51",
-    "ftype": "subassembly",
-    "name": "bearing-balls",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_52",
-    "ftype": "subassembly",
-    "name": "bearing-cage",
-    "display_name": "6712ZZ: verified 60x75x7 envelope; user-authorized approximate race, shield, ball and cage geometry"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_53",
     "ftype": "subassembly",
     "name": "pcb-capture-pads",
     "display_name": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_54",
+    "source_component_id": "source_component_47",
     "ftype": "subassembly",
     "name": "pcb-pad-adhesive",
     "display_name": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_55",
-    "ftype": "subassembly",
-    "name": "encoder-adhesive",
-    "display_name": "3M 467MP transfer adhesive, 0.05mm nominal, OD51.8 / ID49.6mm; 0.01mm residual CAD allowance"
-  },
-  {
-    "type": "source_component",
-    "source_component_id": "source_component_56",
+    "source_component_id": "source_component_48",
     "ftype": "subassembly",
     "name": "screen-module",
     "display_name": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_57",
+    "source_component_id": "source_component_49",
     "ftype": "subassembly",
     "name": "lcd-cable-screen-plug",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_58",
+    "source_component_id": "source_component_50",
     "ftype": "subassembly",
     "name": "lcd-wire-bl",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_59",
+    "source_component_id": "source_component_51",
     "ftype": "subassembly",
     "name": "lcd-wire-rst",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_60",
+    "source_component_id": "source_component_52",
     "ftype": "subassembly",
     "name": "lcd-wire-dc",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_61",
+    "source_component_id": "source_component_53",
     "ftype": "subassembly",
     "name": "lcd-wire-cs",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_62",
+    "source_component_id": "source_component_54",
     "ftype": "subassembly",
     "name": "lcd-wire-clk",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_63",
+    "source_component_id": "source_component_55",
     "ftype": "subassembly",
     "name": "lcd-wire-din",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_64",
+    "source_component_id": "source_component_56",
     "ftype": "subassembly",
     "name": "lcd-wire-gnd",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_65",
+    "source_component_id": "source_component_57",
     "ftype": "subassembly",
     "name": "lcd-wire-vcc",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_66",
+    "source_component_id": "source_component_58",
     "ftype": "subassembly",
     "name": "lcd-cable-contacts",
     "display_name": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_67",
+    "source_component_id": "source_component_59",
     "ftype": "subassembly",
     "name": "screen-ui",
     "display_name": "Illustrative laptop clock, CPU, RAM, laptop battery and turns from the tested firmware renderer"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_68",
+    "source_component_id": "source_component_60",
     "ftype": "subassembly",
     "name": "fasteners",
-    "display_name": "DIN965 M2 nominal outside dimensions with approximate cross recesses; fine threads omitted"
+    "display_name": "Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted"
   },
   {
     "type": "source_trace",
@@ -32053,7 +31995,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_41",
-    "model_obj_url": "./mechanical/cad/outer-retainer.obj",
+    "model_obj_url": "./mechanical/cad/screen-carrier.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32066,7 +32008,7 @@
     },
     "layer": "top",
     "source_component_id": "source_component_42",
-    "color": "#24292d",
+    "color": "#95a5ad",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -32080,7 +32022,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_42",
-    "model_obj_url": "./mechanical/cad/inner-retainer.obj",
+    "model_obj_url": "./mechanical/cad/screen-bezel.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32107,7 +32049,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_43",
-    "model_obj_url": "./mechanical/cad/screen-bezel.obj",
+    "model_obj_url": "./mechanical/cad/button-cap.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32120,7 +32062,7 @@
     },
     "layer": "top",
     "source_component_id": "source_component_44",
-    "color": "#95a5ad",
+    "color": "#26343d",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -32134,7 +32076,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_44",
-    "model_obj_url": "./mechanical/cad/bearing-clamp.obj",
+    "model_obj_url": "./mechanical/cad/bearing.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32147,7 +32089,6 @@
     },
     "layer": "top",
     "source_component_id": "source_component_45",
-    "color": "#95a5ad",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -32161,7 +32102,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_45",
-    "model_obj_url": "./mechanical/cad/encoder-skirt.obj",
+    "model_obj_url": "./mechanical/cad/pcb-capture-pads.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32174,7 +32115,6 @@
     },
     "layer": "top",
     "source_component_id": "source_component_46",
-    "color": "#24292d",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -32188,7 +32128,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_46",
-    "model_obj_url": "./mechanical/cad/bearing-inner-race.obj",
+    "model_obj_url": "./mechanical/cad/pcb-pad-adhesive.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32214,7 +32154,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_47",
-    "model_obj_url": "./mechanical/cad/bearing-outer-race.obj",
+    "model_obj_url": "./mechanical/cad/screen-module.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32240,7 +32180,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_48",
-    "model_obj_url": "./mechanical/cad/bearing-shield-bottom.obj",
+    "model_obj_url": "./mechanical/cad/lcd-cable-screen-plug.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32266,7 +32206,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_49",
-    "model_obj_url": "./mechanical/cad/bearing-shield-top.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-bl.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32292,7 +32232,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_50",
-    "model_obj_url": "./mechanical/cad/bearing-balls.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-rst.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32318,7 +32258,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_51",
-    "model_obj_url": "./mechanical/cad/bearing-cage.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-dc.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32344,7 +32284,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_52",
-    "model_obj_url": "./mechanical/cad/pcb-capture-pads.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-cs.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32370,7 +32310,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_53",
-    "model_obj_url": "./mechanical/cad/pcb-pad-adhesive.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-clk.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32396,7 +32336,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_54",
-    "model_obj_url": "./mechanical/cad/encoder-adhesive.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-din.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32422,7 +32362,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_55",
-    "model_obj_url": "./mechanical/cad/screen-module.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-gnd.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32448,7 +32388,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_56",
-    "model_obj_url": "./mechanical/cad/lcd-cable-screen-plug.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-vcc.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32474,7 +32414,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_57",
-    "model_obj_url": "./mechanical/cad/lcd-wire-bl.obj",
+    "model_obj_url": "./mechanical/cad/lcd-cable-contacts.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32500,7 +32440,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_58",
-    "model_obj_url": "./mechanical/cad/lcd-wire-rst.obj",
+    "model_obj_url": "./mechanical/cad/screen-ui.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32526,214 +32466,6 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_59",
-    "model_obj_url": "./mechanical/cad/lcd-wire-dc.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_60",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_60",
-    "model_obj_url": "./mechanical/cad/lcd-wire-cs.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_61",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_61",
-    "model_obj_url": "./mechanical/cad/lcd-wire-clk.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_62",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_62",
-    "model_obj_url": "./mechanical/cad/lcd-wire-din.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_63",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_63",
-    "model_obj_url": "./mechanical/cad/lcd-wire-gnd.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_64",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_64",
-    "model_obj_url": "./mechanical/cad/lcd-wire-vcc.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_65",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_65",
-    "model_obj_url": "./mechanical/cad/lcd-cable-contacts.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_66",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_66",
-    "model_obj_url": "./mechanical/cad/screen-ui.obj",
-    "position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "layer": "top",
-    "source_component_id": "source_component_67",
-    "model_origin_position": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "model_unit_to_mm_scale_factor": 1,
-    "model_object_fit": "contain_within_bounds",
-    "anchor_alignment": "center",
-    "show_as_translucent_model": false
-  },
-  {
-    "type": "cad_component",
-    "cad_component_id": "cad_component_67",
     "model_obj_url": "./mechanical/cad/fasteners.obj",
     "position": {
       "x": 0,
@@ -32746,7 +32478,7 @@
       "z": 0
     },
     "layer": "top",
-    "source_component_id": "source_component_68",
+    "source_component_id": "source_component_60",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -84665,6 +84397,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "bdfd342f3d3ac8de262950328abf6669"
+    "source_filesystem_md5_hash": "3afabc09068409dc4b3f9e7a7bd73b67"
   }
 ]

@@ -1,20 +1,27 @@
-# Mechanics E4 / PCB E3
+# E5 mechanics / E3 PCB
 
-The case body remains **Ø84.8×22.3 mm**, with the fixed 1.28-inch display and side USB. The original B3U-3000P switch moves to a supported front PCB tab and is pressed directly through the case aperture. There is no printed plunger, guide or keeper. Its nominal 1.7×1.0 mm actuator projects 0.65 mm beyond the wall; at maximum specified pretravel it still projects 0.25 mm. The body plus actuator has a front-to-back envelope of about 85.25 mm.
+The enclosure uses **six product prints and four screws** while retaining the Ø84.8×22.3 mm body, fixed Waveshare 19192 display, rear USB-C and a captive front button cap. The optical track is integral to the grip. The complete bearing has one CAD visibility control; both races, shields, balls and cage are included in that object.
 
-The custom PH-to-PH harness is removed. Use the display's included PH2.0-to-jumper lead, shorten it, and solder its PCB ends at J6. The original display plug stays removable. The optional 2.54 mm header is DNP and absent from the compact assembly. See [wiring](../manufacturing/WIRING.md) for actual pad coordinates, signal mapping and cutting/continuity checks.
+| Print | Orientation | Notes |
+|---|---|---|
+| `base` | Flat floor on bed | PCB locators, two screen posts and solder wells are integral. |
+| `lid` | Supplied orientation | Support the underside annular plate above the six capture feet; avoid supports on bearing fit surfaces. |
+| `knob` | Front face on bed | Integral 48-slot optical track; use material tested opaque at 950 nm. |
+| `screen-carrier` | Flat annulus on bed | Two pillars share the bezel fasteners; no separate carrier screws. |
+| `button-cap` | Lower edge on bed | Small brim if needed; no extra fasteners. Keep the bevel-backed contact boss clean. |
+| `screen-bezel` | Front face on bed | Use the supplied inverted pose; the glass relief faces upward during printing. |
 
-Eight product prints and three bearing-fit coupon variants are in `stl/`. See [fit measurements and tolerance sensitivity](FIT.md) before printing the product. `cad/assembled.glb` and `cad/exploded.glb` contain the actual source PCB, 38 populated package models, fixed screen and eight wires. OBJ assets use PCB-centred mm/+Z-up; glTF uses metres/+Y-up. Purchased parts are not rescaled. The bearing has separate races, shields, balls and cage: verified boundary size, user-authorized approximate internals. [Detailed bearing render](bearing-detail.png). Six compliant PCB pads and adhesive layers are also modelled.
+Start with a 0.4 mm nozzle, 0.2 mm layers and at least four perimeters. Print the nominal fit coupon first with the actual bearing; the tight/loose alternatives help measure printer compensation. These settings are starting points, not a guarantee of fit. See [FIT.md](FIT.md).
 
-The window is 34.6×40.6 mm with R2 corners. PCB underside/top remain Z=2.6/4.2 mm; screen carrier underside/top are Z=17.3/18.3, front Z=20.9, bezel top Z=22.3. The 60×75×7 mm bearing remains at Z=12…19. The official Waveshare STEP is rigidly transformed, unscaled. The rear socket remains flush at Y42.35003, axis Z5.85. Its continuous 13.4×6.9 mm plug approach gauge includes the source drawing's nominal dimensions and general tolerance.
+Hardware is two DIN 965 M2×6 chassis screws and two M2×10 shared screen screws, one complete 6712ZZ bearing, and six compliant PCB capture pads. There are no separate outer bearing retainer, bearing clamp, optical skirt or encoder adhesive ring. [Assembly sequence](../ASSEMBLY.md) and [off-board shopping table](../README.md#what-to-buy-outside-jlcpcb).
 
-`parameters.json`, `generate.py`, `harness.py` and `generate-assembly.py` define the geometry and checks. The button check uses a 12 mm fingertip sphere at the maximum depressed actuator position and permits contact only with the original switch actuator. A 0.25 mm PCB-nose relief clears the FR-4 while retaining the shell wall; the base supports the tab and two lid pads restrain it from above. All package, wire, screen and swept-rotor checks remain enabled.
+The PCB window is 34.6×40.6 mm, R2, for the fixed cable and two diagonal posts. PCB underside/top remain Z2.6/4.2 mm; carrier support Z17.3 mm, display front Z20.9 mm and bezel top Z22.3 mm. J4 remains at (0,+20.5) mm; disconnect its programming lead before closure. The USB keeps its rear position; the front switch has an 8×4 mm printed cap. The circular body remains Ø84.8 mm; the cap brings overall depth to 88.0 mm. No purchased part is rescaled.
 
-**Accepted cable approximation:** the original supplied lead is drawn with Ø1.2 mm wires and checked at Ø1.5 mm. Static dressing uses a 3 mm XZ bend and a smooth fan; actual 3D minimum radii and per-wire lengths are in `harness.json`. These values are estimates, not supplier limits. Approximately 37 mm insulated spans plus 2.55 mm stripped PCB ends fit the checked layout; trial-route before trimming. No email or supplier response is required for this approximation-based release.
+The supplied display lead is shortened and soldered directly at J6 while retaining its original PH plug. Its unpublished wire dimensions remain accepted approximations: Ø1.2 mm rendered and Ø1.5 mm checked. Trial-dress the actual cable before cutting. No additional display connector or cable is purchased.
 
-## Generate
+## Rebuild
 
-With the pinned Bun dependencies and Python geometry packages from [vendor provenance](vendor/README.md):
+With the pinned Bun dependencies and Python packages in [vendor provenance](vendor/README.md):
 
 ```sh
 bun run build
@@ -26,8 +33,6 @@ bun run check:assembly
 python mechanical/render.py
 ```
 
-The renderer uses pyrender 0.1.45, PyOpenGL 3.1.10, Pillow and Mesa EGL. Model URLs are relative to the repository and resolve to the included OBJ files. The local exporter uses those same checked-in bytes; a new remote release tag is not required to view or rebuild them. The complete rotation check uses tolerance-expanded circular envelopes and verifies four independent race contacts. Calibrate bearing fits to ±0.10 mm diameter and relative mating heights to ±0.10 mm; hardware bring-up remains a first-prototype step.
+`parameters.json` and the source scripts define all nominal geometry. Prints are restored from their recorded bed poses to assembled positions. `cad/assembled.glb`, `cad/exploded.glb` and the per-part OBJs use the same parts; OBJ is PCB-centred millimetres/+Z-up, glTF is metres/+Y-up. Relative model paths use included files.
 
-The comparison renders use actual immutable predecessor assemblies at identical camera scale: [v5.1.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.1.0/assembled.glb) for the old plunger and [v5.0.0](https://github.com/rushabhcodes/desk-fidget-counter/releases/download/v5.0.0/assembled.glb) for the old USB recess. `render.py --button-before … --usb-before …` accepts these downloaded GLBs.
-
-E4 keeps the nominal 84.8×22.3 mm body and the original E3 PCB. Use the full E4 print set: shortened bearing post/housing hard stops, 0.8 mm bezel gap, 0.8 mm optical wall, 0.4 mm glass relief and six soft capture pads. The part source scripts, `fit-budget.json`, `bearing-model.json` and `geometry-check.json` define and document the estimates.
+Checks retain the complete rotor sweep, actual screen/package models, larger wire envelope, USB/button access and race-specific bearing interfaces. All six product meshes must be connected, watertight solids. Push-fit retention is a physical test; geometry checks cannot certify friction or printer capability. [Detailed limits](vendor/README.md), [fit budget](fit-budget.json), [geometry checks](geometry-check.json) and [bring-up](../validation/BRINGUP.md).
