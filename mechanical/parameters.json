@@ -21,14 +21,14 @@
       -15
     ]
   ],
-  "lid_bottom_z": 9.2,
-  "lid_top_z": 10.4,
+  "lid_bottom_z": 7.2,
+  "lid_top_z": 8.4,
   "bearing": {
     "part": "6712ZZ",
     "id": 60,
     "od": 75,
     "width": 7,
-    "bottom_z": 12,
+    "bottom_z": 9.2,
     "manufacturer": "Maysme",
     "source": "https://maysmeprecision.com/Show/?Cid=677",
     "race_dimensions_status": "60x75x7 boundary dimensions verified. Internal race, shield, ball and cage dimensions are best approximations authorized by the user, not manufacturer CAD.",
@@ -50,7 +50,7 @@
   "bearing_stem_od": 60.0,
   "bearing_pocket_id": 75.0,
   "knob_diameter": 84.8,
-  "knob_top_z": 22.1,
+  "knob_top_z": 19.3,
   "usb_center": [
     0,
     37
@@ -80,10 +80,10 @@
     "part": "Waveshare 19192",
     "active_diameter": 32.4,
     "pcb_diameter": 37.5,
-    "pcb_bottom_z": 17.3,
+    "pcb_bottom_z": 14.5,
     "pcb_thickness": 1,
-    "front_z": 20.9,
-    "bezel_top_z": 22.3,
+    "front_z": 18.1,
+    "bezel_top_z": 19.5,
     "bezel_diameter": 48,
     "module_rotation_deg": 270,
     "official_step": "vendor/step/Waveshare-19192.stp",
@@ -106,14 +106,14 @@
         13.35
       ]
     ],
-    "mounting_boss_rear_z": 14.8,
+    "mounting_boss_rear_z": 12.0,
     "mounting_hole_model_diameter_mm": 1.7,
     "mounting_hole_status": "Centres and 1.7mm simplified bore measured from official 0508.stp. Thread specification is not established; no screws are threaded into the module.",
     "cable_mating": {
       "entry": "side",
       "insertion_axis": "-X toward socket, parallel to display PCB",
       "wire_exit_x_mm": 14.8,
-      "axis_z_mm": 14.5,
+      "axis_z_mm": 11.7,
       "housing_nominal_mm": [
         6.85,
         17.8,
@@ -125,7 +125,7 @@
   },
   "header_tail_below_pcb_mm": 0.8,
   "lid_screw_length_mm": 6,
-  "knob_bottom_z": 10.8,
+  "knob_bottom_z": 10.0,
   "pcb_window": {
     "xmin": -17.8,
     "xmax": 16.8,
@@ -295,9 +295,10 @@
     "modeled_wire_od_mm": 1.2,
     "dressing_bend_radius_mm": 3.0,
     "insulation_start_above_pcb_mm": 0.15,
-    "lead_y_shift_mm": 3.0
+    "lead_y_shift_mm": 3.0,
+    "display_u_bend_radius_mm": 3.3
   },
-  "mechanical_revision": "E6",
+  "mechanical_revision": "E7",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -352,7 +353,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E6",
+    "revision": "E7",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -380,7 +381,7 @@
     ],
     "foot_thickness_mm": 7.0,
     "gusset_top_z": 8.0,
-    "seat_z": 14.8,
+    "seat_z": 12.0,
     "locator_height_mm": 1.0,
     "locator_pins": [
       {
@@ -399,7 +400,7 @@
       }
     ],
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
-    "carrier_bottom_z": 15.9,
+    "carrier_bottom_z": 13.1,
     "carrier_rim_to_PCB_gap_mm": 0.2
   }
 }

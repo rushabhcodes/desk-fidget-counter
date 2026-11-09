@@ -9,15 +9,15 @@
   },
   "knob": {
     "inverted": true,
-    "z": 22.099999999999998
+    "z": 19.299999999999997
   },
   "screen-carrier": {
     "inverted": false,
-    "z": 15.9
+    "z": 13.1
   },
   "screen-bezel": {
     "inverted": true,
-    "z": 22.299999999999997
+    "z": 19.5
   },
   "button-cap": {
     "inverted": true,

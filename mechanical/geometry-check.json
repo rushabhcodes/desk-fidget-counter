@@ -2,8 +2,8 @@
   "base": {
     "watertight": true,
     "stl_roundtrip_watertight": true,
-    "zero_area_triangles_collapsed_by_float32": 2,
-    "volume_mm3": 17988.61,
+    "zero_area_triangles_collapsed_by_float32": 4,
+    "volume_mm3": 16372.14,
     "bounds_mm": [
       [
         -42.4,
@@ -13,7 +13,7 @@
       [
         42.4,
         42.4,
-        15.9
+        13.1
       ]
     ]
   },
@@ -21,7 +21,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 8586.91,
+    "volume_mm3": 8226.68,
     "bounds_mm": [
       [
         -42.05,
@@ -31,7 +31,7 @@
       [
         42.05,
         42.05,
-        13.7
+        10.9
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 19124.0,
+    "volume_mm3": 16351.68,
     "bounds_mm": [
       [
         -42.394,
@@ -49,7 +49,7 @@
       [
         42.394,
         42.394,
-        14.2
+        11.4
       ]
     ]
   },
@@ -166,7 +166,7 @@
     "member": "1.28inch LCD Module 3D Drawing/0508.stp",
     "retained_step_sha256": "f1cb9b272ee201bb2dca9d4c4683a6fa4cb65213c77244bec5ae5af03f37fa85",
     "current_download_comparison": "Byte-identical to official archive downloaded 2026-11-09",
-    "assembly_transform": "Rigid diag(-1,+1,-1), plus Z17.75mm; no scaling",
+    "assembly_transform": "Rigid diag(-1,+1,-1), plus Z14.95mm; no scaling",
     "hole_centers_assembly_mm": [
       [
         -9.3,
@@ -189,7 +189,7 @@
       18.6,
       26.7
     ],
-    "rear_boss_seat_z_mm": 14.8,
+    "rear_boss_seat_z_mm": 12.0,
     "simplified_bore_diameter_mm": 1.7,
     "module_thread": "Not established by simplified STEP; no screw is threaded into these bores",
     "retention": "Four rear bosses supported on braced walls; two short locating pins; existing bezel captures module",
@@ -198,7 +198,7 @@
       "entry": "side",
       "insertion_axis": "-X toward socket, parallel to display PCB",
       "wire_exit_x_mm": 14.8,
-      "axis_z_mm": 14.5,
+      "axis_z_mm": 11.7,
       "housing_nominal_mm": [
         6.85,
         17.8,
@@ -222,7 +222,7 @@
     ],
     "foot_thickness_mm": 7.0,
     "gusset_top_z": 8.0,
-    "seat_z": 14.8,
+    "seat_z": 12.0,
     "locator_height_mm": 1.0,
     "locator_pins": [
       {
@@ -241,7 +241,7 @@
       }
     ],
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
-    "carrier_bottom_z": 15.9,
+    "carrier_bottom_z": 13.1,
     "carrier_rim_to_PCB_gap_mm": 0.2
   },
   "purchased_package_models_checked": 38,
@@ -256,7 +256,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E6",
+    "revision": "E7",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -273,6 +273,12 @@
     "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
     "integral_encoder_skirt": true,
     "separate_bearing_retainers": false
+  },
+  "recessed_lid": {
+    "plate_top_z_mm": 8.4,
+    "outer_rim_top_z_mm": 9.2,
+    "rim_to_grip_nominal_gap_mm": 0.8,
+    "chassis_driver_diameter_checked_mm": 4.0
   },
   "button_tolerance_access_checks": 4,
   "printed_button": {
@@ -354,13 +360,13 @@
     "all_package_and_PCB_clearances_checked": true
   },
   "clearances": {
-    "overall_height_mm": 22.3,
+    "overall_height_mm": 19.5,
     "previous_height_mm": 47,
-    "height_reduction_percent": 52.6,
-    "grip_lower_edge_mm": 10.8,
+    "height_reduction_percent": 58.5,
+    "grip_lower_edge_mm": 10.0,
     "previous_grip_lower_edge_mm": 22,
     "USB_plug_max_height_mm": 6.9,
-    "USB_plug_to_rotor_vertical_mm": 1.5,
+    "USB_plug_to_rotor_vertical_mm": 0.7,
     "bezel_to_grip_radial_mm": 0.8,
     "skirt_to_sensor_radial_each_side_mm": 1.1,
     "PCB_bottom_z_mm": 2.6,

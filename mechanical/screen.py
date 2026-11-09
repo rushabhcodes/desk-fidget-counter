@@ -6,6 +6,7 @@ import hashlib, re
 
 def audit(parameters):
     path = Path(__file__).parent / parameters['display']['official_step']
+    offset = parameters['display']['pcb_bottom_z'] + .45
     raw = path.read_bytes()
     entities = {int(n): body for n, body in
                 re.findall(r'#(\d+)=(.*?);', raw.decode(), re.S)}
@@ -20,7 +21,7 @@ def audit(parameters):
         point = entities[int(re.search(r'#(\d+)', axis)[1])]
         x, y, z = (float(n) for n in
                    re.search(r'\(([^()]*)\)\)', point)[1].split(','))
-        circles.add((round(-x, 5), round(y, 5), round(17.75-z, 5)))
+        circles.add((round(-x, 5), round(y, 5), round(offset-z, 5)))
     xy = sorted(set((x, y) for x, y, z in circles))
     assert xy == sorted(tuple(p) for p in parameters['display']['mounting_hole_centers_mm'])
     assert len(xy) == 4
@@ -34,7 +35,7 @@ def audit(parameters):
         'member': '1.28inch LCD Module 3D Drawing/0508.stp',
         'retained_step_sha256': hashlib.sha256(raw).hexdigest(),
         'current_download_comparison': 'Byte-identical to official archive downloaded 2026-11-09',
-        'assembly_transform': 'Rigid diag(-1,+1,-1), plus Z17.75mm; no scaling',
+        'assembly_transform': f'Rigid diag(-1,+1,-1), plus Z{offset}mm; no scaling',
         'hole_centers_assembly_mm': xy,
         'hole_pitch_assembly_mm': [18.6, 26.7],
         'rear_boss_seat_z_mm': rear_z,

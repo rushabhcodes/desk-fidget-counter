@@ -9,11 +9,11 @@ Short-press the front button to switch between scrolling and counting only. Hold
 ## Board and enclosure
 
 - **Two-layer, 1.6 mm PCB**, with all 38 fitted components on top. USB-C is on the rear; an 8×4 mm captive printed cap operates the front Omron switch.
-- **Six product prints and four screws**, in an approximately **Ø84.8 × 22.3 mm** body; the front cap brings overall depth to **86.6 mm**. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
+- **Six product prints and four screws**, in an approximately **Ø84.8 × 19.5 mm** body; the front cap brings overall depth to **86.6 mm**. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
 - **One complete 6712ZZ bearing object** in the CAD viewer, including its races, shields, balls and cage. Calibrate the printed bearing fits with the coupons before printing the enclosure.
 - Every trace and via comes from **TSCircuit’s native autorouter**. The source defines connectivity, placement and fabrication rules; it contains no hand-routed paths or saved-route imports.
 
-**Prototype status:** the E6 enclosure retains the checked E3 PCB. **Fabrication is on hold until JLCPCB accepts the original USB shield-slot geometry**, or a replacement is qualified. Printed bearing retention and physical operation still need prototype tests. Check the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md) before fabrication. Export fresh files from the revision you intend to order. The obsolete v5.4.0 manufacturing files have an incorrect FRAM footprint and must not be used.
+**Prototype status:** the E7 enclosure retains the checked E3 PCB. **Fabrication is on hold until JLCPCB accepts the original USB shield-slot geometry**, or a replacement is qualified. Printed bearing retention and physical operation still need prototype tests. Check the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md) before fabrication. Export fresh files from the revision you intend to order. The obsolete v5.4.0 manufacturing files have an incorrect FRAM footprint and must not be used.
 
 ## What to buy outside JLCPCB
 
@@ -23,7 +23,7 @@ Quantities below are for **one complete device**. A complete JLCPCB **assembly**
 |---|---|---|
 | 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. **The kit includes the PH2.0 8-pin cable.** Retain its display plug, shorten the board ends and solder them at J6. |
 | 1 | [Complete 6712ZZ bearing](https://maysmeprecision.com/Show/?Cid=677) | **60 mm bore × 75 mm OD × 7 mm**, double metal shields. Buy the assembled bearing; its internal balls/races are not separate purchases. |
-| 6 | [E6 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
+| 6 | [E7 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
 | 2 | Countersunk **DIN 965 M2×6** screws | Attach the base and lid. Nominal head Ø3.8 mm; check the actual purchased head/drive against the model. |
 | 2 | Countersunk **DIN 965 M2×10** screws | One shared pair retains the screen bezel and carrier on the braced screw supports. |
 | 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads; a 20×20 mm sample is sufficient. |

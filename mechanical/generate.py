@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E6 internal button guide and printable solids.
+"""SPDX-License-Identifier: MIT. Mechanics E7 reduced-height PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -29,14 +29,16 @@ def radial_holes(s,r,z,h,d,offset=0):
 top=P['pcb_bottom_z']+P['pcb_thickness'];bearing=P['bearing'];bt=bearing['bottom_z'];bh=bearing['width'];grip_z=P['knob_bottom_z'];r=P['encoder']['track_radius'];half_track=P['encoder']['track_thickness']/2
 mount=P['bearing_mount'];capture=P['pcb_capture'];capture_z=top+capture['compressed_pad_height']
 lid_screws=P['chassis_screw_axes']
-outer=P['base_diameter']/2
+outer=P['base_diameter']/2;lid_bottom=P['lid_bottom_z'];lid_top=P['lid_top_z']
+bearing_top=bt+bh;skirt_bottom=P['encoder']['skirt_bottom_z'];skirt_height=bearing_top+1.8-skirt_bottom
+screen_offset=P['display']['pcb_bottom_z']+.45;screen_front=P['display']['front_z'];overall_height=P['display']['bezel_top_z']
 usb_access=P['usb_access']
-base=cyl(outer,2)+ring(outer-.2,outer-2.2,7.2,2)
+base=cyl(outer,2)+ring(outer-.2,outer-2.2,lid_bottom-2,2)
 for x,y in P['mount_holes']:
  # Unplated locator pegs and lid pads capture the board; no tall PCB standoffs.
  base+=cyl(2.3,.6,2,x,y)+cyl(capture['peg_diameter']/2,2.2,2,x,y)
 for x,y in lid_screws:
- base+=cyl(2.2,7.2,2,x,y);base-=cyl(.8,7.3,2,x,y)
+ base+=cyl(2.2,lid_bottom-2,2,x,y);base-=cyl(.8,lid_bottom-1.9,2,x,y)
 # Individual solder wells retain 1.2mm floor beneath trimmed through-hole tails.
 cj=json.loads((ROOT.parent/'dist/index/circuit.json').read_text())
 assert all(c['layer']=='top' for c in cj if c['type']=='pcb_component'),'Every component must assemble from above'
@@ -67,31 +69,45 @@ button_surround,button_roof,button_cap=build_button(P)
 base+=button_surround-front_pocket
 assert (button_surround-cyl(outer-.2,20)).volume()<1e-4,'Button guides must remain inside the circular wall'
 
-lid=ring(outer-.35,27.3,1.2,9.2)
+lid=ring(outer-.35,27.3,lid_top-lid_bottom,lid_bottom)
 # The large hollow bearing post surrounds, rather than stacks over, the screen.
-lid+=ring(mount['inner_contact_od']/2,27.3,bt-10.39,10.39)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
+lid+=ring(mount['inner_contact_od']/2,27.3,bt-lid_top+.01,lid_top-.01)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
 for x,y in P['mount_holes']:lid+=cyl(2.0,P['lid_bottom_z']-capture_z,capture_z,x,y)
 for x,y in capture['front_pad_centers']:lid+=cyl(1.3,P['lid_bottom_z']-capture_z,capture_z,x,y)
 for x,y in lid_screws:
- lid-=cyl(1.1,2,9,x,y);lid-=csk_hole(x,y,10.4)
+ lid-=cyl(1.1,2,lid_bottom-.2,x,y);lid-=csk_hole(x,y,lid_top)
 # Entry chamfer on the nominal 60mm push-fit post; no separate bearing clamp.
-lid-=ring(30.2,29.7,.6,18.4)-m.Manifold.cylinder(.6,30,29.7,128).translate((0,0,18.4))
+lid-=ring(30.2,29.7,.6,bearing_top-.6)-m.Manifold.cylinder(.6,30,29.7,128).translate((0,0,bearing_top-.6))
 # The flush port keeps the plug body outside the lid; retain its full roof.
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
+# Keep the existing fork clearance as the main lid plate moves down.
+lid-=box((14,4,1),(0,-38.3,7.1))
+# Recess only the real USB package envelope, with 0.2mm assembly allowance.
+cad_usb=next(c for c in cj if c['type']=='cad_component' and 'C165948.obj' in c.get('model_obj_url',''))
+usb_mesh=trimesh.load(ROOT/'vendor/solid/C165948.ply',force='mesh')
+origin=cad_usb.get('model_origin_position') or {};usb_mesh.apply_translation([-origin.get(k,0) for k in ['x','y','z']])
+rotation=cad_usb.get('rotation',{});usb_mesh.apply_transform(trimesh.transformations.euler_matrix(*[math.radians(rotation.get(k,0)) for k in ['x','y','z']]))
+pos=cad_usb['position'];usb_mesh.apply_translation([pos['x'],pos['y'],pos['z']+P['pcb_bottom_z']+P['pcb_thickness']/2])
+lid-=box(usb_mesh.extents+.4,usb_mesh.bounds.mean(axis=0))
 lid+=button_roof
+# A raised outer rim stiffens the recessed lid without raising the bearing.
+# Driver wells keep both countersunk chassis screws accessible from above.
+rim_top=grip_z-.8
+lid+=ring(outer-.35,40.0,rim_top-lid_top,lid_top)
+for x,y in lid_screws:lid-=cyl(2.2,rim_top-lid_top+.2,lid_top,x,y)
 assert (button_roof-cyl(outer-.35,20)).volume()<1e-4,'Button roof must remain inside the circular wall'
 assert (base^lid).volume()<1e-4,'Base guides must clear the lid and capture pads'
 
 
 # The outer race seats against the grip shoulder; the optical skirt joins
 # the upper web without crossing the stationary inner-race support.
-cap=ring(42.4,P['bearing_pocket_id']/2,19-grip_z,grip_z)
-cap+=ring(42.4,mount['outer_contact_id']/2,1.7,19)
-cap+=ring(42.4,24.8,1.4,20.7)
+cap=ring(42.4,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)
+cap+=ring(42.4,mount['outer_contact_id']/2,1.7,bearing_top)
+cap+=ring(42.4,24.8,1.4,bearing_top+1.7)
 for i in range(96):
- x,y=polar(42.45,i*TAU/96);cap-=cyl(.4,12,10.5,x,y)
+ x,y=polar(42.45,i*TAU/96);cap-=cyl(.4,P['knob_top_z']-grip_z+.6,grip_z-.3,x,y)
 # The optical track is printed with the grip, removing its adhesive joint.
-encoder_skirt=ring(r+half_track,r-half_track,12.9,7.9)+ring(P['encoder']['bond_outer_radius'],r-half_track,1.4,19.44)
+encoder_skirt=ring(r+half_track,r-half_track,skirt_height,skirt_bottom)+ring(P['encoder']['bond_outer_radius'],r-half_track,1.4,bearing_top+.44)
 for i in range(48):encoder_skirt-=box((3,1.64,1.8),(r,0,8.6)).rotate((0,0,i*360/48))
 cap+=encoder_skirt
 # Lead-in on the open underside of the 75mm bearing pocket.
@@ -112,7 +128,7 @@ for x,y in screen_posts:
  near_x=-9.3 if x<0 else 9.3;near_y=13.35 if y>0 else -13.35
  web=m.CrossSection.circle(2,192).translate((x,y))+m.CrossSection.circle(2,192).translate((near_x,near_y))
  base+=web.hull().extrude(wall_height).translate((0,0,2))
- base+=cyl(2.0,support['carrier_bottom_z']-2,2,x,y);base-=cyl(.8,5.2,11,x,y)
+ base+=cyl(2.0,support['carrier_bottom_z']-2,2,x,y);base-=cyl(.8,5.2,support['carrier_bottom_z']-5.1,x,y)
 for pin in support['locator_pins']:
  base+=cyl(pin['diameter_mm']/2,support['locator_height_mm']+.1,support['seat_z']-.1,*pin['center_mm'])
 carrier_z=support['carrier_bottom_z'];carrier_top=carrier_z+1.2
@@ -126,16 +142,16 @@ for x,y in screen_posts:
 cradle-=box((5,16,1.4),(-20,0,carrier_z+.6))
 bezel_screws=P['bezel_screw_axes']
 for x,y in bezel_screws:
- cradle+=cyl(2.2,20.9-carrier_top,carrier_top,x,y);cradle-=cyl(1.1,5,carrier_z-.1,x,y)
+ cradle+=cyl(2.2,screen_front-carrier_top,carrier_top,x,y);cradle-=cyl(1.1,5,carrier_z-.1,x,y)
 # Keep both shared support pads inside the 48mm carrier envelope.
 cradle=cradle^cyl(24,5.2,carrier_z-.1)
-bezel=ring(24,16.6,1.4,20.9)
+bezel=ring(24,16.6,1.4,screen_front)
 # The retaining lip clears the active glass even with estimated stack errors.
 relief=P['display']['glass_relief_mm']+.01
-bezel-=cyl(19,relief,20.89)+box((5,15,relief),(-18.75,0,20.89+relief/2))
+bezel-=cyl(19,relief,screen_front-.01)+box((5,15,relief),(-18.75,0,screen_front-.01+relief/2))
 for x,y in bezel_screws:
- bezel-=cyl(1.1,1.6,20.8,x,y)
- bezel-=csk_hole(x,y,22.3)
+ bezel-=cyl(1.1,1.6,screen_front-.1,x,y)
+ bezel-=csk_hole(x,y,overall_height)
 # Remove sub-micron Boolean seams before float32 STL export/vertex welding.
 # This changes no surface by more than 0.0001mm; it is not a mesh repair.
 base=base.as_original().simplify(.0001)
@@ -173,7 +189,7 @@ for name,s in parts.items():
  print(name,'watertight',round(mesh.volume,1),flush=True)
 (ROOT/'print-poses.json').write_text(json.dumps(poses,indent=2)+'\n')
 # Use a full solid ring in place of slots to cover every possible rotor angle.
-swept_skirt=ring(r+half_track,r-half_track,12.9,7.9)
+swept_skirt=ring(r+half_track,r-half_track,skirt_height,skirt_bottom)
 moving=[('grip with integral optical track',cap),('swept skirt',swept_skirt)]
 for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
  for mn,mov in moving:assert (mov^fixed).volume()<1e-4,(name,mn,'collision',(mov^fixed).volume())
@@ -183,7 +199,7 @@ def from_mesh(mesh):
  assert str(q.status()).endswith('NoError'),str(q.status())
  return q
 screen_mesh=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
-screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,17.75])
+screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,screen_offset])
 lcd=from_mesh(screen_mesh)
 from screen import audit as audit_screen
 screen_report=audit_screen(P)
@@ -193,7 +209,7 @@ harness_meshes,harness_report=build_harness()
 clearance_harness,_=build_harness(wire_od=P['stock_display_cable']['wire_od_check_mm'])
 # The supplier socket is a simplified solid, with no mating cavity. Permit
 # plug engagement only inside that socket envelope, never through the PCB/glass.
-socket_envelope=box((6,20,5.6),(8.2,0,14.5))
+socket_envelope=box((6,20,5.6),(8.2,0,P['display']['cable_mating']['axis_z_mm']))
 plug=from_mesh(harness_meshes['lcd-cable-screen-plug'])
 assert (plug^(lcd-socket_envelope)).volume()<1e-4,'Display plug must engage only the real rear socket envelope'
 for label,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
@@ -318,8 +334,8 @@ fit_report=evaluate_fit(P)
 # gives the same stated radial/axial budget without tessellation-heavy sums.
 def tolerance_probes(radius,dz):
  def expanded(ro,ri,height,z):return ring(ro+radius,ri-radius,height+2*dz,z-dz)
- swept_cap=expanded(42.4,P['bearing_pocket_id']/2,19-grip_z,grip_z)+expanded(42.4,mount['outer_contact_id']/2,1.7,19)+expanded(42.4,24.8,1.4,20.7)
- return [('grip',swept_cap),('swept skirt',expanded(r+half_track,r-half_track,12.9,7.9)),('skirt flange',expanded(P['encoder']['bond_outer_radius'],r-half_track,1.4,19.44))]
+ swept_cap=expanded(42.4,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)+expanded(42.4,mount['outer_contact_id']/2,1.7,bearing_top)+expanded(42.4,24.8,1.4,bearing_top+1.7)
+ return [('grip',swept_cap),('swept skirt',expanded(r+half_track,r-half_track,skirt_height,skirt_bottom)),('skirt flange',expanded(P['encoder']['bond_outer_radius'],r-half_track,1.4,bearing_top+.44))]
 print_probes=tolerance_probes(P['fit_budget']['moving_xy_print_check'],P['fit_budget']['moving_z_print_check'])
 pcb_probes=tolerance_probes(P['fit_budget']['moving_xy_pcb_check'],P['fit_budget']['moving_z_hardware_check'])
 for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
@@ -343,6 +359,9 @@ for label,contact,race in contacts:
 report['tolerance_envelopes_checked']={'print_xy_mm':P['fit_budget']['moving_xy_print_check'],'hardware_xy_mm':P['fit_budget']['moving_xy_pcb_check'],'print_z_mm':P['fit_budget']['moving_z_print_check'],'hardware_z_mm':P['fit_budget']['moving_z_hardware_check'],'wire_od_mm':P['stock_display_cable']['wire_od_check_mm'],'full_rotor_sweep':True}
 report['bearing_contacts_checked']=4
 report['assembly_simplification']=P['assembly_simplification']
+for x,y in lid_screws:
+ assert (lid^cyl(2.0,12,lid_top+.01,x,y)).volume()<1e-4,'A 4mm driver gauge must reach each chassis screw'
+report['recessed_lid']={'plate_top_z_mm':lid_top,'outer_rim_top_z_mm':rim_top,'rim_to_grip_nominal_gap_mm':round(grip_z-rim_top,3),'chassis_driver_diameter_checked_mm':4.0}
 # Check a fingertip at full pretravel with PCB play/height and case-profile error.
 # PCB and original switch housing move together; only its actuator may touch.
 xy=fit_report['results']['PCB_maximum_in_plane_play_mm']
@@ -389,6 +408,6 @@ report['USB_access']={**usb_access,'outer_case_diameter_mm':P['base_diameter'],
  'plug_body_to_PCB_axial_gap_mm':round(plug_start-max(q['y'] for q in board['outline']),4),
  'maximum_plug_approach_sweep_checked':True,'all_package_and_PCB_clearances_checked':True}
 
-report['clearances']={'overall_height_mm':22.3,'previous_height_mm':47,'height_reduction_percent':round((47-22.3)/47*100,1),'grip_lower_edge_mm':10.8,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':usb_access['plug_height_mm'],'USB_plug_to_rotor_vertical_mm':round(grip_z-(usb_access['axis_z']+usb_access['plug_height_mm']/2),3),'bezel_to_grip_radial_mm':.8,'skirt_to_sensor_radial_each_side_mm':(3-P['encoder']['track_thickness'])/2,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':round(bearing['id']-P['bearing_stem_od'],3),'bearing_outer_diametral_mm':round(P['bearing_pocket_id']-bearing['od'],3),'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
+report['clearances']={'overall_height_mm':overall_height,'previous_height_mm':47,'height_reduction_percent':round((47-overall_height)/47*100,1),'grip_lower_edge_mm':grip_z,'previous_grip_lower_edge_mm':22,'USB_plug_max_height_mm':usb_access['plug_height_mm'],'USB_plug_to_rotor_vertical_mm':round(grip_z-(usb_access['axis_z']+usb_access['plug_height_mm']/2),3),'bezel_to_grip_radial_mm':.8,'skirt_to_sensor_radial_each_side_mm':(3-P['encoder']['track_thickness'])/2,'PCB_bottom_z_mm':2.6,'LCD_connector_in_PCB_window':True,'bearing_id_mm':60,'bearing_od_mm':75,'bearing_width_mm':7,'bearing_stem_diametral_mm':round(bearing['id']-P['bearing_stem_od'],3),'bearing_outer_diametral_mm':round(P['bearing_pocket_id']-bearing['od'],3),'encoder_slot_count':48,'quadrature_edges_per_turn':192,'all_components_top_side':True,'solder_well_floor_remaining_mm':1.2}
 report['scope']='Manufacturer screen/package models with user-authorized estimated bearing/cable details. Nominal contacts and full-rotation tolerance envelopes checked under fit-budget.json assumptions. Hardware operation and actual print capability are not measured.'
 (ROOT/'geometry-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report['clearances'],indent=2))

@@ -1,0 +1,26 @@
+{
+  "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
+  "glb_frame": "glTF metres, +Y up; 84.8mm body, 19.5mm height; front printed cap gives 86.6mm overall depth",
+  "assembled_size_gltf_xyz_mm": [
+    84.8,
+    19.5,
+    86.6
+  ],
+  "part_count": 22,
+  "fastener_count": 4,
+  "product_print_count": 6,
+  "source_parameters_sha256": "91c3b5442bc28e377c64255faab2092aa089462ba0530601daa73a35e2a3b0e6",
+  "source_board_tsx_sha256": "583257dfdc6c7c3d6e731ee188972b35917bc983a72bdd68172fa1b103902b11",
+  "printed_meshes_restored_from_print_orientation": 6,
+  "cad_files": {
+    "assembled.glb": {
+      "bytes": 5140240,
+      "sha256": "300d5d6d449ca24991debf307fc28439df35b94f48715eb6ad17164415b5c90a"
+    },
+    "exploded.glb": {
+      "bytes": 5140292,
+      "sha256": "22142d0db383ae7856ed15b5f2a1eb9a838ca14c1ae8f4365ad0b9486b89f1ab"
+    }
+  },
+  "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"
+}

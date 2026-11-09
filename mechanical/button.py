@@ -47,5 +47,5 @@ def build(p):
     # No fixed part of the button mechanism may bulge outside the case wall.
     surround ^= m.Manifold.cylinder(10, p['base_diameter']/2-.2,
                                     p['base_diameter']/2-.2, 192)
-    roof = box((13, 2.8, 1.8), (0, -38.2, 8.5))
+    roof = box((13, 2.8, 1.2), (0, -38.2, 8.2))
     return surround, roof, button

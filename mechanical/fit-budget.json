@@ -31,7 +31,7 @@
     "foam_minimum_compression_mm": 0.093,
     "foam_maximum_compression_percent": 54.835,
     "foam_nominal_compression_percent": 33.121,
-    "USB_plug_to_rotor_min_vertical_clearance_mm": 1.04
+    "USB_plug_to_rotor_min_vertical_clearance_mm": 0.24
   },
   "all_running_margins_positive": true,
   "push_fit": {
