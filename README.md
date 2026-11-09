@@ -13,7 +13,7 @@ Short-press the front button to switch between scrolling and counting only. Hold
 - **One complete 6712ZZ bearing object** in the CAD viewer, including its races, shields, balls and cage. Calibrate the printed bearing fits with the coupons before printing the enclosure.
 - Every trace and via comes from **TSCircuit’s native autorouter**. The source defines connectivity, placement and fabrication rules; it contains no hand-routed paths or saved-route imports.
 
-**Prototype fabrication source:** PCB E5 / enclosure E10 uses a standard XUNPU USB-C connector with compliant mounting slots. Fresh native routing, shorts, exact footprints, independent fabrication checks and CAD clearance checks pass locally. All 23 fitted BOM lines show current catalogue stock. Complete JLCPCB’s final part/rotation and DFM preview when you export/order; current authenticated preview is unverified. Printed fit and electrical operation need first-prototype tests. See the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md). Do not use the obsolete v5.4.0 manufacturing files.
+**Prototype fabrication source:** PCB E6 / enclosure E11 uses a standard XUNPU USB-C connector with compliant mounting slots. Fresh native routing, shorts, exact footprints, independent fabrication checks and CAD clearance checks pass locally. All 23 fitted BOM lines show current catalogue stock. Complete JLCPCB’s final part/rotation and DFM preview when you export/order; current authenticated preview is unverified. Printed fit and electrical operation need first-prototype tests. See the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md). Do not use the obsolete v5.4.0 manufacturing files.
 
 [Visual CAD audit](mechanical/AUDIT.md): fourteen inspection views, corrected carrier screw bores and reserved space for screen rear electronics; enclosure height remains 19.5 mm.
 
@@ -23,19 +23,19 @@ Quantities below are for **one complete device**. A complete JLCPCB **assembly**
 
 | Qty | Buy or supply separately | Specification and purpose |
 |---|---|---|
-| 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. **The kit includes the PH2.0 8-pin cable.** Retain both factory connector ends; shorten the middle and insulate eight solder joints. The female ends unplug from fitted J6. |
+| 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. The supplied PH-to-jumper lead is unused. Connect using replacement H1 below. |
 | 1 | [Complete 6712ZZ bearing](https://maysmeprecision.com/Show/?Cid=677) | **60 mm bore × 75 mm OD × 7 mm**, double metal shields. Buy the assembled bearing; its internal balls/races are not separate purchases. |
-| 6 | [E10 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
+| 6 | [E11 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
 | 2 | Countersunk **DIN 965 M2×6** screws | Attach the base and lid. Nominal head Ø3.8 mm; check the actual purchased head/drive against the model. |
 | 2 | Countersunk **DIN 965 M2×10** screws | One shared pair retains the screen bezel and carrier on the braced screw supports. |
 | 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads; a 20×20 mm sample is sufficient. |
 | 1 small piece | [3M 467MP transfer adhesive](https://www.3m.com/3M/en_US/p/dc/v000185218/) | **0.05 mm** adhesive for the six foam pads. The integral optical skirt needs no separate adhesive joint. |
 | As needed | [3M 5413 polyimide tape](https://www.3m.co.uk/3M/en_GB/p/d/v000091659/) | **0.069 mm** insulation over inspected underside solder wells. Trim through-hole tails/joints to the documented ≤0.8 mm allowance first. |
-| 8 small sleeves | Heat-shrink tubing | Individually insulate eight cable splices; select for the actual wire, within the modelled Ø2×6 mm finished envelope. |
+| 1 assembled lead | **H1 keyed display harness** | Order a crimped **JST SHR-08V-S-B to PHR-8**, eight wires, straight circuit mapping 1→1 through 8→8, **44±1 mm free insulation between rear housing exits**. [Parts and drawing](manufacturing/WIRING.md). This custom lead is separate from both the display kit and JLCPCB assembly. |
 | 1, reuse if suitable | USB data cable | USB-C at the device; ordinary USB 2.0 data is sufficient. Check the plug against the enclosure’s documented 13.4×6.9 mm approach gauge. |
 | Optional: 3 | Adhesive silicone feet | Approximately Ø5×1 mm. These add 1 mm to the nominal body height. |
 
-**No replacement display cable, mating adapter or crimp kit is needed. J6 is fitted in the complete PCBA order.** The display, bearing, printed parts and final wiring/mechanical assembly are not supplied as part of PCB assembly.
+**H1 is a replacement crimped cable, purchased separately. J6’s keyed JST-SH socket is fitted by JLCPCB, including in the SMT-only option.** The display, bearing, printed parts and final wiring/mechanical assembly are not supplied as part of PCB assembly.
 
 ### Programming equipment and tools
 
@@ -45,7 +45,7 @@ These items are reusable and removed before closing the enclosure:
 |---|---|---|
 | 1 | SWD programmer | ST-LINK/V2 or a compatible STM32 SWD probe. USB powers the board; VTref is a sense connection. |
 | 1 | J4 programming lead | JST **PHR-6**, 2.0 mm PH series, with the correct probe-end termination. A precrimped lead can be used. If making it, use five **SPH-004T-P0.5S** contacts plus spares and qualified 32–28 AWG wire, insulation Ø0.5–0.9 mm. See the [physical pin map](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md). |
-| 1 each, only for SMT-only PCBA | J4 and J6 board headers | If you order the **37-placement SMT-only** option, buy and solder **JST B6B-PH-K-S(LF)(SN), C131342** and **Würth 61300821021, C5517754**. The complete 39-placement assembly includes both. |
+| 1, only for SMT-only PCBA | J4 board header | The **38-placement SMT-only** option includes J6 and leaves only **JST B6B-PH-K-S(LF)(SN), C131342** for local through-hole soldering. Complete assembly has 39 placements. |
 
 Have solder/flux and a soldering setup, wire stripper, flush cutters, multimeter, caliper, an M2×0.4 tap and a screwdriver matching your screws. Follow the [printing and fit guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/FIT.md); the supplied print orientations and support notes matter.
 
@@ -72,6 +72,8 @@ bun run build
 bun run check:placement && bun validation/check-design.mjs
 bun run check:footprints && bun run check:shorts && bun run check:assembly
 ```
+
+The lockfile pins a compatible released `@tscircuit/circuit-json-util` for the CLI’s KiCad exporter; no router or library source is patched.
 
 `assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. You will export/download the fabrication files and place the order; no new fabrication kit is prepared.
 

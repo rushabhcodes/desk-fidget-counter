@@ -31,7 +31,7 @@ def solid(mesh):
     mesh.merge_vertices()
     return md.Manifold(md.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
 
-closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug','lcd-cable-board-plugs','lcd-cable-splice-sleeves'] or n.startswith('lcd-wire-')}
+closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug','lcd-cable-board-sh-plug'] or n.startswith('lcd-wire-')}
 assert all(str(s.status()).endswith('NoError') for s in closed.values())
 box=lambda size,center:md.Manifold.cube(size,True).translate(center)
 # Explicit geometric masks allow only the designed self-tapped pilot engagement
@@ -132,7 +132,7 @@ sheet.save(OUT/'exterior-contact-sheet.png')
 internals=[('PCB, support walls and button', [n for n in all_names if n.startswith('pcb-') or n in ['base','button-cap']],[-.08,.11,.09],[0,.007,0]),
            ('Stationary bearing / fixed cable cavity', [n for n in all_names if n not in ['knob','screen-module','screen-ui','screen-bezel','screen-carrier']],[-.08,.11,.09],[0,.009,0]),
            ('Fixed cable, carrier and posts',[n for n in all_names if n not in ['knob','lid','bearing','screen-bezel','screen-module','screen-ui','fasteners']],[-.08,.11,.09],[0,.009,0]),
-           ('Screen underside / original side-entry plug',[n for n in all_names if n=='screen-module' or n.startswith('lcd-')],[.055,-.07,.07],[0,.012,0]),
+           ('Screen underside / side-entry PH8 plug',[n for n in all_names if n=='screen-module' or n.startswith('lcd-')],[.055,-.07,.07],[0,.012,0]),
            ('Rotor underside / integral 48-slot track',['knob'],[.07,-.08,.07],[0,.012,0]),
            ('Encoder fork / rotating track close-up',['knob','pcb-U2'],[-.055,-.030,.055],[-.023,.0087,-.010])]
 inside=Image.new('RGB',(2100,2550),'#f6f9fb')
@@ -141,13 +141,13 @@ for i,(name,names,eye,target) in enumerate(internals):
     x=(i%2)*1050;y=(i//2)*850;inside.paste(im,(x,y+50));ImageDraw.Draw(inside).text((x+20,y+12),name,font=font,fill='#263c48')
     print('Rendered',name,flush=True)
 inside.save(OUT/'internal-contact-sheet.png')
-# Two close views expose the installed header, individual factory jumper ends,
-# eight insulated middle joints and original side-entry display plug.
+# Two close views expose the installed JST-SH8 socket and replacement H1,
+# with a single keyed plug at either end and eight crimped wires.
 lead_names=[n for n in all_names if n.startswith('lcd-') or n in ['pcb-J6','screen-module']]
 lead_sheet=Image.new('RGB',(2100,850),'#f6f9fb')
 for i,(label,eye,target) in enumerate([
-    ('Screen hidden / removable J6 and insulated joints',[-.055,.065,.055],[-.004,.008,0]),
-    ('Underside / both factory connector ends retained',[.045,-.060,.065],[.001,.009,0])]):
+    ('Screen hidden / keyed J6 and crimped H1 harness',[-.055,.065,.055],[-.004,.008,0]),
+    ('Underside / JST-SH8 to JST-PH8 replacement cable',[.045,-.060,.065],[.001,.009,0])]):
     im=draw([n for n in lead_names if i or n!='screen-module'],eye,target,xmag=.030)
     lead_sheet.paste(im,(1050*i,50));ImageDraw.Draw(lead_sheet).text((1050*i+20,12),label,font=font,fill='#263c48')
 lead_sheet.save(OUT/'display-harness.png')

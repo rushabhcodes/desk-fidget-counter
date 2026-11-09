@@ -47,18 +47,20 @@
   "resolution": "Replaced C165948 entirely; no supplier slot, pad or locating-hole geometry was edited. New exact footprint matches the XUNPU drawing and passes native/independent checks. Normal final supplier DFM and placement review still apply.",
   "bespoke_short_slot_process_acceptance_required": false,
   "supplier_process_approval_obtained": false,
-  "source_circuit_sha256": "5a5df97bdccb9008e2bb7ca6672deab3fa38302a0a9235bd07513d63bbda84f7",
+  "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
   "supplier_import_sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2",
   "display_header": {
-    "MPN": "61300821021",
-    "catalogue_id": "C5517754",
+    "MPN": "SM08B-SRSS-TB(LF)(SN)",
+    "catalogue_id": "C160407",
     "exact_supplier_footprint_unchanged": true,
     "fitted": true,
-    "assembly_type": "Wave soldering in public JLCPCB catalogue; final current upload unverified",
-    "finished_drill_mm": 1.1000232,
-    "pin_grid_mm": 2.54,
-    "nominal_pad_to_window_clearance_mm": 0.4300017,
-    "source_import": "imports/jlc/A_61300821021/A_61300821021.tsx",
-    "supplier_import_sha256": "8d81b13e833a53b4b7bcbaa4604a42fdbef9bbc67be07775425fad864c085d5e"
+    "assembly_type": "Top SMT/reflow; current authenticated upload unverified",
+    "electrical_contacts": 8,
+    "grounded_SMT_anchors": 2,
+    "plated_drills": 0,
+    "pitch_mm": 1,
+    "nominal_anchor_pad_to_window_clearance_mm": 0.675,
+    "source_import": "imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_.tsx",
+    "supplier_import_sha256": "028c3c7c511a418c3827bfe623accf976986281d6b96b483446cfe0add4a5234"
   }
 }

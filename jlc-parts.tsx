@@ -24,6 +24,7 @@ import { SN74LVC2G17DBVR } from "./imports/jlc/SN74LVC2G17DBVR"
 import { TCUT1600X01 } from "./imports/jlc/TCUT1600X01"
 import { A_2_54_1_8 } from "./imports/jlc/A_2_54_1_8"
 import { A_61300821021 } from "./imports/jlc/A_61300821021/A_61300821021"
+import { SM08B_SRSS_TB_LF__SN_ } from "./imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_"
 export const jlcParts: Record<string, (props: any) => any> = {
   "MB85RC256VPNF-G-AMERE2": MB85RC256VPNF_G_AMERE2,
   "GRM188R61A105KA61D": GRM188R61A105KA61D,
@@ -49,6 +50,7 @@ export const jlcParts: Record<string, (props: any) => any> = {
   "TCUT1600X01": TCUT1600X01,
   "2.54-1*8": A_2_54_1_8,
   "61300821021": A_61300821021,
+  "SM08B-SRSS-TB(LF)(SN)": SM08B_SRSS_TB_LF__SN_,
 }
 export function jlcFootprintPart(mpn: string, props: any) {
   if ("footprint" in props) throw new Error(`Do not override the imported footprint for ${mpn}`)
@@ -57,17 +59,17 @@ export function jlcFootprintPart(mpn: string, props: any) {
   let imported = Component(props)
   // These housings overhang the board/window, or are DNP. Keep the supplier
   // copper, drills and courtyards; omit body ink that cannot be printed.
-  // Two tightly spaced resistor pairs also need one outline omitted.
-  if (["TYPEC-309-ACP16L65", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021", "B3U-3000P"].includes(mpn) || ["R13", "R27"].includes(props.name)) {
+  // Tightly spaced resistor pairs and local bulk capacitors need one outline omitted.
+  if (["TYPEC-309-ACP16L65", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021", "B3U-3000P"].includes(mpn) || ["R13", "R27", "C17", "C18"].includes(props.name)) {
     const footprint = imported.props.footprint
     const children = Children.toArray(footprint.props.children).filter(child =>
       !isValidElement(child) || !["silkscreenpath", "silkscreenrect", "silkscreencircle"].includes(String(child.type)))
     imported = cloneElement(imported, {footprint:cloneElement(footprint, {}, children)})
   }
-  if (["B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021"].includes(mpn)) {
+  if (["B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021", "SM08B-SRSS-TB(LF)(SN)"].includes(mpn)) {
     // Access metadata only; supplier copper and drills are unchanged.
     return createElement("connector", {...imported.props,
-      pinAttributes: Object.fromEntries(Array.from({length:mpn==="B6B-PH-K-S(LF)(SN)"?6:8},(_,i)=>[`pin${i+1}`,{isPassive:true}])),
+      pinAttributes: Object.fromEntries(Array.from({length:mpn==="B6B-PH-K-S(LF)(SN)"?6:mpn==="SM08B-SRSS-TB(LF)(SN)"?10:8},(_,i)=>[`pin${i+1}`,{isPassive:true}])),
       footprint: cloneElement(imported.props.footprint, {insertionDirection:"from_above"})})
   }
   return imported

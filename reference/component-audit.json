@@ -1,6 +1,6 @@
 {
   "baseline": "v4.1.0 / 45 components",
-  "revision": "PCB E5 / mechanics E10",
+  "revision": "PCB E6 / mechanics E11",
   "active_component_count": 38,
   "sources": {
     "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
@@ -128,10 +128,10 @@
     {
       "reference": "J6",
       "previous_mpn": "S8B-PH-K-S(LF)(SN)",
-      "decision": "replace",
-      "reason": "Fitted 2x4 right-angle 2.54mm male header accepts the display kit female jumper ends and fits the recessed cable cavity.",
-      "new_mpn": "61300821021",
-      "selected_catalogue_id": "C5517754"
+      "decision": "keep",
+      "reason": "Fitted keyed removable display connection; now JST SM08B-SRSS-TB(LF)(SN)/C160407 SMT. Supplied jumper lead replaced by H1.",
+      "new_mpn": "SM08B-SRSS-TB(LF)(SN)",
+      "selected_catalogue_id": "C160407"
     },
     {
       "reference": "LED1",
@@ -305,8 +305,8 @@
       "mpn": "CL21A475KOFNNNE"
     }
   ],
-  "mechanical_revision_note": "E5 fits the 2x4 removable display header. PCB geometry remains two-layer/top-side; USB port, MCU pin assignments, screen support heights, six product prints and four screws are retained.",
+  "mechanical_revision_note": "PCB E6 replaces J6 with keyed JST-SH8 SMT at (-21.3,-2), 90deg. All39 fitted components remain top; mechanics E11 retains19.5mm height, six prints and four screws.",
   "optional_unpopulated_components": [],
-  "display_cable": "Use the included Waveshare 19192 cable. Retain both factory ends; shorten the middle, solder and individually heat-shrink eight joints. Female jumper ends unplug from fitted J6.",
+  "display_cable": "H1 separately purchased crimped JST-SH8-to-PH8 replacement harness,44+/-1mm free insulation,straight circuit1..8 mapping; original supplied cable unused.",
   "prototype_sourcing_review": "All 23 fitted exact MPN/catalogue lines are purchasable with public catalogue stock as of 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. No current authenticated assembly preview/quote or reservation is claimed."
 }

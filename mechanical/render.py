@@ -83,7 +83,7 @@ for node in list(cutaway.graph.nodes_geometry):
  if node=='bearing' or node.startswith('bearing-') or node in ['lid','knob','outer-retainer','screen-bezel','encoder-skirt','screen-module','screen-ui','fasteners','pcb-capture-pads','pcb-pad-adhesive','encoder-adhesive']:
   cutaway.graph.transforms.remove_node(node)
 render([-.035,.11,.065],[0,.008,0],ROOT/'wiring-cutaway.png',1400,1050,model=cutaway)
-print('Rendered PCB, actual packages, original display plug and eight supplied wires in cutaway')
+print('Rendered PCB, actual packages, both keyed display plugs and eight H1 crimped wires in cutaway')
 
 # Expose the real printed load path and the corrected side-entry harness.
 frame=source.copy()

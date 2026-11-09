@@ -1,4 +1,4 @@
-# E10 mechanics / E5 PCB
+# E11 mechanics / E6 PCB
 
 [Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Fourteen inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.
 
@@ -19,7 +19,7 @@ Hardware is two DIN 965 M2×6 chassis screws and two M2×10 shared screen screws
 
 The PCB window is 34.6×40.6 mm, R2, for the fixed cable and the two braced support walls. PCB underside/top remain Z2.6/4.2 mm; carrier bottom Z13.1 mm, with the supplier PCB profile relieved to protect a 2 mm rear-component allowance, display front Z18.1 mm and bezel top Z19.5 mm. J4 remains at (0,+20.5) mm; disconnect its programming lead before closure. The USB keeps its rear position; the front switch has an 8×4 mm printed cap. The guide walls, travel stops and lid roof sit inside the circular shell; only the moving pusher projects. The circular body remains Ø84.8 mm; the cap brings overall depth to 86.6 mm. The screen is located by two short pins at its real mounting-boss centres (±9.3, ±13.35 mm), with all four rear bosses seated on the 4 mm-thick end walls. The separate enclosure screw axes remain outside those module holes. No purchased part is rescaled.
 
-The supplied display lead mates sideways, parallel to the screen PCB; both factory ends are retained. J6 is a fitted 2×4 right-angle male header that accepts the eight individual female jumper ends. Shorten the middle of the wires and individually heat-shrink eight solder joints. The illustrated free paths are 25.6–27.9 mm; trial-fit with slack rather than cutting to those lengths. Its unpublished wire dimensions remain accepted approximations: Ø1.2 mm rendered and Ø1.5 mm checked. Trial-dress the actual cable before cutting. No replacement display mating connector or cable is purchased; heat-shrink is an assembly consumable.
+H1 is a separately purchased crimped JST-SH8-to-PH8 harness. Both keyed ends unplug; the supplied kit jumper lead is unused. Free insulation length is 44±1 mm between housing exits, not a raw cut length. The model uses Ø0.61 mm wire and checks Ø0.8 mm at 43/44/45 mm free lengths. Housing seating, contacts and static bends remain explicit engineering approximations requiring physical fit. [Harness parts and circuit map](../manufacturing/WIRING.md).
 
 ## Rebuild
 

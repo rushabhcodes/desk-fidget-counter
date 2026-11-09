@@ -3,7 +3,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 4,
-    "volume_mm3": 16366.38,
+    "volume_mm3": 16400.23,
     "bounds_mm": [
       [
         -42.4,
@@ -254,18 +254,23 @@
   },
   "purchased_package_models_checked": 39,
   "individual_wires_checked": 8,
-  "removable_harness_nonmetal_groups_checked": 10,
+  "removable_harness_nonmetal_groups_checked": 9,
+  "harness_free_lengths_checked_mm": [
+    43,
+    44,
+    45
+  ],
   "tolerance_envelopes_checked": {
     "print_xy_mm": 0.62,
     "hardware_xy_mm": 0.945,
     "print_z_mm": 0.3,
     "hardware_z_mm": 0.46,
-    "wire_od_mm": 1.5,
+    "wire_od_mm": 0.8,
     "full_rotor_sweep": true
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E10",
+    "revision": "E11",
     "product_print_count": 6,
     "fasteners": [
       {

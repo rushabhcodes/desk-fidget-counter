@@ -2,7 +2,7 @@
   "imported_date": "2026-11-06",
   "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes <C-code>",
   "source": "JLCPCB/EasyEDA via tscircuit CLI",
-  "note": "Generated supplier imports retained byte-for-byte. Wrappers set electrical aliases, placement/CAD angles and top-insertion metadata; copper/drills/courtyards are unchanged. J6 now fits C5517754, a two-row right-angle 2.54mm display header. Housing silkscreen omitted where it crosses the PCB window. Unused older header import retained as historical source only.",
+  "note": "Generated supplier imports retained byte-for-byte. Wrappers set electrical aliases, placement/CAD angles and top-insertion metadata; copper/drills/courtyards are unchanged. J6 is now C160407, keyed JST-SH 8-pin side-entry SMT with both metal anchors grounded. Unused older imports retained as historical source only.",
   "parts": {
     "MB85RC256VPNF-G-AMERE2": {
       "code": "C45273903",
@@ -150,6 +150,12 @@
       "export": "A_61300821021",
       "sha256": "8d81b13e833a53b4b7bcbaa4604a42fdbef9bbc67be07775425fad864c085d5e",
       "imported_date": "2026-11-09"
+    },
+    "SM08B-SRSS-TB(LF)(SN)": {
+      "code": "C160407",
+      "path": "imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_.tsx",
+      "export": "SM08B_SRSS_TB_LF__SN_",
+      "sha256": "028c3c7c511a418c3827bfe623accf976986281d6b96b483446cfe0add4a5234"
     }
   },
   "access_metadata": "The project adds insertionDirection=from_above to the J4 and J6 footprint root only. Imported pad, hole, mask, silk and courtyard children are unchanged."

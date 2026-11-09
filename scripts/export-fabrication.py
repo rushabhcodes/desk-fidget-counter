@@ -16,7 +16,7 @@ OUT=args.output or Path(tempfile.mkdtemp(prefix='desk-fab-check-' if args.check_
 REPORT=OUT
 OUT.mkdir(exist_ok=True)
 raw=args.input_board
-boardpath=OUT/'desk-knob-reve5.kicad_pcb'
+boardpath=OUT/'desk-knob-reve6.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),
@@ -24,6 +24,26 @@ def routed_copper(board):
       t.GetStart().x,t.GetStart().y,t.GetEnd().x,t.GetEnd().y,
       t.GetDrillValue() if isinstance(t,pcbnew.PCB_VIA) else 0)
       for t in board.GetTracks())
+# KiCad quantizes coordinates to 1 nm. The native router can emit adjacent
+# points only a few picometres apart, which the exporter turns into a duplicate
+# zero-length track. Omit only those already fully covered by another same-net
+# endpoint of equal/larger width. No copper geometry, connection or route moves.
+empty_export_segments=[]
+tracks=list(b.GetTracks());empty_tracks=[]
+for t in tracks:
+ if isinstance(t,pcbnew.PCB_VIA) or t.GetStart()!=t.GetEnd():continue
+ covered=any(q is not t and q.GetNetCode()==t.GetNetCode()
+  and q.IsOnLayer(t.GetLayer())
+  and (q.GetWidth(t.GetLayer()) if isinstance(q,pcbnew.PCB_VIA) else q.GetWidth())>=t.GetWidth()
+  and (q.GetStart()==t.GetStart() or q.GetEnd()==t.GetStart())
+  and (isinstance(q,pcbnew.PCB_VIA) or q.GetStart()!=q.GetEnd()) for q in tracks)
+ assert covered,'A zero-length exporter track must be covered by existing native copper'
+ empty_export_segments.append({'net':t.GetNetname(),'layer':t.GetLayerName(),
+  'position_nm':[t.GetStart().x,t.GetStart().y],'width_nm':t.GetWidth(),
+  'reason':'Adjacent native points quantized to the same 1nm coordinate; redundant copper disk covered by another same-net endpoint'})
+ empty_tracks.append(t)
+for t in empty_tracks:
+ t.thisown=False;b.Remove(t)
 native_routes=routed_copper(b)
 # Keep boards alive while pcbnew's footprint/zone proxy objects are in scope.
 loaded_boards=[b]
@@ -150,7 +170,7 @@ assert routed_copper(final_board)==native_routes, 'Fabrication export must not c
  'source_circuit_sha256':hashlib.sha256((ROOT/'dist/index/circuit.json').read_bytes()).hexdigest(),
  'rules_sha256':hashlib.sha256((ROOT/'reference/fabrication-rules.json').read_bytes()).hexdigest(),
  'verified_physical_pads':len(checked),'pad_centres_envelopes_and_drills_preserved':True,
- 'native_traces_and_vias_unchanged':True,'DRC_violations':len(r['violations']),
+ 'native_traces_and_vias_unchanged':True,'quantized_duplicate_zero_length_export_segments_omitted':empty_export_segments,'DRC_violations':len(r['violations']),
  'unconnected_items':len(r['unconnected_items']),'per_violation_exclusions':0,
  'removed_isolated_ground_zones':len(removed)
 },indent=2)+'\n')

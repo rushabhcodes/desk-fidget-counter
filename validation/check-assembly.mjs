@@ -17,7 +17,7 @@ assert.deepEqual(copper(assembled), copper(board), 'Assembly must preserve bare-
 const sources = new Map(assembled.filter(c => c.type === 'source_component').map(c => [c.name, c]))
 const cad = assembled.filter(c => c.type === 'cad_component')
 assert(cad.some(c=>c.source_component_id===sources.get('J6').source_component_id),'J6 must have its fitted right-angle header model')
-for (const name of ['lcd-cable-board-plugs','lcd-cable-splice-sleeves']) assert(parts.some(p=>p.name===name),`Missing removable-cable detail ${name}`)
+for (const name of ['lcd-cable-board-sh-plug']) assert(parts.some(p=>p.name===name),`Missing removable-cable detail ${name}`)
 for (const part of parts) {
   const source = sources.get(part.name)
   assert(source, `Missing assembly part ${part.name}`)

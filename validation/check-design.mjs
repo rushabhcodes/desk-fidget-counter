@@ -47,13 +47,21 @@ const errors=cj.filter(x=>x.type.endsWith('_error'));assert.equal(errors.length,
 const componentPadErrors=checkPadPadClearance(cj,{minClearance:.15})
 assert.equal(componentPadErrors.length,0,componentPadErrors.map(x=>x.message).join('\n'))
 for(const t of cj.filter(x=>x.type==='pcb_trace'))for(const p of t.route)if(p.route_type==='wire')assert(p.width>=fabrication.minimum_track_width-1e-6,'All native copper must meet the fabrication minimum')
+// The native router merges same-net trace IDs into an MST. Check physical
+// endpoints rather than assuming each source branch owns a separate PCB trace.
+const routedPorts=new Set(cj.filter(x=>x.type==='pcb_trace').flatMap(t=>[
+ ...(t.connectsTo??[]),...t.route.flatMap(p=>[p.start_pcb_port_id,p.end_pcb_port_id].filter(Boolean))
+]))
 for (const name of ['MCU_VSSA_DECAP','MCU_VSS1_DECAP','MCU_VSS2_DECAP','MCU_VDD2_DECAP']) {
  const source=cj.find(x=>x.type==='source_trace'&&x.name===name)
- const routes=cj.filter(x=>x.type==='pcb_trace'&&x.source_trace_id===source.source_trace_id)
- assert(routes.length>0,`${name} must have native copper`)
- for(const route of routes)for(const p of route.route)if(p.route_type==='wire')
-  assert(p.width>=.15-1e-6,`${name} must meet its requested 0.15mm width`)
+ assert(source,`${name} must be explicitly connected`)
+ for(const id of source.connected_source_port_ids){
+  const physical=cj.find(x=>x.type==='pcb_port'&&x.source_port_id===id)
+  assert(physical&&routedPorts.has(physical.pcb_port_id),`${name} endpoint must have native copper`)
+ }
 }
+for(const t of cj.filter(x=>x.type==='pcb_trace'))for(const p of t.route)if(p.route_type==='wire')
+ assert(p.width>=.15-1e-6,'Every native track must meet the board-requested 0.15mm minimum')
 // Source-only connections can otherwise conceal an accidentally empty footprint.
 for(const p of ports){
  if(!cj.some(t=>t.type==='source_trace'&&t.connected_source_port_ids?.includes(p.source_port_id)))continue
@@ -61,7 +69,7 @@ for(const p of ports){
  assert.equal(physical.length,1,`${components.get(p.source_component_id)?.name}.${p.name} must have a PCB port`)
  assert(cj.some(q=>['pcb_smtpad','pcb_plated_hole'].includes(q.type)&&q.pcb_port_id===physical[0].pcb_port_id),`${p.source_port_id} needs copper`)
 }
-for (const [name,count,drill] of [['J4',6,.9000236],['J6',8,1.1000232]]) {
+for (const [name,count,drill] of [['J4',6,.9000236]]) {
  const pc=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get(name).source_component_id)
  const holes=cj.filter(x=>x.type==='pcb_plated_hole'&&x.pcb_component_id===pc.pcb_component_id)
  assert.equal(holes.length,count,`${name} JST PH pin count`)
@@ -113,10 +121,13 @@ assert.equal(usb.footprint_origin.x,mechanics.usb_center[0]);assert.equal(usb.fo
 assert(Math.abs(Math.max(...b.outline.map(p=>p.y))-41.4)<1e-6,'Integral USB tab must reach its specified front edge')
 assert(Math.abs(Math.min(...b.outline.map(p=>p.y))+42.1)<1e-6)
 assert(Math.abs(b.height-83.5)<1e-6)
-assert.equal(components.get('J6').manufacturer_part_number,'61300821021')
-assert.equal(mechanics.stock_display_cable.custom_harness_required,false)
+assert.equal(components.get('J6').manufacturer_part_number,'SM08B-SRSS-TB(LF)(SN)')
+assert.equal(mechanics.stock_display_cable.custom_harness_required,true)
 const display=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get('J6').source_component_id)
-assert(!display.do_not_place,'The removable display header must be fitted')
+assert(!display.do_not_place,'The removable display socket must be fitted')
+assert.equal(cj.filter(x=>x.type==='pcb_smtpad'&&x.pcb_component_id===display.pcb_component_id).length,10)
+assert.equal(cj.filter(x=>x.type==='pcb_plated_hole'&&x.pcb_component_id===display.pcb_component_id).length,0)
+on('J6','MP1','GND');on('J6','MP2','GND')
 assert.deepEqual(mechanics.display_board_header.pin_signals,['BL','RST','DC','CS','CLK','DIN','GND','VCC'])
 for (let i=0;i<8;i++) pin('J6',mechanics.display_board_header.pin_signals[i],i+1)
 assert.equal(cj.filter(x=>x.type==='pcb_component'&&!x.do_not_place).length,39)

@@ -1,31 +1,39 @@
-# PCB E5 / Mechanics E10 physical wiring
+# PCB E6 / Mechanics E11 physical wiring
 
 All fitted board components mount from the top. Coordinates use +X right, +Y toward USB; PCB top is Z4.2 mm above the enclosure floor. Pin numbers refer to the physical board pads. Match pin 1 and the screen's printed signal labels, then check continuity before power.
 
-## Removable display lead H1
+## Keyed display harness H1
 
-Waveshare SKU 19192 includes a **PH2.0 8-pin, 20 cm cable** with eight individual female jumper ends. [Package list](https://www.waveshare.com/product/1.28inch-lcd-module.htm) · [Manufacturer cable photograph](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg).
+J6 is **JST SM08B-SRSS-TB(LF)(SN), JLCPCB C160407**, an 8-pin, 1 mm-pitch, side-entry SMT socket. It faces +X into the PCB window from (-21.3,-2) mm at 90°. Its two metal hold-down pads (9 and 10) are grounded. The exact JLC import retains all ten SMT lands; there are no J6 through-holes. [JST SH drawing](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf) · [JLCPCB part](https://jlcpcb.com/partdetail/JST-SM08B_SRSS_TB_LF_SN/C160407).
 
-J6 is now a **fitted Würth 61300821021 / JLCPCB C5517754, 2×4 right-angle male header at 2.54 mm pitch**. It carries SPI plus reset, backlight, ground and switched 3.3 V. The individual supplied female ends fit the nominal 0.64 mm square pins; no replacement mating connector or crimp kit is needed. [Manufacturer drawing](https://www.we-online.com/components/products/datasheet/61300821021.pdf) · [JLCPCB part](https://jlcpcb.com/partdetail/WURTHELEKTRONIK-61300821021/C5517754).
+The same connector is used for `J_SPI_DISPLAY` in [TSCircuit rv1106g2](https://github.com/tscircuit/rv1106g2/blob/86799ce9bc2b1b3b7edbfe334420a9dbedc33e9b/README.md). That project's pinout is different; use **this board's mapping below**. A bare-panel FPC connector is unsuitable for the Waveshare module's PH2.0 port.
 
-The exact imported footprint retains eight Ø1.1000232 mm finished drills and approximately Ø1.70 mm annuli. The manufacturer's recommended Ø1.02±0.05 mm holes are slightly smaller; the imported holes are retained, giving clearance around the 0.64 mm square pins and approximately 0.30 mm annular rings. Do not modify the footprint or bend a straight header to substitute for this part. Trim its tails after soldering to ≤0.8 mm below the PCB and insulate the inspected wells.
+Order **one finished, crimped H1 harness** to the schedule below. It is a made-to-drawing lead, not an identified stocked cable SKU. The original Waveshare kit cable ends in eight independent jumper sockets and is unused. Both H1 ends are keyed; SH uses friction retention, without a separate latch lever. Disconnect before lifting the screen.
 
-| J6 physical pin / hole XY mm | Signal | Original display pin |
+| Harness part | Qty | Specification |
 |---|---|---|
-| 1 / (-19.08, -7.31) | BL | 1 / BL |
-| 2 / (-21.62, -7.31) | RST | 2 / RST |
-| 3 / (-19.08, -4.77) | DC | 3 / DC |
-| 4 / (-21.62, -4.77) | CS | 4 / CS |
-| 5 / (-19.08, -2.23) | CLK | 5 / CLK |
-| 6 / (-21.62, -2.23) | DIN | 6 / DIN |
-| 7 / (-19.08, 0.31) | GND | 7 / GND |
-| 8 / (-21.62, 0.31) | VCC | 8 / VCC |
+| Board-end housing | 1 | JST **SHR-08V-S-B**, 1 mm pitch, eight circuits, grip protrusions; overall 11×5×2.8 mm |
+| Board contacts | 8 | JST **SSH-003T-P0.2-H**, qualified crimp for 32–28 AWG, insulation Ø0.4–0.8 mm |
+| Display-end housing | 1 | JST **PHR-8**, 2 mm pitch; nominal 17.8×6.85×4.5 mm; check actual Waveshare socket fit |
+| Display contacts | 8 | JST **SPH-004T-P0.5S**, qualified crimp for 32–28 AWG, insulation Ø0.5–0.9 mm |
+| Wire | 8 lengths | **TE/Raychem 55A0111-30-9**, 30 AWG stranded ETFE, nominal Ø0.61 mm; number both ends. Colour in CAD is illustrative. |
 
-Viewed in the PCB XY frame, each Y row has an odd pin at X−19.08 mm and an even pin at X−21.62 mm. After bending, the mating pins face +X into the window: odd pins are the lower row at Z5.43 mm, even pins the upper row at Z7.97 mm. The silkscreen labels identify every signal. This is an unkeyed connection; verify by signal and continuity, never wire colour alone.
+**Free insulation length: 44±1 mm per conductor, measured along the wire between the rear housing exit faces. This is not raw cut length.** The cable maker must add the qualified terminal engagement, crimp and strip allowances. Request continuity/isolation testing and proper contact retention. No inline solder joints or heat-shrink sleeves are needed. [TE wire specification](https://www.te.com/en/product-216337-000.html) · [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) · [CSV termination schedule](LCD-harness.csv).
 
-The compact cavity does not store the full 20 cm lead. **Retain both factory connector ends and shorten each wire in its middle.** Mate both ends, trial-dress with practical slack, then remove the excess. Stagger the joints as illustrated, solder by signal, and individually insulate all eight joints with heat-shrink. Do not leave bare conductors, rely on a shared sleeve, or heat the plastic housings while soldering. The model reserves a 6 mm long, Ø2 mm finished sleeve around each joint. Select tubing that fits the actual wire and stays within that envelope. No extra cable or contacts are required; heat-shrink is an assembly consumable.
+| J6 circuit / nominal pad XY mm | Signal | PHR-8 display circuit |
+|---|---|---|
+| 1 / (-23.35001, -5.50000) | BL | 1 / BL |
+| 2 / (-23.35001, -4.50000) | RST | 2 / RST |
+| 3 / (-23.35001, -3.50000) | DC | 3 / DC |
+| 4 / (-23.35001, -2.50000) | CS | 4 / CS |
+| 5 / (-23.35001, -1.50000) | CLK | 5 / CLK |
+| 6 / (-23.35001, -0.50000) | DIN | 6 / DIN |
+| 7 / (-23.35001, 0.50000) | GND | 7 / GND |
+| 8 / (-23.35001, 1.50000) | VCC | 8 / VCC |
 
-Illustrated free paths are 25.6–27.9 mm between housing exits, **not cut lengths**. Allow stripping/joint overlap and assembly slack when trial dressing. The nominal housing envelopes are 14.5×2.54×2.54 mm per jumper end. Wire OD1.2 mm is rendered and OD1.5 mm is clearance-checked; the static centreline radius is at least 3.3 mm in the nominal route. Actual Waveshare housing dimensions, contact engagement and minimum bend radius are unpublished approximations. Test the actual kit and avoid repeated flexing. Unplug the display lead before lifting the screen; there is no long service loop.
+Match connector **circuit numbers and the display's printed signals**, not apparent left/right when looking into opposite connector faces. Pin8 is switched **3.3 V**, never USB 5 V. Check all eight connections and power-to-ground isolation before powering the display. BL is backlight control; there is no SPI MISO return from this display.
+
+The CAD uses the original unscaled JLC header STEP and dimensioned nominal cable housings. Plug engagement datums, stepped noses and internal contact shapes are engineering approximations; they are not manufacturer mating CAD. Wires are rendered at Ø0.61 mm and clearance-checked at Ø0.8 mm with 43/44/45 mm free lengths. The display U bend has a nominal 3.3 mm centreline radius. That installed bend has not been qualified by the wire manufacturer: trial-dress the actual crimped cable, check plug engagement, no pinching and no strain before final closure. There is no long service loop.
 
 ## Removable programming harness H2
 
@@ -33,12 +41,12 @@ J4 is JST B6B-PH-K-S(LF)(SN), top entry. Mate with PHR-6 and SPH-004T-P0.5S cont
 
 | J4 pin / physical XY mm | Signal | Genuine ST-LINK/V2 20-pin SWD connector |
 |---|---|---|
-| 1 / (-5,20.5) | Target 3.3V reference | Pin 1 VAPP / VTref, probe input |
-| 2 / (-3,20.5) | SWDIO | Pin 7 SWDIO |
-| 3 / (-1,20.5) | SWCLK | Pin 9 SWCLK |
-| 4 / (1,20.5) | NRST | Pin 15 NRST |
-| 5 / (3,20.5) | GND | Pin 4 GND |
-| 6 / (5,20.5) | BOOT0 | Leave empty for SWD; optional service jumper to pin 1 for ROM boot |
+| 1 / (-5,20.8) | Target 3.3V reference | Pin 1 VAPP / VTref, probe input |
+| 2 / (-3,20.8) | SWDIO | Pin 7 SWDIO |
+| 3 / (-1,20.8) | SWCLK | Pin 9 SWCLK |
+| 4 / (1,20.8) | NRST | Pin 15 NRST |
+| 5 / (3,20.8) | GND | Pin 4 GND |
+| 6 / (5,20.8) | BOOT0 | Leave empty for SWD; optional service jumper to pin 1 for ROM boot |
 
 Power the target through USB-C while programming. VTref senses target voltage; do not connect a probe's power-output pin to it. Pin numbering on 10-pin SWD probes and low-cost ST-Link clones differs: use the probe manufacturer's documented SWDIO/SWCLK/NRST/GND/VTref signals, not this 20-pin number column. Main firmware is written by SWD; BOOT0 normally stays low through R10.
 
@@ -46,4 +54,4 @@ Power the target through USB-C while programming. VTref senses target voltage; d
 
 The XUNPU C2909598 USB-C face is at Y42.1865 mm, 0.0135 mm inside the stationary side-wall radius and 0.2135 mm inside the outer floor edge; it remains accessible through the rear opening. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.78 mm and the nominal rotor clearance is 0.77 mm (0.31 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
 
-There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E5.
+There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E6.

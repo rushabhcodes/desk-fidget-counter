@@ -30,7 +30,7 @@ def write_csv(name, fields, rows):
         w.writeheader()
         w.writerows(rows)
 
-for mode, excluded in [('complete', set()), ('smt', {'J4','J6'})]:
+for mode, excluded in [('complete', set()), ('smt', {'J4'})]:
     selected = [r for r in bom if r['Reference'] not in excluded]
     groups = {}
     for r in selected:
@@ -79,8 +79,8 @@ write_csv('physical-pin-map.csv', ['Designator', 'Physical pin', 'Gerber X mm', 
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 report = {
     'release': json.loads((ROOT / 'package.json').read_text())['version'],
-    'pcb_revision': 'E5', 'mechanical_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['mechanical_revision'],
-    'complete_placements': 39, 'smt_only_placements': 37, 'DNP': [],
+    'pcb_revision': 'E6', 'mechanical_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['mechanical_revision'],
+    'complete_placements': 39, 'smt_only_placements': 38, 'DNP': [],
     'physical_pins': len(pins), 'all_components_top': True,
     'bom_cpl_reference_sets_match': True, 'native_placement_coordinates_preserved': True,
     'native_placement_rotations_preserved': True,
@@ -94,4 +94,4 @@ report = {
     'supplier_upload': 'No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files.'
 }
 (OUT / 'checks.json').write_text(json.dumps(report, indent=2) + '\n')
-print(f'JLCPCB CSV check passed: 39 complete / 37 SMT placements, matching BOM/CPL sets, native coordinates and physical pin map. Temporary files: {OUT}')
+print(f'JLCPCB CSV check passed: 39 complete / 38 SMT placements, matching BOM/CPL sets, native coordinates and physical pin map. Temporary files: {OUT}')

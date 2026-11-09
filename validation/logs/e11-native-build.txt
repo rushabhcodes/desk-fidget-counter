@@ -1,0 +1,74 @@
+Building 1 file(s)...
+Building index.circuit.tsx...
+Generating circuit JSON...
+Wrote debug artifact: ../../.cache/desk-fidget-validation/e11s-native-routing/placement-unrouted.png
+Autorouting <board#320 name=".DESK_KNOB_REVE6" /> phase 1/1 "Whole two-layer board" start: connections=47, obstacles=257, previous_traces=0, router=tscircuit, version=beta_pipeline9, solver=AutoroutingPipelineSolver9_PreloadedTraceGraph, effort=2x, cache=miss, cache_id=8efffac3/d446bf7d
+  connections: USB_CC1_RD, USB_CC2_RD, MCU_VBAT_DECAP, MCU_VBAT_GROUND, MCU_VDDA_DECAP, MCU_VSSA_DECAP, MCU_VDD1_DECAP, MCU_VSS1_DECAP, MCU_VDDIO_DECAP, MCU_VSS2_DECAP, MCU_VDD2_DECAP, MCU_VSS3_DECAP, MCU_VDDA_LOCAL_BULK, MCU_VDDA_LOCAL_RETURN, MCU_VDDIO_LOCAL_BULK, MCU_VDDIO_LOCAL_RETURN, ENCODER_VCC_DECAP, ENCODER_GND_DECAP, net.GND, net.V3V3, net.VBUS, net.PERIPH_3V3, net.PERIPH_EN, net.NRST, net.BOOT0, net.MODE_BTN, net.USB_DM, net.USB_DP, net.SWDIO, net.SWCLK, net.SCL, net.SDA, net.CC1, net.CC2, net.IR_A, net.OPT_A, net.OPT_B, net.ENC_A, net.ENC_B, net.LCD_RST, net.LCD_BL, net.LCD_CS, net.SPI_SCK, net.LCD_DC, net.SPI_MOSI, net.LCD_SCK, net.LCD_MOSI
+Wrote debug artifact: ../../.cache/desk-fidget-validation/e11s-native-routing/phase-0.input.simple-route.json
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=topologyPlanningSolver steps=1 progress=16% iterations_per_second=48 elapsed=3.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=portPointPathingSolver steps=24 progress=44% iterations_per_second=137637 elapsed=13.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=48 progress=52% iterations_per_second=3248 elapsed=23.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=75 progress=52% iterations_per_second=5732 elapsed=33.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=102 progress=53% iterations_per_second=13328 elapsed=43.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=132 progress=53% iterations_per_second=1100 elapsed=53.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRouteSolver steps=159 progress=55% iterations_per_second=276 elapsed=64.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityForceImproveSolver steps=163 progress=56% iterations_per_second=3 elapsed=91.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=highDensityRepairSolver steps=174 progress=60% iterations_per_second=603 elapsed=102.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=traceSimplificationSolver steps=192 progress=68% iterations_per_second=230 elapsed=112.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=211 progress=84% iterations_per_second=744 elapsed=122.4s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=233 progress=85% iterations_per_second=1640 elapsed=132.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=259 progress=85% iterations_per_second=941 elapsed=142.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=284 progress=85% iterations_per_second=1188 elapsed=153.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=311 progress=85% iterations_per_second=829 elapsed=163.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=336 progress=85% iterations_per_second=23 elapsed=173.6s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=364 progress=85% iterations_per_second=1116 elapsed=183.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=388 progress=85% iterations_per_second=1 elapsed=194.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=402 progress=85% iterations_per_second=1 elapsed=206.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=421 progress=85% iterations_per_second=1360 elapsed=216.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=447 progress=85% iterations_per_second=929 elapsed=226.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=460 progress=85% iterations_per_second=2264 elapsed=236.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=471 progress=85% iterations_per_second=2128 elapsed=247.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=482 progress=85% iterations_per_second=152 elapsed=257.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=494 progress=85% iterations_per_second=1 elapsed=267.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=507 progress=85% iterations_per_second=2 elapsed=278.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=528 progress=85% iterations_per_second=2088 elapsed=288.1s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=542 progress=86% iterations_per_second=3 elapsed=302.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=560 progress=86% iterations_per_second=3 elapsed=312.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=578 progress=87% iterations_per_second=689 elapsed=322.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=595 progress=87% iterations_per_second=887 elapsed=333.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=608 progress=87% iterations_per_second=1 elapsed=344.7s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=620 progress=87% iterations_per_second=1090 elapsed=355.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=631 progress=87% iterations_per_second=1 elapsed=366.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=643 progress=87% iterations_per_second=2489 elapsed=376.0s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=pipeline9JointDrcRepairSolver steps=653 progress=87% iterations_per_second=5 elapsed=386.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=669 progress=88% iterations_per_second=67 elapsed=396.3s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=692 progress=88% iterations_per_second=7 elapsed=406.8s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=706 progress=88% iterations_per_second=916 elapsed=416.9s
+  phase 1/1 "Whole two-layer board" progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=effortCleanupSolver steps=728 progress=88% iterations_per_second=1532 elapsed=427.0s
+  phase 1/1 "Whole two-layer board" done: routed_traces=124, jumpers=0, errors=0, elapsed=435.4s
+Wrote debug artifact: ../../.cache/desk-fidget-validation/e11s-native-routing/phase-0.output.traces.json
+Wrote debug artifact: ../../.cache/desk-fidget-validation/e11s-native-routing/phase-0-routed.png
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Wrote debug artifact: ../../.cache/desk-fidget-validation/e11s-native-routing/board.meta.json
+Circuit JSON written to dist/index/circuit.json
+.C12 > .pin2 to net.GND has a 7.09 mm segment on top at 240.93°, 15.93° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB14 to net.LCD_DC has a 13.06 mm segment on bottom at 251.65°, 18.35° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB13 to net.SPI_SCK has a 6.14 mm segment on top at 122.76°, 12.24° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA8 to net.LCD_CS has a 7.68 mm segment on bottom at 249.93°, 20.07° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA8 to net.LCD_CS has a 6.12 mm segment on top at 252.90°, 17.10° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB11 to net.LCD_BL has a 10.04 mm segment on top at 261.17°, 8.83° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB10 to net.LCD_RST has a 15.28 mm segment on bottom at 243.16°, 18.16° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB7 to net.SDA has a 7.23 mm segment on bottom at 63.52°, 18.52° from the nearest allowed direction (45°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB6 to net.SCL has a 8.10 mm segment on bottom at 64.08°, 19.08° from the nearest allowed direction (45°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA12 to net.USB_DP has a 5.33 mm segment on top at 103.32°, 13.32° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA11 to net.USB_DM has a 6.33 mm segment on bottom at 114.66°, 20.34° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .NRST to net.NRST has a 7.98 mm segment on bottom at 70.80°, 19.20° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .VDD1 to net.V3V3 has a 5.77 mm segment on bottom at 209.25°, 15.75° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+
+Build complete
+  Circuits  1 passed
+  Options   autorouter-debug, autorouter-dump-srj
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

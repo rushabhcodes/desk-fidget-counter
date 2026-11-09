@@ -138,11 +138,11 @@
       "source": "https://jlcpcb.com/partdetail/TYPEC-309-ACP16L65/C2909598",
       "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598"
     },
-    "61300821021": {
-      "lcsc": "C5517754",
-      "footprint": "THT-2x4-P2.54-RA",
-      "description": "8-pin unshrouded 2x4 2.54mm right-angle male display header; mates supplied individual female jumper ends",
-      "source": "https://jlcpcb.com/partdetail/WURTHELEKTRONIK-61300821021/C5517754"
+    "SM08B-SRSS-TB(LF)(SN)": {
+      "lcsc": "C160407",
+      "footprint": "JST-SH-8-P1.0-SMT-side-entry",
+      "description": "Keyed 8-pin side-entry SMT display socket; two grounded hold-downs",
+      "source": "https://jlcpcb.com/partdetail/JST-SM08B_SRSS_TB_LF_SN/C160407"
     }
   }
 }

@@ -448,5 +448,34 @@
     "datum_note": "Rigid original import datum subtraction (0.0000127,4.8000031,-0.280006), no scaling. Only through-hole tails clipped to <=0.8mm below a 1.6mm PCB for closure. Original full STEP/OBJ retained unchanged in imports.",
     "derivative_generator": "mechanical/vendor/generate-display-header.py",
     "supplier_model_geometry_unscaled": true
+  },
+  "jst-sh8": {
+    "step": "imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_.step",
+    "obj": "mechanical/vendor/obj/jst-sh8.obj",
+    "collision_mesh": "mechanical/vendor/solid/jst-sh8.ply",
+    "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C160407",
+    "manufacturer": "JST",
+    "MPN": "SM08B-SRSS-TB(LF)(SN)",
+    "datasheet": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+    "bounds": [
+      [
+        -5.0,
+        -2.531730900000048,
+        2.2351741811588166e-10
+      ],
+      [
+        5.0,
+        2.418269147683668,
+        2.9110000228881834
+      ]
+    ],
+    "size": {
+      "x": 10.0,
+      "y": 4.950000047683716,
+      "z": 2.911000022664666
+    },
+    "datum_note": "Rigid supplier datum subtraction (3.5,0.4067309,-0.01); no scaling, trimming or altered footprint.",
+    "derivative_generator": "mechanical/vendor/generate-jst-sh8.py",
+    "supplier_model_geometry_unscaled": true
   }
 }

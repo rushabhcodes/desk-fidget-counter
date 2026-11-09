@@ -1,4 +1,4 @@
-# Manufacturing source / PCB E5, mechanics E10
+# Manufacturing source / PCB E6, mechanics E11
 
 This repository contains the design and its verification record. **No new fabrication kit or release archive is prepared.** Export/download the fabrication files yourself from this validated source when you are ready. Project source is published separately to GitHub and TSCircuit; ordering remains yours to perform.
 
@@ -18,12 +18,12 @@ The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were r
 | Drill spacing | Via drill-edge ≥0.20 mm; component PTH drill-edge ≥0.45 mm |
 | Hole-to-copper | NPTH ≥0.20 mm; via drill ≥0.20 mm; component plated drill ≥0.28 mm |
 | Copper to edge | ≥0.30 mm; ground pours inset 0.40 mm |
-| Assembly | 39 fitted components, all top; J4 genuine JST PH6 and J6 right-angle 2×4 display header fitted |
-| Local assembly | Retain both factory display lead ends; shorten the middle, solder and individually heat-shrink eight splices; trim board tails to ≤0.8 mm |
+| Assembly | 39 fitted components, all top; J4 JST PH6 and J6 keyed JST-SH8 SMT socket fitted |
+| Local assembly | Fit crimped replacement H1; continuity/isolation check; trim only J4 tails to ≤0.8mm |
 
 [Fabrication rules](../reference/fabrication-rules.json) record the checked [JLCPCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/). Keep 1 oz copper. This is not a controlled-impedance design; USB full-speed signal integrity is a prototype test.
 
-J1 sits at (0,+37.55) mm; its housing overhangs the supported rear tab so its mouth reaches the shell wall. SW1 remains at (0,−40.9) mm. A captive printed cap operates its original actuator; the lid retains the cap without extra screws. No toggle is installed. J6 is a fitted 2×4 right-angle header centred at (−20.35,−3.5) mm and rotated 90°. It faces +X into the window. Pins1–8 are BL/RST/DC/CS/CLK/DIN/GND/VCC, with odd pins lower and even pins upper. The silkscreen labels and physical pin map identify every position. [Wiring and service pin maps](WIRING.md).
+J1 remains at (0,+37.55)mm and SW1 at (0,-40.9)mm, operated by the captive printed cap. J6 is JST SM08B-SRSS-TB(LF)(SN)/C160407 at (-21.3,-2)mm,90deg,facing +X. Circuits1–8 are BL/RST/DC/CS/CLK/DIN/GND/VCC; anchors9/10 are GND. Connect the display with the separately purchased crimped H1 harness. [Physical circuit map](WIRING.md).
 
 ## Verification without producing a kit
 
@@ -44,7 +44,7 @@ bunx tsci export dist/index/circuit.json -f kicad_pcb -o /tmp/desk-knob-raw.kica
 /usr/bin/python3 scripts/export-fabrication.py /tmp/desk-knob-raw.kicad_pcb --check-only
 ```
 
-`--check-only` writes temporary evidence under `/tmp`; it does not produce an order kit. It checks all 177 pad centres and plated drills against source, applies the documented rules, refills ground zones and removes electrically isolated ground fragments. It requires zero DRC violations/unconnected items, no exclusions and an exact match of every native trace and via before/after. It does not route or repair copper. See [validation results](../validation/REPORT.md).
+`--check-only` writes temporary evidence under `/tmp`; it does not produce an order kit. It checks all 179 pad centres and plated drills against source, applies the documented rules, refills ground zones and removes electrically isolated ground fragments. It requires zero DRC violations/unconnected items, no exclusions and an exact match of every native trace and via before/after. It does not route or repair copper. See [validation results](../validation/REPORT.md).
 
 ## Standard USB-C connector
 
@@ -57,3 +57,5 @@ The original C165948 connector and its short slots are removed from the fitted d
 Use the bare PCB entrypoint [index.circuit.tsx](../index.circuit.tsx) for factory exports. Export all Gerbers, plated/nonplated drills, BOM and placement files from that same freshly built revision. Verify window/outline geometry, exact MPNs, 39 top placements including fitted J4 and J6. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
 
 [JLCPCB guidance](jlcpcb/README.md) records part matching/cost evidence and the remaining supplier steps. The screen, bearing, six prints and final wire/mechanical assembly are separate from PCB assembly. The first prototype still needs [bring-up](../validation/BRINGUP.md) and [fit verification](../mechanical/FIT.md).
+
+The independent KiCad check uses 1 nm coordinate resolution. A duplicate zero-length exporter segment may be omitted only when its entire copper disk is already covered by an equal or wider same-net endpoint. The check records each omission and rejects uncovered segments. Native circuit JSON, routed copper geometry, vias and connections remain unchanged.

@@ -1,0 +1,22 @@
+{
+  "reviewed_date": "2026-11-09",
+  "decision": "J6 keyed JST-SH8 side-entry SMT, one replacement crimped cable approved by user",
+  "MPN": "SM08B-SRSS-TB(LF)(SN)",
+  "catalogue_id": "C160407",
+  "exact_footprint_import": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C160407",
+  "reference_project": "https://github.com/tscircuit/rv1106g2/blob/86799ce9bc2b1b3b7edbfe334420a9dbedc33e9b/README.md",
+  "reference_designator": "J_SPI_DISPLAY; same part, different signal assignment. No routes copied.",
+  "primary_drawing": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+  "pitch_mm": 1,
+  "body_height_mm": 2.9,
+  "electrical_contacts": 8,
+  "grounded_SMT_anchors": 2,
+  "assembly": "top SMT/reflow",
+  "board_mate": "SHR-08V-S-B with eight SSH-003T-P0.2-H contacts",
+  "display_mate": "PHR-8 with eight SPH-004T-P0.5S contacts",
+  "wire": "TE/Raychem55A0111-30-9,30AWG,nominal OD0.61mm",
+  "harness": "H1 made-to-drawing,44+/-1mm free insulation between rear housing exits; cable maker adds qualified termination allowances",
+  "stock": "Public JLCPCB catalogue174827 units, displayed unit priceUSD0.3236 as of2026-11-09; not reserved or authenticated matching",
+  "alternative": "JST S8B-PH-SM4-TB(LF)(SN)/C265121,2mm pitch,larger19.9x8.6x5.5mm; rejected for cavity/board annulus space",
+  "limits": "SH grip retention is friction, not a separate latch. Cable-housing noses, contact geometry, seating datums and installed bend limits are nominal engineering approximations. H1 is not a verified stocked cable SKU; original kit jumper cable is unused."
+}

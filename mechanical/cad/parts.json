@@ -202,7 +202,7 @@
   {
     "name": "lcd-cable-screen-plug",
     "printed": false,
-    "color": "#b9b9ac",
+    "color": "#dfdbc4",
     "asset": "lcd-cable-screen-plug.obj",
     "bounds_pcb_mm": [
       [
@@ -217,7 +217,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-bl",
@@ -226,18 +226,18 @@
     "asset": "lcd-wire-bl.obj",
     "bounds_pcb_mm": [
       [
-        -0.400001,
-        -7.91,
-        1.100716
+        -16.730392,
+        -7.305,
+        1.395
       ],
       [
-        18.699509,
-        -6.4,
-        8.899924
+        18.4048,
+        -5.195,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-rst",
@@ -246,18 +246,18 @@
     "asset": "lcd-wire-rst.obj",
     "bounds_pcb_mm": [
       [
-        -0.400018,
-        -7.91,
-        1.100006
+        -16.730415,
+        -5.305,
+        1.395
       ],
       [
-        18.699509,
-        -4.4,
-        8.899924
+        18.4048,
+        -4.195,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-dc",
@@ -266,18 +266,18 @@
     "asset": "lcd-wire-dc.obj",
     "bounds_pcb_mm": [
       [
-        -0.400013,
-        -5.37,
-        1.1
+        -16.730415,
+        -3.805,
+        1.395
       ],
       [
-        18.699509,
-        -2.4,
-        8.899924
+        18.4048,
+        -2.695,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-cs",
@@ -286,18 +286,18 @@
     "asset": "lcd-wire-cs.obj",
     "bounds_pcb_mm": [
       [
-        -0.400031,
-        -5.37,
-        1.100006
+        -16.730392,
+        -2.805,
+        1.395
       ],
       [
-        18.699509,
-        -0.4,
-        8.899924
+        18.4048,
+        -0.695,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-clk",
@@ -306,18 +306,18 @@
     "asset": "lcd-wire-clk.obj",
     "bounds_pcb_mm": [
       [
-        -0.400026,
-        -2.83,
-        1.1
+        -16.730345,
+        -1.805,
+        1.395
       ],
       [
-        18.699509,
-        1.6,
-        8.899924
+        18.4048,
+        1.305,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-din",
@@ -326,18 +326,18 @@
     "asset": "lcd-wire-din.obj",
     "bounds_pcb_mm": [
       [
-        -0.400044,
-        -2.83,
-        1.100006
+        -16.730273,
+        -0.805,
+        1.395
       ],
       [
-        18.699509,
-        3.6,
-        8.899924
+        18.4048,
+        3.305,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-gnd",
@@ -346,18 +346,18 @@
     "asset": "lcd-wire-gnd.obj",
     "bounds_pcb_mm": [
       [
-        -0.400039,
-        -0.29,
-        1.100073
+        -16.730172,
+        0.195,
+        1.395
       ],
       [
-        18.699509,
-        5.6,
-        8.899924
+        18.4048,
+        5.305,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-wire-vcc",
@@ -366,58 +366,38 @@
     "asset": "lcd-wire-vcc.obj",
     "bounds_pcb_mm": [
       [
-        -0.400057,
-        -0.29,
-        1.100006
+        -16.73004,
+        1.195,
+        1.395
       ],
       [
-        18.699509,
-        7.6,
-        8.899924
+        18.4048,
+        7.305,
+        8.604983
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
-    "name": "lcd-cable-board-plugs",
+    "name": "lcd-cable-board-sh-plug",
     "printed": false,
-    "color": "#20262c",
-    "asset": "lcd-cable-board-plugs.obj",
+    "color": "#dfdbc4",
+    "asset": "lcd-cable-board-sh-plug.obj",
     "bounds_pcb_mm": [
       [
-        -14.899997,
-        -8.58,
-        0.760006
+        -21.728269,
+        -7.5,
+        0.85
       ],
       [
-        -0.399997,
-        1.58,
-        5.840006
+        -16.728269,
+        3.5,
+        3.65
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
-  },
-  {
-    "name": "lcd-cable-splice-sleeves",
-    "printed": false,
-    "color": "#30343a",
-    "asset": "lcd-cable-splice-sleeves.obj",
-    "bounds_pcb_mm": [
-      [
-        3.059336,
-        -8.041214,
-        0.7
-      ],
-      [
-        18.737252,
-        6.0,
-        5.514119
-      ]
-    ],
-    "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "lcd-cable-contacts",
@@ -426,18 +406,18 @@
     "asset": "lcd-cable-contacts.obj",
     "bounds_pcb_mm": [
       [
-        -13.799997,
-        -7.66,
-        1.42
+        -21.328269,
+        -7.25,
+        1.55
       ],
       [
-        18.259564,
+        18.249808,
         7.25,
         8.55
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+    "description": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "name": "screen-ui",

@@ -1,37 +1,31 @@
-# Repository readiness / v5.9.0
+# Repository readiness / v5.10.0
 
-Reviewed 9 November 2026. PCB E5 is locally checked for prototype fabrication: **two layers, 1.6mm, 39 fitted components, all top**. Mechanics E10 retains **Ø84.8×19.5mm**, six PLA prints, four screws and one complete bearing object. The display now unplugs from fitted **J6, Würth 61300821021/C5517754**, a right-angle 2×4 male header accepting the included individual female jumper ends.
+Reviewed 9 November 2026. PCB E6 remains **two layers, 1.6mm, 39 fitted components, all top**. Mechanics E11 remains **Ø84.8×19.5mm**, six PLA prints and four screws. J6 is now **JST SM08B-SRSS-TB(LF)(SN)/C160407**, a keyed 8-pin side-entry SMT socket with two grounded anchors.
 
-Both factory cable ends remain. The 20 cm lead is shortened in its middle with eight individually heat-shrunk solder joints; the CAD shows the housings, wires, contacts and sleeves. Nominal housing dimensions and engagement are explicit approximations. Trial-dress the actual kit with slack before cutting. [Physical wiring](../manufacturing/WIRING.md) · [Assembly](../ASSEMBLY.md).
-
-The repository is the deliverable. Temporary exports validate manufacture; no permanent fabrication kit or order was created. Download/export a consistent fresh set when ordering. Historical v5.4.0 files and older DNP-J6 pin maps must not be used.
+The display connects through **one separately ordered crimped H1 SH8-to-PH8 harness**. The supplied jumper lead is unused. H1 specifies genuine housings, contacts and 30AWG wire, with 44±1mm free insulation between housing exits. No inline joints. The CAD shows both plugs, eight wires and eight separate continuous conductor/contact assemblies. Cable seating, contact detail and installed bends remain nominal engineering approximations requiring prototype fit. [Harness drawing](../manufacturing/WIRING.md).
 
 | Check | Result |
 |---|---|
-| TypeScript, netlist, schematic placement | Pass; unchanged firmware test/binary evidence retained |
-| Placement | Zero errors and warnings |
-| Exact supplier footprints | All 39 references /177 copper pads, shapes and drills verified |
-| Native routing | 122 traces /123 vias; zero native errors or warnings |
-| Gerber-derived shorts | None on either layer |
-| Independent KiCad 10.0.7 DRC | Zero violations and unconnected items; no per-violation exclusions |
-| Fabrication export | All 177 pads and drills match source; every native trace/via unchanged |
-| BOM/CPL | 23 fitted MPN lines, 39 complete /37 SMT top placements;177 physical pin coordinates |
-| Current public JLCPCB catalogue | All 23 exact identities purchasable with catalogue stock; not reserved |
-| Assembly CAD | 24 named mechanical parts, 39 fitted package models, six connected watertight product prints |
-| Mechanical audit | 190 solid pairs; zero unexpected intersections;14 views and six STL/GLB round trips |
+| TypeScript, netlist, schematic, placement | Pass; zero placement warnings |
+| Supplier footprints |39 references /179 copper pads, shapes and drills match exact imports |
+| Fresh native autorouting |124 traces /150 vias; zero native errors; 13 angle-style advisories |
+| Shorts from plotted copper |None on either layer |
+| Independent KiCad 10.0.7 DRC |Zero violations, zero unconnected items, no per-violation exclusions |
+| Fabrication export |All 179 pad envelopes/drills match; native routed copper geometry and every via unchanged |
+| BOM/CPL |23 fitted MPN lines;39 complete /38 SMT placements;179 physical pin coordinates |
+| Public JLCPCB catalogue |All 23 exact MPN/code lines purchasable with stock; not reserved |
+| Assembly |23 mechanical groups,39 fitted package models, six connected watertight prints |
+| CAD audit |171 solid pairs, zero unexpected intersections;14 views and six STL/GLB round trips |
+| Harness clearance |Ø0.8mm wire envelopes at 43/44/45mm free lengths; screen rear electronics, PCB, packages, prints and swept rotor checked |
 
-The native auto_local Pipeline 7 router starts empty in both phases at 2× effort. Fourteen local MCU and two encoder-bypass connections precede the remaining 31 connections. Phase pad/trace and via/pad targets are0.20/0.30mm; actual copper must meet the independent JLCPCB minimum checks. The minimum actual track is **0.115710653mm**; the four explicitly requested MCU branches remain≥0.15mm. No custom solver, manual trace/via changes or saved paths are used.
+The whole board starts empty in one native beta_pipeline9 routing pass at 2× effort. All signal and power nets request 0.15mm tracks. All connections are routed together without preserved earlier-phase copper. Router targets are 0.20mm trace/pad,0.30mm via/pad,0.35mm hole clearance and 0.60mm board edge; final factory edge minimum remains 0.30mm. Minimum actual track is **0.150000000mm**; the four explicitly requested MCU bypass branches remain≥0.15mm. No manual copper, saved paths, patched solvers or supplier copper/drill edits. Overlapping capacitor body ink is omitted while preserving its lands. Any retained angle-style advisories recommend 45-degree geometry; they are not copper-clearance or manufacturing errors. Native warnings remain visible. Independent fabrication DRC and shorts checks must still pass. The full board was regenerated from empty after the final placements. MCU HF budgets are 4mm except C10 at 5mm; the separate C18 bulk-reservoir links use 10mm budgets. These are project engineering constraints, not manufacturer-certified lengths. See [budget rationale](../reference/DATASHEETS.md#e6-bypass-routing-budgets). A bottom-layer guard prevents through-via drilling in the USB ESD signal land; the window guard retains 0.35mm beyond the physical cutout. [Accepted routing log](logs/e11-native-build.txt).
 
-The initial connector-layout routes exposed sub0.10mm clearances and silkscreen issues in independent DRC. Labels use 1 mm text and a shorter row legend. The USB ESD device moved 0.5 mm left and 0.2mm down, and USB data nets use 0.15 mm nominal tracks, to change the native breakout. The full native route was regenerated. Only the accepted passing route is published. [Routing log](logs/e10-native-build.txt).
+Independent checks retain normal two-layer 1oz rules:≥0.10mm track/gap,≥0.15mm component-pad gaps,0.30/0.60mm vias and≥0.30mm copper-to-edge. USB slots remain0.60×1.50/1.60mm. No microvias or small-drill upgrade. Ground refill removed 0 isolated zones and changed no routed copper geometry. At KiCad’s 1nm resolution, only duplicate zero-length export segments already covered by an equal/wider same-net endpoint may be omitted; each is recorded in the fabrication report. Native circuit JSON is unchanged. [Rules](../reference/fabrication-rules.json).
 
-JLCPCB rules retain standard two-layer 1 oz FR-4, ≥0.10mm tracks/gaps, ≥0.15mm component-pad gaps, 0.30/0.60mm routing vias, ≥0.20mm NPTH-to-copper, ≥0.28mm component-drill-to-copper, ≥0.45mm component-drill spacing and≥0.30mm copper-to-edge. The exact XUNPU USB-C slots remain0.60×1.50/1.60mm, ratios2.5/2.667. No blind vias, microvias or small-drill upgrade. Independent finalization removed 0 electrically isolated GND zones and changed no native route. [Fabrication rules](../reference/fabrication-rules.json).
+J6 has ten unmodified SMT lands and no through-holes. Its original supplier STEP/OBJ are retained; the derivative applies only a rigid datum transform. J4 is now the only through-hole header. H1 socket and cable fit without increasing enclosure height. The official screen STEP and four supported rear bosses remain; both shared screws have open Ø2.2mm bores and 4mm driver access. A 2mm rear-component allowance covers electronics omitted from the supplier screen model. [CAD audit and limits](../mechanical/AUDIT.md).
 
-The new J6 footprint is retained byte-for-byte, includingØ1.1000232mm finished holes and approximatelyØ1.70mm annuli. The original unscaled supplier STEP/OBJ are retained; the assembly derivative changes only its datum and trims tails to≤0.8mm below the PCB. The body and mating posts are unscaled. Header model, female housings, wires and sleeve envelopes clear the stationary and swept moving parts. [Model provenance](../mechanical/vendor/README.md) · [Visual audit](../mechanical/AUDIT.md).
+Displayed public catalogue unit prices sum to approximately **$9.08 per fitted board**, excluding minimum/loss quantities, feeder/assembly/PCB charges, the H1 cable, shipping and India taxes. J6 shows 174,827 units and U1 shows 32. This is not a quote or reservation. [Dated evidence](../reference/jlcpcb-sourcing-2026-11-09.json).
 
-The E9 open carrier bores and 2mm screen rear-component reservation remain. Four real screen bosses have seats; both shared screws have open Ø2.2 mm clearance bores and 4mm driver access. The official screen STEP is unscaled. Its omitted electronics, exact kit mating, PLA strength/friction, bearing retention, button return/overtravel and optical opacity require physical prototype checks. USB plug clearance remains0.77mm nominal/0.31mm under the stated budget.
+**Current authenticated JLCPCB part/feeder/rotation and engineering DFM preview remain unverified.** Review the freshly exported matching files before paying. Electrical operation, crimped cable fit, printed strength/friction, bearing retention, button action and optical opacity remain first-prototype checks. Firmware/signals are unchanged; existing binary and software-test evidence is retained. [Bring-up](BRINGUP.md) · [Fit](../mechanical/FIT.md).
 
-Public initial catalogue unit prices total about **$9.85 per fitted board**, before minimum/loss quantities, feeder/assembly/PCB charges, shipping and India taxes. This is not a quote. J6 showed 58 units and U1 showed 32 in the [dated catalogue check](../reference/jlcpcb-sourcing-2026-11-09.json). Quantities are not allocated.
-
-**Current authenticated JLCPCB BOM match, feeder origins/rotations and engineering DFM preview remain unverified.** The browser tool could not perform a new authenticated upload. Review the exact exported files in JLCPCB before paying. No physical prototype is claimed. [Bring-up](BRINGUP.md) · [Fit checks](../mechanical/FIT.md).
-
-[Readiness fingerprints](readiness.json),[native routing](native-routing.json),[independent DRC](kicad-drc.json),[fabrication geometry](fabrication-check.json),[BOM/CPL checks](bom-cpl-check.json),[Gerber/drill inspection](manufacturing-inspection.json) and[mechanical checks](../mechanical/geometry-check.json) record the evidence. Older PCB-preservation reports are historical and do not validate E5.
+The repository is the deliverable. Manufacturing exports were temporary validation only; no permanent fabrication kit or order was created. [Fingerprints](readiness.json), [routing](native-routing.json), [independent DRC](kicad-drc.json), [fabrication geometry](fabrication-check.json), [BOM/CPL](bom-cpl-check.json), [Gerber/drills](manufacturing-inspection.json), [mechanics](../mechanical/geometry-check.json). Historical reports do not validate this revision.

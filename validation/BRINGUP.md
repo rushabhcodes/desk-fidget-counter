@@ -1,4 +1,4 @@
-# E5 PCB / E10 enclosure prototype bring-up
+# E6 PCB / E11 enclosure prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -35,10 +35,10 @@
 - [ ] Inspect every through-hole tail/joint: ≤0.8 mm below the PCB, deburred, clear of the base and covered by the specified insulating film only after electrical inspection. Check solder wells and actual top-side package heights.
 - [ ] Verify the six product prints and four screws: two M2×6 chassis screws, two shared M2×10 carrier/bezel screws. Check pilot threads, screw seating and engagement without using the glass as a stop. Fit all six PORON discs under the lid; check compression and PCB restraint.
 - [ ] Check the real screen's mounting bosses, tab, glass and connector against the carrier/bezel. The two shared supports must remain seated without bowing the module or pressing its active glass.
-- [ ] Verify the Waveshare 19192 kit includes its PH2.0 8-pin lead. Trial-route before cutting; retain the factory PH plug and all eight female jumper ends. Shorten the middle, solder and individually heat-shrink eight joints. Fit the female ends to populated J6 by signal. Meter every signal by label. Measure the actual wire OD, bend allowance, plug revision and termination strength against the accepted CAD approximations. Mate the display plug sideways before lowering the module; trial-fit the 25.6–27.9 mm illustrated free paths with practical slack. Lift carefully and disconnect before straining the lead.
+- [ ] Order H1 per WIRING.md: SHR-08V-S-B to PHR-8, eight qualified crimped30AWG wires,44±1mm free insulation between exits, circuit1→1 through8→8. Check actual plug fit/retention, crimps, wire OD, dressing and bends. Meter every signal and power/ground isolation. The kit jumper lead is unused. Mate sideways; disconnect before lifting the screen.
 - [ ] Check all wires remain stationary and clear of both posts, packages and the integral optical track throughout complete rotations. Test the 0.8 mm wall for 950 nm opacity and inspect all 48 slots for stringing. No separate skirt adhesive joint is used.
 - [ ] Test the printed cap in its guide: no rest preload, electrical closure before the 0.6 mm nominal stop, free release and repeated short/long presses. Its nominal 0.2 mm free play plus 0.4 mm switch travel are geometry checks only. Calibrate the boss against the actual switch and printer; verify safe overtravel and no housing contact before closing the prototype.
-- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported E5 rear tab. No underside driver windows are required in E10.
+- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported E6 rear tab. No underside driver windows are required in E11.
 - [ ] Verify the 0.8 mm bezel/grip running gap, full rotor swept volume, push-fit retention and optional feet. Check lid and grip support removal and fit-surface finish before assembly.
 - [ ] Have the fabricator review the ordinary two-layer rules, routed inner contour and documented J1 slot allowance. Confirm current stock and feeder origin/rotations against real pads and physical pin 1 in the final order preview.
 

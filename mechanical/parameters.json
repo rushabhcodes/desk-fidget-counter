@@ -57,11 +57,11 @@
   ],
   "programming_connector": [
     0,
-    20.5
+    20.8
   ],
   "display_connector": [
-    -20.35,
-    -3.5
+    -21.3,
+    -2
   ],
   "encoder": {
     "position": [
@@ -282,27 +282,20 @@
   "stock_display_cable": {
     "source": "https://www.waveshare.com/product/1.28inch-lcd-module.htm",
     "included": true,
-    "description": "PH2.0 8-pin to eight individual 2.54mm female jumper sockets, nominal 20cm",
-    "custom_harness_required": false,
-    "nominal_length_mm": 200,
-    "wire_od_check_mm": 1.5,
-    "jumper_housing_check_mm": [
-      2.54,
-      2.54,
-      14.5
-    ],
-    "dimensions_status": "PH2.0 8-pin /20cm lead confirmed by Waveshare. PH plug uses nominal PHR-8 envelope with estimated seating; individual female ends use nominal14.5x2.54x2.54mm envelopes. WireOD1.2mm rendered/1.5mm checked, sleeveOD2x6mm checked. Actual housing dimensions, engagement, bends and dressed slack require trial-fit; no supplier-qualified harness claim.",
-    "assembly": "Mate the original PH display plug sideways and the eight original female jumper ends to fitted J6. Trial-dress, shorten the middle, then solder and individually heat-shrink all eight inline joints. Both factory ends remain removable.",
-    "modeled_wire_od_mm": 1.2,
-    "dressing_bend_radius_mm": 3.0,
+    "used": false,
+    "description": "Original 20cm PH-to-eight-female-jumper lead retained as spare; H1 replaces it",
+    "custom_harness_required": true,
+    "modeled_wire_od_mm": 0.61,
+    "wire_od_check_mm": 0.8,
     "display_u_bend_radius_mm": 3.3,
-    "board_connection": "Fitted Wurth 61300821021 / C5517754 right-angle 2x4 male header; supplied individual 2.54mm female jumper ends retained",
-    "trim_instruction": "Shorten the middle of each lead, retain both factory connector ends, join by signal, and individually heat-shrink all eight inline joints after trial dressing. Do not cut to CAD path length without assembly slack.",
-    "modeled_free_wire_path_mm": "25.6\u201327.9 nominal, plus trial-fit assembly slack; not fixed cut lengths",
-    "splice_sleeve_outer_diameter_mm": 2,
-    "splice_sleeve_length_mm": 6
+    "wire": "TE/Raychem 55A0111-30-9, 30AWG stranded ETFE, nominal OD0.61mm",
+    "free_length_mm": 44,
+    "free_length_tolerance_mm": 1,
+    "assembly": "Order one crimped H1 SH8-to-PH8 harness from the drawing; no inline splices. Free length is insulation between rear housing exits, not raw wire cut length.",
+    "board_connection": "J6 JST SM08B-SRSS-TB(LF)(SN) / C160407",
+    "dimensions_status": "Named genuine mating housings and contacts; nominal engagement and static 3.3mm bend are engineering approximations. Actual harness fit and crimp quality require prototype verification."
   },
-  "mechanical_revision": "E10",
+  "mechanical_revision": "E11",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -357,7 +350,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E10",
+    "revision": "E11",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -408,13 +401,13 @@
     "carrier_rim_to_PCB_gap_mm": 0.2,
     "carrier_rear_profile_clearance_mm": 0.4
   },
-  "pcb_revision": "E5",
+  "pcb_revision": "E6",
   "display_board_header": {
-    "part": "61300821021",
-    "catalogue_id": "C5517754",
-    "rows": 2,
-    "columns": 4,
-    "pitch_mm": 2.54,
+    "part": "SM08B-SRSS-TB(LF)(SN)",
+    "catalogue_id": "C160407",
+    "rows": 1,
+    "columns": 8,
+    "pitch_mm": 1,
     "pcb_rotation_deg": 90,
     "pin_signals": [
       "BL",
@@ -426,15 +419,13 @@
       "GND",
       "VCC"
     ],
-    "pin_axis_above_pcb_mm": [
-      1.230006,
-      3.770006
-    ],
-    "body_front_local_y_mm": -5.2500031,
-    "female_housing_length_mm": 14.5,
-    "female_housing_section_mm": 2.54,
-    "female_entry_gap_mm": 0.2,
-    "female_housing_status": "Nominal envelope of supplied individual 2.54mm female jumper ends; verify actual kit dimensions",
-    "tail_trim_below_pcb_mm": 0.8
+    "mating_housing": "SHR-08V-S-B",
+    "mating_contact": "SSH-003T-P0.2-H",
+    "pin_axis_above_pcb_mm": 1.45,
+    "housing_depth_mm": 5,
+    "housing_width_mm": 11,
+    "housing_height_mm": 2.8,
+    "wire_exit_local_y_mm": -4.5717309,
+    "dimensions_status": "Housing overall dimensions from JST SH drawing; engagement datum and stepped nose are engineering approximations checked against unscaled supplier header STEP. Confirm actual mating fit."
   }
 }

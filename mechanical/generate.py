@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E10 reduced-height PLA assembly.
+"""SPDX-License-Identifier: MIT. Mechanics E11 reduced-height PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -244,7 +244,7 @@ rear_space-=box((10.6,20.6,rear_depth+2),(10.2,0,P['display']['pcb_bottom_z']-re
 for name,printed in [('base',base),('lid',lid),('carrier',cradle),('bezel',bezel)]:
  assert (rear_space^printed).volume()<1e-4,(name,'screen rear-component space obstructed')
 for name,mesh in clearance_harness.items():
- if name.startswith('lcd-wire-') or name in ['lcd-cable-board-plugs','lcd-cable-splice-sleeves']:assert (rear_space^from_mesh(mesh)).volume()<1e-4,(name,'screen rear-component space obstructed')
+ if name.startswith('lcd-wire-') or name in ['lcd-cable-board-sh-plug']:assert (rear_space^from_mesh(mesh)).volume()<1e-4,(name,'screen rear-component space obstructed')
 report['screen_fit']['rear_component_reservation']={'depth_mm':rear_depth,'carrier_profile_lateral_clearance_mm':support['carrier_rear_profile_clearance_mm'],'outline':'Cross-section of the original supplier PCB, including its tab','exclusions':'Existing four rear bosses, socket and estimated mated plug footprint','status':'Conservative engineering allowance; actual component heights and kit fit remain unmeasured'}
 (ROOT/'screen-fit.json').write_text(json.dumps(screen_report,indent=2)+'\n')
 # PCB material must not intersect either part nested through its window.
@@ -307,7 +307,7 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
  if not path.exists():raise AssertionError(('Missing real package mesh',filename))
  solid_path=ROOT/'vendor/solid'/filename.replace('.obj','.ply')
  # Preserve the button STEP's distinct coincident seam edges.
- mesh=trimesh.load(solid_path if solid_path.exists() else path,force='mesh',process=filename not in ['b3u3000.obj','header2x4-ra.obj'])
+ mesh=trimesh.load(solid_path if solid_path.exists() else path,force='mesh',process=filename not in ['b3u3000.obj','header2x4-ra.obj','jst-sh8.obj'])
  origin=cad.get('model_origin_position') or {'x':0,'y':0,'z':0}
  mesh.apply_translation([-origin.get(k,0) for k in ['x','y','z']])
  rotation=cad.get('rotation',{})
@@ -322,7 +322,7 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
  physical=m.Manifold.batch_boolean(solids,m.OpType.Add)
  package_bodies.append((filename,physical))
  for wn,wire_mesh in clearance_harness.items():
-  if wn.startswith('lcd-wire-') or wn in ['lcd-cable-board-plugs','lcd-cable-splice-sleeves']:assert (physical^from_mesh(wire_mesh)).volume()<1e-4,(filename,wn,'wire/package collision')
+  if wn.startswith('lcd-wire-') or wn in ['lcd-cable-board-sh-plug']:assert (physical^from_mesh(wire_mesh)).volume()<1e-4,(filename,wn,'wire/package collision')
  assert (physical^plug_gauge).volume()<1e-4,(filename,'USB plug approach/package collision')
  if filename==usb_access['model_filename']:
   assert abs(mesh.bounds[1,1]-usb_access['socket_face_y'])<.001,'USB socket must use its real CAD face datum'
@@ -340,7 +340,7 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
  package_checks+=1
 wire_solids=[]
 for name,mesh in clearance_harness.items():
- if not (name.startswith('lcd-wire-') or name in ['lcd-cable-board-plugs','lcd-cable-splice-sleeves']):continue
+ if not (name.startswith('lcd-wire-') or name in ['lcd-cable-board-sh-plug']):continue
  wire=from_mesh(mesh)
  for pn,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel),('PCB',pcb),('LCD module',lcd)]:
   assert (wire^printed).volume()<1e-4,(name,pn,'wire collision',(wire^printed).volume())
@@ -349,6 +349,20 @@ for name,mesh in clearance_harness.items():
 report['purchased_package_models_checked']=package_checks
 report['individual_wires_checked']=8
 report['removable_harness_nonmetal_groups_checked']=len(wire_solids)
+# Verify both free-length tolerance limits, not just the nominal dressed lead.
+for free_length in [43,45]:
+ variant,variant_report=build_harness(wire_od=P['stock_display_cable']['wire_od_check_mm'],free_length=free_length)
+ nonmetal=[]
+ for name,mesh in variant.items():
+  if not (name.startswith('lcd-wire-') or name=='lcd-cable-board-sh-plug'):continue
+  wire=from_mesh(mesh)
+  for label,other in [('base',base),('lid',lid),('carrier',cradle),('bezel',bezel),('PCB',pcb),('LCD',lcd),('rear electronics reservation',rear_space),*package_bodies,*moving]:
+   assert (wire^other).volume()<1e-4,(free_length,name,label,'harness tolerance collision',(wire^other).volume())
+  for label,other in nonmetal:assert (wire^other).volume()<1e-5,(free_length,name,label,'harness tolerance self collision')
+  nonmetal.append((name,wire));fixed_hardware.append((f'{name}-{free_length}mm',wire))
+ assert min(r['estimated_minimum_centerline_radius_mm'] for r in variant_report['connections'])>=3.29
+report['harness_free_lengths_checked_mm']=[43,44,45]
+
 from fit import evaluate as evaluate_fit
 fit_report=evaluate_fit(P)
 (ROOT/'fit-budget.json').write_text(json.dumps(fit_report,indent=2)+'\n')

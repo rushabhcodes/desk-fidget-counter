@@ -1,8 +1,8 @@
 {
-  "revision": "E10",
-  "model_sha256": "f8df3159653fb71cd613bb74e10633a8e1502b8bc3e2869e563baa39d8475817",
-  "source_parameters_sha256": "362affb12fc976e7f8a24cd69be802055f80f15bbd75837cbbc094f5cb218981",
-  "tested_solid_pair_count": 190,
+  "revision": "E11",
+  "model_sha256": "744e0f3be8d2942ad90f1b7413172fa12308e889a44452e71dc07d26eccb59b8",
+  "source_parameters_sha256": "293cd93c7391113170271879e289b3b29c42a77831716ce878b3928d30f4356d",
+  "tested_solid_pair_count": 171,
   "intentional_contacts": [
     {
       "parts": [
@@ -27,7 +27,7 @@
   "print_checks": {
     "base": {
       "connected_watertight": true,
-      "stl_sha256": "820b8d364797e15d1d2f782ddd13f7eef04e0ce6db968f543a5452a8fe7b770d",
+      "stl_sha256": "35c09c91b074725577c68735891914a49d1d465ef1c9d72a7fbc171630140670",
       "STL_to_GLB_max_vertex_error_mm": 0.0
     },
     "lid": {
@@ -75,8 +75,8 @@
   "rendered_internal_views": 6,
   "rendered_harness_views": 2,
   "images": {
-    "exterior-contact-sheet.png": "5c7e36b0dcae28789e15d77555cc0a8715f7322dcfc293f0674819a7c1645cf9",
-    "internal-contact-sheet.png": "cbac199a0a99367ee52654d620efbe86fb7e0820049c1e4acc61109d2722fd12",
-    "display-harness.png": "61eda60b017d72ebb79ec2b35bbf0378811b63223ea46ae68a5ea680139f6d6d"
+    "exterior-contact-sheet.png": "1dc5dd4334fd358167c802beaa4e962cbc24d67e4a38a07c51d32f53c772a50e",
+    "internal-contact-sheet.png": "0b758408a7949ab245ec49840edce3ac2dbe6081bb7f7c9538737c9eec56ae60",
+    "display-harness.png": "a75599feb047e4fd6b6d2b99390b6d480b2ff744c12200d58a6fb1577505a686"
   }
 }

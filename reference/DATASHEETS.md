@@ -1,6 +1,6 @@
 # Design evidence and verified package contracts
 
-Reviewed 2026-11-05. Pin numbers in the source are physical package numbers viewed from above. Supplier cache snapshots are saved separately; verify inventory when ordering.
+Reviewed 2026-11-09. Pin numbers in the source are physical package numbers viewed from above. Supplier cache snapshots are saved separately; verify inventory when ordering.
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -11,7 +11,7 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | TYPEC-309-ACP16L65 | [XUNPU drawing via LCSC C2909598](https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598) | Exact imported copper/drills; four 0.6×1.5/1.6 mm shield slots, two Ø0.65 mm locators at ±3 mm. All four VBUS/GND contacts and shell tabs connected; both orientations use A6/B6 D+, A7/B7 D− and separate 5.1 kΩ CC resistors; SBU unconnected. PCB origin (0,37.55), rotation 180°. Supplier CAD is rigidly aligned to its SMT seating plane: socket face Y42.1865, axis Z5.780, body height 3.161 mm versus 3.16 mm drawing. |
 | Bearing | [Zoty 6712 family](https://www.zotybearing.com/bearings/6700-Series-Ball-Bearings/Factory-direct-selling-thin-wall-ball-bearing-6712-6712RS-6712-2RSsize-60x75x7mm-bearing), [Maysme 6712](https://maysmeprecision.com/Show/?Cid=677) | 6712ZZ, 60 mm ID ×75 mm OD ×7 mm. Select metal shields; verify race contact widths and starting torque on the actual bearing. |
 
-## Rev E3 display, optical encoder and service connectors
+## Display, optical encoder and service connector contracts
 
 | Item | Primary reference | Contract used |
 |---|---|---|
@@ -20,16 +20,16 @@ Reviewed 2026-11-05. Pin numbers in the source are physical package numbers view
 | Optical geometry | Vishay drawing above; [ST RM0091](https://www.st.com/resource/en/reference_manual/dm00031936-stm32f0x1stm32f0x2stm32f0x8-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), TIM3 encoder mode | Sensor centred at (−23,+10), gap axis radial, rotation 156.501434°. Radius √629=25.0799 mm. 48 periods give 3.283 mm tangential pitch; 0.8 mm channel spacing gives approximately 87.7° phase. 48×4=192 edges/turn; 6 edges/wheel unit gives 32 units/turn. 950 nm opacity, alignment and contrast require actual tests. |
 | Waveshare 19192 | [Official resources](https://docs.waveshare.net/1.28inch_LCD_Module/Resources-And-Documents/), [schematic/dimensions](https://www.waveshare.net/w/upload/b/b4/1.28inch_LCD_Module_SchDoc.pdf), [GC9A01A](https://www.waveshare.net/w/upload/5/5e/GC9A01A.pdf) | Non-touch 1.28-inch module, 240×240, active Ø32.4 mm, circular PCB Ø37.5 mm with a 14.28 mm-wide tab giving 40.4 mm overall length. 3.3 V input and logic used, nominal published current 31.2 mA. Physical connector 1 BL, 2 RST, 3 DC, 4 CS, 5 CLK, 6 DIN, 7 GND, 8 VCC. Verify cable continuity. |
 | GC9A01 settings | [Waveshare official example archive](https://www.waveshare.net/w/upload/f/fc/LCD_Module_code.zip), RaspberryPi/c/lib/LCD/LCD_1in28.c, 2020-12-16 | `gc9a01-registers.inc` contains transcribed hardware register/value facts, including gamma/power settings. No vendor implementation or font code copied. Own SPI driver, nonblocking startup, original 5×7 glyphs and scanline renderer. RGB565, mode 0, 12 MHz; software CS on PA8, SCK/MOSI on PB13/PB15; MADCTL 0xA8 for the module's left-facing (-X) tab. Validate orientation/colours on hardware. |
-| JST PH6 programming | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) | J4 B6B-PH-K-S, top-entry: pin 1≈(−5,20.5), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. Exact JLCPCB C131342 import: six approximately Ø0.90 mm drills and Ø1.50 mm circular lands. The older Ø0.75 mm drill pattern belongs to the held fabrication files. Display termination J6 is described below; the former board PH8 header is removed. |
+| JST PH6 programming | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf) | J4 B6B-PH-K-S, top-entry: pin 1≈(−5,20.8), VREF/SWDIO/SWCLK/NRST/GND/BOOT0. Exact JLCPCB C131342 import: six approximately Ø0.90 mm drills and Ø1.50 mm circular lands. The older Ø0.75 mm drill pattern belongs to the held fabrication files. Display termination J6 is described below; the former board PH8 header is removed. |
 
-# Rev E3 USB-only supply and dashboard
+## USB-only supply and dashboard
 
 | Item | Primary source | Contract |
 |---|---|---|
 | TPS22919DCKR / U4 | [TI SLVSEN5B](https://www.ti.com/lit/ds/symlink/tps22919.pdf), DCK SC70-6 | 1 IN=3.3V, 2 GND, 3 ON=PB2, 4 NC, 5 QOD=VOUT, 6 VOUT=PERIPH_3V3; 1.6–5.5V input, 1.5A rating, controlled ramp; external 100k ON pulldown. Not the former BQ24074 footprint. |
 | USB cable | [L-com CAU4CC-40M-1M drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf) | Real 1m C-to-C data cable, 12.9×6.4mm nominal plug cross-section; its general .XX-inch tolerance is ±0.5 mm, so the approach gauge is 13.4×6.9 mm. USB2.0/5V use only. Insertion shoulder, tolerance and strain relief require actual fit verification. |
-| Programming harness contacts | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), pp.1–3 | PHR-6 service housing; SPH-004T-P0.5S accepts 32–28AWG, 0.5–0.9mm insulation. The supplied display cable keeps its original factory PH plug and contacts; no new display crimps are purchased. |
-| Screen 3D | [Waveshare original archive](https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip) | 0508.stp: 40.453106×37.5×9.2mm bounds. Rigid 180° Y rotation +Z17.75 aligns front Z20.9, carrier back Z17.3 and rear connector bottom Z11.7. No dimensional scaling. |
+| Programming harness contacts | [JST PH drawing](https://www.jst-mfg.com/product/pdf/eng/ePH.pdf), pp.1–3 | PHR-6 service housing; SPH-004T-P0.5S accepts 32–28AWG, 0.5–0.9mm insulation. H1 uses a new PHR-8 display plug with eight SPH-004T-P0.5S contacts; the supplied kit lead is unused. |
+| Screen 3D | [Waveshare original archive](https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip) | 0508.stp: 40.453106×37.5×9.2mm bounds. Rigid 180° Y rotation +Z14.95 aligns front Z18.1, carrier back Z14.5 and rear connector bottom Z8.9. No dimensional scaling. |
 | Host metrics | [psutil API](https://psutil.readthedocs.io/), [PySerial API](https://pyserial.readthedocs.io/en/latest/pyserial_api.html) | cpu_percent, virtual_memory.percent, sensors_battery; local datetime; USB CDC at 1Hz. Missing battery is -1, stale threshold 5s. Metrics are host-reported, not measured by the knob. |
 | Schematic review | [tscircuit handbook](https://github.com/tscircuit/handbook/blob/main/guides/preparing-for-design-review.md) | Descriptive sheet names, readable labels and chip-function/rating annotations using schematictext. |
 | USB low power | [ST RM0091](https://www.st.com/resource/en/reference_manual/DM00031936-.pdf), Stop-mode / USB suspend sections and interrupt vector table | USB wake-up is EXTI18 shared with USB IRQ31. Stop exit selects HSI8; firmware restores HSI48 before IRQ processing. TinyUSB's FSDEV driver enters USB FSUSP/LPMODE and clears them on resume. Measure current and wake/reset timing physically. |
@@ -42,7 +42,7 @@ The 48-slot ring and sensor locations remain unchanged. LCD carrier and cable ar
 
 ## Rev E3 component audit
 
-Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The revised board has 38 populated components and an optional DNP header footprint.
+Every one of the previous 45 populated references was reviewed; [component-audit.json](component-audit.json) records each decision. The initial E3 revision had 38 populated components and an optional DNP header footprint. Current E6 has 39 fitted components, including keyed JST-SH8 display socket J6; J4 is the only through-hole header.
 
 | Change | Reason |
 |---|---|
@@ -62,7 +62,7 @@ U4 and its local capacitors/pulldown remain necessary: the LDO cannot separately
 
 The board now puts SW1 at (0,−40.9), with the native actuator at Y−42.85 and axis Z4.8. Its original STEP gives a 1.7×1.0 mm actuator face; the front PCB tab and case relief remove the need for a plunger. The B3U datasheet's 0.10–0.40 mm pretravel is retained.
 
-The [Waveshare product package](https://www.waveshare.com/product/1.28inch-lcd-module.htm) includes a PH2.0 8-pin 20cm lead with eight individual female jumper ends. PCB E5 fits **Würth 61300821021 / C5517754**, a right-angle 2×4 male header with 2.54mm grid and 0.64mm square posts. [Manufacturer drawing](https://www.we-online.com/components/products/datasheet/61300821021.pdf). The exact imported footprint retains eight Ø1.1000232mm finished drills and approximately Ø1.70mm annuli; the manufacturer's recommended holes are Ø1.02±0.05mm. Both original cable ends remain. Shorten its middle, solder by signal and individually heat-shrink eight joints. [Current physical pin map](../manufacturing/WIRING.md). No replacement cable or crimp kit is needed. Stock housing, wire and bend dimensions remain explicit approximations requiring actual kit fit. Older solder-pad/DNP pin maps are historical and must not be used for E5.
+J6 is JST SM08B-SRSS-TB(LF)(SN)/C160407, eight circuits at 1mm pitch, side-entry SMT with two grounded anchors. [Official SH dimensions](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf). H1 uses SHR-08V-S-B/SSH-003T-P0.2-H at the board and PHR-8/SPH-004T-P0.5S at the display, joined by eight TE 55A0111-30-9 30AWG wires. The separately ordered crimped cable replaces the included Waveshare jumper lead. [Full circuit map and length definition](../manufacturing/WIRING.md). Historical two-row and DNP-J6 maps are obsolete.
 
 ## Mechanics E4 / v5.3.1 approximation basis
 
@@ -78,6 +78,10 @@ C6/C12/C18 now use **Samsung CL21A475KOFNNNE**, 4.7 µF, 16 V, ±10%, X5R, 0805.
 
 [Exact catalogue mappings](jlcpcb-parts.json) distinguish verified identities from unreserved stock. The exact Vishay U2 and JST J4 codes remain blank rather than using a similar component. [JLCPCB BOM](https://jlcpcb.com/help/article/bill-of-materials-for-pcb-assembly), [CPL](https://jlcpcb.com/help/article/pick-place-file-for-pcb-assembly) and [orientation guidance](https://jlcpcb.com/help/article/pcb-assembly-faqs-part-2) define the upload format and final preview review. [JLC3DP standard FDM tolerances](https://jlc3dp.com/help/article/3d-printing-design-guideline) are looser than the project’s calibrated fit targets; generic printing is not fit-qualified.
 
-## Live JLCPCB sourcing — 6 November 2026
+## Historical JLCPCB upload — 6 November 2026
 
 The signed-in upload matched 22 BOM lines / 38 top placements for two assembled boards. Genuine JST B6B-PH-K-S(LF)(SN) is C131342. U2 uses stocked pre-PCN **TCUT1600X01 / C511085** for this prototype; current **TCUT1600X01_A / C24626661** showed zero JLC stock. [Vishay PCN-OPT-1311-2024](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/PCN-OPT-1311-2024-REV-0.pdf) changes the phototransistor wafer diameter and explicitly retains characteristics, fit, form and function. This is a wafer revision, not a packaging suffix. The legacy order code is not recommended for a new long-term supply chain; the current _A revision is the documented alternative when stocked. Both use the same physical model, pin functions and land pattern. Application testing remains required.
+
+## E6 bypass routing budgets
+
+The design uses project routing budgets, separate from JLCPCB manufacturing limits. The primary high-frequency MCU branches retain 4 mm limits except C10's I/O-domain branch at 5 mm. C10 is physically about 1.60 mm from VDDIO2; its accepted native route must remain below 5 mm. C18 is a separate 4.7 µF local reservoir, whose supply and return links use explicit 10 mm budgets rather than inheriting C10's high-frequency limit. Ground pours exist on both layers. These numerical budgets are engineering choices, not manufacturer-certified lengths or measured power-integrity results. First-prototype supply noise and USB/encoder operation remain bring-up checks. [ST power-supply guidance](https://wiki.st.com/stm32mcu/wiki/Basics_of_power_supply_design_for_MCU) describes local high-frequency capacitors and additional bulk capacitance.

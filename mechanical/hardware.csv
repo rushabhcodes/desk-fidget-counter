@@ -1,12 +1,12 @@
 Item,Quantity,Part or standard,Nominal dimensions,Notes
-Screen and supplied lead,1,Waveshare 19192,40.453106 x37.5 x9.2mm supplier STEP,Retain original PH plug and eight female jumper ends; shorten middle; eight insulated solder joints
+Screen,1,Waveshare 19192,40.453106 x37.5 x9.2mm supplier STEP,Original supplied jumper lead unused; connect H1
+Display harness H1,1,JST SHR-08V-S-B to PHR-8,8x44+/-1mm free insulation;30AWG TE55A0111-30-9,Order assembled crimped;8 SSH-003T-P0.2-H and8 SPH-004T-P0.5S; see WIRING.md
 Bearing,1,6712ZZ,60 ID x75 OD x7mm,One complete purchased bearing; verify fits with coupon
 Short screws,2,DIN965 M2x6,Head diameter3.8mm xheight1.2mm,Base/lid
 Shared screen screws,2,DIN965 M2x10,Head diameter3.8mm xheight1.2mm,Carrier/bezel shared pair
 PCB capture foam,1,PORON 4701-30-20062-04,1.57mm nominal thickness;20x20mm sample,Cut four diameter4mm and two diameter2.6mm discs
 Pad adhesive,1,3M 467MP,0.05mm nominal thickness,Six capture pads only
 Insulation,1,3M 5413 polyimide tape,0.069mm nominal thickness,Inspected underside solder wells; tails <=0.8mm
-Splice insulation,8,Heat-shrink sleeves,Finished envelope diameter2 x6mm,Select for actual wire; one sleeve per individual cable joint
 USB cable,1,USB2.0 data cable with USB-C device end,Plug approach gauge13.4 x6.9mm,Reuse suitable cable; verify actual full insertion
 Programming lead,1,JST PHR-6 service lead,2mm PH; about150mm external,Optional reusable service accessory; removed before closure; five qualified contacts plus optionalBOOT0
 Programmer,1,Compatible STM32 SWD probe,VTref sense; USB target power,Reusable service tool
