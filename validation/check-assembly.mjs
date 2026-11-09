@@ -7,6 +7,9 @@ const read = path => JSON.parse(fs.readFileSync(path, 'utf8'))
 const board = read('dist/index/circuit.json')
 const assembled = read('dist/assembly/circuit.json')
 const parts = read('mechanical/cad/parts.json')
+for (const name of ['button-return-pads','button-return-adhesive']) {
+  assert(parts.some(p=>p.name===name),`Missing button return material ${name}`)
+}
 assert.deepEqual(parts.filter(p=>p.name==='bearing'||p.name.startsWith('bearing-')).map(p=>p.name),['bearing'],'The complete bearing must have one visibility control')
 for(const removed of ['button-plunger','lcd-cable-board-plug','outer-retainer','inner-retainer','bearing-clamp','encoder-skirt','encoder-adhesive'])assert(!parts.some(p=>p.name===removed),`${removed} must not appear in the current assembly`)
 assert.equal(read('tscircuit.config.json').mainEntrypoint, 'assembly.circuit.tsx')

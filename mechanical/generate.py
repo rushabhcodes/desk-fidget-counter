@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E11 reduced-height PLA assembly.
+"""SPDX-License-Identifier: MIT. Mechanics E12 reduced-height PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -74,6 +74,8 @@ base-=(front_pocket^box((24,16,3),(0,-40,3.5)))
 base-=box((11,12,1.8),(0,-42.5,3.5))
 # Support the switch tab directly underneath the solder-free PCB underside.
 base+=box((9,6,.6),(0,-38.6,2.3))
+# Recess the ears inside the circular wall; retain the narrower outer opening.
+base-=box((20.8,5.2,2.4),(0,-36.8,6.8))
 from button import build as build_button
 button_surround,button_roof,button_cap=build_button(P)
 base+=button_surround-front_pocket
@@ -91,7 +93,7 @@ lid-=ring(30.2,29.7,.6,bearing_top-.6)-m.Manifold.cylinder(.6,30,29.7,128).trans
 # The flush port keeps the plug body outside the lid; retain its full roof.
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 # Keep the existing fork clearance as the main lid plate moves down.
-lid-=box((14,4,1),(0,-38.3,7.1))
+lid-=box((24,8.2,2.2),(0,-38.4,6.9))
 # Recess only the real USB package envelope, with 0.2mm assembly allowance.
 cad_usb=next(c for c in cj if c['type']=='cad_component' and usb_access['model_filename'] in c.get('model_obj_url',''))
 usb_mesh=trimesh.load(ROOT/'vendor/solid'/usb_access['solid_filename'],force='mesh')
@@ -185,8 +187,13 @@ for name,pocket_delta,stem_delta in [('fit-coupon-tight',-.1,.1),('fit-coupon',0
 (ROOT/'fit-coupons.json').write_text(json.dumps(coupons,indent=2)+'\n')
 (ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
 for name,s in parts.items():
- invert=name in ['knob','screen-bezel','button-cap'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
- printed=s.rotate((180,0,0)).translate((0,0,z)) if invert else s.translate((0,0,-z))
+ if name=='button-cap':
+  rotation=[90,0,0];rotated=s.rotate(rotation);translation=[0,0,-rotated.bounding_box()[2]]
+  printed=rotated.translate(translation);poses[name]={'rotation_deg':rotation,'translation_mm':translation}
+ else:
+  invert=name in ['knob','screen-bezel'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
+  printed=s.rotate((180,0,0)).translate((0,0,z)) if invert else s.translate((0,0,-z))
+  poses[name]={'inverted':invert,'z':z}
  a=printed.to_mesh64();mesh=trimesh.Trimesh(np.asarray(a.vert_properties)[:,:3],np.asarray(a.tri_verts),process=True)
  assert mesh.is_watertight and mesh.volume>0,(name,'invalid solid')
  assert len(printed.decompose())==(2 if name.startswith('fit-coupon') else 1),(name,'disconnected print')
@@ -198,7 +205,7 @@ for name,s in parts.items():
  degenerate=~mesh.nondegenerate_faces(height=1e-8)
  removed=int(degenerate.sum());mesh.update_faces(~degenerate);mesh.remove_unreferenced_vertices()
  assert mesh.is_watertight,(name,'STL quantization opened the mesh')
- path=ROOT/'stl'/f'{name}.stl';mesh.export(path);poses[name]={'inverted':invert,'z':z}
+ path=ROOT/'stl'/f'{name}.stl';mesh.export(path)
  reloaded=trimesh.load(path,force='mesh',process=True)
  assert reloaded.is_watertight and len(reloaded.split())==(2 if name.startswith('fit-coupon') else 1),(name,'exported STL invalid')
  report[name]={'watertight':True,'stl_roundtrip_watertight':True,'zero_area_triangles_collapsed_by_float32':removed,'volume_mm3':round(mesh.volume,2),'bounds_mm':mesh.bounds.round(3).tolist()}
@@ -275,7 +282,8 @@ assert (pcb^lcd).volume()<1e-4
 # A 12mm fingertip can depress the broad cap all the way to its nominal stop.
 button_design=button['printed_cap']
 finger_radius=button['finger_check_radius_mm'];pressed_face=button_design['face_front_y']+button_design['nominal_max_travel_mm']
-finger=m.Manifold.sphere(finger_radius,96).translate((0,pressed_face-finger_radius,button_z))
+finger=m.Manifold.sphere(finger_radius,96).translate((0,pressed_face-finger_radius,button_design['press_center_z_mm']))
+assert finger.bounding_box()[2]>0,'The fingertip must clear the desk plane'
 for label,part in [('base',base),('lid',lid),('PCB',pcb),*moving]:
  assert (finger^part).volume()<1e-4,(label,'direct finger access collision',(finger^part).volume())
 actuator_region=box((2.0,.8,1.2),(0,button['actuator_front_y']+.35,button_z))
@@ -408,6 +416,7 @@ for dx in [-xy,xy]:
  for zshift in [-dz,dz]:
   shift=(dx,xy+P['fit_budget']['printed_surface_error'],zshift)
   f=finger.translate(shift)
+  assert f.bounding_box()[2]>0,'The fingertip must clear the desk at the tested height limit'
   for name,s in [('base',base),('lid',lid),('PCB',pcb.translate(shift)),*print_probes]:
    assert (f^s).volume()<1e-4,(name,'button access at tolerance limit',(f^s).volume())
   for name,s in package_bodies:
@@ -433,6 +442,35 @@ assert (button_cap.translate((0,button_design['nominal_max_travel_mm']+.05,0))^b
 report['printed_button']={**button_design,'checked_travel_poses':button_checks,'nominal_switch_travel_at_stop_mm':round(available,3),'checks':'Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified.'}
 report['printed_button']['fixed_guide_within_circular_wall']=True
 report['printed_button']['fixed_guide_max_radius_mm']=outer-.2
+from button import return_pad_solids, return_budget
+return_checks=0
+for travel in np.linspace(0,button_design['nominal_max_travel_mm'],13):
+ foam,bonds=return_pad_solids(P,float(travel))
+ pressed=button_cap.translate((0,float(travel),0))
+ for pad_name,pad_solid in [('foam',foam),('adhesive',bonds)]:
+  for name,fixed in [('base',base),('lid',lid),('PCB',pcb),('LCD',lcd),('paddle',pressed),*package_bodies,*moving]:
+   assert (pad_solid^fixed).volume()<1e-4,(pad_name,name,'button return-pad collision',travel)
+ return_checks+=1
+assert (button_cap.translate((0,-.05,0))^base).volume()>.01,'Outward ear stops must retain the paddle'
+assert (button_cap.translate((0,0,.45))^lid).volume()>.01,'Lid roof must capture the raised paddle'
+report['printed_button']['return_pads']={**button['return_pads'],**return_budget(P),'checked_travel_poses':return_checks}
+skew_checks=0
+for travel in [.1,.3,.5]:
+ for dx in [-.1,.1]:
+  for offset_z in [-.1,.1]:
+   for angle in [-.4,.4]:
+    probe=button_cap.translate((0,40.3,0)).rotate((0,0,angle)).translate((dx,-40.3+travel,offset_z))
+    for name,fixed in [('base',base),('lid',lid),('PCB',pcb),('LCD',lcd),*moving]:
+     assert (probe^fixed).volume()<1e-4,(name,'mid-stroke paddle skew collision',travel,dx,offset_z,angle)
+    for name,physical in package_bodies:
+     if name=='b3u3000.obj':physical-=box((2,1.0,1.4),(0,-42.66,button_z))
+     assert (probe^physical).volume()<1e-4,(name,'paddle skew/package collision',travel,dx,offset_z,angle)
+    skew_checks+=1
+report['printed_button']['midstroke_skew']={'checked_poses':skew_checks,'lateral_shift_mm':.1,'vertical_shift_mm':.1,'yaw_degrees':.4,'stroke_positions_mm':[.1,.3,.5],'scope':'Small off-axis geometry probes, not a complete tolerance or actuation-force model'}
+report['printed_button']['roof_to_bearing_nominal_vertical_gap_mm']=round(bt-button_roof.bounding_box()[5],3)
+report['printed_button']['fingertip_desk_clearance_mm']=round(button_design['press_center_z_mm']-finger_radius,3)
+report['printed_button']['fingertip_desk_clearance_at_tested_height_limit_mm']=round(button_design['press_center_z_mm']-finger_radius-dz,3)
+report['printed_button']['checks']='13 cap and return-pad poses; fixed packages/PCB, full rotor sweep, rigid inward/outward stops and lid capture. Physical force, friction, switch overtravel and life remain prototype checks.'
 report['front_button']=P['front_button']
 report['direct_finger_access_checked']=True
 report['separate_button_plunger']=True

@@ -3,7 +3,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 4,
-    "volume_mm3": 16400.23,
+    "volume_mm3": 16445.36,
     "bounds_mm": [
       [
         -42.4,
@@ -21,7 +21,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 8236.32,
+    "volume_mm3": 8138.82,
     "bounds_mm": [
       [
         -42.05,
@@ -93,17 +93,17 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 48.22,
+    "volume_mm3": 131.09,
     "bounds_mm": [
       [
-        -5.3,
-        38.2,
+        -10.0,
+        -9.0,
         0.0
       ],
       [
-        5.3,
-        44.2,
-        4.4
+        10.0,
+        -2.4,
+        6.0
       ]
     ]
   },
@@ -270,7 +270,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E11",
+    "revision": "E12",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -297,20 +297,79 @@
   "button_tolerance_access_checks": 4,
   "printed_button": {
     "part": "button-cap",
-    "face_width_mm": 8,
-    "face_height_mm": 4,
+    "face_width_mm": 14,
+    "face_height_mm": 6.6,
     "face_front_y": -44.2,
     "rest_tip_y": -43.05,
     "nominal_rest_gap_mm": 0.2,
     "nominal_max_travel_mm": 0.6,
     "minimum_slide_clearance_mm": 0.4,
-    "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
-    "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required.",
+    "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+    "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+    "face_center_z_mm": 5.7,
+    "face_thickness_mm": 1.0,
+    "face_corner_radius_mm": 1.2,
+    "thumb_dish_depth_mm": 0.2,
+    "rail_centers_x_mm": [
+      -5.2,
+      5.2
+    ],
+    "rail_width_mm": 2.0,
+    "rail_top_z_mm": 7.6,
+    "rail_height_mm": 1.6,
+    "rail_front_y_mm": -43.3,
+    "rail_rear_y_mm": -38.2,
+    "ear_center_y_mm": -38.6,
+    "ear_depth_mm": 0.8,
+    "ear_inner_x_mm": 4.2,
+    "ear_outer_x_mm": 10.0,
+    "press_center_z_mm": 6.4,
     "checked_travel_poses": 13,
     "nominal_switch_travel_at_stop_mm": 0.4,
-    "checks": "Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified.",
+    "checks": "13 cap and return-pad poses; fixed packages/PCB, full rotor sweep, rigid inward/outward stops and lid capture. Physical force, friction, switch overtravel and life remain prototype checks.",
     "fixed_guide_within_circular_wall": true,
-    "fixed_guide_max_radius_mm": 42.199999999999996
+    "fixed_guide_max_radius_mm": 42.199999999999996,
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -35.45,
+      "basis": "Thickness +/-10%, cavity +/-0.1mm and combined adhesive +/-0.02mm. Compression criterion is an engineering choice, not force/life certification.",
+      "minimum_rest_precompression_mm": 0.056,
+      "nominal_rest_compression_percent": 15.605,
+      "nominal_pressed_compression_percent": 34.713,
+      "maximum_tolerance_compression_percent": 44.123,
+      "physical_return_force_and_life_verified": false,
+      "checked_travel_poses": 13
+    },
+    "midstroke_skew": {
+      "checked_poses": 24,
+      "lateral_shift_mm": 0.1,
+      "vertical_shift_mm": 0.1,
+      "yaw_degrees": 0.4,
+      "stroke_positions_mm": [
+        0.1,
+        0.3,
+        0.5
+      ],
+      "scope": "Small off-axis geometry probes, not a complete tolerance or actuation-force model"
+    },
+    "roof_to_bearing_nominal_vertical_gap_mm": 0.4,
+    "fingertip_desk_clearance_mm": 0.4,
+    "fingertip_desk_clearance_at_tested_height_limit_mm": 0.14
   },
   "front_button": {
     "part": "Omron B3U-3000P",
@@ -327,22 +386,60 @@
       "max": 0.4
     },
     "direct_actuation": false,
-    "opening_width_mm": 8,
-    "opening_bottom_z": 2.8,
-    "opening_top_z": 7.6,
+    "opening_width_mm": 13.2,
+    "opening_bottom_z": 3.6,
+    "opening_top_z": 8.0,
     "finger_check_radius_mm": 6,
-    "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
+    "fit_status": "B3U-3000P under a broad rounded captive paddle; twin guides, positive stops and two stacked-PORON return pads. Verify electrical closure, free return and switch overtravel on the prototype.",
     "printed_cap": {
       "part": "button-cap",
-      "face_width_mm": 8,
-      "face_height_mm": 4,
+      "face_width_mm": 14,
+      "face_height_mm": 6.6,
       "face_front_y": -44.2,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
-      "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
-      "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
+      "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+      "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+      "face_center_z_mm": 5.7,
+      "face_thickness_mm": 1.0,
+      "face_corner_radius_mm": 1.2,
+      "thumb_dish_depth_mm": 0.2,
+      "rail_centers_x_mm": [
+        -5.2,
+        5.2
+      ],
+      "rail_width_mm": 2.0,
+      "rail_top_z_mm": 7.6,
+      "rail_height_mm": 1.6,
+      "rail_front_y_mm": -43.3,
+      "rail_rear_y_mm": -38.2,
+      "ear_center_y_mm": -38.6,
+      "ear_depth_mm": 0.8,
+      "ear_inner_x_mm": 4.2,
+      "ear_outer_x_mm": 10.0,
+      "press_center_z_mm": 6.4
+    },
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -35.45,
+      "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
     }
   },
   "direct_finger_access_checked": true,

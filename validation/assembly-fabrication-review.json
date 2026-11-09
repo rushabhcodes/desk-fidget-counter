@@ -1,0 +1,237 @@
+{
+  "reviewed_date": "2026-11-09",
+  "pcb_revision": "E6",
+  "mechanical_revision": "E12",
+  "status": "Local schematic, fabrication and assembly checks pass for first-prototype manufacture. Current factory part/feeder/rotation/DFM approval and physical bring-up remain.",
+  "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
+  "source_board_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
+  "fabrication_rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
+  "independent_drc": {
+    "kicad_version": "10.0.7",
+    "violations": 0,
+    "unconnected_items": 0,
+    "per_violation_exclusions": 0
+  },
+  "fab_geometry": {
+    "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
+    "rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
+    "verified_physical_pads": 179,
+    "pad_centres_envelopes_and_drills_preserved": true,
+    "native_traces_and_vias_unchanged": true,
+    "quantized_duplicate_zero_length_export_segments_omitted": [
+      {
+        "net": "NRST",
+        "layer": "B.Cu",
+        "position_nm": [
+          128228380,
+          86448458
+        ],
+        "width_nm": 150000,
+        "reason": "Adjacent native points quantized to the same 1nm coordinate; redundant copper disk covered by another same-net endpoint"
+      }
+    ],
+    "DRC_violations": 0,
+    "unconnected_items": 0,
+    "per_violation_exclusions": 0,
+    "removed_isolated_ground_zones": 0
+  },
+  "gerber_and_drills": {
+    "parser": "gerbonara 1.5.0",
+    "source_drill_centres_tools_and_slot_lengths_checked": 166,
+    "excellon_precision_mm": 0.001,
+    "maximum_coordinate_rounding_mm": 0.0005,
+    "graphical_layers": [
+      "bottom copper",
+      "bottom mask",
+      "bottom paste",
+      "bottom silk",
+      "mechanical outline",
+      "top copper",
+      "top mask",
+      "top paste",
+      "top silk"
+    ],
+    "outline_centerline_mm": [
+      68,
+      83.5
+    ],
+    "outline_segments": 130,
+    "closed_edge_contours": 2,
+    "internal_window_area_mm2": 1401.24578,
+    "plated_round_drills": 156,
+    "plated_slots": 4,
+    "npth_diameters_and_counts": {
+      "0.65": 2,
+      "2.7": 4
+    },
+    "JST_0.90mm_drills": 6,
+    "display_plated_drills": 0,
+    "source_vias": 150,
+    "source_plated_holes": 10,
+    "BOM_rows": 39,
+    "populated_placements": 39,
+    "parser_note": "KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped."
+  },
+  "bom_cpl": {
+    "release": "5.11.0",
+    "pcb_revision": "E6",
+    "mechanical_revision": "E12",
+    "complete_placements": 39,
+    "smt_only_placements": 38,
+    "DNP": [],
+    "physical_pins": 179,
+    "all_components_top": true,
+    "bom_cpl_reference_sets_match": true,
+    "native_placement_coordinates_preserved": true,
+    "native_placement_rotations_preserved": true,
+    "rotation_convention": "KiCad placement degrees normalized to [0,360); positive CCW. Feeder zero/origin must be checked in JLCPCB preview against the physical-pin map.",
+    "sourcing_attention": [],
+    "stock": "Not reserved or checkout-verified; match exact manufacturer and MPN before payment.",
+    "input_hashes": {
+      "temporary/BOM.csv": "7e75946202dddc5a69765adc65b4765c065ee4befd22289ca1a10927f99179e1",
+      "temporary/pick-and-place.csv": "7d8e40f5faee8dc7197892aa6a10a4ee697fbfd81b612dc7debfb1edb70c8f64",
+      "dist/index/circuit.json": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
+      "reference/jlcpcb-parts.json": "8ac0fd9787f504b95666d6cfee90dda929e5179dbd667366a1bce9fbc3cadc51"
+    },
+    "output_hashes": {
+      "BOM-complete.csv": "68983b6cac220912f6cc63a4e9bd076cddfa7cff4850a28290c11bf17c31584c",
+      "BOM-smt.csv": "df627330595c52f6aaa2baeafd232a6a2aa608d84fe6edbc455c2e4c6494efbe",
+      "CPL-complete.csv": "89fa44b500abf0355b6a032839104c8d8bed3cce30565890af355b49b49ba7db",
+      "CPL-smt.csv": "7568779646333a5aacac7fa43847c2190cf3dc4e0207922d85499ecd3e8fbd24",
+      "physical-pin-map.csv": "9abd7885ce86e87ab99acafcac43bd9f6d350f2f28bf1f43ba0eee5ed41e37fb"
+    },
+    "supplier_upload": "No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files."
+  },
+  "annular_ring_check": {
+    "checked_component_plated_pads": [
+      {
+        "reference": "J4",
+        "pin": "1",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J4",
+        "pin": "2",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J4",
+        "pin": "3",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J4",
+        "pin": "4",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J4",
+        "pin": "5",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J4",
+        "pin": "6",
+        "minimum_annulus_mm": 0.299986
+      },
+      {
+        "reference": "J1",
+        "pin": "25",
+        "minimum_annulus_mm": 0.199999
+      },
+      {
+        "reference": "J1",
+        "pin": "26",
+        "minimum_annulus_mm": 0.199999
+      },
+      {
+        "reference": "J1",
+        "pin": "27",
+        "minimum_annulus_mm": 0.199999
+      },
+      {
+        "reference": "J1",
+        "pin": "28",
+        "minimum_annulus_mm": 0.199999
+      }
+    ],
+    "minimum_routing_via_annulus_mm": 0.15,
+    "component_pad_minimum_jlcpcb_absolute_requirement_mm": 0.18,
+    "status": "pass",
+    "source": "https://jlcpcb.com/capabilities/pcb-capabilities/"
+  },
+  "sourcing": {
+    "exact_mpn_lines": 23,
+    "all_exact_identities_match": true,
+    "all_publicly_purchasable": true,
+    "catalogue_quantities_cover_two_nominal_boards": true,
+    "stock_reserved": false,
+    "evidence": "manufacturing/current/checks/public-sourcing.json"
+  },
+  "passed_checks": [
+    "typecheck",
+    "netlist",
+    "schematic-placement",
+    "placement (zero warnings)",
+    "design-contract",
+    "exact-supplier-footprints",
+    "plotted-copper-shorts",
+    "assembly-CAD-identity",
+    "independent-KiCad-DRC",
+    "native-trace-and-via-preservation",
+    "pad-envelope-and-drill-preservation",
+    "Gerber-Excellon-independent-parser",
+    "component-PTH-annuli",
+    "BOM-CPL-population-coordinates-rotations",
+    "current-public-MPN-code-stock",
+    "firmware-and-companion-tests",
+    "linked-firmware-image (--nm nm)"
+  ],
+  "electrical_review": [
+    {
+      "area": "USB and MCU supply",
+      "result": "5V input to 3.3V LDO; all MCU supply/ground pins, local analog/digital/I/O bypassing, independent CC pulldowns and both USB orientations checked. Internal MCU USB pull-up/termination agree with ST DS9826.",
+      "primary_source": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf"
+    },
+    {
+      "area": "Power regulation and peripheral switching",
+      "result": "TLV75533PDBVR DBV pin map, input/output ceramics, enable tie, TPS22919 IN/OUT/ON/QOD map and default-OFF control checked.",
+      "primary_sources": [
+        "https://www.ti.com/lit/ds/symlink/tlv755p.pdf",
+        "https://www.ti.com/lit/ds/symlink/tps22919.pdf"
+      ]
+    },
+    {
+      "area": "FRAM and optical encoder",
+      "result": "FRAM address/write-protect, I2C pullups, sensor A/K/collector/emitter mapping, IR resistor and 3.3V Schmitt buffer pin map checked. Actual optical contrast/timing require prototype tests.",
+      "primary_sources": [
+        "https://www.ramxeed.com/assets/images/products/datasheet/FeRAM/i3/MB85RC256V-DS11v1-E.pdf",
+        "https://www.vishay.com/docs/84174/tcut1600x01.pdf",
+        "https://www.ti.com/lit/ds/symlink/sn74lvc2g17.pdf"
+      ]
+    },
+    {
+      "area": "Programming, display and button",
+      "result": "J4 SWD/VTref/reset/BOOT0 map, J6 eight-signal H1 map and grounded anchors, PA0 switch pullup and firmware GPIO assignments checked. Waveshare drawing confirms transistor-controlled BL and the connector signal order.",
+      "primary_sources": [
+        "https://www.waveshare.net/w/upload/b/b4/1.28inch_LCD_Module_SchDoc.pdf",
+        "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf"
+      ]
+    }
+  ],
+  "remaining_factory_review": [
+    "Upload the matching Gerbers-E6.zip plus one matched BOM/CPL pair",
+    "Confirm exact MPN matches, feeder pickup origin, every asymmetric-part rotation and pin 1",
+    "Confirm engineering DFM and assembly support/panel rails for the irregular outline and inner window; keep the finished unit outline unchanged",
+    "For complete assembly confirm through-hole J4 service; for SMT-only fit J4 locally; trim J4 tails/joints to <=0.8mm before enclosure assembly",
+    "Confirm final stock allocation, attrition/minimum purchasing quantities and quote"
+  ],
+  "physical_checks": [
+    "First-power current, 3.3V stability, inrush, regulator temperature and USB enumeration/suspend/signals",
+    "Encoder contrast/phase, display operation, FRAM retention and button closure/return/overtravel",
+    "Crimped H1 mating, continuity and installed fit"
+  ],
+  "manufacturing_package": "release/desk-knob-e6-e12-fabrication.zip",
+  "order_or_upload_performed": false,
+  "release_version": "5.11.0"
+}

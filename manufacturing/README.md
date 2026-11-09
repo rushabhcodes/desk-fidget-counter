@@ -1,6 +1,6 @@
-# Manufacturing source / PCB E6, mechanics E11
+# Manufacturing source / PCB E6, mechanics E12
 
-This repository contains the design and its verification record. **No new fabrication kit or release archive is prepared.** Export/download the fabrication files yourself from this validated source when you are ready. Project source is published separately to GitHub and TSCircuit; ordering remains yours to perform.
+The [current verified fabrication/assembly package](../release/desk-knob-e6-e12-fabrication.zip) contains the matching PCB E6 files for enclosure E12. The [upload guide](current/README.md) identifies the Gerber ZIP and the 39-part complete or 38-part SMT BOM/CPL pair. Fresh independent DRC, Gerber/drill and assembly-file checks pass. No supplier upload or order has been made; final part/orientation and engineering DFM review remain with the factory.
 
 The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were removed from this working revision because they contain the undersized U3 FRAM footprint and outdated assembly angles. They remain in Git history and the held old release; do not order them or mix them with new exports. Current part identities and exact supplier footprints live in [the catalogue](../reference/jlcpcb-parts.json), [import provenance](../reference/jlcpcb-footprints.json) and `imports/jlc`.
 

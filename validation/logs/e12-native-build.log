@@ -1,0 +1,25 @@
+Building 1 file(s)...
+Building assembly.circuit.tsx...
+Generating circuit JSON...
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Circuit JSON written to dist/assembly/circuit.json
+.C12 > .pin2 to net.GND has a 7.09 mm segment on top at 240.93°, 15.93° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB14 to net.LCD_DC has a 13.06 mm segment on bottom at 251.65°, 18.35° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB13 to net.SPI_SCK has a 6.14 mm segment on top at 122.76°, 12.24° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA8 to net.LCD_CS has a 7.68 mm segment on bottom at 249.93°, 20.07° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA8 to net.LCD_CS has a 6.12 mm segment on top at 252.90°, 17.10° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB11 to net.LCD_BL has a 10.04 mm segment on top at 261.17°, 8.83° from the nearest allowed direction (270°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB10 to net.LCD_RST has a 15.28 mm segment on bottom at 243.16°, 18.16° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB7 to net.SDA has a 7.23 mm segment on bottom at 63.52°, 18.52° from the nearest allowed direction (45°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PB6 to net.SCL has a 8.10 mm segment on bottom at 64.08°, 19.08° from the nearest allowed direction (45°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA12 to net.USB_DP has a 5.33 mm segment on top at 103.32°, 13.32° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .PA11 to net.USB_DM has a 6.33 mm segment on bottom at 114.66°, 20.34° from the nearest allowed direction (135°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .NRST to net.NRST has a 7.98 mm segment on bottom at 70.80°, 19.20° from the nearest allowed direction (90°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+.U1 > .VDD1 to net.V3V3 has a 5.77 mm segment on bottom at 209.25°, 15.75° from the nearest allowed direction (225°). Prefer a multiple of 45° for segments longer than 5 mm (tolerance 4°).
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

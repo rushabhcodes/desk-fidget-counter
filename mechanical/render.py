@@ -127,15 +127,15 @@ render([.020,.055,.10],[0,.006,.039],ROOT/'button-internal.png',1400,900,model=c
 front_eye=[.006,.013,.13];front_target=[0,.005,.039]
 render(front_eye,front_target,ROOT/'button-access.png',1400,700,xmag=.018,ymag=.009)
 button_preview=Image.open(ROOT/'button-access.png').convert('RGB');draw=ImageDraw.Draw(button_preview)
-draw.text((35,25),'8 x 4 mm printed MODE button - captive in shell',(36,57,67),font=ImageFont.load_default(size=26))
+draw.text((35,25),'14 x 6.6 mm raised MODE paddle - guided, with foam return',(36,57,67),font=ImageFont.load_default(size=26))
 button_preview.save(ROOT/'button-access.png')
 if options.button_before:
  previous=trimesh.load(options.button_before,force='scene');temp=ROOT/'cad/.button-before.png'
  render(front_eye,front_target,temp,1400,700,model=previous,xmag=.018,ymag=.009)
  out=Image.new('RGB',(2800,810),(247,249,250));out.paste(Image.open(temp).convert('RGB'),(0,110));out.paste(Image.open(ROOT/'button-access.png').convert('RGB'),(1400,110))
  d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
- d.text((45,25),'Before: fixed housing outside the circle',(36,57,67),font=font)
- d.text((1445,25),'E9: guide and retaining stops inside the shell',(36,57,67),font=font)
- d.text((1445,70),'Only the moving face projects; existing PCB retained',(73,95,106),font=ImageFont.load_default(size=24))
+ d.text((45,25),'E11: 8 x 4 mm cap; switch-spring return',(36,57,67),font=font)
+ d.text((1445,25),'E12: 14 x 6.6 mm paddle; separate foam return',(36,57,67),font=font)
+ d.text((1445,70),'Same camera and scale; PCB and switch placement retained',(73,95,106),font=ImageFont.load_default(size=24))
  out.save(ROOT/'button-access-comparison.png');temp.unlink()
- print('Rendered external pod / internal guide comparison from real CAD')
+ print('Rendered E11/E12 button comparison from the actual assembly meshes')

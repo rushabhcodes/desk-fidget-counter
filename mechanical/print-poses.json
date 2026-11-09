@@ -20,8 +20,16 @@
     "z": 19.5
   },
   "button-cap": {
-    "inverted": true,
-    "z": 7.199999999999999
+    "rotation_deg": [
+      90,
+      0,
+      0
+    ],
+    "translation_mm": [
+      0,
+      0,
+      44.2
+    ]
   },
   "fit-coupon-tight": {
     "inverted": false,

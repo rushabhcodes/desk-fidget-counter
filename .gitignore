@@ -1,5 +1,5 @@
 node_modules/
-checks/
+/checks/
 __pycache__/
 *.pyc
 .DS_Store

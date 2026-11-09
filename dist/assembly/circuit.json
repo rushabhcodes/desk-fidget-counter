@@ -3788,96 +3788,110 @@
     "type": "source_component",
     "source_component_id": "source_component_48",
     "ftype": "subassembly",
+    "name": "button-return-pads",
+    "display_name": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md."
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_49",
+    "ftype": "subassembly",
+    "name": "button-return-adhesive",
+    "display_name": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md."
+  },
+  {
+    "type": "source_component",
+    "source_component_id": "source_component_50",
+    "ftype": "subassembly",
     "name": "screen-module",
     "display_name": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_49",
+    "source_component_id": "source_component_51",
     "ftype": "subassembly",
     "name": "lcd-cable-screen-plug",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_50",
+    "source_component_id": "source_component_52",
     "ftype": "subassembly",
     "name": "lcd-wire-bl",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_51",
+    "source_component_id": "source_component_53",
     "ftype": "subassembly",
     "name": "lcd-wire-rst",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_52",
+    "source_component_id": "source_component_54",
     "ftype": "subassembly",
     "name": "lcd-wire-dc",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_53",
+    "source_component_id": "source_component_55",
     "ftype": "subassembly",
     "name": "lcd-wire-cs",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_54",
+    "source_component_id": "source_component_56",
     "ftype": "subassembly",
     "name": "lcd-wire-clk",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_55",
+    "source_component_id": "source_component_57",
     "ftype": "subassembly",
     "name": "lcd-wire-din",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_56",
+    "source_component_id": "source_component_58",
     "ftype": "subassembly",
     "name": "lcd-wire-gnd",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_57",
+    "source_component_id": "source_component_59",
     "ftype": "subassembly",
     "name": "lcd-wire-vcc",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_58",
+    "source_component_id": "source_component_60",
     "ftype": "subassembly",
     "name": "lcd-cable-board-sh-plug",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_59",
+    "source_component_id": "source_component_61",
     "ftype": "subassembly",
     "name": "lcd-cable-contacts",
     "display_name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_60",
+    "source_component_id": "source_component_62",
     "ftype": "subassembly",
     "name": "screen-ui",
     "display_name": "Illustrative laptop clock, CPU, RAM, laptop battery and turns from the tested firmware renderer"
   },
   {
     "type": "source_component",
-    "source_component_id": "source_component_61",
+    "source_component_id": "source_component_63",
     "ftype": "subassembly",
     "name": "fasteners",
     "display_name": "Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted"
@@ -32072,7 +32086,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_48",
-    "model_obj_url": "./mechanical/cad/screen-module.obj",
+    "model_obj_url": "./mechanical/cad/button-return-pads.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32098,7 +32112,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_49",
-    "model_obj_url": "./mechanical/cad/lcd-cable-screen-plug.obj",
+    "model_obj_url": "./mechanical/cad/button-return-adhesive.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32124,7 +32138,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_50",
-    "model_obj_url": "./mechanical/cad/lcd-wire-bl.obj",
+    "model_obj_url": "./mechanical/cad/screen-module.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32150,7 +32164,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_51",
-    "model_obj_url": "./mechanical/cad/lcd-wire-rst.obj",
+    "model_obj_url": "./mechanical/cad/lcd-cable-screen-plug.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32176,7 +32190,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_52",
-    "model_obj_url": "./mechanical/cad/lcd-wire-dc.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-bl.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32202,7 +32216,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_53",
-    "model_obj_url": "./mechanical/cad/lcd-wire-cs.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-rst.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32228,7 +32242,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_54",
-    "model_obj_url": "./mechanical/cad/lcd-wire-clk.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-dc.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32254,7 +32268,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_55",
-    "model_obj_url": "./mechanical/cad/lcd-wire-din.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-cs.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32280,7 +32294,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_56",
-    "model_obj_url": "./mechanical/cad/lcd-wire-gnd.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-clk.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32306,7 +32320,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_57",
-    "model_obj_url": "./mechanical/cad/lcd-wire-vcc.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-din.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32332,7 +32346,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_58",
-    "model_obj_url": "./mechanical/cad/lcd-cable-board-sh-plug.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-gnd.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32358,7 +32372,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_59",
-    "model_obj_url": "./mechanical/cad/lcd-cable-contacts.obj",
+    "model_obj_url": "./mechanical/cad/lcd-wire-vcc.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32384,7 +32398,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_60",
-    "model_obj_url": "./mechanical/cad/screen-ui.obj",
+    "model_obj_url": "./mechanical/cad/lcd-cable-board-sh-plug.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32410,7 +32424,7 @@
   {
     "type": "cad_component",
     "cad_component_id": "cad_component_61",
-    "model_obj_url": "./mechanical/cad/fasteners.obj",
+    "model_obj_url": "./mechanical/cad/lcd-cable-contacts.obj",
     "position": {
       "x": 0,
       "y": 0,
@@ -32423,6 +32437,58 @@
     },
     "layer": "top",
     "source_component_id": "source_component_61",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_62",
+    "model_obj_url": "./mechanical/cad/screen-ui.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_62",
+    "model_origin_position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "model_unit_to_mm_scale_factor": 1,
+    "model_object_fit": "contain_within_bounds",
+    "anchor_alignment": "center",
+    "show_as_translucent_model": false
+  },
+  {
+    "type": "cad_component",
+    "cad_component_id": "cad_component_63",
+    "model_obj_url": "./mechanical/cad/fasteners.obj",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "layer": "top",
+    "source_component_id": "source_component_63",
     "model_origin_position": {
       "x": 0,
       "y": 0,
@@ -32526,7 +32592,7 @@
   {
     "type": "cad_assembly_bom_item",
     "cad_assembly_bom_item_id": "cad_assembly_bom_item_9",
-    "name": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm",
+    "name": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md.",
     "quantity": 1,
     "source_component_id": "source_component_48",
     "cad_component_ids": [
@@ -32536,7 +32602,7 @@
   {
     "type": "cad_assembly_bom_item",
     "cad_assembly_bom_item_id": "cad_assembly_bom_item_10",
-    "name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json",
+    "name": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md.",
     "quantity": 1,
     "source_component_id": "source_component_49",
     "cad_component_ids": [
@@ -32546,7 +32612,7 @@
   {
     "type": "cad_assembly_bom_item",
     "cad_assembly_bom_item_id": "cad_assembly_bom_item_11",
-    "name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json",
+    "name": "Waveshare 19192 official STEP 0508, rigid 180deg Y rotation, tab -X; 40.4531 x 37.5 x 9.2mm",
     "quantity": 1,
     "source_component_id": "source_component_50",
     "cad_component_ids": [
@@ -32646,7 +32712,7 @@
   {
     "type": "cad_assembly_bom_item",
     "cad_assembly_bom_item_id": "cad_assembly_bom_item_21",
-    "name": "Illustrative laptop clock, CPU, RAM, laptop battery and turns from the tested firmware renderer",
+    "name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json",
     "quantity": 1,
     "source_component_id": "source_component_60",
     "cad_component_ids": [
@@ -32656,11 +32722,31 @@
   {
     "type": "cad_assembly_bom_item",
     "cad_assembly_bom_item_id": "cad_assembly_bom_item_22",
-    "name": "Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted",
+    "name": "H1 crimped JST-SH8 to JST-PH8 replacement harness; nominal mating plug/contact/wire geometry, see harness.json",
     "quantity": 1,
     "source_component_id": "source_component_61",
     "cad_component_ids": [
       "cad_component_61"
+    ]
+  },
+  {
+    "type": "cad_assembly_bom_item",
+    "cad_assembly_bom_item_id": "cad_assembly_bom_item_23",
+    "name": "Illustrative laptop clock, CPU, RAM, laptop battery and turns from the tested firmware renderer",
+    "quantity": 1,
+    "source_component_id": "source_component_62",
+    "cad_component_ids": [
+      "cad_component_62"
+    ]
+  },
+  {
+    "type": "cad_assembly_bom_item",
+    "cad_assembly_bom_item_id": "cad_assembly_bom_item_24",
+    "name": "Four screws: two DIN965 M2x6 chassis screws and two M2x10 shared bezel/carrier screws; nominal dimensions, fine threads omitted",
+    "quantity": 1,
+    "source_component_id": "source_component_63",
+    "cad_component_ids": [
+      "cad_component_63"
     ]
   },
   {
@@ -138929,6 +139015,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "e416de9e50bb6636d96fddf1d33fcf57"
+    "source_filesystem_md5_hash": "a07fdd13b85dcf9ed15a9cdfe4685406"
   }
 ]

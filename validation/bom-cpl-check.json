@@ -1,7 +1,7 @@
 {
-  "release": "5.10.0",
+  "release": "5.11.0",
   "pcb_revision": "E6",
-  "mechanical_revision": "E11",
+  "mechanical_revision": "E12",
   "complete_placements": 39,
   "smt_only_placements": 38,
   "DNP": [],
