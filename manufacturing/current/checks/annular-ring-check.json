@@ -1,0 +1,58 @@
+{
+  "checked_component_plated_pads": [
+    {
+      "reference": "J4",
+      "pin": "1",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J4",
+      "pin": "2",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J4",
+      "pin": "3",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J4",
+      "pin": "4",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J4",
+      "pin": "5",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J4",
+      "pin": "6",
+      "minimum_annulus_mm": 0.299986
+    },
+    {
+      "reference": "J1",
+      "pin": "25",
+      "minimum_annulus_mm": 0.199999
+    },
+    {
+      "reference": "J1",
+      "pin": "26",
+      "minimum_annulus_mm": 0.199999
+    },
+    {
+      "reference": "J1",
+      "pin": "27",
+      "minimum_annulus_mm": 0.199999
+    },
+    {
+      "reference": "J1",
+      "pin": "28",
+      "minimum_annulus_mm": 0.199999
+    }
+  ],
+  "minimum_routing_via_annulus_mm": 0.15,
+  "component_pad_minimum_jlcpcb_absolute_requirement_mm": 0.18,
+  "status": "pass",
+  "source": "https://jlcpcb.com/capabilities/pcb-capabilities/"
+}

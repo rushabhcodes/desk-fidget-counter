@@ -724,7 +724,8 @@
     "validation/logs/publication-v5.11.0-design.log": "b13cbb25812e7990d248763d19a26f494854a0d8caa7c6c000fbc2016867a47c",
     "validation/logs/publication-v5.11.0-footprints.log": "33107d62b11888c88bde506b79b17e86f0a7cab7625241810eddc3925d609db0",
     "validation/logs/publication-v5.11.0-shorts.log": "fadc135484013f0fb9a42d9f6bb6b84feddaa28754d7d56b23c352f357331632",
-    "validation/logs/publication-v5.11.0-assembly.log": "56705c2ea71ee4337b535f51686d5b6365ab7ee059cab1595ca91b5c87303ec2"
+    "validation/logs/publication-v5.11.0-assembly.log": "56705c2ea71ee4337b535f51686d5b6365ab7ee059cab1595ca91b5c87303ec2",
+    ".gitignore": "d7fa2401038fcfb39681eb1744010cf3145e2ac0aab64f49deab3e0a0cf6b3d0"
   },
   "open_manufacturer_process_reviews": [],
   "publication_recheck": "Publish release 5.11.0 with tsci push --include-dist after GitHub merge; verify the uploaded circuit and model bytes against this local checked assembly. Large offline CAD and manufacturing bundles are supplied through GitHub.",
