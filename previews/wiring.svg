@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">
 <rect width="1500" height="1000" fill="#f4f7f8"/>
 <g font-family="sans-serif" fill="#203943">
-<text x="65" y="65" font-size="30">PCB E3 / mechanics E4 — Included display lead</text>
+<text x="65" y="65" font-size="30">PCB E3 / mechanics E6 — Included display lead</text>
 <text x="65" y="105" font-size="20">Keep the original PH display plug; shorten and solder the PCB end. No extra harness parts.</text>
 <text x="100" y="175" font-size="22">J6 — solder pads (header DNP)</text>
 <text x="960" y="175" font-size="22">Waveshare 19192 — PH2.0</text>
@@ -39,6 +39,6 @@
 <text x="1040" y="671" font-size="21">1  BL</text>
 <text x="65" y="795" font-size="20">J6: X=−21.5 mm; pin 1 Y=4.39 mm, continuing toward −Y at 2.54 mm pitch.</text>
 <text x="65" y="835" font-size="20">VCC = switched 3.3V. Check continuity against display labels; factory colours may vary.</text>
-<text x="65" y="875" font-size="20">Trial-route before trimming; approx. 37 mm insulated span + 2.55 mm stripped PCB end.</text>
+<text x="65" y="875" font-size="20">Trial-route before trimming; about 54 mm illustrated path + slack + 2.55 mm stripped PCB end.</text>
 <text x="65" y="915" font-size="20">Best approximation: 1.2 mm wire model, 1.5 mm clearance check; static bends, no flexing in use.</text>
 </g></svg>

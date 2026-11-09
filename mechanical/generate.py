@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E5 simplified assembly and printable solids.
+"""SPDX-License-Identifier: MIT. Mechanics E6 internal button guide and printable solids.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -65,12 +65,13 @@ base+=box((9,6,.6),(0,-38.6,2.3))
 from button import build as build_button
 button_surround,button_roof,button_cap=build_button(P)
 base+=button_surround-front_pocket
+assert (button_surround-cyl(outer-.2,20)).volume()<1e-4,'Button guides must remain inside the circular wall'
 
 lid=ring(outer-.35,27.3,1.2,9.2)
 # The large hollow bearing post surrounds, rather than stacks over, the screen.
 lid+=ring(mount['inner_contact_od']/2,27.3,bt-10.39,10.39)+ring(P['bearing_stem_od']/2,27.3,bh,bt)
 for x,y in P['mount_holes']:lid+=cyl(2.0,P['lid_bottom_z']-capture_z,capture_z,x,y)
-for x in [-6,6]:lid+=cyl(1.3,P['lid_bottom_z']-capture_z,capture_z,x,-37)
+for x,y in capture['front_pad_centers']:lid+=cyl(1.3,P['lid_bottom_z']-capture_z,capture_z,x,y)
 for x,y in lid_screws:
  lid-=cyl(1.1,2,9,x,y);lid-=csk_hole(x,y,10.4)
 # Entry chamfer on the nominal 60mm push-fit post; no separate bearing clamp.
@@ -78,6 +79,8 @@ lid-=ring(30.2,29.7,.6,18.4)-m.Manifold.cylinder(.6,30,29.7,128).translate((0,0,
 # The flush port keeps the plug body outside the lid; retain its full roof.
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 lid+=button_roof
+assert (button_roof-cyl(outer-.35,20)).volume()<1e-4,'Button roof must remain inside the circular wall'
+assert (base^lid).volume()<1e-4,'Base guides must clear the lid and capture pads'
 
 
 # The outer race seats against the grip shoulder; the optical skirt joins
@@ -93,22 +96,39 @@ for i in range(48):encoder_skirt-=box((3,1.64,1.8),(r,0,8.6)).rotate((0,0,i*360/
 cap+=encoder_skirt
 # Lead-in on the open underside of the 75mm bearing pocket.
 cap-=m.Manifold.cylinder(.6,37.8,37.5,128).translate((0,0,grip_z))-cyl(37.4,.8,grip_z-.1)
-# Two base posts share the bezel/carrier screws and stay inside the PCB window.
+# Broad PLA end walls support the four actual screen bosses, with splayed
+# roots. The screw axes are braced along their entire height rather than
+# standing on isolated slender columns through the PCB window.
 screen_posts=P['screen_posts']
+support=P['screen_support']
+wall_height=support['seat_z']-2
+for y in support['wall_centers_y_mm']:
+ base+=box((support['wall_span_x_mm'],support['wall_thickness_mm'],wall_height),(0,y,2+wall_height/2))
+ half=support['wall_thickness_mm']/2;foot=support['foot_thickness_mm']/2
+ root=m.CrossSection([[(y-foot,1.9),(y+foot,1.9),
+                        (y+half-.1,support['gusset_top_z']),(y-half+.1,support['gusset_top_z'])]])
+ base+=root.extrude(support['wall_span_x_mm']).transform([[0,0,1,-support['wall_span_x_mm']/2],[1,0,0,0],[0,1,0,0]])
 for x,y in screen_posts:
- base+=cyl(2.0,14.1,2,x,y);base-=cyl(.8,5.2,11,x,y)
-cradle=ring(24,18.2,1.2,16.1)
+ near_x=-9.3 if x<0 else 9.3;near_y=13.35 if y>0 else -13.35
+ web=m.CrossSection.circle(2,192).translate((x,y))+m.CrossSection.circle(2,192).translate((near_x,near_y))
+ base+=web.hull().extrude(wall_height).translate((0,0,2))
+ base+=cyl(2.0,support['carrier_bottom_z']-2,2,x,y);base-=cyl(.8,5.2,11,x,y)
+for pin in support['locator_pins']:
+ base+=cyl(pin['diameter_mm']/2,support['locator_height_mm']+.1,support['seat_z']-.1,*pin['center_mm'])
+carrier_z=support['carrier_bottom_z'];carrier_top=carrier_z+1.2
+assert abs(P['display']['pcb_bottom_z']-carrier_top-support['carrier_rim_to_PCB_gap_mm'])<1e-6
+cradle=ring(24,18.2,1.2,carrier_z)
 for x,y in screen_posts:
  # Short radial ledges reach each pillar without loading rear LCD components.
  a=math.atan2(y,x);rr=math.hypot(x,y)
- cradle+=cyl(2.3,1.2,16.1,x,y)
- cradle-=cyl(1.1,1.4,16,x,y)
-cradle-=box((5,16,1.4),(-20,0,16.7))
+ cradle+=cyl(2.3,1.2,carrier_z,x,y)
+ cradle-=cyl(1.1,1.4,carrier_z-.1,x,y)
+cradle-=box((5,16,1.4),(-20,0,carrier_z+.6))
 bezel_screws=P['bezel_screw_axes']
 for x,y in bezel_screws:
- cradle+=cyl(2.2,3.6,17.3,x,y);cradle-=cyl(1.1,5,16,x,y)
+ cradle+=cyl(2.2,20.9-carrier_top,carrier_top,x,y);cradle-=cyl(1.1,5,carrier_z-.1,x,y)
 # Keep both shared support pads inside the 48mm carrier envelope.
-cradle=cradle^cyl(24,5,16)
+cradle=cradle^cyl(24,5.2,carrier_z-.1)
 bezel=ring(24,16.6,1.4,20.9)
 # The retaining lip clears the active glass even with estimated stack errors.
 relief=P['display']['glass_relief_mm']+.01
@@ -116,6 +136,10 @@ bezel-=cyl(19,relief,20.89)+box((5,15,relief),(-18.75,0,20.89+relief/2))
 for x,y in bezel_screws:
  bezel-=cyl(1.1,1.6,20.8,x,y)
  bezel-=csk_hole(x,y,22.3)
+# Remove sub-micron Boolean seams before float32 STL export/vertex welding.
+# This changes no surface by more than 0.0001mm; it is not a mesh repair.
+base=base.as_original().simplify(.0001)
+assert (base^lid).volume()<1e-4,'Braced screen supports must clear the stationary lid'
 parts={'base':base,'lid':lid,'knob':cap,'screen-carrier':cradle,'screen-bezel':bezel,'button-cap':button_cap}
 for obsolete in ['outer-retainer','inner-retainer','bearing-clamp','encoder-skirt']:
  (ROOT/'stl'/f'{obsolete}.stl').unlink(missing_ok=True)
@@ -129,13 +153,23 @@ for name,pocket_delta,stem_delta in [('fit-coupon-tight',-.1,.1),('fit-coupon',0
 (ROOT/'fit-coupons.json').write_text(json.dumps(coupons,indent=2)+'\n')
 (ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
 for name,s in parts.items():
- invert=name in ['knob','screen-bezel'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
+ invert=name in ['knob','screen-bezel','button-cap'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
  printed=s.rotate((180,0,0)).translate((0,0,z)) if invert else s.translate((0,0,-z))
  a=printed.to_mesh64();mesh=trimesh.Trimesh(np.asarray(a.vert_properties)[:,:3],np.asarray(a.tri_verts),process=True)
  assert mesh.is_watertight and mesh.volume>0,(name,'invalid solid')
  assert len(printed.decompose())==(2 if name.startswith('fit-coupon') else 1),(name,'disconnected print')
- mesh.export(ROOT/'stl'/f'{name}.stl');poses[name]={'inverted':invert,'z':z}
- report[name]={'watertight':True,'volume_mm3':round(mesh.volume,2),'bounds_mm':mesh.bounds.round(3).tolist()}
+ # Binary STL stores float32 coordinates. Round before export and discard only
+ # triangles collapsed to zero area by that representation; never fill holes.
+ vertices=mesh.vertices.astype(np.float32).astype(np.float64)
+ assert np.max(np.abs(vertices-mesh.vertices))<.00001
+ mesh=trimesh.Trimesh(vertices,mesh.faces,process=True)
+ degenerate=~mesh.nondegenerate_faces(height=1e-8)
+ removed=int(degenerate.sum());mesh.update_faces(~degenerate);mesh.remove_unreferenced_vertices()
+ assert mesh.is_watertight,(name,'STL quantization opened the mesh')
+ path=ROOT/'stl'/f'{name}.stl';mesh.export(path);poses[name]={'inverted':invert,'z':z}
+ reloaded=trimesh.load(path,force='mesh',process=True)
+ assert reloaded.is_watertight and len(reloaded.split())==(2 if name.startswith('fit-coupon') else 1),(name,'exported STL invalid')
+ report[name]={'watertight':True,'stl_roundtrip_watertight':True,'zero_area_triangles_collapsed_by_float32':removed,'volume_mm3':round(mesh.volume,2),'bounds_mm':mesh.bounds.round(3).tolist()}
  print(name,'watertight',round(mesh.volume,1),flush=True)
 (ROOT/'print-poses.json').write_text(json.dumps(poses,indent=2)+'\n')
 # Use a full solid ring in place of slots to cover every possible rotor angle.
@@ -151,12 +185,30 @@ def from_mesh(mesh):
 screen_mesh=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
 screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,17.75])
 lcd=from_mesh(screen_mesh)
+from screen import audit as audit_screen
+screen_report=audit_screen(P)
 from harness import build as build_harness
 harness_meshes,harness_report=build_harness()
 (ROOT/'harness.json').write_text(json.dumps(harness_report,indent=2)+'\n')
 clearance_harness,_=build_harness(wire_od=P['stock_display_cable']['wire_od_check_mm'])
+# The supplier socket is a simplified solid, with no mating cavity. Permit
+# plug engagement only inside that socket envelope, never through the PCB/glass.
+socket_envelope=box((6,20,5.6),(8.2,0,14.5))
+plug=from_mesh(harness_meshes['lcd-cable-screen-plug'])
+assert (plug^(lcd-socket_envelope)).volume()<1e-4,'Display plug must engage only the real rear socket envelope'
+for label,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
+ assert (plug^printed).volume()<1e-4,(label,'side-entry display plug collision')
+report['screen_fit']=screen_report
 for name,printed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
  assert (printed^lcd).volume()<1e-4,(name,'manufacturer screen collision',(printed^lcd).volume())
+# Verify real rear boss contact, rather than only a free-space collision check.
+for x,y in P['display']['mounting_hole_centers_mm']:
+ contact=base.translate((0,0,.01))^lcd^cyl(2,.04,support['seat_z']-.01,x,y)
+ assert contact.volume()>.01,('Screen boss not supported',x,y)
+assert (lcd.translate((0,0,.5))^bezel).volume()>.01,'Bezel must capture screen before its locating pins disengage'
+report['screen_fit']['rear_boss_contacts_checked']=4
+report['screen_fit']['bezel_captures_before_locator_disengagement']=True
+(ROOT/'screen-fit.json').write_text(json.dumps(screen_report,indent=2)+'\n')
 # PCB material must not intersect either part nested through its window.
 board=next(c for c in cj if c['type']=='pcb_board')
 cutout=next(c for c in cj if c['type']=='pcb_cutout')
@@ -174,6 +226,12 @@ post_window_error=pcb_play+f['printed_surface_error']+f['pcb_cutout_edge_error']
 for x,y in P['screen_posts']:
  assert (cyl(2.0+post_window_error,2,2.4,x,y)^pcb).volume()<1e-4,'Screen post must clear tolerance-expanded PCB window edge'
 report['screen_post_to_window_tolerance_checked_mm']=round(post_window_error,4)
+# Expand the entire wall footprint at PCB height, including every gusset/web,
+# to cover board registration, printed profile and routed-window uncertainty.
+support_slice=base.slice(3.4)^m.CrossSection.square((40,48),True)
+support_expanded=support_slice.offset(post_window_error).extrude(P['pcb_thickness']).translate((0,0,P['pcb_bottom_z']))
+assert (support_expanded^pcb).volume()<1e-4,'Braced screen walls must clear the tolerance-expanded PCB window'
+report['screen_support']=support
 
 assert (pcb^lcd).volume()<1e-4
 # A 12mm fingertip can depress the broad cap all the way to its nominal stop.
@@ -317,6 +375,8 @@ available=button_design['rest_tip_y']+button_design['nominal_max_travel_mm']-but
 assert abs(available-button['datasheet_pretravel_mm']['max'])<1e-6
 assert (button_cap.translate((0,button_design['nominal_max_travel_mm']+.05,0))^base).volume()>.01,'The side ears must meet the physical stop'
 report['printed_button']={**button_design,'checked_travel_poses':button_checks,'nominal_switch_travel_at_stop_mm':round(available,3),'checks':'Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified.'}
+report['printed_button']['fixed_guide_within_circular_wall']=True
+report['printed_button']['fixed_guide_max_radius_mm']=outer-.2
 report['front_button']=P['front_button']
 report['direct_finger_access_checked']=True
 report['separate_button_plunger']=True

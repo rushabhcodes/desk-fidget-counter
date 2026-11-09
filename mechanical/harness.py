@@ -6,7 +6,7 @@ import numpy as np,trimesh,manifold3d as m
 SIGNALS=['BL','RST','DC','CS','CLK','DIN','GND','VCC']
 COLORS=['#b45cce','#ffffff','#ee9b34','#e4d751','#528cdd','#59ac70','#222c38','#e45555']
 WIRE_OD=1.2 # User-authorized best approximation; clearance is also checked at 1.5mm.
-RADIUS=6.2 # Geometric display-entry arc, not a supplier minimum bend specification.
+RADIUS=4.7 # Static U bend; engineering estimate, not a cable supplier rating.
 
 def solid(q):
  a=q.to_mesh64();return trimesh.Trimesh(np.asarray(a.vert_properties)[:,:3],np.asarray(a.tri_verts),process=True)
@@ -33,8 +33,12 @@ def build(wire_od=None):
  parts={};records=[]
  # Keep the original PH2.0 display plug. Stock wire dimensions are unpublished;
  # the model uses explicit fit envelopes, not a claim about its manufacturer.
- housing=box((4.5,17.8,6.85),(8.2,0,12.725))
- for i in range(8):housing-=box((2.8,1.4,6.95),(8.2,-7+2*i,12.725))
+ connector=P['display']['cable_mating']
+ exit_x=connector['wire_exit_x_mm'];axis_z=connector['axis_z_mm']
+ # PHR-8 envelope turned sideways: the long axis of insertion is X, parallel
+ # to the screen PCB. The Waveshare STEP models only a solid socket envelope.
+ housing=box((6.85,17.8,4.5),(exit_x-6.85/2,0,axis_z))
+ for i in range(8):housing-=box((6.95,1.4,2.8),(exit_x-6.85/2,-7+2*i,axis_z))
  parts['lcd-cable-screen-plug']=solid(housing)
  contacts=[]
  for i,(signal,color) in enumerate(zip(SIGNALS,COLORS)):
@@ -44,9 +48,10 @@ def build(wire_od=None):
   q=theta/(math.pi/2);side=10*q**3-15*q**4+6*q**5
   lead=np.column_stack((-21.5+bend*(1-np.cos(theta)),ya+shift_y*side,start_z+bend*np.sin(theta)))
   t=np.linspace(0,1,130);f=10*t**3-15*t**4+6*t**5
-  sweep=np.column_stack((-21.5+bend+(23.5-bend)*t,ya+shift_y+(yb-ya-shift_y)*f,start_z+bend-(start_z+bend-3.1)*f))
-  theta=np.linspace(0,math.pi/2,70)
-  arc=np.column_stack((2+RADIUS*np.sin(theta),np.full_like(theta,yb),9.3-RADIUS*np.cos(theta)))
+  lower_z=axis_z-2*RADIUS
+  sweep=np.column_stack((-21.5+bend+(exit_x+21.5-bend)*t,ya+shift_y+(yb-ya-shift_y)*f,start_z+bend-(start_z+bend-lower_z)*f))
+  theta=np.linspace(0,math.pi,100)
+  arc=np.column_stack((exit_x+RADIUS*np.sin(theta),np.full_like(theta,yb),lower_z+RADIUS*(1-np.cos(theta))))
   path=np.vstack((lead,sweep[1:],arc[1:]))
   length=float(np.linalg.norm(np.diff(path,axis=0),axis=1).sum())
   radii=[]
@@ -58,10 +63,10 @@ def build(wire_od=None):
   q=tube(path,wire_od/2);q.visual=trimesh.visual.ColorVisuals(q,vertex_colors=trimesh.visual.color.hex_to_rgba(color));parts['lcd-wire-'+signal.lower()]=q
   # Bare conductor/solder geometry is illustrative, inside the actual plated hole.
   contacts.append(m.Manifold.cylinder(start_z-1.8,.16,.16,24).translate((-21.5,ya,1.8)))
-  contacts.append(box((.5,.5,5.7),(8.2,yb,12.15)))
+  contacts.append(box((5.7,.5,.5),(exit_x-5.7/2,yb,axis_z)))
   records.append({'signal':signal,'color_illustration_only':color,'board_connector':'J6 solder pad','board_pin':8-i,'board_pad_mm':[-21.5,ya,4.2],'insulation_start_mm':path[0].tolist(),'screen_housing_wire_exit_mm':path[-1].tolist(),'screen_pin':i+1,'modeled_insulated_wire_length_mm':round(length,3),'estimated_minimum_centerline_radius_mm':round(min(radii),3),'centerline_mm':path.round(5).tolist()})
  parts['lcd-cable-contacts']=solid(m.Manifold.batch_boolean(contacts,m.OpType.Add))
- report={'harness':'Original cable included with Waveshare 19192; shortened at its jumper end','included':True,'custom_harness_required':False,'board_connection':'Direct soldered through J6; optional 2.54mm male header NOT populated','housing':'Original PH2.0 8-pin display plug retained','wire':'Original included wires; no replacement wire or crimp contacts purchased','wire_od_design_envelope_mm':wire_od,'nominal_dressing_bend_radius_mm':bend,'manufacturer_bend_radius':'Unpublished; 3mm static dressing bend is the user-authorized engineering approximation, not a supplier rating','trim_instruction':'Trial-route supplied lead; target about 37mm insulated span from PH housing back, plus 2.55mm stripped board end. Trim each wire to its actual dressed path; solder tails <=0.8mm below PCB. Keep the original PH display plug.','screen_pose':'180deg about Y from official STEP, plus Z17.75mm; tab points -X','connections':records,'scope':'Cable type and 20cm package length verified on Waveshare product page/photo. Plug, wire OD and static bends use user-authorized best approximations. The nominal model is 1.2mm OD; the larger 1.5mm wire envelope is checked separately. These are engineering assumptions, not measured supplier data.'}
+ report={'harness':'Original cable included with Waveshare 19192; shortened at its jumper end','included':True,'custom_harness_required':False,'board_connection':'Direct soldered through J6; optional 2.54mm male header NOT populated','housing':'Original PH2.0 8-pin display plug retained; side entry parallel to screen PCB','wire':'Original included wires; no replacement wire or crimp contacts purchased','wire_od_design_envelope_mm':wire_od,'nominal_dressing_bend_radius_mm':bend,'display_U_bend_radius_mm':RADIUS,'manufacturer_bend_radius':'Unpublished; static bends are user-authorized engineering approximations, not supplier ratings','trim_instruction':'Trial-route supplied lead with its plug mated sideways before lowering the screen. Trim each wire to its actual dressed path, leaving assembly slack, plus 2.55mm stripped board end; solder tails <=0.8mm below PCB. Keep the original PH display plug.','screen_pose':'180deg about Y from official STEP, plus Z17.75mm; tab points -X','mating':connector,'connections':records,'scope':'Cable type and 20cm package length verified on Waveshare product page/photo. PHR-8 nominal envelope from JST PH drawing; Waveshare does not specify the exact connector maker or seated plug datum. Mating axis/seating, wire OD and static bends use explicit engineering estimates. The nominal model is 1.2mm OD; larger 1.5mm wire clearance is checked separately.'}
  return parts,report
 if __name__=='__main__':
  parts,report=build();out=Path(__file__).resolve().parent/'harness.json';out.write_text(json.dumps(report,indent=2)+'\n');print([r['modeled_insulated_wire_length_mm'] for r in report['connections']])

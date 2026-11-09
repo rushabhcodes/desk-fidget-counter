@@ -53,7 +53,7 @@ assert len(parts['bearing'].faces)==sum(len(mesh.faces) for mesh in bearing_mesh
 assert np.allclose(parts['bearing'].bounds,[np.min([m.bounds[0] for m in bearing_meshes.values()],axis=0),np.max([m.bounds[1] for m in bearing_meshes.values()],axis=0)])
 # Six compliant pads avoid clamping a variable-thickness PCB between hard faces.
 capture=P['pcb_capture'];top=P['pcb_bottom_z']+P['pcb_thickness'];pads=[];adhesive=[]
-for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),(-6,-37,1.3),(6,-37,1.3)]:
+for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),*((x,y,1.3) for x,y in capture['front_pad_centers'])]:
  pads.append(cyl(radius,capture['compressed_pad_height']-capture['adhesive_thickness'],top,x,y))
  adhesive.append(cyl(radius,capture['adhesive_thickness'],top+capture['compressed_pad_height']-capture['adhesive_thickness'],x,y))
 for name,solids,color in [('pcb-capture-pads',pads,'#24292d'),('pcb-pad-adhesive',adhesive,'#bbc4c9')]:
@@ -102,7 +102,6 @@ add('fasteners',trimesh.util.concatenate([solid_mesh(q) for q in fasteners]),'Fo
 # Native tscircuit GLB: exported (-X, +Z, +Y). Convert back to PCB +Z-up.
 pcb=trimesh.load(OUT/'pcb-source.glb',force='scene')
 for mesh in pcb.geometry.values():mesh.merge_vertices()
-pcb.export(OUT/'pcb-source.glb')
 to_cad=np.array([[-1,0,0,0],[0,0,1,0],[0,1,0,BOARD_CENTER],[0,0,0,1]],float)
 pcb_geometry=[]
 for node in pcb.graph.nodes_geometry:
@@ -122,13 +121,15 @@ for exploded in [False,True]:
     for name,mesh in pcb_geometry:
         transform=to_gltf@trimesh.transformations.translation_matrix([0,0,0])
         scene.add_geometry(mesh,node_name='pcb-'+name,geom_name='pcb-'+name,transform=transform)
-    scene.metadata={'description':'Desk fidget counter Mechanics E5 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
+    scene.metadata={'description':'Desk fidget counter Mechanics E6 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
     path=OUT/('exploded.glb' if exploded else 'assembled.glb');scene.export(path)
     reloaded=trimesh.load(path,force='scene');assert len(reloaded.geometry)>=len(parts)
     assert [n for n in reloaded.graph.nodes_geometry if n=='bearing' or n.startswith('bearing-')]==['bearing']
     if not exploded:
         assert abs(reloaded.extents[0]-P['base_diameter']*.001)<.0001 and abs(reloaded.extents[1]-.0223)<.0001
-        assert reloaded.extents[2]<.089, reloaded.extents
+        expected_depth=(P['base_diameter']/2-P['front_button']['printed_cap']['face_front_y'])*.001
+        assert abs(reloaded.extents[2]-expected_depth)<.0001, reloaded.extents
+        assembled_size_mm=(reloaded.extents*1000).round(3).tolist()
 # Per-part OBJ assets use tscircuit's board-centred mm frame. Vertex colours
 # survive its OBJ loader. Printed STLs remain in their original print frame.
 records=[]
@@ -151,7 +152,7 @@ ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,
 # painter-style preview; the GLB uses its normal depth-tested physical pose.
 ui=parts['screen-ui'];ax.add_collection3d(Poly3DCollection(ui.triangles,facecolors=np.asarray(ui.visual.face_colors,dtype=float)/255,edgecolor='none',zorder=10))
 ax.set(xlim=(-45,45),ylim=(-45,45),zlim=(0,26));ax.set_box_aspect((90,90,26));ax.view_init(55,-110);ax.set_axis_off()
-ax.set_title('Desk knob Mechanics E5 — fixed 1.28-inch display\nRotating grip ring / front printed mode button / Ø84.8 body × 22.3 mm high',pad=10)
+ax.set_title('Desk knob Mechanics E6 — fixed 1.28-inch display\nRotating grip ring / front printed mode button / Ø84.8 body × 22.3 mm high',pad=10)
 fig.tight_layout();fig.savefig(ROOT/'assembly.png',dpi=160);plt.close(fig)
 # Exploded assembly overview for the guide. Offsets are illustrative movements,
 # not claimed disassembly trajectories; assembled dimensions remain authoritative.
@@ -172,7 +173,7 @@ for name,mesh in pcb_geometry:
     display=mesh.copy();display.apply_translation([0,0,0]);polys.extend(display.triangles);facecolors.extend(['#246b47']*len(display.faces))
 ax.add_collection3d(Poly3DCollection(polys,facecolors=facecolors,edgecolor='none',zsort='average'))
 ax.set(xlim=(-42,65),ylim=(-42,42),zlim=(-20,185),xlabel='X / mm',ylabel='Y / mm',zlabel='Z / mm')
-ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Mechanics E5 — six prints / four screws\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
+ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title('Desk knob Mechanics E6 — six prints / four screws\nIllustrative separation; assembled product is Ø84.8 × 22.3 mm')
 fig.tight_layout();fig.savefig(ROOT/'exploded.png',dpi=140);plt.close(fig)
-report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; front printed cap gives 88.0mm overall depth','part_count':len(parts),'fastener_count':4,'product_print_count':len(printed_names),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
+report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':'glTF metres, +Y up; 84.8mm body, 22.3mm height; front printed cap gives 86.6mm overall depth','assembled_size_gltf_xyz_mm':assembled_size_mm,'part_count':len(parts),'fastener_count':4,'product_print_count':len(printed_names),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
 (OUT/'assembly-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

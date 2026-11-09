@@ -3593,7 +3593,7 @@
     "ftype": "printedpart",
     "name": "base",
     "color": "#344752",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -3601,7 +3601,7 @@
     "ftype": "printedpart",
     "name": "lid",
     "color": "#6b8797",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -3609,7 +3609,7 @@
     "ftype": "printedpart",
     "name": "knob",
     "color": "#e9bd65",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -3617,7 +3617,7 @@
     "ftype": "printedpart",
     "name": "screen-carrier",
     "color": "#95a5ad",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -3625,7 +3625,7 @@
     "ftype": "printedpart",
     "name": "screen-bezel",
     "color": "#95a5ad",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -3633,7 +3633,7 @@
     "ftype": "printedpart",
     "name": "button-cap",
     "color": "#26343d",
-    "material": "petg"
+    "material": "pla"
   },
   {
     "type": "source_component",
@@ -84397,6 +84397,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "3afabc09068409dc4b3f9e7a7bd73b67"
+    "source_filesystem_md5_hash": "47fe94733c4f7f9a180c184163c5a6b6"
   }
 ]

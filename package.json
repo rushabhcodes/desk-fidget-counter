@@ -1,6 +1,6 @@
 {
   "name": "@tsci/rushabhcodes.desk-fidget-counter",
-  "version": "5.6.0",
+  "version": "5.6.2",
   "private": false,
   "description": "USB-powered scroll ring, persistent turn counter and laptop dashboard",
   "type": "module",

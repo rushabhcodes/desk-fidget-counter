@@ -87,7 +87,41 @@
     "bezel_diameter": 48,
     "module_rotation_deg": 270,
     "official_step": "vendor/step/Waveshare-19192.stp",
-    "glass_relief_mm": 0.4
+    "glass_relief_mm": 0.4,
+    "mounting_hole_centers_mm": [
+      [
+        -9.3,
+        -13.35
+      ],
+      [
+        9.3,
+        -13.35
+      ],
+      [
+        -9.3,
+        13.35
+      ],
+      [
+        9.3,
+        13.35
+      ]
+    ],
+    "mounting_boss_rear_z": 14.8,
+    "mounting_hole_model_diameter_mm": 1.7,
+    "mounting_hole_status": "Centres and 1.7mm simplified bore measured from official 0508.stp. Thread specification is not established; no screws are threaded into the module.",
+    "cable_mating": {
+      "entry": "side",
+      "insertion_axis": "-X toward socket, parallel to display PCB",
+      "wire_exit_x_mm": 14.8,
+      "axis_z_mm": 14.5,
+      "housing_nominal_mm": [
+        6.85,
+        17.8,
+        4.5
+      ],
+      "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
+      "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+    }
   },
   "header_tail_below_pcb_mm": 0.8,
   "lid_screw_length_mm": 6,
@@ -209,19 +243,19 @@
     "direct_actuation": false,
     "opening_width_mm": 8,
     "opening_bottom_z": 2.8,
-    "opening_top_z": 6.8,
+    "opening_top_z": 7.6,
     "finger_check_radius_mm": 6,
     "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
     "printed_cap": {
       "part": "button-cap",
       "face_width_mm": 8,
       "face_height_mm": 4,
-      "face_front_y": -45.6,
+      "face_front_y": -44.2,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
-      "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+      "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
       "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
     }
   },
@@ -254,9 +288,8 @@
       2.54,
       14.5
     ],
-    "dimensions_status": "Manufacturer confirms PH2.0 8-pin / 20cm lead. User authorized best approximations: 1.2mm model wire, 1.5mm clearance check, 3mm XZ projected bend (approximately 1.44mm minimum 3D curve radius), nominal PH housing. These are not supplier-qualified limits.",
-    "assembly": "Shorten the included lead and keep its original display plug. Solder stripped board ends into the imported C5156616 eight-pad J6 footprint; no header is populated or purchased.",
-    "trimmed_free_wire_target_mm": 37.0,
+    "dimensions_status": "PH2.0 8-pin / 20cm lead confirmed by Waveshare. Side-entry plug uses nominal JST PHR-8 envelope, with estimated seating/axis and wire bends; 1.2mm model wire and 1.5mm clearance. Trial-fit and trim the actual lead to path with slack; not a supplier-qualified harness.",
+    "assembly": "Mate the original display plug sideways before lowering the screen. Shorten the included lead to its dressed path and solder stripped board ends into J6; no optional header is populated.",
     "trimmed_free_wire_tolerance_mm": 1.0,
     "board_end_strip_mm": 2.55,
     "modeled_wire_od_mm": 1.2,
@@ -264,7 +297,7 @@
     "insulation_start_above_pcb_mm": 0.15,
     "lead_y_shift_mm": 3.0
   },
-  "mechanical_revision": "E4",
+  "mechanical_revision": "E6",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -278,7 +311,17 @@
     "pad_thickness_tolerance_fraction": 0.1,
     "material": "Rogers PORON 4701-30-20062-04, 320 kg/m3, 1.57mm nominal; six discs (four diameter4mm, two diameter2.6mm), attach with 0.05mm 467MP",
     "adhesive_thickness": 0.05,
-    "source": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf"
+    "source": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf",
+    "front_pad_centers": [
+      [
+        -6,
+        -35
+      ],
+      [
+        6,
+        -35
+      ]
+    ]
   },
   "fit_budget": {
     "bearing_diameter_error": 0.02,
@@ -309,7 +352,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E5",
+    "revision": "E6",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -326,5 +369,37 @@
     "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
     "integral_encoder_skirt": true,
     "separate_bearing_retainers": false
+  },
+  "screen_support": {
+    "material": "PLA",
+    "wall_thickness_mm": 4.0,
+    "wall_span_x_mm": 23.0,
+    "wall_centers_y_mm": [
+      -13.35,
+      13.35
+    ],
+    "foot_thickness_mm": 7.0,
+    "gusset_top_z": 8.0,
+    "seat_z": 14.8,
+    "locator_height_mm": 1.0,
+    "locator_pins": [
+      {
+        "center_mm": [
+          -9.3,
+          -13.35
+        ],
+        "diameter_mm": 1.2
+      },
+      {
+        "center_mm": [
+          9.3,
+          13.35
+        ],
+        "diameter_mm": 1.0
+      }
+    ],
+    "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
+    "carrier_bottom_z": 15.9,
+    "carrier_rim_to_PCB_gap_mm": 0.2
   }
 }

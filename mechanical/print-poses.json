@@ -13,15 +13,15 @@
   },
   "screen-carrier": {
     "inverted": false,
-    "z": 16.1
+    "z": 15.9
   },
   "screen-bezel": {
     "inverted": true,
     "z": 22.299999999999997
   },
   "button-cap": {
-    "inverted": false,
-    "z": 2.8
+    "inverted": true,
+    "z": 7.199999999999999
   },
   "fit-coupon-tight": {
     "inverted": false,

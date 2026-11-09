@@ -1,0 +1,50 @@
+{
+  "source": "https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip",
+  "member": "1.28inch LCD Module 3D Drawing/0508.stp",
+  "retained_step_sha256": "f1cb9b272ee201bb2dca9d4c4683a6fa4cb65213c77244bec5ae5af03f37fa85",
+  "current_download_comparison": "Byte-identical to official archive downloaded 2026-11-09",
+  "assembly_transform": "Rigid diag(-1,+1,-1), plus Z17.75mm; no scaling",
+  "hole_centers_assembly_mm": [
+    [
+      -9.3,
+      -13.35
+    ],
+    [
+      -9.3,
+      13.35
+    ],
+    [
+      9.3,
+      -13.35
+    ],
+    [
+      9.3,
+      13.35
+    ]
+  ],
+  "hole_pitch_assembly_mm": [
+    18.6,
+    26.7
+  ],
+  "rear_boss_seat_z_mm": 14.8,
+  "simplified_bore_diameter_mm": 1.7,
+  "module_thread": "Not established by simplified STEP; no screw is threaded into these bores",
+  "retention": "Four rear bosses supported on braced walls; two short locating pins; existing bezel captures module",
+  "enclosure_screws": "Separate from the four module holes; two shared bezel/carrier screws remain on their own axes",
+  "cable_mating": {
+    "entry": "side",
+    "insertion_axis": "-X toward socket, parallel to display PCB",
+    "wire_exit_x_mm": 14.8,
+    "axis_z_mm": 14.5,
+    "housing_nominal_mm": [
+      6.85,
+      17.8,
+      4.5
+    ],
+    "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
+    "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+  },
+  "limits": "STEP omits fine connector contacts/cavity and rear electronics. Exact kit plug seating, thread details, PLA fit/strength and wire slack require physical qualification.",
+  "rear_boss_contacts_checked": 4,
+  "bezel_captures_before_locator_disengagement": true
+}

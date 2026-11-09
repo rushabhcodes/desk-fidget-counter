@@ -21,6 +21,7 @@ for (const part of parts) {
   const source = sources.get(part.name)
   assert(source, `Missing assembly part ${part.name}`)
   assert.equal(source.ftype, part.printed ? 'printedpart' : 'subassembly')
+  if (part.printed) assert.equal(source.material, 'pla', `${part.name} must use the requested PLA material`)
   const model = cad.find(c => c.source_component_id === source.source_component_id)
   assert(model, `Missing CAD for ${part.name}`)
   assert.equal(model.model_obj_url, `./mechanical/cad/${part.asset}`, 'Assembly assets must travel with the repository')

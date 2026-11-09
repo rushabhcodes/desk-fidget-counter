@@ -1,27 +1,31 @@
 {
   "base": {
     "watertight": true,
-    "volume_mm3": 15099.43,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 2,
+    "volume_mm3": 17988.61,
     "bounds_mm": [
       [
         -42.4,
-        -44.8,
+        -42.4,
         0.0
       ],
       [
         42.4,
         42.4,
-        16.1
+        15.9
       ]
     ]
   },
   "lid": {
     "watertight": true,
-    "volume_mm3": 8665.73,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 8586.91,
     "bounds_mm": [
       [
         -42.05,
-        -44.8,
+        -42.05,
         0.0
       ],
       [
@@ -33,6 +37,8 @@
   },
   "knob": {
     "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
     "volume_mm3": 19124.0,
     "bounds_mm": [
       [
@@ -49,7 +55,9 @@
   },
   "screen-carrier": {
     "watertight": true,
-    "volume_mm3": 905.13,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 910.45,
     "bounds_mm": [
       [
         -24.0,
@@ -59,12 +67,14 @@
       [
         24.0,
         24.0,
-        4.8
+        5.0
       ]
     ]
   },
   "screen-bezel": {
     "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
     "volume_mm3": 1173.34,
     "bounds_mm": [
       [
@@ -81,22 +91,26 @@
   },
   "button-cap": {
     "watertight": true,
-    "volume_mm3": 59.62,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 48.22,
     "bounds_mm": [
       [
-        -5.0,
-        -45.6,
+        -5.3,
+        38.2,
         0.0
       ],
       [
-        5.0,
-        -43.05,
-        4.0
+        5.3,
+        44.2,
+        4.4
       ]
     ]
   },
   "fit-coupon-tight": {
     "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
     "volume_mm3": 7810.08,
     "bounds_mm": [
       [
@@ -113,6 +127,8 @@
   },
   "fit-coupon": {
     "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
     "volume_mm3": 7661.67,
     "bounds_mm": [
       [
@@ -129,6 +145,8 @@
   },
   "fit-coupon-loose": {
     "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
     "volume_mm3": 7364.84,
     "bounds_mm": [
       [
@@ -143,7 +161,89 @@
       ]
     ]
   },
+  "screen_fit": {
+    "source": "https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip",
+    "member": "1.28inch LCD Module 3D Drawing/0508.stp",
+    "retained_step_sha256": "f1cb9b272ee201bb2dca9d4c4683a6fa4cb65213c77244bec5ae5af03f37fa85",
+    "current_download_comparison": "Byte-identical to official archive downloaded 2026-11-09",
+    "assembly_transform": "Rigid diag(-1,+1,-1), plus Z17.75mm; no scaling",
+    "hole_centers_assembly_mm": [
+      [
+        -9.3,
+        -13.35
+      ],
+      [
+        -9.3,
+        13.35
+      ],
+      [
+        9.3,
+        -13.35
+      ],
+      [
+        9.3,
+        13.35
+      ]
+    ],
+    "hole_pitch_assembly_mm": [
+      18.6,
+      26.7
+    ],
+    "rear_boss_seat_z_mm": 14.8,
+    "simplified_bore_diameter_mm": 1.7,
+    "module_thread": "Not established by simplified STEP; no screw is threaded into these bores",
+    "retention": "Four rear bosses supported on braced walls; two short locating pins; existing bezel captures module",
+    "enclosure_screws": "Separate from the four module holes; two shared bezel/carrier screws remain on their own axes",
+    "cable_mating": {
+      "entry": "side",
+      "insertion_axis": "-X toward socket, parallel to display PCB",
+      "wire_exit_x_mm": 14.8,
+      "axis_z_mm": 14.5,
+      "housing_nominal_mm": [
+        6.85,
+        17.8,
+        4.5
+      ],
+      "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
+      "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+    },
+    "limits": "STEP omits fine connector contacts/cavity and rear electronics. Exact kit plug seating, thread details, PLA fit/strength and wire slack require physical qualification.",
+    "rear_boss_contacts_checked": 4,
+    "bezel_captures_before_locator_disengagement": true
+  },
   "screen_post_to_window_tolerance_checked_mm": 0.625,
+  "screen_support": {
+    "material": "PLA",
+    "wall_thickness_mm": 4.0,
+    "wall_span_x_mm": 23.0,
+    "wall_centers_y_mm": [
+      -13.35,
+      13.35
+    ],
+    "foot_thickness_mm": 7.0,
+    "gusset_top_z": 8.0,
+    "seat_z": 14.8,
+    "locator_height_mm": 1.0,
+    "locator_pins": [
+      {
+        "center_mm": [
+          -9.3,
+          -13.35
+        ],
+        "diameter_mm": 1.2
+      },
+      {
+        "center_mm": [
+          9.3,
+          13.35
+        ],
+        "diameter_mm": 1.0
+      }
+    ],
+    "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
+    "carrier_bottom_z": 15.9,
+    "carrier_rim_to_PCB_gap_mm": 0.2
+  },
   "purchased_package_models_checked": 38,
   "individual_wires_checked": 8,
   "tolerance_envelopes_checked": {
@@ -156,7 +256,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E5",
+    "revision": "E6",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -179,16 +279,18 @@
     "part": "button-cap",
     "face_width_mm": 8,
     "face_height_mm": 4,
-    "face_front_y": -45.6,
+    "face_front_y": -44.2,
     "rest_tip_y": -43.05,
     "nominal_rest_gap_mm": 0.2,
     "nominal_max_travel_mm": 0.6,
     "minimum_slide_clearance_mm": 0.4,
-    "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+    "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
     "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required.",
     "checked_travel_poses": 13,
     "nominal_switch_travel_at_stop_mm": 0.4,
-    "checks": "Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified."
+    "checks": "Nominal cap sweep, fixed housing clearance, stop engagement and fingertip access. Friction, switch tolerance and safe overtravel require a printed prototype; no actuation force or cycle life is certified.",
+    "fixed_guide_within_circular_wall": true,
+    "fixed_guide_max_radius_mm": 42.199999999999996
   },
   "front_button": {
     "part": "Omron B3U-3000P",
@@ -207,26 +309,26 @@
     "direct_actuation": false,
     "opening_width_mm": 8,
     "opening_bottom_z": 2.8,
-    "opening_top_z": 6.8,
+    "opening_top_z": 7.6,
     "finger_check_radius_mm": 6,
     "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
     "printed_cap": {
       "part": "button-cap",
       "face_width_mm": 8,
       "face_height_mm": 4,
-      "face_front_y": -45.6,
+      "face_front_y": -44.2,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
-      "travel_stop": "Two side ears against base; lid captures cap without extra fasteners",
+      "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
       "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
     }
   },
   "direct_finger_access_checked": true,
   "separate_button_plunger": true,
-  "button_projection_beyond_wall_mm": 3.4,
-  "pressed_button_projection_beyond_wall_mm": 2.8,
+  "button_projection_beyond_wall_mm": 2.0,
+  "pressed_button_projection_beyond_wall_mm": 1.4,
   "USB_access": {
     "axis_z": 5.85,
     "socket_face_y": 42.35003,

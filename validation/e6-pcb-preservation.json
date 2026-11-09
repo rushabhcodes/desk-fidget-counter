@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "ce692a3ff2547fc022690fc74d156f83db322ee5",
+  "all_manufactured_pcb_records_identical": true,
+  "bare_assembly_and_canonical_output_match": true,
+  "pcb_records_sha256": "336ecb6c994206a8dc2e81bfdb41fa38299f58cf3cb6d1639504e48612078f14",
+  "record_count": 1101,
+  "native_traces": 118,
+  "native_vias": 136,
+  "error_records": 0,
+  "independent_export_DRC": "Prior validation/kicad-drc.json and pad/drill/copper preservation evidence apply to these identical PCB records. No new fabrication kit generated."
+}

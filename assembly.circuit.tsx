@@ -16,7 +16,7 @@ export default () => (
       }
       return part.printed ? (
         <assembly.printedpart key={part.name} name={part.name} color={part.color}
-          material="petg" cadModel={cadModel} />
+          material="pla" cadModel={cadModel} />
       ) : (
         <assembly.part key={part.name} name={part.name}
           displayName={part.description} cadModel={cadModel} />
