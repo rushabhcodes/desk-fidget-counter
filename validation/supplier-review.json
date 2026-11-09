@@ -47,6 +47,18 @@
   "resolution": "Replaced C165948 entirely; no supplier slot, pad or locating-hole geometry was edited. New exact footprint matches the XUNPU drawing and passes native/independent checks. Normal final supplier DFM and placement review still apply.",
   "bespoke_short_slot_process_acceptance_required": false,
   "supplier_process_approval_obtained": false,
-  "source_circuit_sha256": "6fb6d355f0ad1597ac0d18584049504e5d426d5c8b83a094547ef5d04cf4eed7",
-  "supplier_import_sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2"
+  "source_circuit_sha256": "5a5df97bdccb9008e2bb7ca6672deab3fa38302a0a9235bd07513d63bbda84f7",
+  "supplier_import_sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2",
+  "display_header": {
+    "MPN": "61300821021",
+    "catalogue_id": "C5517754",
+    "exact_supplier_footprint_unchanged": true,
+    "fitted": true,
+    "assembly_type": "Wave soldering in public JLCPCB catalogue; final current upload unverified",
+    "finished_drill_mm": 1.1000232,
+    "pin_grid_mm": 2.54,
+    "nominal_pad_to_window_clearance_mm": 0.4300017,
+    "source_import": "imports/jlc/A_61300821021/A_61300821021.tsx",
+    "supplier_import_sha256": "8d81b13e833a53b4b7bcbaa4604a42fdbef9bbc67be07775425fad864c085d5e"
+  }
 }

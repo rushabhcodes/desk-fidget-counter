@@ -3,7 +3,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 4,
-    "volume_mm3": 16372.01,
+    "volume_mm3": 16366.38,
     "bounds_mm": [
       [
         -42.4,
@@ -252,8 +252,9 @@
     "carrier_rim_to_PCB_gap_mm": 0.2,
     "carrier_rear_profile_clearance_mm": 0.4
   },
-  "purchased_package_models_checked": 38,
+  "purchased_package_models_checked": 39,
   "individual_wires_checked": 8,
+  "removable_harness_nonmetal_groups_checked": 10,
   "tolerance_envelopes_checked": {
     "print_xy_mm": 0.62,
     "hardware_xy_mm": 0.945,
@@ -264,7 +265,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E9",
+    "revision": "E10",
     "product_print_count": 6,
     "fasteners": [
       {

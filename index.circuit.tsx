@@ -34,7 +34,7 @@ const pcbOutline=(()=>{
  }).map(p=>({x:p.x,y:p.y-boardCenterY}))
 })()
 const used=["VBAT","NRST","VSSA","VDDA","PA0","PB2","VSS1","VDD1","PA11","PA12","PA13","VSS2","VDDIO2","PA14","PB6","PB7","PB4","PB5","PB10","PB11","PA8","PB13","PB14","PB15","BOOT0","VSS3","VDD2"]
-export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard and scroll ring — Rev E4" width={68} height={boardFrontY-boardBackY} outlineOffsetY={boardCenterY}
+export default () => <board name="DESK_KNOB_REVE5" title="USB laptop dashboard and scroll ring — Rev E5" width={68} height={boardFrontY-boardBackY} outlineOffsetY={boardCenterY}
  outline={pcbOutline}
  layers={2} thickness={1.6} minTraceWidth={fabrication.minimum_track_width} minBoardEdgeClearance={fabrication.minimum_copper_to_board_edge} minTraceToHoleEdgeClearance={fabrication.minimum_nonplated_hole_to_copper}
  minViaHoleDiameter={fabrication.via_drill_diameter} minViaPadDiameter={fabrication.via_pad_diameter} pcbStyle={{viaHoleDiameter:fabrication.via_drill_diameter,viaPadDiameter:fabrication.via_pad_diameter}}
@@ -44,7 +44,7 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <autoroutingphase name="Local MCU and encoder bypassing" phaseIndex={0} minTraceWidth={.15} connections={["MCU_VBAT_DECAP","MCU_VBAT_GROUND","MCU_VDDA_DECAP","MCU_VSSA_DECAP","MCU_VDD1_DECAP","MCU_VSS1_DECAP","MCU_VDDIO_DECAP","MCU_VSS2_DECAP","MCU_VDD2_DECAP","MCU_VSS3_DECAP","MCU_VDDA_LOCAL_BULK","MCU_VDDA_LOCAL_RETURN","MCU_VDDIO_LOCAL_BULK","MCU_VDDIO_LOCAL_RETURN","ENCODER_VCC_DECAP","ENCODER_GND_DECAP"]} minTraceToPadEdgeClearance={.2} minTraceToHoleEdgeClearance={.25} minPadEdgeToPadEdgeClearance={.15} minPlatedHoleDrillEdgeToDrillEdgeClearance={.25} minViaEdgeToPadEdgeClearance={.3} minViaHoleEdgeToViaHoleEdgeClearance={1}/>
  <autoroutingphase name="Remaining two-layer board" minTraceWidth={.15} minTraceToPadEdgeClearance={.2} minTraceToHoleEdgeClearance={.25} minPadEdgeToPadEdgeClearance={.15} minPlatedHoleDrillEdgeToDrillEdgeClearance={.25} minViaEdgeToPadEdgeClearance={.3} minViaHoleEdgeToViaHoleEdgeClearance={1}/>
  <net name="GND" isGroundNet nominalTraceWidth={.15}/><net name="V3V3" isPowerNet nominalTraceWidth={.15}/><net name="VBUS" isPowerNet nominalTraceWidth={.15}/>
- <net name="PERIPH_3V3" isPowerNet nominalTraceWidth={.15}/><net name="PERIPH_EN"/><net name="NRST"/><net name="BOOT0"/><net name="MODE_BTN"/><net name="USB_DM"/><net name="USB_DP"/><net name="SWDIO"/><net name="SWCLK"/><net name="SCL"/><net name="SDA"/><net name="CC1"/><net name="CC2"/><net name="IR_A"/><net name="OPT_A"/><net name="OPT_B"/><net name="ENC_A"/><net name="ENC_B"/><net name="LCD_RST"/><net name="LCD_BL"/><net name="LCD_CS"/><net name="SPI_SCK"/><net name="LCD_DC"/><net name="SPI_MOSI"/><net name="LCD_SCK"/><net name="LCD_MOSI"/>
+ <net name="PERIPH_3V3" isPowerNet nominalTraceWidth={.15}/><net name="PERIPH_EN"/><net name="NRST"/><net name="BOOT0"/><net name="MODE_BTN"/><net name="USB_DM" nominalTraceWidth={.15}/><net name="USB_DP" nominalTraceWidth={.15}/><net name="SWDIO"/><net name="SWCLK"/><net name="SCL"/><net name="SDA"/><net name="CC1"/><net name="CC2"/><net name="IR_A"/><net name="OPT_A"/><net name="OPT_B"/><net name="ENC_A"/><net name="ENC_B"/><net name="LCD_RST"/><net name="LCD_BL"/><net name="LCD_CS"/><net name="SPI_SCK"/><net name="LCD_DC"/><net name="SPI_MOSI"/><net name="LCD_SCK"/><net name="LCD_MOSI"/>
  <cutout name="LCD_AND_CABLE_POCKET" shape="polygon" points={Array.from({length:4},(_,corner)=>Array.from({length:9},(_,i)=>{const a=(corner*90+i*90/8)*Math.PI/180;const cx=corner===0||corner===3?14.8:-15.8;const cy=corner<2?16.8:-19.8;return {x:cx+2*Math.cos(a),y:cy+2*Math.sin(a)}})).flat()}/>
  {/* Reserve 0.4 mm outside the window on both copper layers. Connector
      housings may span above this space; their pads remain outside it. */}
@@ -55,7 +55,7 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <MCU pcbSx={refStyle} name="U1" pcbX={25.2} pcbY={0} pcbRotation={90} noSchematicRepresentation noConnect={mcuPins.filter(p=>!used.includes(p))}
  connections={{VBAT:N("V3V3"),VDD1:N("V3V3"),VDD2:N("V3V3"),VDDIO2:N("V3V3"),VDDA:N("V3V3"),VSS1:N("GND"),VSS2:N("GND"),VSS3:N("GND"),VSSA:N("GND"),NRST:N("NRST"),BOOT0:N("BOOT0"),PA0:N("MODE_BTN"),PB2:N("PERIPH_EN"),PA11:N("USB_DM"),PA12:N("USB_DP"),PA13:N("SWDIO"),PA14:N("SWCLK"),PB6:N("SCL"),PB7:N("SDA"),PB4:N("ENC_A"),PB5:N("ENC_B"),PB10:N("LCD_RST"),PB11:N("LCD_BL"),PA8:N("LCD_CS"),PB13:N("SPI_SCK"),PB14:N("LCD_DC"),PB15:N("SPI_MOSI")}}/>
  <schematicsheet name="sheet-1" displayName="USB-C interface and ESD protection" sheetIndex={0}>
- <schematictext text="DESK KNOB E4 — USB-C interface and ESD protection" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — USB-C interface and ESD protection" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="usb" displayName="USB-C / ESD / CC sink resistors"/>
  {/* The receptacle housing overhangs the PCB nose; copper and drills remain on board. */}
  <USB allowOffBoard pcbSx={refStyle} name="J1" schWidth={1.5} pcbX={usbPosition.x} pcbY={usbPosition.y} pcbRotation={180} schX={-7} schY={-2} schSectionName="usb" noConnect={["SBU1","SBU2"]}
@@ -64,14 +64,14 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <R name="R2" resistance="5.1k" pcbX={-8} pcbRotation={180} pcbY={36} schX={-2} schY={-2} schSectionName="usb" connections={{pin1:N("CC2"),pin2:N("GND")}}/>
  <trace name="USB_CC1_RD" from=".R1 > .pin1" to=".J1 > .CC1" width={.1}/>
  <trace name="USB_CC2_RD" from=".J1 > .CC2" to=".R2 > .pin1" width={.1}/>
- <JlcChip pcbSx={refStyle} name="U6" cadModel={packageCad("sot23-6")} pinAttributes={{VBUS:{requiresPower:true},GND:{requiresGround:true},DM_IN:{isPassive:true},DM_OUT:{isPassive:true},DP_IN:{isPassive:true},DP_OUT:{isPassive:true}}} manufacturerPartNumber="USBLC6-2SC6" pcbX={7.6} pcbY={33.8} pcbRotation={0} schX={3} schY={-1} schSectionName="usb"
+ <JlcChip pcbSx={refStyle} name="U6" cadModel={packageCad("sot23-6")} pinAttributes={{VBUS:{requiresPower:true},GND:{requiresGround:true},DM_IN:{isPassive:true},DM_OUT:{isPassive:true},DP_IN:{isPassive:true},DP_OUT:{isPassive:true}}} manufacturerPartNumber="USBLC6-2SC6" pcbX={7.1} pcbY={33.6} pcbRotation={0} schX={3} schY={-1} schSectionName="usb"
  pinLabels={{pin1:"DM_IN",pin2:"GND",pin3:"DP_IN",pin4:"DP_OUT",pin5:"VBUS",pin6:"DM_OUT"}}
  connections={{DM_IN:N("USB_DM"),GND:N("GND"),DP_IN:N("USB_DP"),DP_OUT:N("USB_DP"),VBUS:N("VBUS"),DM_OUT:N("USB_DM")}}/>
  <C name="C1" capacitance="100nF" pcbX={10.8} pcbY={33.4} pcbRotation={90} schX={7} schY={-1} schSectionName="usb" connections={{pin1:N("VBUS"),pin2:N("GND")}}/>
  <schematictext text="USBLC6-2SC6: USB 2.0 data ESD clamp; VBUS reference = 5V" schX={3} schY={-4} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-2" displayName="USB power and switched peripherals" sheetIndex={1}>
- <schematictext text="DESK KNOB E4 — USB power and switched peripherals" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — USB power and switched peripherals" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="power" displayName="5V USB / 3.3V logic / suspend-controlled display and encoder"/>
  <JlcChip pcbSx={refStyle} name="U4" cadModel={packageCad("sc70-6")} manufacturerPartNumber="TPS22919DCKR" pcbX={5} pcbY={-29} schX={3} schY={1} schSectionName="power" pinLabels={{pin1:"IN",pin2:"GND",pin3:"ON",pin4:"NC",pin5:"QOD",pin6:"VOUT"}} noConnect={["NC"]} pinAttributes={{IN:{requiresPower:true},GND:{requiresGround:true},ON:{isInput:true},VOUT:{providesPower:true},QOD:{isPassive:true},NC:{doNotConnect:true}}} connections={{IN:N("V3V3"),GND:N("GND"),ON:N("PERIPH_EN"),QOD:N("PERIPH_3V3"),VOUT:N("PERIPH_3V3")}}/>
  <C name="C2" capacitance="1uF" pcbX={9} pcbY={-29} schX={-2} schY={-0.5} schSectionName="power" connections={{pin1:N("V3V3"),pin2:N("GND")}}/>
@@ -84,7 +84,7 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <schematictext text="TPS22919: 1.5A load switch; PB2 low disables LCD and IR" schX={0} schY={4.2} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-3" displayName="STM32 controller and JST programming" sheetIndex={2}>
- <schematictext text="DESK KNOB E4 — STM32 controller and JST programming" schX={0} schY={9.2} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — STM32 controller and JST programming" schX={0} schY={9.2} fontSize={.4}/>
  <schematicsection name="mcu" displayName="STM32F072CB / HSI48 crystal-less USB / SWD"/>
  <schematicbox name="U1 power" chipRef=".U1" schX={-5.5} schY={0.5} width={2.15} height={1.2} schSectionName="mcu"
  pinLabels={{pin1:"VDD1",pin2:"VDD2",pin3:"VDDA",pin4:"VDDIO2",pin5:"VBAT",pin6:"VSS1",pin7:"VSS2",pin8:"VSS3",pin9:"VSSA"}}
@@ -121,7 +121,7 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <schematictext text="STM32F072CBT6: 48MHz USB HID + CDC; 3.3V; LQFP48" schX={0} schY={4.5} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-4" displayName="Optical rotation encoder" sheetIndex={3}>
- <schematictext text="DESK KNOB E4 — Optical rotation encoder" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — Optical rotation encoder" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="encoder" displayName="48-slot optical ring / common-collector dual sensor / TIM3 quadrature"/>
  <OpticalSensor pcbSx={refStyle} name="U2" schPinArrangement={{leftSide:["pin1","pin2"],rightSide:["pin4","pin5"],topSide:["pin6"],bottomSide:["pin3"]}} pcbX={-23} pcbY={10} pcbRotation={156.501434} schX={-3} schY={0} schSectionName="encoder" noConnect={["NC"]} connections={{A:N("IR_A"),K:N("GND"),COL:N("PERIPH_3V3"),EA:N("OPT_A"),EB:N("OPT_B")}}/>
  <JlcChip pcbSx={refStyle} name="U7" cadModel={packageCad("sot23-6")} manufacturerPartNumber="SN74LVC2G17DBVR" pcbX={-21} pcbY={19.5} schX={1} schY={0} schSectionName="encoder" pinLabels={{pin1:"A1",pin2:"GND",pin3:"A2",pin4:"Y2",pin5:"VCC",pin6:"Y1"}} pinAttributes={{VCC:{requiresPower:true},GND:{requiresGround:true},A1:{isInput:true},A2:{isInput:true},Y1:{isOutput:true},Y2:{isOutput:true}}} connections={{A1:N("OPT_A"),A2:N("OPT_B"),Y1:N("ENC_A"),Y2:N("ENC_B"),VCC:N("V3V3"),GND:N("GND")}}/>
@@ -137,34 +137,36 @@ export default () => <board name="DESK_KNOB_REVE4" title="USB laptop dashboard a
  <schematictext text="SN74LVC2G17: 3.3V Schmitt buffers to TIM3 quadrature" schX={1} schY={-6} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-5" displayName="Persistent turn storage" sheetIndex={4}>
- <schematictext text="DESK KNOB E4 — Persistent turn storage" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — Persistent turn storage" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="memory" displayName="32KB FRAM 0x50 / power-fail journal"/>
  <FRAM pcbSx={refStyle} name="U3" pcbX={-15} pcbY={27.5} schX={-2.5} schY={0} schSectionName="memory" connections={{A0:N("GND"),A1:N("GND"),A2:N("GND"),VSS:N("GND"),WP:N("GND"),SDA:N("SDA"),SCL:N("SCL"),VDD:N("V3V3")}}/>
  <C name="C16" capacitance="100nF" pcbX={-9.5} pcbY={31} schX={2.5} schY={0} schSectionName="memory" connections={{pin1:N("V3V3"),pin2:N("GND")}}/>
  <schematictext text="MB85RC256V: 32KB I2C FRAM at 0x50; 2.7-5.5V" schX={0} schY={4} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-6" displayName="User controls and status" sheetIndex={5}>
- <schematictext text="DESK KNOB E4 — User controls and status" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — User controls and status" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="controls" displayName="Front side button / Scroll or Count mode / hold 3s to clear turns"/>
  <JlcButton pcbSx={refStyle} allowOffBoard name="SW1" cadModel={packageCad("b3u3000")} manufacturerPartNumber="B3U-3000P" pcbX={0} pcbY={dimensions.front_button.pcb_center[1]} pcbRotation={180} schX={-5} schY={3} schRotation={90} schSectionName="controls" connections={{pin1:N("MODE_BTN"),pin2:N("GND")}}/>
  <schematictext text="PA0 internal pull-up; short press selects mode; hold 3s clears turns" schX={0} schY={6} fontSize={.22}/>
  </schematicsheet>
  <schematicsheet name="sheet-7" displayName="Round display and laptop dashboard" sheetIndex={6}>
- <schematictext text="DESK KNOB E4 — Round display and laptop dashboard" schX={0} schY={8} fontSize={.4}/>
+ <schematictext text="DESK KNOB E5 — Round display and laptop dashboard" schX={0} schY={8} fontSize={.4}/>
  <schematicsection name="display" displayName="Waveshare 19192 / GC9A01 240x240 / fixed 1.28-inch screen"/>
- <JlcConnector pcbSx={refStyle} doNotPlace name="J6" schWidth={1.385} schPinArrangement={{leftSide:["pin1","pin2","pin3","pin4","pin5","pin6","pin7","pin8"]}} manufacturerPartNumber="2.54-1*8" pcbX={dimensions.display_connector[0]} pcbY={dimensions.display_connector[1]} pcbRotation={90} schX={2} schY={0} schSectionName="display" pinLabels={{pin1:"VCC",pin2:"GND",pin3:"DIN",pin4:"CLK",pin5:"CS",pin6:"DC",pin7:"RST",pin8:"BL"}} connections={{pin1:N("PERIPH_3V3"),pin2:N("GND"),pin3:N("LCD_MOSI"),pin4:N("LCD_SCK"),pin5:N("LCD_CS"),pin6:N("LCD_DC"),pin7:N("LCD_RST"),pin8:N("LCD_BL")}}/>
+ <JlcConnector pcbSx={refStyle} name="J6" cadModel={packageCad("header2x4-ra")} schWidth={1.385} schPinArrangement={{leftSide:["pin1","pin2","pin3","pin4","pin5","pin6","pin7","pin8"]}} manufacturerPartNumber="61300821021" pcbX={dimensions.display_connector[0]} pcbY={dimensions.display_connector[1]} pcbRotation={90} schX={2} schY={0} schSectionName="display" pinLabels={{pin1:"BL",pin2:"RST",pin3:"DC",pin4:"CS",pin5:"CLK",pin6:"DIN",pin7:"GND",pin8:"VCC"}} connections={{pin1:N("LCD_BL"),pin2:N("LCD_RST"),pin3:N("LCD_DC"),pin4:N("LCD_CS"),pin5:N("LCD_SCK"),pin6:N("LCD_MOSI"),pin7:N("GND"),pin8:N("PERIPH_3V3")}}/>
  <R name="R27" resistance="22" pcbX={19} pcbY={17} pcbRotation={180} schX={-3} schY={-.1} schRotation={0} schSectionName="display" connections={{pin1:N("SPI_SCK"),pin2:N("LCD_SCK")}}/>
  <R name="R28" resistance="22" pcbX={22} pcbY={17} pcbRotation={180} schX={-6} schY={-.3} schRotation={0} schSectionName="display" connections={{pin1:N("SPI_MOSI"),pin2:N("LCD_MOSI")}}/>
  <C name="C15" capacitance="1uF" pcbX={-28} pcbY={3} schX={6} schY={0} schSectionName="display" connections={{pin1:N("PERIPH_3V3"),pin2:N("GND")}}/>
  <schematictext text="Waveshare 19192: 240x240; 3.3V supply and logic; SPI 12MHz" schX={0} schY={5} fontSize={.22}/>
- <schematictext text="J6: solder shortened included cable; optional header DNP" schX={0} schY={-5} fontSize={.22}/>
+ <schematictext text="J6: fitted 2x4 right-angle header; supplied female jumper ends unplug" schX={0} schY={-5} fontSize={.22}/>
  </schematicsheet>
  <copperpour name="GROUND_TOP" layer="top" connectsTo="net.GND" clearance={.25} boardEdgeMargin={.4} cutoutMargin={.31} useThermalReliefs/>
  <copperpour name="GROUND_BOTTOM" layer="bottom" connectsTo="net.GND" clearance={.25} boardEdgeMargin={.4} cutoutMargin={.31} useThermalReliefs/>
- <silkscreentext text="DESK KNOB E4" pcbX={-33} pcbY={0} pcbRotation={90} fontSize={1}/>
+ <silkscreentext text="DESK KNOB E5" pcbX={-33} pcbY={0} pcbRotation={90} fontSize={1}/>
  <silkscreentext text="1" pcbX={-5} pcbY={23.5} fontSize={1}/>
  <silkscreentext text="USB-C" pcbX={0} pcbY={32.5} fontSize={1}/>
  <silkscreentext text="USB POWER" pcbX={8} pcbY={-24} fontSize={1}/>
  <silkscreentext text="MODE / CLEAR 3s" pcbX={-4} pcbY={-28.5} fontSize={1}/>
-{["VCC","GND","DIN","CLK","CS","DC","RST","BL"].map((label,i)=><Fragment key={label}><silkscreentext text={label} pcbX={-24.5} pcbY={4.39-2.54*i} fontSize={1}/></Fragment>)}
+{["RST / BL","CS / DC","DIN / CLK","VCC / GND"].map((label,i)=><Fragment key={label}><silkscreentext text={label} pcbX={-27.5} pcbY={dimensions.display_connector[1]-3.81+2.54*i} fontSize={1}/></Fragment>)}
+ <silkscreentext text="J6 SPI + PWR" pcbX={-27.5} pcbY={-10.6} fontSize={1}/>
+ <silkscreentext text="1" pcbX={dimensions.display_connector[0]+1.27} pcbY={dimensions.display_connector[1]-5.9} fontSize={1}/>
 </board>

@@ -1,14 +1,13 @@
 Item,Quantity,Part or standard,Nominal dimensions,Notes
-Screen,1,Waveshare 19192,40.453106 x 37.5 x 9.2 mm supplier STEP,1.28 inch non-touch GC9A01 active diameter32.4mm
-Bearing,1,6712ZZ,60 ID x75 OD x7 mm,Verify race contact widths and fit coupon
-LCD mate housings,2,JST PHR-8,17.8 x4.5 x6.85 mm,Custom H1 permanent harness
-LCD crimp contacts,16,JST SPH-004T-P0.5S,5.7 mm nominal contact length,32AWG wire compatible
-LCD wire,8,Alpha Wire 2840/7,24.5 +/-0.5 mm free between housing backs,Add actual termination allowance for cut length; eight colours
-Programming housing,1,JST PHR-6,13.8 x4.5 x6.85 mm,Removable service accessory
-Programming contacts,5,JST SPH-004T-P0.5S,32AWG compatible,Cavity6 BOOT0 empty for normal SWD
-Programming wire,5,Alpha Wire 2840/7,150 mm service leads,Remove harness before closing
-Short screws,11,DIN965 M2x6 A2,2 mm major diameter x0.4 pitch; head3.8x1.2 mm,Chassis2 inner clamp3 lower retainer3 bezel3
-Cradle screws,3,DIN965 M2x10 A2,2 mm major diameter x0.4 pitch; head3.8x1.2 mm,Cradle to independent base posts
-USB cable,1,L-com CAU4CC-40M-1M,1m; plug section12.9x6.4 mm,External C-to-C data cable; check actual insertion shoulder
-Skirt adhesive,1,3M 467MP annulus,0.05-0.06 mm thick,Non-loadbearing optical skirt attachment
-Insulator,1,Thin insulating film,Trim to board/base interface,Keep out of moving track and solder joints
+Screen and supplied lead,1,Waveshare 19192,40.453106 x37.5 x9.2mm supplier STEP,Retain original PH plug and eight female jumper ends; shorten middle; eight insulated solder joints
+Bearing,1,6712ZZ,60 ID x75 OD x7mm,One complete purchased bearing; verify fits with coupon
+Short screws,2,DIN965 M2x6,Head diameter3.8mm xheight1.2mm,Base/lid
+Shared screen screws,2,DIN965 M2x10,Head diameter3.8mm xheight1.2mm,Carrier/bezel shared pair
+PCB capture foam,1,PORON 4701-30-20062-04,1.57mm nominal thickness;20x20mm sample,Cut four diameter4mm and two diameter2.6mm discs
+Pad adhesive,1,3M 467MP,0.05mm nominal thickness,Six capture pads only
+Insulation,1,3M 5413 polyimide tape,0.069mm nominal thickness,Inspected underside solder wells; tails <=0.8mm
+Splice insulation,8,Heat-shrink sleeves,Finished envelope diameter2 x6mm,Select for actual wire; one sleeve per individual cable joint
+USB cable,1,USB2.0 data cable with USB-C device end,Plug approach gauge13.4 x6.9mm,Reuse suitable cable; verify actual full insertion
+Programming lead,1,JST PHR-6 service lead,2mm PH; about150mm external,Optional reusable service accessory; removed before closure; five qualified contacts plus optionalBOOT0
+Programmer,1,Compatible STM32 SWD probe,VTref sense; USB target power,Reusable service tool
+Optional feet,3,Adhesive silicone feet,Approximately diameter5 x1mm,Adds1mm to body height

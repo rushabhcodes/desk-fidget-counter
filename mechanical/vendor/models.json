@@ -418,5 +418,35 @@
       "y": 6.798,
       "z": 4.161
     }
+  },
+  "header2x4-ra": {
+    "step": "imports/jlc/A_61300821021/A_61300821021.step",
+    "obj": "mechanical/vendor/obj/header2x4-ra.obj",
+    "collision_mesh": "mechanical/vendor/solid/header2x4-ra.ply",
+    "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C5517754",
+    "manufacturer": "Wurth Elektronik",
+    "MPN": "61300821021",
+    "datasheet": "https://www.we-online.com/components/products/datasheet/61300821021.pdf",
+    "bounds": [
+      [
+        -5.080012624,
+        -11.25000291,
+        -2.4
+      ],
+      [
+        5.089987453,
+        1.649996709,
+        5.00000579
+      ]
+    ],
+    "size": {
+      "x": 10.17,
+      "y": 12.9,
+      "z": 7.40000579
+    },
+    "pin_tail_trim_mm": 0.8,
+    "datum_note": "Rigid original import datum subtraction (0.0000127,4.8000031,-0.280006), no scaling. Only through-hole tails clipped to <=0.8mm below a 1.6mm PCB for closure. Original full STEP/OBJ retained unchanged in imports.",
+    "derivative_generator": "mechanical/vendor/generate-display-header.py",
+    "supplier_model_geometry_unscaled": true
   }
 }

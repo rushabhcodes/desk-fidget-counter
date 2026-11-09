@@ -1,4 +1,4 @@
-# E9 low-profile architecture
+# E10 low-profile architecture
 
 The body remains **Ø84.8×19.5 mm** before optional feet. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
 
@@ -35,3 +35,5 @@ E9 uses PLA, with two 23×4 mm braced end walls, 7 mm-wide feet and short locati
 The side-entry cable permits a **19.5 mm** assembled height, **2.8 mm (12.6%) shorter** than E6. The lid plate is recessed to Z7.2–8.4 mm, with a stiffening rim up to Z9.2 mm and 4 mm driver access wells. The bearing is at Z9.2–16.2 mm; the grip starts at Z10.0 mm. The USB plug envelope reaches Z9.23 mm, leaving 0.77 mm nominal vertical clearance and 0.31 mm under the stated hardware tolerance budget. Sensor beam height and optical slot positions are unchanged. Purchased parts remain unscaled.
 
 E9 additionally opens the carrier screw bores and clears the actual screen PCB outline for a 2 mm rear-component allowance. The [visual audit](AUDIT.md) records the corrections and inspection views.
+
+E10 adds fitted J6 and the eight original female jumper housings in the PCB window, without raising the display or enclosure. Both kit cable ends remain; eight staggered, individually insulated middle joints shorten the wire paths. See the [physical wiring map](../manufacturing/WIRING.md).

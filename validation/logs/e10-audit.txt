@@ -1,0 +1,13 @@
+CAD audit passed: 190 solid pairs; six print/GLB round trips; two open M2 bores; driver access.
+Rendered Top / screen and bezel
+Rendered Front / captive mode button
+Rendered Rear / USB-C
+Rendered Left side
+Rendered Right side
+Rendered Bottom / floor
+Rendered PCB, support walls and button
+Rendered Stationary bearing / fixed cable cavity
+Rendered Fixed cable, carrier and posts
+Rendered Screen underside / original side-entry plug
+Rendered Rotor underside / integral 48-slot track
+Rendered Encoder fork / rotating track close-up

@@ -16,7 +16,7 @@ OUT=args.output or Path(tempfile.mkdtemp(prefix='desk-fab-check-' if args.check_
 REPORT=OUT
 OUT.mkdir(exist_ok=True)
 raw=args.input_board
-boardpath=OUT/'desk-knob-reve4.kicad_pcb'
+boardpath=OUT/'desk-knob-reve5.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),

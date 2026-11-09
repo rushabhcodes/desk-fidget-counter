@@ -1,8 +1,8 @@
 {
-  "revision": "E9",
-  "model_sha256": "fc3fec3f66cdd1a7fce749aeb36548e14455552ded087dac125583ef943c487a",
-  "source_parameters_sha256": "c20dda53e6541937614cac90359b134f42181881706859505d8e279673dd95a4",
-  "tested_solid_pair_count": 153,
+  "revision": "E10",
+  "model_sha256": "f8df3159653fb71cd613bb74e10633a8e1502b8bc3e2869e563baa39d8475817",
+  "source_parameters_sha256": "362affb12fc976e7f8a24cd69be802055f80f15bbd75837cbbc094f5cb218981",
+  "tested_solid_pair_count": 190,
   "intentional_contacts": [
     {
       "parts": [
@@ -27,7 +27,7 @@
   "print_checks": {
     "base": {
       "connected_watertight": true,
-      "stl_sha256": "bca7cd2a4162a3500a8b0bf5e2293ce55601949a5d550ab916db1344ecfcd642",
+      "stl_sha256": "820b8d364797e15d1d2f782ddd13f7eef04e0ce6db968f543a5452a8fe7b770d",
       "STL_to_GLB_max_vertex_error_mm": 0.0
     },
     "lid": {
@@ -73,10 +73,10 @@
   "scope": "Nominal delivered geometry plus stated fit-budget envelopes. Rear electronics reservation is an engineering allowance; exact kit plug fit, PLA strength/friction and bearing retention are physically untested.",
   "rendered_exterior_views": 6,
   "rendered_internal_views": 6,
+  "rendered_harness_views": 2,
   "images": {
-    "exterior-contact-sheet.png": "9dd6e2fe7c104c5d60179462d41fe586c384d200618fb36a0bd050e09a36cdb1",
-    "internal-contact-sheet.png": "4dc7ee66f3819ef3054d34824af5ef9bd9c03501f10a9b6846b2b53293698873",
-    "bore-section.png": "cc6a793b5ea41d858fbd4324fda75a153ea2263168ec6dcbd316895a77c6422a"
-  },
-  "carrier_comparison_source_sha256": "0ce925ea150f2f5846a5e8b212c726a495dc621984ba1072a1a5e05a29d02750"
+    "exterior-contact-sheet.png": "5c7e36b0dcae28789e15d77555cc0a8715f7322dcfc293f0674819a7c1645cf9",
+    "internal-contact-sheet.png": "cbac199a0a99367ee52654d620efbe86fb7e0820049c1e4acc61109d2722fd12",
+    "display-harness.png": "61eda60b017d72ebb79ec2b35bbf0378811b63223ea46ae68a5ea680139f6d6d"
+  }
 }

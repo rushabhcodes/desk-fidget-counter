@@ -217,7 +217,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-bl",
@@ -226,9 +226,9 @@
     "asset": "lcd-wire-bl.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -13.989993,
-        0.936537
+        -0.400001,
+        -7.91,
+        1.100716
       ],
       [
         18.699509,
@@ -237,7 +237,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-rst",
@@ -246,9 +246,9 @@
     "asset": "lcd-wire-rst.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -11.449993,
-        0.936537
+        -0.400018,
+        -7.91,
+        1.100006
       ],
       [
         18.699509,
@@ -257,7 +257,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-dc",
@@ -266,9 +266,9 @@
     "asset": "lcd-wire-dc.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -8.909993,
-        0.936537
+        -0.400013,
+        -5.37,
+        1.1
       ],
       [
         18.699509,
@@ -277,7 +277,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-cs",
@@ -286,9 +286,9 @@
     "asset": "lcd-wire-cs.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -6.369993,
-        0.936537
+        -0.400031,
+        -5.37,
+        1.100006
       ],
       [
         18.699509,
@@ -297,7 +297,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-clk",
@@ -306,9 +306,9 @@
     "asset": "lcd-wire-clk.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -3.829993,
-        0.936537
+        -0.400026,
+        -2.83,
+        1.1
       ],
       [
         18.699509,
@@ -317,7 +317,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-din",
@@ -326,9 +326,9 @@
     "asset": "lcd-wire-din.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        -1.289993,
-        0.936537
+        -0.400044,
+        -2.83,
+        1.100006
       ],
       [
         18.699509,
@@ -337,7 +337,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-gnd",
@@ -346,9 +346,9 @@
     "asset": "lcd-wire-gnd.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        1.250007,
-        0.936537
+        -0.400039,
+        -0.29,
+        1.100073
       ],
       [
         18.699509,
@@ -357,7 +357,7 @@
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-wire-vcc",
@@ -366,18 +366,58 @@
     "asset": "lcd-wire-vcc.obj",
     "bounds_pcb_mm": [
       [
-        -22.099849,
-        3.790007,
-        0.936537
+        -0.400057,
+        -0.29,
+        1.100006
       ],
       [
         18.699509,
-        7.989999,
+        7.6,
         8.899924
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+  },
+  {
+    "name": "lcd-cable-board-plugs",
+    "printed": false,
+    "color": "#20262c",
+    "asset": "lcd-cable-board-plugs.obj",
+    "bounds_pcb_mm": [
+      [
+        -14.899997,
+        -8.58,
+        0.760006
+      ],
+      [
+        -0.399997,
+        1.58,
+        5.840006
+      ]
+    ],
+    "explode_z_mm": 40,
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
+  },
+  {
+    "name": "lcd-cable-splice-sleeves",
+    "printed": false,
+    "color": "#30343a",
+    "asset": "lcd-cable-splice-sleeves.obj",
+    "bounds_pcb_mm": [
+      [
+        3.059336,
+        -8.041214,
+        0.7
+      ],
+      [
+        18.737252,
+        6.0,
+        5.514119
+      ]
+    ],
+    "explode_z_mm": 40,
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "lcd-cable-contacts",
@@ -386,18 +426,18 @@
     "asset": "lcd-cable-contacts.obj",
     "bounds_pcb_mm": [
       [
-        -21.66,
-        -13.55,
-        -1.6
+        -13.799997,
+        -7.66,
+        1.42
       ],
       [
-        14.8,
+        18.259564,
         7.25,
         8.55
       ]
     ],
     "explode_z_mm": 40,
-    "description": "Included Waveshare display lead, shortened at PCB end; nominal plug/wire envelopes, see harness.json"
+    "description": "Included Waveshare display lead, both factory ends retained, shortened in its middle with insulated splices; nominal plug/wire envelopes, see harness.json"
   },
   {
     "name": "screen-ui",

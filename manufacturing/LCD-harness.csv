@@ -1,9 +1,9 @@
-Assembly,PCB pad,PCB pad XY mm,Signal,Original screen pin,Modeled insulated span mm,Required purchased parts
-Included Waveshare lead; shorten PCB end,1,"-21.50,4.39",VCC,8,49.618,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,2,"-21.50,1.85",GND,7,49.616,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,3,"-21.50,-0.69",DIN,6,49.625,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,4,"-21.50,-3.23",CLK,5,49.647,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,5,"-21.50,-5.77",CS,4,49.682,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,6,"-21.50,-8.31",DC,3,49.729,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,7,"-21.50,-10.85",RST,2,49.788,None; retain factory PH display plug
-Included Waveshare lead; shorten PCB end,8,"-21.50,-13.39",BL,1,49.859,None; retain factory PH display plug
+Assembly,J6 physical pin,PCB hole XY mm,Signal,Original screen pin,Modeled free path mm (not cut length),Additional consumable
+Included Waveshare lead; both ends retained,1,"-19.08,-7.31",BL,1,25.576,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,2,"-21.62,-7.31",RST,2,26.25,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,3,"-19.08,-4.77",DC,3,25.718,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,4,"-21.62,-4.77",CS,4,26.63,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,5,"-19.08,-2.23",CLK,5,26.048,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,6,"-21.62,-2.23",DIN,6,27.165,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,7,"-19.08,0.31",GND,7,26.549,Individual heat-shrink sleeve per inline splice
+Included Waveshare lead; both ends retained,8,"-21.62,0.31",VCC,8,27.835,Individual heat-shrink sleeve per inline splice

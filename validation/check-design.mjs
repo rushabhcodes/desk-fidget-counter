@@ -61,7 +61,7 @@ for(const p of ports){
  assert.equal(physical.length,1,`${components.get(p.source_component_id)?.name}.${p.name} must have a PCB port`)
  assert(cj.some(q=>['pcb_smtpad','pcb_plated_hole'].includes(q.type)&&q.pcb_port_id===physical[0].pcb_port_id),`${p.source_port_id} needs copper`)
 }
-for (const [name,count,drill] of [['J4',6,.9000236],['J6',8,.999998]]) {
+for (const [name,count,drill] of [['J4',6,.9000236],['J6',8,1.1000232]]) {
  const pc=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get(name).source_component_id)
  const holes=cj.filter(x=>x.type==='pcb_plated_hole'&&x.pcb_component_id===pc.pcb_component_id)
  assert.equal(holes.length,count,`${name} JST PH pin count`)
@@ -113,9 +113,11 @@ assert.equal(usb.footprint_origin.x,mechanics.usb_center[0]);assert.equal(usb.fo
 assert(Math.abs(Math.max(...b.outline.map(p=>p.y))-41.4)<1e-6,'Integral USB tab must reach its specified front edge')
 assert(Math.abs(Math.min(...b.outline.map(p=>p.y))+42.1)<1e-6)
 assert(Math.abs(b.height-83.5)<1e-6)
-assert.equal(components.get('J6').manufacturer_part_number,'2.54-1*8')
+assert.equal(components.get('J6').manufacturer_part_number,'61300821021')
 assert.equal(mechanics.stock_display_cable.custom_harness_required,false)
 const display=cj.find(x=>x.type==='pcb_component'&&x.source_component_id===components.get('J6').source_component_id)
-assert.equal(display.do_not_place,true,'The optional header must not be purchased/populated for the included-cable build')
-assert.equal(cj.filter(x=>x.type==='pcb_component'&&!x.do_not_place).length,38)
-console.log(`Design contract passed: ${components.size} references / 38 populated parts, physical pin maps, power/USB/I2C/controls and distinct rails.`)
+assert(!display.do_not_place,'The removable display header must be fitted')
+assert.deepEqual(mechanics.display_board_header.pin_signals,['BL','RST','DC','CS','CLK','DIN','GND','VCC'])
+for (let i=0;i<8;i++) pin('J6',mechanics.display_board_header.pin_signals[i],i+1)
+assert.equal(cj.filter(x=>x.type==='pcb_component'&&!x.do_not_place).length,39)
+console.log(`Design contract passed: ${components.size} references / 39 populated parts, physical pin maps, power/USB/I2C/controls and distinct rails.`)

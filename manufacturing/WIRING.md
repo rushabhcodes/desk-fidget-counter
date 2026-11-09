@@ -1,27 +1,31 @@
-# PCB E4 / Mechanics E8 physical wiring and connector views
+# PCB E5 / Mechanics E10 physical wiring
 
-All board components mount from the top. The PCB frame is +X right/+Y toward USB, with the PCB top at Z=4.2 mm above the enclosure floor. Pin numbers below refer to the **board header pads**, not an arbitrary view of the mating plug. Match the moulded pin-1 mark and the LCD's printed signal labels, then check continuity before applying power.
+All fitted board components mount from the top. Coordinates use +X right, +Y toward USB; PCB top is Z4.2 mm above the enclosure floor. Pin numbers refer to the physical board pads. Match pin 1 and the screen's printed signal labels, then check continuity before power.
 
-## Included display lead H1 — no separate harness purchase
+## Removable display lead H1
 
-Waveshare SKU 19192 includes a **PH2.0 8-pin, 20 cm cable**, with the PH plug at the display end and eight individual female jumper sockets at the board end. See the [manufacturer package list](https://www.waveshare.com/product/1.28inch-lcd-module.htm) and its [actual cable photograph](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg). The former JST-PH board header did **not** accept those jumper sockets.
+Waveshare SKU 19192 includes a **PH2.0 8-pin, 20 cm cable** with eight individual female jumper ends. [Package list](https://www.waveshare.com/product/1.28inch-lcd-module.htm) · [Manufacturer cable photograph](https://www.waveshare.com/img/devkit/accessories/PH2.0-wire-20cm-8PIN.jpg).
 
-The compact E4 build keeps the original display plug, shortens the supplied wires, and solders their stripped board ends into J6. **No extra PH housings, crimp contacts, replacement wire or adapter cable is needed.** The exact-import working source uses eight approximately Ø1.0 mm plated holes at 2.50 mm pitch from JLCPCB C5156616 (`2.54-1*8`). Its header is DNP: do not purchase or populate it. Insert and solder only the stripped wires from above. The earlier Ø1.2 mm / Würth header geometry belongs to the held fabrication files; do not use those files for ordering. Storage of the full 20 cm cable is not modelled or fit-qualified in this low enclosure.
+J6 is now a **fitted Würth 61300821021 / JLCPCB C5517754, 2×4 right-angle male header at 2.54 mm pitch**. It carries SPI plus reset, backlight, ground and switched 3.3 V. The individual supplied female ends fit the nominal 0.64 mm square pins; no replacement mating connector or crimp kit is needed. [Manufacturer drawing](https://www.we-online.com/components/products/datasheet/61300821021.pdf) · [JLCPCB part](https://jlcpcb.com/partdetail/WURTHELEKTRONIK-61300821021/C5517754).
 
-| J6 pin / pad XY mm | Signal | Original display connector pin |
+The exact imported footprint retains eight Ø1.1000232 mm finished drills and approximately Ø1.70 mm annuli. The manufacturer's recommended Ø1.02±0.05 mm holes are slightly smaller; the imported holes are retained, giving clearance around the 0.64 mm square pins and approximately 0.30 mm annular rings. Do not modify the footprint or bend a straight header to substitute for this part. Trim its tails after soldering to ≤0.8 mm below the PCB and insulate the inspected wells.
+
+| J6 physical pin / hole XY mm | Signal | Original display pin |
 |---|---|---|
-| 1 / (−21.5,4.39) | Switched 3.3V | 8 / VCC |
-| 2 / (−21.5,1.85) | GND | 7 / GND |
-| 3 / (−21.5,−0.69) | DIN | 6 / DIN |
-| 4 / (−21.5,−3.23) | CLK | 5 / CLK |
-| 5 / (−21.5,−5.77) | CS | 4 / CS |
-| 6 / (−21.5,−8.31) | DC | 3 / DC |
-| 7 / (−21.5,−10.85) | RST | 2 / RST |
-| 8 / (−21.5,−13.39) | BL | 1 / BL |
+| 1 / (-19.08, -7.31) | BL | 1 / BL |
+| 2 / (-21.62, -7.31) | RST | 2 / RST |
+| 3 / (-19.08, -4.77) | DC | 3 / DC |
+| 4 / (-21.62, -4.77) | CS | 4 / CS |
+| 5 / (-19.08, -2.23) | CLK | 5 / CLK |
+| 6 / (-21.62, -2.23) | DIN | 6 / DIN |
+| 7 / (-19.08, 0.31) | GND | 7 / GND |
+| 8 / (-21.62, 0.31) | VCC | 8 / VCC |
 
-Route and trial-fit before cutting. The display plug mates sideways along the screen PCB. Mate it before lowering the module. The illustrated insulated paths are about 50 mm; retain practical assembly slack, add about 2.55 mm for the stripped board end, and trim each wire to its actual dressed path. Do not use the superseded 37 mm target. Preserve the factory PH termination. Strip/tin the board ends, insert from above, solder without loose strands, and trim tails to ≤0.8 mm below the board. Verify **every signal by continuity and the display's printed labels**, never by colour alone: factory colours may vary. Check VCC/GND and all eight channels before powering.
+Viewed in the PCB XY frame, each Y row has an odd pin at X−19.08 mm and an even pin at X−21.62 mm. After bending, the mating pins face +X into the window: odd pins are the lower row at Z5.43 mm, even pins the upper row at Z7.97 mm. The silkscreen labels identify every signal. This is an unkeyed connection; verify by signal and continuity, never wire colour alone.
 
-The supplied wire OD, conductor size, minimum bend radius, exact free-wire length and jumper-sleeve dimensions were not found in the manufacturer resources. Following the requested best approximation, E4 draws **Ø1.2 mm wires**, checks **Ø1.5 mm clearance**, and uses a nominal PH plug. The static fan has a 3 mm bend in XZ projection; its calculated minimum 3D centreline radius is about **1.44 mm**, not a manufacturer-qualified bend limit. Trial-route the actual wires before trimming and avoid repeated flexing. Support the soldered ends during assembly and unplug at the display before lifting the screen. There is no long service loop.
+The compact cavity does not store the full 20 cm lead. **Retain both factory connector ends and shorten each wire in its middle.** Mate both ends, trial-dress with practical slack, then remove the excess. Stagger the joints as illustrated, solder by signal, and individually insulate all eight joints with heat-shrink. Do not leave bare conductors, rely on a shared sleeve, or heat the plastic housings while soldering. The model reserves a 6 mm long, Ø2 mm finished sleeve around each joint. Select tubing that fits the actual wire and stays within that envelope. No extra cable or contacts are required; heat-shrink is an assembly consumable.
+
+Illustrated free paths are 25.6–27.9 mm between housing exits, **not cut lengths**. Allow stripping/joint overlap and assembly slack when trial dressing. The nominal housing envelopes are 14.5×2.54×2.54 mm per jumper end. Wire OD1.2 mm is rendered and OD1.5 mm is clearance-checked; the static centreline radius is at least 3.3 mm in the nominal route. Actual Waveshare housing dimensions, contact engagement and minimum bend radius are unpublished approximations. Test the actual kit and avoid repeated flexing. Unplug the display lead before lifting the screen; there is no long service loop.
 
 ## Removable programming harness H2
 
@@ -40,6 +44,6 @@ Power the target through USB-C while programming. VTref senses target voltage; d
 
 ## USB cable and mechanical fit
 
-The XUNPU C2909598 USB-C face is at Y42.1865 mm, 0.0135 mm inside the stationary side-wall radius and 0.2135 mm inside the outer floor edge; it remains accessible through the rear opening. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.78 mm and the nominal rotor clearance is 1.50 mm (1.04 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
+The XUNPU C2909598 USB-C face is at Y42.1865 mm, 0.0135 mm inside the stationary side-wall radius and 0.2135 mm inside the outer floor edge; it remains accessible through the rear opening. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.78 mm and the nominal rotor clearance is 0.77 mm (0.31 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
 
-There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E4.
+There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E5.

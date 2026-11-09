@@ -1,13 +1,11 @@
 {
-  "release": "5.8.0",
-  "pcb_revision": "E4",
-  "mechanical_revision": "E8",
-  "complete_placements": 38,
+  "release": "5.9.0",
+  "pcb_revision": "E5",
+  "mechanical_revision": "E10",
+  "complete_placements": 39,
   "smt_only_placements": 37,
-  "DNP": [
-    "J6"
-  ],
-  "physical_pins": 169,
+  "DNP": [],
+  "physical_pins": 177,
   "all_components_top": true,
   "bom_cpl_reference_sets_match": true,
   "native_placement_coordinates_preserved": true,
@@ -16,17 +14,17 @@
   "sourcing_attention": [],
   "stock": "Not reserved or checkout-verified; match exact manufacturer and MPN before payment.",
   "input_hashes": {
-    "temporary/BOM.csv": "f645f94175d9b927cd6077d38d0bf7785cca7f2326be70741dfb944a5724c128",
-    "temporary/pick-and-place.csv": "3f16c8c4984a4cf91ffb1d39841c204656e95118f2a97e5391bde0ae04b29897",
-    "dist/index/circuit.json": "6fb6d355f0ad1597ac0d18584049504e5d426d5c8b83a094547ef5d04cf4eed7",
-    "reference/jlcpcb-parts.json": "74051e77f983ccb7167ae98dd718d71ee8667f07b7f32cd4c4ef7dc876df1d88"
+    "temporary/BOM.csv": "04737bc5fdc3ccab172a14e56187bd40c96690eaf7c0e237064e80897a8974f5",
+    "temporary/pick-and-place.csv": "ee97dad54132c2fd3778c31296d4bbe6348e236c821cf48875c04604706f184f",
+    "dist/index/circuit.json": "5a5df97bdccb9008e2bb7ca6672deab3fa38302a0a9235bd07513d63bbda84f7",
+    "reference/jlcpcb-parts.json": "4d6561c5813e5de90e94408d638226ab33b4fae813b62250fa4587bf78dcd0af"
   },
   "output_hashes": {
-    "BOM-complete.csv": "d6d0cca478121f031c79c6d803d5e9baa572eed8d26db68dba2842b6a4504aed",
+    "BOM-complete.csv": "1619e37b1d3c5e4f740c28a172e9d872268dc3e21cad47b4b2a81b4a41796efc",
     "BOM-smt.csv": "f658bef20ef1138169ea456b07acec1f09ab5af8fb6f97048bf66640cf78d12b",
-    "CPL-complete.csv": "9428e7d907b25a703edb689d9a5cbee9ed7efd23888417dd3fd33ee045f3d19f",
-    "CPL-smt.csv": "7675db4cf4c42b3f09ab66acb08bf9cbf05aa35767dea22ca5e1a340a1b94131",
-    "physical-pin-map.csv": "21df704ca63e0b652105add69c53ad964fc5050cc22df491b52a1549fac8e783"
+    "CPL-complete.csv": "940cbed23e3aace7aa63b5a657798d8e9ce4956ee48b1a2aa8b1b0d32977f6ce",
+    "CPL-smt.csv": "9cd8b47a580d69c36b19f1cc86cb39b1f519d0f1396ed59ede80315a01af9518",
+    "physical-pin-map.csv": "bcc3035bb530f76df7068785ac1becfd52f97562d1520ac805a5223359c3c7fe"
   },
   "supplier_upload": "No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files."
 }

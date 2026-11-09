@@ -2,7 +2,7 @@
   "imported_date": "2026-11-06",
   "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes <C-code>",
   "source": "JLCPCB/EasyEDA via tscircuit CLI",
-  "note": "Generated imports retained byte-for-byte. Wrappers set electrical aliases, placement/CAD angles and top-entry metadata; imported copper, drill, mask and courtyard geometry is not overridden. Body silkscreen for the USB receptacle, side button and J4/J6 headers is omitted where it crosses board edges/windows or represents the unpopulated J6 body; J4 has a separate pin-1 marker. One outline in each closely spaced R12/R13 and R27/R28 pair is omitted to preserve printable ink clearance. J6 uses an imported DNP header footprint only as the supplied cable solder-pad row; do not buy or populate that header.",
+  "note": "Generated supplier imports retained byte-for-byte. Wrappers set electrical aliases, placement/CAD angles and top-insertion metadata; copper/drills/courtyards are unchanged. J6 now fits C5517754, a two-row right-angle 2.54mm display header. Housing silkscreen omitted where it crosses the PCB window. Unused older header import retained as historical source only.",
   "parts": {
     "MB85RC256VPNF-G-AMERE2": {
       "code": "C45273903",
@@ -143,6 +143,13 @@
       "sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2",
       "imported_date": "2026-11-09",
       "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C2909598"
+    },
+    "61300821021": {
+      "code": "C5517754",
+      "path": "imports/jlc/A_61300821021/A_61300821021.tsx",
+      "export": "A_61300821021",
+      "sha256": "8d81b13e833a53b4b7bcbaa4604a42fdbef9bbc67be07775425fad864c085d5e",
+      "imported_date": "2026-11-09"
     }
   },
   "access_metadata": "The project adds insertionDirection=from_above to the J4 and J6 footprint root only. Imported pad, hole, mask, silk and courtyard children are unchanged."

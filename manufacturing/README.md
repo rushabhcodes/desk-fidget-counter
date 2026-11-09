@@ -1,4 +1,4 @@
-# Manufacturing source / PCB E4, mechanics E8
+# Manufacturing source / PCB E5, mechanics E10
 
 This repository contains the design and its verification record. **No new fabrication kit or release archive is prepared.** Export/download the fabrication files yourself from this validated source when you are ready. Project source is published separately to GitHub and TSCircuit; ordering remains yours to perform.
 
@@ -18,12 +18,12 @@ The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were r
 | Drill spacing | Via drill-edge ≥0.20 mm; component PTH drill-edge ≥0.45 mm |
 | Hole-to-copper | NPTH ≥0.20 mm; via drill ≥0.20 mm; component plated drill ≥0.28 mm |
 | Copper to edge | ≥0.30 mm; ground pours inset 0.40 mm |
-| Assembly | 38 fitted components, all top; J4 genuine JST PH6 included; J6 header DNP |
-| Local assembly | Shorten the display's supplied cable and solder its eight ends at J6; trim/inspect underside joints and leads to ≤0.8 mm |
+| Assembly | 39 fitted components, all top; J4 genuine JST PH6 and J6 right-angle 2×4 display header fitted |
+| Local assembly | Retain both factory display lead ends; shorten the middle, solder and individually heat-shrink eight splices; trim board tails to ≤0.8 mm |
 
 [Fabrication rules](../reference/fabrication-rules.json) record the checked [JLCPCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/). Keep 1 oz copper. This is not a controlled-impedance design; USB full-speed signal integrity is a prototype test.
 
-J1 sits at (0,+37.55) mm; its housing overhangs the supported rear tab so its mouth reaches the shell wall. SW1 remains at (0,−40.9) mm. A captive printed cap operates its original actuator; the lid retains the cap without extra screws. No toggle is installed. J6's pad row is X−21.5 mm, from Y+4.39 downward in 2.54 mm steps: VCC/GND/DIN/CLK/CS/DC/RST/BL. Its labels are to the left of the row. [Wiring and service pin maps](WIRING.md).
+J1 sits at (0,+37.55) mm; its housing overhangs the supported rear tab so its mouth reaches the shell wall. SW1 remains at (0,−40.9) mm. A captive printed cap operates its original actuator; the lid retains the cap without extra screws. No toggle is installed. J6 is a fitted 2×4 right-angle header centred at (−20.35,−3.5) mm and rotated 90°. It faces +X into the window. Pins1–8 are BL/RST/DC/CS/CLK/DIN/GND/VCC, with odd pins lower and even pins upper. The silkscreen labels and physical pin map identify every position. [Wiring and service pin maps](WIRING.md).
 
 ## Verification without producing a kit
 
@@ -54,6 +54,6 @@ The original C165948 connector and its short slots are removed from the fitted d
 
 ## When you export later
 
-Use the bare PCB entrypoint [index.circuit.tsx](../index.circuit.tsx) for factory exports. Export all Gerbers, plated/nonplated drills, BOM and placement files from that same freshly built revision. Verify window/outline geometry, exact MPNs, 38 top placements and J6 DNP. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
+Use the bare PCB entrypoint [index.circuit.tsx](../index.circuit.tsx) for factory exports. Export all Gerbers, plated/nonplated drills, BOM and placement files from that same freshly built revision. Verify window/outline geometry, exact MPNs, 39 top placements including fitted J4 and J6. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
 
 [JLCPCB guidance](jlcpcb/README.md) records part matching/cost evidence and the remaining supplier steps. The screen, bearing, six prints and final wire/mechanical assembly are separate from PCB assembly. The first prototype still needs [bring-up](../validation/BRINGUP.md) and [fit verification](../mechanical/FIT.md).

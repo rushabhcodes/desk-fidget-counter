@@ -1,6 +1,6 @@
-# E9 mechanics / E4 PCB
+# E10 mechanics / E5 PCB
 
-[Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Twelve inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.
+[Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Fourteen inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.
 
 The enclosure uses **six product prints and four screws** while retaining the Ø84.8×19.5 mm body, fixed Waveshare 19192 display, rear USB-C and a captive front button cap. The optical track is integral to the grip. The complete bearing has one CAD visibility control; both races, shields, balls and cage are included in that object.
 
@@ -17,9 +17,9 @@ Start with a 0.4 mm nozzle, 0.2 mm layers and six perimeters and 35–50% infill
 
 Hardware is two DIN 965 M2×6 chassis screws and two M2×10 shared screen screws, one complete 6712ZZ bearing, and six compliant PCB capture pads. There are no separate outer bearing retainer, bearing clamp, optical skirt or encoder adhesive ring. [Assembly sequence](../ASSEMBLY.md) and [off-board shopping table](../README.md#what-to-buy-outside-jlcpcb).
 
-The PCB window is 34.6×40.6 mm, R2, for the fixed cable and the two braced support walls. PCB underside/top remain Z2.6/4.2 mm; carrier rim Z14.3 mm (0.2 mm below the screen PCB), display front Z18.1 mm and bezel top Z19.5 mm. J4 remains at (0,+20.5) mm; disconnect its programming lead before closure. The USB keeps its rear position; the front switch has an 8×4 mm printed cap. The guide walls, travel stops and lid roof sit inside the circular shell; only the moving pusher projects. The circular body remains Ø84.8 mm; the cap brings overall depth to 86.6 mm. The screen is located by two short pins at its real mounting-boss centres (±9.3, ±13.35 mm), with all four rear bosses seated on the 4 mm-thick end walls. The separate enclosure screw axes remain outside those module holes. No purchased part is rescaled.
+The PCB window is 34.6×40.6 mm, R2, for the fixed cable and the two braced support walls. PCB underside/top remain Z2.6/4.2 mm; carrier bottom Z13.1 mm, with the supplier PCB profile relieved to protect a 2 mm rear-component allowance, display front Z18.1 mm and bezel top Z19.5 mm. J4 remains at (0,+20.5) mm; disconnect its programming lead before closure. The USB keeps its rear position; the front switch has an 8×4 mm printed cap. The guide walls, travel stops and lid roof sit inside the circular shell; only the moving pusher projects. The circular body remains Ø84.8 mm; the cap brings overall depth to 86.6 mm. The screen is located by two short pins at its real mounting-boss centres (±9.3, ±13.35 mm), with all four rear bosses seated on the 4 mm-thick end walls. The separate enclosure screw axes remain outside those module holes. No purchased part is rescaled.
 
-The supplied display lead mates sideways, parallel to the screen PCB; its original PH plug is retained. Mate it before lowering the screen, then shorten and solder the board ends at J6. The illustrated dressed paths are about 50 mm, plus stripped ends; trial-fit with slack, rather than cutting to a fixed drawing length. Its unpublished wire dimensions remain accepted approximations: Ø1.2 mm rendered and Ø1.5 mm checked. Trial-dress the actual cable before cutting. No additional display connector or cable is purchased.
+The supplied display lead mates sideways, parallel to the screen PCB; both factory ends are retained. J6 is a fitted 2×4 right-angle male header that accepts the eight individual female jumper ends. Shorten the middle of the wires and individually heat-shrink eight solder joints. The illustrated free paths are 25.6–27.9 mm; trial-fit with slack rather than cutting to those lengths. Its unpublished wire dimensions remain accepted approximations: Ø1.2 mm rendered and Ø1.5 mm checked. Trial-dress the actual cable before cutting. No replacement display mating connector or cable is purchased; heat-shrink is an assembly consumable.
 
 ## Rebuild
 
@@ -42,4 +42,4 @@ Checks retain the complete rotor sweep, actual screen/package models, larger wir
 
 ![Braced PLA base, with support walls highlighted](screen-support.png)
 
-The highlighted walls and webs are part of one base print. All four screen bosses seat at Z12.0 mm; the carrier rim has 0.2 mm relief below the screen PCB so it does not compete with those seats. [Side-entry connector view](screen-connector.png) · [Source-derived screen audit](screen-fit.json). Physical PLA strength and exact kit mating remain prototype checks.
+The highlighted walls and webs are part of one base print. All four screen bosses seat at Z12.0 mm; the carrier clears the real PCB profile with a 0.4 mm lateral allowance and protects 2 mm below the screen PCB, so it does not compete with those seats. [Side-entry connector view](screen-connector.png) · [Source-derived screen audit](screen-fit.json). Physical PLA strength and exact kit mating remain prototype checks.

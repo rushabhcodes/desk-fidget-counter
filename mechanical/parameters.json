@@ -60,8 +60,8 @@
     20.5
   ],
   "display_connector": [
-    -21.5,
-    -4.5
+    -20.35,
+    -3.5
   ],
   "encoder": {
     "position": [
@@ -291,17 +291,18 @@
       2.54,
       14.5
     ],
-    "dimensions_status": "PH2.0 8-pin / 20cm lead confirmed by Waveshare. Side-entry plug uses nominal JST PHR-8 envelope, with estimated seating/axis and wire bends; 1.2mm model wire and 1.5mm clearance. Trial-fit and trim the actual lead to path with slack; not a supplier-qualified harness.",
-    "assembly": "Mate the original display plug sideways before lowering the screen. Shorten the included lead to its dressed path and solder stripped board ends into J6; no optional header is populated.",
-    "trimmed_free_wire_tolerance_mm": 1.0,
-    "board_end_strip_mm": 2.55,
+    "dimensions_status": "PH2.0 8-pin /20cm lead confirmed by Waveshare. PH plug uses nominal PHR-8 envelope with estimated seating; individual female ends use nominal14.5x2.54x2.54mm envelopes. WireOD1.2mm rendered/1.5mm checked, sleeveOD2x6mm checked. Actual housing dimensions, engagement, bends and dressed slack require trial-fit; no supplier-qualified harness claim.",
+    "assembly": "Mate the original PH display plug sideways and the eight original female jumper ends to fitted J6. Trial-dress, shorten the middle, then solder and individually heat-shrink all eight inline joints. Both factory ends remain removable.",
     "modeled_wire_od_mm": 1.2,
     "dressing_bend_radius_mm": 3.0,
-    "insulation_start_above_pcb_mm": 0.15,
-    "lead_y_shift_mm": 3.0,
-    "display_u_bend_radius_mm": 3.3
+    "display_u_bend_radius_mm": 3.3,
+    "board_connection": "Fitted Wurth 61300821021 / C5517754 right-angle 2x4 male header; supplied individual 2.54mm female jumper ends retained",
+    "trim_instruction": "Shorten the middle of each lead, retain both factory connector ends, join by signal, and individually heat-shrink all eight inline joints after trial dressing. Do not cut to CAD path length without assembly slack.",
+    "modeled_free_wire_path_mm": "25.6\u201327.9 nominal, plus trial-fit assembly slack; not fixed cut lengths",
+    "splice_sleeve_outer_diameter_mm": 2,
+    "splice_sleeve_length_mm": 6
   },
-  "mechanical_revision": "E9",
+  "mechanical_revision": "E10",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -356,7 +357,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E9",
+    "revision": "E10",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -407,5 +408,33 @@
     "carrier_rim_to_PCB_gap_mm": 0.2,
     "carrier_rear_profile_clearance_mm": 0.4
   },
-  "pcb_revision": "E4"
+  "pcb_revision": "E5",
+  "display_board_header": {
+    "part": "61300821021",
+    "catalogue_id": "C5517754",
+    "rows": 2,
+    "columns": 4,
+    "pitch_mm": 2.54,
+    "pcb_rotation_deg": 90,
+    "pin_signals": [
+      "BL",
+      "RST",
+      "DC",
+      "CS",
+      "CLK",
+      "DIN",
+      "GND",
+      "VCC"
+    ],
+    "pin_axis_above_pcb_mm": [
+      1.230006,
+      3.770006
+    ],
+    "body_front_local_y_mm": -5.2500031,
+    "female_housing_length_mm": 14.5,
+    "female_housing_section_mm": 2.54,
+    "female_entry_gap_mm": 0.2,
+    "female_housing_status": "Nominal envelope of supplied individual 2.54mm female jumper ends; verify actual kit dimensions",
+    "tail_trim_below_pcb_mm": 0.8
+  }
 }

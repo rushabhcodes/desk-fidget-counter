@@ -12,14 +12,14 @@ components={c['source_component_id']:c for c in cj if c['type']=='source_compone
 placed={p['source_component_id']:p for p in cj if p['type']=='pcb_component' and p.get('source_component_id') in components}
 ports={p['source_port_id']:p for p in cj if p['type']=='source_port'}
 dnp={components[cid]['name'] for cid,p in placed.items() if p.get('do_not_place')}
-makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'XUNPU','J4':'JST','J6':'ZHOURI','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
+makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'XUNPU','J4':'JST','J6':'Wurth Elektronik','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
 rows=[]
 for cid,c in components.items():
     n=c['name'];p=placed[cid]
     value=c.get('display_resistance',c.get('display_capacitance',c.get('manufacturer_part_number','')))
     maker=makers.get(n,'Yageo' if n.startswith('R') else 'Murata')
-    note='Top reflow' if p.get('layer')=='top' and n not in ['J4','J6'] else 'Hand solder'
-    if n=='J6':note='DNP optional header; solder shortened included display lead into these pads'
+    note='Top reflow' if p.get('layer')=='top' and n not in ['J4','J6'] else 'Through-hole assembly; verify JLCPCB wave-solder selection'
+    if n=='J6':note='Fitted right-angle 2x4 display header; supplied female jumper ends unplug; trim tails to 0.8mm below PCB after soldering'
     rows.append({'Reference':n,'Quantity':1,'Value':value,'Manufacturer':maker,'MPN':c['manufacturer_part_number'],'Side':p['layer'],'Populate':'NO' if n in dnp else 'YES','Assembly notes':note})
 rows.sort(key=lambda x:(''.join(c for c in x['Reference'] if not c.isdigit()),int(''.join(c for c in x['Reference'] if c.isdigit()) or 0)))
 if not args.drawings_only:
@@ -30,7 +30,7 @@ if not args.drawings_only:
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
     xy=lambda x,y:(950+flip*x*22,1150-y*22)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E4 — {side} assembly</text>']
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E5 — {side} assembly</text>']
     board=next(c for c in cj if c['type']=='pcb_board')
     contours=[board['outline']]+[c['points'] for c in cj if c['type']=='pcb_cutout']
     commands=[]
@@ -51,7 +51,7 @@ for side in ['top','bottom']:
             u,v=xy(pin1['x'],pin1['y']);svg.append(f'<circle cx="{u}" cy="{v}" r="5" fill="#be3333"/>')
         svg.append(f'<text x="{a}" y="{b+5}" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="16">{html.escape(n)}</text>')
         if n in dnp:svg.append(f'<text x="{a}" y="{b+h/2+18}" text-anchor="middle" font-family="sans-serif" font-size="13">DNP</text>')
-    svg.append('<text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots: physical pin 1 (J1: USB A1). J4: JST PH6 SWD. J6: supplied display lead, header DNP. USB power only.</text>')
+    svg.append('<text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots: physical pin 1 (J1: USB A1). J4: JST PH6 SWD. J6: fitted 2x4 removable display header. USB power only.</text>')
     svg.append('<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Use exact source MPNs; USB-C faces +Y.</text></svg>')
     (ROOT/f'previews/assembly-{side}.svg').write_text('\n'.join(svg))
 print(f'{len(rows)} source components, {len(rows)-len(dnp)} populated; assembly views exported. BOM written: {not args.drawings_only}.')

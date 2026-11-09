@@ -1,6 +1,6 @@
 {
   "baseline": "v4.1.0 / 45 components",
-  "revision": "PCB E4 / mechanics E8",
+  "revision": "PCB E5 / mechanics E10",
   "active_component_count": 38,
   "sources": {
     "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
@@ -129,8 +129,9 @@
       "reference": "J6",
       "previous_mpn": "S8B-PH-K-S(LF)(SN)",
       "decision": "replace",
-      "reason": "JST PH board header did not mate with included jumper sockets. J6 becomes 2.54mm cable-termination pads; optional male header DNP in compact supplied-cable build.",
-      "new_mpn": "61300811021 (optional DNP)"
+      "reason": "Fitted 2x4 right-angle 2.54mm male header accepts the display kit female jumper ends and fits the recessed cable cavity.",
+      "new_mpn": "61300821021",
+      "selected_catalogue_id": "C5517754"
     },
     {
       "reference": "LED1",
@@ -304,10 +305,8 @@
       "mpn": "CL21A475KOFNNNE"
     }
   ],
-  "mechanical_revision_note": "USB cluster J1/U6/C1/R1/R2 translated +9 mm on integral PCB tab; 39-part population and firmware 5.0.0 pin assignments retained.",
-  "optional_unpopulated_components": [
-    "J6"
-  ],
-  "display_cable": "Use the cable included with Waveshare 19192. Shorten and solder at J6; original PH plug retained. No custom harness required.",
-  "prototype_sourcing_review": "All 22 fitted exact MPN/catalogue lines are purchasable with public catalogue stock as of 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. No current authenticated assembly preview/quote or reservation is claimed."
+  "mechanical_revision_note": "E5 fits the 2x4 removable display header. PCB geometry remains two-layer/top-side; USB port, MCU pin assignments, screen support heights, six product prints and four screws are retained.",
+  "optional_unpopulated_components": [],
+  "display_cable": "Use the included Waveshare 19192 cable. Retain both factory ends; shorten the middle, solder and individually heat-shrink eight joints. Female jumper ends unplug from fitted J6.",
+  "prototype_sourcing_review": "All 23 fitted exact MPN/catalogue lines are purchasable with public catalogue stock as of 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. No current authenticated assembly preview/quote or reservation is claimed."
 }

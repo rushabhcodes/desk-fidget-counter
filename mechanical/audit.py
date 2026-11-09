@@ -31,7 +31,7 @@ def solid(mesh):
     mesh.merge_vertices()
     return md.Manifold(md.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
 
-closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug'] or n.startswith('lcd-wire-')}
+closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug','lcd-cable-board-plugs','lcd-cable-splice-sleeves'] or n.startswith('lcd-wire-')}
 assert all(str(s.status()).endswith('NoError') for s in closed.values())
 box=lambda size,center:md.Manifold.cube(size,True).translate(center)
 # Explicit geometric masks allow only the designed self-tapped pilot engagement
@@ -141,9 +141,20 @@ for i,(name,names,eye,target) in enumerate(internals):
     x=(i%2)*1050;y=(i//2)*850;inside.paste(im,(x,y+50));ImageDraw.Draw(inside).text((x+20,y+12),name,font=font,fill='#263c48')
     print('Rendered',name,flush=True)
 inside.save(OUT/'internal-contact-sheet.png')
+# Two close views expose the installed header, individual factory jumper ends,
+# eight insulated middle joints and original side-entry display plug.
+lead_names=[n for n in all_names if n.startswith('lcd-') or n in ['pcb-J6','screen-module']]
+lead_sheet=Image.new('RGB',(2100,850),'#f6f9fb')
+for i,(label,eye,target) in enumerate([
+    ('Screen hidden / removable J6 and insulated joints',[-.055,.065,.055],[-.004,.008,0]),
+    ('Underside / both factory connector ends retained',[.045,-.060,.065],[.001,.009,0])]):
+    im=draw([n for n in lead_names if i or n!='screen-module'],eye,target,xmag=.030)
+    lead_sheet.paste(im,(1050*i,50));ImageDraw.Draw(lead_sheet).text((1050*i+20,12),label,font=font,fill='#263c48')
+lead_sheet.save(OUT/'display-harness.png')
 
-report['rendered_exterior_views']=6;report['rendered_internal_views']=6
-report['images']={n:sha(OUT/n) for n in ['exterior-contact-sheet.png','internal-contact-sheet.png']}
+
+report['rendered_exterior_views']=6;report['rendered_internal_views']=6;report['rendered_harness_views']=2
+report['images']={n:sha(OUT/n) for n in ['exterior-contact-sheet.png','internal-contact-sheet.png','display-harness.png']}
 if options.compare_carrier:
     import matplotlib
     matplotlib.use('Agg')
