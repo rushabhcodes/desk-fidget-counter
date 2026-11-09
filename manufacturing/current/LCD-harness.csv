@@ -1,0 +1,9 @@
+Assembly,J6 physical pin,PCB pad XY mm,Signal,PHR-8 display circuit,Free insulation length mm,Board contact,Display contact,Wire
+H1 SHR-08V-S-B to PHR-8,1,"-23.35001,-5.49987",BL,1,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,2,"-23.34998,-4.50190",RST,2,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,3,"-23.34998,-3.50190",DC,3,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,4,"-23.34998,-2.50190",CS,4,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,5,"-23.35001,-1.49987",CLK,5,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,6,"-23.34998,-0.50191",DIN,6,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,7,"-23.34998,0.49809",GND,7,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"
+H1 SHR-08V-S-B to PHR-8,8,"-23.35001,1.49987",VCC,8,44 +/- 1; between rear housing exits,SSH-003T-P0.2-H,SPH-004T-P0.5S,"TE 55A0111-30-9,30AWG"

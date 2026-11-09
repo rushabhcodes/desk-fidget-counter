@@ -1,13 +1,13 @@
-# Visual and geometry audit — E11 / v5.10.1
+# Visual and geometry audit — E12 / PCB E6
 
-Audited 9 November 2026 using the delivered `cad/assembled.glb`, the six delivered STLs, the original supplier screen geometry and the checked PCB. The model passes the nominal visual and geometric checks below. Physical fit and strength remain unmeasured.
+Audited 9 November 2026 using the delivered `cad/assembled.glb`, the six delivered STLs, the original supplier screen geometry and the checked PCB. The model passes the nominal visual and geometric checks below. E12 adds the guided 14×6.6 mm side paddle and two stacked foam return pads; the PCB and switch placement are preserved. Physical fit and strength remain unmeasured.
 
 ## Findings corrected
 
 1. **Screen-carrier screw bores were obstructed.** E8 cut each bore from Z13.0 to Z18.0, while its boss reached Z18.1. Each hole therefore had a 0.1 mm plastic membrane. The actual screw meshes intersected the carrier by a combined 0.628 mm³. E9 cuts through the full boss; both Ø2.2 mm clearance bores pass an independent M2 shaft gauge. A 4 mm driver gauge reaches both shared screen screws.
 2. **The simplified screen STEP did not protect space for rear electronics.** It includes the PCB, bosses and connector, but omits rear ICs/passives. The previous rim approached the PCB underside to 0.2 mm. E9 clears the supplier PCB's actual non-circular outline, including the tab shoulders, with 0.4 mm lateral allowance. A conservative 2 mm rear-component reservation is checked against all prints and the current Ø0.8 mm wire envelopes. Existing boss, socket and estimated mated-plug footprints are excluded because they already contain checked hardware. This is an engineering allowance, not published supplier component heights.
 
-E11 uses the exact imported JST SM08B-SRSS-TB(LF)(SN)/C160407 SMT header and one H1 crimped SH8-to-PH8 replacement lead. Both keyed housings, contacts and all eight wires are visible. The kit jumper lead is unused. Housing engagement and dressed bends are explicit nominal approximations; actual crimped harness fit remains a prototype check. Body Ø84.8×19.5 mm, six prints, four screws.
+E12 retains the exact imported JST SM08B-SRSS-TB(LF)(SN)/C160407 SMT header and one H1 crimped SH8-to-PH8 replacement lead. Both keyed housings, contacts and all eight wires are visible. The kit jumper lead is unused. Housing engagement and dressed bends are explicit nominal approximations; actual crimped harness fit remains a prototype check. Body Ø84.8×19.5 mm, six prints, four screws.
 
 ![Actual carrier sections before and after the bore fix, at identical scale](audit/bore-section.png)
 
@@ -55,3 +55,11 @@ For the historical bore comparison, extract `mechanical/stl/screen-carrier.stl` 
 ## Physical qualification
 
 The supplier STEP omits rear electronics and fine connector details. The replacement H1 lead's seating and installed bend suitability remain nominal. The 2 mm rear-electronics reservation and cable envelopes are explicit engineering allowances; verify the actual screen and made-to-drawing harness before final closure. Bearing retention, PLA fit/creep, button return/overtravel and optical opacity still require [fit checks](FIT.md) and [prototype bring-up](../validation/BRINGUP.md). A visual audit cannot establish those physical properties.
+
+## E12 side paddle
+
+The 14×6.6 mm rounded face has a shallow thumb dish and a raised Z6.4 mm thumb dish. A 12 mm fingertip gauge clears the desk by 0.4 mm nominally and 0.14 mm at the tested lower height limit. Two 2 mm-wide rails and broad ears guide the press; separate rigid stops limit inward travel to 0.6 mm and retain the cap outward. Two double-layer PORON pads, made from four 2×1.6 mm pieces of the existing foam, maintain a return bias through the 0.2 mm switch gap. The base, lid and cap are revised; the other three product prints and E6 PCB geometry are unchanged. The widened stationary roof stays below the bearing outer race. All six delivered prints remain connected watertight solids.
+
+Thirteen cap/foam poses and 24 small mid-stroke skew probes check the mechanism against the PCB, real package models, enclosure and full rotor sweep. The independent delivered-GLB audit also includes the return foam and adhesive. The foam budget includes thickness, cavity and adhesive tolerances: 0.056 mm minimum rest precompression and 44.1% maximum calculated compression. Physical return force, friction, foam set, switch closure/overtravel and life still require the [prototype checks](../validation/BRINGUP.md).
+
+![E11 and E12 side buttons, same camera and scale](button-access-comparison.png)

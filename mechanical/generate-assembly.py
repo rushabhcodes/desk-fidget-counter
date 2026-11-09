@@ -29,7 +29,10 @@ poses=json.loads((ROOT/'print-poses.json').read_text())
 printed_names=[name for name in poses if not name.startswith('fit-coupon')]
 for name in printed_names:
  mesh=trimesh.load(ROOT/'stl'/f'{name}.stl',force='mesh');pose=poses[name]
- if pose['inverted']:
+ if 'rotation_deg' in pose:
+  mesh.apply_translation(-np.array(pose['translation_mm']))
+  mesh.apply_transform(np.linalg.inv(trimesh.transformations.euler_matrix(*np.radians(pose['rotation_deg']))))
+ elif pose['inverted']:
   mesh.apply_transform(trimesh.transformations.rotation_matrix(math.pi,[1,0,0]));mesh.apply_translation([0,0,pose['z']])
  else:mesh.apply_translation([0,0,pose['z']])
  add(name,mesh,'Exact printable mesh restored to assembly pose; see print-poses.json')
@@ -60,6 +63,11 @@ for x,y,radius in [*( (x,y,2.0) for x,y in P['mount_holes']),*((x,y,1.3) for x,y
 for name,solids,color in [('pcb-capture-pads',pads,'#24292d'),('pcb-pad-adhesive',adhesive,'#bbc4c9')]:
  colors[name]=color;explosion[name]=27
  add(name,trimesh.util.concatenate([solid_mesh(q) for q in solids]),'PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive')
+from button import return_pad_solids
+return_foam,return_adhesive=return_pad_solids(P)
+for name,solid,color in [('button-return-pads',return_foam,'#282d31'),('button-return-adhesive',return_adhesive,'#bbc4c9')]:
+ colors[name]=color;explosion[name]=-4
+ add(name,solid_mesh(solid),'Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md.')
 # Exact rigid manufacturer STEP geometry, tessellated without axis scaling.
 screen=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
 screen.apply_transform(np.diag([-1.,1.,-1.,1.]));screen.apply_translation([0,0,SCREEN_OFFSET])
@@ -122,7 +130,7 @@ for exploded in [False,True]:
     for name,mesh in pcb_geometry:
         transform=to_gltf@trimesh.transformations.translation_matrix([0,0,0])
         scene.add_geometry(mesh,node_name='pcb-'+name,geom_name='pcb-'+name,transform=transform)
-    scene.metadata={'description':'Desk fidget counter Mechanics E11 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
+    scene.metadata={'description':'Desk fidget counter Mechanics E12 '+('exploded assembly' if exploded else 'assembled product'),'units':'metres','hardware_model_detail':'Printed parts exact; official screen STEP and KiCad package models; bearing and cable internals use authorized best approximations. See mechanical/vendor/README.md.'}
     path=OUT/('exploded.glb' if exploded else 'assembled.glb');scene.export(path)
     reloaded=trimesh.load(path,force='scene');assert len(reloaded.geometry)>=len(parts)
     assert [n for n in reloaded.graph.nodes_geometry if n=='bearing' or n.startswith('bearing-')]==['bearing']
@@ -153,7 +161,7 @@ ax.add_collection3d(Poly3DCollection(triangles,facecolors=np.asarray(facecolors,
 # painter-style preview; the GLB uses its normal depth-tested physical pose.
 ui=parts['screen-ui'];ax.add_collection3d(Poly3DCollection(ui.triangles,facecolors=np.asarray(ui.visual.face_colors,dtype=float)/255,edgecolor='none',zorder=10))
 ax.set(xlim=(-45,45),ylim=(-45,45),zlim=(0,26));ax.set_box_aspect((90,90,26));ax.view_init(55,-110);ax.set_axis_off()
-ax.set_title(f'Desk knob Mechanics E11 — fixed 1.28-inch display\nRotating grip ring / front printed mode button / Ø84.8 body × {HEIGHT:g} mm high',pad=10)
+ax.set_title(f'Desk knob Mechanics E12 — fixed 1.28-inch display\nRotating grip ring / front printed mode button / Ø84.8 body × {HEIGHT:g} mm high',pad=10)
 fig.tight_layout();fig.savefig(ROOT/'assembly.png',dpi=160);plt.close(fig)
 # Exploded assembly overview for the guide. Offsets are illustrative movements,
 # not claimed disassembly trajectories; assembled dimensions remain authoritative.
@@ -174,7 +182,7 @@ for name,mesh in pcb_geometry:
     display=mesh.copy();display.apply_translation([0,0,0]);polys.extend(display.triangles);facecolors.extend(['#246b47']*len(display.faces))
 ax.add_collection3d(Poly3DCollection(polys,facecolors=facecolors,edgecolor='none',zsort='average'))
 ax.set(xlim=(-42,65),ylim=(-42,42),zlim=(-20,185),xlabel='X / mm',ylabel='Y / mm',zlabel='Z / mm')
-ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title(f'Desk knob Mechanics E11 — six prints / four screws\nIllustrative separation; assembled product is Ø84.8 × {HEIGHT:g} mm')
+ax.set_box_aspect((107,84,205));ax.view_init(18,-60);ax.set_title(f'Desk knob Mechanics E12 — six prints / four screws\nIllustrative separation; assembled product is Ø84.8 × {HEIGHT:g} mm')
 fig.tight_layout();fig.savefig(ROOT/'exploded.png',dpi=140);plt.close(fig)
 report={'assembly_frame':f'CAD mm, floor z=0; PCB centre z={BOARD_CENTER}','glb_frame':f'glTF metres, +Y up; 84.8mm body, {HEIGHT:g}mm height; front printed cap gives 86.6mm overall depth','assembled_size_gltf_xyz_mm':assembled_size_mm,'part_count':len(parts),'fastener_count':4,'product_print_count':len(printed_names),'source_parameters_sha256':hashlib.sha256((ROOT/'parameters.json').read_bytes()).hexdigest(),'source_board_tsx_sha256':hashlib.sha256((ROOT.parent/'index.circuit.tsx').read_bytes()).hexdigest(),'printed_meshes_restored_from_print_orientation':len(printed_names),'cad_files':{name:{'bytes':(OUT/name).stat().st_size,'sha256':hashlib.sha256((OUT/name).read_bytes()).hexdigest()} for name in ['assembled.glb','exploded.glb']},'physical_fit':'Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification'}
 (OUT/'assembly-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

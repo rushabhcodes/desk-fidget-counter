@@ -1,8 +1,8 @@
 {
-  "revision": "E11",
-  "model_sha256": "744e0f3be8d2942ad90f1b7413172fa12308e889a44452e71dc07d26eccb59b8",
-  "source_parameters_sha256": "293cd93c7391113170271879e289b3b29c42a77831716ce878b3928d30f4356d",
-  "tested_solid_pair_count": 171,
+  "revision": "E12",
+  "model_sha256": "6fc51d638eaf31aeb9ca97f85a5d86f5c3c05c7baa22bb62fac51b4aec4943ee",
+  "source_parameters_sha256": "0e66f1215decdd64b2e512533fad38ebd23fb908fe7af2ca46dd441993685366",
+  "tested_solid_pair_count": 210,
   "intentional_contacts": [
     {
       "parts": [
@@ -27,12 +27,12 @@
   "print_checks": {
     "base": {
       "connected_watertight": true,
-      "stl_sha256": "35c09c91b074725577c68735891914a49d1d465ef1c9d72a7fbc171630140670",
+      "stl_sha256": "dbd1a299e859f3dbe350ef25639bd94584867f6d482279834a09a51a755b7fc0",
       "STL_to_GLB_max_vertex_error_mm": 0.0
     },
     "lid": {
       "connected_watertight": true,
-      "stl_sha256": "395c0a2540bd5b0b18041099fc55ab8bc30ae4d4f7e4c1bfd77a423dfc7fcf48",
+      "stl_sha256": "a21ec0299428a99ed2d5b6af80d579f84af4f5105f201b259b34a073d929166d",
       "STL_to_GLB_max_vertex_error_mm": 7.63e-07
     },
     "knob": {
@@ -52,8 +52,8 @@
     },
     "button-cap": {
       "connected_watertight": true,
-      "stl_sha256": "329cd6ca612bb38b3e89b66d8d79de5ef139245c7711b4ea0c5233f081d34c60",
-      "STL_to_GLB_max_vertex_error_mm": 1.97e-07
+      "stl_sha256": "6d21c93fdfa2baa4e7d58712ccd9724d6c0c36f5e6940310c68f1da188a2d768",
+      "STL_to_GLB_max_vertex_error_mm": 1.781e-06
     }
   },
   "carrier_through_bores": 2,
@@ -75,8 +75,8 @@
   "rendered_internal_views": 6,
   "rendered_harness_views": 2,
   "images": {
-    "exterior-contact-sheet.png": "1dc5dd4334fd358167c802beaa4e962cbc24d67e4a38a07c51d32f53c772a50e",
-    "internal-contact-sheet.png": "0b758408a7949ab245ec49840edce3ac2dbe6081bb7f7c9538737c9eec56ae60",
-    "display-harness.png": "a75599feb047e4fd6b6d2b99390b6d480b2ff744c12200d58a6fb1577505a686"
+    "exterior-contact-sheet.png": "727205ccb41411e1792630185e7b62b9d08029c4d8292a27a7b4fc179de772a8",
+    "internal-contact-sheet.png": "4e45b9a084ea0b235d78cc8cd3ebee9920d9502197e2dc46fb0c98a0b62350e9",
+    "display-harness.png": "9724339646230cef292f545a3944ea2f75c1c830f5b69a99f5ef58d53839f719"
   }
 }

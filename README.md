@@ -4,16 +4,16 @@ A USB-powered scroll ring with a fixed **1.28-inch round display**. It counts co
 
 Short-press the front button to switch between scrolling and counting only. Hold for three seconds to clear the count. The screen and cable stay fixed while the outer grip rotates.
 
-![Desk knob assembly](https://raw.githubusercontent.com/rushabhcodes/desk-fidget-counter/main/mechanical/assembly.png)
+![Desk knob assembly](mechanical/assembly.png)
 
 ## Board and enclosure
 
-- **Two-layer, 1.6 mm PCB**, with all 39 fitted components on top. USB-C is on the rear; an 8×4 mm captive printed cap operates the front Omron switch.
+- **Two-layer, 1.6 mm PCB**, with all 39 fitted components on top. USB-C is on the rear; a 14×6.6 mm rounded paddle with guided travel and foam return operates the front Omron switch.
 - **Six product prints and four screws**, in an approximately **Ø84.8 × 19.5 mm** body; the front cap brings overall depth to **86.6 mm**. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
 - **One complete 6712ZZ bearing object** in the CAD viewer, including its races, shields, balls and cage. Calibrate the printed bearing fits with the coupons before printing the enclosure.
 - Every trace and via comes from **TSCircuit’s native autorouter**. The source defines connectivity, placement and fabrication rules; it contains no hand-routed paths or saved-route imports.
 
-**Prototype fabrication source:** PCB E6 / enclosure E11 uses a standard XUNPU USB-C connector with compliant mounting slots. Fresh native routing, shorts, exact footprints, independent fabrication checks and CAD clearance checks pass locally. All 23 fitted BOM lines show current catalogue stock. Complete JLCPCB’s final part/rotation and DFM preview when you export/order; current authenticated preview is unverified. Printed fit and electrical operation need first-prototype tests. See the [validation report](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/validation/REPORT.md). Do not use the obsolete v5.4.0 manufacturing files.
+**Prototype fabrication source:** PCB E6 is preserved from the passing fabrication baseline; enclosure E12 improves side-button access with a raised, wider paddle and separate foam return. The design retains the standard XUNPU USB-C connector and compliant mounting slots. Fresh netlist, placement, supplier-footprint, shorts, independent KiCad DRC, Gerber/drill and BOM/CPL checks pass. All 23 exact BOM lines show public catalogue stock in the 9 November 2026 recheck. Use the [verified fabrication/assembly package](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/release/desk-knob-e6-e12-fabrication.zip) and complete JLCPCB’s current part/rotation and DFM preview before payment. Printed fit and electrical operation need first-prototype tests. See the [validation report](validation/REPORT.md). Do not use the obsolete v5.4.0 manufacturing files.
 
 [Visual CAD audit](mechanical/AUDIT.md): fourteen inspection views, corrected carrier screw bores and reserved space for screen rear electronics; enclosure height remains 19.5 mm.
 
@@ -25,11 +25,11 @@ Quantities below are for **one complete device**. A complete JLCPCB **assembly**
 |---|---|---|
 | 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. The supplied PH-to-jumper lead is unused. Connect using replacement H1 below. |
 | 1 | [Complete 6712ZZ bearing](https://maysmeprecision.com/Show/?Cid=677) | **60 mm bore × 75 mm OD × 7 mm**, double metal shields. Buy the assembled bearing; its internal balls/races are not separate purchases. |
-| 6 | [E11 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
+| 6 | [E12 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
 | 2 | Countersunk **DIN 965 M2×6** screws | Attach the base and lid. Nominal head Ø3.8 mm; check the actual purchased head/drive against the model. |
 | 2 | Countersunk **DIN 965 M2×10** screws | One shared pair retains the screen bezel and carrier on the braced screw supports. |
-| 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads; a 20×20 mm sample is sufficient. |
-| 1 small piece | [3M 467MP transfer adhesive](https://www.3m.com/3M/en_US/p/dc/v000185218/) | **0.05 mm** adhesive for the six foam pads. The integral optical skirt needs no separate adhesive joint. |
+| 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads, plus four 2×1.6 mm pieces for two stacked button-return pads; a 20×20 mm sample is sufficient. |
+| 1 small piece | [3M 467MP transfer adhesive](https://www.3m.com/3M/en_US/p/dc/v000185218/) | **0.05 mm** adhesive for the six PCB pads and the two stacked button-return pads. The integral optical skirt needs no separate adhesive joint. |
 | As needed | [3M 5413 polyimide tape](https://www.3m.co.uk/3M/en_GB/p/d/v000091659/) | **0.069 mm** insulation over inspected underside solder wells. Trim through-hole tails/joints to the documented ≤0.8 mm allowance first. |
 | 1 assembled lead | **H1 keyed display harness** | Order a crimped **JST SHR-08V-S-B to PHR-8**, eight wires, straight circuit mapping 1→1 through 8→8, **44±1 mm free insulation between rear housing exits**. [Parts and drawing](manufacturing/WIRING.md). This custom lead is separate from both the display kit and JLCPCB assembly. |
 | 1, reuse if suitable | USB data cable | USB-C at the device; ordinary USB 2.0 data is sufficient. Check the plug against the enclosure’s documented 13.4×6.9 mm approach gauge. |
@@ -75,7 +75,7 @@ bun run check:footprints && bun run check:shorts && bun run check:assembly
 
 The lockfile pins a compatible released `@tscircuit/circuit-json-util` for the CLI’s KiCad exporter; no router or library source is patched.
 
-`assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. You will export/download the fabrication files and place the order; no new fabrication kit is prepared.
+`assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. The current [fabrication/assembly ZIP](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/release/desk-knob-e6-e12-fabrication.zip) includes a separate Gerber upload ZIP, both matched BOM/CPL options, physical pin map, drawings, KiCad source and checked firmware. Follow the [upload guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/current/README.md). No supplier upload or order has been made.
 
 - [Assembly steps](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/ASSEMBLY.md) · [Wiring and programming connections](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md)
 - [Mechanical source and CAD](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/README.md) · [Model provenance and limitations](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/vendor/README.md)

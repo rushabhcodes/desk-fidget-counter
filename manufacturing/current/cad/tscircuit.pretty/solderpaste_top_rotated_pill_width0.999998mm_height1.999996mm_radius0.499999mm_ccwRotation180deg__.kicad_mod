@@ -1,0 +1,58 @@
+(footprint "solderpaste_top_rotated_pill_width0.999998mm_height1.999996mm_radius0.499999mm_ccwRotation180deg__"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" ""
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "7a5f446b-e94a-411f-b91b-670f9f892b19")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "89046819-f9e3-4705-93ef-93855e7efd04")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "43b2bf2d-21b5-4338-b505-6bd5914ca0f5")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c06a716d-8fe7-48a0-b5cc-6a5c48442057")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(pad "" smd roundrect
+		(at 0 0 180)
+		(size 0.999998 1.999996)
+		(layers "F.Paste")
+		(roundrect_rratio 0.5)
+		(uuid "7a99d164-1cf6-309c-4b79-cd644c16349c")
+	)
+	(embedded_fonts no)
+)

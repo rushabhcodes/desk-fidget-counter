@@ -106,14 +106,14 @@
     "asset": "button-cap.obj",
     "bounds_pcb_mm": [
       [
-        -5.3,
-        -44.200001,
-        -0.6
+        -10.0,
+        -44.2,
+        -1.0
       ],
       [
-        5.3,
-        -38.200001,
-        3.8
+        10.0,
+        -38.2,
+        5.6
       ]
     ],
     "explode_z_mm": -4,
@@ -178,6 +178,46 @@
     ],
     "explode_z_mm": 27,
     "description": "PORON 4701-30-20062-04 pads, 1.57mm free thickness; drawn compressed under lid, with 0.05mm 467MP adhesive"
+  },
+  {
+    "name": "button-return-pads",
+    "printed": false,
+    "color": "#282d31",
+    "asset": "button-return-pads.obj",
+    "bounds_pcb_mm": [
+      [
+        -9.8,
+        -38.200001,
+        2.6
+      ],
+      [
+        9.8,
+        -35.5,
+        4.2
+      ]
+    ],
+    "explode_z_mm": -4,
+    "description": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md."
+  },
+  {
+    "name": "button-return-adhesive",
+    "printed": false,
+    "color": "#bbc4c9",
+    "asset": "button-return-adhesive.obj",
+    "bounds_pcb_mm": [
+      [
+        -9.8,
+        -36.875,
+        2.6
+      ],
+      [
+        9.8,
+        -35.450001,
+        4.2
+      ]
+    ],
+    "explode_z_mm": -4,
+    "description": "Two button return stacks: each two 2x1.6mm pieces of 1.57mm PORON with 0.05mm 467MP between layers and against the fixed backing. Drawn compressed at rest; see FIT.md."
   },
   {
     "name": "screen-module",

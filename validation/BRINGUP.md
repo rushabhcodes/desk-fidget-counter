@@ -1,4 +1,4 @@
-# E6 PCB / E11 enclosure prototype bring-up
+# E6 PCB / E12 enclosure prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -15,7 +15,7 @@
 
 - [ ] Meter J4's VTref/SWDIO/SWCLK/NRST/GND/BOOT0 mapping before connecting the probe. Program/verify firmware 5.0.0 over SWD. Exercise ROM recovery separately.
 - [ ] Initialize FRAM with RESET CONFIRM. Test power removal during every journal write stage; recover a valid prior/committed record, never a corrupted guessed value. Document the brief possible rollback of an in-flight completed-turn write.
-- [ ] Shorten the supplied H1 according to the physical signal-to-signal map in manufacturing/WIRING.md. Verify all eight continuities, no adjacent shorts, correct VCC/GND, retained factory PH latch and termination strength. Verify the actual screen connector revision/position against the supplier STEP.
+- [ ] Fit the separately ordered crimped H1 SH8-to-PH8 harness from manufacturing/WIRING.md; the supplied Waveshare jumper lead is unused. Verify all eight continuities, no adjacent shorts, correct VCC/GND, contact retention and housing engagement. SH uses friction retention without a separate latch lever. Verify the actual screen connector revision/position against the supplier STEP.
 - [ ] Confirm GC9A01 startup/orientation with tab -X, MADCTL 0xA8, RGB order, backlight, and readability. Test count up to 20 digits and HOLD 3S TO INIT and TIMER ERROR fault states. A write-only SPI transport-success flag cannot detect an unplugged screen.
 - [ ] Run the companion on intended OSes. Compare local clock/date, total CPU%, RAM%, battery%/AC to host tools. Test no-battery desktop, companion close/reopen, multiple devices, port already in use and laptop disconnect/reconnect.
 - [ ] Stop updates: after five seconds, replace clock/metrics with HOST OFFLINE while scrolling/counting continue on awake USB. Check midnight/date rollover, timezone changes and host clock adjustments.
@@ -37,8 +37,8 @@
 - [ ] Check the real screen's mounting bosses, tab, glass and connector against the carrier/bezel. The two shared supports must remain seated without bowing the module or pressing its active glass.
 - [ ] Order H1 per WIRING.md: SHR-08V-S-B to PHR-8, eight qualified crimped30AWG wires,44±1mm free insulation between exits, circuit1→1 through8→8. Check actual plug fit/retention, crimps, wire OD, dressing and bends. Meter every signal and power/ground isolation. The kit jumper lead is unused. Mate sideways; disconnect before lifting the screen.
 - [ ] Check all wires remain stationary and clear of both posts, packages and the integral optical track throughout complete rotations. Test the 0.8 mm wall for 950 nm opacity and inspect all 48 slots for stringing. No separate skirt adhesive joint is used.
-- [ ] Test the printed cap in its guide: no rest preload, electrical closure before the 0.6 mm nominal stop, free release and repeated short/long presses. Its nominal 0.2 mm free play plus 0.4 mm switch travel are geometry checks only. Calibrate the boss against the actual switch and printer; verify safe overtravel and no housing contact before closing the prototype.
-- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported E6 rear tab. No underside driver windows are required in E11.
+- [ ] Fit both two-layer PORON return stacks and test the paddle at its centre and both ends: no rest preload, electrical closure before the 0.6 mm nominal stop, free release and repeated short/long presses. Its nominal 0.2 mm free play plus 0.4 mm switch travel are geometry checks only. Check fingertip access on the actual desk, return with the lid tightened, and presses at both ends without rocking or rubbing; inspect foam/adhesive retention after repeated presses and time under compression. Calibrate the boss against the actual switch and printer; verify safe overtravel and no housing contact before closing the prototype.
+- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported E6 rear tab. No underside driver windows are required in E12.
 - [ ] Verify the 0.8 mm bezel/grip running gap, full rotor swept volume, push-fit retention and optional feet. Check lid and grip support removal and fit-surface finish before assembly.
 - [ ] Have the fabricator review the ordinary two-layer rules, routed inner contour and documented J1 slot allowance. Confirm current stock and feeder origin/rotations against real pads and physical pin 1 in the final order preview.
 

@@ -242,22 +242,60 @@
       "max": 0.4
     },
     "direct_actuation": false,
-    "opening_width_mm": 8,
-    "opening_bottom_z": 2.8,
-    "opening_top_z": 7.6,
+    "opening_width_mm": 13.2,
+    "opening_bottom_z": 3.6,
+    "opening_top_z": 8.0,
     "finger_check_radius_mm": 6,
-    "fit_status": "Existing B3U-3000P, operated by the captive printed cap. Print and test the cap/guide fit and switch closure before final assembly.",
+    "fit_status": "B3U-3000P under a broad rounded captive paddle; twin guides, positive stops and two stacked-PORON return pads. Verify electrical closure, free return and switch overtravel on the prototype.",
     "printed_cap": {
       "part": "button-cap",
-      "face_width_mm": 8,
-      "face_height_mm": 4,
+      "face_width_mm": 14,
+      "face_height_mm": 6.6,
       "face_front_y": -44.2,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
-      "travel_stop": "Forked arms with two internal retaining ears against base stops; lid captures cap without extra fasteners",
-      "fit_status": "Nominal CAD travel only. Verify free return, no rest preload, closure before stop and safe overtravel with the actual switch; trim the contact boss to calibrate if required."
+      "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+      "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+      "face_center_z_mm": 5.7,
+      "face_thickness_mm": 1.0,
+      "face_corner_radius_mm": 1.2,
+      "thumb_dish_depth_mm": 0.2,
+      "rail_centers_x_mm": [
+        -5.2,
+        5.2
+      ],
+      "rail_width_mm": 2.0,
+      "rail_top_z_mm": 7.6,
+      "rail_height_mm": 1.6,
+      "rail_front_y_mm": -43.3,
+      "rail_rear_y_mm": -38.2,
+      "ear_center_y_mm": -38.6,
+      "ear_depth_mm": 0.8,
+      "ear_inner_x_mm": 4.2,
+      "ear_outer_x_mm": 10.0,
+      "press_center_z_mm": 6.4
+    },
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -35.45,
+      "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
     }
   },
   "usb_access": {
@@ -295,7 +333,7 @@
     "board_connection": "J6 JST SM08B-SRSS-TB(LF)(SN) / C160407",
     "dimensions_status": "Named genuine mating housings and contacts; nominal engagement and static 3.3mm bend are engineering approximations. Actual harness fit and crimp quality require prototype verification."
   },
-  "mechanical_revision": "E11",
+  "mechanical_revision": "E12",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -350,7 +388,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E11",
+    "revision": "E12",
     "product_print_count": 6,
     "fasteners": [
       {

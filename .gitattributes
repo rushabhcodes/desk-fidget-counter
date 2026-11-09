@@ -5,3 +5,8 @@
 *.ply binary
 *.stl binary
 *.glb binary
+# Keep the checked manufacturer exports byte-for-byte across Git checkouts.
+manufacturing/current/gerbers/** binary
+manufacturing/current/cad/** binary
+manufacturing/current/firmware/** binary
+manufacturing/current/*.csv -text whitespace=cr-at-eol

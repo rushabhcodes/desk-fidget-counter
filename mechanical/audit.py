@@ -31,7 +31,7 @@ def solid(mesh):
     mesh.merge_vertices()
     return md.Manifold(md.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
 
-closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug','lcd-cable-board-sh-plug'] or n.startswith('lcd-wire-')}
+closed={n:solid(m) for n,m in meshes.items() if n in printed+['fasteners','bearing','screen-module','lcd-cable-screen-plug','lcd-cable-board-sh-plug','button-return-pads','button-return-adhesive'] or n.startswith('lcd-wire-')}
 assert all(str(s.status()).endswith('NoError') for s in closed.values())
 box=lambda size,center:md.Manifold.cube(size,True).translate(center)
 # Explicit geometric masks allow only the designed self-tapped pilot engagement
@@ -65,8 +65,12 @@ for n in printed:
     stl=trimesh.load(ROOT/'mechanical/stl'/f'{n}.stl',force='mesh',process=True)
     assert stl.is_watertight and stl.is_winding_consistent and len(stl.split())==1,n
     pose=poses[n]
-    if pose['inverted']:stl.apply_transform(trimesh.transformations.rotation_matrix(np.pi,[1,0,0]))
-    stl.apply_translation([0,0,pose['z']])
+    if 'rotation_deg' in pose:
+        stl.apply_translation(-np.array(pose['translation_mm']))
+        stl.apply_transform(np.linalg.inv(trimesh.transformations.euler_matrix(*np.radians(pose['rotation_deg']))))
+    else:
+        if pose['inverted']:stl.apply_transform(trimesh.transformations.rotation_matrix(np.pi,[1,0,0]))
+        stl.apply_translation([0,0,pose['z']])
     actual=meshes[n].copy();actual.apply_transform(glb_to_cad)
     deviation=max(cKDTree(stl.vertices).query(actual.vertices)[0].max(),cKDTree(actual.vertices).query(stl.vertices)[0].max())
     assert deviation<.00002,(n,deviation)

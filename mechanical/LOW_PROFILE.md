@@ -1,4 +1,4 @@
-# E11 low-profile architecture
+# E12 low-profile architecture
 
 The body remains **Ø84.8×19.5 mm** before optional feet. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
 
@@ -36,4 +36,4 @@ The side-entry cable permits a **19.5 mm** assembled height, **2.8 mm (12.6%) sh
 
 E9 additionally opens the carrier screw bores and clears the actual screen PCB outline for a 2 mm rear-component allowance. The [visual audit](AUDIT.md) records the corrections and inspection views.
 
-E11 fits a compact keyed JST-SH8 socket on the left PCB annulus, facing into the window. A single SH8-to-PH8 crimped harness replaces the supplied jumper cable without raising the screen or enclosure. See the [physical wiring map](../manufacturing/WIRING.md).
+E12 fits a compact keyed JST-SH8 socket on the left PCB annulus, facing into the window. A single SH8-to-PH8 crimped harness replaces the supplied jumper cable without raising the screen or enclosure. See the [physical wiring map](../manufacturing/WIRING.md).

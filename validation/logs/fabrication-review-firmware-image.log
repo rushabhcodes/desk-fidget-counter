@@ -1,0 +1,28 @@
+{
+  "image_bytes": 61344,
+  "stack_top": "0x20004000",
+  "reset_vector": "0x80018b1",
+  "usb_interfaces": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "usb_endpoints": [
+    "0x81",
+    "0x2",
+    "0x82",
+    "0x83"
+  ],
+  "usb_configuration_bytes": 100,
+  "requested_usb_mA": 100,
+  "hid_report_bytes": 77
+}

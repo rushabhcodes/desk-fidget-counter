@@ -1,0 +1,16 @@
+{
+  "baseline_commit": "bf5fb4241412938fc1122979a6aeda06e04db744",
+  "baseline_package": "5.10.1",
+  "pcb_revision": "E6",
+  "mechanical_revision": "E12",
+  "source_board_tsx_unchanged": true,
+  "source_board_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
+  "bare_circuit_byte_identical_to_validated_baseline": true,
+  "bare_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
+  "assembly_PCB_records_identical_to_validated_baseline": true,
+  "compared_PCB_records": 1133,
+  "fabrication_rules_unchanged": true,
+  "fabrication_rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
+  "native_error_count": 0,
+  "basis": "E12 changes the enclosure button, guides, roof and return foam only. Every manufactured PCB record and the bare circuit JSON remain identical to the independently checked E6 baseline. A subsequent fresh fabrication/assembly review and local package are recorded in validation/assembly-fabrication-review.json; no external order was placed."
+}
