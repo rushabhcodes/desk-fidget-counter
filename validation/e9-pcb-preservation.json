@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "b649945e2a50db6dc7fdafdf772411e725be9d95",
+  "baseline_release": "5.8.0",
+  "current_release": "5.8.1",
+  "pcb_revision": "E4",
+  "mechanical_revision": "E9",
+  "bare_and_assembly_PCB_records_identical_to_validated_baseline": true,
+  "compared_PCB_records": 1107,
+  "native_error_count": 0,
+  "pcb_source_tsx_unchanged": true,
+  "source_board_sha256": "8d4aed2051f90c4c9aaca7ea85a8912ee7120739646725325f2fb4d86bb04fe0",
+  "current_bare_circuit_sha256": "ede98382be536dd8f0f97411c7980439823c868a7d342212e65754e22fa2c6f3",
+  "basis": "E9 changes only the screen carrier. Existing independent fabrication checks remain applicable to these identical PCB records; source-project metadata is allowed to differ."
+}

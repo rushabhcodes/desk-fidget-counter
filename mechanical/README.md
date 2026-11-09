@@ -1,4 +1,6 @@
-# E8 mechanics / E4 PCB
+# E9 mechanics / E4 PCB
+
+[Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Twelve inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.
 
 The enclosure uses **six product prints and four screws** while retaining the Ø84.8×19.5 mm body, fixed Waveshare 19192 display, rear USB-C and a captive front button cap. The optical track is integral to the grip. The complete bearing has one CAD visibility control; both races, shields, balls and cage are included in that object.
 
@@ -28,6 +30,7 @@ bun run build
 python mechanical/generate.py
 bun run cad:pcb
 python mechanical/generate-assembly.py
+python mechanical/audit.py --render
 bun run build
 bun run check:assembly
 python mechanical/render.py

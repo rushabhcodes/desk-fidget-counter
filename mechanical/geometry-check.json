@@ -56,8 +56,8 @@
   "screen-carrier": {
     "watertight": true,
     "stl_roundtrip_watertight": true,
-    "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 910.45,
+    "zero_area_triangles_collapsed_by_float32": 168,
+    "volume_mm3": 785.52,
     "bounds_mm": [
       [
         -24.0,
@@ -209,7 +209,14 @@
     },
     "limits": "STEP omits fine connector contacts/cavity and rear electronics. Exact kit plug seating, thread details, PLA fit/strength and wire slack require physical qualification.",
     "rear_boss_contacts_checked": 4,
-    "bezel_captures_before_locator_disengagement": true
+    "bezel_captures_before_locator_disengagement": true,
+    "rear_component_reservation": {
+      "depth_mm": 2.0,
+      "carrier_profile_lateral_clearance_mm": 0.4,
+      "outline": "Cross-section of the original supplier PCB, including its tab",
+      "exclusions": "Existing four rear bosses, socket and estimated mated plug footprint",
+      "status": "Conservative engineering allowance; actual component heights and kit fit remain unmeasured"
+    }
   },
   "screen_post_to_window_tolerance_checked_mm": 0.625,
   "screen_support": {
@@ -242,7 +249,8 @@
     ],
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
     "carrier_bottom_z": 13.1,
-    "carrier_rim_to_PCB_gap_mm": 0.2
+    "carrier_rim_to_PCB_gap_mm": 0.2,
+    "carrier_rear_profile_clearance_mm": 0.4
   },
   "purchased_package_models_checked": 38,
   "individual_wires_checked": 8,
@@ -256,7 +264,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E8",
+    "revision": "E9",
     "product_print_count": 6,
     "fasteners": [
       {

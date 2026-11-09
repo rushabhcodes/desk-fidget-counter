@@ -45,4 +45,11 @@ assert.equal(geometry.source_board_tsx_sha256, createHash('sha256').update(fs.re
 for (const [name, artifact] of Object.entries(geometry.cad_files)) {
   assert.equal(createHash('sha256').update(fs.readFileSync(`mechanical/cad/${name}`)).digest('hex'), artifact.sha256)
 }
+const audit = read('mechanical/audit/report.json')
+assert.equal(audit.model_sha256, geometry.cad_files['assembled.glb'].sha256, 'Rerun the CAD audit after changing assembly geometry')
+assert.deepEqual(audit.unexpected_intersections, [], 'No unplanned mechanical interference may remain')
+assert.equal(audit.carrier_through_bores, 2, 'Both shared screen screws need open clearance bores')
+for (const [name, check] of Object.entries(audit.print_checks)) {
+  assert.equal(createHash('sha256').update(fs.readFileSync(`mechanical/stl/${name}.stl`)).digest('hex'), check.stl_sha256, `${name} print changed after its CAD audit`)
+}
 console.log(`Assembly passed: ${parts.length} named mechanical parts, correct OBJ axes/scale, assembled poses, GLB hashes and identical PCB geometry.`)

@@ -1,0 +1,82 @@
+{
+  "revision": "E9",
+  "model_sha256": "fc3fec3f66cdd1a7fce749aeb36548e14455552ded087dac125583ef943c487a",
+  "source_parameters_sha256": "c20dda53e6541937614cac90359b134f42181881706859505d8e279673dd95a4",
+  "tested_solid_pair_count": 153,
+  "intentional_contacts": [
+    {
+      "parts": [
+        "fasteners",
+        "base"
+      ],
+      "intersection_mm3": 18.96871,
+      "allowed_contact": "M2 shanks engage the 1.6mm printed pilot bores; tap before assembly",
+      "outside_allowed_mask_mm3": 0.0
+    },
+    {
+      "parts": [
+        "lcd-cable-screen-plug",
+        "screen-module"
+      ],
+      "intersection_mm3": 158.40499,
+      "allowed_contact": "Estimated plug mates inside the supplier STEP solid socket envelope",
+      "outside_allowed_mask_mm3": 0.0
+    }
+  ],
+  "unexpected_intersections": [],
+  "print_checks": {
+    "base": {
+      "connected_watertight": true,
+      "stl_sha256": "bca7cd2a4162a3500a8b0bf5e2293ce55601949a5d550ab916db1344ecfcd642",
+      "STL_to_GLB_max_vertex_error_mm": 0.0
+    },
+    "lid": {
+      "connected_watertight": true,
+      "stl_sha256": "395c0a2540bd5b0b18041099fc55ab8bc30ae4d4f7e4c1bfd77a423dfc7fcf48",
+      "STL_to_GLB_max_vertex_error_mm": 7.63e-07
+    },
+    "knob": {
+      "connected_watertight": true,
+      "stl_sha256": "0c1ef907b07699e446b671c0f8bbab6b4d6829e83947caea607384823a62f03d",
+      "STL_to_GLB_max_vertex_error_mm": 9.06e-07
+    },
+    "screen-carrier": {
+      "connected_watertight": true,
+      "stl_sha256": "3854c4e129aac2701b184bdea6d6b298a55fbf834ead68ee547e7ddb675768b5",
+      "STL_to_GLB_max_vertex_error_mm": 3.81e-07
+    },
+    "screen-bezel": {
+      "connected_watertight": true,
+      "stl_sha256": "492fe8ba32139cfe5209288417e463d71f20c12a2611209d09875b21d322bc07",
+      "STL_to_GLB_max_vertex_error_mm": 7.15e-07
+    },
+    "button-cap": {
+      "connected_watertight": true,
+      "stl_sha256": "329cd6ca612bb38b3e89b66d8d79de5ef139245c7711b4ea0c5233f081d34c60",
+      "STL_to_GLB_max_vertex_error_mm": 1.97e-07
+    }
+  },
+  "carrier_through_bores": 2,
+  "bezel_driver_diameter_mm": 4,
+  "screen_rear_reservation": {
+    "depth_mm": 2.0,
+    "carrier_profile_lateral_clearance_mm": 0.4,
+    "outline": "Cross-section of the original supplier PCB, including its tab",
+    "exclusions": "Existing four rear bosses, socket and estimated mated plug footprint",
+    "status": "Conservative engineering allowance; actual component heights and kit fit remain unmeasured"
+  },
+  "enclosure_size_mm": [
+    84.8,
+    84.8,
+    19.5
+  ],
+  "scope": "Nominal delivered geometry plus stated fit-budget envelopes. Rear electronics reservation is an engineering allowance; exact kit plug fit, PLA strength/friction and bearing retention are physically untested.",
+  "rendered_exterior_views": 6,
+  "rendered_internal_views": 6,
+  "images": {
+    "exterior-contact-sheet.png": "9dd6e2fe7c104c5d60179462d41fe586c384d200618fb36a0bd050e09a36cdb1",
+    "internal-contact-sheet.png": "4dc7ee66f3819ef3054d34824af5ef9bd9c03501f10a9b6846b2b53293698873",
+    "bore-section.png": "cc6a793b5ea41d858fbd4324fda75a153ea2263168ec6dcbd316895a77c6422a"
+  },
+  "carrier_comparison_source_sha256": "0ce925ea150f2f5846a5e8b212c726a495dc621984ba1072a1a5e05a29d02750"
+}

@@ -121,7 +121,8 @@
       ],
       "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
       "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
-    }
+    },
+    "rear_component_clearance_depth_mm": 2.0
   },
   "header_tail_below_pcb_mm": 0.8,
   "lid_screw_length_mm": 6,
@@ -300,7 +301,7 @@
     "lead_y_shift_mm": 3.0,
     "display_u_bend_radius_mm": 3.3
   },
-  "mechanical_revision": "E8",
+  "mechanical_revision": "E9",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -355,7 +356,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E8",
+    "revision": "E9",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -403,7 +404,8 @@
     ],
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
     "carrier_bottom_z": 13.1,
-    "carrier_rim_to_PCB_gap_mm": 0.2
+    "carrier_rim_to_PCB_gap_mm": 0.2,
+    "carrier_rear_profile_clearance_mm": 0.4
   },
   "pcb_revision": "E4"
 }

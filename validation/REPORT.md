@@ -1,8 +1,14 @@
-# Repository readiness / v5.8.0
+# Repository readiness / v5.8.1
 
-Reviewed **9 November 2026**. **PCB E4 is locally checked for prototype fabrication.** J1 is now the standard XUNPU TYPEC-309-ACP16L65 / C2909598 receptacle, with an exact JLCPCB import, its real supplier CAD and a drawing-checked mounting pattern. The old short-slot connector is removed. The two-layer, 1.6 mm board has 39 references / 38 fitted components, all top; J6 remains DNP. The E8 PLA enclosure retains six prints, four screws, one complete bearing object and **Ø84.8×19.5 mm** dimensions.
+Reviewed **9 November 2026**. **PCB E4 is locally checked for prototype fabrication.** J1 is now the standard XUNPU TYPEC-309-ACP16L65 / C2909598 receptacle, with an exact JLCPCB import, its real supplier CAD and a drawing-checked mounting pattern. The old short-slot connector is removed. The two-layer, 1.6 mm board has 39 references / 38 fitted components, all top; J6 remains DNP. The E9 PLA enclosure retains six prints, four screws, one complete bearing object and **Ø84.8×19.5 mm** dimensions.
 
 The repository is the deliverable. Temporary exports were used to validate Gerbers, drill files and matching BOM/CPL sets; **no permanent fabrication kit or order is created**. Export/download a fresh consistent set yourself when ordering. The historical v5.4.0 files have an undersized FRAM footprint and outdated assembly angles; do not use them.
+
+## CAD audit update
+
+E9 fixes two screen-carrier issues found by a visual and solid-model audit: a 0.1 mm membrane across each shared screw bore, and insufficient allowance beneath rear electronics omitted by the supplier screen STEP. Both bores are now through holes. The carrier clears the actual screen PCB profile by 0.4 mm laterally, with a conservative 2 mm rear-component reservation. Twelve visual views, 153 solid-pair checks, independent screw/driver gauges and six STL/GLB pose comparisons pass. No unexpected interference remains under the stated geometry and fit assumptions. [Audit and images](../mechanical/AUDIT.md). Physical kit fit remains unmeasured.
+
+The PCB source is unchanged and all **1,107 PCB records** in both new native builds are identical to validated v5.8.0. [E9 preservation evidence](e9-pcb-preservation.json) connects the current assembly to the existing E4 fabrication checks; circuit project metadata differs after the mechanical/documentation changes.
 
 ## Verified checks
 

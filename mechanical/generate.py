@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E8 reduced-height PLA assembly.
+"""SPDX-License-Identifier: MIT. Mechanics E9 reduced-height PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -14,6 +14,10 @@ TAU=2*math.pi
 def cyl(r,h,z=0,x=0,y=0):return m.Manifold.cylinder(h,r,r,192).translate((x,y,z))
 def cyl_y(r,start,end,z):return m.Manifold.cylinder(end-start,r,r,96).rotate((-90,0,0)).translate((0,start,z))
 def box(size,center):return m.Manifold.cube(size,True).translate(center)
+def from_mesh(mesh):
+ q=m.Manifold(m.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
+ assert str(q.status()).endswith('NoError'),str(q.status())
+ return q
 def ring(ro,ri,h,z=0):return cyl(ro,h,z)-cyl(ri,h+.2,z-.1)
 def csk_hole(x,y,z,up=False):
  if up:return cyl(2.1,.45,z-.1,x,y)+m.Manifold.cylinder(.9,2.0,1.1,64).translate((x,y,z+.3))
@@ -33,6 +37,12 @@ outer=P['base_diameter']/2;lid_bottom=P['lid_bottom_z'];lid_top=P['lid_top_z']
 bearing_top=bt+bh;skirt_bottom=P['encoder']['skirt_bottom_z'];skirt_height=bearing_top+1.8-skirt_bottom
 screen_offset=P['display']['pcb_bottom_z']+.45;screen_front=P['display']['front_z'];overall_height=P['display']['bezel_top_z']
 usb_access=P['usb_access']
+# Use the actual supplier PCB outline to clear rear components omitted by the
+# simplified STEP, including the non-circular tab and its rounded shoulders.
+screen_mesh=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
+screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,screen_offset])
+lcd=from_mesh(screen_mesh)
+screen_pcb_profile=lcd.slice(P['display']['pcb_bottom_z']+.1)
 base=cyl(outer,2)+ring(outer-.2,outer-2.2,lid_bottom-2,2)
 for x,y in P['mount_holes']:
  # Unplated locator pegs and lid pads capture the board; no tall PCB standoffs.
@@ -142,9 +152,15 @@ for x,y in screen_posts:
 cradle-=box((5,16,1.4),(-20,0,carrier_z+.6))
 bezel_screws=P['bezel_screw_axes']
 for x,y in bezel_screws:
- cradle+=cyl(2.2,screen_front-carrier_top,carrier_top,x,y);cradle-=cyl(1.1,5,carrier_z-.1,x,y)
+ cradle+=cyl(2.2,screen_front-carrier_top,carrier_top,x,y)
+ # A through bore must pass the entire boss. A fixed 5mm cut left a 0.1mm
+ # membrane at Z18.0..18.1, intersecting each installed M2 screw.
+ cradle-=cyl(1.1,screen_front-carrier_z+.2,carrier_z-.1,x,y)
 # Keep both shared support pads inside the 48mm carrier envelope.
 cradle=cradle^cyl(24,5.2,carrier_z-.1)
+# The four real rear bosses sit on the base walls; this rim need not support
+# the PCB underside. Clear its full outline, with 0.4mm lateral allowance.
+cradle-=screen_pcb_profile.offset(support['carrier_rear_profile_clearance_mm']).extrude(1.6).translate((0,0,carrier_z-.1))
 bezel=ring(24,16.6,1.4,screen_front)
 # The retaining lip clears the active glass even with estimated stack errors.
 relief=P['display']['glass_relief_mm']+.01
@@ -193,14 +209,7 @@ swept_skirt=ring(r+half_track,r-half_track,skirt_height,skirt_bottom)
 moving=[('grip with integral optical track',cap),('swept skirt',swept_skirt)]
 for name,fixed in [('base',base),('lid',lid),('cradle',cradle),('bezel',bezel)]:
  for mn,mov in moving:assert (mov^fixed).volume()<1e-4,(name,mn,'collision',(mov^fixed).volume())
-# Manufacturer screen STEP transformed rigidly: tab -X, rear connector +X.
-def from_mesh(mesh):
- q=m.Manifold(m.Mesh64(np.ascontiguousarray(mesh.vertices,dtype=np.float64),np.ascontiguousarray(mesh.faces,dtype=np.uint64)))
- assert str(q.status()).endswith('NoError'),str(q.status())
- return q
-screen_mesh=trimesh.load(ROOT/'vendor/obj/screen19192.obj',force='mesh',process=True)
-screen_mesh.apply_transform(np.diag([-1.,1.,-1.,1.]));screen_mesh.apply_translation([0,0,screen_offset])
-lcd=from_mesh(screen_mesh)
+# Manufacturer screen STEP is rigidly placed above: tab -X, connector +X.
 from screen import audit as audit_screen
 screen_report=audit_screen(P)
 from harness import build as build_harness
@@ -224,6 +233,19 @@ for x,y in P['display']['mounting_hole_centers_mm']:
 assert (lcd.translate((0,0,.5))^bezel).volume()>.01,'Bezel must capture screen before its locating pins disengage'
 report['screen_fit']['rear_boss_contacts_checked']=4
 report['screen_fit']['bezel_captures_before_locator_disengagement']=True
+# Conservative space reservation, not fabricated supplier component geometry.
+rear_depth=P['display']['rear_component_clearance_depth_mm']
+rear_space=screen_pcb_profile.extrude(rear_depth).translate((0,0,P['display']['pcb_bottom_z']-rear_depth))
+for x,y in P['display']['mounting_hole_centers_mm']:
+ rear_space-=cyl(2.05,rear_depth+2,P['display']['pcb_bottom_z']-rear_depth-1,x,y)
+# Existing socket, boss and estimated mated housing footprints are already
+# occupied by their own checked geometry; components cannot occupy them too.
+rear_space-=box((10.6,20.6,rear_depth+2),(10.2,0,P['display']['pcb_bottom_z']-rear_depth/2))
+for name,printed in [('base',base),('lid',lid),('carrier',cradle),('bezel',bezel)]:
+ assert (rear_space^printed).volume()<1e-4,(name,'screen rear-component space obstructed')
+for name,mesh in clearance_harness.items():
+ if name.startswith('lcd-wire-'):assert (rear_space^from_mesh(mesh)).volume()<1e-4,(name,'screen rear-component space obstructed')
+report['screen_fit']['rear_component_reservation']={'depth_mm':rear_depth,'carrier_profile_lateral_clearance_mm':support['carrier_rear_profile_clearance_mm'],'outline':'Cross-section of the original supplier PCB, including its tab','exclusions':'Existing four rear bosses, socket and estimated mated plug footprint','status':'Conservative engineering allowance; actual component heights and kit fit remain unmeasured'}
 (ROOT/'screen-fit.json').write_text(json.dumps(screen_report,indent=2)+'\n')
 # PCB material must not intersect either part nested through its window.
 board=next(c for c in cj if c['type']=='pcb_board')

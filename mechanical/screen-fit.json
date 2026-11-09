@@ -46,5 +46,12 @@
   },
   "limits": "STEP omits fine connector contacts/cavity and rear electronics. Exact kit plug seating, thread details, PLA fit/strength and wire slack require physical qualification.",
   "rear_boss_contacts_checked": 4,
-  "bezel_captures_before_locator_disengagement": true
+  "bezel_captures_before_locator_disengagement": true,
+  "rear_component_reservation": {
+    "depth_mm": 2.0,
+    "carrier_profile_lateral_clearance_mm": 0.4,
+    "outline": "Cross-section of the original supplier PCB, including its tab",
+    "exclusions": "Existing four rear bosses, socket and estimated mated plug footprint",
+    "status": "Conservative engineering allowance; actual component heights and kit fit remain unmeasured"
+  }
 }
