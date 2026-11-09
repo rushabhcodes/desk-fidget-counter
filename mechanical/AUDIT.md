@@ -1,4 +1,4 @@
-# Visual and geometry audit — E11 / v5.10.0
+# Visual and geometry audit — E11 / v5.10.1
 
 Audited 9 November 2026 using the delivered `cad/assembled.glb`, the six delivered STLs, the original supplier screen geometry and the checked PCB. The model passes the nominal visual and geometric checks below. Physical fit and strength remain unmeasured.
 

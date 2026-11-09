@@ -1,4 +1,4 @@
-# Repository readiness / v5.10.0
+# Repository readiness / v5.10.1
 
 Reviewed 9 November 2026. PCB E6 remains **two layers, 1.6mm, 39 fitted components, all top**. Mechanics E11 remains **Ø84.8×19.5mm**, six PLA prints and four screws. J6 is now **JST SM08B-SRSS-TB(LF)(SN)/C160407**, a keyed 8-pin side-entry SMT socket with two grounded anchors.
 

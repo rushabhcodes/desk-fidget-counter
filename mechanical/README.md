@@ -43,3 +43,5 @@ Checks retain the complete rotor sweep, actual screen/package models, larger wir
 ![Braced PLA base, with support walls highlighted](screen-support.png)
 
 The highlighted walls and webs are part of one base print. All four screen bosses seat at Z12.0 mm; the carrier clears the real PCB profile with a 0.4 mm lateral allowance and protects 2 mm below the screen PCB, so it does not compete with those seats. [Side-entry connector view](screen-connector.png) · [Source-derived screen audit](screen-fit.json). Physical PLA strength and exact kit mating remain prototype checks.
+
+Full [assembled GLB](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/cad/assembled.glb) and [exploded GLB](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/cad/exploded.glb) downloads are retained on GitHub. These large offline exports are excluded from the TSCircuit package upload limit; its live 3D assembly uses the included OBJ models and circuit source. All six product STLs remain in both publications.
