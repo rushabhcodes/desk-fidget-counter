@@ -1,6 +1,6 @@
 {
-  "checked_date": "2026-11-06",
-  "scope": "Exact MPN/catalogue identity and signed-in JLCPCB BOM/CPL matching checked 2026-11-06. All 22 selected lines were available and priced for two assembled boards. No stock reserved; recheck before ordering. Feeder origin/rotation remains subject to JLC engineering DFM confirmation.",
+  "checked_date": "2026-11-09",
+  "scope": "All 22 fitted exact MPN/catalogue identities and current public JLCPCB purchasability/overseas stock checked 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. Historical signed-in matching on 2026-11-06 applied to old v5.4.0. Corrected current BOM/CPL placement/feeder preview has not been authenticated or approved; no stock reserved.",
   "parts": {
     "GRM188R71C104KA01D": {
       "lcsc": "C45000",
@@ -31,12 +31,6 @@
       "footprint": "0402",
       "description": "100nF 16V X7R 10%",
       "source": "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Murata-Electronics-GRM155R71C104KA88D_C71629.html"
-    },
-    "TYPE-C-31-M-12": {
-      "lcsc": "C165948",
-      "footprint": "USB-C-16P",
-      "description": "USB2 receptacle",
-      "source": "https://jlcpcb.com/partdetail/HRO_TYPEC-31-M12/C165948"
     },
     "B6B-PH-K-S(LF)(SN)": {
       "lcsc": "C131342",
@@ -135,6 +129,14 @@
       "source": "https://jlcpcb.com/partdetail/VishayIntertech-TCUT1600X01/C511085",
       "revision_note": "Pre-PCN genuine Vishay stock selected for this prototype. PCN-OPT-1311-2024 describes unchanged characteristics, fit, form and function for the _A wafer revision. Legacy order code; recheck stock. TCUT1600X01_A/C24626661 is the current revision but had zero JLC stock on 2026-11-06.",
       "pcn": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6165/PCN-OPT-1311-2024-REV-0.pdf"
+    },
+    "TYPEC-309-ACP16L65": {
+      "lcsc": "C2909598",
+      "manufacturer": "XUNPU",
+      "footprint": "SMD, 16 contacts / 4 shell stakes",
+      "description": "USB-C receptacle, 6.5mm body, 3A/5V per drawing; USB 2.0 D+/D- and CC contacts",
+      "source": "https://jlcpcb.com/partdetail/TYPEC-309-ACP16L65/C2909598",
+      "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598"
     }
   }
 }

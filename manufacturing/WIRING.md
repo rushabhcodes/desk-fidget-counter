@@ -1,4 +1,4 @@
-# PCB E3 / Mechanics E5 physical wiring and connector views
+# PCB E4 / Mechanics E8 physical wiring and connector views
 
 All board components mount from the top. The PCB frame is +X right/+Y toward USB, with the PCB top at Z=4.2 mm above the enclosure floor. Pin numbers below refer to the **board header pads**, not an arbitrary view of the mating plug. Match the moulded pin-1 mark and the LCD's printed signal labels, then check continuity before applying power.
 
@@ -40,6 +40,6 @@ Power the target through USB-C while programming. VTref senses target voltage; d
 
 ## USB cable and mechanical fit
 
-The rear USB-C face is 0.15 mm beyond the side wall. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.85 mm and the nominal rotor clearance is 1.50 mm (1.04 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
+The XUNPU C2909598 USB-C face is at Y42.1865 mm, 0.0135 mm inside the stationary side-wall radius and 0.2135 mm inside the outer floor edge; it remains accessible through the rear opening. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.78 mm and the nominal rotor clearance is 1.50 mm (1.04 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
 
-There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E3.
+There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E4.

@@ -40,12 +40,6 @@
       "export": "GRM155R71H103KA88D",
       "sha256": "dd5e7eadb0fa7a931d5f21e7865f70d06a8350a64aa1b35a3c99a11257273913"
     },
-    "TYPE-C-31-M-12": {
-      "code": "C165948",
-      "path": "imports/jlc/TYPE_C_31_M_12.tsx",
-      "export": "TYPE_C_31_M_12",
-      "sha256": "cd9c6d214938f7fe823eee6712b29385880a27ca906e115392b1c6bbe215bcaa"
-    },
     "B6B-PH-K-S(LF)(SN)": {
       "code": "C131342",
       "path": "imports/jlc/B6B_PH_K_S_LF__SN_.tsx",
@@ -141,6 +135,14 @@
       "path": "imports/jlc/A_2_54_1_8.tsx",
       "export": "A_2_54_1_8",
       "sha256": "bb33ee1863f3d171bc9719e19d351734cf1ed28723f0468cb8c72a53f7dfb6ba"
+    },
+    "TYPEC-309-ACP16L65": {
+      "code": "C2909598",
+      "path": "imports/jlc/TYPEC_309_ACP16L65/TYPEC_309_ACP16L65.tsx",
+      "export": "TYPEC_309_ACP16L65",
+      "sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2",
+      "imported_date": "2026-11-09",
+      "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C2909598"
     }
   },
   "access_metadata": "The project adds insertionDirection=from_above to the J4 and J6 footprint root only. Imported pad, hole, mask, silk and courtyard children are unchanged."

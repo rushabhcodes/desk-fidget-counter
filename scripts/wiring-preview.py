@@ -5,7 +5,7 @@ import json,csv
 ROOT=Path(__file__).resolve().parents[1]
 h=json.loads((ROOT/'mechanical/harness.json').read_text())
 rows=sorted(h['connections'],key=lambda r:r['board_pin'])
-svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">','<rect width="1500" height="1000" fill="#f4f7f8"/>','<g font-family="sans-serif" fill="#203943">','<text x="65" y="65" font-size="30">PCB E3 / mechanics E7 — Included display lead</text>','<text x="65" y="105" font-size="20">Keep the original PH display plug; shorten and solder the PCB end. No extra harness parts.</text>','<text x="100" y="175" font-size="22">J6 — solder pads (header DNP)</text>','<text x="960" y="175" font-size="22">Waveshare 19192 — PH2.0</text>']
+svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000">','<rect width="1500" height="1000" fill="#f4f7f8"/>','<g font-family="sans-serif" fill="#203943">','<text x="65" y="65" font-size="30">PCB E4 / mechanics E8 — Included display lead</text>','<text x="65" y="105" font-size="20">Keep the original PH display plug; shorten and solder the PCB end. No extra harness parts.</text>','<text x="100" y="175" font-size="22">J6 — solder pads (header DNP)</text>','<text x="960" y="175" font-size="22">Waveshare 19192 — PH2.0</text>']
 for i,r in enumerate(rows):
  y=230+i*62;signal=r['signal'];colour=r['color_illustration_only']
  if colour=='#ffffff':colour='#8a9296'

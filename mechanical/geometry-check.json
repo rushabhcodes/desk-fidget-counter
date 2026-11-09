@@ -3,7 +3,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 4,
-    "volume_mm3": 16372.14,
+    "volume_mm3": 16372.01,
     "bounds_mm": [
       [
         -42.4,
@@ -21,7 +21,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 8226.68,
+    "volume_mm3": 8236.32,
     "bounds_mm": [
       [
         -42.05,
@@ -256,7 +256,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E7",
+    "revision": "E8",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -336,8 +336,8 @@
   "button_projection_beyond_wall_mm": 2.0,
   "pressed_button_projection_beyond_wall_mm": 1.4,
   "USB_access": {
-    "axis_z": 5.85,
-    "socket_face_y": 42.35003,
+    "axis_z": 5.78,
+    "socket_face_y": 42.186507,
     "opening_width_mm": 22,
     "opening_center_y": 41,
     "opening_length_mm": 25,
@@ -345,17 +345,19 @@
     "opening_top_z": 9.2,
     "plug_width_mm": 13.4,
     "plug_height_mm": 6.9,
-    "plug_shoulder_y": 42.35003,
+    "plug_shoulder_y": 42.186507,
     "plug_check_length_mm": 35,
-    "scope": "Socket face/axis from original C165948 STEP. Plug gauge uses L-com nominal 12.9x6.4 mm plus general +/-0.5 mm tolerance; its shoulder is conservatively placed flush with the socket face. Gauge length is a checking volume, not a claimed cable dimension. Undimensioned mating details require actual fit verification.",
+    "scope": "Socket face from the unscaled C2909598 supplier STEP; CAD lead seating plane aligned to Z=0.09mm to match the 3.16mm manufacturer body height. Plug gauge uses L-com nominal 12.9x6.4mm plus +/-0.5mm tolerance, shoulder flush to socket face. Actual cable fit requires prototype verification.",
     "plug_nominal_width_mm": 12.9,
     "plug_nominal_height_mm": 6.4,
     "plug_tolerance_mm": 0.5,
+    "model_filename": "TYPEC_309_ACP16L65.obj",
+    "solid_filename": "TYPEC_309_ACP16L65.ply",
     "outer_case_diameter_mm": 84.8,
-    "socket_recess_from_floor_outer_edge_mm": 0.05,
-    "socket_projection_beyond_side_wall_mm": 0.15,
-    "PCB_front_edge_mm": 41.1,
-    "plug_body_to_PCB_axial_gap_mm": 1.25,
+    "socket_recess_from_floor_outer_edge_mm": 0.2135,
+    "socket_projection_beyond_side_wall_mm": -0.0135,
+    "PCB_front_edge_mm": 41.4,
+    "plug_body_to_PCB_axial_gap_mm": 0.7865,
     "maximum_plug_approach_sweep_checked": true,
     "all_package_and_PCB_clearances_checked": true
   },
@@ -366,7 +368,7 @@
     "grip_lower_edge_mm": 10.0,
     "previous_grip_lower_edge_mm": 22,
     "USB_plug_max_height_mm": 6.9,
-    "USB_plug_to_rotor_vertical_mm": 0.7,
+    "USB_plug_to_rotor_vertical_mm": 0.77,
     "bezel_to_grip_radial_mm": 0.8,
     "skirt_to_sensor_radial_each_side_mm": 1.1,
     "PCB_bottom_z_mm": 2.6,

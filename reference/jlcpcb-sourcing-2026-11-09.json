@@ -1,0 +1,691 @@
+{
+  "checked_date": "2026-11-09",
+  "scope": "Read-only public JLCPCB catalogue, exact MPN/code identity. These are catalogue/overseas quantities, not an order allocation, authenticated BOM match or feeder approval.",
+  "parts": [
+    {
+      "mpn": "GRM188R71C104KA01D",
+      "catalogue_id": "C45000",
+      "url": "https://jlcpcb.com/partdetail/GRM188R71C104KA01D/C45000",
+      "checked_at": "2026-11-09T01:19:22.196Z",
+      "http_status": 200,
+      "componentCode": "C45000",
+      "componentModelEn": "GRM188R71C104KA01D",
+      "componentBrandEn": "Murata Electronics",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 654,
+      "canPresaleNumber": 23093,
+      "overseasStockCount": 30654,
+      "initialPrice": 0.0171,
+      "noBuyReason": null,
+      "prices": [
+        "$48",
+        "$49",
+        "$4a",
+        "$4b",
+        "$4c",
+        "$4d"
+      ],
+      "fitted_references": [
+        "C1",
+        "C7",
+        "C9",
+        "C11",
+        "C13",
+        "C14",
+        "C16"
+      ],
+      "quantity_per_board": 7
+    },
+    {
+      "mpn": "GRM188R61A105KA61D",
+      "catalogue_id": "C86012",
+      "url": "https://jlcpcb.com/partdetail/GRM188R61A105KA61D/C86012",
+      "checked_at": "2026-11-09T01:19:23.710Z",
+      "http_status": 200,
+      "componentCode": "C86012",
+      "componentModelEn": "GRM188R61A105KA61D",
+      "componentBrandEn": "Murata Electronics",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 332,
+      "canPresaleNumber": 27876,
+      "overseasStockCount": 28525,
+      "initialPrice": 0.0336,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "C2",
+        "C3",
+        "C5",
+        "C17",
+        "C15"
+      ],
+      "quantity_per_board": 5
+    },
+    {
+      "mpn": "CL21A475KOFNNNE",
+      "catalogue_id": "C1746",
+      "url": "https://jlcpcb.com/partdetail/CL21A475KOFNNNE/C1746",
+      "checked_at": "2026-11-09T01:19:25.244Z",
+      "http_status": 200,
+      "componentCode": "C1746",
+      "componentModelEn": "CL21A475KOFNNNE",
+      "componentBrandEn": "Samsung Electro-Mechanics",
+      "componentSpecificationEn": "0805",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 251,
+      "canPresaleNumber": 19869,
+      "overseasStockCount": 23611,
+      "initialPrice": 0.045,
+      "noBuyReason": null,
+      "prices": [
+        "$42",
+        "$43",
+        "$44",
+        "$45",
+        "$46",
+        "$47"
+      ],
+      "fitted_references": [
+        "C6",
+        "C18",
+        "C12"
+      ],
+      "quantity_per_board": 3
+    },
+    {
+      "mpn": "GRM155R71H103KA88D",
+      "catalogue_id": "C77019",
+      "url": "https://jlcpcb.com/partdetail/GRM155R71H103KA88D/C77019",
+      "checked_at": "2026-11-09T01:19:25.975Z",
+      "http_status": 200,
+      "componentCode": "C77019",
+      "componentModelEn": "GRM155R71H103KA88D",
+      "componentBrandEn": "Murata Electronics",
+      "componentSpecificationEn": "0402",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 1842,
+      "canPresaleNumber": 569312,
+      "overseasStockCount": 603320,
+      "initialPrice": 0.0062,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "C8"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "GRM155R71C104KA88D",
+      "catalogue_id": "C71629",
+      "url": "https://jlcpcb.com/partdetail/GRM155R71C104KA88D/C71629",
+      "checked_at": "2026-11-09T01:19:27.449Z",
+      "http_status": 200,
+      "componentCode": "C71629",
+      "componentModelEn": "GRM155R71C104KA88D",
+      "componentBrandEn": "Murata Electronics",
+      "componentSpecificationEn": "0402",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 2911,
+      "canPresaleNumber": 1091724,
+      "overseasStockCount": 1194807,
+      "initialPrice": 0.0036,
+      "noBuyReason": null,
+      "prices": [
+        "$44",
+        "$45",
+        "$46",
+        "$47",
+        "$48",
+        "$49"
+      ],
+      "fitted_references": [
+        "C10"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "B6B-PH-K-S(LF)(SN)",
+      "catalogue_id": "C131342",
+      "url": "https://jlcpcb.com/partdetail/B6B-PH-K-S(LF)(SN)/C131342",
+      "checked_at": "2026-11-09T01:19:28.054Z",
+      "http_status": 200,
+      "componentCode": "C131342",
+      "componentModelEn": "B6B-PH-K-S(LF)(SN)",
+      "componentBrandEn": "JST",
+      "componentSpecificationEn": "Plugin,P=2mm",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 153,
+      "canPresaleNumber": 29305,
+      "overseasStockCount": 30682,
+      "initialPrice": 0.0727,
+      "noBuyReason": null,
+      "prices": [
+        "$48",
+        "$49",
+        "$4a",
+        "$4b",
+        "$4c",
+        "$4d"
+      ],
+      "fitted_references": [
+        "J4"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "RC0603FR-075K1L",
+      "catalogue_id": "C105580",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-075K1L/C105580",
+      "checked_at": "2026-11-09T01:19:28.729Z",
+      "http_status": 200,
+      "componentCode": "C105580",
+      "componentModelEn": "RC0603FR-075K1L",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 5000,
+      "canPresaleNumber": 5553552,
+      "overseasStockCount": 5654513,
+      "initialPrice": 0.002,
+      "noBuyReason": null,
+      "prices": [
+        "$41",
+        "$42",
+        "$43",
+        "$44",
+        "$45",
+        "$46"
+      ],
+      "fitted_references": [
+        "R1",
+        "R2"
+      ],
+      "quantity_per_board": 2
+    },
+    {
+      "mpn": "RC0603FR-0710KL",
+      "catalogue_id": "C98220",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-0710KL/C98220",
+      "checked_at": "2026-11-09T01:19:29.473Z",
+      "http_status": 200,
+      "componentCode": "C98220",
+      "componentModelEn": "RC0603FR-0710KL",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 4512,
+      "canPresaleNumber": 9776872,
+      "overseasStockCount": 12128132,
+      "initialPrice": 0.0027,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "R10"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "RC0603FR-074K7L",
+      "catalogue_id": "C99782",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-074K7L/C99782",
+      "checked_at": "2026-11-09T01:19:30.201Z",
+      "http_status": 200,
+      "componentCode": "C99782",
+      "componentModelEn": "RC0603FR-074K7L",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 3923,
+      "canPresaleNumber": 8650209,
+      "overseasStockCount": 9151101,
+      "initialPrice": 0.0032,
+      "noBuyReason": null,
+      "prices": [
+        "$4c",
+        "$4d",
+        "$4e",
+        "$4f",
+        "$50",
+        "$51"
+      ],
+      "fitted_references": [
+        "R12",
+        "R13"
+      ],
+      "quantity_per_board": 2
+    },
+    {
+      "mpn": "RC0603FR-07100KL",
+      "catalogue_id": "C14675",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-07100KL/C14675",
+      "checked_at": "2026-11-09T01:19:30.881Z",
+      "http_status": 200,
+      "componentCode": "C14675",
+      "componentModelEn": "RC0603FR-07100KL",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 5000,
+      "canPresaleNumber": 10939829,
+      "overseasStockCount": 11430699,
+      "initialPrice": 0.0021,
+      "noBuyReason": null,
+      "prices": [
+        "$4c",
+        "$4d",
+        "$4e",
+        "$4f",
+        "$50",
+        "$51"
+      ],
+      "fitted_references": [
+        "R21"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "RC0603FR-07150RL",
+      "catalogue_id": "C114608",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-07150RL/C114608",
+      "checked_at": "2026-11-09T01:19:31.518Z",
+      "http_status": 200,
+      "componentCode": "C114608",
+      "componentModelEn": "RC0603FR-07150RL",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 4102,
+      "canPresaleNumber": 348856,
+      "overseasStockCount": 368878,
+      "initialPrice": 0.0026,
+      "noBuyReason": null,
+      "prices": [
+        "$44",
+        "$45",
+        "$46",
+        "$47",
+        "$48",
+        "$49"
+      ],
+      "fitted_references": [
+        "R24"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "RC0603FR-0722KL",
+      "catalogue_id": "C114065",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-0722KL/C114065",
+      "checked_at": "2026-11-09T01:19:32.155Z",
+      "http_status": 200,
+      "componentCode": "C114065",
+      "componentModelEn": "RC0603FR-0722KL",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 2820,
+      "canPresaleNumber": 1067711,
+      "overseasStockCount": 1173981,
+      "initialPrice": 0.004,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "R25",
+        "R26"
+      ],
+      "quantity_per_board": 2
+    },
+    {
+      "mpn": "RC0603FR-0722RL",
+      "catalogue_id": "C107701",
+      "url": "https://jlcpcb.com/partdetail/RC0603FR-0722RL/C107701",
+      "checked_at": "2026-11-09T01:19:32.863Z",
+      "http_status": 200,
+      "componentCode": "C107701",
+      "componentModelEn": "RC0603FR-0722RL",
+      "componentBrandEn": "YAGEO",
+      "componentSpecificationEn": "0603",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 3923,
+      "canPresaleNumber": 1087573,
+      "overseasStockCount": 1175714,
+      "initialPrice": 0.0028,
+      "noBuyReason": null,
+      "prices": [
+        "$48",
+        "$49",
+        "$4a",
+        "$4b",
+        "$4c",
+        "$4d"
+      ],
+      "fitted_references": [
+        "R27",
+        "R28"
+      ],
+      "quantity_per_board": 2
+    },
+    {
+      "mpn": "B3U-3000P",
+      "catalogue_id": "C963349",
+      "url": "https://jlcpcb.com/partdetail/B3U-3000P/C963349",
+      "checked_at": "2026-11-09T01:19:33.473Z",
+      "http_status": 200,
+      "componentCode": "C963349",
+      "componentModelEn": "B3U-3000P",
+      "componentBrandEn": "Omron Electronics",
+      "componentSpecificationEn": "SMD,3x2.5mm",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 23,
+      "canPresaleNumber": 4592,
+      "overseasStockCount": 5211,
+      "initialPrice": 0.4017,
+      "noBuyReason": null,
+      "prices": [
+        "$3f",
+        "$40",
+        "$41",
+        "$42",
+        "$43",
+        "$44"
+      ],
+      "fitted_references": [
+        "SW1"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "STM32F072CBT6",
+      "catalogue_id": "C81720",
+      "url": "https://jlcpcb.com/partdetail/STM32F072CBT6/C81720",
+      "checked_at": "2026-11-09T01:19:34.111Z",
+      "http_status": 200,
+      "componentCode": "C81720",
+      "componentModelEn": "STM32F072CBT6",
+      "componentBrandEn": "STMicroelectronics",
+      "componentSpecificationEn": "LQFP-48(7x7)",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 3,
+      "canPresaleNumber": 0,
+      "overseasStockCount": 42,
+      "initialPrice": 3.4214,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "U1"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "MB85RC256VPNF-G-AMERE2",
+      "catalogue_id": "C45273903",
+      "url": "https://jlcpcb.com/partdetail/MB85RC256VPNF-G-AMERE2/C45273903",
+      "checked_at": "2026-11-09T01:19:34.677Z",
+      "http_status": 200,
+      "componentCode": "C45273903",
+      "componentModelEn": "MB85RC256VPNF-G-AMERE2",
+      "componentBrandEn": "RAMXEED/FUJITSU",
+      "componentSpecificationEn": "SOP-8-150mil",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 5,
+      "canPresaleNumber": 18814,
+      "overseasStockCount": 18894,
+      "initialPrice": 2.1621,
+      "noBuyReason": null,
+      "prices": [
+        "$4c",
+        "$4d",
+        "$4e",
+        "$4f",
+        "$50",
+        "$51"
+      ],
+      "fitted_references": [
+        "U3"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "TPS22919DCKR",
+      "catalogue_id": "C2149796",
+      "url": "https://jlcpcb.com/partdetail/TPS22919DCKR/C2149796",
+      "checked_at": "2026-11-09T01:19:35.276Z",
+      "http_status": 200,
+      "componentCode": "C2149796",
+      "componentModelEn": "TPS22919DCKR",
+      "componentBrandEn": "Texas Instruments",
+      "componentSpecificationEn": "SC-70-6",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 94,
+      "canPresaleNumber": 19504,
+      "overseasStockCount": 20534,
+      "initialPrice": 0.1222,
+      "noBuyReason": null,
+      "prices": [
+        "$45",
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a"
+      ],
+      "fitted_references": [
+        "U4"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "TLV75533PDBVR",
+      "catalogue_id": "C404027",
+      "url": "https://jlcpcb.com/partdetail/TLV75533PDBVR/C404027",
+      "checked_at": "2026-11-09T01:19:35.892Z",
+      "http_status": 200,
+      "componentCode": "C404027",
+      "componentModelEn": "TLV75533PDBVR",
+      "componentBrandEn": "Texas Instruments",
+      "componentSpecificationEn": "SOT-23-5",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 95,
+      "canPresaleNumber": 92467,
+      "overseasStockCount": 93659,
+      "initialPrice": 0.1216,
+      "noBuyReason": null,
+      "prices": [
+        "$4b",
+        "$4c",
+        "$4d",
+        "$4e",
+        "$4f",
+        "$50"
+      ],
+      "fitted_references": [
+        "U5"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "USBLC6-2SC6",
+      "catalogue_id": "C7519",
+      "url": "https://jlcpcb.com/partdetail/USBLC6-2SC6/C7519",
+      "checked_at": "2026-11-09T01:19:36.490Z",
+      "http_status": 200,
+      "componentCode": "C7519",
+      "componentModelEn": "USBLC6-2SC6",
+      "componentBrandEn": "STMicroelectronics",
+      "componentSpecificationEn": "SOT-23-6L",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 73,
+      "canPresaleNumber": 35727,
+      "overseasStockCount": 40197,
+      "initialPrice": 0.1623,
+      "noBuyReason": null,
+      "prices": [
+        "$53",
+        "$54",
+        "$55",
+        "$56",
+        "$57",
+        "$58"
+      ],
+      "fitted_references": [
+        "U6"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "SN74LVC2G17DBVR",
+      "catalogue_id": "C10429",
+      "url": "https://jlcpcb.com/partdetail/SN74LVC2G17DBVR/C10429",
+      "checked_at": "2026-11-09T01:19:37.151Z",
+      "http_status": 200,
+      "componentCode": "C10429",
+      "componentModelEn": "SN74LVC2G17DBVR",
+      "componentBrandEn": "Texas Instruments",
+      "componentSpecificationEn": "SOT-23-6",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 65,
+      "canPresaleNumber": 148428,
+      "overseasStockCount": 149887,
+      "initialPrice": 0.1809,
+      "noBuyReason": null,
+      "prices": [
+        "$4b",
+        "$4c",
+        "$4d",
+        "$4e",
+        "$4f",
+        "$50"
+      ],
+      "fitted_references": [
+        "U7"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "TCUT1600X01",
+      "catalogue_id": "C511085",
+      "url": "https://jlcpcb.com/partdetail/TCUT1600X01/C511085",
+      "checked_at": "2026-11-09T01:19:37.862Z",
+      "http_status": 200,
+      "componentCode": "C511085",
+      "componentModelEn": "TCUT1600X01",
+      "componentBrandEn": "Vishay Intertech",
+      "componentSpecificationEn": "SMD-6P",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 7,
+      "canPresaleNumber": 1302,
+      "overseasStockCount": 1305,
+      "initialPrice": 1.3477,
+      "noBuyReason": null,
+      "prices": [
+        "$46",
+        "$47",
+        "$48",
+        "$49",
+        "$4a",
+        "$4b"
+      ],
+      "fitted_references": [
+        "U2"
+      ],
+      "quantity_per_board": 1
+    },
+    {
+      "mpn": "TYPEC-309-ACP16L65",
+      "catalogue_id": "C2909598",
+      "url": "https://jlcpcb.com/partdetail/TYPEC-309-ACP16L65/C2909598",
+      "checked_at": "2026-11-09T01:19:38.490Z",
+      "http_status": 200,
+      "componentCode": "C2909598",
+      "componentModelEn": "TYPEC-309-ACP16L65",
+      "componentBrandEn": "XUNPU",
+      "componentSpecificationEn": "SMD",
+      "isBuyComponent": "1",
+      "allowPostFlag": true,
+      "preMinPurchaseNum": 30,
+      "canPresaleNumber": 1101,
+      "overseasStockCount": 1105,
+      "initialPrice": 0.3013,
+      "noBuyReason": null,
+      "prices": [
+        "$5a",
+        "$5b",
+        "$5c",
+        "$5d",
+        "$5e",
+        "$5f"
+      ],
+      "fitted_references": [
+        "J1"
+      ],
+      "quantity_per_board": 1
+    }
+  ],
+  "fitted_line_count": 22,
+  "fitted_part_count": 38,
+  "all_exact_mpn_code_matches": true,
+  "all_catalogue_purchasable": true,
+  "all_catalogue_stock_at_least_two_boards": true,
+  "authenticated_bom_cpl_upload_verified": false,
+  "feeder_origin_rotation_verified": false,
+  "estimated_parts_per_board_from_public_initial_prices_usd": 8.7578,
+  "price_scope": "Sum of public initial unit prices x fitted quantity. Excludes loss/minimum buy quantities, feeder/assembly/PCB charges, shipping and India tax. Not an order quote."
+}

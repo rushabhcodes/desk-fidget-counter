@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E7 reduced-height PLA assembly.
+"""SPDX-License-Identifier: MIT. Mechanics E8 reduced-height PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
@@ -83,8 +83,8 @@ lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 # Keep the existing fork clearance as the main lid plate moves down.
 lid-=box((14,4,1),(0,-38.3,7.1))
 # Recess only the real USB package envelope, with 0.2mm assembly allowance.
-cad_usb=next(c for c in cj if c['type']=='cad_component' and 'C165948.obj' in c.get('model_obj_url',''))
-usb_mesh=trimesh.load(ROOT/'vendor/solid/C165948.ply',force='mesh')
+cad_usb=next(c for c in cj if c['type']=='cad_component' and usb_access['model_filename'] in c.get('model_obj_url',''))
+usb_mesh=trimesh.load(ROOT/'vendor/solid'/usb_access['solid_filename'],force='mesh')
 origin=cad_usb.get('model_origin_position') or {};usb_mesh.apply_translation([-origin.get(k,0) for k in ['x','y','z']])
 rotation=cad_usb.get('rotation',{});usb_mesh.apply_transform(trimesh.transformations.euler_matrix(*[math.radians(rotation.get(k,0)) for k in ['x','y','z']]))
 pos=cad_usb['position'];usb_mesh.apply_translation([pos['x'],pos['y'],pos['z']+P['pcb_bottom_z']+P['pcb_thickness']/2])
@@ -302,7 +302,7 @@ for cad in [v for v in cj if v['type']=='cad_component' and v.get('model_obj_url
  for wn,wire_mesh in clearance_harness.items():
   if wn.startswith('lcd-wire-'):assert (physical^from_mesh(wire_mesh)).volume()<1e-4,(filename,wn,'wire/package collision')
  assert (physical^plug_gauge).volume()<1e-4,(filename,'USB plug approach/package collision')
- if filename=='C165948.obj':
+ if filename==usb_access['model_filename']:
   assert abs(mesh.bounds[1,1]-usb_access['socket_face_y'])<.001,'USB socket must use its real CAD face datum'
   front=mesh.vertices[mesh.vertices[:,1]>mesh.bounds[1,1]-.0001]
   assert abs((front[:,2].min()+front[:,2].max())/2-usb_access['axis_z'])<.001,'Plug gauge must align with the real USB CAD axis'

@@ -386,5 +386,37 @@
       "z": 4.939999961853028
     },
     "pin_tail_trim_mm": null
+  },
+  "usb-c": {
+    "step": "mechanical/vendor/step/TYPEC_309_ACP16L65.step",
+    "obj": "mechanical/vendor/obj/TYPEC_309_ACP16L65.obj",
+    "collision_mesh": "mechanical/vendor/solid/TYPEC_309_ACP16L65.ply",
+    "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C2909598",
+    "manufacturer": "XUNPU",
+    "MPN": "TYPEC-309-ACP16L65",
+    "datasheet": "https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598",
+    "model_origin": {
+      "x": 0,
+      "y": 6.216506999999937,
+      "z": 0.09
+    },
+    "datum_note": "Rigid Z alignment to the SMT lead seating plane; unscaled body top is 3.161mm above PCB, consistent with 3.16mm drawing. Imported footprint and supplier assets are byte-identical.",
+    "bounds": [
+      [
+        -4.47,
+        1.58,
+        -0.91
+      ],
+      [
+        4.47,
+        8.378,
+        3.251
+      ]
+    ],
+    "size": {
+      "x": 8.94,
+      "y": 6.798,
+      "z": 4.161
+    }
   }
 }

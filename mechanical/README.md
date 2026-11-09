@@ -1,4 +1,4 @@
-# E7 mechanics / E3 PCB
+# E8 mechanics / E4 PCB
 
 The enclosure uses **six product prints and four screws** while retaining the Ø84.8×19.5 mm body, fixed Waveshare 19192 display, rear USB-C and a captive front button cap. The optical track is integral to the grip. The complete bearing has one CAD visibility control; both races, shields, balls and cage are included in that object.
 

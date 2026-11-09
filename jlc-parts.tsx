@@ -6,7 +6,7 @@ import { CL21A475KOFNNNE } from "./imports/jlc/CL21A475KOFNNNE"
 import { GRM188R71C104KA01D } from "./imports/jlc/GRM188R71C104KA01D"
 import { GRM155R71C104KA88D } from "./imports/jlc/GRM155R71C104KA88D"
 import { GRM155R71H103KA88D } from "./imports/jlc/GRM155R71H103KA88D"
-import { TYPE_C_31_M_12 } from "./imports/jlc/TYPE_C_31_M_12"
+import { TYPEC_309_ACP16L65 } from "./imports/jlc/TYPEC_309_ACP16L65/TYPEC_309_ACP16L65"
 import { B6B_PH_K_S_LF__SN_ } from "./imports/jlc/B6B_PH_K_S_LF__SN_"
 import { RC0603FR_0710KL } from "./imports/jlc/RC0603FR_0710KL"
 import { RC0603FR_075K1L } from "./imports/jlc/RC0603FR_075K1L"
@@ -30,7 +30,7 @@ export const jlcParts: Record<string, (props: any) => any> = {
   "GRM188R71C104KA01D": GRM188R71C104KA01D,
   "GRM155R71C104KA88D": GRM155R71C104KA88D,
   "GRM155R71H103KA88D": GRM155R71H103KA88D,
-  "TYPE-C-31-M-12": TYPE_C_31_M_12,
+  "TYPEC-309-ACP16L65": TYPEC_309_ACP16L65,
   "B6B-PH-K-S(LF)(SN)": B6B_PH_K_S_LF__SN_,
   "RC0603FR-0710KL": RC0603FR_0710KL,
   "RC0603FR-075K1L": RC0603FR_075K1L,
@@ -56,7 +56,7 @@ export function jlcFootprintPart(mpn: string, props: any) {
   // These housings overhang the board/window, or are DNP. Keep the supplier
   // copper, drills and courtyards; omit body ink that cannot be printed.
   // Two tightly spaced resistor pairs also need one outline omitted.
-  if (["TYPE-C-31-M-12", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "B3U-3000P"].includes(mpn) || ["R13", "R27"].includes(props.name)) {
+  if (["TYPEC-309-ACP16L65", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "B3U-3000P"].includes(mpn) || ["R13", "R27"].includes(props.name)) {
     const footprint = imported.props.footprint
     const children = Children.toArray(footprint.props.children).filter(child =>
       !isValidElement(child) || !["silkscreenpath", "silkscreenrect", "silkscreencircle"].includes(String(child.type)))

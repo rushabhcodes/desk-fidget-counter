@@ -1,0 +1,1 @@
+Exact JLCPCB imports verified: 39 references, 177 copper pad centres/shapes/dimensions and plated drills; FRAM physical lead envelope covered.

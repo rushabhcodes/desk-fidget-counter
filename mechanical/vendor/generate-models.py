@@ -57,5 +57,6 @@ for name,relative in models.items():
 (out/'models.json').write_text(json.dumps(records,indent=2)+'\n')
 
 (out/'solid').mkdir(exist_ok=True)
-for part in ([] if len(sys.argv)>1 else ['C165948','C720477']):
- subprocess.run([sys.executable,str(root/'mechanical/step-mesh.py'),str(out/'step'/f'{part}.step'),str(out/'solid'/f'{part}.ply')],check=True)
+for part in ([] if len(sys.argv)>1 else ['TYPEC_309_ACP16L65']):
+ subprocess.run([sys.executable,str(root/'mechanical/step-mesh.py'),str(out/'step'/f'{part}.step'),str(out/'solid'/f'{part}.ply'),'--preserve-seams'],check=True)
+ Path(str(out/'solid'/f'{part}.ply')+'.faces.npz').unlink(missing_ok=True)

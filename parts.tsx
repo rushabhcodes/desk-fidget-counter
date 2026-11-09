@@ -32,9 +32,13 @@ export const OpticalSensor = (props: ChipProps) => <JlcChip {...props} manufactu
  pinAttributes={{A:{isPassive:true},K:{requiresGround:true},COL:{requiresPower:true},EA:{isOutput:true},EB:{isOutput:true},NC:{doNotConnect:true}}}/>
 export const FRAM = (props: ChipProps) => <JlcChip {...props} cadModel={packageCad("soic8")} manufacturerPartNumber="MB85RC256VPNF-G-AMERE2" pinAttributes={{VDD:{requiresPower:true},VSS:{requiresGround:true},A0:{isInput:true},A1:{isInput:true},A2:{isInput:true},SDA:{isBidirectional:true},SCL:{isInput:true},WP:{isInput:true}}} pinLabels={labels(["A0","A1","A2","VSS","SDA","SCL","WP","VDD"])} />
 
-// Keep USB schematic semantics while reusing every primitive of the exact import.
+// Logical USB aliases adapt the exact supplier pin numbers; copper is unchanged.
+// CAD Z uses the lead seating plane (0.09mm in the downloaded model), matching
+// the manufacturer's 3.16mm body height. The import itself remains byte-identical.
 export const USB = (props:any) => {
- const imported=jlcFootprintPart("TYPE-C-31-M-12",{})
- return <connector standard="usb_c" {...imported.props} {...props}
-  pinAttributes={Object.fromEntries([5,6,7,8,9,10,11,12].map(n=>[`pin${n}`,{isPassive:true}]))}/>
+ const imported=jlcFootprintPart("TYPEC-309-ACP16L65",{})
+ const aliases={...imported.props.pinLabels,pin34:["SBU1","A8"],pin40:["SBU2","B8"]}
+ return <connector standard="usb_c" {...imported.props} {...props} pinLabels={aliases}
+  cadModel={{...imported.props.cadModel,modelOriginPosition:{...imported.props.cadModel.modelOriginPosition,z:.09}}}
+  pinAttributes={Object.fromEntries(Array.from({length:20},(_,i)=>[`pin${i+25}`,i<4?{requiresGround:true}:{isPassive:true}]))}/>
 }

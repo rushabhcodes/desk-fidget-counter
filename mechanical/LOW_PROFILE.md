@@ -1,4 +1,4 @@
-# E7 low-profile architecture
+# E8 low-profile architecture
 
 The body remains **Ø84.8×19.5 mm** before optional feet. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
 
@@ -6,7 +6,7 @@ The **34.6×40.6 mm R2 PCB window** admits the LCD's rear connector, fixed cable
 
 ## Fewer parts and screws
 
-[Ploopy's assembly](https://ploopyco.github.io/knob/assembly-instructions/) uses two PCB screws and hand-presses the bearing/top assembly together. E7 follows that assembly approach without copying its CAD. Our fixed display requires additional support: two M2×6 chassis screws and two M2×10 screws shared by the carrier and bezel, **four screws total**.
+[Ploopy's assembly](https://ploopyco.github.io/knob/assembly-instructions/) uses two PCB screws and hand-presses the bearing/top assembly together. E8 follows that assembly approach without copying its CAD. Our fixed display requires additional support: two M2×6 chassis screws and two M2×10 screws shared by the carrier and bezel, **four screws total**.
 
 The six product prints are `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel` and `button-cap`. The optical track is integral to the grip. Separate bearing retainers, bearing clamp, skirt adhesive and underside driver windows have been removed. The bearing uses calibrated hand-push fits; the [fit coupons and physical retention checks](FIT.md) are required before the full print. Friction and printer accuracy are not established by nominal CAD contact.
 
@@ -16,7 +16,7 @@ The six product prints are `base`, `lid`, `knob`, `screen-carrier`, `screen-beze
 |---|---:|
 | Base floor | 0–2.0 |
 | PCB underside / top | 2.6 / 4.2 |
-| Original USB-C axis | 5.85 |
+| USB-C axis (XUNPU C2909598) | 5.78 |
 | Optical beam | 8.7 |
 | Lid annular plate | 9.2–10.4 |
 | Outer grip lower edge | 10.8 |
@@ -29,6 +29,6 @@ The side cable needs a stationary opening below the rotating grip. The checked p
 
 The [printing guide](README.md), [assembly sequence](../ASSEMBLY.md), [fit budget](fit-budget.json) and [first-build checks](../validation/BRINGUP.md) cover support removal, bearing fit, wire dressing, optical opacity and screw engagement. The lid needs supports beneath its annular plate; the supplied orientations keep the other product parts flat. Optional feet add 1 mm. Physical prototype validation remains pending.
 
-E7 uses PLA, with two 23×4 mm braced end walls, 7 mm-wide feet and short locating pins at the real screen-boss positions. The included PH plug enters along the display PCB plane. These changes retain six prints and four enclosure screws. See [screen-fit.json](screen-fit.json) for the source-derived hole pattern and estimated cable seating.
+E8 uses PLA, with two 23×4 mm braced end walls, 7 mm-wide feet and short locating pins at the real screen-boss positions. The included PH plug enters along the display PCB plane. These changes retain six prints and four enclosure screws. See [screen-fit.json](screen-fit.json) for the source-derived hole pattern and estimated cable seating.
 
 The side-entry cable permits a **19.5 mm** assembled height, **2.8 mm (12.6%) shorter** than E6. The lid plate is recessed to Z7.2–8.4 mm, with a stiffening rim up to Z9.2 mm and 4 mm driver access wells. The bearing is at Z9.2–16.2 mm; the grip starts at Z10.0 mm. The unchanged USB plug envelope reaches Z9.3 mm, leaving 0.7 mm nominal vertical clearance and 0.24 mm under the stated hardware tolerance budget. Sensor beam height and optical slot positions are unchanged. Purchased parts remain unscaled.

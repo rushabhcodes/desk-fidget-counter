@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """SPDX-License-Identifier: MIT. Export JLCPCB upload files without moving copper."""
 from pathlib import Path
-import csv, hashlib, json
+import argparse, csv, hashlib, json, tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'manufacturing/jlcpcb'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('input_dir', type=Path, help='Fresh source-derived KiCad export directory containing BOM.csv and pick-and-place.csv')
+parser.add_argument('--output', type=Path, help='Upload CSV destination; defaults to a temporary directory')
+args = parser.parse_args()
+OUT = args.output or Path(tempfile.mkdtemp(prefix='desk-jlc-check-'))
 OUT.mkdir(exist_ok=True)
 read_csv = lambda path: list(csv.DictReader(path.open(newline='')))
-bom = [r for r in read_csv(ROOT / 'manufacturing/BOM.csv') if r['Populate'] == 'YES']
-placements = read_csv(ROOT / 'manufacturing/pick-and-place.csv')
+bom = [r for r in read_csv(args.input_dir / 'BOM.csv') if r['Populate'] == 'YES']
+placements = read_csv(args.input_dir / 'pick-and-place.csv')
 catalogue = json.loads((ROOT / 'reference/jlcpcb-parts.json').read_text())['parts']
 cj = json.loads((ROOT / 'dist/index/circuit.json').read_text())
 sources = {x['name']: x for x in cj if x['type'] == 'source_component'}
@@ -50,6 +54,8 @@ for mode, excluded in [('complete', set()), ('smt', {'J4'})]:
         # Preserve negative Y; applying abs() would mirror/misalign the board.
         assert abs(float(p['PosX']) - (100 + origin['x'])) < 1e-5
         assert abs(float(p['PosY']) - (origin['y'] - 100)) < 1e-5
+        angle_error = (float(p['Rot']) - pc['rotation'] + 180) % 360 - 180
+        assert abs(angle_error) < 1e-5, f"{p['Ref']} CPL rotation differs from the imported footprint frame"
         cpl.append({'Designator': p['Ref'], 'Mid X': p['PosX'], 'Mid Y': p['PosY'],
                     'Layer': 'Top', 'Rotation': f"{float(p['Rot']) % 360:.6f}"})
     assert chosen == {r['Designator'] for r in cpl}
@@ -73,17 +79,19 @@ write_csv('physical-pin-map.csv', ['Designator', 'Physical pin', 'Gerber X mm', 
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 report = {
     'release': json.loads((ROOT / 'package.json').read_text())['version'],
-    'pcb_revision': 'E3', 'mechanical_revision': 'E4',
+    'pcb_revision': 'E4', 'mechanical_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['mechanical_revision'],
     'complete_placements': 38, 'smt_only_placements': 37, 'DNP': ['J6'],
     'physical_pins': len(pins), 'all_components_top': True,
     'bom_cpl_reference_sets_match': True, 'native_placement_coordinates_preserved': True,
+    'native_placement_rotations_preserved': True,
     'rotation_convention': 'KiCad placement degrees normalized to [0,360); positive CCW. Feeder zero/origin must be checked in JLCPCB preview against the physical-pin map.',
     'sourcing_attention': [r['Reference'] for r in bom if not catalogue[r['MPN']]['lcsc']],
     'stock': 'Not reserved or checkout-verified; match exact manufacturer and MPN before payment.',
-    'gerber_zip_sha256': sha(ROOT / 'manufacturing/desk-knob-reve3-gerbers.zip'),
-    'input_hashes': {name: sha(ROOT / name) for name in ['manufacturing/BOM.csv', 'manufacturing/pick-and-place.csv', 'dist/index/circuit.json', 'reference/jlcpcb-parts.json']},
+    'input_hashes': {'temporary/BOM.csv': sha(args.input_dir / 'BOM.csv'),
+                     'temporary/pick-and-place.csv': sha(args.input_dir / 'pick-and-place.csv'),
+                     **{path: sha(ROOT / path) for path in ['dist/index/circuit.json', 'reference/jlcpcb-parts.json']}},
     'output_hashes': {p.name: sha(p) for p in sorted(OUT.glob('*.csv'))},
-    'supplier_upload': 'Gerber ZIP accepted by JLCPCB on 2026-11-06: detected 2 layers, 68 x 83.2 mm. This is parser acceptance, not engineering DFM or paid-order approval.'
+    'supplier_upload': 'No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files.'
 }
 (OUT / 'checks.json').write_text(json.dumps(report, indent=2) + '\n')
-print('JLCPCB exports: 38 complete / 37 SMT placements, matching BOM/CPL sets, native coordinates, physical pin map.')
+print(f'JLCPCB CSV check passed: 38 complete / 37 SMT placements, matching BOM/CPL sets, native coordinates and physical pin map. Temporary files: {OUT}')

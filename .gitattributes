@@ -1,2 +1,7 @@
-# Preserve original supplier STEP formatting and licence headers.
-mechanical/vendor/step/* -whitespace
+# Preserve vendor/generated CAD bytes without line-ending conversion.
+*.step binary
+*.stp binary
+*.obj binary
+*.ply binary
+*.stl binary
+*.glb binary

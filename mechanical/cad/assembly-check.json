@@ -9,17 +9,17 @@
   "part_count": 22,
   "fastener_count": 4,
   "product_print_count": 6,
-  "source_parameters_sha256": "91c3b5442bc28e377c64255faab2092aa089462ba0530601daa73a35e2a3b0e6",
-  "source_board_tsx_sha256": "583257dfdc6c7c3d6e731ee188972b35917bc983a72bdd68172fa1b103902b11",
+  "source_parameters_sha256": "3acd596b58af70c19b816b31da88f9a94be8ea51bdb66ebcd94f3ba83502d9c4",
+  "source_board_tsx_sha256": "8d4aed2051f90c4c9aaca7ea85a8912ee7120739646725325f2fb4d86bb04fe0",
   "printed_meshes_restored_from_print_orientation": 6,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 5140240,
-      "sha256": "300d5d6d449ca24991debf307fc28439df35b94f48715eb6ad17164415b5c90a"
+      "bytes": 4853912,
+      "sha256": "afc2f653de2fdc2e9e67d4c1445b88aa6ffcb6286e323fd095bb3023ccce7bec"
     },
     "exploded.glb": {
-      "bytes": 5140292,
-      "sha256": "22142d0db383ae7856ed15b5f2a1eb9a838ca14c1ae8f4365ad0b9486b89f1ab"
+      "bytes": 4853964,
+      "sha256": "74089170ac06a0c081a89d808588cfd6628ba8fe2244f28f236fb632f2660934"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

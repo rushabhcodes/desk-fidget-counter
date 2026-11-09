@@ -1,0 +1,18 @@
+{
+  "checked_date": "2026-11-09",
+  "source_circuit_sha256": "6fb6d355f0ad1597ac0d18584049504e5d426d5c8b83a094547ef5d04cf4eed7",
+  "source_board_sha256": "8d4aed2051f90c4c9aaca7ea85a8912ee7120739646725325f2fb4d86bb04fe0",
+  "engine": "TSCircuit auto_local beta_pipeline7 / capacity-autorouter 0.0.1038",
+  "phases": 2,
+  "local_MCU_connections": 14,
+  "local_encoder_connections": 2,
+  "effort": "2x",
+  "fresh_routing_from_empty_board": true,
+  "manual_copper_or_saved_path_imports": false,
+  "traces": 122,
+  "vias": 131,
+  "minimum_actual_track_mm": 0.1157106533431155,
+  "native_errors": 0,
+  "native_warnings": [],
+  "evidence": "validation/logs/e8-native-build.txt"
+}

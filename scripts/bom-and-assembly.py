@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """SPDX-License-Identifier: MIT. BOM and pin-1 assembly drawings from the built circuit."""
 from pathlib import Path
-import argparse,csv,json,html,math
+import argparse,csv,json,html,math,tempfile
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--drawings-only",action="store_true",help="Refresh assembly views without writing a BOM")
+parser.add_argument("--output-dir",type=Path,help="BOM destination; defaults to a temporary directory")
 args=parser.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
 cj=json.loads((ROOT/'dist/index/circuit.json').read_text())
@@ -11,7 +12,7 @@ components={c['source_component_id']:c for c in cj if c['type']=='source_compone
 placed={p['source_component_id']:p for p in cj if p['type']=='pcb_component' and p.get('source_component_id') in components}
 ports={p['source_port_id']:p for p in cj if p['type']=='source_port'}
 dnp={components[cid]['name'] for cid,p in placed.items() if p.get('do_not_place')}
-makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'HRO','J4':'JST','J6':'ZHOURI','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
+makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'XUNPU','J4':'JST','J6':'ZHOURI','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
 rows=[]
 for cid,c in components.items():
     n=c['name'];p=placed[cid]
@@ -22,13 +23,14 @@ for cid,c in components.items():
     rows.append({'Reference':n,'Quantity':1,'Value':value,'Manufacturer':maker,'MPN':c['manufacturer_part_number'],'Side':p['layer'],'Populate':'NO' if n in dnp else 'YES','Assembly notes':note})
 rows.sort(key=lambda x:(''.join(c for c in x['Reference'] if not c.isdigit()),int(''.join(c for c in x['Reference'] if c.isdigit()) or 0)))
 if not args.drawings_only:
-    with (ROOT/'manufacturing/BOM.csv').open('w',newline='') as f:
+    out=args.output_dir or Path(tempfile.mkdtemp(prefix='desk-bom-'));out.mkdir(parents=True,exist_ok=True)
+    with (out/'BOM.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 # Coordinates in these drawings are the board's native mm frame; bottom is mirrored for assembly.
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
     xy=lambda x,y:(950+flip*x*22,1150-y*22)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E3 — {side} assembly</text>']
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E4 — {side} assembly</text>']
     board=next(c for c in cj if c['type']=='pcb_board')
     contours=[board['outline']]+[c['points'] for c in cj if c['type']=='pcb_cutout']
     commands=[]
@@ -43,12 +45,13 @@ for side in ['top','bottom']:
         c=components[cid];n=c['name'];a,b=xy(p['center']['x'],p['center']['y']);w,h=p['width']*22,p['height']*22
         svg.append(f'<rect x="{a-w/2}" y="{b-h/2}" width="{w}" height="{h}" fill="{"#e1e1e1" if n in dnp else "#fff"}" stroke="#334d43" stroke-width="1.5"/>')
         # Every indicator uses the actual physical pin-1 copper port, never a guessed corner.
-        pin1=next((q for q in cj if q['type']=='pcb_port' and q.get('pcb_component_id')==p['pcb_component_id'] and ports.get(q.get('source_port_id'),{}).get('pin_number')==1),None)
+        pin1=next((q for q in cj if q['type']=='pcb_port' and q.get('pcb_component_id')==p['pcb_component_id'] and
+            ('A1' in ports.get(q.get('source_port_id'),{}).get('port_hints',[]) if n=='J1' else ports.get(q.get('source_port_id'),{}).get('pin_number')==1)),None)
         if pin1:
             u,v=xy(pin1['x'],pin1['y']);svg.append(f'<circle cx="{u}" cy="{v}" r="5" fill="#be3333"/>')
         svg.append(f'<text x="{a}" y="{b+5}" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="16">{html.escape(n)}</text>')
         if n in dnp:svg.append(f'<text x="{a}" y="{b+h/2+18}" text-anchor="middle" font-family="sans-serif" font-size="13">DNP</text>')
-    svg.append('<text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots mark physical pin 1. J4 is JST PH6 SWD; J6 takes the shortened included display lead; header DNP. USB power only.</text>')
+    svg.append('<text x="950" y="2160" text-anchor="middle" font-family="sans-serif" font-size="21">Red dots: physical pin 1 (J1: USB A1). J4: JST PH6 SWD. J6: supplied display lead, header DNP. USB power only.</text>')
     svg.append('<text x="950" y="2195" text-anchor="middle" font-family="sans-serif" font-size="21">All populated components mount on TOP. Use exact source MPNs; USB-C faces +Y.</text></svg>')
     (ROOT/f'previews/assembly-{side}.svg').write_text('\n'.join(svg))
 print(f'{len(rows)} source components, {len(rows)-len(dnp)} populated; assembly views exported. BOM written: {not args.drawings_only}.')

@@ -1,0 +1,40 @@
+Building 1 file(s)...
+Building index.circuit.tsx...
+Generating circuit JSON...
+Wrote debug artifact: ../../.cache/desk-fidget-validation/usb8-final2-autorouter/placement-unrouted.png
+Autorouting <board#323 name=".DESK_KNOB_REVE4" /> phase 1/2 "Local MCU and encoder bypassing" start: connections=16, obstacles=254, previous_traces=0, router=tscircuit, version=beta_pipeline7, solver=AutoroutingPipelineSolver7_MultiGraph, effort=2x, cache=miss, cache_id=8a4fb521/a0ce6516
+  connections: MCU_VBAT_DECAP, MCU_VBAT_GROUND, MCU_VDDA_DECAP, MCU_VSSA_DECAP, MCU_VDD1_DECAP, MCU_VSS1_DECAP, MCU_VDDIO_DECAP, MCU_VSS2_DECAP, MCU_VDD2_DECAP, MCU_VSS3_DECAP, MCU_VDDA_LOCAL_BULK, MCU_VDDA_LOCAL_RETURN, MCU_VDDIO_LOCAL_BULK, MCU_VDDIO_LOCAL_RETURN, ENCODER_VCC_DECAP, ENCODER_GND_DECAP
+  phase 1/2 "Local MCU and encoder bypassing" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=topologyPlanningSolver steps=1 progress=18% iterations_per_second=43 elapsed=2.6s
+  phase 1/2 "Local MCU and encoder bypassing" done: routed_traces=16, jumpers=0, errors=0, elapsed=8.5s
+Wrote debug artifact: ../../.cache/desk-fidget-validation/usb8-final2-autorouter/phase-0-routed.png
+Saved autorouting paths to .tscircuit/autorouting-artifacts/index-circuit-tsx-2e2764dae4/subcircuit_source_group_0-phase-0-order-0-stage-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Autorouting <board#323 name=".DESK_KNOB_REVE4" /> phase 2/2 "Remaining two-layer board" start: connections=31, obstacles=254, previous_traces=16, router=tscircuit, version=beta_pipeline7, solver=AutoroutingPipelineSolver7_MultiGraph, effort=2x, cache=miss, cache_id=8a4fb521/15721d72
+  connections: USB_CC1_RD, USB_CC2_RD, net.GND, net.V3V3, net.VBUS, net.PERIPH_3V3, net.PERIPH_EN, net.NRST, net.BOOT0, net.MODE_BTN, net.USB_DM, net.USB_DP, net.SWDIO, net.SWCLK, net.SCL, net.SDA, net.CC1, net.CC2, net.IR_A, net.OPT_A, net.OPT_B, net.ENC_A, net.ENC_B, net.LCD_RST, net.LCD_BL, net.LCD_CS, net.SPI_SCK, net.LCD_DC, net.SPI_MOSI, net.LCD_SCK, net.LCD_MOSI
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=topologyPlanningSolver steps=1 progress=18% iterations_per_second=62 elapsed=742ms
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=20 progress=55% iterations_per_second=118 elapsed=12.8s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=51 progress=55% iterations_per_second=14760 elapsed=23.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=80 progress=55% iterations_per_second=672 elapsed=33.2s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=104 progress=55% iterations_per_second=1132 elapsed=43.6s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRouteSolver steps=127 progress=55% iterations_per_second=382 elapsed=54.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityForceImproveSolver steps=150 progress=59% iterations_per_second=395 elapsed=64.2s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=highDensityRepairSolver steps=166 progress=64% iterations_per_second=1 elapsed=76.7s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=traceSimplificationSolver steps=178 progress=73% iterations_per_second=828 elapsed=87.0s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=traceWidthSolver steps=203 progress=77% iterations_per_second=16416 elapsed=97.2s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=205 progress=82% iterations_per_second=0 elapsed=112.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=207 progress=82% iterations_per_second=0 elapsed=128.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=209 progress=82% iterations_per_second=0 elapsed=144.4s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=globalDrcForceImproveSolver steps=211 progress=82% iterations_per_second=0 elapsed=161.7s
+  phase 2/2 "Remaining two-layer board" progress: solver=AutoroutingPipelineSolver7_MultiGraph solver_phase=exactGeometryDrcForceImproveSolver steps=213 progress=86% iterations_per_second=0 elapsed=175.4s
+  phase 2/2 "Remaining two-layer board" done: routed_traces=106, jumpers=0, errors=0, elapsed=177.7s
+Wrote debug artifact: ../../.cache/desk-fidget-validation/usb8-final2-autorouter/phase-1-routed.png
+Could not save autorouting paths for subcircuit_source_group_0: Routes contain a junction or endpoint that cannot select a unique PCB port
+Wrote debug artifact: ../../.cache/desk-fidget-validation/usb8-final2-autorouter/board.meta.json
+Circuit JSON written to dist/index/circuit.json
+
+Build complete
+  Circuits  1 passed
+  Options   autorouter-debug
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

@@ -53,7 +53,7 @@
   "knob_top_z": 19.3,
   "usb_center": [
     0,
-    37
+    37.55
   ],
   "programming_connector": [
     0,
@@ -150,11 +150,11 @@
         ],
         [
           7,
-          41.1
+          41.4
         ],
         [
           -7,
-          41.1
+          41.4
         ],
         [
           -14.5,
@@ -260,8 +260,8 @@
     }
   },
   "usb_access": {
-    "axis_z": 5.85,
-    "socket_face_y": 42.35003,
+    "axis_z": 5.78,
+    "socket_face_y": 42.186507,
     "opening_width_mm": 22,
     "opening_center_y": 41,
     "opening_length_mm": 25,
@@ -269,12 +269,14 @@
     "opening_top_z": 9.2,
     "plug_width_mm": 13.4,
     "plug_height_mm": 6.9,
-    "plug_shoulder_y": 42.35003,
+    "plug_shoulder_y": 42.186507,
     "plug_check_length_mm": 35,
-    "scope": "Socket face/axis from original C165948 STEP. Plug gauge uses L-com nominal 12.9x6.4 mm plus general +/-0.5 mm tolerance; its shoulder is conservatively placed flush with the socket face. Gauge length is a checking volume, not a claimed cable dimension. Undimensioned mating details require actual fit verification.",
+    "scope": "Socket face from the unscaled C2909598 supplier STEP; CAD lead seating plane aligned to Z=0.09mm to match the 3.16mm manufacturer body height. Plug gauge uses L-com nominal 12.9x6.4mm plus +/-0.5mm tolerance, shoulder flush to socket face. Actual cable fit requires prototype verification.",
     "plug_nominal_width_mm": 12.9,
     "plug_nominal_height_mm": 6.4,
-    "plug_tolerance_mm": 0.5
+    "plug_tolerance_mm": 0.5,
+    "model_filename": "TYPEC_309_ACP16L65.obj",
+    "solid_filename": "TYPEC_309_ACP16L65.ply"
   },
   "stock_display_cable": {
     "source": "https://www.waveshare.com/product/1.28inch-lcd-module.htm",
@@ -298,7 +300,7 @@
     "lead_y_shift_mm": 3.0,
     "display_u_bend_radius_mm": 3.3
   },
-  "mechanical_revision": "E7",
+  "mechanical_revision": "E8",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -353,7 +355,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E7",
+    "revision": "E8",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -402,5 +404,6 @@
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
     "carrier_bottom_z": 13.1,
     "carrier_rim_to_PCB_gap_mm": 0.2
-  }
+  },
+  "pcb_revision": "E4"
 }

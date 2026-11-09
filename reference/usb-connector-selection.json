@@ -1,0 +1,185 @@
+{
+  "checked_date": "2026-11-09",
+  "selected": {
+    "manufacturer": "XUNPU",
+    "MPN": "TYPEC-309-ACP16L65",
+    "catalogue_id": "C2909598",
+    "exact_import": {
+      "code": "C2909598",
+      "path": "imports/jlc/TYPEC_309_ACP16L65/TYPEC_309_ACP16L65.tsx",
+      "export": "TYPEC_309_ACP16L65",
+      "sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2",
+      "imported_date": "2026-11-09",
+      "command": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes --download C2909598"
+    },
+    "supplier_drawing_url": "https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598",
+    "supplier_drawing_sha256": "1ec194c7bb34cd17883c5211f5b60ac7fedd0a7546e8b00a0321a6f6132e4429",
+    "tsci_catalogue_stock": 1105,
+    "tsci_catalogue_price_usd": 0.3061,
+    "jlc_public_catalogue_stock": 1105,
+    "jlc_public_initial_unit_price_usd": 0.3013,
+    "rationale": "Standard 16-contact receptacle, real supplier CAD/drawing, locating-hole spacing agrees with drawing, 0.60x1.50/1.60mm shield slots, sufficient NPTH/pad clearance, retained flush side access and 19.5mm enclosure height."
+  },
+  "discovery": {
+    "cli": "tsci search --jlcpcb --json USB",
+    "cli_results": [
+      {
+        "source": "jlcpcb",
+        "lcsc": 3039295,
+        "mfr": "MC-107DMS",
+        "package": "SMD",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "",
+        "stock": 185291,
+        "price": 0.2325
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 284879,
+        "mfr": "GL823K-HCY04",
+        "package": "SSOP-16-150mil",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "0\u2103~+70\u2103 300uA 4.75V~5.25V 480Mbps 50mA USB 2.0 USB to SD SSOP-16-150mil USB Converters ROHS",
+        "stock": 113186,
+        "price": 0.4605
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 6568,
+        "mfr": "CP2102-GMR",
+        "package": "WQFN-28-EP(5x5)",
+        "is_basic": false,
+        "is_preferred": true,
+        "description": "-40\u2103~+85\u2103 1Mbps 20mA 3V~3.6V 80uA Transceiver USB 2.0 WQFN-28-EP(5x5) USB Converters ROHS",
+        "stock": 51024,
+        "price": 2.3248
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 14267,
+        "mfr": "CH340G",
+        "package": "SOP-16",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-40\u2103~+85\u2103 2Mbps 3.3V\u30015V USB 2.0 USB to UART SOP-16 USB Converters ROHS",
+        "stock": 49324,
+        "price": 0.5662
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 668624,
+        "mfr": "TYPE-C 16P(073)",
+        "package": "SMD",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-25\u2103~+85\u2103 1 10,000 Cycles 16P 5A 5V Black Female Surface Mount, Right Angle Type-C USB 3.1 SMD USB Connectors ROHS",
+        "stock": 46652,
+        "price": 0.0978
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 968586,
+        "mfr": "CH340K",
+        "package": "ESSOP-10-150mil-1mm",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-20\u2103~+70\u2103 2Mbps 3.3V\u30015V USB 2.0 USB to serial ESSOP-10-150mil-1mm USB Converters ROHS",
+        "stock": 33664,
+        "price": 0.6345
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 404963,
+        "mfr": "AF180QT1.0",
+        "package": "SMD",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-25\u2103~+85\u2103 1 1.5A 13.7mm 30V 4P 5,000 times Beige Female Surface Mount, Right Angle Type-A USB 2.0 SMD USB Connectors ROHS",
+        "stock": 29961,
+        "price": 0.0682
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 94934,
+        "mfr": "TPD2EUSB30ADRTR",
+        "package": "SOT(9x3)",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-40\u2103~+85\u2103 0.7pF 2 3.6V 4.5V 45W@8/20us 5A@8/20us 8V ESD IEC 61000-4-2\u3001IEC 61000-4-5 Unidirectional SOT(9x3) ESD and Surge Protection (TVS/ESD) ROHS",
+        "stock": 21024,
+        "price": 0.3589
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 53207138,
+        "mfr": "TYPEC-16P",
+        "package": "SMD",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "SMD USB Connectors ROHS",
+        "stock": 19530,
+        "price": 0.0604
+      },
+      {
+        "source": "jlcpcb",
+        "lcsc": 599115,
+        "mfr": "87520-0010BLF",
+        "package": "\u5f2f\u63d2",
+        "is_basic": false,
+        "is_preferred": false,
+        "description": "-55\u2103~+85\u2103 1 3A 4P Female Right Angle Type-A USB 2.0 White \u5f2f\u63d2 USB Connectors ROHS",
+        "stock": 16877,
+        "price": 0.6996
+      }
+    ],
+    "tsci_category_url": "https://jlcsearch.tscircuit.com/usb_c_connectors/list.json",
+    "selected_category_record": {
+      "lcsc": 2909598,
+      "mfr": "TYPEC-309-ACP16L65",
+      "description": "-25\u2103~+85\u2103 1 10000 times 16P 5A 5V 6.5mm Black Female Surface Mount, Right Angle Type-C USB 3.1 SMD USB Connectors ROHS",
+      "stock": 1105,
+      "price1": 0.3061,
+      "in_stock": true,
+      "package": "SMD",
+      "mounting_style": "Horizontal attachment",
+      "current_rating_a": 5,
+      "number_of_ports": 1,
+      "number_of_contacts": 16,
+      "gender": "Female",
+      "operating_temp_min": -25,
+      "operating_temp_max": 85,
+      "is_basic": false,
+      "is_preferred": false,
+      "attributes": "{\"Connect-Disconnect Life\":\"10000 times\",\"Connector Type\":\"Type-C\",\"Current Rating-Power\":\"5A\",\"Detection color\":\"Black\",\"Gender\":\"Female\",\"Length\":\"6.5mm\",\"Mounting Type\":\"Surface Mount, Right Angle\",\"Number of Contacts\":\"16P\",\"Number of Ports\":\"1\",\"Operating Temperature\":\"-25\u2103~+85\u2103\",\"Protocol Standard\":\"USB 3.1\",\"Voltage Rating\":\"5V\",\"Current Rating - Power (Max)\":\"5A\",\"Mounting Style\":\"Horizontal attachment\",\"Operating Temperature Range\":\"-25\u2103~+85\u2103\",\"Standard\":\"USB 3.1\"}"
+    }
+  },
+  "rejected_candidates": [
+    {
+      "code": "C2765186",
+      "reason": "Two shield slots shorter than 2:1 guidance."
+    },
+    {
+      "code": "C3039295",
+      "reason": "Large 0.75mm locator bores leave approximately 0.115mm to adjacent copper, below 0.20mm rule."
+    },
+    {
+      "code": "C3025063",
+      "reason": "Imported locator-to-pad clearance approximately 0.175mm, below 0.20mm rule."
+    },
+    {
+      "code": "C668624",
+      "reason": "Imported locator-to-pad clearance approximately 0.175mm, below 0.20mm rule."
+    },
+    {
+      "code": "C53207138",
+      "reason": "Imported locator-to-pad clearance below 0.20mm rule; no downloaded supplier CAD."
+    },
+    {
+      "code": "C36936538",
+      "reason": "Drawing recommends 1.0-1.2mm PCB; imported locator centre is about 0.06mm from nominal drawing position, leaving little locating tolerance. Selected the dimensionally consistent XUNPU part instead."
+    }
+  ],
+  "stock_scope": "Read-only catalogue evidence; no parts reserved, authenticated assembly quote or feeder placement approval."
+}

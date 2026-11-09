@@ -3,18 +3,20 @@
 Requires KiCad 10 Python (pcbnew) and kicad-cli. No DRC exclusions are set.
 """
 from pathlib import Path
-import argparse, csv, json, subprocess, sys, tempfile
+import argparse, csv, hashlib, json, math, subprocess, sys, tempfile
 import pcbnew
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('input_board',type=Path)
 parser.add_argument('--check-only',action='store_true',help='Validate in a temporary directory without writing manufacturing outputs')
+parser.add_argument('--output',type=Path,help='Optional export directory; default is temporary')
 args=parser.parse_args()
-OUT=Path(tempfile.mkdtemp(prefix='desk-fab-check-')) if args.check_only else ROOT/'manufacturing'
-REPORT=OUT if args.check_only else ROOT/'validation'
+assert not (args.check_only and args.output), 'Choose --check-only or --output'
+OUT=args.output or Path(tempfile.mkdtemp(prefix='desk-fab-check-' if args.check_only else 'desk-fab-export-'))
+REPORT=OUT
 OUT.mkdir(exist_ok=True)
 raw=args.input_board
-boardpath=OUT/'desk-knob-reve3.kicad_pcb'
+boardpath=OUT/'desk-knob-reve4.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),
@@ -44,6 +46,21 @@ for fp in b.GetFootprints():
   key=(fp.GetReference(),p.GetNumber());port,physical=expected_pads[key]
   assert abs(pcbnew.ToMM(p.GetPosition().x)-(100+port['x']))<.0002, f'{key} copper X differs from source'
   assert abs(pcbnew.ToMM(p.GetPosition().y)-(100-port['y']))<.0002, f'{key} copper Y differs from source'
+  # Check the plotted copper envelope too; correct centres alone do not prove
+  # that an exporter retained the supplier's land dimensions and orientation.
+  if physical.get('points'):
+   xs=[q['x'] for q in physical['points']];ys=[q['y'] for q in physical['points']]
+   wanted=(max(xs)-min(xs),max(ys)-min(ys))
+  else:
+   w=physical.get('rect_pad_width',physical.get('outer_width',physical.get('outer_diameter',physical.get('width',2*physical.get('radius',0)))))
+   h=physical.get('rect_pad_height',physical.get('outer_height',physical.get('outer_diameter',physical.get('height',2*physical.get('radius',0)))))
+   angle=math.radians(physical.get('ccw_rotation',0));c,s=abs(math.cos(angle)),abs(math.sin(angle))
+   if physical.get('shape') in ['pill','rotated_pill']:
+    wanted=(min(w,h)+max(w-h,0)*c+max(h-w,0)*s,min(w,h)+max(w-h,0)*s+max(h-w,0)*c)
+   else:wanted=(w*c+h*s,w*s+h*c)
+  bounds=p.GetBoundingBox()
+  actual=(pcbnew.ToMM(bounds.GetWidth()),pcbnew.ToMM(bounds.GetHeight()))
+  assert all(abs(a-w)<.0003 for a,w in zip(actual,wanted)), f'{key} copper envelope differs: {actual} vs {wanted}'
   if physical['type']=='pcb_plated_hole':
    w=physical.get('hole_diameter',physical.get('hole_width'))
    h=physical.get('hole_diameter',physical.get('hole_height'))
@@ -129,6 +146,14 @@ for attempt in range(3):
 assert not r['violations'] and not r['unconnected_items'], 'DRC is not clean'
 final_board=pcbnew.LoadBoard(str(boardpath));loaded_boards.append(final_board)
 assert routed_copper(final_board)==native_routes, 'Fabrication export must not change any native trace or via'
+(REPORT/'fabrication-check.json').write_text(json.dumps({
+ 'source_circuit_sha256':hashlib.sha256((ROOT/'dist/index/circuit.json').read_bytes()).hexdigest(),
+ 'rules_sha256':hashlib.sha256((ROOT/'reference/fabrication-rules.json').read_bytes()).hexdigest(),
+ 'verified_physical_pads':len(checked),'pad_centres_envelopes_and_drills_preserved':True,
+ 'native_traces_and_vias_unchanged':True,'DRC_violations':len(r['violations']),
+ 'unconnected_items':len(r['unconnected_items']),'per_violation_exclusions':0,
+ 'removed_isolated_ground_zones':len(removed)
+},indent=2)+'\n')
 if args.check_only:
  print(f'Independent fabrication check passed; native traces/vias unchanged. Temporary evidence: {OUT}')
  sys.exit(0)
@@ -154,3 +179,5 @@ assert {r['Ref'] for r in rows}==expected-dnp_refs, 'Placement population differ
 # Normalize generator whitespace without changing plotted geometry.
 for svg in gerbers.glob('*.svg'):
     svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
+
+print(f'Source-derived fabrication exports written to {OUT}; no order placed.')

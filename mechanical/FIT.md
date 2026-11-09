@@ -1,10 +1,10 @@
-# E7 print and fit checks
+# E8 print and fit checks
 
 The bearing is one purchased **6712ZZ, 60×75×7 mm**, with two metal shields. [Maysme's catalogue](https://maysmeprecision.com/Show/?Cid=677) confirms that boundary. Race/shield details, ball count and grooves in the detailed model are accepted engineering approximations, not manufacturer CAD. The product viewer presents the complete bearing as one object.
 
 ## Calibrate the bearing fits
 
-The E7 enclosure uses Ploopy-style **hand-push fits** instead of screw-on bearing retainers. Nominal CAD mating diameters are **60.00 mm for the stationary post and 75.00 mm for the grip pocket**. The inner race rests on the lid shoulder; the outer race seats against the grip shoulder. No thread, separate clamp or lower retainer is involved.
+The E8 enclosure uses Ploopy-style **hand-push fits** instead of screw-on bearing retainers. Nominal CAD mating diameters are **60.00 mm for the stationary post and 75.00 mm for the grip pocket**. The inner race rests on the lid shoulder; the outer race seats against the grip shoulder. No thread, separate clamp or lower retainer is involved.
 
 Print the nominal coupon with the same material, orientation and settings as the product. Its two rings reproduce the mating diameters over the full 7 mm bearing width. Use the actual bearing to check both fits before committing to the larger prints:
 

@@ -1,6 +1,6 @@
 {
   "baseline": "v4.1.0 / 45 components",
-  "revision": "Rev E3 / v5.2.0",
+  "revision": "PCB E4 / mechanics E8",
   "active_component_count": 38,
   "sources": {
     "STM32": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf",
@@ -114,8 +114,10 @@
     {
       "reference": "J1",
       "previous_mpn": "TYPE-C-31-M-12",
-      "decision": "keep",
-      "reason": "USB power and HID/CDC data connector."
+      "decision": "replace",
+      "reason": "USB power and HID/CDC data remain required. Replace the original short-slot receptacle with an exact imported standard-slot XUNPU part; qualify its drawing, locating holes, all contacts and real CAD.",
+      "selected_mpn": "TYPEC-309-ACP16L65",
+      "selected_catalogue_id": "C2909598"
     },
     {
       "reference": "J4",
@@ -307,9 +309,5 @@
     "J6"
   ],
   "display_cable": "Use the cable included with Waveshare 19192. Shorten and solder at J6; original PH plug retained. No custom harness required.",
-  "prototype_sourcing_review": {
-    "date": "2026-11-06",
-    "J4": "Exact JST C131342 found with bunx tsci search --jlcpcb --json B6B-PH-K-S and matched in JLCPCB Standard manual assembly.",
-    "U2": "Use genuine pre-PCN TCUT1600X01 / C511085 stocked at JLCPCB, with unchanged pinout, package and characteristics documented by Vishay PCN-OPT-1311-2024. Current TCUT1600X01_A / C24626661 had zero stock. Historical previous_mpn entries remain historical."
-  }
+  "prototype_sourcing_review": "All 22 fitted exact MPN/catalogue lines are purchasable with public catalogue stock as of 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. No current authenticated assembly preview/quote or reservation is claimed."
 }

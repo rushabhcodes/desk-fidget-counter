@@ -1,48 +1,52 @@
 {
-  "checked_date": "2026-11-06",
-  "status": "JLCPCB short plated-slot process confirmation required before fabrication",
+  "checked_date": "2026-11-09",
+  "status": "Original short-slot issue resolved by qualified standard-slot replacement",
   "reference": "J1",
-  "MPN": "TYPE-C-31-M-12",
-  "catalogue_id": "C165948",
-  "source_import": "imports/jlc/TYPE_C_31_M_12.tsx",
+  "MPN": "TYPEC-309-ACP16L65",
+  "catalogue_id": "C2909598",
+  "source_import": "imports/jlc/TYPEC_309_ACP16L65/TYPEC_309_ACP16L65.tsx",
   "geometry_unchanged_from_supplier_import": true,
   "published_standard_length_to_width_guidance": 2,
   "slots": [
     {
-      "physical_pin": "pin2",
-      "finished_width_mm": 0.7999984,
-      "finished_length_mm": 1.1999976,
-      "length_width_ratio": 1.5000000000000002
+      "physical_pin": 26,
+      "finished_width_mm": 0.5999988,
+      "finished_length_mm": 1.5999968,
+      "length_width_ratio": 2.6666666666666665
     },
     {
-      "physical_pin": "pin1",
-      "finished_width_mm": 0.7999984,
+      "physical_pin": 25,
+      "finished_width_mm": 0.5999988,
       "finished_length_mm": 1.499997,
-      "length_width_ratio": 1.875
+      "length_width_ratio": 2.5
     },
     {
-      "physical_pin": "pin4",
-      "finished_width_mm": 0.7999984,
+      "physical_pin": 27,
+      "finished_width_mm": 0.5999988,
+      "finished_length_mm": 1.5999968,
+      "length_width_ratio": 2.6666666666666665
+    },
+    {
+      "physical_pin": 28,
+      "finished_width_mm": 0.5999988,
       "finished_length_mm": 1.499997,
-      "length_width_ratio": 1.875
-    },
-    {
-      "physical_pin": "pin3",
-      "finished_width_mm": 0.7999984,
-      "finished_length_mm": 1.1999976,
-      "length_width_ratio": 1.5000000000000002
+      "length_width_ratio": 2.5
     }
   ],
+  "locating_holes": {
+    "count": 2,
+    "diameter_mm": 0.649986,
+    "x_pitch_mm": 5.999988,
+    "minimum_nominal_copper_clearance_mm": 0.3644138
+  },
   "primary_sources": [
     "https://jlcpcb.com/capabilities/pcb-capabilities/",
     "https://jlcpcb.com/help/article/instructions-for-ordering",
-    "https://jlcpcb.com/blog/reliable-pcb-slot-holes-design",
-    "https://jlcpcb.com/partdetail/TYPE-C-31-M-12/C165948"
+    "https://datasheet.lcsc.com/datasheet/pdf/dbb6f51f70425fe96e02b36f397cda9f.pdf?productCode=C2909598"
   ],
-  "interpretation": "The capability/order guidance says plated-slot length should be at least twice its width. This exact library footprint has two 1.5:1 and two 1.875:1 slots. JLCPCB also describes drilling short plated slots, but that is not approval for this geometry. Generic KiCad DRC does not check this process ratio.",
-  "resolution": "Obtain explicit JLCPCB DFM/process acceptance for the original shield slots and finished-hole tolerances, or qualify another USB connector/footprint and rerun routing, mechanical and fabrication checks. Do not silently enlarge/replace the imported slots or assume catalogue availability is fabrication approval.",
-  "approval_obtained": false,
-  "supplier_contact_or_upload_performed_this_task": false,
-  "source_circuit_sha256": "9cbc5968370b845575333b94a4d52fef16f10371c11ae291fa94f8658cbd8a4c",
-  "supplier_import_sha256": "cd9c6d214938f7fe823eee6712b29385880a27ca906e115392b1c6bbe215bcaa"
+  "resolution": "Replaced C165948 entirely; no supplier slot, pad or locating-hole geometry was edited. New exact footprint matches the XUNPU drawing and passes native/independent checks. Normal final supplier DFM and placement review still apply.",
+  "bespoke_short_slot_process_acceptance_required": false,
+  "supplier_process_approval_obtained": false,
+  "source_circuit_sha256": "6fb6d355f0ad1597ac0d18584049504e5d426d5c8b83a094547ef5d04cf4eed7",
+  "supplier_import_sha256": "a08836c29722a0be3e7b13ee6db092be2d0178694a45893645822da9f0c2f8f2"
 }

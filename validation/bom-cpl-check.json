@@ -1,0 +1,32 @@
+{
+  "release": "5.8.0",
+  "pcb_revision": "E4",
+  "mechanical_revision": "E8",
+  "complete_placements": 38,
+  "smt_only_placements": 37,
+  "DNP": [
+    "J6"
+  ],
+  "physical_pins": 169,
+  "all_components_top": true,
+  "bom_cpl_reference_sets_match": true,
+  "native_placement_coordinates_preserved": true,
+  "native_placement_rotations_preserved": true,
+  "rotation_convention": "KiCad placement degrees normalized to [0,360); positive CCW. Feeder zero/origin must be checked in JLCPCB preview against the physical-pin map.",
+  "sourcing_attention": [],
+  "stock": "Not reserved or checkout-verified; match exact manufacturer and MPN before payment.",
+  "input_hashes": {
+    "temporary/BOM.csv": "f645f94175d9b927cd6077d38d0bf7785cca7f2326be70741dfb944a5724c128",
+    "temporary/pick-and-place.csv": "3f16c8c4984a4cf91ffb1d39841c204656e95118f2a97e5391bde0ae04b29897",
+    "dist/index/circuit.json": "6fb6d355f0ad1597ac0d18584049504e5d426d5c8b83a094547ef5d04cf4eed7",
+    "reference/jlcpcb-parts.json": "74051e77f983ccb7167ae98dd718d71ee8667f07b7f32cd4c4ef7dc876df1d88"
+  },
+  "output_hashes": {
+    "BOM-complete.csv": "d6d0cca478121f031c79c6d803d5e9baa572eed8d26db68dba2842b6a4504aed",
+    "BOM-smt.csv": "f658bef20ef1138169ea456b07acec1f09ab5af8fb6f97048bf66640cf78d12b",
+    "CPL-complete.csv": "9428e7d907b25a703edb689d9a5cbee9ed7efd23888417dd3fd33ee045f3d19f",
+    "CPL-smt.csv": "7675db4cf4c42b3f09ab66acb08bf9cbf05aa35767dea22ca5e1a340a1b94131",
+    "physical-pin-map.csv": "21df704ca63e0b652105add69c53ad964fc5050cc22df491b52a1549fac8e783"
+  },
+  "supplier_upload": "No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files."
+}
