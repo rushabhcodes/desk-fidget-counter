@@ -2,11 +2,11 @@
   "reviewed_date": "2026-11-10",
   "release": "6.0.0",
   "pcb_revision": "F1",
-  "mechanical_revision": "E13",
+  "mechanical_revision": "E14",
   "status": "Local first-prototype fabrication and assembly checks passed; final factory review and physical bring-up remain.",
-  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
   "source_board_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
-  "fabrication_board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+  "fabrication_board_sha256": "e91a9a69ba401bf29fdd843d6936cdf2cf878e811dead57805acc23db1fae862",
   "fabrication_rules_sha256": "908919c868860c5ad1d378734f21ce605a18659370e8d2ecf51ebcc2228693e5",
   "independent_drc": {
     "kicad_version": "10.0.7",
@@ -15,7 +15,7 @@
     "per_violation_exclusions": 0
   },
   "fab_geometry": {
-    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
     "rules_sha256": "908919c868860c5ad1d378734f21ce605a18659370e8d2ecf51ebcc2228693e5",
     "verified_physical_pads": 222,
     "pad_centres_envelopes_and_drills_preserved": true,
@@ -66,7 +66,7 @@
   "bom_cpl": {
     "release": "6.0.0",
     "pcb_revision": "F1",
-    "mechanical_revision": "E13",
+    "mechanical_revision": "E14",
     "complete_placements": 52,
     "smt_only_placements": 51,
     "DNP": [],
@@ -81,7 +81,7 @@
     "input_hashes": {
       "temporary/BOM.csv": "744fcc12bb4e59241e632fc6461ec45d3daf5e3bb3fed5d5fb69262a42f964a4",
       "temporary/pick-and-place.csv": "4d7f66381d91ee7cfd78c23020705ece040305c7b426f8f72193272d63448147",
-      "dist/index/circuit.json": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+      "dist/index/circuit.json": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
       "reference/jlcpcb-parts.json": "a815c990e49f89f6a0dfd82447f902b20be75bcf75703eef37f832df8f2fe890"
     },
     "output_hashes": {
@@ -95,7 +95,7 @@
   },
   "drill_and_paste": {
     "status": "pass",
-    "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+    "board_sha256": "e91a9a69ba401bf29fdd843d6936cdf2cf878e811dead57805acc23db1fae862",
     "component_plated_pads": [
       {
         "reference": "J1",
@@ -843,8 +843,8 @@
   },
   "rp2040_local_paths": {
     "status": "pass",
-    "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
-    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "board_sha256": "e91a9a69ba401bf29fdd843d6936cdf2cf878e811dead57805acc23db1fae862",
+    "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
     "note": "Limits are project engineering budgets; physical bring-up and signal integrity still require a prototype. Lengths are planar routed copper including pad centroids.",
     "bypasses": [
       {
@@ -1061,7 +1061,7 @@
     "pcb_revision": "F1",
     "status": "pass",
     "routing_method": "TSCircuit documented autorouter.algorithmFn with guarded externally checked copper; Freerouting 2.5.0 plus local routing",
-    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
     "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
     "routing_asset_sha256": "bdfc336e484f3f0aad412fae83430490ef631d1e5883b69bdc91cc1043d5f9a1",
     "routing_input_signature": "2e2538c5c57fc767",
@@ -1090,17 +1090,18 @@
     "trace_contact_basis": "Real physical copper overlap with pads; canonical existing source trace for each electrical net",
     "independent_fabrication_report": "validation/fabrication-check.json",
     "logs": [
-      "validation/logs/rp2040-native-build.log",
+      "validation/logs/e14-build.log",
       "validation/logs/rp2040-shorts.log",
-      "validation/logs/rp2040-assembly-check.log"
-    ]
+      "validation/logs/e14-assembly-check.log"
+    ],
+    "mechanical_preservation_evidence": "validation/e14-pcb-preservation.json"
   },
   "assembly": {
-    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
     "bare_board_identity": "pass",
     "package_models_checked": 52,
     "named_mechanical_parts": 25,
-    "model_sha256": "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3",
+    "model_sha256": "c9c3d7435317deee7a2ff06c4fc16a2cdaeeed2c728843ab7398e8eb227f334d",
     "unexpected_intersections": [],
     "watertight_product_prints": 6,
     "enclosure_size_mm": [
@@ -1139,7 +1140,8 @@
     "bare-board/full-assembly PCB identity and CAD/STL audit",
     "firmware cross-build, host counter/button/LCD/dashboard/companion tests",
     "boot2 CRC, vectors, linked USB descriptors, Intel HEX and UF2 image",
-    "dated public sourcing identities (27 exact MPN lines; unreserved)"
+    "dated public sourcing identities (27 exact MPN lines; unreserved)",
+    "E14 collar: full rotor/harness envelopes, 144 blocked sight lines and 48 supported first-layer arcs"
   ],
   "remaining_factory_review": [
     "Upload matching Gerbers-F1.zip and one matching complete or SMT BOM/CPL pair",
@@ -1155,6 +1157,49 @@
     "Circular button centre/end closure, release, overtravel, foam force/life and guide friction",
     "Printed bearing fits, carrier stiffness, screws, adhesive retention and H1 crimp/routing fit"
   ],
-  "manufacturing_package": "release/desk-knob-f1-e13-fabrication.zip",
-  "order_or_upload_performed": false
+  "manufacturing_package": "release/desk-knob-f1-e14-fabrication.zip",
+  "order_or_upload_performed": false,
+  "mechanical_preservation": {
+    "baseline_commit": "9fb42452d6bdaa59c61c5e97fda9bbea42d3ff8a",
+    "pcb_revision": "F1",
+    "mechanical_revision": "E14",
+    "status": "pass",
+    "before_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "after_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
+    "electrical_and_PCB_records_identical": true,
+    "source_filesystem_metadata_changed": true,
+    "identical_nonmetadata_records": 3497,
+    "PCB_records_sha256": "72d77b1b3d9fe0f609d8c6794e54ece84d29a82ecc06509f49ca791ce448aff7",
+    "source_board_tsx_unchanged": true,
+    "changed_product_prints": [
+      "screen-carrier"
+    ],
+    "firmware_bin_sha256": "b72015c18d280116f27ab12e7d8048fefb5d8d72b9bb4844e1c2ee31f1aaba70",
+    "basis": "E14 adds the fixed carrier collar. All nonmetadata circuit records, PCB copper, placement, nets and purchased parts match the checked F1/E13 baseline. Only the source-filesystem hash differs in the bare circuit JSON."
+  },
+  "screen_shroud": {
+    "outer_diameter_mm": 47.6,
+    "wall_thickness_mm": 1.0,
+    "purpose": "A continuous stationary collar joins the carrier to the bezel underside, hiding the exposed cavity without narrowing the rotating seam or adding parts.",
+    "inner_diameter_mm": 45.6,
+    "bottom_z_mm": 13.1,
+    "top_z_mm": 18.1,
+    "bezel_to_rotor_radial_clearance_mm": 0.8,
+    "nominal_optical_track_clearance_mm": 0.8799,
+    "optical_track_clearance_after_full_print_probe_mm": 0.2599,
+    "part": "screen-carrier",
+    "additional_product_parts": 0,
+    "additional_fasteners": 0,
+    "screen_and_harness_collision_checks": "pass",
+    "full_rotor_tolerance_sweep": "pass",
+    "blocked_radial_sight_lines": 144,
+    "azimuths_per_height": 48,
+    "sampled_heights_mm": [
+      14.8,
+      16.0,
+      17.7
+    ],
+    "supported_first_layer_arcs_checked": 48
+  },
+  "visual_review": "mechanical/VISUAL-REVIEW.md"
 }

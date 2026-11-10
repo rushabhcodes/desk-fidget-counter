@@ -1,4 +1,6 @@
-# E13 mechanics / RP2040 F1 PCB
+# E14 mechanics / RP2040 F1 PCB
+
+[Display gap and whole-design review](VISUAL-REVIEW.md): E14 adds a continuous stationary collar to the existing screen carrier. It covers the open cavity beneath the bezel while preserving the 0.8 mm rotating seam, Ø89.4×19.5 mm body, six prints and four screws. The PCB, purchased parts and circular E13 button are retained.
 
 [Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Fourteen inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.
 
@@ -9,7 +11,7 @@ The enclosure uses **six product prints and four screws** in an Ø89.4×19.5 mm 
 | `base` | Flat floor on bed | PCB locators, two braced screen-support walls and solder wells are integral. |
 | `lid` | Supplied orientation | Support the underside annular plate above the six capture feet; avoid supports on bearing fit surfaces. |
 | `knob` | Front face on bed | Integral 48-slot optical track; use material tested opaque at 950 nm. |
-| `screen-carrier` | Flat annulus on bed | Short bosses share the bezel fasteners; no separate carrier screws. |
+| `screen-carrier` | Flat annulus on bed | Integral 1 mm collar hides the bezel underside. Existing bosses share the bezel fasteners; no extra screws. |
 | `button-cap` | Ears down, curved face up, supplied rotated pose | Curved 14×7 mm face, 0.4 mm running clearance and separate foam return. Support the hidden rear apron/boss; keep guides and stops clean. No extra fasteners. |
 | `screen-bezel` | Front face on bed | Use the supplied inverted pose; the glass relief faces upward during printing. |
 

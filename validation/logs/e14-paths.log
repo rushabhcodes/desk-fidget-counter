@@ -1,0 +1,25 @@
+{'from': 'U1.1', 'to': 'C7.1', 'budget_mm': 6, 'length_mm': 1.4551, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.10', 'to': 'C8.1', 'budget_mm': 6, 'length_mm': 1.4551, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.22', 'to': 'C9.1', 'budget_mm': 6, 'length_mm': 1.4549, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.33', 'to': 'C10.1', 'budget_mm': 6, 'length_mm': 1.3551, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.42', 'to': 'C11.1', 'budget_mm': 6, 'length_mm': 1.3551, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.49', 'to': 'C12.1', 'budget_mm': 6, 'length_mm': 2.388, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.43', 'to': 'C13.1', 'budget_mm': 6, 'length_mm': 5.4218, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.48', 'to': 'C17.1', 'budget_mm': 6, 'length_mm': 4.8277, 'minimum_track_width_mm': 0.15, 'vias': 2}
+{'from': 'U1.50', 'to': 'C18.1', 'budget_mm': 6, 'length_mm': 1.7963, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.23', 'to': 'C19.1', 'budget_mm': 6, 'length_mm': 2.5859, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.44', 'to': 'C20.1', 'budget_mm': 7, 'length_mm': 5.4787, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U1.45', 'to': 'C21.1', 'budget_mm': 7, 'length_mm': 4.2939, 'minimum_track_width_mm': 0.15, 'vias': 2}
+{'from': 'U8.8', 'to': 'C22.1', 'budget_mm': 8, 'length_mm': 1.9125, 'minimum_track_width_mm': 0.15, 'vias': 0}
+{'from': 'U7.5', 'to': 'C14.1', 'budget_mm': 6, 'length_mm': 3.4499, 'minimum_track_width_mm': 0.15, 'vias': 0}
+XIN track length 4.596 vias 0
+XOUT track length 3.736 vias 0
+XTAL_OUT track length 5.989 vias 0
+QSPI_SS track length 19.712 vias 0
+QSPI_SCLK track length 14.222 vias 2
+QSPI_SD0 track length 10.508 vias 0
+QSPI_SD1 track length 5.363 vias 0
+QSPI_SD2 track length 5.002 vias 0
+QSPI_SD3 track length 16.35 vias 2
+USB_DM_MCU track length 15.209 vias 2
+USB_DP_MCU track length 15.071 vias 2

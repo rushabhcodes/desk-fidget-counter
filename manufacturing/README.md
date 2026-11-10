@@ -1,6 +1,6 @@
-# Manufacturing source / PCB RP2040 F1, mechanics E13
+# Manufacturing source / PCB RP2040 F1, mechanics E14
 
-**RP2040 F1 passes local first-prototype fabrication and assembly checks.** Use [the F1/E13 kit](../release/desk-knob-f1-e13-fabrication.zip) or the matching files in [manufacturing/current](current/README.md). The population is 52 parts (51 SMT plus the J4 through-hole header), with firmware 6.0.0. Final factory DFM, part/feeder/rotation approval and physical bring-up remain. The historical E6/E13 archive targets STM32 and must not be mixed with F1.
+**RP2040 F1 passes local first-prototype fabrication and assembly checks.** Use [the F1/E14 kit](../release/desk-knob-f1-e14-fabrication.zip) or the matching files in [manufacturing/current](current/README.md). The population is 52 parts (51 SMT plus the J4 through-hole header), with firmware 6.0.0. Final factory DFM, part/feeder/rotation approval and physical bring-up remain. The historical E6/E13 archive targets STM32 and must not be mixed with F1.
 
 The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were removed from this working revision because they contain the undersized U3 FRAM footprint and outdated assembly angles. They remain in Git history and the held old release; do not order them or mix them with new exports. Current part identities and exact supplier footprints live in [the catalogue](../reference/jlcpcb-parts.json), [import provenance](../reference/jlcpcb-footprints.json) and `imports/jlc`.
 

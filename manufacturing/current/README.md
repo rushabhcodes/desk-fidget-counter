@@ -1,6 +1,6 @@
-# Desk knob — RP2040 PCB F1 / enclosure E13
+# Desk knob — RP2040 PCB F1 / enclosure E14
 
-Checked 10 November 2026 against the current source. Local circuit, independent fabrication and assembly checks pass for **first-prototype manufacture**. This kit contains RP2040 hardware and firmware 6.0.0, with the recessed curved button inside the Ø89.4×19.5 mm E13 enclosure. Final manufacturer DFM/feeder preview and physical bring-up remain. No supplier upload, purchase or stock allocation was performed.
+Checked 10 November 2026 against the current source. Local circuit, independent fabrication and assembly checks pass for **first-prototype manufacture**. This kit contains RP2040 hardware and firmware 6.0.0, with the recessed curved button inside the Ø89.4×19.5 mm E14 enclosure. Final manufacturer DFM/feeder preview and physical bring-up remain. No supplier upload, purchase or stock allocation was performed.
 
 ## Upload files
 
@@ -23,13 +23,15 @@ Checked 10 November 2026 against the current source. Local circuit, independent 
 | USB shield slots | Four plated 0.60×1.50/1.60 mm slots |
 | Assembly | 52 top placements / 27 exact MPN BOM lines |
 
+E14 adds a continuous fixed collar to the existing screen carrier. Keep the 0.8 mm rotating seam open; see enclosure/VISUAL-REVIEW.md for the complete visual review. The body remains Ø89.4×19.5 mm with six prints and four screws.
+
 The 98 vias retain ≥0.15 mm annular rings and their drills do not intersect SMT paste. No via-in-pad process is required. Confirm tooling/support for the irregular outline and large internal window; removable panel rails must stay outside the finished outline. USB full-speed signal integrity has not been measured.
 
 ## Product assembly and programming
 
 J4 is the only through-hole header. Trim its underside tails/joints to ≤0.8 mm, inspect/deburr and insulate the specified solder wells before enclosure assembly. The Waveshare display, complete 6712ZZ bearing, six printed parts, screws, foam and custom H1 harness are separate from PCBA. H1 is a keyed crimped SH8-to-PH8 lead, 44±1 mm free insulation, straight circuits 1→1 through 8→8; see **WIRING.md** and **LCD-harness.csv**. The display kit's jumper lead is unused.
 
-**enclosure/stl/** contains the six E13 product prints and three fit coupons. Follow the print poses and fit notes, and use **ASSEMBLY.md** for the sequence. Actual printed fits, optical opacity and button force/life require validation.
+**enclosure/stl/** contains the six E14 product prints and three fit coupons. Follow the print poses and fit notes, and use **ASSEMBLY.md** for the sequence. Actual printed fits, optical opacity and button force/life require validation.
 
 Use **firmware/desk-knob.uf2** with the RP2040 ROM USB bootloader or **firmware/desk-knob.elf** through J4 SWD. See **firmware/README.md** for the exact procedure. Initialize a fresh FRAM deliberately with a three-second button hold, then perform **BRINGUP.md** checks. Historical STM32 programming procedures and images do not apply.
 

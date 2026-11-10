@@ -1,10 +1,10 @@
-# E13 print and fit checks
+# E14 print and fit checks
 
 The bearing is one purchased **6712ZZ, 60×75×7 mm**, with two metal shields. [Maysme's catalogue](https://maysmeprecision.com/Show/?Cid=677) confirms that boundary. Race/shield details, ball count and grooves in the detailed model are accepted engineering approximations, not manufacturer CAD. The product viewer presents the complete bearing as one object.
 
 ## Calibrate the bearing fits
 
-The E13 enclosure uses Ploopy-style **hand-push fits** instead of screw-on bearing retainers. Nominal CAD mating diameters are **60.00 mm for the stationary post and 75.00 mm for the grip pocket**. The inner race rests on the lid shoulder; the outer race seats against the grip shoulder. No thread, separate clamp or lower retainer is involved.
+The enclosure uses Ploopy-style **hand-push fits** instead of screw-on bearing retainers. Nominal CAD mating diameters are **60.00 mm for the stationary post and 75.00 mm for the grip pocket**. The inner race rests on the lid shoulder; the outer race seats against the grip shoulder. No thread, separate clamp or lower retainer is involved.
 
 Print the nominal coupon with the same material, orientation and settings as the product. Its two rings reproduce the mating diameters over the full 7 mm bearing width. Use the actual bearing to check both fits before committing to the larger prints:
 
@@ -28,7 +28,7 @@ The integral encoder wall is **0.8 mm**, with 48 slots. Its material must be tes
 
 - The six PCB pads use **PORON 4701-30-20062-04**, 1.57 mm nominal, with 0.05 mm 467MP adhesive. The model compresses the foam to 1.05 mm; PCB thickness variation is included in the fit budget.
 - The glass relief remains 0.4 mm. E9 reserves 2 mm beneath the actual screen PCB profile for rear electronics omitted by its supplier STEP, with 0.4 mm lateral carrier clearance; actual component heights remain a prototype check. The two M2×10 screws secure the bezel and carrier through their plastic supports; do not use the glass as a screw stop. Inspect the real module's support and retention before final tightening.
-- The bezel/grip radial gap is 0.8 mm. The sensor fork is 3 mm wide around the 0.8 mm optical wall. The full moving envelopes include the stated print, bearing, PCB and assembly errors.
+- The bezel/grip radial gap is 0.8 mm. E14's fixed carrier collar hides the cavity below it; its outer diameter is 47.6 mm and wall thickness is 1.0 mm. Keep that wall clear of the optical track and do not fill the rotating seam. The sensor fork is 3 mm wide around the 0.8 mm optical wall. The full moving envelopes include the stated print, bearing, PCB and assembly errors.
 - The USB socket mouth is recessed 2.51 mm from the enlarged body's outer circle. The lid has a matching plug-shoulder relief; the USB plug approach gauge is 13.4×6.9 mm. Verify your actual cable's undimensioned mating details and clearance below the rotor. The front button must release cleanly at full pretravel.
 - H1 is a separately ordered crimped JST-SH8-to-PH8 harness with44±1mm free insulation between housing exits. CAD renders nominalØ0.61mm wire and checksØ0.8mm at43/44/45mm lengths. Plug engagement and static3.3mm U-bend remain engineering approximations; verify actual crimped harness fit, retention, no pinch/strain and electrical continuity. Both ends unplug. Keep all wires stationary inside the optical track.
 

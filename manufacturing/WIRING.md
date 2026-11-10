@@ -1,4 +1,4 @@
-# PCB F1 / Mechanics E13 physical wiring
+# PCB F1 / Mechanics E14 physical wiring
 
 All fitted board components mount from the top. Coordinates use +X right, +Y toward USB; PCB top is Z4.2 mm above the enclosure floor. Pin numbers refer to the physical board pads. Match pin 1 and the screen's printed signal labels, then check continuity before power.
 

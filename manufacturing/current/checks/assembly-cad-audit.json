@@ -1,7 +1,7 @@
 {
-  "revision": "E13",
-  "model_sha256": "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3",
-  "source_parameters_sha256": "3d62d8ac48dfde8754403a0ac03fdc3ec232a529d699d86578af8d30d8822ce8",
+  "revision": "E14",
+  "model_sha256": "c9c3d7435317deee7a2ff06c4fc16a2cdaeeed2c728843ab7398e8eb227f334d",
+  "source_parameters_sha256": "5cd98176b736f5dedc4ff9ee9adde43f288c9d67507a152da7e84f43aa8b3f65",
   "tested_solid_pair_count": 210,
   "intentional_contacts": [
     {
@@ -42,7 +42,7 @@
     },
     "screen-carrier": {
       "connected_watertight": true,
-      "stl_sha256": "3854c4e129aac2701b184bdea6d6b298a55fbf834ead68ee547e7ddb675768b5",
+      "stl_sha256": "773d6480a5cd39825c14fc90d74cabb652f7cdf46c5e60f4ab09b672b036a75f",
       "STL_to_GLB_max_vertex_error_mm": 3.81e-07
     },
     "screen-bezel": {
@@ -58,6 +58,30 @@
   },
   "carrier_through_bores": 2,
   "bezel_driver_diameter_mm": 4,
+  "screen_shroud": {
+    "outer_diameter_mm": 47.6,
+    "wall_thickness_mm": 1.0,
+    "purpose": "A continuous stationary collar joins the carrier to the bezel underside, hiding the exposed cavity without narrowing the rotating seam or adding parts.",
+    "inner_diameter_mm": 45.6,
+    "bottom_z_mm": 13.1,
+    "top_z_mm": 18.1,
+    "bezel_to_rotor_radial_clearance_mm": 0.8,
+    "nominal_optical_track_clearance_mm": 0.8799,
+    "optical_track_clearance_after_full_print_probe_mm": 0.2599,
+    "part": "screen-carrier",
+    "additional_product_parts": 0,
+    "additional_fasteners": 0,
+    "screen_and_harness_collision_checks": "pass",
+    "full_rotor_tolerance_sweep": "pass",
+    "blocked_radial_sight_lines": 144,
+    "azimuths_per_height": 48,
+    "sampled_heights_mm": [
+      14.8,
+      16.0,
+      17.7
+    ],
+    "supported_first_layer_arcs_checked": 48
+  },
   "screen_rear_reservation": {
     "depth_mm": 2.0,
     "carrier_profile_lateral_clearance_mm": 0.4,
@@ -80,8 +104,8 @@
   "rendered_internal_views": 6,
   "rendered_harness_views": 2,
   "images": {
-    "exterior-contact-sheet.png": "6c97224da2f35e85113d0f5e3e86d711117527df16a7b185db062666d4a2d3ed",
-    "internal-contact-sheet.png": "e508b613186a790d0064b65961efbab55fe3a906c5b9f6e39af769baeba0fbe9",
-    "display-harness.png": "51c756d8daaf58bd886d3af57f4325f4d999c1543285923b9f022a605d398c47"
+    "exterior-contact-sheet.png": "cd1cda1403b3fd78fe87a2ab89dd6d68c486b5d1d95d8ce2400db6afb346299c",
+    "internal-contact-sheet.png": "40040a71dfcddb26c31483ea7cbe42ff82be6d7fdf874041e7b74d47e2aafe44",
+    "display-harness.png": "a75599feb047e4fd6b6d2b99390b6d480b2ff744c12200d58a6fb1577505a686"
   }
 }

@@ -7,7 +7,7 @@
 		(at 0 -3 90)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "93ccb8b0-1c99-4e47-bf3e-fc4eb0932ab9")
+		(uuid "0633daee-2197-42e0-b4a6-bc4031bcb042")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "b68d8a0c-5adf-4a71-90e8-6e0ef8d09307")
+		(uuid "095910ef-f964-4e3c-8dc4-51fd83f66a75")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a9d456a9-3eb7-476c-8d96-59913d942147")
+		(uuid "982683ef-ec49-47d0-bbea-c026101ea960")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "58e7e4aa-25c4-4579-8c2c-8b991fe46813")
+		(uuid "aa1de8cf-1a94-4acd-b818-b90e68fa301a")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "8441a2cb-5bc6-4faf-8f77-934f50716578")
+		(uuid "7f244ecb-a82d-439d-9f60-f7b135ee6f42")
 	)
 	(fp_line
 		(start -1.385087 0.660603)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "772657f2-f2c3-469a-9192-72e33e9f10cc")
+		(uuid "2c4f72a3-c527-49aa-8e11-69379521d7a9")
 	)
 	(fp_line
 		(start -0.426212 0.660603)
@@ -105,7 +105,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "2f37e0f7-a4af-4783-93f9-a2ca887888cb")
+		(uuid "3ec99711-7e9b-49ff-b2ec-fc582944a3a4")
 	)
 	(fp_line
 		(start 0.426212 0.660603)
@@ -115,7 +115,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "500f8676-4648-4b07-8d89-d3c667de1b26")
+		(uuid "4e8e3263-5341-4201-9c99-0c332befa6cc")
 	)
 	(fp_line
 		(start 1.385087 -0.660603)
@@ -125,7 +125,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "685d86f4-fe4d-4a3d-bbe7-6d6b725777da")
+		(uuid "fdd37cf5-0643-4938-ac63-bff7d8152ca6")
 	)
 	(fp_line
 		(start 1.385087 0.660603)
@@ -135,7 +135,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "443c1d5d-784c-4114-8727-442efd217e71")
+		(uuid "7a453cf0-cfed-4913-9ffd-8713bf544fbb")
 	)
 	(fp_poly
 		(pts

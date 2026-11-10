@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
-  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "board_sha256": "e91a9a69ba401bf29fdd843d6936cdf2cf878e811dead57805acc23db1fae862",
+  "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
   "note": "Limits are project engineering budgets; physical bring-up and signal integrity still require a prototype. Lengths are planar routed copper including pad centroids.",
   "bypasses": [
     {

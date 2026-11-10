@@ -1,0 +1,41 @@
+{
+  "revision": "E14",
+  "baseline_revision": "E13",
+  "source_models_sha256": [
+    "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3",
+    "c9c3d7435317deee7a2ff06c4fc16a2cdaeeed2c728843ab7398e8eb227f334d"
+  ],
+  "source_parameters_sha256": "5cd98176b736f5dedc4ff9ee9adde43f288c9d67507a152da7e84f43aa8b3f65",
+  "blocked_radial_sight_lines": {
+    "before": 12,
+    "after": 144,
+    "total": 144
+  },
+  "preconnected_screen_insertion": {
+    "status": "pass",
+    "lift_samples_mm": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7,
+      9,
+      12,
+      16
+    ],
+    "rigid_parts": [
+      "screen-module",
+      "lcd-cable-screen-plug"
+    ],
+    "scope": "Carrier aperture with bezel removed; flexible cable dressing and physical mating remain prototype checks."
+  },
+  "rotation_clearance_mm": 0.8,
+  "body_diameter_mm": 89.4,
+  "height_mm": 19.5,
+  "scope": "Actual assembled meshes at identical camera scale. This is a visual/geometry review, not physical qualification.",
+  "images": {
+    "display-gap-comparison.png": "ae26ead4d4ff7302ec7cb1f578af0c068362b5d3c799cfaf868ccbe07b714182",
+    "display-gap-section.png": "58aa9f95edece025f54778382b2a9c17cc1e5b90f7a264ec260aece62657abce"
+  }
+}

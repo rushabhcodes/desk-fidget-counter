@@ -1,4 +1,4 @@
-# RP2040 F1 PCB / E13 enclosure prototype bring-up
+# RP2040 F1 PCB / E14 enclosure prototype bring-up
 
 **All physical checks below are pending.** Record board/firmware tag, instruments, measurements and photographs. Software, CAD, routing and image checks do not replace a first assembled prototype.
 
@@ -38,7 +38,7 @@
 - [ ] Order H1 per WIRING.md: SHR-08V-S-B to PHR-8, eight qualified crimped30AWG wires,44±1mm free insulation between exits, circuit1→1 through8→8. Check actual plug fit/retention, crimps, wire OD, dressing and bends. Meter every signal and power/ground isolation. The kit jumper lead is unused. Mate sideways; disconnect before lifting the screen.
 - [ ] Check all wires remain stationary and clear of both posts, packages and the integral optical track throughout complete rotations. Test the 0.8 mm wall for 950 nm opacity and inspect all 48 slots for stringing. No separate skirt adhesive joint is used.
 - [ ] Fit both two-layer PORON return stacks and test the curved recessed button at its centre and both ends: no rest preload, electrical closure before the 0.6 mm nominal stop, free release and repeated short/long presses. Its nominal 0.2 mm free play plus 0.4 mm switch travel are geometry checks only. Check fingertip access on the actual desk, return with the lid tightened, and presses at both ends without rocking or rubbing; inspect foam/adhesive retention after repeated presses and time under compression. Calibrate the boss against the actual switch and printer; verify safe overtravel and no housing contact before closing the prototype.
-- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported F1 rear tab. No underside driver windows are required in E13.
+- [ ] Check both USB plug orientations fully insert/withdraw without the shell, rotor or PCB blocking the plug shoulder. Compare the actual cable with the 13.4×6.9 mm approach gauge. Inspect all four shield joints on the supported F1 rear tab. No underside driver windows are required in E14.
 - [ ] Verify the 0.8 mm bezel/grip running gap, full rotor swept volume, push-fit retention and optional feet. Check lid and grip support removal and fit-surface finish before assembly.
 - [ ] Have the fabricator review the ordinary two-layer rules, routed inner contour and documented J1 slot allowance. Confirm current stock and feeder origin/rotations against real pads and physical pin 1 in the final order preview.
 

@@ -85,6 +85,7 @@
     "front_z": 18.1,
     "bezel_top_z": 19.5,
     "bezel_diameter": 48,
+    "rotor_radial_clearance_mm": 0.8,
     "module_rotation_deg": 270,
     "official_step": "vendor/step/Waveshare-19192.stp",
     "glass_relief_mm": 0.4,
@@ -337,7 +338,7 @@
     "board_connection": "J6 JST SM08B-SRSS-TB(LF)(SN) / C160407",
     "dimensions_status": "Named genuine mating housings and contacts; nominal engagement and static 3.3mm bend are engineering approximations. Actual harness fit and crimp quality require prototype verification."
   },
-  "mechanical_revision": "E13",
+  "mechanical_revision": "E14",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -441,7 +442,12 @@
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
     "carrier_bottom_z": 13.1,
     "carrier_rim_to_PCB_gap_mm": 0.2,
-    "carrier_rear_profile_clearance_mm": 0.4
+    "carrier_rear_profile_clearance_mm": 0.4,
+    "screen_shroud": {
+      "outer_diameter_mm": 47.6,
+      "wall_thickness_mm": 1.0,
+      "purpose": "A continuous stationary collar joins the carrier to the bezel underside, hiding the exposed cavity without narrowing the rotating seam or adding parts."
+    }
   },
   "pcb_revision": "F1",
   "display_board_header": {

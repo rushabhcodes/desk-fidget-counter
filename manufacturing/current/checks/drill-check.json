@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+  "board_sha256": "e91a9a69ba401bf29fdd843d6936cdf2cf878e811dead57805acc23db1fae862",
   "component_plated_pads": [
     {
       "reference": "J1",

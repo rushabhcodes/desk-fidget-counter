@@ -1,7 +1,7 @@
 {
   "release": "6.0.0",
   "pcb_revision": "F1",
-  "mechanical_revision": "E13",
+  "mechanical_revision": "E14",
   "complete_placements": 52,
   "smt_only_placements": 51,
   "DNP": [],
@@ -16,7 +16,7 @@
   "input_hashes": {
     "temporary/BOM.csv": "744fcc12bb4e59241e632fc6461ec45d3daf5e3bb3fed5d5fb69262a42f964a4",
     "temporary/pick-and-place.csv": "4d7f66381d91ee7cfd78c23020705ece040305c7b426f8f72193272d63448147",
-    "dist/index/circuit.json": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "dist/index/circuit.json": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
     "reference/jlcpcb-parts.json": "a815c990e49f89f6a0dfd82447f902b20be75bcf75703eef37f832df8f2fe890"
   },
   "output_hashes": {

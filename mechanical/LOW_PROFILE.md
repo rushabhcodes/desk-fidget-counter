@@ -1,4 +1,6 @@
-# E13 low-profile architecture
+# E14 low-profile architecture
+
+E14 adds a fixed collar beneath the display bezel as part of the existing carrier. It conceals the open mounting cavity with no additional parts, screws or enclosure height. The 0.8 mm bezel/rotor running seam remains. [Visual review and actual sections](VISUAL-REVIEW.md).
 
 The body is **Ø89.4×19.5 mm** before optional feet. E13 increases diameter by 4.6 mm to contain its R44.5 mm curved button, recessed 0.2 mm within the circular outline; the PCB outline and switch position are preserved by RP2040 revision F1. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
 

@@ -7,7 +7,7 @@
 		(at 0 -3 180)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "48218984-6b9e-4e96-a8db-52a2154c810f")
+		(uuid "733c5509-3584-425f-a598-2328c35d7971")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f988127d-2704-4821-9051-54bc503c5668")
+		(uuid "776cefe5-1d10-4f1f-8393-78fe1f84de98")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "7183d2d2-70b5-470f-b991-4af796c174c9")
+		(uuid "238ce48e-33bd-4de5-ba68-e8fd3e742999")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "49d221f9-9531-4651-a647-88e11c0880b2")
+		(uuid "3d8be0f1-b090-4984-b275-ea5253362d49")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "b50a48e2-3c20-40ec-aa82-29c6ef8c2f53")
+		(uuid "924418cd-1201-468f-bc6b-dc383b04782e")
 	)
 	(fp_line
 		(start -2.257196 1.907083)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "851a769a-2dfe-4b4e-b4bf-828d80df70f0")
+		(uuid "741de82c-9e62-4488-b14e-e27151592b87")
 	)
 	(fp_line
 		(start -2.028596 -1.678737)
@@ -105,7 +105,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "17cffac2-2b71-4e1f-9f15-d5a25a577791")
+		(uuid "2bce82f1-2442-4435-8d89-c12d6d0a2d37")
 	)
 	(fp_line
 		(start -2.028596 1.678483)
@@ -115,7 +115,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "da6f6179-d60f-43ae-9356-2729960f6612")
+		(uuid "4658f946-c423-46b0-81f5-157bb6f9bb05")
 	)
 	(fp_line
 		(start 2.028596 -1.678737)
@@ -125,7 +125,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "e0038c2d-b922-4396-9e8c-247d5ca01b60")
+		(uuid "367d5ca1-1352-4000-9e85-3fe0413ac389")
 	)
 	(fp_line
 		(start 2.028596 1.678483)
@@ -135,7 +135,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "973bf35d-8174-49c1-a7dd-b420c372cece")
+		(uuid "350fffda-8b8a-47f6-966e-4d0280d73da6")
 	)
 	(fp_poly
 		(pts
@@ -157,7 +157,7 @@
 			(type default)
 		)
 		(layer "F.Fab")
-		(uuid "d008fba0-cc95-497f-a5a4-49d80b6ceb75")
+		(uuid "d493e5fc-2b1d-4578-b63c-a667c04f0193")
 	)
 	(pad "" smd rect
 		(at -1.100074 -0.850011 180)

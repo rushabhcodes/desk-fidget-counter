@@ -25,6 +25,7 @@
     "PCB_to_rotor_xy_budget_mm": 0.745,
     "PCB_maximum_in_plane_play_mm": 0.325,
     "bezel_to_rotor_remaining_radial_clearance_mm": 0.38,
+    "screen_shroud_to_optical_track_remaining_radial_clearance_mm": 0.4599,
     "optical_fork_remaining_radial_clearance_mm": 0.2751,
     "optical_slot_remaining_vertical_beam_margin_mm": 0.19,
     "screen_glass_remaining_axial_clearance_mm": 0.2,

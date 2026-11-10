@@ -1,8 +1,10 @@
-# Readiness — v6.0.0 / RP2040 PCB F1 / enclosure E13
+# Readiness — v6.0.0 / RP2040 PCB F1 / enclosure E14
 
-Local circuit, fabrication and assembly checks pass for **first-prototype manufacture**. Use the matching [F1/E13 fabrication kit](../release/desk-knob-f1-e13-fabrication.zip); the historical STM32 E6 kit is incompatible. Final manufacturer DFM, stock allocation and feeder/rotation preview remain, followed by physical bring-up. No supplier upload or order was performed.
+Local circuit, fabrication and assembly checks pass for **first-prototype manufacture**. Use the matching [F1/E14 fabrication kit](../release/desk-knob-f1-e14-fabrication.zip); the historical STM32 E6 kit is incompatible. Final manufacturer DFM, stock allocation and feeder/rotation preview remain, followed by physical bring-up. No supplier upload or order was performed.
 
-F1 replaces STM32 with RP2040, Winbond W25Q16JVSNIQ 2 MB boot flash, Abracon ABM8-272-T3 12 MHz crystal (15 pF loads, 1 kΩ damping), per-pin bypassing and 27 Ω USB termination. Source and firmware share `reference/rp2040.json`. J4 is VREF/SWDIO/SWCLK/RUN/GND/BOOTSEL; USB recovery grounds BOOTSEL through 1 kΩ to flash CS during reset. The PCB outline, mounting, sensor, USB, display and switch datums are preserved. E13 retains a 14×7 mm curved button recessed 0.20 mm within its Ø89.4×19.5 mm body.
+E14 changes the screen carrier by adding a continuous fixed collar beneath the bezel. It retains the F1 PCB, firmware, Ø89.4×19.5 mm body, circular button, six prints and four screws. The collar passes the full rotor/harness tolerance checks; all 144 sampled radial sight lines through its wall are blocked. [The visual review](../mechanical/VISUAL-REVIEW.md) distinguishes the required 0.8 mm radial seam and 0.2 mm top-height step from the larger gap in the supplied screenshot, which was not reproduced in current v6.0.1.
+
+F1 replaces STM32 with RP2040, Winbond W25Q16JVSNIQ 2 MB boot flash, Abracon ABM8-272-T3 12 MHz crystal (15 pF loads, 1 kΩ damping), per-pin bypassing and 27 Ω USB termination. Source and firmware share `reference/rp2040.json`. J4 is VREF/SWDIO/SWCLK/RUN/GND/BOOTSEL; USB recovery grounds BOOTSEL through 1 kΩ to flash CS during reset. The PCB outline, mounting, sensor, USB, display and switch datums are preserved. E14 retains the E13 design: a 14×7 mm curved button recessed 0.20 mm within its Ø89.4×19.5 mm body.
 
 ## Circuit and manufacturing checks
 

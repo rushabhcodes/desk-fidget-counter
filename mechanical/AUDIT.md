@@ -1,4 +1,6 @@
-# Visual and geometry audit — E13 / PCB F1
+# Visual and geometry audit — E14 / PCB F1
+
+E14 adds a continuous fixed screen-carrier collar beneath the bezel. The earlier interference audit allowed the open cavity between its mounting bosses. [The new review](VISUAL-REVIEW.md) includes matching before/after renders, actual mesh sections and 144 radial sight-line checks through the delivered carrier. The necessary 0.8 mm rotating seam is retained. The current native and published v6.0.1 models have a 0.2 mm bezel/grip height step; the larger separation in the user's screenshot was not reproduced in those models.
 
 Audited 10 November 2026 using the delivered `cad/assembled.glb`, the six delivered STLs, the original supplier screen geometry and the checked PCB. The model passes the nominal visual and geometric checks below. E13 retains the E6 mechanical datums on the RP2040 F1 board and gives the 14×7 mm button an R44.5 mm face inside an Ø89.4 mm circular body, 4.6 mm wider than E12. The grip has a continuous lower-edge bevel for fingertip access. Physical fit and strength remain unmeasured.
 
@@ -34,7 +36,7 @@ The six exterior views cover top, bottom, front, rear and both sides. Six intern
 
 Two additional close views show J6, the single keyed plug at each end of H1 and all eight crimped wires.
 
-The 0.8 mm annular running gap and PCB clearance visible through the port openings are intentional clearances, not displaced parts. [geometry-check.json](geometry-check.json) retains their nominal and stated tolerance checks.
+The 0.8 mm annular running seam and clearance at the port openings are intentional. E14's continuous carrier wall hides the cavity under the bezel without narrowing the seam. [geometry-check.json](geometry-check.json) retains the nominal and stated tolerance checks, including 0.26 mm remaining between the new collar and optical track under the full 0.62 mm radial print probe.
 
 ## Checks and reproduction
 

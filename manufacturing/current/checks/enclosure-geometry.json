@@ -1,5 +1,5 @@
 {
-  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
   "base": {
     "watertight": true,
     "stl_roundtrip_watertight": true,
@@ -58,7 +58,7 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 168,
-    "volume_mm3": 785.52,
+    "volume_mm3": 1325.69,
     "bounds_mm": [
       [
         -24.0,
@@ -251,7 +251,12 @@
     "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
     "carrier_bottom_z": 13.1,
     "carrier_rim_to_PCB_gap_mm": 0.2,
-    "carrier_rear_profile_clearance_mm": 0.4
+    "carrier_rear_profile_clearance_mm": 0.4,
+    "screen_shroud": {
+      "outer_diameter_mm": 47.6,
+      "wall_thickness_mm": 1.0,
+      "purpose": "A continuous stationary collar joins the carrier to the bezel underside, hiding the exposed cavity without narrowing the rotating seam or adding parts."
+    }
   },
   "purchased_package_models_checked": 52,
   "individual_wires_checked": 8,
@@ -270,6 +275,22 @@
     "full_rotor_sweep": true
   },
   "bearing_contacts_checked": 4,
+  "screen_shroud": {
+    "outer_diameter_mm": 47.6,
+    "wall_thickness_mm": 1.0,
+    "purpose": "A continuous stationary collar joins the carrier to the bezel underside, hiding the exposed cavity without narrowing the rotating seam or adding parts.",
+    "inner_diameter_mm": 45.6,
+    "bottom_z_mm": 13.1,
+    "top_z_mm": 18.1,
+    "bezel_to_rotor_radial_clearance_mm": 0.8,
+    "nominal_optical_track_clearance_mm": 0.8799,
+    "optical_track_clearance_after_full_print_probe_mm": 0.2599,
+    "part": "screen-carrier",
+    "additional_product_parts": 0,
+    "additional_fasteners": 0,
+    "screen_and_harness_collision_checks": "pass",
+    "full_rotor_tolerance_sweep": "pass"
+  },
   "assembly_simplification": {
     "revision": "E13",
     "product_print_count": 6,

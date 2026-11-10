@@ -1,0 +1,18 @@
+{
+  "baseline_commit": "9fb42452d6bdaa59c61c5e97fda9bbea42d3ff8a",
+  "pcb_revision": "F1",
+  "mechanical_revision": "E14",
+  "status": "pass",
+  "before_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "after_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
+  "electrical_and_PCB_records_identical": true,
+  "source_filesystem_metadata_changed": true,
+  "identical_nonmetadata_records": 3497,
+  "PCB_records_sha256": "72d77b1b3d9fe0f609d8c6794e54ece84d29a82ecc06509f49ca791ce448aff7",
+  "source_board_tsx_unchanged": true,
+  "changed_product_prints": [
+    "screen-carrier"
+  ],
+  "firmware_bin_sha256": "b72015c18d280116f27ab12e7d8048fefb5d8d72b9bb4844e1c2ee31f1aaba70",
+  "basis": "E14 adds the fixed carrier collar. All nonmetadata circuit records, PCB copper, placement, nets and purchased parts match the checked F1/E13 baseline. Only the source-filesystem hash differs in the bare circuit JSON."
+}
