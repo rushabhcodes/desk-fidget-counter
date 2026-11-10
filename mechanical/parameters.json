@@ -1,5 +1,5 @@
 {
-  "base_diameter": 84.8,
+  "base_diameter": 89.4,
   "pcb_diameter": 72,
   "pcb_bottom_z": 2.6,
   "pcb_thickness": 1.6,
@@ -49,7 +49,7 @@
   },
   "bearing_stem_od": 60.0,
   "bearing_pocket_id": 75.0,
-  "knob_diameter": 84.8,
+  "knob_diameter": 89.4,
   "knob_top_z": 19.3,
   "usb_center": [
     0,
@@ -242,24 +242,24 @@
       "max": 0.4
     },
     "direct_actuation": false,
-    "opening_width_mm": 13.2,
-    "opening_bottom_z": 3.6,
-    "opening_top_z": 8.0,
+    "opening_width_mm": 14.8,
+    "opening_bottom_z": 2.0,
+    "opening_top_z": 9.8,
     "finger_check_radius_mm": 6,
-    "fit_status": "B3U-3000P under a broad rounded captive paddle; twin guides, positive stops and two stacked-PORON return pads. Verify electrical closure, free return and switch overtravel on the prototype.",
+    "fit_status": "Curved captive paddle within an 89.4mm circular body with 0.2mm recess. RP2040 PCB F1 retains the switch and mounting datums. Verify printed fit, force, closure and overtravel on the prototype.",
     "printed_cap": {
       "part": "button-cap",
       "face_width_mm": 14,
-      "face_height_mm": 6.6,
-      "face_front_y": -44.2,
+      "face_height_mm": 7.0,
+      "face_front_y": -44.5,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
       "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
       "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
-      "face_center_z_mm": 5.7,
-      "face_thickness_mm": 1.0,
+      "face_center_z_mm": 5.9,
+      "face_thickness_mm": 1.1,
       "face_corner_radius_mm": 1.2,
       "thumb_dish_depth_mm": 0.2,
       "rail_centers_x_mm": [
@@ -269,13 +269,16 @@
       "rail_width_mm": 2.0,
       "rail_top_z_mm": 7.6,
       "rail_height_mm": 1.6,
-      "rail_front_y_mm": -43.3,
-      "rail_rear_y_mm": -38.2,
-      "ear_center_y_mm": -38.6,
+      "rail_front_y_mm": -43.6,
+      "rail_rear_y_mm": -39.6,
+      "ear_center_y_mm": -40.0,
       "ear_depth_mm": 0.8,
       "ear_inner_x_mm": 4.2,
       "ear_outer_x_mm": 10.0,
-      "press_center_z_mm": 6.4
+      "press_center_z_mm": 6.4,
+      "face_radius_mm": 44.5,
+      "face_recess_mm": 0.2,
+      "guide_offset_y_mm": -1.4
     },
     "return_pads": {
       "quantity": 2,
@@ -294,9 +297,10 @@
       "adhesive_total_tolerance_mm": 0.02,
       "rest_cavity_mm": 2.75,
       "relative_cavity_error_mm": 0.1,
-      "backing_front_y_mm": -35.45,
+      "backing_front_y_mm": -36.85,
       "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
-    }
+    },
+    "opening_inner_y_mm": -41.7
   },
   "usb_access": {
     "axis_z": 5.78,
@@ -333,7 +337,7 @@
     "board_connection": "J6 JST SM08B-SRSS-TB(LF)(SN) / C160407",
     "dimensions_status": "Named genuine mating housings and contacts; nominal engagement and static 3.3mm bend are engineering approximations. Actual harness fit and crimp quality require prototype verification."
   },
-  "mechanical_revision": "E12",
+  "mechanical_revision": "E13",
   "bearing_mount": {
     "inner_contact_od": 62.0,
     "outer_contact_id": 73.0,
@@ -388,7 +392,7 @@
     ]
   ],
   "assembly_simplification": {
-    "revision": "E12",
+    "revision": "E13",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -439,7 +443,7 @@
     "carrier_rim_to_PCB_gap_mm": 0.2,
     "carrier_rear_profile_clearance_mm": 0.4
   },
-  "pcb_revision": "E6",
+  "pcb_revision": "F1",
   "display_board_header": {
     "part": "SM08B-SRSS-TB(LF)(SN)",
     "catalogue_id": "C160407",
@@ -465,5 +469,10 @@
     "housing_height_mm": 2.8,
     "wire_exit_local_y_mm": -4.5717309,
     "dimensions_status": "Housing overall dimensions from JST SH drawing; engagement datum and stepped nose are engineering approximations checked against unscaled supplier header STEP. Confirm actual mating fit."
+  },
+  "knob_lower_chamfer": {
+    "height_mm": 1.6,
+    "radial_mm": 1.6,
+    "purpose": "A continuous circular lower-edge bevel gives the fingertip clearance while pressing the recessed curved button."
   }
 }

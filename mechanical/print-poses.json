@@ -21,14 +21,14 @@
   },
   "button-cap": {
     "rotation_deg": [
-      90,
+      -90,
       0,
       0
     ],
     "translation_mm": [
       0,
       0,
-      44.2
+      -39.6
     ]
   },
   "fit-coupon-tight": {

@@ -1,11 +1,13 @@
 {
-  "reviewed_date": "2026-11-09",
-  "pcb_revision": "E6",
-  "mechanical_revision": "E12",
-  "status": "Local schematic, fabrication and assembly checks pass for first-prototype manufacture. Current factory part/feeder/rotation/DFM approval and physical bring-up remain.",
-  "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
-  "source_board_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
-  "fabrication_rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
+  "reviewed_date": "2026-11-10",
+  "release": "6.0.0",
+  "pcb_revision": "F1",
+  "mechanical_revision": "E13",
+  "status": "Local first-prototype fabrication and assembly checks passed; final factory review and physical bring-up remain.",
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "source_board_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
+  "fabrication_board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+  "fabrication_rules_sha256": "908919c868860c5ad1d378734f21ce605a18659370e8d2ecf51ebcc2228693e5",
   "independent_drc": {
     "kicad_version": "10.0.7",
     "violations": 0,
@@ -13,23 +15,12 @@
     "per_violation_exclusions": 0
   },
   "fab_geometry": {
-    "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
-    "rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
-    "verified_physical_pads": 179,
+    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "rules_sha256": "908919c868860c5ad1d378734f21ce605a18659370e8d2ecf51ebcc2228693e5",
+    "verified_physical_pads": 222,
     "pad_centres_envelopes_and_drills_preserved": true,
     "native_traces_and_vias_unchanged": true,
-    "quantized_duplicate_zero_length_export_segments_omitted": [
-      {
-        "net": "NRST",
-        "layer": "B.Cu",
-        "position_nm": [
-          128228380,
-          86448458
-        ],
-        "width_nm": 150000,
-        "reason": "Adjacent native points quantized to the same 1nm coordinate; redundant copper disk covered by another same-net endpoint"
-      }
-    ],
+    "quantized_duplicate_zero_length_export_segments_omitted": [],
     "DRC_violations": 0,
     "unconnected_items": 0,
     "per_violation_exclusions": 0,
@@ -37,7 +28,7 @@
   },
   "gerber_and_drills": {
     "parser": "gerbonara 1.5.0",
-    "source_drill_centres_tools_and_slot_lengths_checked": 166,
+    "source_drill_centres_tools_and_slot_lengths_checked": 114,
     "excellon_precision_mm": 0.001,
     "maximum_coordinate_rounding_mm": 0.0005,
     "graphical_layers": [
@@ -58,7 +49,7 @@
     "outline_segments": 130,
     "closed_edge_contours": 2,
     "internal_window_area_mm2": 1401.24578,
-    "plated_round_drills": 156,
+    "plated_round_drills": 104,
     "plated_slots": 4,
     "npth_diameters_and_counts": {
       "0.65": 2,
@@ -66,20 +57,20 @@
     },
     "JST_0.90mm_drills": 6,
     "display_plated_drills": 0,
-    "source_vias": 150,
+    "source_vias": 98,
     "source_plated_holes": 10,
-    "BOM_rows": 39,
-    "populated_placements": 39,
+    "BOM_rows": 52,
+    "populated_placements": 52,
     "parser_note": "KiCad redundant G90 after header is accepted with a parser syntax warning; no geometry is skipped."
   },
   "bom_cpl": {
-    "release": "5.11.0",
-    "pcb_revision": "E6",
-    "mechanical_revision": "E12",
-    "complete_placements": 39,
-    "smt_only_placements": 38,
+    "release": "6.0.0",
+    "pcb_revision": "F1",
+    "mechanical_revision": "E13",
+    "complete_placements": 52,
+    "smt_only_placements": 51,
     "DNP": [],
-    "physical_pins": 179,
+    "physical_pins": 222,
     "all_components_top": true,
     "bom_cpl_reference_sets_match": true,
     "native_placement_coordinates_preserved": true,
@@ -88,150 +79,1082 @@
     "sourcing_attention": [],
     "stock": "Not reserved or checkout-verified; match exact manufacturer and MPN before payment.",
     "input_hashes": {
-      "temporary/BOM.csv": "7e75946202dddc5a69765adc65b4765c065ee4befd22289ca1a10927f99179e1",
-      "temporary/pick-and-place.csv": "7d8e40f5faee8dc7197892aa6a10a4ee697fbfd81b612dc7debfb1edb70c8f64",
-      "dist/index/circuit.json": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
-      "reference/jlcpcb-parts.json": "8ac0fd9787f504b95666d6cfee90dda929e5179dbd667366a1bce9fbc3cadc51"
+      "temporary/BOM.csv": "744fcc12bb4e59241e632fc6461ec45d3daf5e3bb3fed5d5fb69262a42f964a4",
+      "temporary/pick-and-place.csv": "4d7f66381d91ee7cfd78c23020705ece040305c7b426f8f72193272d63448147",
+      "dist/index/circuit.json": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+      "reference/jlcpcb-parts.json": "a815c990e49f89f6a0dfd82447f902b20be75bcf75703eef37f832df8f2fe890"
     },
     "output_hashes": {
-      "BOM-complete.csv": "68983b6cac220912f6cc63a4e9bd076cddfa7cff4850a28290c11bf17c31584c",
-      "BOM-smt.csv": "df627330595c52f6aaa2baeafd232a6a2aa608d84fe6edbc455c2e4c6494efbe",
-      "CPL-complete.csv": "89fa44b500abf0355b6a032839104c8d8bed3cce30565890af355b49b49ba7db",
-      "CPL-smt.csv": "7568779646333a5aacac7fa43847c2190cf3dc4e0207922d85499ecd3e8fbd24",
-      "physical-pin-map.csv": "9abd7885ce86e87ab99acafcac43bd9f6d350f2f28bf1f43ba0eee5ed41e37fb"
+      "BOM-complete.csv": "247ad060ceef3012cf2e66b5f2360c77dcc6739af039dbe0d549a05d5cdc9d30",
+      "BOM-smt.csv": "6010f98741777176836306b7612992435838090de8db93c3c3d4fb1ce97ce7e8",
+      "CPL-complete.csv": "cc099647f13fa0dbabd799ece6dbc4496b2ef49495e61299d9ff2d4679a6ddef",
+      "CPL-smt.csv": "8bc0c74aa0beaa91e4b6cad16359e1dc762c0bb086331a9ab1b1375f40525ed1",
+      "physical-pin-map.csv": "98a3e07f1a13966a84004ac819d4a3f9055ab54c59d799268014bd6a6f7327de"
     },
     "supplier_upload": "No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files."
   },
-  "annular_ring_check": {
-    "checked_component_plated_pads": [
-      {
-        "reference": "J4",
-        "pin": "1",
-        "minimum_annulus_mm": 0.299986
-      },
-      {
-        "reference": "J4",
-        "pin": "2",
-        "minimum_annulus_mm": 0.299986
-      },
-      {
-        "reference": "J4",
-        "pin": "3",
-        "minimum_annulus_mm": 0.299986
-      },
-      {
-        "reference": "J4",
-        "pin": "4",
-        "minimum_annulus_mm": 0.299986
-      },
-      {
-        "reference": "J4",
-        "pin": "5",
-        "minimum_annulus_mm": 0.299986
-      },
-      {
-        "reference": "J4",
-        "pin": "6",
-        "minimum_annulus_mm": 0.299986
-      },
+  "drill_and_paste": {
+    "status": "pass",
+    "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+    "component_plated_pads": [
       {
         "reference": "J1",
         "pin": "25",
-        "minimum_annulus_mm": 0.199999
+        "minimum_annulus_mm": 0.1999995
       },
       {
         "reference": "J1",
         "pin": "26",
-        "minimum_annulus_mm": 0.199999
+        "minimum_annulus_mm": 0.1999995
       },
       {
         "reference": "J1",
         "pin": "27",
-        "minimum_annulus_mm": 0.199999
+        "minimum_annulus_mm": 0.1999995
       },
       {
         "reference": "J1",
         "pin": "28",
-        "minimum_annulus_mm": 0.199999
+        "minimum_annulus_mm": 0.1999995
+      },
+      {
+        "reference": "J4",
+        "pin": "1",
+        "minimum_annulus_mm": 0.2999865
+      },
+      {
+        "reference": "J4",
+        "pin": "2",
+        "minimum_annulus_mm": 0.2999865
+      },
+      {
+        "reference": "J4",
+        "pin": "3",
+        "minimum_annulus_mm": 0.2999865
+      },
+      {
+        "reference": "J4",
+        "pin": "4",
+        "minimum_annulus_mm": 0.2999865
+      },
+      {
+        "reference": "J4",
+        "pin": "5",
+        "minimum_annulus_mm": 0.2999865
+      },
+      {
+        "reference": "J4",
+        "pin": "6",
+        "minimum_annulus_mm": 0.2999865
       }
     ],
-    "minimum_routing_via_annulus_mm": 0.15,
-    "component_pad_minimum_jlcpcb_absolute_requirement_mm": 0.18,
+    "SMT_paste_apertures_checked": 220,
+    "routing_vias": [
+      {
+        "x_mm": 113.9294,
+        "y_mm": 76.3417,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 125.4,
+        "y_mm": 101.95,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 125.4,
+        "y_mm": 97.9,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 104.05,
+        "y_mm": 125.8358,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 121.411,
+        "y_mm": 87.9415,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 120.9957,
+        "y_mm": 81.3594,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 79.1867,
+        "y_mm": 80.2515,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 82.5534,
+        "y_mm": 125.8358,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.8,
+        "y_mm": 93.2,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 76.4,
+        "y_mm": 123.8754,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 125.8,
+        "y_mm": 95.65,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 86.6021,
+        "y_mm": 73.725,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 119.8863,
+        "y_mm": 91.444,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 76.9846,
+        "y_mm": 76.6997,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 105.219,
+        "y_mm": 128.757,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 75.4494,
+        "y_mm": 98.2712,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 86.7,
+        "y_mm": 127.1282,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.15,
+        "y_mm": 93.979884,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 102.4923,
+        "y_mm": 128.2459,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 126.2,
+        "y_mm": 105.720116,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 131.620116,
+        "y_mm": 101.0,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 118.679884,
+        "y_mm": 101.0,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 131.620116,
+        "y_mm": 97.4,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 132.920116,
+        "y_mm": 94.6,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.95,
+        "y_mm": 93.699976,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 123.0,
+        "y_mm": 100.0,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.3,
+        "y_mm": 93.979884,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 118.679884,
+        "y_mm": 97.4,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 125.75,
+        "y_mm": 91.28,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 131.6,
+        "y_mm": 93.699976,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 118.4663,
+        "y_mm": 105.8869,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 79.7192,
+        "y_mm": 127.7528,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.4,
+        "y_mm": 100.0,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 101.542,
+        "y_mm": 66.0355,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.0005,
+        "y_mm": 88.6554,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 129.0,
+        "y_mm": 88.0626,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 108.982,
+        "y_mm": 68.0444,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 78.6659,
+        "y_mm": 99.1618,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 107.279,
+        "y_mm": 66.6375,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 101.987,
+        "y_mm": 63.4354,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 98.2499,
+        "y_mm": 65.4807,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 93.588,
+        "y_mm": 64.2347,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 126.75,
+        "y_mm": 97.8,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 126.1719,
+        "y_mm": 89.8762,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.9,
+        "y_mm": 90.55,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.8,
+        "y_mm": 83.25,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 117.05,
+        "y_mm": 75.5,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 111.5,
+        "y_mm": 79.7,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.2031,
+        "y_mm": 106.916,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 77.4225,
+        "y_mm": 117.4733,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 130.0587,
+        "y_mm": 99.898,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 77.8456,
+        "y_mm": 107.6761,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.6466,
+        "y_mm": 102.597,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 81.1139,
+        "y_mm": 108.9082,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 82.6544,
+        "y_mm": 124.5413,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 120.5188,
+        "y_mm": 124.5748,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 121.5701,
+        "y_mm": 110.0132,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 128.9997,
+        "y_mm": 105.0804,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 77.9657,
+        "y_mm": 104.717,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 78.0416,
+        "y_mm": 123.4192,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 128.4475,
+        "y_mm": 107.4107,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 120.8534,
+        "y_mm": 110.1254,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 118.8044,
+        "y_mm": 123.4959,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 77.5839,
+        "y_mm": 119.53,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 130.2328,
+        "y_mm": 110.1836,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 121.3028,
+        "y_mm": 122.3719,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 130.4816,
+        "y_mm": 109.3664,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 76.5003,
+        "y_mm": 120.1372,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 123.2082,
+        "y_mm": 112.5747,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 120.5166,
+        "y_mm": 98.4801,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 117.6662,
+        "y_mm": 99.5699,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 120.54,
+        "y_mm": 99.8918,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 89.0076,
+        "y_mm": 80.1546,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 129.0,
+        "y_mm": 96.3,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.9,
+        "y_mm": 95.7,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.0,
+        "y_mm": 95.6,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 126.3512,
+        "y_mm": 104.3774,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 98.7792,
+        "y_mm": 77.2682,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 116.7702,
+        "y_mm": 77.4609,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 116.5338,
+        "y_mm": 79.1311,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.4852,
+        "y_mm": 101.4557,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 115.0474,
+        "y_mm": 77.9365,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 81.6789,
+        "y_mm": 78.0674,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 116.0482,
+        "y_mm": 75.7823,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 129.474,
+        "y_mm": 101.9317,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 131.35,
+        "y_mm": 101.65,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 100.35,
+        "y_mm": 80.15,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 94.35,
+        "y_mm": 80.15,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 116.6,
+        "y_mm": 75.05,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 127.8204,
+        "y_mm": 89.851,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 126.0,
+        "y_mm": 97.35,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 124.261,
+        "y_mm": 94.7865,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 121.865,
+        "y_mm": 88.9319,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 123.1512,
+        "y_mm": 90.2988,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 122.8001,
+        "y_mm": 98.0443,
+        "diameter_mm": 0.5,
+        "drill_mm": 0.2,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 73.9893,
+        "y_mm": 85.2826,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 73.5041,
+        "y_mm": 86.6543,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      },
+      {
+        "x_mm": 118.1149,
+        "y_mm": 81.043,
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "annulus_mm": 0.15
+      }
+    ],
+    "minimum_via_annulus_mm": 0.15,
+    "minimum_via_drill_to_SMT_paste_clearance_mm": 0.3797320923032709,
+    "via_in_pad_process_required": false
+  },
+  "rp2040_local_paths": {
     "status": "pass",
-    "source": "https://jlcpcb.com/capabilities/pcb-capabilities/"
+    "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "note": "Limits are project engineering budgets; physical bring-up and signal integrity still require a prototype. Lengths are planar routed copper including pad centroids.",
+    "bypasses": [
+      {
+        "from": "U1.1",
+        "to": "C7.1",
+        "budget_mm": 6,
+        "length_mm": 1.4551,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.10",
+        "to": "C8.1",
+        "budget_mm": 6,
+        "length_mm": 1.4551,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.22",
+        "to": "C9.1",
+        "budget_mm": 6,
+        "length_mm": 1.4549,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.33",
+        "to": "C10.1",
+        "budget_mm": 6,
+        "length_mm": 1.3551,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.42",
+        "to": "C11.1",
+        "budget_mm": 6,
+        "length_mm": 1.3551,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.49",
+        "to": "C12.1",
+        "budget_mm": 6,
+        "length_mm": 2.388,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.43",
+        "to": "C13.1",
+        "budget_mm": 6,
+        "length_mm": 5.4218,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.48",
+        "to": "C17.1",
+        "budget_mm": 6,
+        "length_mm": 4.8277,
+        "minimum_track_width_mm": 0.15,
+        "vias": 2
+      },
+      {
+        "from": "U1.50",
+        "to": "C18.1",
+        "budget_mm": 6,
+        "length_mm": 1.7963,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.23",
+        "to": "C19.1",
+        "budget_mm": 6,
+        "length_mm": 2.5859,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.44",
+        "to": "C20.1",
+        "budget_mm": 7,
+        "length_mm": 5.4787,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U1.45",
+        "to": "C21.1",
+        "budget_mm": 7,
+        "length_mm": 4.2939,
+        "minimum_track_width_mm": 0.15,
+        "vias": 2
+      },
+      {
+        "from": "U8.8",
+        "to": "C22.1",
+        "budget_mm": 8,
+        "length_mm": 1.9125,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      },
+      {
+        "from": "U7.5",
+        "to": "C14.1",
+        "budget_mm": 6,
+        "length_mm": 3.4499,
+        "minimum_track_width_mm": 0.15,
+        "vias": 0
+      }
+    ],
+    "local_signals": [
+      {
+        "net": "XIN",
+        "total_copper_length_mm": 4.5956,
+        "via_count": 0
+      },
+      {
+        "net": "XOUT",
+        "total_copper_length_mm": 3.7358,
+        "via_count": 0
+      },
+      {
+        "net": "XTAL_OUT",
+        "total_copper_length_mm": 5.9886,
+        "via_count": 0
+      },
+      {
+        "net": "QSPI_SS",
+        "total_copper_length_mm": 19.7119,
+        "via_count": 0
+      },
+      {
+        "net": "QSPI_SCLK",
+        "total_copper_length_mm": 14.2224,
+        "via_count": 2
+      },
+      {
+        "net": "QSPI_SD0",
+        "total_copper_length_mm": 10.508,
+        "via_count": 0
+      },
+      {
+        "net": "QSPI_SD1",
+        "total_copper_length_mm": 5.3625,
+        "via_count": 0
+      },
+      {
+        "net": "QSPI_SD2",
+        "total_copper_length_mm": 5.0022,
+        "via_count": 0
+      },
+      {
+        "net": "QSPI_SD3",
+        "total_copper_length_mm": 16.3498,
+        "via_count": 2
+      },
+      {
+        "net": "USB_DM_MCU",
+        "total_copper_length_mm": 15.2088,
+        "via_count": 2
+      },
+      {
+        "net": "USB_DP_MCU",
+        "total_copper_length_mm": 15.0714,
+        "via_count": 2
+      }
+    ]
+  },
+  "firmware_image": {
+    "target": "RP2040 F1 / Winbond W25Q16JV 2MB",
+    "image_bytes": 35692,
+    "bin_sha256": "b72015c18d280116f27ab12e7d8048fefb5d8d72b9bb4844e1c2ee31f1aaba70",
+    "boot2_crc32": "0xd58f0b07",
+    "boot2_crc_valid": true,
+    "vector_address": "0x10000100",
+    "stack_top": "0x20042000",
+    "reset_vector": "0x100001f7",
+    "usb_irq": "0x100001c1",
+    "uf2_blocks": 140,
+    "uf2_family": "0xe48bff56",
+    "uf2_matches_bin": true,
+    "hex_data_matches_bin": true,
+    "usb_interfaces": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "usb_endpoints": [
+      "0x81",
+      "0x2",
+      "0x82",
+      "0x83"
+    ],
+    "usb_configuration_bytes": 100,
+    "requested_usb_mA": 100,
+    "hid_report_bytes": 77
+  },
+  "routing": {
+    "reviewed_date": "2026-11-10",
+    "pcb_revision": "F1",
+    "status": "pass",
+    "routing_method": "TSCircuit documented autorouter.algorithmFn with guarded externally checked copper; Freerouting 2.5.0 plus local routing",
+    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
+    "routing_asset_sha256": "bdfc336e484f3f0aad412fae83430490ef631d1e5883b69bdc91cc1043d5f9a1",
+    "routing_input_signature": "2e2538c5c57fc767",
+    "native_build_errors": 0,
+    "full_assembly_errors": 0,
+    "pcb_components": 52,
+    "physical_pads": 222,
+    "routed_trace_records": 1277,
+    "routing_vias": 98,
+    "via_sizes": [
+      {
+        "drill_mm": 0.2,
+        "pad_mm": 0.5,
+        "quantity": 50
+      },
+      {
+        "drill_mm": 0.3,
+        "pad_mm": 0.6,
+        "quantity": 48
+      }
+    ],
+    "minimum_wire_width_mm": 0.1,
+    "plotted_copper_shorts": 0,
+    "library_source_patched": false,
+    "compiled_circuit_json_edited": false,
+    "trace_contact_basis": "Real physical copper overlap with pads; canonical existing source trace for each electrical net",
+    "independent_fabrication_report": "validation/fabrication-check.json",
+    "logs": [
+      "validation/logs/rp2040-native-build.log",
+      "validation/logs/rp2040-shorts.log",
+      "validation/logs/rp2040-assembly-check.log"
+    ]
+  },
+  "assembly": {
+    "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+    "bare_board_identity": "pass",
+    "package_models_checked": 52,
+    "named_mechanical_parts": 25,
+    "model_sha256": "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3",
+    "unexpected_intersections": [],
+    "watertight_product_prints": 6,
+    "enclosure_size_mm": [
+      89.4,
+      89.4,
+      19.5
+    ],
+    "button_circular_envelope": {
+      "body_radius_mm": 44.7,
+      "delivered_button_max_radius_mm": 44.500002,
+      "recess_mm": 0.199998
+    }
   },
   "sourcing": {
-    "exact_mpn_lines": 23,
+    "evidence_date": "2026-11-10",
+    "exact_mpn_lines": 27,
     "all_exact_identities_match": true,
-    "all_publicly_purchasable": true,
-    "catalogue_quantities_cover_two_nominal_boards": true,
+    "all_publicly_purchasable_on_evidence_date": true,
     "stock_reserved": false,
-    "evidence": "manufacturing/current/checks/public-sourcing.json"
+    "evidence": "reference/jlcpcb-sourcing-2026-11-10.json"
   },
   "passed_checks": [
-    "typecheck",
-    "netlist",
-    "schematic-placement",
-    "placement (zero warnings)",
-    "design-contract",
-    "exact-supplier-footprints",
-    "plotted-copper-shorts",
-    "assembly-CAD-identity",
-    "independent-KiCad-DRC",
-    "native-trace-and-via-preservation",
-    "pad-envelope-and-drill-preservation",
-    "Gerber-Excellon-independent-parser",
-    "component-PTH-annuli",
-    "BOM-CPL-population-coordinates-rotations",
-    "current-public-MPN-code-stock",
-    "firmware-and-companion-tests",
-    "linked-firmware-image (--nm nm)"
-  ],
-  "electrical_review": [
-    {
-      "area": "USB and MCU supply",
-      "result": "5V input to 3.3V LDO; all MCU supply/ground pins, local analog/digital/I/O bypassing, independent CC pulldowns and both USB orientations checked. Internal MCU USB pull-up/termination agree with ST DS9826.",
-      "primary_source": "https://www.st.com/resource/en/datasheet/stm32f072cb.pdf"
-    },
-    {
-      "area": "Power regulation and peripheral switching",
-      "result": "TLV75533PDBVR DBV pin map, input/output ceramics, enable tie, TPS22919 IN/OUT/ON/QOD map and default-OFF control checked.",
-      "primary_sources": [
-        "https://www.ti.com/lit/ds/symlink/tlv755p.pdf",
-        "https://www.ti.com/lit/ds/symlink/tps22919.pdf"
-      ]
-    },
-    {
-      "area": "FRAM and optical encoder",
-      "result": "FRAM address/write-protect, I2C pullups, sensor A/K/collector/emitter mapping, IR resistor and 3.3V Schmitt buffer pin map checked. Actual optical contrast/timing require prototype tests.",
-      "primary_sources": [
-        "https://www.ramxeed.com/assets/images/products/datasheet/FeRAM/i3/MB85RC256V-DS11v1-E.pdf",
-        "https://www.vishay.com/docs/84174/tcut1600x01.pdf",
-        "https://www.ti.com/lit/ds/symlink/sn74lvc2g17.pdf"
-      ]
-    },
-    {
-      "area": "Programming, display and button",
-      "result": "J4 SWD/VTref/reset/BOOT0 map, J6 eight-signal H1 map and grounded anchors, PA0 switch pullup and firmware GPIO assignments checked. Waveshare drawing confirms transistor-controlled BL and the connector signal order.",
-      "primary_sources": [
-        "https://www.waveshare.net/w/upload/b/b4/1.28inch_LCD_Module_SchDoc.pdf",
-        "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf"
-      ]
-    }
+    "typecheck; shared firmware GPIO map",
+    "source netlist and eight-sheet schematic placement",
+    "native bare-board and full assembly builds (zero circuit errors)",
+    "placement (zero errors and warnings)",
+    "design contract: physical pin maps, rails, values and connectivity",
+    "exact supplier footprints: 52 parts / 222 physical pads",
+    "plotted-copper shorts (zero shorts)",
+    "independent KiCad DRC (zero violations/opens; no per-violation exclusions)",
+    "source trace/via and supplier pad/drill preservation",
+    "independent Gerber/Excellon outline, drills and population inspection",
+    "component/via annuli and SMT paste drill clearance",
+    "measured local bypass, crystal, QSPI and USB branch geometry",
+    "BOM/CPL population, source coordinates, rotations and physical pin map",
+    "bare-board/full-assembly PCB identity and CAD/STL audit",
+    "firmware cross-build, host counter/button/LCD/dashboard/companion tests",
+    "boot2 CRC, vectors, linked USB descriptors, Intel HEX and UF2 image",
+    "dated public sourcing identities (27 exact MPN lines; unreserved)"
   ],
   "remaining_factory_review": [
-    "Upload the matching Gerbers-E6.zip plus one matched BOM/CPL pair",
-    "Confirm exact MPN matches, feeder pickup origin, every asymmetric-part rotation and pin 1",
-    "Confirm engineering DFM and assembly support/panel rails for the irregular outline and inner window; keep the finished unit outline unchanged",
-    "For complete assembly confirm through-hole J4 service; for SMT-only fit J4 locally; trim J4 tails/joints to <=0.8mm before enclosure assembly",
-    "Confirm final stock allocation, attrition/minimum purchasing quantities and quote"
+    "Upload matching Gerbers-F1.zip and one matching complete or SMT BOM/CPL pair",
+    "Confirm exact MPNs, stock allocation/attrition quantities, feeder origins and pin-1 rotations",
+    "Confirm DFM, irregular outline/window support and removable panel tooling",
+    "Confirm J4 through-hole service for complete assembly; otherwise solder it locally and trim tails/joints to <=0.8mm"
   ],
   "physical_checks": [
-    "First-power current, 3.3V stability, inrush, regulator temperature and USB enumeration/suspend/signals",
-    "Encoder contrast/phase, display operation, FRAM retention and button closure/return/overtravel",
-    "Crimped H1 mating, continuity and installed fit"
+    "First power: 3.3V/1.1V stability, current/inrush, temperature and crystal/flash cold start",
+    "USB HID/CDC, both plug orientations, suspend current, resume and signal integrity",
+    "SWD and ROM UF2 programming; FRAM retention and screen orientation",
+    "Encoder phase/noise/speed with display and FRAM busy; optical material opacity at 950nm",
+    "Circular button centre/end closure, release, overtravel, foam force/life and guide friction",
+    "Printed bearing fits, carrier stiffness, screws, adhesive retention and H1 crimp/routing fit"
   ],
-  "manufacturing_package": "release/desk-knob-e6-e12-fabrication.zip",
-  "order_or_upload_performed": false,
-  "release_version": "5.11.0"
+  "manufacturing_package": "release/desk-knob-f1-e13-fabrication.zip",
+  "order_or_upload_performed": false
 }

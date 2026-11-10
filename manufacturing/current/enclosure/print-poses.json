@@ -1,0 +1,46 @@
+{
+  "base": {
+    "inverted": false,
+    "z": 0.0
+  },
+  "lid": {
+    "inverted": false,
+    "z": 5.300000000000001
+  },
+  "knob": {
+    "inverted": true,
+    "z": 19.299999999999997
+  },
+  "screen-carrier": {
+    "inverted": false,
+    "z": 13.1
+  },
+  "screen-bezel": {
+    "inverted": true,
+    "z": 19.5
+  },
+  "button-cap": {
+    "rotation_deg": [
+      -90,
+      0,
+      0
+    ],
+    "translation_mm": [
+      0,
+      0,
+      -39.6
+    ]
+  },
+  "fit-coupon-tight": {
+    "inverted": false,
+    "z": 0.0
+  },
+  "fit-coupon": {
+    "inverted": false,
+    "z": 0.0
+  },
+  "fit-coupon-loose": {
+    "inverted": false,
+    "z": 0.0
+  }
+}

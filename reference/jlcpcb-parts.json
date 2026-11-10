@@ -1,6 +1,6 @@
 {
-  "checked_date": "2026-11-09",
-  "scope": "All 23 fitted exact MPN/catalogue identities and current public JLCPCB purchasability/overseas stock checked 2026-11-09; see jlcpcb-sourcing-2026-11-09.json. Historical signed-in matching on 2026-11-06 applied to old v5.4.0. Corrected current BOM/CPL placement/feeder preview has not been authenticated or approved; no stock reserved.",
+  "checked_date": "2026-11-10",
+  "scope": "RP2040 F1 exact fitted MPN identities; new MCU, flash, crystal and passives checked against public catalogue 2026-11-10. Full sourcing evidence is packaged with fabrication checks; no stock reserved or factory preview approved.",
   "parts": {
     "GRM188R71C104KA01D": {
       "lcsc": "C45000",
@@ -19,12 +19,6 @@
       "footprint": "0805",
       "description": "4.7uF 16V X5R 10%",
       "source": "https://www.lcsc.com/product-detail/C1746.html"
-    },
-    "GRM155R71H103KA88D": {
-      "lcsc": "C77019",
-      "footprint": "0402",
-      "description": "10nF 50V X7R 10%",
-      "source": "https://jlcpcb.com/partdetail/MurataElectronics-GRM155R71H103KA88D/C77019"
     },
     "GRM155R71C104KA88D": {
       "lcsc": "C71629",
@@ -86,12 +80,6 @@
       "description": "side-actuated SMT switch",
       "source": "https://www.lcsc.com/product-detail/C963349.html"
     },
-    "STM32F072CBT6": {
-      "lcsc": "C81720",
-      "footprint": "LQFP-48-7x7-P0.5",
-      "description": "USB MCU",
-      "source": "https://jlcpcb.com/partdetail/STMicroelectronics-STM32F072CBT6/C81720"
-    },
     "MB85RC256VPNF-G-AMERE2": {
       "lcsc": "C45273903",
       "footprint": "SOP-8-150mil",
@@ -143,6 +131,42 @@
       "footprint": "JST-SH-8-P1.0-SMT-side-entry",
       "description": "Keyed 8-pin side-entry SMT display socket; two grounded hold-downs",
       "source": "https://jlcpcb.com/partdetail/JST-SM08B_SRSS_TB_LF_SN/C160407"
+    },
+    "RP2040": {
+      "lcsc": "C2040",
+      "footprint": "QFN-56-EP7x7-P0.4",
+      "description": "Dual Cortex-M0+ MCU; external boot flash",
+      "source": "https://jlcpcb.com/partdetail/RP2040/C2040"
+    },
+    "W25Q16JVSNIQ": {
+      "lcsc": "C2456211",
+      "footprint": "SOIC-8-150mil",
+      "description": "Winbond 16Mbit/2MB 3.3V QSPI NOR flash",
+      "source": "https://jlcpcb.com/partdetail/W25Q16JVSNIQ/C2456211"
+    },
+    "ABM8-272-T3": {
+      "lcsc": "C20625731",
+      "footprint": "SMD-3225-4P",
+      "description": "Abracon 12MHz, CL10pF, 50ohm ESR crystal",
+      "source": "https://jlcpcb.com/partdetail/ABM8-272-T3/C20625731"
+    },
+    "0402CG150J500NT": {
+      "lcsc": "C1548",
+      "footprint": "0402",
+      "description": "15pF 50V C0G 5% crystal load",
+      "source": "https://jlcpcb.com/partdetail/0402CG150J500NT/C1548"
+    },
+    "0603WAF270JT5E": {
+      "lcsc": "C25190",
+      "footprint": "0603",
+      "description": "27ohm 1% USB series termination",
+      "source": "https://jlcpcb.com/partdetail/0603WAF270JT5E/C25190"
+    },
+    "0603WAF1001T5E": {
+      "lcsc": "C21190",
+      "footprint": "0603",
+      "description": "1kohm 1% clock damping / BOOTSEL isolation",
+      "source": "https://jlcpcb.com/partdetail/0603WAF1001T5E/C21190"
     }
   }
 }

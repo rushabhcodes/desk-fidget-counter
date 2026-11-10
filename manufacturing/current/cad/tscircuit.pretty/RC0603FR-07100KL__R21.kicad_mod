@@ -7,7 +7,7 @@
 		(at 0 -3 90)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "c3321c55-a50e-419f-8859-64f154b224d6")
+		(uuid "93ccb8b0-1c99-4e47-bf3e-fc4eb0932ab9")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "8ea692d7-ae54-45a9-8080-4891653b4fe9")
+		(uuid "b68d8a0c-5adf-4a71-90e8-6e0ef8d09307")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "2d905cdc-4caa-4c80-bf20-ad5f4073a4c4")
+		(uuid "a9d456a9-3eb7-476c-8d96-59913d942147")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "2e742fb2-db64-49ad-9677-e9b19aabfa0c")
+		(uuid "58e7e4aa-25c4-4579-8c2c-8b991fe46813")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "c0bf25ee-4ccd-45ab-9829-138c9d94c016")
+		(uuid "8441a2cb-5bc6-4faf-8f77-934f50716578")
 	)
 	(fp_line
 		(start -1.385087 0.660603)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "9b6b2aab-3003-475b-9748-52371c880c73")
+		(uuid "772657f2-f2c3-469a-9192-72e33e9f10cc")
 	)
 	(fp_line
 		(start -0.426212 0.660603)
@@ -105,7 +105,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "273cf23d-7f1f-4569-ab0b-5b32f45dd2fd")
+		(uuid "2f37e0f7-a4af-4783-93f9-a2ca887888cb")
 	)
 	(fp_line
 		(start 0.426212 0.660603)
@@ -115,7 +115,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "cfa922a5-3103-471d-a625-39bf1ec2ca57")
+		(uuid "500f8676-4648-4b07-8d89-d3c667de1b26")
 	)
 	(fp_line
 		(start 1.385087 -0.660603)
@@ -125,7 +125,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "4cbe3ba6-56c3-4259-a87b-8e13a451c1dc")
+		(uuid "685d86f4-fe4d-4a3d-bbe7-6d6b725777da")
 	)
 	(fp_line
 		(start 1.385087 0.660603)
@@ -135,7 +135,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "4a14aeb7-2785-43cb-989f-b1919a821f91")
+		(uuid "443c1d5d-784c-4114-8727-442efd217e71")
 	)
 	(fp_poly
 		(pts
@@ -153,13 +153,13 @@
 		(at -0.753364 0 90)
 		(size 0.604804 0.564533)
 		(layers "F.Paste")
-		(uuid "175fe99e-5110-1462-467f-ed9e21f01062")
+		(uuid "2516b000-7f86-ede1-2608-d43e346769a3")
 	)
 	(pad "" smd rect
 		(at 0.753364 0 90)
 		(size 0.604804 0.564533)
 		(layers "F.Paste")
-		(uuid "6ac85a60-2cc7-a7a0-3ba8-56605be7aba0")
+		(uuid "62367420-4359-4dff-1716-efe271872dc3")
 	)
 	(pad "1" smd rect
 		(at -0.753364 0 90)

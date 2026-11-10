@@ -156,6 +156,48 @@
       "path": "imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_.tsx",
       "export": "SM08B_SRSS_TB_LF__SN_",
       "sha256": "028c3c7c511a418c3827bfe623accf976986281d6b96b483446cfe0add4a5234"
+    },
+    "RP2040": {
+      "path": "imports/jlc/RP2040.tsx",
+      "sha256": "f75c168660e8104d83299ea0988458d59b9c30febd9e585f9c67afa32bfcea99",
+      "code": "C2040",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
+    },
+    "W25Q16JVSNIQ": {
+      "path": "imports/jlc/W25Q16JVSNIQ.tsx",
+      "sha256": "cf7c3ea843133655441257361a05fc0b3270d296e7cc80be8e600edd149ebc19",
+      "code": "C2456211",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
+    },
+    "ABM8-272-T3": {
+      "path": "imports/jlc/ABM8_272_T3.tsx",
+      "sha256": "ed643a1d4a0882f09b0cb8a6b0ed60b184ad3b45a9b5f668c394de54c0d109ca",
+      "code": "C20625731",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
+    },
+    "0402CG150J500NT": {
+      "path": "imports/jlc/A_0402CG150J500NT.tsx",
+      "sha256": "d9d39d106e2f566f1d756948e946a3c0165d342fcd805c08f1a6299d0d1a1717",
+      "code": "C1548",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
+    },
+    "0603WAF270JT5E": {
+      "path": "imports/jlc/A_0603WAF270JT5E.tsx",
+      "sha256": "ab01569284e590efac0cef0a46e7cdbf5ca7f1ab2d01b2a8cb50485c2f47bca6",
+      "code": "C25190",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
+    },
+    "0603WAF1001T5E": {
+      "path": "imports/jlc/A_0603WAF1001T5E.tsx",
+      "sha256": "e0d61856d9313772b07629372f62020fcab72614cb58dae583bd3bfaa41e2efa",
+      "code": "C21190",
+      "source": "tsci import --jlcpcb --use-exact-footprint --exclude-pin-attributes",
+      "imported_date": "2026-11-10"
     }
   },
   "access_metadata": "The project adds insertionDirection=from_above to the J4 and J6 footprint root only. Imported pad, hole, mask, silk and courtyard children are unchanged."

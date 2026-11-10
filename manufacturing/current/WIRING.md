@@ -1,4 +1,4 @@
-# PCB E6 / Mechanics E11 physical wiring
+# PCB F1 / Mechanics E13 physical wiring
 
 All fitted board components mount from the top. Coordinates use +X right, +Y toward USB; PCB top is Z4.2 mm above the enclosure floor. Pin numbers refer to the physical board pads. Match pin 1 and the screen's printed signal labels, then check continuity before power.
 
@@ -39,19 +39,19 @@ The CAD uses the original unscaled JLC header STEP and dimensioned nominal cable
 
 J4 is JST B6B-PH-K-S(LF)(SN), top entry. Mate with PHR-6 and SPH-004T-P0.5S contacts on wire qualified by the JST PH drawing (32–28 AWG, 0.5–0.9 mm insulation OD for this contact). A service harness of about 150 mm is external and removed after programming. It is not routed beneath the assembled screen.
 
-| J4 pin / physical XY mm | Signal | Genuine ST-LINK/V2 20-pin SWD connector |
+| J4 pin / physical XY mm | Signal | Probe / recovery role |
 |---|---|---|
-| 1 / (-5,20.8) | Target 3.3V reference | Pin 1 VAPP / VTref, probe input |
-| 2 / (-3,20.8) | SWDIO | Pin 7 SWDIO |
-| 3 / (-1,20.8) | SWCLK | Pin 9 SWCLK |
-| 4 / (1,20.8) | NRST | Pin 15 NRST |
-| 5 / (3,20.8) | GND | Pin 4 GND |
-| 6 / (5,20.8) | BOOT0 | Leave empty for SWD; optional service jumper to pin 1 for ROM boot |
+| 1 / (-5,20.8) | Target 3.3V reference | VTref probe input; USB powers target |
+| 2 / (-3,20.8) | SWDIO | CMSIS-DAP / Raspberry Pi Debug Probe SWDIO |
+| 3 / (-1,20.8) | SWCLK | Probe SWCLK |
+| 4 / (1,20.8) | RUN | Active-low reset; optional probe reset |
+| 5 / (3,20.8) | GND | Probe ground / recovery jumper return |
+| 6 / (5,20.8) | BOOTSEL | Via 1kΩ to flash CS; leave open normally |
 
-Power the target through USB-C while programming. VTref senses target voltage; do not connect a probe's power-output pin to it. Pin numbering on 10-pin SWD probes and low-cost ST-Link clones differs: use the probe manufacturer's documented SWDIO/SWCLK/NRST/GND/VTref signals, not this 20-pin number column. Main firmware is written by SWD; BOOT0 normally stays low through R10.
+Use a probe and software supporting RP2040, such as Raspberry Pi Debug Probe with OpenOCD `target/rp2040.cfg`. Map probe **signal names**, since connector pin numbers vary. VTref senses target voltage; do not connect a probe power output. R10 pulls RUN up to 3.3V; R7 pulls flash CS up. For ROM USB boot, connect J4 pin 6 to pin 5 GND, pulse RUN low, release RUN, then release BOOTSEL. Copy firmware 6.0.0 `desk-knob.uf2` to RPI-RP2. The old STM32 BOOT0-to-VTref procedure must not be used on F1. [Firmware build and programming](../firmware/README.md).
 
 ## USB cable and mechanical fit
 
 The XUNPU C2909598 USB-C face is at Y42.1865 mm, 0.0135 mm inside the stationary side-wall radius and 0.2135 mm inside the outer floor edge; it remains accessible through the rear opening. Its 22 mm opening and the continuous 13.4×6.9 mm approach gauge include the specified [L-com drawing](https://www.l-com.cn/Images/Downloadables/2D/CAU4CC-40M-1M_2D.pdf)'s nominal 12.9×6.4 mm body plus general ±0.5 mm tolerance. The axis is Z=5.78 mm and the nominal rotor clearance is 0.77 mm (0.31 mm with the estimated axial allowance). The 35 mm gauge length is a checking volume, not a claimed cable dimension. Verify actual full insertion and strain relief.
 
-There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev E6.
+There is **no internal battery, cell connector, thermistor, charging circuit or flexible battery wiring** in Rev F1.

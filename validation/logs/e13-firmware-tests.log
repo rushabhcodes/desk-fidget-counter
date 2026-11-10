@@ -1,0 +1,9 @@
+counter tests: CW, CCW, wraps, reversals, slow motion, gates, stale/invalid/jump samples, saturation, CRC, 32 torn writes and 64-bit decimal console formatting passed
+LCD UI: all 240 scanlines, 20-digit counts, fault states and buffer boundaries passed
+Dashboard: bounds, invalid dates, atomic rejection, missing battery, midnight and uptime wrap passed
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+Button: debounced short press, single long press, release boundary, boot/resume hold and timer rollover passed

@@ -87,12 +87,16 @@ for x,y in P['bezel_screw_axes']:
         assert (closed[n]^driver).volume()<.001,(n,'bezel driver access')
 
 geometry=json.loads((ROOT/'mechanical/geometry-check.json').read_text())
+button_vertices=np.asarray(closed['button-cap'].to_mesh64().vert_properties)[:,:3]
+button_radius=float(np.linalg.norm(button_vertices[:,:2],axis=1).max())
+assert button_radius<=P['base_diameter']/2-P['front_button']['printed_cap']['face_recess_mm']+.00002,'Delivered button projects beyond its specified circular envelope'
 report={'revision':P['mechanical_revision'],'model_sha256':sha(ROOT/'mechanical/cad/assembled.glb'),
         'source_parameters_sha256':sha(ROOT/'mechanical/parameters.json'),'tested_solid_pair_count':pair_count,
         'intentional_contacts':hits,'unexpected_intersections':unexpected,'print_checks':print_checks,
         'carrier_through_bores':2,'bezel_driver_diameter_mm':4,
         'screen_rear_reservation':geometry['screen_fit']['rear_component_reservation'],
-        'enclosure_size_mm':[84.8,84.8,19.5],
+        'enclosure_size_mm':[round(float(x)*1000,4) for x in source.extents[[0,2,1]]],
+        'button_circular_envelope':{'body_radius_mm':P['base_diameter']/2,'delivered_button_max_radius_mm':round(button_radius,6),'recess_mm':round(P['base_diameter']/2-button_radius,6)},
         'scope':'Nominal delivered geometry plus stated fit-budget envelopes. Rear electronics reservation is an engineering allowance; exact kit plug fit, PLA strength/friction and bearing retention are physically untested.'}
 (OUT/'report.json').write_text(json.dumps(report,indent=2)+'\n')
 assert not unexpected,unexpected

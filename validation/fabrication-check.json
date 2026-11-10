@@ -1,21 +1,10 @@
 {
-  "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
-  "rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
-  "verified_physical_pads": 179,
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "rules_sha256": "908919c868860c5ad1d378734f21ce605a18659370e8d2ecf51ebcc2228693e5",
+  "verified_physical_pads": 222,
   "pad_centres_envelopes_and_drills_preserved": true,
   "native_traces_and_vias_unchanged": true,
-  "quantized_duplicate_zero_length_export_segments_omitted": [
-    {
-      "net": "NRST",
-      "layer": "B.Cu",
-      "position_nm": [
-        128228380,
-        86448458
-      ],
-      "width_nm": 150000,
-      "reason": "Adjacent native points quantized to the same 1nm coordinate; redundant copper disk covered by another same-net endpoint"
-    }
-  ],
+  "quantized_duplicate_zero_length_export_segments_omitted": [],
   "DRC_violations": 0,
   "unconnected_items": 0,
   "per_violation_exclusions": 0,

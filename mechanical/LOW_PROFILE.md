@@ -1,6 +1,6 @@
-# E12 low-profile architecture
+# E13 low-profile architecture
 
-The body remains **Ø84.8×19.5 mm** before optional feet. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
+The body is **Ø89.4×19.5 mm** before optional feet. E13 increases diameter by 4.6 mm to contain its R44.5 mm curved button, recessed 0.2 mm within the circular outline; the PCB outline and switch position are preserved by RP2040 revision F1. Its hollow 60×75×7 mm bearing surrounds the stationary 1.28-inch screen assembly, so the screen, cable and bearing occupy overlapping height ranges. No purchased part is scaled to fit.
 
 The **34.6×40.6 mm R2 PCB window** admits the LCD's rear connector, fixed cable and two braced screen-support walls. J4 remains at (0,+20.5) mm; the braced walls fit around it. The PCB remains two-layer and all fitted electronics are on top. There is no battery or toggle; USB-C stays on the rear and the original side-actuated switch is operated by a captive printed cap at the front.
 
@@ -36,4 +36,4 @@ The side-entry cable permits a **19.5 mm** assembled height, **2.8 mm (12.6%) sh
 
 E9 additionally opens the carrier screw bores and clears the actual screen PCB outline for a 2 mm rear-component allowance. The [visual audit](AUDIT.md) records the corrections and inspection views.
 
-E12 fits a compact keyed JST-SH8 socket on the left PCB annulus, facing into the window. A single SH8-to-PH8 crimped harness replaces the supplied jumper cable without raising the screen or enclosure. See the [physical wiring map](../manufacturing/WIRING.md).
+E13 retains the compact keyed JST-SH8 socket on the left PCB annulus, facing into the window. A single SH8-to-PH8 crimped harness replaces the supplied jumper cable without raising the screen or enclosure. See the [physical wiring map](../manufacturing/WIRING.md).

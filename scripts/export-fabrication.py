@@ -16,7 +16,8 @@ OUT=args.output or Path(tempfile.mkdtemp(prefix='desk-fab-check-' if args.check_
 REPORT=OUT
 OUT.mkdir(exist_ok=True)
 raw=args.input_board
-boardpath=OUT/'desk-knob-reve6.kicad_pcb'
+revision=json.loads((ROOT/'mechanical/parameters.json').read_text())['pcb_revision'].lower()
+boardpath=OUT/f'desk-knob-rev{revision}.kicad_pcb'
 b=pcbnew.LoadBoard(str(raw))
 def routed_copper(board):
     return sorted((type(t).__name__,t.GetNetname(),t.GetLayer(),
@@ -120,8 +121,8 @@ for fp in b.GetFootprints():
 (OUT/'fp-lib-table').write_text('(fp_lib_table (lib (name "tscircuit")(type "KiCad")(uri "${KIPRJMOD}/tscircuit.pretty")(options "")(descr "Generated from the tscircuit source")))\n')
 project={
  'board':{'design_settings':{'rules':{
-  'min_clearance':.1,'min_track_width':.1,'min_via_diameter':.6,
-  'min_through_hole_diameter':.3,'min_hole_clearance':.2,'min_hole_to_hole':.2,
+  'min_clearance':.1,'min_track_width':.1,'min_via_diameter':.5,
+  'min_through_hole_diameter':.2,'min_hole_clearance':.2,'min_hole_to_hole':.2,
   'min_copper_edge_clearance':.3,'min_text_height':1.0,'min_text_thickness':.15,'min_silk_clearance':.15}}},
  'net_settings':{'classes':[{'name':'Default','clearance':.1,'track_width':.15,
   'via_diameter':.6,'via_drill':.3,'microvia_diameter':.3,'microvia_drill':.1,

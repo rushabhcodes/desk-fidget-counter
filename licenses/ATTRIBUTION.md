@@ -2,7 +2,7 @@
 
 Original tscircuit circuit, firmware application, enclosure generator and documentation: Copyright 2026 rushabhcodes, MIT (root LICENSE).
 
-Ploopy Knob (https://github.com/ploopyco/knob) was studied for its continuous magnetic knob concept. Ploopy's hardware is CERN-OHL-S-2.0 and QMK firmware is GPLv3. No Ploopy CAD, PCB, artwork or firmware code is copied into this project. This implementation uses an independently authored STM32 board and TinyUSB application.
+Ploopy Knob (https://github.com/ploopyco/knob) was studied for its continuous magnetic knob concept. Ploopy's hardware is CERN-OHL-S-2.0 and QMK firmware is GPLv3. No Ploopy CAD, PCB, artwork or firmware code is copied into this project. This implementation uses an independently authored RP2040 board and TinyUSB application. Raspberry Pi SDK and PIO attribution is retained in `firmware/THIRD_PARTY.md` and `firmware/licenses/`.
 
 The user's fidget-counter (https://github.com/rushabhcodes/fidget-counter and https://tscircuit.com/rushabhcodes/fidget-counter) supplied the full-turn/backtracking behavior. Its original project remains separate. No original circuit, enclosure or firmware files are redistributed here.
 

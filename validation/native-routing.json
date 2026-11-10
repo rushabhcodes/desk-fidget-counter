@@ -1,44 +1,39 @@
 {
-  "checked_date": "2026-11-09",
-  "source_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
-  "source_board_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
-  "engine": "TSCircuit auto_local beta_pipeline9 / capacity-autorouter0.0.1063",
-  "phases": 1,
-  "explicit_MCU_bypass_connections": 14,
-  "explicit_encoder_bypass_connections": 2,
-  "effort": "2x",
-  "fresh_routing_from_empty_board": true,
-  "manual_copper_or_saved_path_imports": false,
-  "traces": 124,
-  "vias": 150,
-  "minimum_actual_track_mm": 0.15,
-  "native_errors": 0,
-  "native_warnings": [
-    ".C12 > .pin2 to net.GND has a 7.09 mm segment on top at 240.93\u00b0, 15.93\u00b0 from the nearest allowed direction (225\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB14 to net.LCD_DC has a 13.06 mm segment on bottom at 251.65\u00b0, 18.35\u00b0 from the nearest allowed direction (270\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB13 to net.SPI_SCK has a 6.14 mm segment on top at 122.76\u00b0, 12.24\u00b0 from the nearest allowed direction (135\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PA8 to net.LCD_CS has a 7.68 mm segment on bottom at 249.93\u00b0, 20.07\u00b0 from the nearest allowed direction (270\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PA8 to net.LCD_CS has a 6.12 mm segment on top at 252.90\u00b0, 17.10\u00b0 from the nearest allowed direction (270\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB11 to net.LCD_BL has a 10.04 mm segment on top at 261.17\u00b0, 8.83\u00b0 from the nearest allowed direction (270\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB10 to net.LCD_RST has a 15.28 mm segment on bottom at 243.16\u00b0, 18.16\u00b0 from the nearest allowed direction (225\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB7 to net.SDA has a 7.23 mm segment on bottom at 63.52\u00b0, 18.52\u00b0 from the nearest allowed direction (45\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PB6 to net.SCL has a 8.10 mm segment on bottom at 64.08\u00b0, 19.08\u00b0 from the nearest allowed direction (45\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PA12 to net.USB_DP has a 5.33 mm segment on top at 103.32\u00b0, 13.32\u00b0 from the nearest allowed direction (90\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .PA11 to net.USB_DM has a 6.33 mm segment on bottom at 114.66\u00b0, 20.34\u00b0 from the nearest allowed direction (135\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .NRST to net.NRST has a 7.98 mm segment on bottom at 70.80\u00b0, 19.20\u00b0 from the nearest allowed direction (90\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0).",
-    ".U1 > .VDD1 to net.V3V3 has a 5.77 mm segment on bottom at 209.25\u00b0, 15.75\u00b0 from the nearest allowed direction (225\u00b0). Prefer a multiple of 45\u00b0 for segments longer than 5 mm (tolerance 4\u00b0)."
+  "reviewed_date": "2026-11-10",
+  "pcb_revision": "F1",
+  "status": "pass",
+  "routing_method": "TSCircuit documented autorouter.algorithmFn with guarded externally checked copper; Freerouting 2.5.0 plus local routing",
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
+  "routing_asset_sha256": "bdfc336e484f3f0aad412fae83430490ef631d1e5883b69bdc91cc1043d5f9a1",
+  "routing_input_signature": "2e2538c5c57fc767",
+  "native_build_errors": 0,
+  "full_assembly_errors": 0,
+  "pcb_components": 52,
+  "physical_pads": 222,
+  "routed_trace_records": 1277,
+  "routing_vias": 98,
+  "via_sizes": [
+    {
+      "drill_mm": 0.2,
+      "pad_mm": 0.5,
+      "quantity": 50
+    },
+    {
+      "drill_mm": 0.3,
+      "pad_mm": 0.6,
+      "quantity": 48
+    }
   ],
-  "phase_board_edge_target_mm": 0.6,
-  "board_track_minimum_requested_mm": 0.15,
-  "phase_hole_clearance_target_mm": 0.35,
-  "phase_trace_to_pad_target_mm": 0.2,
-  "phase_via_to_pad_target_mm": 0.3,
-  "evidence": "validation/logs/e11-native-build.txt",
-  "bypass_budgets_mm": {
-    "MCU_high_frequency_default": 4,
-    "C10_IO_high_frequency": 5,
-    "C18_bulk_reservoir_links": 10,
-    "encoder_bypass": 6
-  },
-  "bypass_budget_basis": "Engineering layout budgets, not JLCPCB or ST certified limits. C10 is physically about 1.60mm from VDDIO2. Separate bulk-reservoir links do not inherit the HF budget; see reference/DATASHEETS.md."
+  "minimum_wire_width_mm": 0.1,
+  "plotted_copper_shorts": 0,
+  "library_source_patched": false,
+  "compiled_circuit_json_edited": false,
+  "trace_contact_basis": "Real physical copper overlap with pads; canonical existing source trace for each electrical net",
+  "independent_fabrication_report": "validation/fabrication-check.json",
+  "logs": [
+    "validation/logs/rp2040-native-build.log",
+    "validation/logs/rp2040-shorts.log",
+    "validation/logs/rp2040-assembly-check.log"
+  ]
 }

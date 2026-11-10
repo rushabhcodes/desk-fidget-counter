@@ -1,7 +1,17 @@
 {
-  "image_bytes": 61344,
-  "stack_top": "0x20004000",
-  "reset_vector": "0x80018b1",
+  "target": "RP2040 F1 / Winbond W25Q16JV 2MB",
+  "image_bytes": 35692,
+  "bin_sha256": "b72015c18d280116f27ab12e7d8048fefb5d8d72b9bb4844e1c2ee31f1aaba70",
+  "boot2_crc32": "0xd58f0b07",
+  "boot2_crc_valid": true,
+  "vector_address": "0x10000100",
+  "stack_top": "0x20042000",
+  "reset_vector": "0x100001f7",
+  "usb_irq": "0x100001c1",
+  "uf2_blocks": 140,
+  "uf2_family": "0xe48bff56",
+  "uf2_matches_bin": true,
+  "hex_data_matches_bin": true,
   "usb_interfaces": [
     [
       0,

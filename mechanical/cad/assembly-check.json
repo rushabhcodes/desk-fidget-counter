@@ -1,25 +1,25 @@
 {
   "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
-  "glb_frame": "glTF metres, +Y up; 84.8mm body, 19.5mm height; front printed cap gives 86.6mm overall depth",
+  "glb_frame": "glTF metres, +Y up; 89.4mm circular body, 19.5mm height; curved button stays inside the circular outline",
   "assembled_size_gltf_xyz_mm": [
-    84.8,
+    89.4,
     19.5,
-    86.6
+    89.4
   ],
   "part_count": 25,
   "fastener_count": 4,
   "product_print_count": 6,
-  "source_parameters_sha256": "0e66f1215decdd64b2e512533fad38ebd23fb908fe7af2ca46dd441993685366",
-  "source_board_tsx_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
+  "source_parameters_sha256": "3d62d8ac48dfde8754403a0ac03fdc3ec232a529d699d86578af8d30d8822ce8",
+  "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
   "printed_meshes_restored_from_print_orientation": 6,
   "cad_files": {
     "assembled.glb": {
-      "bytes": 8448012,
-      "sha256": "6fc51d638eaf31aeb9ca97f85a5d86f5c3c05c7baa22bb62fac51b4aec4943ee"
+      "bytes": 8706600,
+      "sha256": "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3"
     },
     "exploded.glb": {
-      "bytes": 8448068,
-      "sha256": "34183e760bd7fc0c57888492bd51c60af3be515f4057cfbda6c5e1fc0ea7ae86"
+      "bytes": 8706660,
+      "sha256": "a0df8c362f670601478bebc8f92aa639c8304ab8c04affb0b03194272c81cfb2"
     }
   },
   "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"

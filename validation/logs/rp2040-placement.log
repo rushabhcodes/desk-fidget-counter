@@ -1,0 +1,69 @@
+$ bun validation/check-placement.mjs
+placement summary: no placement issues
+
+board top-layer utilization:
+- occupied: 11.006% (624.893mm^2 of 5678mm^2)
+- empty spaces over 5% of board area:
+  - 26.499% (1504.596mm^2); bounds=(minX=-18.225mm, maxX=18.18mm, minY=-23.593mm, maxY=17.736mm)
+  - 8.804% (499.905mm^2); bounds=(minX=11.5mm, maxX=34mm, minY=19.182mm, maxY=41.4mm)
+  - 7.386% (419.358mm^2); bounds=(minX=-34mm, maxX=-24.555mm, minY=-42.1mm, maxY=2.3mm)
+
+board-edge status:
+- U1: 4.95mm inside right edge
+- J1: 0.305mm inside top edge
+- R1: 4.468mm inside top edge
+- R2: 4.968mm inside top edge
+- U6: 6.584mm inside top edge
+- C1: 6.9mm inside top edge
+- U4: 12.24mm inside bottom edge
+- C2: 12.65mm inside bottom edge
+- C3: 9.65mm inside bottom edge
+- R21: 15.943mm inside bottom edge
+- U5: 13.35mm inside bottom edge
+- C5: 13.65mm inside bottom edge
+- C6: 9.695mm inside left edge
+- C7: 13.43mm inside right edge
+- C8: 13.43mm inside right edge
+- C9: 8.33mm inside right edge
+- C10: 2.93mm inside right edge
+- C11: 2.93mm inside right edge
+- C12: 7.33mm inside right edge
+- C13: 0.83mm inside right edge
+- C17: 7.98mm inside right edge
+- C18: 8.63mm inside right edge
+- C19: 6.73mm inside right edge
+- C20: 2.95mm inside right edge
+- C21: 4.55mm inside right edge
+- R10: 4.968mm inside right edge
+- J4: 19.85mm inside top edge
+- U2: 7.124mm inside left edge
+- U7: 11.315mm inside left edge
+- R24: 4.843mm inside left edge
+- R25: 7.343mm inside left edge
+- R26: 7.343mm inside left edge
+- C14: 11.9mm inside left edge
+- R12: 12.343mm inside left edge
+- R13: 9.843mm inside left edge
+- U3: 11.68mm inside top edge
+- C16: 9.95mm inside top edge
+- SW1: 0.35mm inside bottom edge
+- J6: 9.875mm inside left edge
+- R27: 2.468mm inside right edge
+- R28: 2.468mm inside right edge
+- C15: 4.9mm inside left edge
+- U8: 9.28mm inside right edge
+- C22: 15.03mm inside right edge
+- R6: 5.343mm inside right edge
+- R7: 9.443mm inside right edge
+- X1: 11.5mm inside right edge
+- R5: 9.568mm inside right edge
+- C23: 10.23mm inside right edge
+- C24: 14.33mm inside right edge
+- R3: 6.568mm inside right edge
+- R4: 4.568mm inside right edge
+
+placement drc:
+Errors: 0
+Warnings: 0
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Placement passed: no orientation or courtyard issues. J6 is the fitted JST-SH8 side-entry SMT display socket. Full copper, shorts and independent KiCad checks remain required.

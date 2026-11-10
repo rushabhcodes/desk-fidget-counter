@@ -1,0 +1,748 @@
+{
+  "status": "pass",
+  "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+  "component_plated_pads": [
+    {
+      "reference": "J1",
+      "pin": "25",
+      "minimum_annulus_mm": 0.1999995
+    },
+    {
+      "reference": "J1",
+      "pin": "26",
+      "minimum_annulus_mm": 0.1999995
+    },
+    {
+      "reference": "J1",
+      "pin": "27",
+      "minimum_annulus_mm": 0.1999995
+    },
+    {
+      "reference": "J1",
+      "pin": "28",
+      "minimum_annulus_mm": 0.1999995
+    },
+    {
+      "reference": "J4",
+      "pin": "1",
+      "minimum_annulus_mm": 0.2999865
+    },
+    {
+      "reference": "J4",
+      "pin": "2",
+      "minimum_annulus_mm": 0.2999865
+    },
+    {
+      "reference": "J4",
+      "pin": "3",
+      "minimum_annulus_mm": 0.2999865
+    },
+    {
+      "reference": "J4",
+      "pin": "4",
+      "minimum_annulus_mm": 0.2999865
+    },
+    {
+      "reference": "J4",
+      "pin": "5",
+      "minimum_annulus_mm": 0.2999865
+    },
+    {
+      "reference": "J4",
+      "pin": "6",
+      "minimum_annulus_mm": 0.2999865
+    }
+  ],
+  "SMT_paste_apertures_checked": 220,
+  "routing_vias": [
+    {
+      "x_mm": 113.9294,
+      "y_mm": 76.3417,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 125.4,
+      "y_mm": 101.95,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 125.4,
+      "y_mm": 97.9,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 104.05,
+      "y_mm": 125.8358,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 121.411,
+      "y_mm": 87.9415,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 120.9957,
+      "y_mm": 81.3594,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 79.1867,
+      "y_mm": 80.2515,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 82.5534,
+      "y_mm": 125.8358,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.8,
+      "y_mm": 93.2,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 76.4,
+      "y_mm": 123.8754,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 125.8,
+      "y_mm": 95.65,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 86.6021,
+      "y_mm": 73.725,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 119.8863,
+      "y_mm": 91.444,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 76.9846,
+      "y_mm": 76.6997,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 105.219,
+      "y_mm": 128.757,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 75.4494,
+      "y_mm": 98.2712,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 86.7,
+      "y_mm": 127.1282,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.15,
+      "y_mm": 93.979884,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 102.4923,
+      "y_mm": 128.2459,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 126.2,
+      "y_mm": 105.720116,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 131.620116,
+      "y_mm": 101.0,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 118.679884,
+      "y_mm": 101.0,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 131.620116,
+      "y_mm": 97.4,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 132.920116,
+      "y_mm": 94.6,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.95,
+      "y_mm": 93.699976,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 123.0,
+      "y_mm": 100.0,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.3,
+      "y_mm": 93.979884,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 118.679884,
+      "y_mm": 97.4,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 125.75,
+      "y_mm": 91.28,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 131.6,
+      "y_mm": 93.699976,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 118.4663,
+      "y_mm": 105.8869,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 79.7192,
+      "y_mm": 127.7528,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.4,
+      "y_mm": 100.0,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 101.542,
+      "y_mm": 66.0355,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.0005,
+      "y_mm": 88.6554,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 129.0,
+      "y_mm": 88.0626,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 108.982,
+      "y_mm": 68.0444,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 78.6659,
+      "y_mm": 99.1618,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 107.279,
+      "y_mm": 66.6375,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 101.987,
+      "y_mm": 63.4354,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 98.2499,
+      "y_mm": 65.4807,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 93.588,
+      "y_mm": 64.2347,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 126.75,
+      "y_mm": 97.8,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 126.1719,
+      "y_mm": 89.8762,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.9,
+      "y_mm": 90.55,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.8,
+      "y_mm": 83.25,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 117.05,
+      "y_mm": 75.5,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 111.5,
+      "y_mm": 79.7,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.2031,
+      "y_mm": 106.916,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 77.4225,
+      "y_mm": 117.4733,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 130.0587,
+      "y_mm": 99.898,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 77.8456,
+      "y_mm": 107.6761,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.6466,
+      "y_mm": 102.597,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 81.1139,
+      "y_mm": 108.9082,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 82.6544,
+      "y_mm": 124.5413,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 120.5188,
+      "y_mm": 124.5748,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 121.5701,
+      "y_mm": 110.0132,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 128.9997,
+      "y_mm": 105.0804,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 77.9657,
+      "y_mm": 104.717,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 78.0416,
+      "y_mm": 123.4192,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 128.4475,
+      "y_mm": 107.4107,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 120.8534,
+      "y_mm": 110.1254,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 118.8044,
+      "y_mm": 123.4959,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 77.5839,
+      "y_mm": 119.53,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 130.2328,
+      "y_mm": 110.1836,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 121.3028,
+      "y_mm": 122.3719,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 130.4816,
+      "y_mm": 109.3664,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 76.5003,
+      "y_mm": 120.1372,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 123.2082,
+      "y_mm": 112.5747,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 120.5166,
+      "y_mm": 98.4801,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 117.6662,
+      "y_mm": 99.5699,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 120.54,
+      "y_mm": 99.8918,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 89.0076,
+      "y_mm": 80.1546,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 129.0,
+      "y_mm": 96.3,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.9,
+      "y_mm": 95.7,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.0,
+      "y_mm": 95.6,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 126.3512,
+      "y_mm": 104.3774,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 98.7792,
+      "y_mm": 77.2682,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 116.7702,
+      "y_mm": 77.4609,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 116.5338,
+      "y_mm": 79.1311,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.4852,
+      "y_mm": 101.4557,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 115.0474,
+      "y_mm": 77.9365,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 81.6789,
+      "y_mm": 78.0674,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 116.0482,
+      "y_mm": 75.7823,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 129.474,
+      "y_mm": 101.9317,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 131.35,
+      "y_mm": 101.65,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 100.35,
+      "y_mm": 80.15,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 94.35,
+      "y_mm": 80.15,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 116.6,
+      "y_mm": 75.05,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 127.8204,
+      "y_mm": 89.851,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 126.0,
+      "y_mm": 97.35,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 124.261,
+      "y_mm": 94.7865,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 121.865,
+      "y_mm": 88.9319,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 123.1512,
+      "y_mm": 90.2988,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 122.8001,
+      "y_mm": 98.0443,
+      "diameter_mm": 0.5,
+      "drill_mm": 0.2,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 73.9893,
+      "y_mm": 85.2826,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 73.5041,
+      "y_mm": 86.6543,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    },
+    {
+      "x_mm": 118.1149,
+      "y_mm": 81.043,
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "annulus_mm": 0.15
+    }
+  ],
+  "minimum_via_annulus_mm": 0.15,
+  "minimum_via_drill_to_SMT_paste_clearance_mm": 0.3797320923032709,
+  "via_in_pad_process_required": false
+}

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 import fs from 'node:fs'
 import { convertCircuitJsonToGltf } from 'circuit-json-to-gltf'
-const circuit = JSON.parse(fs.readFileSync('dist/index/circuit.json', 'utf8'))
+const circuit = JSON.parse(fs.readFileSync(process.argv[2] ?? 'dist/index/circuit.json', 'utf8'))
 // Resolve the included model bytes locally for an offline CAD export.
 for (const part of circuit.filter(c=>c.type==='cad_component')) {
   const url=part.model_obj_url

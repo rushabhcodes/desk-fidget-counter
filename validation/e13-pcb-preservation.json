@@ -1,0 +1,20 @@
+{
+  "reviewed_date": "2026-11-10",
+  "baseline_commit": "b548a3621ed6ff0f6af0468b5aac299b8f627446",
+  "baseline_package": "5.11.1",
+  "pcb_revision": "E6",
+  "mechanical_revision": "E13",
+  "source_board_tsx_unchanged": true,
+  "source_board_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
+  "all_non_project_metadata_circuit_records_identical": true,
+  "bare_circuit_byte_identical": false,
+  "only_bare_circuit_difference": "CLI source_project_metadata.source_filesystem_md5_hash reflects the updated workspace. No design or manufactured geometry record changed.",
+  "baseline_bare_circuit_sha256": "017401ca49336e2d6dae5a0da2eb7a151d6c35064b2fcfdd321733cae473e1da",
+  "bare_circuit_sha256": "e43e81302352b421d65671eeecc06ccb3f24d38bcf2d6e3175e7f5780b2a1a28",
+  "assembly_PCB_records_identical_to_validated_baseline": true,
+  "compared_PCB_records": 1133,
+  "fabrication_rules_unchanged": true,
+  "fabrication_rules_sha256": "07b8328362b120e27cd389d96a967afc0a27219aa87108d17f8bb8e2ec9e7ad6",
+  "native_error_count": 0,
+  "basis": "E13 enlarges the circular enclosure from 84.8 to 89.4mm and uses a curved cap inside the circle. The E6 board, original switch placement, all 179 supplier pads and every native trace/via are preserved. The current source-derived fabrication set was independently rechecked."
+}

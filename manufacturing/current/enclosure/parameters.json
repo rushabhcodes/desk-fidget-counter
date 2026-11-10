@@ -1,0 +1,478 @@
+{
+  "base_diameter": 89.4,
+  "pcb_diameter": 72,
+  "pcb_bottom_z": 2.6,
+  "pcb_thickness": 1.6,
+  "mount_holes": [
+    [
+      -30,
+      15
+    ],
+    [
+      30,
+      15
+    ],
+    [
+      -30,
+      -15
+    ],
+    [
+      30,
+      -15
+    ]
+  ],
+  "lid_bottom_z": 7.2,
+  "lid_top_z": 8.4,
+  "bearing": {
+    "part": "6712ZZ",
+    "id": 60,
+    "od": 75,
+    "width": 7,
+    "bottom_z": 9.2,
+    "manufacturer": "Maysme",
+    "source": "https://maysmeprecision.com/Show/?Cid=677",
+    "race_dimensions_status": "60x75x7 boundary dimensions verified. Internal race, shield, ball and cage dimensions are best approximations authorized by the user, not manufacturer CAD.",
+    "approximation": {
+      "inner_race_od": 64.0,
+      "outer_race_id": 71.0,
+      "pitch_diameter": 67.5,
+      "ball_diameter": 4.0,
+      "ball_count": 44,
+      "groove_radius": 2.05,
+      "edge_chamfer": 0.3,
+      "shield_thickness": 0.2,
+      "shield_recess": 0.35,
+      "shield_inner_diameter": 64.16,
+      "shield_outer_diameter": 71.5,
+      "basis": "Maysme 6712ZZ envelope; NSK NB712A 60x75x7 mounting analogue. Internal dimensions are engineering/visual estimates, not Maysme manufacturing data."
+    }
+  },
+  "bearing_stem_od": 60.0,
+  "bearing_pocket_id": 75.0,
+  "knob_diameter": 89.4,
+  "knob_top_z": 19.3,
+  "usb_center": [
+    0,
+    37.55
+  ],
+  "programming_connector": [
+    0,
+    20.8
+  ],
+  "display_connector": [
+    -21.3,
+    -2
+  ],
+  "encoder": {
+    "position": [
+      -23,
+      10
+    ],
+    "rotation_deg": 156.501434,
+    "track_radius": 25.079872408,
+    "track_thickness": 0.8,
+    "slots": 48,
+    "beam_z": 8.7,
+    "skirt_bottom_z": 7.9,
+    "bond_outer_radius": 25.9
+  },
+  "display": {
+    "part": "Waveshare 19192",
+    "active_diameter": 32.4,
+    "pcb_diameter": 37.5,
+    "pcb_bottom_z": 14.5,
+    "pcb_thickness": 1,
+    "front_z": 18.1,
+    "bezel_top_z": 19.5,
+    "bezel_diameter": 48,
+    "module_rotation_deg": 270,
+    "official_step": "vendor/step/Waveshare-19192.stp",
+    "glass_relief_mm": 0.4,
+    "mounting_hole_centers_mm": [
+      [
+        -9.3,
+        -13.35
+      ],
+      [
+        9.3,
+        -13.35
+      ],
+      [
+        -9.3,
+        13.35
+      ],
+      [
+        9.3,
+        13.35
+      ]
+    ],
+    "mounting_boss_rear_z": 12.0,
+    "mounting_hole_model_diameter_mm": 1.7,
+    "mounting_hole_status": "Centres and 1.7mm simplified bore measured from official 0508.stp. Thread specification is not established; no screws are threaded into the module.",
+    "cable_mating": {
+      "entry": "side",
+      "insertion_axis": "-X toward socket, parallel to display PCB",
+      "wire_exit_x_mm": 14.8,
+      "axis_z_mm": 11.7,
+      "housing_nominal_mm": [
+        6.85,
+        17.8,
+        4.5
+      ],
+      "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
+      "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+    },
+    "rear_component_clearance_depth_mm": 2.0
+  },
+  "header_tail_below_pcb_mm": 0.8,
+  "lid_screw_length_mm": 6,
+  "knob_bottom_z": 10.0,
+  "pcb_window": {
+    "xmin": -17.8,
+    "xmax": 16.8,
+    "ymin": -21.8,
+    "ymax": 18.8,
+    "corner_radius": 2
+  },
+  "pcb_outline": {
+    "radius": 36,
+    "clip_x": 34,
+    "clip_y": 34,
+    "usb_tab": {
+      "replace_above_y": 33,
+      "points": [
+        [
+          14.5,
+          33
+        ],
+        [
+          14.5,
+          35.5
+        ],
+        [
+          7,
+          41.4
+        ],
+        [
+          -7,
+          41.4
+        ],
+        [
+          -14.5,
+          35.5
+        ],
+        [
+          -14.5,
+          33
+        ]
+      ]
+    },
+    "button_tab": {
+      "replace_below_y": -33,
+      "points": [
+        [
+          -14,
+          -33
+        ],
+        [
+          -14,
+          -35.5
+        ],
+        [
+          -5,
+          -41.2
+        ],
+        [
+          -3.5,
+          -42.1
+        ],
+        [
+          3.5,
+          -42.1
+        ],
+        [
+          5,
+          -41.2
+        ],
+        [
+          14,
+          -35.5
+        ],
+        [
+          14,
+          -33
+        ]
+      ]
+    }
+  },
+  "usb_plug_max_height_mm": 6.9,
+  "chassis_screw_axes": [
+    [
+      27.6,
+      27.6
+    ],
+    [
+      -27.6,
+      -27.6
+    ]
+  ],
+  "screen_posts": [
+    [
+      -14.6,
+      15.96
+    ],
+    [
+      13.8,
+      -16.65
+    ]
+  ],
+  "usb_cable_part": "L-com CAU4CC-40M-1M",
+  "front_button": {
+    "part": "Omron B3U-3000P",
+    "pcb_center": [
+      0,
+      -40.9
+    ],
+    "pcb_rotation_deg": 180,
+    "axis_z": 4.8,
+    "actuator_front_y": -42.85,
+    "datasheet_pretravel_mm": {
+      "min": 0.1,
+      "typ": 0.2,
+      "max": 0.4
+    },
+    "direct_actuation": false,
+    "opening_width_mm": 14.8,
+    "opening_bottom_z": 2.0,
+    "opening_top_z": 9.8,
+    "finger_check_radius_mm": 6,
+    "fit_status": "Curved captive paddle within an 89.4mm circular body with 0.2mm recess. RP2040 PCB F1 retains the switch and mounting datums. Verify printed fit, force, closure and overtravel on the prototype.",
+    "printed_cap": {
+      "part": "button-cap",
+      "face_width_mm": 14,
+      "face_height_mm": 7.0,
+      "face_front_y": -44.5,
+      "rest_tip_y": -43.05,
+      "nominal_rest_gap_mm": 0.2,
+      "nominal_max_travel_mm": 0.6,
+      "minimum_slide_clearance_mm": 0.4,
+      "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+      "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+      "face_center_z_mm": 5.9,
+      "face_thickness_mm": 1.1,
+      "face_corner_radius_mm": 1.2,
+      "thumb_dish_depth_mm": 0.2,
+      "rail_centers_x_mm": [
+        -5.2,
+        5.2
+      ],
+      "rail_width_mm": 2.0,
+      "rail_top_z_mm": 7.6,
+      "rail_height_mm": 1.6,
+      "rail_front_y_mm": -43.6,
+      "rail_rear_y_mm": -39.6,
+      "ear_center_y_mm": -40.0,
+      "ear_depth_mm": 0.8,
+      "ear_inner_x_mm": 4.2,
+      "ear_outer_x_mm": 10.0,
+      "press_center_z_mm": 6.4,
+      "face_radius_mm": 44.5,
+      "face_recess_mm": 0.2,
+      "guide_offset_y_mm": -1.4
+    },
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -36.85,
+      "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
+    },
+    "opening_inner_y_mm": -41.7
+  },
+  "usb_access": {
+    "axis_z": 5.78,
+    "socket_face_y": 42.186507,
+    "opening_width_mm": 22,
+    "opening_center_y": 41,
+    "opening_length_mm": 25,
+    "opening_bottom_z": 1.55,
+    "opening_top_z": 9.2,
+    "plug_width_mm": 13.4,
+    "plug_height_mm": 6.9,
+    "plug_shoulder_y": 42.186507,
+    "plug_check_length_mm": 35,
+    "scope": "Socket face from the unscaled C2909598 supplier STEP; CAD lead seating plane aligned to Z=0.09mm to match the 3.16mm manufacturer body height. Plug gauge uses L-com nominal 12.9x6.4mm plus +/-0.5mm tolerance, shoulder flush to socket face. Actual cable fit requires prototype verification.",
+    "plug_nominal_width_mm": 12.9,
+    "plug_nominal_height_mm": 6.4,
+    "plug_tolerance_mm": 0.5,
+    "model_filename": "TYPEC_309_ACP16L65.obj",
+    "solid_filename": "TYPEC_309_ACP16L65.ply"
+  },
+  "stock_display_cable": {
+    "source": "https://www.waveshare.com/product/1.28inch-lcd-module.htm",
+    "included": true,
+    "used": false,
+    "description": "Original 20cm PH-to-eight-female-jumper lead retained as spare; H1 replaces it",
+    "custom_harness_required": true,
+    "modeled_wire_od_mm": 0.61,
+    "wire_od_check_mm": 0.8,
+    "display_u_bend_radius_mm": 3.3,
+    "wire": "TE/Raychem 55A0111-30-9, 30AWG stranded ETFE, nominal OD0.61mm",
+    "free_length_mm": 44,
+    "free_length_tolerance_mm": 1,
+    "assembly": "Order one crimped H1 SH8-to-PH8 harness from the drawing; no inline splices. Free length is insulation between rear housing exits, not raw wire cut length.",
+    "board_connection": "J6 JST SM08B-SRSS-TB(LF)(SN) / C160407",
+    "dimensions_status": "Named genuine mating housings and contacts; nominal engagement and static 3.3mm bend are engineering approximations. Actual harness fit and crimp quality require prototype verification."
+  },
+  "mechanical_revision": "E13",
+  "bearing_mount": {
+    "inner_contact_od": 62.0,
+    "outer_contact_id": 73.0,
+    "basis": "Inner-race lower shoulder and outer-race upper shoulder locate the bearing axially. Calibrated bore/pocket push fits retain it; no separate clamps or lower retainer."
+  },
+  "pcb_capture": {
+    "peg_diameter": 2.2,
+    "pad_diameter": 4.0,
+    "compressed_pad_height": 1.1,
+    "uncompressed_pad_height": 1.57,
+    "pad_thickness_tolerance_fraction": 0.1,
+    "material": "Rogers PORON 4701-30-20062-04, 320 kg/m3, 1.57mm nominal; six discs (four diameter4mm, two diameter2.6mm), attach with 0.05mm 467MP",
+    "adhesive_thickness": 0.05,
+    "source": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf",
+    "front_pad_centers": [
+      [
+        -6,
+        -35
+      ],
+      [
+        6,
+        -35
+      ]
+    ]
+  },
+  "fit_budget": {
+    "bearing_diameter_error": 0.02,
+    "bearing_width_error": 0.2,
+    "printed_fit_diameter_error": 0.1,
+    "printed_surface_error": 0.1,
+    "relative_print_z_error": 0.1,
+    "pcb_thickness_error": 0.16,
+    "pcb_hole_diameter_error": 0.05,
+    "lid_alignment_error": 0.1,
+    "smt_position_error": 0.1,
+    "moving_xy_print_check": 0.62,
+    "moving_xy_pcb_check": 0.945,
+    "moving_z_check": 0.2,
+    "status": "Conservative engineering approximation and required print calibration targets; not measured production capability.",
+    "moving_z_print_check": 0.3,
+    "moving_z_hardware_check": 0.46,
+    "pcb_cutout_edge_error": 0.2
+  },
+  "bezel_screw_axes": [
+    [
+      -14.6,
+      15.96
+    ],
+    [
+      13.8,
+      -16.65
+    ]
+  ],
+  "assembly_simplification": {
+    "revision": "E13",
+    "product_print_count": 6,
+    "fasteners": [
+      {
+        "part": "DIN 965 M2x6",
+        "quantity": 2,
+        "use": "base/lid"
+      },
+      {
+        "part": "DIN 965 M2x10",
+        "quantity": 2,
+        "use": "bezel and screen carrier into base posts"
+      }
+    ],
+    "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
+    "integral_encoder_skirt": true,
+    "separate_bearing_retainers": false
+  },
+  "screen_support": {
+    "material": "PLA",
+    "wall_thickness_mm": 4.0,
+    "wall_span_x_mm": 23.0,
+    "wall_centers_y_mm": [
+      -13.35,
+      13.35
+    ],
+    "foot_thickness_mm": 7.0,
+    "gusset_top_z": 8.0,
+    "seat_z": 12.0,
+    "locator_height_mm": 1.0,
+    "locator_pins": [
+      {
+        "center_mm": [
+          -9.3,
+          -13.35
+        ],
+        "diameter_mm": 1.2
+      },
+      {
+        "center_mm": [
+          9.3,
+          13.35
+        ],
+        "diameter_mm": 1.0
+      }
+    ],
+    "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
+    "carrier_bottom_z": 13.1,
+    "carrier_rim_to_PCB_gap_mm": 0.2,
+    "carrier_rear_profile_clearance_mm": 0.4
+  },
+  "pcb_revision": "F1",
+  "display_board_header": {
+    "part": "SM08B-SRSS-TB(LF)(SN)",
+    "catalogue_id": "C160407",
+    "rows": 1,
+    "columns": 8,
+    "pitch_mm": 1,
+    "pcb_rotation_deg": 90,
+    "pin_signals": [
+      "BL",
+      "RST",
+      "DC",
+      "CS",
+      "CLK",
+      "DIN",
+      "GND",
+      "VCC"
+    ],
+    "mating_housing": "SHR-08V-S-B",
+    "mating_contact": "SSH-003T-P0.2-H",
+    "pin_axis_above_pcb_mm": 1.45,
+    "housing_depth_mm": 5,
+    "housing_width_mm": 11,
+    "housing_height_mm": 2.8,
+    "wire_exit_local_y_mm": -4.5717309,
+    "dimensions_status": "Housing overall dimensions from JST SH drawing; engagement datum and stepped nose are engineering approximations checked against unscaled supplier header STEP. Confirm actual mating fit."
+  },
+  "knob_lower_chamfer": {
+    "height_mm": 1.6,
+    "radial_mm": 1.6,
+    "purpose": "A continuous circular lower-edge bevel gives the fingertip clearance while pressing the recessed curved button."
+  }
+}

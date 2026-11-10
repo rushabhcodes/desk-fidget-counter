@@ -8,24 +8,24 @@ Short-press the front button to switch between scrolling and counting only. Hold
 
 ## Board and enclosure
 
-- **Two-layer, 1.6 mm PCB**, with all 39 fitted components on top. USB-C is on the rear; a 14×6.6 mm rounded paddle with guided travel and foam return operates the front Omron switch.
-- **Six product prints and four screws**, in an approximately **Ø84.8 × 19.5 mm** body; the front cap brings overall depth to **86.6 mm**. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
+- **Two-layer, 1.6 mm PCB**, with all 52 fitted components on top. USB-C is on the rear; a 14×7 mm curved button with guided travel and foam return operates the front Omron switch.
+- **Six product prints and four screws**, in an approximately **Ø89.4 × 19.5 mm** body, with the button inside its circular outline. The optical skirt is integral to the grip; the screen carrier and bezel share two screws.
 - **One complete 6712ZZ bearing object** in the CAD viewer, including its races, shields, balls and cage. Calibrate the printed bearing fits with the coupons before printing the enclosure.
-- Every trace and via comes from **TSCircuit’s native autorouter**. The source defines connectivity, placement and fabrication rules; it contains no hand-routed paths or saved-route imports.
+- The source defines connectivity, supplier footprints, placement and fabrication rules. F1 uses independently checked external routing through TSCircuit’s documented custom-router interface; the stored copper is guarded against changes to its input. See [routing](routing/README.md).
 
-**Prototype fabrication source:** PCB E6 is preserved from the passing fabrication baseline; enclosure E12 improves side-button access with a raised, wider paddle and separate foam return. The design retains the standard XUNPU USB-C connector and compliant mounting slots. Fresh netlist, placement, supplier-footprint, shorts, independent KiCad DRC, Gerber/drill and BOM/CPL checks pass. All 23 exact BOM lines show public catalogue stock in the 9 November 2026 recheck. Use the [verified fabrication/assembly package](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/release/desk-knob-e6-e12-fabrication.zip) and complete JLCPCB’s current part/rotation and DFM preview before payment. Printed fit and electrical operation need first-prototype tests. See the [validation report](validation/REPORT.md). Do not use the obsolete v5.4.0 manufacturing files.
+**Current electronics: RP2040 PCB F1 / firmware 6.0.0.** The STM32 has been replaced with an RP2040, 2 MB Winbond boot flash, a 12 MHz Abracon crystal, local supply bypassing and 27 Ω USB termination. The PCB outline and connector, sensor and switch datums remain compatible with the Ø89.4 mm E13 enclosure and its recessed circular button. Local circuit, fabrication and assembly checks pass for a first prototype. The older E6 archive targets STM32; use the matching [F1 fabrication kit](release/desk-knob-f1-e13-fabrication.zip). See [readiness](validation/readiness.json) and the [firmware/programming guide](firmware/README.md).
 
 [Visual CAD audit](mechanical/AUDIT.md): fourteen inspection views, corrected carrier screw bores and reserved space for screen rear electronics; enclosure height remains 19.5 mm.
 
 ## What to buy outside JLCPCB
 
-Quantities below are for **one complete device**. A complete JLCPCB **assembly** order supplies the PCB and its 39 fitted electronic components, including the MCU, optical sensor, FRAM, USB connector, front button, J4 programming header and J6 removable display header. A bare-PCB order supplies the board only.
+Quantities below are for **one complete device**. A complete JLCPCB **assembly** order supplies the PCB and its 52 fitted electronic components, including the MCU, optical sensor, FRAM, USB connector, front button, J4 programming header and J6 removable display header. A bare-PCB order supplies the board only.
 
 | Qty | Buy or supply separately | Specification and purpose |
 |---|---|---|
 | 1 kit | [Waveshare 19192 display](https://www.waveshare.com/product/1.28inch-lcd-module.htm) | Non-touch, 1.28-inch, 240×240 GC9A01 module. The supplied PH-to-jumper lead is unused. Connect using replacement H1 below. |
 | 1 | [Complete 6712ZZ bearing](https://maysmeprecision.com/Show/?Cid=677) | **60 mm bore × 75 mm OD × 7 mm**, double metal shields. Buy the assembled bearing; its internal balls/races are not separate purchases. |
-| 6 | [E12 printed enclosure parts](https://github.com/rushabhcodes/desk-fidget-counter/tree/main/mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
+| 6 | [E13 printed enclosure parts](mechanical/stl) | `base`, `lid`, `knob`, `screen-carrier`, `screen-bezel`, `button-cap`. PLA; the grip’s integral optical track must be **opaque at 950 nm**. Black colour alone does not establish this. Print the fit coupons first. |
 | 2 | Countersunk **DIN 965 M2×6** screws | Attach the base and lid. Nominal head Ø3.8 mm; check the actual purchased head/drive against the model. |
 | 2 | Countersunk **DIN 965 M2×10** screws | One shared pair retains the screen bezel and carrier on the braced screw supports. |
 | 1 small piece | [PORON 4701-30-20062-04 foam](https://www.rogerscorp.com/elastomeric-material-solutions/poron-industrial-polyurethanes/poron-4701-30) | **1.57 mm** nominal, 320 kg/m³. Cut four Ø4 mm and two Ø2.6 mm PCB capture pads, plus four 2×1.6 mm pieces for two stacked button-return pads; a 20×20 mm sample is sufficient. |
@@ -43,15 +43,15 @@ These items are reusable and removed before closing the enclosure:
 
 | Qty | Item | Requirement |
 |---|---|---|
-| 1 | SWD programmer | ST-LINK/V2 or a compatible STM32 SWD probe. USB powers the board; VTref is a sense connection. |
-| 1 | J4 programming lead | JST **PHR-6**, 2.0 mm PH series, with the correct probe-end termination. A precrimped lead can be used. If making it, use five **SPH-004T-P0.5S** contacts plus spares and qualified 32–28 AWG wire, insulation Ø0.5–0.9 mm. See the [physical pin map](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md). |
-| 1, only for SMT-only PCBA | J4 board header | The **38-placement SMT-only** option includes J6 and leaves only **JST B6B-PH-K-S(LF)(SN), C131342** for local through-hole soldering. Complete assembly has 39 placements. |
+| 1 | SWD programmer | CMSIS-DAP / Raspberry Pi Debug Probe supporting RP2040. USB powers the board; VTref is a sense connection. |
+| 1 | J4 programming lead | JST **PHR-6**, 2.0 mm PH series, with the correct probe-end termination. A precrimped lead can be used. If making it, use six **SPH-004T-P0.5S** contacts plus spares and qualified 32–28 AWG wire, insulation Ø0.5–0.9 mm. See the [physical pin map](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md). |
+| 1, only for SMT-only PCBA | J4 board header | The **51-placement SMT-only** option includes J6 and leaves only **JST B6B-PH-K-S(LF)(SN), C131342** for local through-hole soldering. Complete assembly has 52 placements. |
 
-Have solder/flux and a soldering setup, wire stripper, flush cutters, multimeter, caliper, an M2×0.4 tap and a screwdriver matching your screws. Follow the [printing and fit guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/FIT.md); the supplied print orientations and support notes matter.
+Have solder/flux and a soldering setup, wire stripper, flush cutters, multimeter, caliper, an M2×0.4 tap and a screwdriver matching your screws. Follow the [printing and fit guide](mechanical/FIT.md); the supplied print orientations and support notes matter.
 
 ## Software and controls
 
-Flash the firmware through J4, then initialize a fresh FRAM with a three-second button hold or the explicit console command in the [firmware guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/firmware/README.md).
+Flash firmware 6.0.0 through J4 SWD or the RP2040 USB UF2 bootloader, then initialize a fresh FRAM with a three-second button hold or the explicit console command in the [firmware guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/firmware/README.md).
 
 For laptop information:
 
@@ -75,7 +75,7 @@ bun run check:footprints && bun run check:shorts && bun run check:assembly
 
 The lockfile pins a compatible released `@tscircuit/circuit-json-util` for the CLI’s KiCad exporter; no router or library source is patched.
 
-`assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. The current [fabrication/assembly ZIP](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/release/desk-knob-e6-e12-fabrication.zip) includes a separate Gerber upload ZIP, both matched BOM/CPL options, physical pin map, drawings, KiCad source and checked firmware. Follow the [upload guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/current/README.md). No supplier upload or order has been made.
+`assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. The [F1/E13 fabrication kit](release/desk-knob-f1-e13-fabrication.zip) includes matching Gerbers, BOM/CPL, physical pin maps, independent checks and RP2040 firmware. Follow the [upload guide](manufacturing/current/README.md). Final factory preview and physical prototype bring-up remain; no supplier upload or order has been made.
 
 - [Assembly steps](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/ASSEMBLY.md) · [Wiring and programming connections](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/manufacturing/WIRING.md)
 - [Mechanical source and CAD](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/README.md) · [Model provenance and limitations](https://github.com/rushabhcodes/desk-fidget-counter/blob/main/mechanical/vendor/README.md)

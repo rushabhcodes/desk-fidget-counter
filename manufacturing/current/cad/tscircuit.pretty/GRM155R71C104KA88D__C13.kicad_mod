@@ -1,0 +1,117 @@
+(footprint "GRM155R71C104KA88D__C13"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "C13"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "ce1393c3-4f06-442f-9eb9-157e31ca19c5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "100nF"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f2300e09-87b4-4a63-bfbe-9b31a0b39077")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "91c9e03a-02fe-4710-8da5-f2f917ef5566")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4aa943f9-2a41-4a46-9414-0deab2233f22")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" "C71629"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5fec2100-4a84-62ff-351c-a4fe1fb4e6fd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "GRM155R71C104KA88D"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "77f6ae76-67e2-528a-47bb-538a2794548a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy -0.920115 -0.520002) (xy 0.920115 -0.520002) (xy 0.920115 0.520002) (xy -0.920115 0.520002) (xy -0.920115 -0.520002)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "5e1d3ede-55a4-7d5e-4d2b-bbde44b2fa5e")
+	)
+	(pad "" smd rect
+		(at -0.420116 0)
+		(size 0.349999 0.378003)
+		(layers "F.Paste")
+		(uuid "5ffa1c20-0589-de3f-54e6-5fa250a9627d")
+	)
+	(pad "" smd rect
+		(at 0.420116 0)
+		(size 0.349999 0.378003)
+		(layers "F.Paste")
+		(uuid "22da5800-3795-e5e1-6df9-dc3e13899e5d")
+	)
+	(pad "1" smd rect
+		(at -0.420116 0)
+		(size 0.499999 0.540004)
+		(layers "F.Cu" "F.Mask")
+		(uuid "454d1380-14a6-51a1-6e99-b6c23772e41d")
+	)
+	(pad "2" smd rect
+		(at 0.420116 0)
+		(size 0.499999 0.540004)
+		(layers "F.Cu" "F.Mask")
+		(uuid "5fb03a54-731b-2d14-7979-e02c660eed6c")
+	)
+	(embedded_fonts no)
+)

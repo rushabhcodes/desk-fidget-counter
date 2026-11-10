@@ -1,0 +1,521 @@
+{
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "base": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 4,
+    "volume_mm3": 17854.24,
+    "bounds_mm": [
+      [
+        -44.7,
+        -44.7,
+        0.0
+      ],
+      [
+        44.7,
+        44.7,
+        13.1
+      ]
+    ]
+  },
+  "lid": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 9243.77,
+    "bounds_mm": [
+      [
+        -44.35,
+        -43.793,
+        0.0
+      ],
+      [
+        44.35,
+        42.959,
+        10.9
+      ]
+    ]
+  },
+  "knob": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 21877.64,
+    "bounds_mm": [
+      [
+        -44.694,
+        -44.694,
+        0.0
+      ],
+      [
+        44.694,
+        44.694,
+        11.4
+      ]
+    ]
+  },
+  "screen-carrier": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 168,
+    "volume_mm3": 785.52,
+    "bounds_mm": [
+      [
+        -24.0,
+        -24.0,
+        0.0
+      ],
+      [
+        24.0,
+        24.0,
+        5.0
+      ]
+    ]
+  },
+  "screen-bezel": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 1173.34,
+    "bounds_mm": [
+      [
+        -24.0,
+        -24.0,
+        0.0
+      ],
+      [
+        24.0,
+        24.0,
+        1.4
+      ]
+    ]
+  },
+  "button-cap": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 137.68,
+    "bounds_mm": [
+      [
+        -10.0,
+        2.4,
+        0.0
+      ],
+      [
+        10.0,
+        9.4,
+        4.9
+      ]
+    ]
+  },
+  "fit-coupon-tight": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 7810.08,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        104.05,
+        40.0,
+        7.0
+      ]
+    ]
+  },
+  "fit-coupon": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 7661.67,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        104.0,
+        40.0,
+        7.0
+      ]
+    ]
+  },
+  "fit-coupon-loose": {
+    "watertight": true,
+    "stl_roundtrip_watertight": true,
+    "zero_area_triangles_collapsed_by_float32": 0,
+    "volume_mm3": 7364.84,
+    "bounds_mm": [
+      [
+        -40.0,
+        -40.0,
+        0.0
+      ],
+      [
+        103.9,
+        40.0,
+        7.0
+      ]
+    ]
+  },
+  "screen_fit": {
+    "source": "https://files.waveshare.com/upload/4/49/1.28inch_LCD_Module_3D_Drawing.zip",
+    "member": "1.28inch LCD Module 3D Drawing/0508.stp",
+    "retained_step_sha256": "f1cb9b272ee201bb2dca9d4c4683a6fa4cb65213c77244bec5ae5af03f37fa85",
+    "current_download_comparison": "Byte-identical to official archive downloaded 2026-11-09",
+    "assembly_transform": "Rigid diag(-1,+1,-1), plus Z14.95mm; no scaling",
+    "hole_centers_assembly_mm": [
+      [
+        -9.3,
+        -13.35
+      ],
+      [
+        -9.3,
+        13.35
+      ],
+      [
+        9.3,
+        -13.35
+      ],
+      [
+        9.3,
+        13.35
+      ]
+    ],
+    "hole_pitch_assembly_mm": [
+      18.6,
+      26.7
+    ],
+    "rear_boss_seat_z_mm": 12.0,
+    "simplified_bore_diameter_mm": 1.7,
+    "module_thread": "Not established by simplified STEP; no screw is threaded into these bores",
+    "retention": "Four rear bosses supported on braced walls; two short locating pins; existing bezel captures module",
+    "enclosure_screws": "Separate from the four module holes; two shared bezel/carrier screws remain on their own axes",
+    "cable_mating": {
+      "entry": "side",
+      "insertion_axis": "-X toward socket, parallel to display PCB",
+      "wire_exit_x_mm": 14.8,
+      "axis_z_mm": 11.7,
+      "housing_nominal_mm": [
+        6.85,
+        17.8,
+        4.5
+      ],
+      "seating_status": "Side-entry inferred from supplied photo and official stepped 20x6x5.6mm socket envelope. Seated reach/axis estimated using JST PH side-entry 9.6mm mated depth; exact Waveshare connector manufacturer, contacts and mating cavity are not supplied. Check actual kit fit before final trimming.",
+      "reference": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf"
+    },
+    "limits": "STEP omits fine connector contacts/cavity and rear electronics. Exact kit plug seating, thread details, PLA fit/strength and wire slack require physical qualification.",
+    "rear_boss_contacts_checked": 4,
+    "bezel_captures_before_locator_disengagement": true,
+    "rear_component_reservation": {
+      "depth_mm": 2.0,
+      "carrier_profile_lateral_clearance_mm": 0.4,
+      "outline": "Cross-section of the original supplier PCB, including its tab",
+      "exclusions": "Existing four rear bosses, socket and estimated mated plug footprint",
+      "status": "Conservative engineering allowance; actual component heights and kit fit remain unmeasured"
+    }
+  },
+  "screen_post_to_window_tolerance_checked_mm": 0.625,
+  "screen_support": {
+    "material": "PLA",
+    "wall_thickness_mm": 4.0,
+    "wall_span_x_mm": 23.0,
+    "wall_centers_y_mm": [
+      -13.35,
+      13.35
+    ],
+    "foot_thickness_mm": 7.0,
+    "gusset_top_z": 8.0,
+    "seat_z": 12.0,
+    "locator_height_mm": 1.0,
+    "locator_pins": [
+      {
+        "center_mm": [
+          -9.3,
+          -13.35
+        ],
+        "diameter_mm": 1.2
+      },
+      {
+        "center_mm": [
+          9.3,
+          13.35
+        ],
+        "diameter_mm": 1.0
+      }
+    ],
+    "basis": "Two broad end walls with splayed feet support all four real rear bosses. Continuous diagonal webs brace the shared bezel/carrier screw axes; two short non-load-bearing pins locate the module. Four total enclosure screws retained. Physical PLA strength and fit require prototype qualification.",
+    "carrier_bottom_z": 13.1,
+    "carrier_rim_to_PCB_gap_mm": 0.2,
+    "carrier_rear_profile_clearance_mm": 0.4
+  },
+  "purchased_package_models_checked": 52,
+  "individual_wires_checked": 8,
+  "removable_harness_nonmetal_groups_checked": 9,
+  "harness_free_lengths_checked_mm": [
+    43,
+    44,
+    45
+  ],
+  "tolerance_envelopes_checked": {
+    "print_xy_mm": 0.62,
+    "hardware_xy_mm": 0.945,
+    "print_z_mm": 0.3,
+    "hardware_z_mm": 0.46,
+    "wire_od_mm": 0.8,
+    "full_rotor_sweep": true
+  },
+  "bearing_contacts_checked": 4,
+  "assembly_simplification": {
+    "revision": "E13",
+    "product_print_count": 6,
+    "fasteners": [
+      {
+        "part": "DIN 965 M2x6",
+        "quantity": 2,
+        "use": "base/lid"
+      },
+      {
+        "part": "DIN 965 M2x10",
+        "quantity": 2,
+        "use": "bezel and screen carrier into base posts"
+      }
+    ],
+    "bearing_retention": "Calibrated push fits on both races, following the Ploopy assembly approach. Nominal CAD mating dimensions are 60/75mm; qualify printer compensation with the coupons and physically check pull-off retention and free rotation.",
+    "integral_encoder_skirt": true,
+    "separate_bearing_retainers": false
+  },
+  "recessed_lid": {
+    "plate_top_z_mm": 8.4,
+    "outer_rim_top_z_mm": 9.2,
+    "rim_to_grip_nominal_gap_mm": 0.8,
+    "chassis_driver_diameter_checked_mm": 4.0
+  },
+  "button_tolerance_access_checks": 8,
+  "printed_button": {
+    "part": "button-cap",
+    "face_width_mm": 14,
+    "face_height_mm": 7.0,
+    "face_front_y": -44.5,
+    "rest_tip_y": -43.05,
+    "nominal_rest_gap_mm": 0.2,
+    "nominal_max_travel_mm": 0.6,
+    "minimum_slide_clearance_mm": 0.4,
+    "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+    "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+    "face_center_z_mm": 5.9,
+    "face_thickness_mm": 1.1,
+    "face_corner_radius_mm": 1.2,
+    "thumb_dish_depth_mm": 0.2,
+    "rail_centers_x_mm": [
+      -5.2,
+      5.2
+    ],
+    "rail_width_mm": 2.0,
+    "rail_top_z_mm": 7.6,
+    "rail_height_mm": 1.6,
+    "rail_front_y_mm": -43.6,
+    "rail_rear_y_mm": -39.6,
+    "ear_center_y_mm": -40.0,
+    "ear_depth_mm": 0.8,
+    "ear_inner_x_mm": 4.2,
+    "ear_outer_x_mm": 10.0,
+    "press_center_z_mm": 6.4,
+    "face_radius_mm": 44.5,
+    "face_recess_mm": 0.2,
+    "guide_offset_y_mm": -1.4,
+    "checked_travel_poses": 13,
+    "nominal_switch_travel_at_stop_mm": 0.4,
+    "checks": "13 cap and return-pad poses; fixed packages/PCB, full rotor sweep, rigid inward/outward stops and lid capture. Physical force, friction, switch overtravel and life remain prototype checks.",
+    "fixed_guide_within_circular_wall": true,
+    "fixed_guide_max_radius_mm": 44.5,
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -36.85,
+      "basis": "Thickness +/-10%, cavity +/-0.1mm and combined adhesive +/-0.02mm. Compression criterion is an engineering choice, not force/life certification.",
+      "minimum_rest_precompression_mm": 0.056,
+      "nominal_rest_compression_percent": 15.605,
+      "nominal_pressed_compression_percent": 34.713,
+      "maximum_tolerance_compression_percent": 44.123,
+      "physical_return_force_and_life_verified": false,
+      "checked_travel_poses": 13
+    },
+    "midstroke_skew": {
+      "checked_poses": 24,
+      "lateral_shift_mm": 0.1,
+      "vertical_shift_mm": 0.1,
+      "yaw_degrees": 0.4,
+      "stroke_positions_mm": [
+        0.1,
+        0.3,
+        0.5
+      ],
+      "scope": "Small off-axis geometry probes, not a complete tolerance or actuation-force model"
+    },
+    "roof_to_bearing_nominal_vertical_gap_mm": 0.4,
+    "fingertip_desk_clearance_mm": 0.4,
+    "fingertip_desk_clearance_at_tested_height_limit_mm": 0.3,
+    "circular_envelope": {
+      "body_radius_mm": 44.7,
+      "face_radius_mm": 44.5,
+      "maximum_part_radius_mm": 44.5,
+      "nominal_recess_mm": 0.2,
+      "pressed_recess_mm": 0.7934,
+      "checked_stroke_positions": 13
+    },
+    "finger_case_relative_error_mm": 0.1,
+    "independent_PCB_registration_extremes_per_finger_pose": 8,
+    "knob_lower_chamfer": {
+      "height_mm": 1.6,
+      "radial_mm": 1.6,
+      "purpose": "A continuous circular lower-edge bevel gives the fingertip clearance while pressing the recessed curved button."
+    }
+  },
+  "front_button": {
+    "part": "Omron B3U-3000P",
+    "pcb_center": [
+      0,
+      -40.9
+    ],
+    "pcb_rotation_deg": 180,
+    "axis_z": 4.8,
+    "actuator_front_y": -42.85,
+    "datasheet_pretravel_mm": {
+      "min": 0.1,
+      "typ": 0.2,
+      "max": 0.4
+    },
+    "direct_actuation": false,
+    "opening_width_mm": 14.8,
+    "opening_bottom_z": 2.0,
+    "opening_top_z": 9.8,
+    "finger_check_radius_mm": 6,
+    "fit_status": "Curved captive paddle within an 89.4mm circular body with 0.2mm recess. RP2040 PCB F1 retains the switch and mounting datums. Verify printed fit, force, closure and overtravel on the prototype.",
+    "printed_cap": {
+      "part": "button-cap",
+      "face_width_mm": 14,
+      "face_height_mm": 7.0,
+      "face_front_y": -44.5,
+      "rest_tip_y": -43.05,
+      "nominal_rest_gap_mm": 0.2,
+      "nominal_max_travel_mm": 0.6,
+      "minimum_slide_clearance_mm": 0.4,
+      "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
+      "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
+      "face_center_z_mm": 5.9,
+      "face_thickness_mm": 1.1,
+      "face_corner_radius_mm": 1.2,
+      "thumb_dish_depth_mm": 0.2,
+      "rail_centers_x_mm": [
+        -5.2,
+        5.2
+      ],
+      "rail_width_mm": 2.0,
+      "rail_top_z_mm": 7.6,
+      "rail_height_mm": 1.6,
+      "rail_front_y_mm": -43.6,
+      "rail_rear_y_mm": -39.6,
+      "ear_center_y_mm": -40.0,
+      "ear_depth_mm": 0.8,
+      "ear_inner_x_mm": 4.2,
+      "ear_outer_x_mm": 10.0,
+      "press_center_z_mm": 6.4,
+      "face_radius_mm": 44.5,
+      "face_recess_mm": 0.2,
+      "guide_offset_y_mm": -1.4
+    },
+    "return_pads": {
+      "quantity": 2,
+      "layers_per_pad": 2,
+      "pad_width_mm": 2.0,
+      "pad_height_mm": 1.6,
+      "centers_x_mm": [
+        -8.8,
+        8.8
+      ],
+      "center_z_mm": 6.8,
+      "material": "Rogers PORON 4701-30-20062-04",
+      "layer_thickness_mm": 1.57,
+      "layer_thickness_tolerance_fraction": 0.1,
+      "adhesive_per_layer_mm": 0.05,
+      "adhesive_total_tolerance_mm": 0.02,
+      "rest_cavity_mm": 2.75,
+      "relative_cavity_error_mm": 0.1,
+      "backing_front_y_mm": -36.85,
+      "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
+    },
+    "opening_inner_y_mm": -41.7
+  },
+  "direct_finger_access_checked": true,
+  "separate_button_plunger": true,
+  "button_projection_beyond_wall_mm": 0,
+  "pressed_button_projection_beyond_wall_mm": 0,
+  "USB_access": {
+    "axis_z": 5.78,
+    "socket_face_y": 42.186507,
+    "opening_width_mm": 22,
+    "opening_center_y": 41,
+    "opening_length_mm": 25,
+    "opening_bottom_z": 1.55,
+    "opening_top_z": 9.2,
+    "plug_width_mm": 13.4,
+    "plug_height_mm": 6.9,
+    "plug_shoulder_y": 42.186507,
+    "plug_check_length_mm": 35,
+    "scope": "Socket face from the unscaled C2909598 supplier STEP; CAD lead seating plane aligned to Z=0.09mm to match the 3.16mm manufacturer body height. Plug gauge uses L-com nominal 12.9x6.4mm plus +/-0.5mm tolerance, shoulder flush to socket face. Actual cable fit requires prototype verification.",
+    "plug_nominal_width_mm": 12.9,
+    "plug_nominal_height_mm": 6.4,
+    "plug_tolerance_mm": 0.5,
+    "model_filename": "TYPEC_309_ACP16L65.obj",
+    "solid_filename": "TYPEC_309_ACP16L65.ply",
+    "outer_case_diameter_mm": 89.4,
+    "socket_recess_from_floor_outer_edge_mm": 2.5135,
+    "socket_projection_beyond_side_wall_mm": -2.3135,
+    "PCB_front_edge_mm": 41.4,
+    "plug_body_to_PCB_axial_gap_mm": 0.7865,
+    "maximum_plug_approach_sweep_checked": true,
+    "all_package_and_PCB_clearances_checked": true
+  },
+  "clearances": {
+    "overall_height_mm": 19.5,
+    "previous_height_mm": 47,
+    "height_reduction_percent": 58.5,
+    "grip_lower_edge_mm": 10.0,
+    "previous_grip_lower_edge_mm": 22,
+    "USB_plug_max_height_mm": 6.9,
+    "USB_plug_to_rotor_vertical_mm": 0.77,
+    "bezel_to_grip_radial_mm": 0.8,
+    "skirt_to_sensor_radial_each_side_mm": 1.1,
+    "PCB_bottom_z_mm": 2.6,
+    "LCD_connector_in_PCB_window": true,
+    "bearing_id_mm": 60,
+    "bearing_od_mm": 75,
+    "bearing_width_mm": 7,
+    "bearing_stem_diametral_mm": 0.0,
+    "bearing_outer_diametral_mm": 0.0,
+    "encoder_slot_count": 48,
+    "quadrature_edges_per_turn": 192,
+    "all_components_top_side": true,
+    "solder_well_floor_remaining_mm": 1.2
+  },
+  "scope": "Manufacturer screen/package models with user-authorized estimated bearing/cable details. Nominal contacts and full-rotation tolerance envelopes checked under fit-budget.json assumptions. Hardware operation and actual print capability are not measured."
+}

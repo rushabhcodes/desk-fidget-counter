@@ -1,6 +1,6 @@
-# Manufacturing source / PCB E6, mechanics E12
+# Manufacturing source / PCB RP2040 F1, mechanics E13
 
-The [current verified fabrication/assembly package](../release/desk-knob-e6-e12-fabrication.zip) contains the matching PCB E6 files for enclosure E12. The [upload guide](current/README.md) identifies the Gerber ZIP and the 39-part complete or 38-part SMT BOM/CPL pair. Fresh independent DRC, Gerber/drill and assembly-file checks pass. No supplier upload or order has been made; final part/orientation and engineering DFM review remain with the factory.
+**RP2040 F1 passes local first-prototype fabrication and assembly checks.** Use [the F1/E13 kit](../release/desk-knob-f1-e13-fabrication.zip) or the matching files in [manufacturing/current](current/README.md). The population is 52 parts (51 SMT plus the J4 through-hole header), with firmware 6.0.0. Final factory DFM, part/feeder/rotation approval and physical bring-up remain. The historical E6/E13 archive targets STM32 and must not be mixed with F1.
 
 The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were removed from this working revision because they contain the undersized U3 FRAM footprint and outdated assembly angles. They remain in Git history and the held old release; do not order them or mix them with new exports. Current part identities and exact supplier footprints live in [the catalogue](../reference/jlcpcb-parts.json), [import provenance](../reference/jlcpcb-footprints.json) and `imports/jlc`.
 
@@ -12,13 +12,13 @@ The obsolete v5.4.0 Gerbers, KiCad board, BOM/CPL, order kit and manifest were r
 | Material | FR-4, 1.6 mm nominal, Tg ≥135°C |
 | Copper | Two layers, 1 oz outer copper |
 | Finish | ENIG; green solder mask, white silkscreen |
-| Track | ≥0.10 mm fabrication limit; native phases request 0.15 mm; measured widths in the validation report |
+| Track | ≥0.10 mm fabrication limit; routing requests 0.15 mm; measured widths in the validation report |
 | Clearance | ≥0.10 mm track/via copper; ≥0.15 mm component pad-to-pad; ground pour clearance 0.25 mm |
-| Routing via | Ø0.30 mm finished drill / Ø0.60 mm pad; generated entirely by the native autorouter |
+| Routing via | Ø0.30 mm drill / Ø0.60 mm pad preferred; Ø0.20 mm / Ø0.50 mm for dense fanout; both retain ≥0.15 mm annular ring |
 | Drill spacing | Via drill-edge ≥0.20 mm; component PTH drill-edge ≥0.45 mm |
 | Hole-to-copper | NPTH ≥0.20 mm; via drill ≥0.20 mm; component plated drill ≥0.28 mm |
 | Copper to edge | ≥0.30 mm; ground pours inset 0.40 mm |
-| Assembly | 39 fitted components, all top; J4 JST PH6 and J6 keyed JST-SH8 SMT socket fitted |
+| Assembly | 52 fitted components, all top; J4 JST PH6 and J6 keyed JST-SH8 SMT socket fitted |
 | Local assembly | Fit crimped replacement H1; continuity/isolation check; trim only J4 tails to ≤0.8mm |
 
 [Fabrication rules](../reference/fabrication-rules.json) record the checked [JLCPCB capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/). Keep 1 oz copper. This is not a controlled-impedance design; USB full-speed signal integrity is a prototype test.
@@ -44,7 +44,7 @@ bunx tsci export dist/index/circuit.json -f kicad_pcb -o /tmp/desk-knob-raw.kica
 /usr/bin/python3 scripts/export-fabrication.py /tmp/desk-knob-raw.kicad_pcb --check-only
 ```
 
-`--check-only` writes temporary evidence under `/tmp`; it does not produce an order kit. It checks all 179 pad centres and plated drills against source, applies the documented rules, refills ground zones and removes electrically isolated ground fragments. It requires zero DRC violations/unconnected items, no exclusions and an exact match of every native trace and via before/after. It does not route or repair copper. See [validation results](../validation/REPORT.md).
+`--check-only` writes temporary evidence under `/tmp`; it does not produce an order kit. It checks all 222 pad centres and plated drills against source, applies the documented rules, refills ground zones and removes electrically isolated ground fragments. It requires zero DRC violations/unconnected items, no exclusions and an exact match of every native trace and via before/after. It does not route or repair copper. See [validation results](../validation/REPORT.md).
 
 ## Standard USB-C connector
 
@@ -54,7 +54,7 @@ The original C165948 connector and its short slots are removed from the fitted d
 
 ## When you export later
 
-Use the bare PCB entrypoint [index.circuit.tsx](../index.circuit.tsx) for factory exports. Export all Gerbers, plated/nonplated drills, BOM and placement files from that same freshly built revision. Verify window/outline geometry, exact MPNs, 39 top placements including fitted J4 and J6. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
+Use the bare PCB entrypoint [index.circuit.tsx](../index.circuit.tsx) for factory exports. Export all Gerbers, plated/nonplated drills, BOM and placement files from that same freshly built revision. Verify window/outline geometry, exact MPNs, 52 top placements including fitted J4 and J6. Do not reuse the held old CSVs. JLCPCB feeder origins and zero angles still need confirmation against the physical copper and datasheet pin 1 in your final upload preview; a generic 3D model is insufficient.
 
 [JLCPCB guidance](jlcpcb/README.md) records part matching/cost evidence and the remaining supplier steps. The screen, bearing, six prints and final wire/mechanical assembly are separate from PCB assembly. The first prototype still needs [bring-up](../validation/BRINGUP.md) and [fit verification](../mechanical/FIT.md).
 

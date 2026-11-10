@@ -7,17 +7,18 @@ parser.add_argument("--drawings-only",action="store_true",help="Refresh assembly
 parser.add_argument("--output-dir",type=Path,help="BOM destination; defaults to a temporary directory")
 args=parser.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
+revision=json.loads((ROOT/'mechanical/parameters.json').read_text())['pcb_revision']
 cj=json.loads((ROOT/'dist/index/circuit.json').read_text())
 components={c['source_component_id']:c for c in cj if c['type']=='source_component'}
 placed={p['source_component_id']:p for p in cj if p['type']=='pcb_component' and p.get('source_component_id') in components}
 ports={p['source_port_id']:p for p in cj if p['type']=='source_port'}
 dnp={components[cid]['name'] for cid,p in placed.items() if p.get('do_not_place')}
-makers={'U1':'STMicroelectronics','U2':'Vishay','U7':'Texas Instruments','U3':'RAMXEED','U4':'Texas Instruments','U5':'Texas Instruments','U6':'STMicroelectronics','J1':'XUNPU','J4':'JST','J6':'JST','SW1':'Omron',**dict.fromkeys(['C6','C12','C18'],'Samsung Electro-Mechanics')}
+makers={p['mpn']:p['componentBrandEn'] for p in json.loads((ROOT/'reference/jlcpcb-sourcing-2026-11-10.json').read_text())['parts']}
 rows=[]
 for cid,c in components.items():
     n=c['name'];p=placed[cid]
     value=c.get('display_resistance',c.get('display_capacitance',c.get('manufacturer_part_number','')))
-    maker=makers.get(n,'Yageo' if n.startswith('R') else 'Murata')
+    maker=makers[c['manufacturer_part_number']]
     note='Top reflow' if p.get('layer')=='top' and n not in ['J4'] else 'Through-hole assembly; verify JLCPCB wave-solder selection'
     if n=='J6':note='Top reflow; keyed JST-SH8 side-entry socket with two grounded anchors; H1 cable separately'
     rows.append({'Reference':n,'Quantity':1,'Value':value,'Manufacturer':maker,'MPN':c['manufacturer_part_number'],'Side':p['layer'],'Populate':'NO' if n in dnp else 'YES','Assembly notes':note})
@@ -30,7 +31,7 @@ if not args.drawings_only:
 for side in ['top','bottom']:
     flip=-1 if side=='bottom' else 1
     xy=lambda x,y:(950+flip*x*22,1150-y*22)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev E6 — {side} assembly</text>']
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2260" viewBox="0 0 1900 2260">','<rect width="1900" height="2260" fill="#f8fafb"/>',f'<text x="950" y="60" text-anchor="middle" font-family="sans-serif" font-size="28">Desk knob Rev {revision} — {side} assembly</text>']
     board=next(c for c in cj if c['type']=='pcb_board')
     contours=[board['outline']]+[c['points'] for c in cj if c['type']=='pcb_cutout']
     commands=[]

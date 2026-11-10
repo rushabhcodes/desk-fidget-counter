@@ -1,0 +1,26 @@
+{
+  "assembly_frame": "CAD mm, floor z=0; PCB centre z=3.4000000000000004",
+  "glb_frame": "glTF metres, +Y up; 89.4mm circular body, 19.5mm height; curved button stays inside the circular outline",
+  "assembled_size_gltf_xyz_mm": [
+    89.4,
+    19.5,
+    89.4
+  ],
+  "part_count": 25,
+  "fastener_count": 4,
+  "product_print_count": 6,
+  "source_parameters_sha256": "ea00959c4f610acad9d5ae5feb72c8701dff9859cef42754e342649e79e70c57",
+  "source_board_tsx_sha256": "f6a5e05a79f7cb4d31a30459f6d7d2eaa99d82530500f071fe3fd91ee56f429a",
+  "printed_meshes_restored_from_print_orientation": 6,
+  "cad_files": {
+    "assembled.glb": {
+      "bytes": 8469448,
+      "sha256": "749028cd4d61fc7048cb6bc17d3f15ee413679e5b7d115c32dce34951e333343"
+    },
+    "exploded.glb": {
+      "bytes": 8469504,
+      "sha256": "b9807dff066a2ad2eb53e87ba9871fb375575ae4107d0fbddb38213149435a28"
+    }
+  },
+  "physical_fit": "Unmeasured; nominal supplier/library models do not replace physical tolerance and prototype verification"
+}

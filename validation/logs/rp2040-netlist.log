@@ -1,0 +1,668 @@
+$ tsci check netlist index.circuit.tsx
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Errors: 0
+Warnings: 0
+
+Readable Netlist:
+COMPONENTS:
+ - U1: RP2040
+ - J1: J1, source_component
+ - R1: 5.1kΩ resistor
+ - R2: 5.1kΩ resistor
+ - U6: USBLC6-2SC6
+ - C1: 100nF capacitor
+ - U4: TPS22919DCKR
+ - C2: 1uF capacitor
+ - C3: 1uF capacitor
+ - R21: 100kΩ resistor
+ - U5: TLV75533PDBVR
+ - C5: 1uF capacitor
+ - C6: 4.7uF capacitor
+ - C7: 100nF capacitor
+ - C8: 100nF capacitor
+ - C9: 100nF capacitor
+ - C10: 100nF capacitor
+ - C11: 100nF capacitor
+ - C12: 100nF capacitor
+ - C13: 100nF capacitor
+ - C17: 100nF capacitor
+ - C18: 100nF capacitor
+ - C19: 100nF capacitor
+ - C20: 1uF capacitor
+ - C21: 1uF capacitor
+ - R10: 10kΩ resistor
+ - J4: J4, source_component
+ - U2: TCUT1600X01
+ - U7: SN74LVC2G17DBVR
+ - R24: 150Ω resistor
+ - R25: 22kΩ resistor
+ - R26: 22kΩ resistor
+ - C14: 100nF capacitor
+ - R12: 4.7kΩ resistor
+ - R13: 4.7kΩ resistor
+ - U3: MB85RC256VPNF-G-AMERE2
+ - C16: 100nF capacitor
+ - SW1: SW1, source_component
+ - J6: J6, source_component
+ - R27: 22Ω resistor
+ - R28: 22Ω resistor
+ - C15: 1uF capacitor
+ - U8: W25Q16JVSNIQ
+ - C22: 100nF capacitor
+ - R6: 1kΩ resistor
+ - R7: 10kΩ resistor
+ - X1: X1, source_component
+ - R5: 1kΩ resistor
+ - C23: 15pF capacitor
+ - C24: 15pF capacitor
+ - R3: 27Ω resistor
+ - R4: 27Ω resistor
+
+NET: CC1
+  - R1 pin1
+  - J1 CC1
+
+NET: CC2
+  - J1 CC2
+  - R2 pin1
+
+NET: PERIPH_EN
+  - R21 pin1
+  - U4 ON
+  - U1 GPIO1
+
+NET: VBUS
+  - C5 pin1
+  - U5 EN
+  - U5 IN
+  - C1 pin1
+  - U6 VBUS
+  - J1 VBUS4
+  - J1 VBUS3
+  - J1 VBUS2
+  - J1 VBUS1
+
+NET: V1V1
+  - U1 VREG_VOUT
+  - U1 DVDD2
+  - U1 DVDD1
+  - C18 pin1
+  - C19 pin1
+  - C21 pin1
+
+NET: SWDIO
+  - J4 SWDIO
+  - U1 SWDIO
+
+NET: SWCLK
+  - J4 SWCLK
+  - U1 SWCLK
+
+NET: RUN
+  - J4 RUN
+  - R10 pin1
+  - U1 RUN
+
+NET: ENC_A
+  - U7 Y1
+  - U1 GPIO20
+
+NET: ENC_B
+  - U7 Y2
+  - U1 GPIO21
+
+NET: IR_A
+  - R24 pin2
+  - U2 A
+
+NET: OPT_A
+  - R25 pin1
+  - U7 A1
+  - U2 EA
+
+NET: OPT_B
+  - R26 pin1
+  - U7 A2
+  - U2 EB
+
+NET: SDA
+  - U3 SDA
+  - R12 pin2
+  - U1 GPIO4
+
+NET: SCL
+  - U3 SCL
+  - R13 pin2
+  - U1 GPIO5
+
+NET: MODE_BTN
+  - SW1 pin1
+  - U1 GPIO0
+
+NET: LCD_BL
+  - J6 BL
+  - U1 GPIO23
+
+NET: LCD_RST
+  - J6 RST
+  - U1 GPIO16
+
+NET: LCD_DC
+  - J6 DC
+  - U1 GPIO22
+
+NET: LCD_CS
+  - J6 CS
+  - U1 GPIO17
+
+NET: SPI_SCK
+  - R27 pin1
+  - U1 GPIO18
+
+NET: LCD_SCK
+  - R27 pin2
+  - J6 CLK
+
+NET: SPI_MOSI
+  - R28 pin1
+  - U1 GPIO19
+
+NET: LCD_MOSI
+  - R28 pin2
+  - J6 DIN
+
+NET: PERIPH_3V3
+  - C15 pin1
+  - J6 VCC
+  - R24 pin1
+  - U2 COL
+  - C3 pin1
+  - U4 VOUT
+  - U4 QOD
+
+NET: QSPI_SCLK
+  - U8 SCLK
+  - U1 QSPI_SCLK
+
+NET: QSPI_SD0
+  - U8 SD0
+  - U1 QSPI_SD0
+
+NET: QSPI_SD1
+  - U8 SD1
+  - U1 QSPI_SD1
+
+NET: QSPI_SD2
+  - U8 SD2
+  - U1 QSPI_SD2
+
+NET: QSPI_SD3
+  - U8 SD3
+  - U1 QSPI_SD3
+
+NET: BOOTSEL
+  - R6 pin2
+  - J4 BOOTSEL
+
+NET: QSPI_SS
+  - R7 pin1
+  - R6 pin1
+  - U8 CS
+  - U1 QSPI_SS
+
+NET: V3V3
+  - R7 pin2
+  - U8 VCC
+  - C16 pin1
+  - U3 VDD
+  - R13 pin1
+  - R12 pin1
+  - U7 VCC
+  - J4 VREF
+  - R10 pin2
+  - C6 pin1
+  - U5 OUT
+  - C2 pin1
+  - U4 IN
+  - U1 USB_VDD
+  - U1 ADC_AVDD
+  - U1 VREG_IN
+  - U1 IOVDD6
+  - U1 IOVDD5
+  - U1 IOVDD4
+  - U1 IOVDD3
+  - U1 IOVDD2
+  - U1 IOVDD1
+  - C7 pin1
+  - C8 pin1
+  - C9 pin1
+  - C10 pin1
+  - C11 pin1
+  - C12 pin1
+  - C13 pin1
+  - C17 pin1
+  - C20 pin1
+  - C14 pin1
+  - C22 pin1
+
+NET: XOUT
+  - R5 pin1
+  - U1 XOUT
+
+NET: XIN
+  - C23 pin1
+  - X1 pin1
+  - U1 XIN
+
+NET: XTAL_OUT
+  - C24 pin1
+  - R5 pin2
+  - X1 pin3
+
+NET: GND
+  - C24 pin2
+  - C23 pin2
+  - X1 pin4
+  - X1 pin2
+  - C22 pin2
+  - U8 GND
+  - C15 pin2
+  - J6 MP2
+  - J6 MP1
+  - J6 GND
+  - SW1 pin2
+  - C16 pin2
+  - U3 WP
+  - U3 VSS
+  - U3 A2
+  - U3 A1
+  - U3 A0
+  - R26 pin2
+  - R25 pin2
+  - U7 GND
+  - U2 K
+  - J4 GND
+  - C21 pin2
+  - C20 pin2
+  - C19 pin2
+  - C18 pin2
+  - C17 pin2
+  - C13 pin2
+  - C12 pin2
+  - C11 pin2
+  - C10 pin2
+  - C9 pin2
+  - C8 pin2
+  - C7 pin2
+  - C6 pin2
+  - C5 pin2
+  - U5 GND
+  - R21 pin2
+  - C3 pin2
+  - C2 pin2
+  - U4 GND
+  - C1 pin2
+  - U6 GND
+  - R2 pin2
+  - R1 pin2
+  - J1 GND4
+  - J1 GND3
+  - J1 GND2
+  - J1 GND1
+  - J1 EH4
+  - J1 EH3
+  - J1 EH2
+  - J1 EH1
+  - U1 TESTEN
+  - U1 GND
+  - C14 pin2
+
+NET: USB_DM_MCU
+  - R3 pin1
+  - U1 USB_DM
+
+NET: USB_DM
+  - R3 pin2
+  - U6 DM_OUT
+  - U6 DM_IN
+  - J1 DN2
+  - J1 DN1
+
+NET: USB_DP_MCU
+  - R4 pin1
+  - U1 USB_DP
+
+NET: USB_DP
+  - R4 pin2
+  - U6 DP_OUT
+  - U6 DP_IN
+  - J1 DP2
+  - J1 DP1
+
+
+COMPONENT_PINS:
+U1 (RP2040)
+- pin1(IOVDD1): NETS(V3V3)
+- pin2(GPIO0): NETS(MODE_BTN)
+- pin3(GPIO1): NETS(PERIPH_EN)
+- pin4(GPIO2): NOT_CONNECTED
+- pin5(GPIO3): NOT_CONNECTED
+- pin6(GPIO4): NETS(SDA)
+- pin7(GPIO5): NETS(SCL)
+- pin8(GPIO6): NOT_CONNECTED
+- pin9(GPIO7): NOT_CONNECTED
+- pin10(IOVDD2): NETS(V3V3)
+- pin11(GPIO8): NOT_CONNECTED
+- pin12(GPIO9): NOT_CONNECTED
+- pin13(GPIO10): NOT_CONNECTED
+- pin14(GPIO11): NOT_CONNECTED
+- pin15(GPIO12): NOT_CONNECTED
+- pin16(GPIO13): NOT_CONNECTED
+- pin17(GPIO14): NOT_CONNECTED
+- pin18(GPIO15): NOT_CONNECTED
+- pin19(TESTEN): NETS(GND)
+- pin20(XIN): NETS(XIN)
+- pin21(XOUT): NETS(XOUT)
+- pin22(IOVDD3): NETS(V3V3)
+- pin23(DVDD1): NETS(V1V1)
+- pin24(SWCLK): NETS(SWCLK)
+- pin25(SWDIO): NETS(SWDIO)
+- pin26(RUN): NETS(RUN)
+- pin27(GPIO16): NETS(LCD_RST)
+- pin28(GPIO17): NETS(LCD_CS)
+- pin29(GPIO18): NETS(SPI_SCK)
+- pin30(GPIO19): NETS(SPI_MOSI)
+- pin31(GPIO20): NETS(ENC_A)
+- pin32(GPIO21): NETS(ENC_B)
+- pin33(IOVDD4): NETS(V3V3)
+- pin34(GPIO22): NETS(LCD_DC)
+- pin35(GPIO23): NETS(LCD_BL)
+- pin36(GPIO24): NOT_CONNECTED
+- pin37(GPIO25): NOT_CONNECTED
+- pin38(GPIO26): NOT_CONNECTED
+- pin39(GPIO27): NOT_CONNECTED
+- pin40(GPIO28): NOT_CONNECTED
+- pin41(GPIO29): NOT_CONNECTED
+- pin42(IOVDD5): NETS(V3V3)
+- pin43(ADC_AVDD): NETS(V3V3)
+- pin44(VREG_IN): NETS(V3V3)
+- pin45(VREG_VOUT): NETS(V1V1)
+- pin46(USB_DM): NETS(USB_DM_MCU)
+- pin47(USB_DP): NETS(USB_DP_MCU)
+- pin48(USB_VDD): NETS(V3V3)
+- pin49(IOVDD6): NETS(V3V3)
+- pin50(DVDD2): NETS(V1V1)
+- pin51(QSPI_SD3): NETS(QSPI_SD3)
+- pin52(QSPI_SCLK): NETS(QSPI_SCLK)
+- pin53(QSPI_SD0): NETS(QSPI_SD0)
+- pin54(QSPI_SD2): NETS(QSPI_SD2)
+- pin55(QSPI_SD1): NETS(QSPI_SD1)
+- pin56(QSPI_SS): NETS(QSPI_SS)
+- pin57(GND): NETS(GND)
+
+J1 (TYPEC-309-ACP16L65)
+- pin25(EH2): NETS(GND)
+- pin26(EH1): NETS(GND)
+- pin27(EH3): NETS(GND)
+- pin28(EH4): NETS(GND)
+- pin29(GND1, A12): NETS(GND)
+- pin30(GND2, B1): NETS(GND)
+- pin31(VBUS1, A9): NETS(VBUS)
+- pin32(VBUS2, B4): NETS(VBUS)
+- pin33(CC2, B5): NETS(CC2)
+- pin34(SBU1, A8): NOT_CONNECTED
+- pin35(DP2, B6): NETS(USB_DP)
+- pin36(DN1, A7): NETS(USB_DM)
+- pin37(DP1, A6): NETS(USB_DP)
+- pin38(DN2, B7): NETS(USB_DM)
+- pin39(CC1, A5): NETS(CC1)
+- pin40(SBU2, B8): NOT_CONNECTED
+- pin41(VBUS3, B9): NETS(VBUS)
+- pin42(VBUS4, A4): NETS(VBUS)
+- pin43(GND3, B12): NETS(GND)
+- pin44(GND4, A1): NETS(GND)
+
+R1 (5.1kΩ undefined)
+- pin1(anode, pos, left): NETS(CC1)
+- pin2(cathode, neg, right): NETS(GND)
+
+R2 (5.1kΩ undefined)
+- pin1(anode, pos, left): NETS(CC2)
+- pin2(cathode, neg, right): NETS(GND)
+
+U6 (USBLC6-2SC6)
+- pin1(DM_IN): NETS(USB_DM)
+- pin2(GND): NETS(GND)
+- pin3(DP_IN): NETS(USB_DP)
+- pin4(DP_OUT): NETS(USB_DP)
+- pin5(VBUS): NETS(VBUS)
+- pin6(DM_OUT): NETS(USB_DM)
+
+C1 (100nF undefined)
+- pin1: NETS(VBUS)
+- pin2: NETS(GND)
+
+U4 (TPS22919DCKR)
+- pin1(IN): NETS(V3V3)
+- pin2(GND): NETS(GND)
+- pin3(ON): NETS(PERIPH_EN)
+- pin4(NC): NOT_CONNECTED
+- pin5(QOD): NETS(PERIPH_3V3)
+- pin6(VOUT): NETS(PERIPH_3V3)
+
+C2 (1uF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C3 (1uF undefined)
+- pin1: NETS(PERIPH_3V3)
+- pin2: NETS(GND)
+
+R21 (100kΩ undefined)
+- pin1(anode, pos, left): NETS(PERIPH_EN)
+- pin2(cathode, neg, right): NETS(GND)
+
+U5 (TLV75533PDBVR)
+- pin1(IN): NETS(VBUS)
+- pin2(GND): NETS(GND)
+- pin3(EN): NETS(VBUS)
+- pin4(NC): NOT_CONNECTED
+- pin5(OUT): NETS(V3V3)
+
+C5 (1uF undefined)
+- pin1: NETS(VBUS)
+- pin2: NETS(GND)
+
+C6 (4.7uF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C7 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C8 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C9 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C10 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C11 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C12 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C13 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C17 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C18 (100nF undefined)
+- pin1: NETS(V1V1)
+- pin2: NETS(GND)
+
+C19 (100nF undefined)
+- pin1: NETS(V1V1)
+- pin2: NETS(GND)
+
+C20 (1uF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+C21 (1uF undefined)
+- pin1: NETS(V1V1)
+- pin2: NETS(GND)
+
+R10 (10kΩ undefined)
+- pin1(anode, pos, left): NETS(RUN)
+- pin2(cathode, neg, right): NETS(V3V3)
+
+J4 (B6B-PH-K-S(LF)(SN))
+- pin1(VREF): NETS(V3V3)
+- pin2(SWDIO): NETS(SWDIO)
+- pin3(SWCLK): NETS(SWCLK)
+- pin4(RUN): NETS(RUN)
+- pin5(GND): NETS(GND)
+- pin6(BOOTSEL): NETS(BOOTSEL)
+
+U2 (TCUT1600X01)
+- pin1(A): NETS(IR_A)
+- pin2(NC): NOT_CONNECTED
+- pin3(K): NETS(GND)
+- pin4(EB): NETS(OPT_B)
+- pin5(EA): NETS(OPT_A)
+- pin6(COL): NETS(PERIPH_3V3)
+
+U7 (SN74LVC2G17DBVR)
+- pin1(A1): NETS(OPT_A)
+- pin2(GND): NETS(GND)
+- pin3(A2): NETS(OPT_B)
+- pin4(Y2): NETS(ENC_B)
+- pin5(VCC): NETS(V3V3)
+- pin6(Y1): NETS(ENC_A)
+
+R24 (150Ω undefined)
+- pin1(anode, pos, left): NETS(PERIPH_3V3)
+- pin2(cathode, neg, right): NETS(IR_A)
+
+R25 (22kΩ undefined)
+- pin1(anode, pos, left): NETS(OPT_A)
+- pin2(cathode, neg, right): NETS(GND)
+
+R26 (22kΩ undefined)
+- pin1(anode, pos, left): NETS(OPT_B)
+- pin2(cathode, neg, right): NETS(GND)
+
+C14 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+R12 (4.7kΩ undefined)
+- pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(SDA)
+
+R13 (4.7kΩ undefined)
+- pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(SCL)
+
+U3 (MB85RC256VPNF-G-AMERE2)
+- pin1(A0): NETS(GND)
+- pin2(A1): NETS(GND)
+- pin3(A2): NETS(GND)
+- pin4(VSS): NETS(GND)
+- pin5(SDA): NETS(SDA)
+- pin6(SCL): NETS(SCL)
+- pin7(WP): NETS(GND)
+- pin8(VDD): NETS(V3V3)
+
+C16 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+SW1 (B3U-3000P)
+- pin1: NETS(MODE_BTN)
+- pin2: NETS(GND)
+
+J6 (SM08B-SRSS-TB(LF)(SN))
+- pin1(BL): NETS(LCD_BL)
+- pin2(RST): NETS(LCD_RST)
+- pin3(DC): NETS(LCD_DC)
+- pin4(CS): NETS(LCD_CS)
+- pin5(CLK): NETS(LCD_SCK)
+- pin6(DIN): NETS(LCD_MOSI)
+- pin7(GND): NETS(GND)
+- pin8(VCC): NETS(PERIPH_3V3)
+- pin9(MP1): NETS(GND)
+- pin10(MP2): NETS(GND)
+
+R27 (22Ω undefined)
+- pin1(anode, pos, left): NETS(SPI_SCK)
+- pin2(cathode, neg, right): NETS(LCD_SCK)
+
+R28 (22Ω undefined)
+- pin1(anode, pos, left): NETS(SPI_MOSI)
+- pin2(cathode, neg, right): NETS(LCD_MOSI)
+
+C15 (1uF undefined)
+- pin1: NETS(PERIPH_3V3)
+- pin2: NETS(GND)
+
+U8 (W25Q16JVSNIQ)
+- pin1(CS): NETS(QSPI_SS)
+- pin2(SD1): NETS(QSPI_SD1)
+- pin3(SD2): NETS(QSPI_SD2)
+- pin4(GND): NETS(GND)
+- pin5(SD0): NETS(QSPI_SD0)
+- pin6(SCLK): NETS(QSPI_SCLK)
+- pin7(SD3): NETS(QSPI_SD3)
+- pin8(VCC): NETS(V3V3)
+
+C22 (100nF undefined)
+- pin1: NETS(V3V3)
+- pin2: NETS(GND)
+
+R6 (1kΩ undefined)
+- pin1(anode, pos, left): NETS(QSPI_SS)
+- pin2(cathode, neg, right): NETS(BOOTSEL)
+
+R7 (10kΩ undefined)
+- pin1(anode, pos, left): NETS(QSPI_SS)
+- pin2(cathode, neg, right): NETS(V3V3)
+
+X1 (ABM8-272-T3)
+- pin1(left1, X1): NETS(XIN)
+- pin2(gnd2, top1, gnd1): NETS(GND)
+- pin3(right1, X2): NETS(XTAL_OUT)
+- pin4(gnd1, bottom1, gnd2): NETS(GND)
+
+R5 (1kΩ undefined)
+- pin1(anode, pos, left): NETS(XOUT)
+- pin2(cathode, neg, right): NETS(XTAL_OUT)
+
+C23 (15pF undefined)
+- pin1: NETS(XIN)
+- pin2: NETS(GND)
+
+C24 (15pF undefined)
+- pin1: NETS(XTAL_OUT)
+- pin2: NETS(GND)
+
+R3 (27Ω undefined)
+- pin1(anode, pos, left): NETS(USB_DM_MCU)
+- pin2(cathode, neg, right): NETS(USB_DM)
+
+R4 (27Ω undefined)
+- pin1(anode, pos, left): NETS(USB_DP_MCU)
+- pin2(cathode, neg, right): NETS(USB_DP)

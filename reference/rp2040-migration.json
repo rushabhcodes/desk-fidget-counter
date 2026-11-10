@@ -1,0 +1,58 @@
+{
+  "revision": "F1",
+  "release": "6.0.0",
+  "checked_date": "2026-11-10",
+  "replaces": "STM32F072CBT6 / E6",
+  "replacement": "RP2040 / C2040",
+  "support": {
+    "flash": "W25Q16JVSNIQ / C2456211 / 2MB / SOIC8-150mil",
+    "clock": "ABM8-272-T3 / C20625731 / 12MHz, CL10pF, ESR50ohm",
+    "clock_loads": "C23/C24 15pF C0G to GND; R5 1kohm series damping",
+    "usb": "R3/R4 27ohm series termination at MCU",
+    "power": "Six IOVDD plus ADC/USB and VREG input on3.3V; VREG output/both DVDD on1.1V; TESTEN/exposed pad toGND. Per-pin100nF plus1uF VREG input/output.",
+    "reset_boot": "RUN10k pull-up; QSPI CS10k pull-up; J4 BOOTSEL grounds CS through1k."
+  },
+  "population": {
+    "previous": 39,
+    "current": 52,
+    "added_references": [
+      "C19",
+      "C20",
+      "C21",
+      "C22",
+      "C23",
+      "C24",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "U8",
+      "X1"
+    ],
+    "note": "Several retained capacitor reference values/functions change for RP2040; F1 BOM and firmware6.0.0 are required."
+  },
+  "preserved_mechanical_datums": [
+    "PCB outline/window/mounting holes",
+    "J1 USB-C",
+    "SW1 Omron switch and circular E13 cap",
+    "J4 PH6 footprint (signal roles changed)",
+    "J6 display harness",
+    "U2 optical sensor"
+  ],
+  "firmware": "Pico SDK2.2.0 / TinyUSB0.21.0; PIO quadrature, I2C0 FRAM, SPI0 LCD, HID+CDC and UF2 image. GPIO single source: reference/rp2040.json.",
+  "primary_sources": [
+    "https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf",
+    "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+    "https://github.com/raspberrypi/pico-examples/tree/master/pio/quadrature_encoder"
+  ],
+  "sourcing": "reference/jlcpcb-sourcing-2026-11-10.json",
+  "pricing_limit": "A lower MCU unit price is not a complete PCBA cost reduction: external flash/crystal, additional passives and feeder charges require a fresh assembly quotation.",
+  "prototype_pending": [
+    "First power/current/1.1V and3.3V stability",
+    "Crystal and flash cold start / ROM UF2 / SWD",
+    "USB HID+CDC and suspend current / resume",
+    "Encoder phase/noise/max speed with display and FRAM busy",
+    "Circular button closure/return and printed fits"
+  ]
+}

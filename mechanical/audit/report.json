@@ -1,7 +1,7 @@
 {
-  "revision": "E12",
-  "model_sha256": "6fc51d638eaf31aeb9ca97f85a5d86f5c3c05c7baa22bb62fac51b4aec4943ee",
-  "source_parameters_sha256": "0e66f1215decdd64b2e512533fad38ebd23fb908fe7af2ca46dd441993685366",
+  "revision": "E13",
+  "model_sha256": "2132b75eef91781595584050308af02985dc7f0a80800139c52cc34408b882f3",
+  "source_parameters_sha256": "3d62d8ac48dfde8754403a0ac03fdc3ec232a529d699d86578af8d30d8822ce8",
   "tested_solid_pair_count": 210,
   "intentional_contacts": [
     {
@@ -27,17 +27,17 @@
   "print_checks": {
     "base": {
       "connected_watertight": true,
-      "stl_sha256": "dbd1a299e859f3dbe350ef25639bd94584867f6d482279834a09a51a755b7fc0",
+      "stl_sha256": "684c274edc4bb2daa8f794ecbd9f6cda9e0715e73a5896c528d73ea9488be7b1",
       "STL_to_GLB_max_vertex_error_mm": 0.0
     },
     "lid": {
       "connected_watertight": true,
-      "stl_sha256": "a21ec0299428a99ed2d5b6af80d579f84af4f5105f201b259b34a073d929166d",
+      "stl_sha256": "71080304c15b92a3c35b74c9f7986d15793f1488447a84eda87727b98e6efc02",
       "STL_to_GLB_max_vertex_error_mm": 7.63e-07
     },
     "knob": {
       "connected_watertight": true,
-      "stl_sha256": "0c1ef907b07699e446b671c0f8bbab6b4d6829e83947caea607384823a62f03d",
+      "stl_sha256": "d86d379b35d94519f9c429799c9143dc0322c650e2d1e896c69b9515de87cbf2",
       "STL_to_GLB_max_vertex_error_mm": 9.06e-07
     },
     "screen-carrier": {
@@ -52,8 +52,8 @@
     },
     "button-cap": {
       "connected_watertight": true,
-      "stl_sha256": "6d21c93fdfa2baa4e7d58712ccd9724d6c0c36f5e6940310c68f1da188a2d768",
-      "STL_to_GLB_max_vertex_error_mm": 1.781e-06
+      "stl_sha256": "d092e546f11970fadadc29c7adda1286d258f865a7ffa558a4a7e1f6b646cd40",
+      "STL_to_GLB_max_vertex_error_mm": 1.812e-06
     }
   },
   "carrier_through_bores": 2,
@@ -66,17 +66,22 @@
     "status": "Conservative engineering allowance; actual component heights and kit fit remain unmeasured"
   },
   "enclosure_size_mm": [
-    84.8,
-    84.8,
+    89.4,
+    89.4,
     19.5
   ],
+  "button_circular_envelope": {
+    "body_radius_mm": 44.7,
+    "delivered_button_max_radius_mm": 44.500002,
+    "recess_mm": 0.199998
+  },
   "scope": "Nominal delivered geometry plus stated fit-budget envelopes. Rear electronics reservation is an engineering allowance; exact kit plug fit, PLA strength/friction and bearing retention are physically untested.",
   "rendered_exterior_views": 6,
   "rendered_internal_views": 6,
   "rendered_harness_views": 2,
   "images": {
-    "exterior-contact-sheet.png": "727205ccb41411e1792630185e7b62b9d08029c4d8292a27a7b4fc179de772a8",
-    "internal-contact-sheet.png": "4e45b9a084ea0b235d78cc8cd3ebee9920d9502197e2dc46fb0c98a0b62350e9",
-    "display-harness.png": "9724339646230cef292f545a3944ea2f75c1c830f5b69a99f5ef58d53839f719"
+    "exterior-contact-sheet.png": "6c97224da2f35e85113d0f5e3e86d711117527df16a7b185db062666d4a2d3ed",
+    "internal-contact-sheet.png": "e508b613186a790d0064b65961efbab55fe3a906c5b9f6e39af769baeba0fbe9",
+    "display-harness.png": "51c756d8daaf58bd886d3af57f4325f4d999c1543285923b9f022a605d398c47"
   }
 }

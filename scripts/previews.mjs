@@ -2,7 +2,7 @@
 import fs from 'node:fs'
 import {convertCircuitJsonToPcbSvg,convertCircuitJsonToSchematicSvg} from 'circuit-to-svg'
 import {Resvg} from '@resvg/resvg-js'
-const cj=JSON.parse(fs.readFileSync('dist/index/circuit.json','utf8'))
+const cj=JSON.parse(fs.readFileSync(process.argv[2] ?? 'dist/index/circuit.json','utf8'))
 // Keep the legacy dist thumbnails synchronized with the maintained previews.
 fs.mkdirSync('dist/index',{recursive:true})
 const cleanSvg=svg=>svg.replace(/^[\t ]+$/gm,'').trimEnd()+'\n'

@@ -1,6 +1,6 @@
 {
   "manufacturer": "JLCPCB",
-  "checked_date": "2026-11-09",
+  "checked_date": "2026-11-10",
   "source": "https://jlcpcb.com/capabilities/pcb-capabilities/",
   "scope": "Two-layer, 1oz FR-4. Rules for repository verification, not an order or fabrication kit.",
   "units": "mm",
@@ -18,5 +18,9 @@
   "note": "The native phases request 0.15mm tracks; ordinary neck-downs must remain at least 0.10mm. The explicitly requested MCU bypass/return branches remain at least 0.15mm. General track/via clearance uses 0.10mm; component-pad spacing is separately checked at 0.15mm. Vias have a 0.15mm annular ring, so 0.10mm via-edge clearance also gives at least 0.25mm drill-to-copper clearance. PTH annular-ring guidance is distinct from routing-via diameter guidance. Acceptance uses these documented JLCPCB fabrication rules.",
   "minimum_mcu_local_bypass_width": 0.15,
   "minimum_standard_plated_slot_length_width_ratio": 2,
-  "usb_slot_resolution": "PCB E4 uses exact XUNPU TYPEC-309-ACP16L65 / C2909598 import; 0.60x1.50/1.60mm shield slots satisfy standard >=2:1 guidance. No original short slots or modified supplier copper remain in the populated design."
+  "usb_slot_resolution": "PCB E4 uses exact XUNPU TYPEC-309-ACP16L65 / C2909598 import; 0.60x1.50/1.60mm shield slots satisfy standard >=2:1 guidance. No original short slots or modified supplier copper remain in the populated design.",
+  "fine_via_drill_diameter": 0.2,
+  "fine_via_pad_diameter": 0.5,
+  "fine_via_source": "https://jlcpcb.com/capabilities/Capabilities",
+  "fine_via_note": "0.20mm drill / 0.50mm pad for dense RP2040 fanout; 0.15mm annular ring retained. Published two-layer capability is 0.15mm hole / 0.25mm pad. Preferred ordinary vias remain 0.30mm drill / 0.60mm pad."
 }

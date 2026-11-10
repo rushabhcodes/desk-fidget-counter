@@ -17,6 +17,10 @@
     "mechanical/cad/*.glb",
     "manufacturing/current/**",
     "mechanical/vendor/step/**",
-    "mechanical/vendor/solid/**"
+    "mechanical/vendor/solid/**",
+    "firmware/.deps/**",
+    "firmware/build/cmake/**",
+    "dist/checks/**",
+    "dist/placement/**"
   ]
 }

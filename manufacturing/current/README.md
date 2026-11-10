@@ -1,41 +1,40 @@
-# Desk knob — PCB E6 fabrication and assembly set
+# Desk knob — RP2040 PCB F1 / enclosure E13
 
-Release 5.11.0. Checked 9 November 2026 against the current workspace, compatible with enclosure E12. Local design, independent DRC, Gerber/drill and assembly-file checks pass for a first prototype. No factory upload, purchase or allocation has been made. Physical electrical operation still needs bring-up testing.
+Checked 10 November 2026 against the current source. Local circuit, independent fabrication and assembly checks pass for **first-prototype manufacture**. This kit contains RP2040 hardware and firmware 6.0.0, with the recessed curved button inside the Ø89.4×19.5 mm E13 enclosure. Final manufacturer DFM/feeder preview and physical bring-up remain. No supplier upload, purchase or stock allocation was performed.
 
 ## Upload files
 
-1. Upload **Gerbers-E6.zip** to PCB fabrication. The outer review ZIP also contains source/evidence and is not the Gerber upload.
-2. For **39-part complete assembly**, upload **BOM-complete.csv + CPL-complete.csv** and select a service that includes J4 through-hole assembly.
-3. For **38-part SMT-only assembly**, upload **BOM-smt.csv + CPL-smt.csv**. Fit only J4, JST B6B-PH-K-S(LF)(SN) / C131342, locally. J6 is already included.
-4. Check exact part matches, feeder pickup origin and pin-1/rotation previews against **physical-pin-map.csv** and **assembly/assembly-top.svg** before payment. CPL coordinates intentionally share the plotted Gerber origin, including negative Y; do not mirror, take absolute values or edit rotations independently.
+1. Upload **Gerbers-F1.zip** for PCB fabrication. The outer review ZIP also contains CAD, evidence, firmware and prints; it is not the Gerber upload.
+2. For **52-part complete assembly**, upload **BOM-complete.csv + CPL-complete.csv** and confirm a service including the J4 through-hole header.
+3. For **51-part SMT assembly**, upload **BOM-smt.csv + CPL-smt.csv**. Fit only J4, JST B6B-PH-K-S(LF)(SN) / C131342, locally. J6 is already fitted.
+4. Check every exact MPN, feeder origin, asymmetric rotation and pin 1 against **physical-pin-map.csv** and **assembly/assembly-top.svg** before payment. CPL and Gerbers share their origin, including negative Y; do not mirror, take absolute coordinates or edit rotations independently.
 
 ## Board settings
 
 | Item | Specification |
 |---|---|
-| Material | FR-4, Tg >=135 C |
-| Layers / copper | 2 layers / 1 oz outer copper |
-| Thickness | 1.6 mm nominal |
+| Material | FR-4, Tg ≥135°C |
+| Layers / copper / thickness | 2 layers / 1 oz / 1.6 mm nominal |
 | Finish / mask / silk | ENIG / green / white |
-| Unit outline | 68 x 83.5 mm, custom clipped round profile with USB/button tabs |
-| Inner routed pocket | 34.6 x 40.6 mm, R2 corners; preserve exact Gerber contour |
-| Routing vias | 0.30 mm drill / 0.60 mm pad |
-| Copper rules | >=0.10 mm track/gap, >=0.15 mm component-pad gap, >=0.30 mm copper to edge; actual tracks >=0.15 mm |
-| USB shield slots | Four plated 0.60 x 1.50/1.60 mm slots |
-| Component assembly | All populated parts on top; 23 exact MPN BOM lines |
+| Unit outline | 68×83.5 mm clipped round profile with USB/button tabs |
+| Internal window | 34.6×40.6 mm, R2 corners; preserve the Gerber contour |
+| Vias | 50 at Ø0.20 drill / Ø0.50 pad; 48 at Ø0.30 / Ø0.60 mm |
+| Copper rules | ≥0.10 mm track/gap, ≥0.15 mm component-pad gap, ≥0.30 mm edge clearance |
+| USB shield slots | Four plated 0.60×1.50/1.60 mm slots |
+| Assembly | 52 top placements / 27 exact MPN BOM lines |
 
-Have the assembler confirm support/tooling for the irregular outline and large inner pocket. Any panel rails must be removable outside the finished unit outline. No controlled-impedance specification is claimed; USB is full-speed and requires prototype signal checks.
+The 98 vias retain ≥0.15 mm annular rings and their drills do not intersect SMT paste. No via-in-pad process is required. Confirm tooling/support for the irregular outline and large internal window; removable panel rails must stay outside the finished outline. USB full-speed signal integrity has not been measured.
 
-## Final product assembly and programming
+## Product assembly and programming
 
-J4 is the only through-hole header. Before putting the board in the enclosure, trim its underside tails/joints to <=0.8 mm, inspect/deburr and insulate the specified solder wells. Check the six PCB capture pads and E12 button mechanism fit.
+J4 is the only through-hole header. Trim its underside tails/joints to ≤0.8 mm, inspect/deburr and insulate the specified solder wells before enclosure assembly. The Waveshare display, complete 6712ZZ bearing, six printed parts, screws, foam and custom H1 harness are separate from PCBA. H1 is a keyed crimped SH8-to-PH8 lead, 44±1 mm free insulation, straight circuits 1→1 through 8→8; see **WIRING.md** and **LCD-harness.csv**. The display kit's jumper lead is unused.
 
-The Waveshare display, bearing, six printed enclosure parts, screws, foam and H1 crimped SH8-to-PH8 harness are separate from PCB assembly. The supplied display jumper lead is unused. See **WIRING.md** and **LCD-harness.csv** for the physical pin map and 44+/-1 mm free-insulation length. H1 is not supplied by the PCBA BOM.
+**enclosure/stl/** contains the six E13 product prints and three fit coupons. Follow the print poses and fit notes, and use **ASSEMBLY.md** for the sequence. Actual printed fits, optical opacity and button force/life require validation.
 
-Program **firmware/desk-knob.hex** or **firmware/desk-knob.bin** at 0x08000000 using SWD through J4 with USB powering the board. VTref is a voltage-sense input, not programmer power output. Check J4 signal identity against your actual probe, then initialize a fresh FRAM deliberately with the three-second button hold. These are the checked firmware 5.0.0 artifacts; no factory programming is requested by this kit.
+Use **firmware/desk-knob.uf2** with the RP2040 ROM USB bootloader or **firmware/desk-knob.elf** through J4 SWD. See **firmware/README.md** for the exact procedure. Initialize a fresh FRAM deliberately with a three-second button hold, then perform **BRINGUP.md** checks. Historical STM32 programming procedures and images do not apply.
 
-## Verification
+## Evidence and file integrity
 
-**checks/** contains the fresh independent KiCad DRC, pad/copper preservation, parsed Gerber/drill, BOM/CPL, annular-ring and dated public-stock reports. DRC found zero violations and zero unconnected items. Public stock is not reserved and does not establish feeder approval, factory loss requirements or minimum buying quantities. Those remain final factory-preview/quote checks.
+**checks/** includes zero-violation/zero-open KiCad DRC, native-copper/pad/drill preservation, Gerber/Excellon parsing, BOM/CPL and physical pin maps, annuli/paste clearances, local signal paths, firmware image and assembly audit evidence. All 27 exact part identities were publicly purchasable on 10 November 2026; stock is unreserved. Final allocation, purchasing/attrition quantities and feeder/rotation approval require the factory quote/preview. MCU unit pricing does not establish a lower complete PCBA price.
 
-**cad/** contains the finalized source-derived KiCad PCB/project/rules and its exact generated footprint library. **manifest.json** binds this set to the validated native circuit; **SHA256SUMS.txt** covers every package file except the checksum list itself. Do not mix this set with historical release files.
+**cad/** contains the finalized source-derived KiCad board/project/rules and exact generated footprints. **manifest.json** binds the kit to the checked source. **SHA256SUMS.txt** covers every kit file except itself. Keep this F1 hardware, BOM/CPL and firmware together.

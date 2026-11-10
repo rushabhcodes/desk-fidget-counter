@@ -477,5 +477,71 @@
     "datum_note": "Rigid supplier datum subtraction (3.5,0.4067309,-0.01); no scaling, trimming or altered footprint.",
     "derivative_generator": "mechanical/vendor/generate-jst-sh8.py",
     "supplier_model_geometry_unscaled": true
+  },
+  "rp2040": {
+    "step": "mechanical/vendor/step/RP2040.step",
+    "obj": "mechanical/vendor/obj/rp2040.obj",
+    "source": "https://modelcdn.tscircuit.com/easyeda_models/assets/C2040.obj?uuid=76b360a9d4c54384a4e47d7e5af156df",
+    "source_obj_sha256": "a3a668d5b1ab3b8962838676908b1a52503a1374525738f51d09eef15bbcd39e",
+    "model_origin_translation_mm": [
+      0,
+      0,
+      0.02
+    ],
+    "bounds": [
+      [
+        -3.51,
+        -3.51,
+        0.0
+      ],
+      [
+        3.51,
+        3.51,
+        0.87
+      ]
+    ],
+    "size": {
+      "x": 7.02,
+      "y": 7.02,
+      "z": 0.87
+    },
+    "pin_tail_trim_mm": null,
+    "source_step_sha256": "174a866c06fe9b824f197259a77cb3b39625ba986ddd7214fb32f0d873eb4bbd",
+    "tessellation": "Original supplier STEP, 0.03mm chordal / 0.15rad angular deflection; rigid translation only; no rescaling.",
+    "collision_mesh": "mechanical/vendor/solid/rp2040.ply",
+    "derivative_generator": "mechanical/vendor/generate-rp2040.py"
+  },
+  "abm8": {
+    "step": "mechanical/vendor/step/ABM8_272_T3.step",
+    "obj": "mechanical/vendor/obj/abm8.obj",
+    "source": "https://modelcdn.tscircuit.com/easyeda_models/assets/C20625731.obj?uuid=02485e56ba8d4732a26526d2983fc729",
+    "source_obj_sha256": "4b75001f08c9e627eb8c88ca2c599b8b278cbe76d399495cfd15b2fc366c45a7",
+    "model_origin_translation_mm": [
+      0,
+      0,
+      0
+    ],
+    "bounds": [
+      [
+        -1.6,
+        -1.25,
+        0.0
+      ],
+      [
+        1.6,
+        1.25,
+        0.701
+      ]
+    ],
+    "size": {
+      "x": 3.2,
+      "y": 2.5,
+      "z": 0.701
+    },
+    "pin_tail_trim_mm": null,
+    "source_step_sha256": "55aee3da5b1518e84230f692ed298823bc71771ac97e871a21b265f0b4f8232b",
+    "tessellation": "Original supplier STEP, 0.03mm chordal / 0.15rad angular deflection; rigid translation only; no rescaling.",
+    "collision_mesh": "mechanical/vendor/solid/abm8.ply",
+    "derivative_generator": "mechanical/vendor/generate-rp2040.py"
   }
 }

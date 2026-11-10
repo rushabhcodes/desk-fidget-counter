@@ -7,7 +7,7 @@
 		(at 0 -3 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "7f855773-b12c-4852-8f43-41d999f93f06")
+		(uuid "91b211e2-cc62-40e7-a6b4-4b3a2f096f9f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19,7 +19,7 @@
 		(at 0 3 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "e67b598a-19ff-4dc9-a658-091ed76faaae")
+		(uuid "8b72ca8f-1cb3-47d0-bde3-92cc253d0ec9")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,7 +31,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f539a062-6c7b-443c-af3a-01a5ee440496")
+		(uuid "b99b508f-6e19-4bb8-a485-adc1c3f0c78b")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "b1acbd45-2711-44c5-802e-554e9f49355c")
+		(uuid "fda77a9f-1113-45fd-b79a-7c1cfadb07dd")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -85,7 +85,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "88e3817f-bcac-4e25-8d87-167d7231febf")
+		(uuid "92f92c28-e64e-414f-9221-017113002b4a")
 	)
 	(fp_line
 		(start -1.963598 0.751205)
@@ -95,7 +95,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "ffb45b0f-e10a-4cfc-a992-7cb2c29ee54d")
+		(uuid "28b86da7-33c9-4e83-8320-1441bbb4bcd3")
 	)
 	(fp_line
 		(start -1.918961 -0.858968)
@@ -105,7 +105,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "e3b8e640-d025-45ad-8c6c-242364bc78fd")
+		(uuid "55823c02-ec8c-497c-90d0-eee1d50c43ef")
 	)
 	(fp_line
 		(start -1.918961 0.858968)
@@ -115,7 +115,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "4dc105bf-a6ed-4cdf-a520-185d0f732048")
+		(uuid "ab7562f9-e121-4972-a17a-4d82adf92be3")
 	)
 	(fp_line
 		(start -1.811198 -0.903605)
@@ -125,7 +125,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "787321dd-25a4-44c0-a694-6ebd86523dfa")
+		(uuid "e95907ee-de61-4fc7-a0e5-57d825ef5d7b")
 	)
 	(fp_line
 		(start -1.811198 0.903605)
@@ -135,7 +135,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "058dab8b-a690-4a18-9544-5713f2c320c7")
+		(uuid "a815023a-711f-499c-a0f2-b9fe940fd8f8")
 	)
 	(fp_line
 		(start -0.401193 0.903605)
@@ -145,7 +145,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "56be1385-ab88-41ac-ba28-36fd783d2731")
+		(uuid "07f7841c-6068-43ab-8748-8a2bbaafc4de")
 	)
 	(fp_line
 		(start 0.401193 0.903605)
@@ -155,7 +155,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "5ae79853-22bb-4b06-99c4-d1d3c88cadbf")
+		(uuid "0c859ebd-49ac-4f3e-904f-dc5597a70a2f")
 	)
 	(fp_line
 		(start 1.811198 -0.903605)
@@ -165,7 +165,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "007c51d1-7a83-4fc2-9e81-9e1752bf4972")
+		(uuid "324cac37-0d8c-4a17-b9df-f9e8c2f55c9c")
 	)
 	(fp_line
 		(start 1.811198 0.903605)
@@ -175,7 +175,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "704b472d-4e30-4a2b-a691-aadf692f3a4a")
+		(uuid "e984714d-6948-4d6c-8c37-6dc490714843")
 	)
 	(fp_line
 		(start 1.918961 -0.858968)
@@ -185,7 +185,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "f0c95f95-f85c-496a-9569-eea12dc630fd")
+		(uuid "c8de8d89-631e-4490-9e8a-25299b9ecdbd")
 	)
 	(fp_line
 		(start 1.918961 0.858968)
@@ -195,7 +195,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "3c3b5e24-5885-47d8-8659-9d654b1492e6")
+		(uuid "98ae3fd9-ad64-4fa0-8f86-1d7b3b902b75")
 	)
 	(fp_line
 		(start 1.963598 -0.751205)
@@ -205,7 +205,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "a9cf3341-9bf1-4c94-b02c-5f20e9bab080")
+		(uuid "bc4ef072-2293-4b75-a82c-5eb1bae06da2")
 	)
 	(fp_line
 		(start 1.963598 0.751205)
@@ -215,7 +215,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "e00b064c-7d67-4643-9401-4fc1ffbe9859")
+		(uuid "3100daaf-8cfc-41fc-8272-d2deae6227f1")
 	)
 	(fp_poly
 		(pts
@@ -233,13 +233,13 @@
 		(at -0.999998 0)
 		(size 0.987003 0.945007)
 		(layers "F.Paste")
-		(uuid "2516b000-7f86-ede1-2608-d43e346769a3")
+		(uuid "04a24bc0-55cd-f221-4fc1-cffe0aae6de3")
 	)
 	(pad "" smd rect
 		(at 0.999998 0)
 		(size 0.987003 0.945007)
 		(layers "F.Paste")
-		(uuid "62367420-4359-4dff-1716-efe271872dc3")
+		(uuid "387d7860-6d12-49bf-12a2-0bde47ce3203")
 	)
 	(pad "1" smd rect
 		(at -0.999998 0)

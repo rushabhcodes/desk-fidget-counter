@@ -1,14 +1,33 @@
 # SPDX-License-Identifier: MIT
-"""Broad side paddle with twin guides, independent stops and foam return.
+"""Curved side paddle within the circular body, with guides and foam return.
 
-All coordinates are assembly millimetres. The raised face clears a fingertip
-above the desk. Print face down with local support beneath the outboard ears.
+All coordinates are assembly millimetres. The press area clears a fingertip
+above the desk. Print ears down, curved face up, supporting the hidden rear face.
 """
 import manifold3d as m
 
 
 def box(size, center):
     return m.Manifold.cube(size, True).translate(center)
+
+
+def face_profile(cap, clearance=0):
+    radius = cap['face_corner_radius_mm'] + clearance
+    return m.CrossSection.square(
+        (cap['face_width_mm'] + 2 * clearance - 2 * radius,
+         cap['face_height_mm'] + 2 * clearance - 2 * radius), True
+    ).offset(radius)
+
+
+def face_opening(p):
+    """Rounded clearance aperture through the shell and front guide ends."""
+    button = p['front_button']
+    cap = button['printed_cap']
+    front = -p['base_diameter'] / 2 - 2
+    return face_profile(cap, cap['minimum_slide_clearance_mm']).extrude(
+        button['opening_inner_y_mm'] - front
+    ).transform([[1, 0, 0, 0], [0, 0, 1, front],
+                 [0, 1, 0, cap['face_center_z_mm']]])
 
 
 def build(p):
@@ -19,14 +38,15 @@ def build(p):
     rail_z = top - height / 2
     clearance = cap['minimum_slide_clearance_mm']
     width, face_height = cap['face_width_mm'], cap['face_height_mm']
-    radius = cap['face_corner_radius_mm']
-    profile = m.CrossSection.square(
-        (width - 2 * radius, face_height - 2 * radius), True
-    ).offset(radius)
-    face = profile.extrude(cap['face_thickness_mm']).transform(
-        [[1, 0, 0, 0], [0, 0, 1, cap['face_front_y']],
-         [0, 1, 0, cap['face_center_z_mm']]]
-    )
+    outer = cap['face_radius_mm']
+    inner = outer - cap['face_thickness_mm']
+    bottom = cap['face_center_z_mm'] - face_height / 2
+    shell = m.Manifold.cylinder(face_height, outer, outer, 384).translate((0, 0, bottom))
+    shell -= m.Manifold.cylinder(face_height + .2, inner, inner, 384).translate((0, 0, bottom - .1))
+    profile = face_profile(cap).extrude(6).transform(
+        [[1, 0, 0, 0], [0, 0, 1, -outer - 1],
+         [0, 1, 0, cap['face_center_z_mm']]])
+    face = shell ^ profile
     # A shallow dish identifies the press area; retain >=0.8mm at its centre.
     dish_radius = 14
     face -= m.Manifold.sphere(dish_radius, 128).translate(
@@ -63,12 +83,13 @@ def build(p):
     backing = pad['backing_front_y_mm']
     assert abs(backing - ear_back - pad['rest_cavity_mm']) < 1e-8
     surround = m.Manifold()
+    shift = cap['guide_offset_y_mm']
     for sign in [-1, 1]:
-        surround += box((7.6, 8.0, .8), (sign * 7.2, -38.6, floor_z))
+        surround += box((7.6, 8.0, .8), (sign * 7.2, -38.6 + shift, floor_z))
         surround += box((.8, 6.2, wall_height),
-                        (sign * 3.4, -39.1, wall_z))
+                        (sign * 3.4, -39.1 + shift, wall_z))
         surround += box((.8, 2.8, wall_height),
-                        (sign * 7.0, -40.9, wall_z))
+                        (sign * 7.0, -40.9 + shift, wall_z))
         # Outward retention, inward stop and foam backing are independent.
         surround += box((4.4, .8, wall_height),
                         (sign * 8.8, ear_front - .4, wall_z))
@@ -77,7 +98,7 @@ def build(p):
         surround += box((2.4, .8, wall_height),
                         (sign * 8.8, backing + .4, wall_z))
         surround += box((.8, 4.8, wall_height),
-                        (sign * 10.8, -36.9, wall_z))
+                        (sign * 10.8, -36.9 + shift, wall_z))
     # Retain clearance around the existing front PCB capture pads and feet.
     for x, y in p['pcb_capture']['front_pad_centers']:
         surround -= m.Manifold.cylinder(10, 1.6, 1.6, 96).translate((x, y, 0))
@@ -85,11 +106,12 @@ def build(p):
         10, p['base_diameter'] / 2 - .2, p['base_diameter'] / 2 - .2, 192
     )
     # Stay below the bearing outer race: this stationary roof must not touch it.
-    roof = box((23.0, 7.7, .8), (0, -38.45, wall_top + .4))
+    roof = box((23.0, 7.7, .8), (0, -38.45 + shift, wall_top + .4))
     roof ^= m.Manifold.cylinder(
         20, p['base_diameter'] / 2 - .35, p['base_diameter'] / 2 - .35, 192
     )
-    return surround, roof, paddle
+    opening = face_opening(p)
+    return surround - opening, roof - opening, paddle
 
 
 def return_pad_solids(p, travel=0):

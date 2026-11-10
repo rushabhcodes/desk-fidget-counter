@@ -8,6 +8,9 @@ dist/autorouter-debug/
 firmware/downloads/
 firmware/.deps/
 firmware/build/*.map
+firmware/build/cmake/
 *.kicad_prl
 dist/*/kicad/
 routing/candidate.json
+dist/checks/
+dist/placement/

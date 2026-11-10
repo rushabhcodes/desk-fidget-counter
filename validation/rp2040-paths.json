@@ -1,0 +1,177 @@
+{
+  "status": "pass",
+  "board_sha256": "2458f49ea9670145a09565e307e526f5f3337d80af32263ac43e3015c974a408",
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
+  "note": "Limits are project engineering budgets; physical bring-up and signal integrity still require a prototype. Lengths are planar routed copper including pad centroids.",
+  "bypasses": [
+    {
+      "from": "U1.1",
+      "to": "C7.1",
+      "budget_mm": 6,
+      "length_mm": 1.4551,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.10",
+      "to": "C8.1",
+      "budget_mm": 6,
+      "length_mm": 1.4551,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.22",
+      "to": "C9.1",
+      "budget_mm": 6,
+      "length_mm": 1.4549,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.33",
+      "to": "C10.1",
+      "budget_mm": 6,
+      "length_mm": 1.3551,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.42",
+      "to": "C11.1",
+      "budget_mm": 6,
+      "length_mm": 1.3551,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.49",
+      "to": "C12.1",
+      "budget_mm": 6,
+      "length_mm": 2.388,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.43",
+      "to": "C13.1",
+      "budget_mm": 6,
+      "length_mm": 5.4218,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.48",
+      "to": "C17.1",
+      "budget_mm": 6,
+      "length_mm": 4.8277,
+      "minimum_track_width_mm": 0.15,
+      "vias": 2
+    },
+    {
+      "from": "U1.50",
+      "to": "C18.1",
+      "budget_mm": 6,
+      "length_mm": 1.7963,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.23",
+      "to": "C19.1",
+      "budget_mm": 6,
+      "length_mm": 2.5859,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.44",
+      "to": "C20.1",
+      "budget_mm": 7,
+      "length_mm": 5.4787,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U1.45",
+      "to": "C21.1",
+      "budget_mm": 7,
+      "length_mm": 4.2939,
+      "minimum_track_width_mm": 0.15,
+      "vias": 2
+    },
+    {
+      "from": "U8.8",
+      "to": "C22.1",
+      "budget_mm": 8,
+      "length_mm": 1.9125,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    },
+    {
+      "from": "U7.5",
+      "to": "C14.1",
+      "budget_mm": 6,
+      "length_mm": 3.4499,
+      "minimum_track_width_mm": 0.15,
+      "vias": 0
+    }
+  ],
+  "local_signals": [
+    {
+      "net": "XIN",
+      "total_copper_length_mm": 4.5956,
+      "via_count": 0
+    },
+    {
+      "net": "XOUT",
+      "total_copper_length_mm": 3.7358,
+      "via_count": 0
+    },
+    {
+      "net": "XTAL_OUT",
+      "total_copper_length_mm": 5.9886,
+      "via_count": 0
+    },
+    {
+      "net": "QSPI_SS",
+      "total_copper_length_mm": 19.7119,
+      "via_count": 0
+    },
+    {
+      "net": "QSPI_SCLK",
+      "total_copper_length_mm": 14.2224,
+      "via_count": 2
+    },
+    {
+      "net": "QSPI_SD0",
+      "total_copper_length_mm": 10.508,
+      "via_count": 0
+    },
+    {
+      "net": "QSPI_SD1",
+      "total_copper_length_mm": 5.3625,
+      "via_count": 0
+    },
+    {
+      "net": "QSPI_SD2",
+      "total_copper_length_mm": 5.0022,
+      "via_count": 0
+    },
+    {
+      "net": "QSPI_SD3",
+      "total_copper_length_mm": 16.3498,
+      "via_count": 2
+    },
+    {
+      "net": "USB_DM_MCU",
+      "total_copper_length_mm": 15.2088,
+      "via_count": 2
+    },
+    {
+      "net": "USB_DP_MCU",
+      "total_copper_length_mm": 15.0714,
+      "via_count": 2
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-#include "stm32f0xx.h"
+#include "pico/unique_id.h"
 #include "tusb.h"
 #include <string.h>
 // TinyUSB's example VID/PID are development identifiers, not a purchased
@@ -20,7 +20,7 @@ static const tusb_desc_device_t device = {.bLength = sizeof(tusb_desc_device_t),
                                           .bMaxPacketSize0 = 64,
                                           .idVendor = USB_VID,
                                           .idProduct = USB_PID,
-                                          .bcdDevice = 0x0500,
+                                          .bcdDevice = 0x0600,
                                           .iManufacturer = 1,
                                           .iProduct = 2,
                                           .iSerialNumber = 3,
@@ -48,7 +48,7 @@ uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t lang) {
   (void)lang;
   static uint16_t out[64];
   const char *s = "";
-  static char serial[25];
+  static char serial[2 * PICO_UNIQUE_BOARD_ID_SIZE_BYTES + 1];
   if (index == 0) {
     out[0] = (TUSB_DESC_STRING << 8) | 4;
     out[1] = 0x0409;
@@ -63,13 +63,7 @@ uint16_t const *tud_descriptor_string_cb(uint8_t index, uint16_t lang) {
   else if (index == 5)
     s = "Scroll Wheel";
   else if (index == 3) {
-    const uint8_t *uid = (const uint8_t *)UID_BASE;
-    const char *h = "0123456789ABCDEF";
-    for (int i = 0; i < 12; i++) {
-      serial[i * 2] = h[uid[i] >> 4];
-      serial[i * 2 + 1] = h[uid[i] & 15];
-    }
-    serial[24] = 0;
+    pico_get_unique_board_id_string(serial, sizeof serial);
     s = serial;
   } else
     return NULL;

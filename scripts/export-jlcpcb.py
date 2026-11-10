@@ -20,7 +20,7 @@ components = {x['source_component_id']: x for x in cj if x['type'] == 'pcb_compo
 source_ports = {x['source_port_id']: x for x in cj if x['type'] == 'source_port'}
 pcb_ports = [x for x in cj if x['type'] == 'pcb_port']
 refs = {r['Reference'] for r in bom}
-assert refs == {r['Ref'] for r in placements} and len(refs) == 39
+assert refs == {r['Ref'] for r in placements} and len(refs) == 52
 assert {'J4','J6'} <= refs and all(r['Side'] == 'top' for r in placements)
 assert all(sources[r['Reference']]['manufacturer_part_number'] == r['MPN'] for r in bom)
 
@@ -79,8 +79,9 @@ write_csv('physical-pin-map.csv', ['Designator', 'Physical pin', 'Gerber X mm', 
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 report = {
     'release': json.loads((ROOT / 'package.json').read_text())['version'],
-    'pcb_revision': 'E6', 'mechanical_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['mechanical_revision'],
-    'complete_placements': 39, 'smt_only_placements': 38, 'DNP': [],
+    'pcb_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['pcb_revision'],
+    'mechanical_revision': json.loads((ROOT / 'mechanical/parameters.json').read_text())['mechanical_revision'],
+    'complete_placements': 52, 'smt_only_placements': 51, 'DNP': [],
     'physical_pins': len(pins), 'all_components_top': True,
     'bom_cpl_reference_sets_match': True, 'native_placement_coordinates_preserved': True,
     'native_placement_rotations_preserved': True,
@@ -94,4 +95,4 @@ report = {
     'supplier_upload': 'No upload claimed for this revision. Final JLCPCB part matching, feeder origin and rotation preview must correspond to these exact current files.'
 }
 (OUT / 'checks.json').write_text(json.dumps(report, indent=2) + '\n')
-print(f'JLCPCB CSV check passed: 39 complete / 38 SMT placements, matching BOM/CPL sets, native coordinates and physical pin map. Temporary files: {OUT}')
+print(f'JLCPCB CSV check passed: 52 complete / 51 SMT placements, matching BOM/CPL sets, native coordinates and physical pin map. Temporary files: {OUT}')

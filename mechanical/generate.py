@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""SPDX-License-Identifier: MIT. Mechanics E12 reduced-height PLA assembly.
+"""SPDX-License-Identifier: MIT. Mechanics E13 circular-button PLA assembly.
 All dimensions are millimetres, +Z up. No Z scaling of purchased parts.
 """
 from pathlib import Path
-import json, math
+import argparse, hashlib, json, math
 import manifold3d as m
 import numpy as np
 import trimesh
 ROOT=Path(__file__).resolve().parent
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--circuit',type=Path,default=ROOT.parent/'dist/index/circuit.json',help='Source-derived PCB JSON; an unrouted build can be used for fit preflight')
+args=parser.parse_args()
 P=json.loads((ROOT/'parameters.json').read_text())
 TAU=2*math.pi
 
@@ -50,7 +53,7 @@ for x,y in P['mount_holes']:
 for x,y in lid_screws:
  base+=cyl(2.2,lid_bottom-2,2,x,y);base-=cyl(.8,lid_bottom-1.9,2,x,y)
 # Individual solder wells retain 1.2mm floor beneath trimmed through-hole tails.
-cj=json.loads((ROOT.parent/'dist/index/circuit.json').read_text())
+cj=json.loads(args.circuit.read_text())
 assert all(c['layer']=='top' for c in cj if c['type']=='pcb_component'),'Every component must assemble from above'
 for h in [c for c in cj if c['type']=='pcb_plated_hole']:
  x,y=h.get('x',0),h.get('y',0)
@@ -62,23 +65,25 @@ usb=box((usb_access['opening_width_mm'],usb_access['opening_length_mm'],usb_acce
 base-=usb
 # The switch sits on an integral front PCB tab behind a captive printed cap.
 button=P['front_button'];button_z=button['axis_z']
-button_opening=box((button['opening_width_mm'],16,button['opening_top_z']-button['opening_bottom_z']),
- (0,-42,(button['opening_top_z']+button['opening_bottom_z'])/2))
+from button import build as build_button, face_opening
+button_opening=face_opening(P)
 base-=button_opening
 # Recess only the actual PCB nose, retaining the outer wall wherever there is
 # room. The 0.25mm side allowance clears the FR-4 without a large front opening.
 board_outline=next(c['outline'] for c in cj if c['type']=='pcb_board')
 front_pocket=m.CrossSection([[(q['x'],q['y']) for q in board_outline]]).offset(.25).extrude(1.8).translate((0,0,2.6))
 base-=(front_pocket^box((24,16,3),(0,-40,3.5)))
-# Open the narrow FR-4 band cleanly instead of retaining sub-nozzle wall slivers.
-base-=box((11,12,1.8),(0,-42.5,3.5))
 # Support the switch tab directly underneath the solder-free PCB underside.
-base+=box((9,6,.6),(0,-38.6,2.3))
+base+=box((9,6,.6),(0,button['pcb_center'][1]+2.3,2.3))
 # Recess the ears inside the circular wall; retain the narrower outer opening.
-base-=box((20.8,5.2,2.4),(0,-36.8,6.8))
-from button import build as build_button
+guide_shift=button['printed_cap']['guide_offset_y_mm']
+base-=box((20.8,5.2,2.4),(0,-36.8+guide_shift,6.8))
 button_surround,button_roof,button_cap=build_button(P)
 base+=button_surround-front_pocket
+# Short side lips mask the PCB behind the running seam without entering the
+# curved face's full stroke or the switch's central contact path.
+for side in [-1,1]:
+ base+=box((2.4,.8,2.9),(side*7.5,button['printed_cap']['ear_center_y_mm']-1.5,3.35))-front_pocket
 assert (button_surround-cyl(outer-.2,20)).volume()<1e-4,'Button guides must remain inside the circular wall'
 
 lid=ring(outer-.35,27.3,lid_top-lid_bottom,lid_bottom)
@@ -93,7 +98,10 @@ lid-=ring(30.2,29.7,.6,bearing_top-.6)-m.Manifold.cylinder(.6,30,29.7,128).trans
 # The flush port keeps the plug body outside the lid; retain its full roof.
 lid-=located(box((7.2,5.2,4),(0,0,8.6)),-23,10,P['encoder']['rotation_deg'])
 # Keep the existing fork clearance as the main lid plate moves down.
-lid-=box((24,8.2,2.2),(0,-38.4,6.9))
+guide_recess=box((24,8.2,2.2),(0,-38.4+guide_shift,6.9))
+for x,y in capture['front_pad_centers']:
+ guide_recess-=cyl(1.3,4,5,x,y)
+lid-=guide_recess
 # Recess only the real USB package envelope, with 0.2mm assembly allowance.
 cad_usb=next(c for c in cj if c['type']=='cad_component' and usb_access['model_filename'] in c.get('model_obj_url',''))
 usb_mesh=trimesh.load(ROOT/'vendor/solid'/usb_access['solid_filename'],force='mesh')
@@ -107,17 +115,24 @@ lid+=button_roof
 rim_top=grip_z-.8
 lid+=ring(outer-.35,40.0,rim_top-lid_top,lid_top)
 for x,y in lid_screws:lid-=cyl(2.2,rim_top-lid_top+.2,lid_top,x,y)
+lid-=button_opening
+# Let the plug shoulder enter the enlarged circular wall without cutting PCB capture feet.
+lid-=usb ^ box((24,60,12),(0,usb_access['socket_face_y']+29.8,6))
 assert (button_roof-cyl(outer-.35,20)).volume()<1e-4,'Button roof must remain inside the circular wall'
 assert (base^lid).volume()<1e-4,'Base guides must clear the lid and capture pads'
 
 
 # The outer race seats against the grip shoulder; the optical skirt joins
 # the upper web without crossing the stationary inner-race support.
-cap=ring(42.4,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)
-cap+=ring(42.4,mount['outer_contact_id']/2,1.7,bearing_top)
-cap+=ring(42.4,24.8,1.4,bearing_top+1.7)
+cap=ring(outer,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)
+cap+=ring(outer,mount['outer_contact_id']/2,1.7,bearing_top)
+cap+=ring(outer,24.8,1.4,bearing_top+1.7)
 for i in range(96):
- x,y=polar(42.45,i*TAU/96);cap-=cyl(.4,P['knob_top_z']-grip_z+.6,grip_z-.3,x,y)
+ x,y=polar(outer+.05,i*TAU/96);cap-=cyl(.4,P['knob_top_z']-grip_z+.6,grip_z-.3,x,y)
+# A continuous lower-edge bevel lets a fingertip reach the recessed button.
+# The overall circular diameter and bearing pocket stay at their nominal size.
+chamfer=P['knob_lower_chamfer'];ch=chamfer['height_mm'];cr=chamfer['radial_mm']
+cap-=cyl(outer+.2,ch,grip_z)-m.Manifold.cylinder(ch,outer-cr,outer,192).translate((0,0,grip_z))
 # The optical track is printed with the grip, removing its adhesive joint.
 encoder_skirt=ring(r+half_track,r-half_track,skirt_height,skirt_bottom)+ring(P['encoder']['bond_outer_radius'],r-half_track,1.4,bearing_top+.44)
 for i in range(48):encoder_skirt-=box((3,1.64,1.8),(r,0,8.6)).rotate((0,0,i*360/48))
@@ -185,10 +200,10 @@ for name,pocket_delta,stem_delta in [('fit-coupon-tight',-.1,.1),('fit-coupon',0
  parts[name]=ring(40,pocket/2,7)+ring(stem/2,27.3,7).translate((74,0,0))
  coupons[name]={'pocket_id_mm':round(pocket,3),'stem_od_mm':round(stem,3),'height_mm':7,'pocket_center_mm':[0,0],'stem_center_mm':[74,0]}
 (ROOT/'fit-coupons.json').write_text(json.dumps(coupons,indent=2)+'\n')
-(ROOT/'stl').mkdir(exist_ok=True);report={};poses={}
+(ROOT/'stl').mkdir(exist_ok=True);report={'source_circuit_sha256':hashlib.sha256(args.circuit.read_bytes()).hexdigest()};poses={}
 for name,s in parts.items():
  if name=='button-cap':
-  rotation=[90,0,0];rotated=s.rotate(rotation);translation=[0,0,-rotated.bounding_box()[2]]
+  rotation=[-90,0,0];rotated=s.rotate(rotation);translation=[0,0,-rotated.bounding_box()[2]]
   printed=rotated.translate(translation);poses[name]={'rotation_deg':rotation,'translation_mm':translation}
  else:
   invert=name in ['knob','screen-bezel'];z=s.bounding_box()[5] if invert else s.bounding_box()[2]
@@ -281,7 +296,7 @@ report['screen_support']=support
 assert (pcb^lcd).volume()<1e-4
 # A 12mm fingertip can depress the broad cap all the way to its nominal stop.
 button_design=button['printed_cap']
-finger_radius=button['finger_check_radius_mm'];pressed_face=button_design['face_front_y']+button_design['nominal_max_travel_mm']
+finger_radius=button['finger_check_radius_mm'];pressed_face=button_design['face_front_y']+button_design['thumb_dish_depth_mm']+button_design['nominal_max_travel_mm']
 finger=m.Manifold.sphere(finger_radius,96).translate((0,pressed_face-finger_radius,button_design['press_center_z_mm']))
 assert finger.bounding_box()[2]>0,'The fingertip must clear the desk plane'
 for label,part in [('base',base),('lid',lid),('PCB',pcb),*moving]:
@@ -379,7 +394,10 @@ fit_report=evaluate_fit(P)
 # gives the same stated radial/axial budget without tessellation-heavy sums.
 def tolerance_probes(radius,dz):
  def expanded(ro,ri,height,z):return ring(ro+radius,ri-radius,height+2*dz,z-dz)
- swept_cap=expanded(42.4,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)+expanded(42.4,mount['outer_contact_id']/2,1.7,bearing_top)+expanded(42.4,24.8,1.4,bearing_top+1.7)
+ wall=expanded(outer,P['bearing_pocket_id']/2,bearing_top-grip_z,grip_z)
+ # This monotone bevel's radial envelope uses the most outward +/-dz pose.
+ wall-=cyl(outer+.2+radius,ch,grip_z-dz)-m.Manifold.cylinder(ch,outer-cr+radius,outer+radius,192).translate((0,0,grip_z-dz))
+ swept_cap=wall+expanded(outer,mount['outer_contact_id']/2,1.7,bearing_top)+expanded(outer,24.8,1.4,bearing_top+1.7)
  return [('grip',swept_cap),('swept skirt',expanded(r+half_track,r-half_track,skirt_height,skirt_bottom)),('skirt flange',expanded(P['encoder']['bond_outer_radius'],r-half_track,1.4,bearing_top+.44))]
 print_probes=tolerance_probes(P['fit_budget']['moving_xy_print_check'],P['fit_budget']['moving_z_print_check'])
 pcb_probes=tolerance_probes(P['fit_budget']['moving_xy_pcb_check'],P['fit_budget']['moving_z_hardware_check'])
@@ -407,21 +425,25 @@ report['assembly_simplification']=P['assembly_simplification']
 for x,y in lid_screws:
  assert (lid^cyl(2.0,12,lid_top+.01,x,y)).volume()<1e-4,'A 4mm driver gauge must reach each chassis screw'
 report['recessed_lid']={'plate_top_z_mm':lid_top,'outer_rim_top_z_mm':rim_top,'rim_to_grip_nominal_gap_mm':round(grip_z-rim_top,3),'chassis_driver_diameter_checked_mm':4.0}
-# Check a fingertip at full pretravel with PCB play/height and case-profile error.
-# PCB and original switch housing move together; only its actuator may touch.
+# The guided cap follows the case, independently of PCB registration. Check
+# fingertip/guide errors separately from all extreme PCB/package placements.
 xy=fit_report['results']['PCB_maximum_in_plane_play_mm']
 dz=P['fit_budget']['pcb_thickness_error']+P['fit_budget']['relative_print_z_error']
 button_tolerance_checks=0
-for dx in [-xy,xy]:
- for zshift in [-dz,dz]:
-  shift=(dx,xy+P['fit_budget']['printed_surface_error'],zshift)
-  f=finger.translate(shift)
-  assert f.bounding_box()[2]>0,'The fingertip must clear the desk at the tested height limit'
-  for name,s in [('base',base),('lid',lid),('PCB',pcb.translate(shift)),*print_probes]:
-   assert (f^s).volume()<1e-4,(name,'button access at tolerance limit',(f^s).volume())
-  for name,s in package_bodies:
-   if name!='b3u3000.obj':assert (f^s.translate(shift)).volume()<1e-4,(name,'finger/package tolerance collision')
-  button_tolerance_checks+=1
+finger_error=P['fit_budget']['printed_surface_error']
+for dx in [-finger_error,finger_error]:
+ for dy in [-finger_error,finger_error]:
+  for zshift in [-finger_error,finger_error]:
+   f=finger.translate((dx,dy,zshift))
+   assert f.bounding_box()[2]>0,'The fingertip must clear the desk at the tested height limit'
+   for name,s in [('base',base),('lid',lid),*print_probes]:
+    assert (f^s).volume()<1e-4,(name,'button access at tolerance limit',(f^s).volume())
+   for px in [-xy,xy]:
+    for py in [-xy,xy]:
+     for pz in [-dz,dz]:
+      for name,s in [('PCB',pcb),*package_bodies]:
+       assert (f^s.translate((px,py,pz))).volume()<1e-4,(name,'finger/package tolerance collision')
+   button_tolerance_checks+=1
 report['button_tolerance_access_checks']=button_tolerance_checks
 button_checks=0
 for travel in np.linspace(0,button_design['nominal_max_travel_mm'],13):
@@ -432,7 +454,7 @@ for travel in np.linspace(0,button_design['nominal_max_travel_mm'],13):
   # Omron drawing: housing front is 1.25mm from the footprint datum.
   # Only the projecting actuator moves; never exclude the fixed housing.
   if name=='b3u3000.obj':
-   actuator=box((2,1.0,1.4),(0,-42.66,button_z))
+   actuator=box((2,1.0,1.4),(0,button['actuator_front_y']+.19,button_z))
    physical-=actuator
   assert (pressed^physical).volume()<1e-4,(name,'cap/fixed package collision',travel)
  button_checks+=1
@@ -459,23 +481,33 @@ for travel in [.1,.3,.5]:
  for dx in [-.1,.1]:
   for offset_z in [-.1,.1]:
    for angle in [-.4,.4]:
-    probe=button_cap.translate((0,40.3,0)).rotate((0,0,angle)).translate((dx,-40.3+travel,offset_z))
+    pivot=button_design['ear_center_y_mm']-1.7
+    probe=button_cap.translate((0,-pivot,0)).rotate((0,0,angle)).translate((dx,pivot+travel,offset_z))
     for name,fixed in [('base',base),('lid',lid),('PCB',pcb),('LCD',lcd),*moving]:
      assert (probe^fixed).volume()<1e-4,(name,'mid-stroke paddle skew collision',travel,dx,offset_z,angle)
     for name,physical in package_bodies:
-     if name=='b3u3000.obj':physical-=box((2,1.0,1.4),(0,-42.66,button_z))
+     if name=='b3u3000.obj':physical-=box((2,1.0,1.4),(0,button['actuator_front_y']+.19,button_z))
      assert (probe^physical).volume()<1e-4,(name,'paddle skew/package collision',travel,dx,offset_z,angle)
     skew_checks+=1
 report['printed_button']['midstroke_skew']={'checked_poses':skew_checks,'lateral_shift_mm':.1,'vertical_shift_mm':.1,'yaw_degrees':.4,'stroke_positions_mm':[.1,.3,.5],'scope':'Small off-axis geometry probes, not a complete tolerance or actuation-force model'}
 report['printed_button']['roof_to_bearing_nominal_vertical_gap_mm']=round(bt-button_roof.bounding_box()[5],3)
 report['printed_button']['fingertip_desk_clearance_mm']=round(button_design['press_center_z_mm']-finger_radius,3)
-report['printed_button']['fingertip_desk_clearance_at_tested_height_limit_mm']=round(button_design['press_center_z_mm']-finger_radius-dz,3)
+report['printed_button']['fingertip_desk_clearance_at_tested_height_limit_mm']=round(button_design['press_center_z_mm']-finger_radius-finger_error,3)
 report['printed_button']['checks']='13 cap and return-pad poses; fixed packages/PCB, full rotor sweep, rigid inward/outward stops and lid capture. Physical force, friction, switch overtravel and life remain prototype checks.'
 report['front_button']=P['front_button']
 report['direct_finger_access_checked']=True
 report['separate_button_plunger']=True
-report['button_projection_beyond_wall_mm']=round(-button_design['face_front_y']-(outer-.2),3)
-report['pressed_button_projection_beyond_wall_mm']=round(-pressed_face-(outer-.2),3)
+def button_radius(s):
+ vertices=np.asarray(s.to_mesh64().vert_properties)[:,:2]
+ return float(np.linalg.norm(vertices,axis=1).max())
+radii=[button_radius(button_cap.translate((0,float(t),0))) for t in np.linspace(0,button_design['nominal_max_travel_mm'],13)]
+assert max(radii)<=outer-button_design['face_recess_mm']+1e-6,'The entire moving button must remain inside the circular body'
+report['printed_button']['circular_envelope']={'body_radius_mm':outer,'face_radius_mm':button_design['face_radius_mm'],'maximum_part_radius_mm':round(max(radii),4),'nominal_recess_mm':round(outer-max(radii),4),'pressed_recess_mm':round(outer-radii[-1],4),'checked_stroke_positions':13}
+report['printed_button']['finger_case_relative_error_mm']=finger_error
+report['printed_button']['independent_PCB_registration_extremes_per_finger_pose']=8
+report['printed_button']['knob_lower_chamfer']=chamfer
+report['button_projection_beyond_wall_mm']=round(max(0,max(radii)-outer),3)
+report['pressed_button_projection_beyond_wall_mm']=round(max(0,radii[-1]-outer),3)
 report['USB_access']={**usb_access,'outer_case_diameter_mm':P['base_diameter'],
  'socket_recess_from_floor_outer_edge_mm':round(outer-usb_access['socket_face_y'],4),
  'socket_projection_beyond_side_wall_mm':round(usb_access['socket_face_y']-(outer-.2),4),

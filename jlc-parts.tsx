@@ -1,4 +1,11 @@
 // Exact JLCPCB/EasyEDA imports; generated files remain unchanged.
+import { RP2040 } from "./imports/jlc/RP2040"
+import { W25Q16JVSNIQ } from "./imports/jlc/W25Q16JVSNIQ"
+import { ABM8_272_T3 } from "./imports/jlc/ABM8_272_T3"
+import { A_0402CG150J500NT } from "./imports/jlc/A_0402CG150J500NT"
+import { A_0603WAF270JT5E } from "./imports/jlc/A_0603WAF270JT5E"
+import { A_0603WAF1001T5E } from "./imports/jlc/A_0603WAF1001T5E"
+
 import { Children, cloneElement, createElement, isValidElement } from "react"
 import { MB85RC256VPNF_G_AMERE2 } from "./imports/jlc/MB85RC256VPNF_G_AMERE2"
 import { GRM188R61A105KA61D } from "./imports/jlc/GRM188R61A105KA61D"
@@ -26,6 +33,13 @@ import { A_2_54_1_8 } from "./imports/jlc/A_2_54_1_8"
 import { A_61300821021 } from "./imports/jlc/A_61300821021/A_61300821021"
 import { SM08B_SRSS_TB_LF__SN_ } from "./imports/jlc/SM08B_SRSS_TB_LF__SN_/SM08B_SRSS_TB_LF__SN_"
 export const jlcParts: Record<string, (props: any) => any> = {
+  "RP2040": RP2040,
+  "W25Q16JVSNIQ": W25Q16JVSNIQ,
+  "ABM8-272-T3": ABM8_272_T3,
+  "0402CG150J500NT": A_0402CG150J500NT,
+  "0603WAF270JT5E": A_0603WAF270JT5E,
+  "0603WAF1001T5E": A_0603WAF1001T5E,
+
   "MB85RC256VPNF-G-AMERE2": MB85RC256VPNF_G_AMERE2,
   "GRM188R61A105KA61D": GRM188R61A105KA61D,
   "CL21A475KOFNNNE": CL21A475KOFNNNE,
@@ -60,7 +74,7 @@ export function jlcFootprintPart(mpn: string, props: any) {
   // These housings overhang the board/window, or are DNP. Keep the supplier
   // copper, drills and courtyards; omit body ink that cannot be printed.
   // Tightly spaced resistor pairs and local bulk capacitors need one outline omitted.
-  if (["TYPEC-309-ACP16L65", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021", "B3U-3000P"].includes(mpn) || ["R13", "R27", "C17", "C18"].includes(props.name)) {
+  if (["TYPEC-309-ACP16L65", "B6B-PH-K-S(LF)(SN)", "2.54-1*8", "61300821021", "B3U-3000P"].includes(mpn) || ["R13", "R27", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24"].includes(props.name)) {
     const footprint = imported.props.footprint
     const children = Children.toArray(footprint.props.children).filter(child =>
       !isValidElement(child) || !["silkscreenpath", "silkscreenrect", "silkscreencircle"].includes(String(child.type)))

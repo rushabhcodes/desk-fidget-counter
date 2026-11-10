@@ -11,18 +11,19 @@ from PIL import Image,ImageDraw,ImageFont
 args=argparse.ArgumentParser();args.add_argument('--compare-to',type=Path);args.add_argument('--usb-before',type=Path);args.add_argument('--button-before',type=Path);options=args.parse_args()
 ROOT=Path(__file__).resolve().parent
 source=trimesh.load(ROOT/'cad/assembled.glb',force='scene')
+body_diameter=source.extents[0]*1000
 
 def pose(eye,target,up=(0,1,0)):
  z=np.array(eye)-np.array(target);z/=np.linalg.norm(z)
  x=np.cross(up,z);x/=np.linalg.norm(x);y=np.cross(z,x)
  q=np.eye(4);q[:3,:3]=np.column_stack((x,y,z));q[:3,3]=eye;return q
 
-def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0375,metal=False):
+def render(eye,target,path,width=1400,height=1050,model=source,xmag=.050,ymag=.0375,metal=False,up=(0,1,0)):
  scene=pyrender.Scene(bg_color=[.97,.975,.98,1],ambient_light=([.04,.04,.04] if metal else [.6,.6,.6]))
  for node in model.graph.nodes_geometry:
   tf,geo=model.graph[node];mesh=model.geometry[geo]
   scene.add(pyrender.Mesh.from_trimesh(mesh,smooth=False),pose=tf)
- cp=pose(eye,target);scene.add(pyrender.OrthographicCamera(xmag=xmag,ymag=ymag,znear=.001,zfar=2),pose=cp)
+ cp=pose(eye,target,up);scene.add(pyrender.OrthographicCamera(xmag=xmag,ymag=ymag,znear=.001,zfar=2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=2.2),pose=cp)
  scene.add(pyrender.DirectionalLight(color=np.ones(3),intensity=.7),pose=pose([.07,.07,-.07],target))
  if metal:
@@ -116,7 +117,7 @@ if options.usb_before:
  d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
  d.text((45,25),'Before: USB mouth recessed 9.65 mm',(36,57,67),font=font)
  d.text((1445,25),'Mechanics E4: USB mouth at the side wall',(36,57,67),font=font)
- d.text((1445,70),f'Shell diameter 84.8 mm; height {source.extents[1]*1000:.1f} mm',(73,95,106),font=ImageFont.load_default(size=24))
+ d.text((1445,70),f'Shell diameter {body_diameter:.1f} mm; height {source.extents[1]*1000:.1f} mm',(73,95,106),font=ImageFont.load_default(size=24))
  out.save(ROOT/'usb-access-comparison.png');temp.unlink()
 print('Rendered USB side access from the actual CAD')
 
@@ -127,15 +128,29 @@ render([.020,.055,.10],[0,.006,.039],ROOT/'button-internal.png',1400,900,model=c
 front_eye=[.006,.013,.13];front_target=[0,.005,.039]
 render(front_eye,front_target,ROOT/'button-access.png',1400,700,xmag=.018,ymag=.009)
 button_preview=Image.open(ROOT/'button-access.png').convert('RGB');draw=ImageDraw.Draw(button_preview)
-draw.text((35,25),'14 x 6.6 mm raised MODE paddle - guided, with foam return',(36,57,67),font=ImageFont.load_default(size=26))
+draw.text((35,25),'Curved MODE button - within the circular body',(36,57,67),font=ImageFont.load_default(size=26))
 button_preview.save(ROOT/'button-access.png')
 if options.button_before:
  previous=trimesh.load(options.button_before,force='scene');temp=ROOT/'cad/.button-before.png'
  render(front_eye,front_target,temp,1400,700,model=previous,xmag=.018,ymag=.009)
  out=Image.new('RGB',(2800,810),(247,249,250));out.paste(Image.open(temp).convert('RGB'),(0,110));out.paste(Image.open(ROOT/'button-access.png').convert('RGB'),(1400,110))
  d=ImageDraw.Draw(out);font=ImageFont.load_default(size=32)
- d.text((45,25),'E11: 8 x 4 mm cap; switch-spring return',(36,57,67),font=font)
- d.text((1445,25),'E12: 14 x 6.6 mm paddle; separate foam return',(36,57,67),font=font)
+ d.text((45,25),'E12: projecting flat paddle',(36,57,67),font=font)
+ d.text((1445,25),'E13: curved face within the circular body',(36,57,67),font=font)
  d.text((1445,70),'Same camera and scale; PCB and switch placement retained',(73,95,106),font=ImageFont.load_default(size=24))
  out.save(ROOT/'button-access-comparison.png');temp.unlink()
- print('Rendered E11/E12 button comparison from the actual assembly meshes')
+ print('Rendered E12/E13 button comparison from the actual assembly meshes')
+ # Plan views make projection beyond the circular outline directly visible.
+ before_path=ROOT/'cad/.button-outline-before.png';after_path=ROOT/'cad/.button-outline-after.png'
+ for model,path in [(previous,before_path),(source,after_path)]:
+  render([0,.2,.0401],[0,.005,.040],path,1400,875,model=model,
+         xmag=.020,ymag=.0125,up=(0,0,-1))
+ comparison=Image.new('RGB',(2800,1000),(247,249,250))
+ comparison.paste(Image.open(before_path).convert('RGB'),(0,125))
+ comparison.paste(Image.open(after_path).convert('RGB'),(1400,125))
+ draw=ImageDraw.Draw(comparison)
+ draw.text((45,25),'Before: button outside the round outline',(36,57,67),font=font)
+ draw.text((1445,25),'After: button follows the circular wall',(36,57,67),font=font)
+ draw.text((1445,75),f'Same scale - 0.2 mm inside the {body_diameter:.1f} mm body',(73,95,106),font=ImageFont.load_default(size=24))
+ comparison.save(ROOT/'button-outline-comparison.png')
+ before_path.unlink();after_path.unlink()

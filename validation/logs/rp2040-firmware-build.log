@@ -1,0 +1,19 @@
+make: Entering directory '/home/rushabh/Dev/desk_fidget_counter/firmware'
+cmake -S . -B build/cmake -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DPICO_TOOLCHAIN_PATH="/home/rushabh/Dev/desk_fidget_counter/firmware/.deps/toolchain/bin"
+PICO_SDK_PATH is /home/rushabh/Dev/desk_fidget_counter/firmware/.deps/pico-sdk
+Target board (PICO_BOARD) is 'desk_fidget_counter'.
+Using board configuration from /home/rushabh/Dev/desk_fidget_counter/firmware/boards/desk_fidget_counter.h
+Pico Platform (PICO_PLATFORM) is 'rp2040'.
+Build type is MinSizeRel
+TinyUSB available at /home/rushabh/Dev/desk_fidget_counter/firmware/.deps/tinyusb/hw/bsp/rp2040; enabling build support for USB.
+Using picotool from /home/rushabh/Dev/desk_fidget_counter/firmware/build/cmake/_deps/picotool/picotool
+-- Configuring done (0.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/rushabh/Dev/desk_fidget_counter/firmware/build/cmake
+cmake --build build/cmake
+ninja: Jobserver mode detected:  -j4 --jobserver-auth=fifo:/tmp/GMfifo786692
+[1/2] Building C object CMakeFiles/desk-knob.dir/board_rp2040.c.o
+[2/2] Linking CXX executable desk-knob.elf
+cp build/cmake/desk-knob.elf build/cmake/desk-knob.bin build/cmake/desk-knob.hex build/cmake/desk-knob.uf2 build/
+python3 -c 'from pathlib import Path; p=Path("build/desk-knob.hex"); p.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))'
+make: Leaving directory '/home/rushabh/Dev/desk_fidget_counter/firmware'

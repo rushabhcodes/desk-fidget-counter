@@ -1,31 +1,11 @@
 # SPDX-License-Identifier: MIT
-TOOLCHAIN ?= arm-none-eabi-
-TINYUSB ?= .deps/tinyusb
-CC = $(TOOLCHAIN)gcc
-OBJCOPY = $(TOOLCHAIN)objcopy
-SIZE = $(TOOLCHAIN)size
-CMSIS = $(TINYUSB)/lib/CMSIS_5/CMSIS/Core/Include
-DEVICE = $(TINYUSB)/hw/mcu/st/cmsis_device_f0/Include
-SOURCES = main.c counter.c button.c dashboard.c lcd.c lcd_ui.c startup.c usb_descriptors.c syscalls.c \
- $(TINYUSB)/src/tusb.c $(TINYUSB)/src/common/tusb_fifo.c \
- $(TINYUSB)/src/device/usbd.c $(TINYUSB)/src/class/cdc/cdc_device.c \
- $(TINYUSB)/src/class/hid/hid_device.c \
- $(TINYUSB)/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c \
- $(TINYUSB)/src/portable/st/stm32_fsdev/fsdev_common.c
-CFLAGS = -std=gnu11 -Os -g3 -mcpu=cortex-m0 -mthumb -ffunction-sections -fdata-sections \
- -Wall -Wextra -Wno-misleading-indentation -DSTM32F072xB -DCFG_TUSB_MCU=OPT_MCU_STM32F0 \
- -I. -I$(TINYUSB)/src -I$(CMSIS) -I$(DEVICE)
-LDFLAGS = -Tstm32f072cb.ld -Wl,--gc-sections,-Map=build/desk-knob.map \
- -nostartfiles --specs=nosys.specs -Wl,--print-memory-usage
-all: build/desk-knob.bin build/desk-knob.hex
-build/desk-knob.elf: $(SOURCES) counter.h button.h dashboard.h lcd.h tusb_config.h stm32f072cb.ld
-	mkdir -p build
-	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -o $@
-	$(SIZE) $@
-build/desk-knob.bin: build/desk-knob.elf
-	$(OBJCOPY) -O binary $< $@
-build/desk-knob.hex: build/desk-knob.elf
-	$(OBJCOPY) -O ihex $< $@
+CMAKE ?= cmake
+PICO_TOOLCHAIN_PATH ?= $(CURDIR)/.deps/toolchain/bin
+all:
+	$(CMAKE) -S . -B build/cmake -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DPICO_TOOLCHAIN_PATH="$(PICO_TOOLCHAIN_PATH)"
+	$(CMAKE) --build build/cmake
+	cp build/cmake/desk-knob.elf build/cmake/desk-knob.bin build/cmake/desk-knob.hex build/cmake/desk-knob.uf2 build/
+	python3 -c 'from pathlib import Path; p=Path("build/desk-knob.hex"); p.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))'
 clean:
-	rm -rf build
+	rm -rf build/cmake
 .PHONY: all clean

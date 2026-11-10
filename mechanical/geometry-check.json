@@ -1,18 +1,19 @@
 {
+  "source_circuit_sha256": "a0cffa566bbdf9f6c2e5d89bef6238d8832d0650bbe6954ae2489d315fb6116d",
   "base": {
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 4,
-    "volume_mm3": 16445.36,
+    "volume_mm3": 17854.24,
     "bounds_mm": [
       [
-        -42.4,
-        -42.4,
+        -44.7,
+        -44.7,
         0.0
       ],
       [
-        42.4,
-        42.4,
+        44.7,
+        44.7,
         13.1
       ]
     ]
@@ -21,16 +22,16 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 8138.82,
+    "volume_mm3": 9243.77,
     "bounds_mm": [
       [
-        -42.05,
-        -42.05,
+        -44.35,
+        -43.793,
         0.0
       ],
       [
-        42.05,
-        42.05,
+        44.35,
+        42.959,
         10.9
       ]
     ]
@@ -39,16 +40,16 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 16351.68,
+    "volume_mm3": 21877.64,
     "bounds_mm": [
       [
-        -42.394,
-        -42.394,
+        -44.694,
+        -44.694,
         0.0
       ],
       [
-        42.394,
-        42.394,
+        44.694,
+        44.694,
         11.4
       ]
     ]
@@ -93,17 +94,17 @@
     "watertight": true,
     "stl_roundtrip_watertight": true,
     "zero_area_triangles_collapsed_by_float32": 0,
-    "volume_mm3": 131.09,
+    "volume_mm3": 137.68,
     "bounds_mm": [
       [
         -10.0,
-        -9.0,
+        2.4,
         0.0
       ],
       [
         10.0,
-        -2.4,
-        6.0
+        9.4,
+        4.9
       ]
     ]
   },
@@ -252,7 +253,7 @@
     "carrier_rim_to_PCB_gap_mm": 0.2,
     "carrier_rear_profile_clearance_mm": 0.4
   },
-  "purchased_package_models_checked": 39,
+  "purchased_package_models_checked": 52,
   "individual_wires_checked": 8,
   "removable_harness_nonmetal_groups_checked": 9,
   "harness_free_lengths_checked_mm": [
@@ -270,7 +271,7 @@
   },
   "bearing_contacts_checked": 4,
   "assembly_simplification": {
-    "revision": "E12",
+    "revision": "E13",
     "product_print_count": 6,
     "fasteners": [
       {
@@ -294,20 +295,20 @@
     "rim_to_grip_nominal_gap_mm": 0.8,
     "chassis_driver_diameter_checked_mm": 4.0
   },
-  "button_tolerance_access_checks": 4,
+  "button_tolerance_access_checks": 8,
   "printed_button": {
     "part": "button-cap",
     "face_width_mm": 14,
-    "face_height_mm": 6.6,
-    "face_front_y": -44.2,
+    "face_height_mm": 7.0,
+    "face_front_y": -44.5,
     "rest_tip_y": -43.05,
     "nominal_rest_gap_mm": 0.2,
     "nominal_max_travel_mm": 0.6,
     "minimum_slide_clearance_mm": 0.4,
     "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
     "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
-    "face_center_z_mm": 5.7,
-    "face_thickness_mm": 1.0,
+    "face_center_z_mm": 5.9,
+    "face_thickness_mm": 1.1,
     "face_corner_radius_mm": 1.2,
     "thumb_dish_depth_mm": 0.2,
     "rail_centers_x_mm": [
@@ -317,18 +318,21 @@
     "rail_width_mm": 2.0,
     "rail_top_z_mm": 7.6,
     "rail_height_mm": 1.6,
-    "rail_front_y_mm": -43.3,
-    "rail_rear_y_mm": -38.2,
-    "ear_center_y_mm": -38.6,
+    "rail_front_y_mm": -43.6,
+    "rail_rear_y_mm": -39.6,
+    "ear_center_y_mm": -40.0,
     "ear_depth_mm": 0.8,
     "ear_inner_x_mm": 4.2,
     "ear_outer_x_mm": 10.0,
     "press_center_z_mm": 6.4,
+    "face_radius_mm": 44.5,
+    "face_recess_mm": 0.2,
+    "guide_offset_y_mm": -1.4,
     "checked_travel_poses": 13,
     "nominal_switch_travel_at_stop_mm": 0.4,
     "checks": "13 cap and return-pad poses; fixed packages/PCB, full rotor sweep, rigid inward/outward stops and lid capture. Physical force, friction, switch overtravel and life remain prototype checks.",
     "fixed_guide_within_circular_wall": true,
-    "fixed_guide_max_radius_mm": 42.199999999999996,
+    "fixed_guide_max_radius_mm": 44.5,
     "return_pads": {
       "quantity": 2,
       "layers_per_pad": 2,
@@ -346,7 +350,7 @@
       "adhesive_total_tolerance_mm": 0.02,
       "rest_cavity_mm": 2.75,
       "relative_cavity_error_mm": 0.1,
-      "backing_front_y_mm": -35.45,
+      "backing_front_y_mm": -36.85,
       "basis": "Thickness +/-10%, cavity +/-0.1mm and combined adhesive +/-0.02mm. Compression criterion is an engineering choice, not force/life certification.",
       "minimum_rest_precompression_mm": 0.056,
       "nominal_rest_compression_percent": 15.605,
@@ -369,7 +373,22 @@
     },
     "roof_to_bearing_nominal_vertical_gap_mm": 0.4,
     "fingertip_desk_clearance_mm": 0.4,
-    "fingertip_desk_clearance_at_tested_height_limit_mm": 0.14
+    "fingertip_desk_clearance_at_tested_height_limit_mm": 0.3,
+    "circular_envelope": {
+      "body_radius_mm": 44.7,
+      "face_radius_mm": 44.5,
+      "maximum_part_radius_mm": 44.5,
+      "nominal_recess_mm": 0.2,
+      "pressed_recess_mm": 0.7934,
+      "checked_stroke_positions": 13
+    },
+    "finger_case_relative_error_mm": 0.1,
+    "independent_PCB_registration_extremes_per_finger_pose": 8,
+    "knob_lower_chamfer": {
+      "height_mm": 1.6,
+      "radial_mm": 1.6,
+      "purpose": "A continuous circular lower-edge bevel gives the fingertip clearance while pressing the recessed curved button."
+    }
   },
   "front_button": {
     "part": "Omron B3U-3000P",
@@ -386,24 +405,24 @@
       "max": 0.4
     },
     "direct_actuation": false,
-    "opening_width_mm": 13.2,
-    "opening_bottom_z": 3.6,
-    "opening_top_z": 8.0,
+    "opening_width_mm": 14.8,
+    "opening_bottom_z": 2.0,
+    "opening_top_z": 9.8,
     "finger_check_radius_mm": 6,
-    "fit_status": "B3U-3000P under a broad rounded captive paddle; twin guides, positive stops and two stacked-PORON return pads. Verify electrical closure, free return and switch overtravel on the prototype.",
+    "fit_status": "Curved captive paddle within an 89.4mm circular body with 0.2mm recess. RP2040 PCB F1 retains the switch and mounting datums. Verify printed fit, force, closure and overtravel on the prototype.",
     "printed_cap": {
       "part": "button-cap",
       "face_width_mm": 14,
-      "face_height_mm": 6.6,
-      "face_front_y": -44.2,
+      "face_height_mm": 7.0,
+      "face_front_y": -44.5,
       "rest_tip_y": -43.05,
       "nominal_rest_gap_mm": 0.2,
       "nominal_max_travel_mm": 0.6,
       "minimum_slide_clearance_mm": 0.4,
       "travel_stop": "Two broad ear stops at 0.6mm; separate outward retention stops and a lid roof capture the cap",
       "fit_status": "Foam returns the paddle to its outward stops instead of relying on switch force across free play. Switch closure, safe overtravel, print tolerances and return force need prototype verification.",
-      "face_center_z_mm": 5.7,
-      "face_thickness_mm": 1.0,
+      "face_center_z_mm": 5.9,
+      "face_thickness_mm": 1.1,
       "face_corner_radius_mm": 1.2,
       "thumb_dish_depth_mm": 0.2,
       "rail_centers_x_mm": [
@@ -413,13 +432,16 @@
       "rail_width_mm": 2.0,
       "rail_top_z_mm": 7.6,
       "rail_height_mm": 1.6,
-      "rail_front_y_mm": -43.3,
-      "rail_rear_y_mm": -38.2,
-      "ear_center_y_mm": -38.6,
+      "rail_front_y_mm": -43.6,
+      "rail_rear_y_mm": -39.6,
+      "ear_center_y_mm": -40.0,
       "ear_depth_mm": 0.8,
       "ear_inner_x_mm": 4.2,
       "ear_outer_x_mm": 10.0,
-      "press_center_z_mm": 6.4
+      "press_center_z_mm": 6.4,
+      "face_radius_mm": 44.5,
+      "face_recess_mm": 0.2,
+      "guide_offset_y_mm": -1.4
     },
     "return_pads": {
       "quantity": 2,
@@ -438,14 +460,15 @@
       "adhesive_total_tolerance_mm": 0.02,
       "rest_cavity_mm": 2.75,
       "relative_cavity_error_mm": 0.1,
-      "backing_front_y_mm": -35.45,
+      "backing_front_y_mm": -36.85,
       "basis": "Two layers of the already specified PORON with 467MP, bonded to each other and the fixed backing. Front foam surface is unbonded and pushes the ear outward. Nominal/tolerance compression is checked, not measured force or life."
-    }
+    },
+    "opening_inner_y_mm": -41.7
   },
   "direct_finger_access_checked": true,
   "separate_button_plunger": true,
-  "button_projection_beyond_wall_mm": 2.0,
-  "pressed_button_projection_beyond_wall_mm": 1.4,
+  "button_projection_beyond_wall_mm": 0,
+  "pressed_button_projection_beyond_wall_mm": 0,
   "USB_access": {
     "axis_z": 5.78,
     "socket_face_y": 42.186507,
@@ -464,9 +487,9 @@
     "plug_tolerance_mm": 0.5,
     "model_filename": "TYPEC_309_ACP16L65.obj",
     "solid_filename": "TYPEC_309_ACP16L65.ply",
-    "outer_case_diameter_mm": 84.8,
-    "socket_recess_from_floor_outer_edge_mm": 0.2135,
-    "socket_projection_beyond_side_wall_mm": -0.0135,
+    "outer_case_diameter_mm": 89.4,
+    "socket_recess_from_floor_outer_edge_mm": 2.5135,
+    "socket_projection_beyond_side_wall_mm": -2.3135,
     "PCB_front_edge_mm": 41.4,
     "plug_body_to_PCB_axial_gap_mm": 0.7865,
     "maximum_plug_approach_sweep_checked": true,
