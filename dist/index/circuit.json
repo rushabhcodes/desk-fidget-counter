@@ -24517,6 +24517,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_57",
+    "pcb_component_id": "pcb_component_1",
     "layer": "top",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24530,6 +24531,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_58",
+    "pcb_component_id": "pcb_component_1",
     "layer": "bottom",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24567,6 +24569,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_59",
+    "pcb_component_id": "pcb_component_1",
     "layer": "top",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24580,6 +24583,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_60",
+    "pcb_component_id": "pcb_component_1",
     "layer": "bottom",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24617,6 +24621,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_61",
+    "pcb_component_id": "pcb_component_1",
     "layer": "top",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24630,6 +24635,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_62",
+    "pcb_component_id": "pcb_component_1",
     "layer": "bottom",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24667,6 +24673,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_63",
+    "pcb_component_id": "pcb_component_1",
     "layer": "top",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -24680,6 +24687,7 @@
   {
     "type": "pcb_solder_paste",
     "pcb_solder_paste_id": "pcb_solder_paste_64",
+    "pcb_component_id": "pcb_component_1",
     "layer": "bottom",
     "shape": "rotated_pill",
     "radius": 0.499999,
@@ -41195,9 +41203,7 @@
         "x": -26.7033,
         "y": 3,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -41284,9 +41290,7 @@
         "x": -25.1665,
         "y": 1.0047,
         "width": 0.1124,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -41388,9 +41392,7 @@
         "y": 21.5,
         "width": 0.15,
         "layer": "top",
-        "start_pcb_port_id": "pcb_port_159",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "start_pcb_port_id": "pcb_port_159"
       },
       {
         "route_type": "wire",
@@ -41537,18 +41539,14 @@
         "x": -22.5167,
         "y": 26.1272,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -22.75,
         "y": 26.1272,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -41762,9 +41760,7 @@
         "x": -22.3919,
         "y": 0.5953,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -41868,9 +41864,7 @@
         "x": -21.4352,
         "y": 19.5,
         "width": 0.1124,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -41924,9 +41918,7 @@
         "x": -22.1137,
         "y": 21.5,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -41934,9 +41926,7 @@
         "y": 21.5,
         "width": 0.15,
         "layer": "top",
-        "end_pcb_port_id": "pcb_port_159",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "end_pcb_port_id": "pcb_port_159"
       }
     ],
     "connectsTo": [
@@ -42085,8 +42075,6 @@
         "width": 0.15,
         "layer": "top",
         "start_pcb_port_id": "pcb_port_109",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "end_pcb_port_id": "pcb_port_109"
       }
     ],
@@ -42241,18 +42229,14 @@
         "x": -21.3503,
         "y": 19.5849,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -21.4352,
         "y": 19.5,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42317,18 +42301,14 @@
         "x": -21.3503,
         "y": 19.5849,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -21.3503,
         "y": 20.7366,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42378,9 +42358,7 @@
         "x": -21.2827,
         "y": 19.0112,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42454,9 +42432,7 @@
         "x": -20.997,
         "y": 1.3458,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42510,9 +42486,7 @@
         "x": -20.4828,
         "y": -27.0452,
         "width": 0.1124,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42531,8 +42505,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_168",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "start_pcb_port_id": "pcb_port_168"
       },
       {
@@ -42540,9 +42512,7 @@
         "x": -20.3612,
         "y": 26.635,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -42603,9 +42573,7 @@
         "x": -20.2808,
         "y": -27.7528,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -42653,9 +42621,7 @@
         "x": -18.8555,
         "y": 9.7247,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -42724,8 +42690,6 @@
         "width": 0.15,
         "layer": "top",
         "start_pcb_port_id": "pcb_port_186",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "end_pcb_port_id": "pcb_port_186"
       }
     ],
@@ -42988,8 +42952,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_168",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "start_pcb_port_id": "pcb_port_168"
       },
       {
@@ -43033,8 +42995,6 @@
         "width": 0.15,
         "layer": "top",
         "start_pcb_port_id": "pcb_port_168",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "end_pcb_port_id": "pcb_port_168"
       }
     ],
@@ -43055,18 +43015,14 @@
         "x": -11.437,
         "y": 31.6467,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -13.481,
         "y": 29.6027,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43083,9 +43039,7 @@
         "x": -13.481,
         "y": 28.135,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43114,18 +43068,14 @@
         "x": -13.481,
         "y": 28.135,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -13.481,
         "y": 29.6027,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43175,9 +43125,7 @@
         "x": -13.3,
         "y": -27.1282,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43216,9 +43164,7 @@
         "x": -13.481,
         "y": 28.135,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -43318,9 +43264,7 @@
         "x": -8.7534,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43347,9 +43291,7 @@
         "x": -9.3967,
         "y": 31,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -43431,9 +43373,7 @@
         "x": -8.7534,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43459,9 +43399,7 @@
         "x": -4.32,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43491,18 +43429,14 @@
         "x": -4.32,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -8.7534,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43519,18 +43453,14 @@
         "x": -4.1302,
         "y": 34.7584,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": -4.32,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43634,9 +43564,7 @@
         "y": 35.5301,
         "width": 0.15,
         "layer": "top",
-        "end_pcb_port_id": "pcb_port_61",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "end_pcb_port_id": "pcb_port_61"
       }
     ],
     "connectsTo": [
@@ -43688,9 +43616,7 @@
         "x": 7.146,
         "y": -32.6507,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43784,9 +43710,7 @@
         "x": 2.4923,
         "y": -28.2459,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -43836,9 +43760,7 @@
         "x": 2.4923,
         "y": -28.2459,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -43921,18 +43843,14 @@
         "y": 20.8,
         "width": 0.15,
         "layer": "top",
-        "start_pcb_port_id": "pcb_port_140",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "start_pcb_port_id": "pcb_port_140"
       },
       {
         "route_type": "wire",
         "x": -3.35,
         "y": 27.15,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -43953,8 +43871,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_76",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_42",
         "start_pcb_port_id": "pcb_port_76"
       },
       {
@@ -44101,9 +44017,7 @@
         "x": 4.5467,
         "y": -29,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -44157,9 +44071,7 @@
         "x": 4.32,
         "y": 37.2416,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -44198,9 +44110,7 @@
         "x": 4.32,
         "y": 37.2416,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -44219,9 +44129,7 @@
         "x": 4.32,
         "y": 34.9482,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -44364,9 +44272,7 @@
         "x": 7.1586,
         "y": 34.075,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_41"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -44383,18 +44289,14 @@
         "x": 7.6369,
         "y": 37.2416,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": 4.32,
         "y": 37.2416,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -44469,9 +44371,7 @@
         "x": 8.1535,
         "y": 36.5,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -44492,8 +44392,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_78",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "start_pcb_port_id": "pcb_port_78"
       },
       {
@@ -44738,9 +44636,7 @@
         "x": 9.1033,
         "y": -32,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -44828,9 +44724,7 @@
         "x": 10.1533,
         "y": 34.1,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -44849,9 +44743,7 @@
         "x": 10.8,
         "y": 33.5033,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -44929,18 +44821,14 @@
         "x": 17.4804,
         "y": 14.0995,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
         "x": 17.4804,
         "y": 27.1958,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -45170,9 +45058,7 @@
         "y": 12.8799,
         "width": 0.15,
         "layer": "top",
-        "end_pcb_port_id": "pcb_port_203",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "end_pcb_port_id": "pcb_port_203"
       }
     ],
     "connectsTo": [
@@ -45200,9 +45086,7 @@
         "x": 18.4663,
         "y": -5.8869,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [],
@@ -45281,9 +45165,7 @@
         "x": 18.679884,
         "y": 2.6,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -45312,9 +45194,7 @@
         "x": 18.679884,
         "y": -1,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -45374,9 +45254,7 @@
         "x": 19.5999,
         "y": -6.4467,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -45395,9 +45273,7 @@
         "x": 20.4966,
         "y": -5.65,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -45547,9 +45423,7 @@
         "x": 21.8001,
         "y": -6.5533,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -45613,18 +45487,14 @@
         "y": -4.4565,
         "width": 0.15,
         "layer": "top",
-        "start_pcb_port_id": "pcb_port_215",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "start_pcb_port_id": "pcb_port_215"
       },
       {
         "route_type": "wire",
         "x": 21.3957,
         "y": -4.4565,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -45643,9 +45513,7 @@
         "x": 23.5,
         "y": -4.2332,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -45654,8 +45522,6 @@
         "width": 0.15,
         "layer": "top",
         "start_pcb_port_id": "pcb_port_215",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "end_pcb_port_id": "pcb_port_215"
       }
     ],
@@ -45677,8 +45543,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_215",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "start_pcb_port_id": "pcb_port_215"
       },
       {
@@ -45744,9 +45608,7 @@
         "y": -3.4251,
         "width": 0.15,
         "layer": "top",
-        "end_pcb_port_id": "pcb_port_18",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_12"
+        "end_pcb_port_id": "pcb_port_18"
       }
     ],
     "connectsTo": [
@@ -45847,9 +45709,7 @@
         "x": 24.3,
         "y": 6.0201,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -45858,8 +45718,6 @@
         "width": 0.15,
         "layer": "top",
         "start_pcb_port_id": "pcb_port_197",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "end_pcb_port_id": "pcb_port_197"
       }
     ],
@@ -45914,8 +45772,6 @@
         "width": 0.15,
         "layer": "top",
         "end_pcb_port_id": "pcb_port_197",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38",
         "start_pcb_port_id": "pcb_port_197"
       },
       {
@@ -45956,9 +45812,7 @@
         "x": 24.3,
         "y": 6.020116,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -45988,9 +45842,7 @@
         "y": 6.0201,
         "width": 0.15,
         "layer": "top",
-        "end_pcb_port_id": "pcb_port_121",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "end_pcb_port_id": "pcb_port_121"
       }
     ],
     "connectsTo": [
@@ -46020,9 +45872,7 @@
         "x": 23,
         "y": 0,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_12"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46051,9 +45901,7 @@
         "x": 27.4,
         "y": 0,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_12"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46116,9 +45964,7 @@
         "x": 26.2,
         "y": -5.720116,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46180,9 +46026,7 @@
         "x": 25.75,
         "y": 8.72,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46277,9 +46121,7 @@
         "y": 6.0201,
         "width": 0.15,
         "layer": "top",
-        "start_pcb_port_id": "pcb_port_121",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "start_pcb_port_id": "pcb_port_121"
       },
       {
         "route_type": "wire",
@@ -46352,9 +46194,7 @@
         "x": 26.2152,
         "y": 7.9201,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46407,9 +46247,7 @@
         "x": 27.15,
         "y": 6.020116,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46462,9 +46300,7 @@
         "x": 26.2,
         "y": -5.720116,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -46593,9 +46429,7 @@
         "x": 27.95,
         "y": 6.300024,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       },
       {
         "route_type": "wire",
@@ -46635,9 +46469,7 @@
         "x": 31.6,
         "y": 6.300024,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46701,9 +46533,7 @@
         "x": 31.620116,
         "y": 2.6,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46732,9 +46562,7 @@
         "x": 31.620116,
         "y": -1,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_10"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46929,9 +46757,7 @@
         "x": 32.920116,
         "y": 5.4,
         "width": 0.15,
-        "layer": "top",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_38"
+        "layer": "top"
       }
     ],
     "connectsTo": [
@@ -46959,9 +46785,7 @@
         "x": -20.2808,
         "y": -27.7528,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [],
@@ -46978,9 +46802,7 @@
         "x": -13.3,
         "y": -27.1282,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       },
       {
         "route_type": "wire",
@@ -47015,9 +46837,7 @@
         "x": -13.3,
         "y": -27.1282,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [],
@@ -47062,9 +46882,7 @@
         "x": -4.32,
         "y": 38.8982,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       },
       {
         "route_type": "wire",
@@ -47104,9 +46922,7 @@
         "x": -4.32,
         "y": 38.8982,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [
@@ -47134,9 +46950,7 @@
         "x": 2.4923,
         "y": -28.2459,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [],
@@ -47153,9 +46967,7 @@
         "x": 4.32,
         "y": 38.8982,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       },
       {
         "route_type": "wire",
@@ -47185,18 +46997,14 @@
         "x": 4.32,
         "y": 38.8982,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       },
       {
         "route_type": "wire",
         "x": -4.32,
         "y": 38.8982,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_43"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [],
@@ -47222,9 +47030,7 @@
         "x": 18.4663,
         "y": -5.8869,
         "width": 0.15,
-        "layer": "bottom",
-        "is_inside_copper_pour": true,
-        "copper_pour_id": "pcb_copper_pour_60"
+        "layer": "bottom"
       }
     ],
     "connectsTo": [],
@@ -99611,6 +99417,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "fe069381f459098011b3ed9988caa80d"
+    "source_filesystem_md5_hash": "69500053e75b840b04116ab5b95f0c1f"
   }
 ]

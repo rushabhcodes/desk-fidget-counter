@@ -1,0 +1,118 @@
+{
+  "reported_version": "6.0.3",
+  "published_board_circuit_sha256": "3cb22ecf107f556705a7776302eec3a1c8fe70da766bf196ae2bbbc8d74f0a75",
+  "net": "GND",
+  "visible_diagonal": {
+    "type": "pcb_trace",
+    "pcb_trace_id": "pcb_trace_external_235",
+    "source_trace_id": "source_trace_24",
+    "connection_name": "source_net_12",
+    "route": [
+      {
+        "route_type": "wire",
+        "x": 17.4804,
+        "y": 27.1958,
+        "width": 0.15,
+        "layer": "top"
+      },
+      {
+        "route_type": "wire",
+        "x": 11.1729,
+        "y": 33.5033,
+        "width": 0.15,
+        "layer": "top"
+      }
+    ],
+    "connectsTo": [],
+    "subcircuit_id": "subcircuit_source_group_0"
+  },
+  "hidden_continuation": {
+    "type": "pcb_trace",
+    "pcb_trace_id": "pcb_trace_external_236",
+    "source_trace_id": "source_trace_24",
+    "connection_name": "source_net_12",
+    "route": [
+      {
+        "route_type": "wire",
+        "x": 17.4804,
+        "y": 14.0995,
+        "width": 0.15,
+        "layer": "top",
+        "is_inside_copper_pour": true,
+        "copper_pour_id": "pcb_copper_pour_38"
+      },
+      {
+        "route_type": "wire",
+        "x": 17.4804,
+        "y": 27.1958,
+        "width": 0.15,
+        "layer": "top",
+        "is_inside_copper_pour": true,
+        "copper_pour_id": "pcb_copper_pour_38"
+      }
+    ],
+    "connectsTo": [],
+    "subcircuit_id": "subcircuit_source_group_0"
+  },
+  "same_layer_endpoints_coincide": true,
+  "hidden_continuation_length_mm": 13.096299999999998,
+  "continuation_centerline_inside_same_net_pour": false,
+  "continuation_full_copper_inside_same_net_pour": false,
+  "renderer_evidence": "@tscircuit/cli/dist/cli/main.js createSvgObjectsFromPcbTrace skips segments when both endpoints have is_inside_copper_pour=true",
+  "diagnosis": "Core classifies the entire segment inside a same-net copper pour by checking just five points. All five samples are inside, but the segment crosses about 0.501mm outside the pour between samples. Renderer skips the entire segment on that flag. The physical trace remains continuous in the published circuit data.",
+  "five_samples_used_by_core": [
+    {
+      "fraction": 0,
+      "position": [
+        17.4804,
+        14.0995
+      ],
+      "inside_pour": true
+    },
+    {
+      "fraction": 0.25,
+      "position": [
+        17.4804,
+        17.373575
+      ],
+      "inside_pour": true
+    },
+    {
+      "fraction": 0.5,
+      "position": [
+        17.4804,
+        20.64765
+      ],
+      "inside_pour": true
+    },
+    {
+      "fraction": 0.75,
+      "position": [
+        17.4804,
+        23.921725
+      ],
+      "inside_pour": true
+    },
+    {
+      "fraction": 1,
+      "position": [
+        17.4804,
+        27.1958
+      ],
+      "inside_pour": true
+    }
+  ],
+  "uncovered_portions": [
+    [
+      [
+        17.4804,
+        24.249651531414546
+      ],
+      [
+        17.4804,
+        24.75034846858546
+      ]
+    ]
+  ],
+  "uncovered_centerline_length_mm": 0.5006969371709147
+}

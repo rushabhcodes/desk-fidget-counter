@@ -1,0 +1,16 @@
+{
+  "source_circuit_sha256": "95098d1275164d853a64c0671301ce8201d6f44bbb7299c7ba190986da3b298a",
+  "hidden_segments_checked": 51,
+  "invalid_hidden_segments": [],
+  "coverage_basis": "Complete same-net, same-layer polygons with all holes; no point sampling",
+  "tscircuit": "0.0.3157",
+  "core": "0.0.2340",
+  "previous_board_circuit_sha256": "32b35e8231b38dac3e1c020f08ffb82eab843a933eb4cf2cc9c0e580d33d2fcf",
+  "board_records_compared": 3498,
+  "assembly_records_compared": 3573,
+  "matching_geometry": true,
+  "paste_ownership_records_added": 8,
+  "identical_plotted_paste_apertures": 220,
+  "c1_ground_pad_connection_visible": true,
+  "ground_continuation_visible": true
+}

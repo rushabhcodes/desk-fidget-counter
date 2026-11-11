@@ -1,9 +1,9 @@
 {
-  "reviewed_date": "2026-11-10",
+  "reviewed_date": "2026-11-11",
   "pcb_revision": "F1",
   "status": "pass",
   "routing_method": "TSCircuit documented autorouter.algorithmFn with guarded externally checked copper; Freerouting 2.5.0 plus local routing",
-  "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
+  "source_circuit_sha256": "95098d1275164d853a64c0671301ce8201d6f44bbb7299c7ba190986da3b298a",
   "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
   "routing_asset_sha256": "bdfc336e484f3f0aad412fae83430490ef631d1e5883b69bdc91cc1043d5f9a1",
   "routing_input_signature": "2e2538c5c57fc767",
@@ -36,5 +36,6 @@
     "validation/logs/rp2040-shorts.log",
     "validation/logs/e14-assembly-check.log"
   ],
-  "mechanical_preservation_evidence": "validation/e14-pcb-preservation.json"
+  "mechanical_preservation_evidence": "validation/e14-pcb-preservation.json",
+  "visibility_evidence": "validation/trace-visibility-check.json"
 }

@@ -1,4 +1,4 @@
-# Readiness — v6.0.0 / RP2040 PCB F1 / enclosure E14
+# Readiness — widget v6.0.4 / RP2040 PCB F1 / enclosure E14
 
 Local circuit, fabrication and assembly checks pass for **first-prototype manufacture**. Use the matching [F1/E14 fabrication kit](../release/desk-knob-f1-e14-fabrication.zip); the historical STM32 E6 kit is incompatible. Final manufacturer DFM, stock allocation and feeder/rotation preview remain, followed by physical bring-up. No supplier upload or order was performed.
 
@@ -21,7 +21,7 @@ F1 replaces STM32 with RP2040, Winbond W25Q16JVSNIQ 2 MB boot flash, Abracon ABM
 | Sourcing evidence | All 27 exact identities publicly purchasable on 10 November 2026; unreserved |
 | Assembly identity / CAD audit | Identical bare-board copper in full assembly; 52 package models fit; no unexpected solid intersections; six watertight product prints |
 
-The source uses guarded external routing through TSCircuit's documented custom-router interface, with Freerouting 2.5.0 and local power/clock routing. There are 1,277 trace records and 98 vias: 50 at 0.20 mm drill/0.50 mm pad and 48 at 0.30/0.60 mm. Ordinary tracks are ≥0.10 mm, component-pad clearance ≥0.15 mm and copper-to-edge ≥0.30 mm. MCU bypass branches are ≥0.15 mm. Neither library source nor compiled circuit JSON was patched. [Routing details](../routing/README.md).
+The source uses guarded external routing through TSCircuit's documented custom-router interface, with Freerouting 2.5.0 and local power/clock routing. There are 1,277 trace records and 98 vias: 50 at 0.20 mm drill/0.50 mm pad and 48 at 0.30/0.60 mm. Ordinary tracks are ≥0.10 mm, component-pad clearance ≥0.15 mm and copper-to-edge ≥0.30 mm. MCU bypass branches are ≥0.15 mm. The tscircuit `0.0.3157` build passes the trace visibility checks and matches the F1 fabrication kit's copper, drill and paste geometry. [Visibility checks](TRACE-VISIBILITY.md) · [Routing details](../routing/README.md)
 
 Measured pad-to-pad bypass paths are 1.36–5.48 mm, meeting the stated engineering budgets; C17 and C21 use two vias each. Crystal nets are 3.74–5.99 mm with no vias, QSPI nets 5.00–19.71 mm, and MCU-to-series USB branches 15.07/15.21 mm. These geometric checks do not establish oscillator margin, USB signal integrity or physical current. Full evidence is in [RP2040 path checks](rp2040-paths.json), [fabrication review](assembly-fabrication-review.json) and [readiness](readiness.json).
 

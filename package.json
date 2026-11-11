@@ -1,6 +1,6 @@
 {
   "name": "@tsci/rushabhcodes.desk-fidget-counter",
-  "version": "6.0.0",
+  "version": "6.0.4",
   "private": false,
   "description": "USB-powered scroll ring, persistent turn counter and laptop dashboard",
   "type": "module",
@@ -8,6 +8,7 @@
     "build": "tsci build index.circuit.tsx && tsci build assembly.circuit.tsx && bun scripts/stage-published-circuit.mjs",
     "typecheck": "tsc --noEmit",
     "test": "bash scripts/test-firmware.sh",
+    "test:route-display": "bun test validation/copper-pour-visibility.test.ts",
     "check:netlist": "tsci check netlist index.circuit.tsx",
     "check:schematic": "tsci check schematic-placement index.circuit.tsx",
     "check:placement": "bun validation/check-placement.mjs",
@@ -22,7 +23,7 @@
   },
   "dependencies": {
     "react": "19.2.0",
-    "tscircuit": "0.0.3131"
+    "tscircuit": "0.0.3157"
   },
   "devDependencies": {
     "@types/bun": "1.3.11",

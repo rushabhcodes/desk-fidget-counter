@@ -1,6 +1,8 @@
 # PCB F1 routing
 
-F1 replaces the STM32 with RP2040, its flash, crystal and power support. The native autorouter could not produce clean copper for this dense two-layer placement. F1 therefore uses Freerouting 2.5.0 and explicit local power/clock routing, returned through TSCircuit’s documented `autorouter.algorithmFn` interface. No vendor library is patched.
+The v6.0.3 apparent ground-trace break is a copper-pour visibility bug. The checked routing is continuous and retained. See the [diagnosis, dependency fix and regression results](../validation/TRACE-VISIBILITY.md).
+
+F1 replaces the STM32 with RP2040, its flash, crystal and power support. The native autorouter could not produce clean copper for this dense two-layer placement. F1 therefore uses Freerouting 2.5.0 and explicit local power/clock routing, returned through TSCircuit’s documented `autorouter.algorithmFn` interface. The released core `0.0.2340` supplies the trace visibility fix.
 
 `replay.ts` rejects any input that differs from the input used to generate the stored routing. Changed component geometry, net connectivity, rules or placement require rerouting and renewed checks. `verified.json` is a source asset, not an edit of compiled circuit JSON. It carries physical copper coordinates and real pad contacts.
 

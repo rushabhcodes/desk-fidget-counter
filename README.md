@@ -19,6 +19,8 @@ Short-press the front button to switch between scrolling and counting only. Hold
 
 [E14 visual review](mechanical/VISUAL-REVIEW.md): a continuous fixed collar covers the open underside of the screen bezel. It belongs to the existing carrier and retains the 0.8 mm rotating seam, body dimensions, six prints and four screws.
 
+Widget v6.0.4 includes the upstream copper-pour visibility fix. Both the C1 pad connection and its long GND continuation are visible. [Trace visibility checks](validation/TRACE-VISIBILITY.md)
+
 ## What to buy outside JLCPCB
 
 Quantities below are for **one complete device**. A complete JLCPCB **assembly** order supplies the PCB and its 52 fitted electronic components, including the MCU, optical sensor, FRAM, USB connector, front button, J4 programming header and J6 removable display header. A bare-PCB order supplies the board only.
@@ -68,14 +70,14 @@ The [companion guide](https://github.com/rushabhcodes/desk-fidget-counter/blob/m
 
 ```sh
 bun install --frozen-lockfile
-bun run typecheck && bun run test
+bun run typecheck && bun run test:route-display && bun run test
 bun run check:netlist && bun run check:schematic
 bun run build
 bun run check:placement && bun validation/check-design.mjs
 bun run check:footprints && bun run check:shorts && bun run check:assembly
 ```
 
-The lockfile pins a compatible released `@tscircuit/circuit-json-util` for the CLI’s KiCad exporter; no router or library source is patched.
+The lockfile pins tscircuit `0.0.3157`, core `0.0.2340` and the CLI’s KiCad export dependency. Regenerate the PCB, schematic and 3D snapshots with `bun run tsci snapshot '*.circuit.tsx' --update --3d`.
 
 `assembly.circuit.tsx` is the complete product; `index.circuit.tsx` is the bare PCB. The build stages the checked full assembly at `dist/circuit.json` for publication. Source, package CAD, prints and wiring are included in the repository. The [F1/E14 fabrication kit](release/desk-knob-f1-e14-fabrication.zip) includes matching Gerbers, BOM/CPL, physical pin maps, independent checks and RP2040 firmware. Follow the [upload guide](manufacturing/current/README.md). Final factory preview and physical prototype bring-up remain; no supplier upload or order has been made.
 

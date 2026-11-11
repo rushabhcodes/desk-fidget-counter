@@ -1,6 +1,6 @@
 {
-  "reviewed_date": "2026-11-10",
-  "revision": "6.0.0",
+  "reviewed_date": "2026-11-11",
+  "revision": "6.0.4",
   "pcb_revision": "F1",
   "mechanical_revision": "E14",
   "status": "Local first-prototype fabrication and assembly checks passed; final factory review and physical bring-up remain.",
@@ -19,9 +19,9 @@
     "complete_placements": 52
   },
   "toolchain": {
-    "tscircuit": "0.0.3131",
-    "core": "0.0.2316",
-    "capacity_autorouter": "0.0.1066",
+    "tscircuit": "0.0.3157",
+    "core": "0.0.2340",
+    "capacity_autorouter": "0.0.1077",
     "external_router": "Freerouting 2.5.0",
     "kicad": "10.0.7",
     "bun": "1.3.3",
@@ -47,7 +47,7 @@
     "dated public sourcing identities (27 exact MPN lines; unreserved)",
     "matching F1 fabrication kit and archive round-trip/checksums",
     "E14 screen collar geometry, print root, visual review and unchanged F1 electronics",
-    "matching F1 fabrication kit and archive round-trip/checksums"
+    "Released copper-pour fix: eight regressions, both C1 connections visible, and zero false hidden spans"
   ],
   "pending_checks": [],
   "physical_checks_pending": [
@@ -66,7 +66,7 @@
   },
   "legacy_fabrication_archive": "release/desk-knob-e6-e13-fabrication.zip (STM32 only)",
   "current_rp2040_fabrication_archive": "release/desk-knob-f1-e14-fabrication.zip",
-  "source_circuit_sha256": "0267844898603661ebcb6b70aa2fddb2e7e8645831c79e52d098da390b339dbe",
+  "source_circuit_sha256": "95098d1275164d853a64c0671301ce8201d6f44bbb7299c7ba190986da3b298a",
   "source_board_tsx_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
   "remaining_factory_review": [
     "Upload matching Gerbers-F1.zip and one matching complete or SMT BOM/CPL pair",
@@ -82,7 +82,8 @@
     "CAD_audit": "mechanical/audit/report.json",
     "firmware": "validation/firmware-image-check.json",
     "visual_review": "mechanical/VISUAL-REVIEW.md",
-    "PCB_preservation": "validation/e14-pcb-preservation.json"
+    "PCB_preservation": "validation/e14-pcb-preservation.json",
+    "trace_visibility": "validation/trace-visibility-check.json"
   },
   "fabrication_package_sha256": "e52f29f31a0485587b26a5e69721ff3a663ec8aa963db9fff6cbddfcd59765df",
   "package_roundtrip_and_checksums": "pass",
