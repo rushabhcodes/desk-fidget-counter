@@ -1,0 +1,122 @@
+{
+  "classic_assembly_sha256": "c9c3d7435317deee7a2ff06c4fc16a2cdaeeed2c728843ab7398e8eb227f334d",
+  "pcb_source_sha256": "9f7886a4a04b76dcd972434dca86090af5bfe92ea1d634f9e88f497057ae82fc",
+  "circuit_json_sha256": "95098d1275164d853a64c0671301ce8201d6f44bbb7299c7ba190986da3b298a",
+  "fitted_packages_checked": 52,
+  "product_prints": {
+    "base": {
+      "watertight_stl": true,
+      "max_pose_vertex_error_mm": 0.0,
+      "solid_volume_mm3": 17823.45,
+      "max_stl_to_glb_vertex_error_mm": 0.0
+    },
+    "rotor-carrier": {
+      "watertight_stl": true,
+      "max_pose_vertex_error_mm": 0.0,
+      "solid_volume_mm3": 9336.67,
+      "max_stl_to_glb_vertex_error_mm": 7.6e-07
+    },
+    "knob": {
+      "watertight_stl": true,
+      "max_pose_vertex_error_mm": 0.0,
+      "solid_volume_mm3": 21877.64,
+      "max_stl_to_glb_vertex_error_mm": 9.1e-07
+    },
+    "display-mount": {
+      "watertight_stl": true,
+      "max_pose_vertex_error_mm": 0.0,
+      "solid_volume_mm3": 2098.8,
+      "max_stl_to_glb_vertex_error_mm": 7.2e-07
+    },
+    "button-cap": {
+      "watertight_stl": true,
+      "max_pose_vertex_error_mm": 0.0,
+      "solid_volume_mm3": 137.68,
+      "max_stl_to_glb_vertex_error_mm": 1.81e-06
+    }
+  },
+  "rotor_tolerance_envelopes": {
+    "bearing_diameter_error": 0.02,
+    "bearing_width_error": 0.2,
+    "printed_fit_diameter_error": 0.1,
+    "printed_surface_error": 0.1,
+    "relative_print_z_error": 0.1,
+    "pcb_thickness_error": 0.16,
+    "pcb_hole_diameter_error": 0.05,
+    "lid_alignment_error": 0.1,
+    "smt_position_error": 0.1,
+    "moving_xy_print_check": 0.62,
+    "moving_xy_pcb_check": 0.945,
+    "moving_z_check": 0.2,
+    "status": "Conservative engineering approximation and required print calibration targets; not measured production capability.",
+    "moving_z_print_check": 0.3,
+    "moving_z_hardware_check": 0.46,
+    "pcb_cutout_edge_error": 0.2
+  },
+  "bearing_contacts_checked": [
+    "inner radial",
+    "inner shoulder",
+    "outer radial",
+    "outer shoulder"
+  ],
+  "display_boss_contacts": 4,
+  "display_collar_blocked_sightlines": 144,
+  "usb_plug_gauge_mm": [
+    13.4,
+    6.9
+  ],
+  "button_stroke_poses": 13,
+  "button_off_centre_poses": 24,
+  "button_return_budget": {
+    "minimum_rest_precompression_mm": 0.056,
+    "nominal_rest_compression_percent": 15.605,
+    "nominal_pressed_compression_percent": 34.713,
+    "maximum_tolerance_compression_percent": 44.123,
+    "basis": "Thickness +/-10%, cavity +/-0.1mm and combined adhesive +/-0.02mm. Compression criterion is an engineering choice, not force/life certification.",
+    "physical_return_force_and_life_verified": false
+  },
+  "screen_and_plug_vertical_lifts_mm": [
+    0,
+    0.5,
+    1,
+    2,
+    3,
+    5,
+    7,
+    9,
+    12,
+    16,
+    20
+  ],
+  "assembled_rotor_carrier_vertical_lifts_mm": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2,
+    3,
+    5,
+    8,
+    12,
+    16,
+    24
+  ],
+  "pcb_vertical_lifts_mm": [
+    0,
+    0.25,
+    0.5,
+    1,
+    1.5,
+    2,
+    3,
+    5,
+    8,
+    12,
+    16,
+    20
+  ],
+  "harness_source_free_length_mm": 44,
+  "harness_wire_od_checked_mm": 0.8
+}

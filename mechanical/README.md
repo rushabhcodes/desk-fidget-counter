@@ -1,5 +1,7 @@
 # E14 mechanics / RP2040 F1 PCB
 
+[Five-print Classic enclosure](classic-service/README.md) combines the screen bezel and shroud and gives the rotor assembly underside fasteners. It fits the original F1 board.
+
 [Display gap and whole-design review](VISUAL-REVIEW.md): E14 adds a continuous stationary collar to the existing screen carrier. It covers the open cavity beneath the bezel while preserving the 0.8 mm rotating seam, Ø89.4×19.5 mm body, six prints and four screws. The PCB, purchased parts and circular E13 button are retained.
 
 [Visual CAD audit](AUDIT.md): E9 opens both carrier screw bores through their full bosses and relieves the actual screen PCB profile to reserve 2 mm for rear electronics omitted by the supplier STEP. Fourteen inspection views, actual screw/part interference checks and print-to-GLB correspondence are recorded with the delivered model.

@@ -14,3 +14,4 @@ dist/*/kicad/
 routing/candidate.json
 dist/checks/
 dist/placement/
+dist/classic-service/
